@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,46 @@
     "text": "Sharp, a group of investigators",
     "enumeration": "4"
    },
-   "solution": "ACID"
+   "solution": "ACID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACID",
+    "definitions": [
+     {
+      "text": "Sharp",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "group of investigators",
+      "gives": "CID",
+      "note": "the Criminal Investigation Department, the detective branch of British police"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CID"
+     ]
+    },
+    "explanation": {
+     "surface": "A description of a keen team of detectives on a case.",
+     "definitionFit": "An acid taste or remark is tart and biting, a synonym of sharp."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sharp"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +89,51 @@
     "text": "Emperor's son cooked her a duck",
     "enumeration": "8"
    },
-   "solution": "ARCHDUKE"
+   "solution": "ARCHDUKE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ARCHDUKE",
+    "definitions": [
+     {
+      "text": "Emperor's son",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooking transforms ingredients, so the following words are mixed up into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "her a duck",
+      "gives": "HERADUCK",
+      "note": "the anagram fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HERADUCK",
+       "gives": "ARCHDUKE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A royal prince eats a duck roasted for him by a woman.",
+     "definitionFit": "Archduke was the title borne by sons of the Austrian Habsburg emperors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +147,53 @@
     "text": "Topliner abroad in crime unit",
     "enumeration": "8"
    },
-   "solution": "INTERPOL"
+   "solution": "INTERPOL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INTERPOL",
+    "definitions": [
+     {
+      "text": "crime unit",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abroad",
+      "for": "anagram",
+      "note": "abroad can mean astray or all over the place, so the word is scattered into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Topliner",
+      "gives": "TOPLINER",
+      "note": "the anagram fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOPLINER",
+       "gives": "INTERPOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A star performer travelling overseas gets mixed up with a criminal gang.",
+     "definitionFit": "Interpol is the international police organisation that coordinates the fight against crime across borders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "abroad"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +207,72 @@
     "text": "High liver, Emil, eating cold pasta",
     "enumeration": "10"
    },
-   "solution": "VERMICELLI"
+   "solution": "VERMICELLI",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "VERMICELLI",
+    "definitions": [
+     {
+      "text": "pasta",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "High",
+      "for": "anagram",
+      "note": "high here means drunk or intoxicated, so the next two words stagger into a new order"
+     },
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "eating means swallowing something, so the rearranged letters take a letter inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "liver",
+      "gives": "LIVER",
+      "note": "anagram fodder, taken as written"
+     },
+     {
+      "clueFragment": "Emil",
+      "gives": "EMIL",
+      "note": "anagram fodder, taken as written"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the standard abbreviation for cold, as on taps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VERMI",
+      "C",
+      "ELLI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LIVEREMIL",
+       "gives": "VERMIELLI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Emil, living it up, tucks into some cold pasta.",
+     "walkthrough": "'High liver' reads as one phrase, a person living extravagantly, but High is the anagram signal and liver part of the fodder.",
+     "definitionFit": "Vermicelli is a very thin, string-like kind of pasta."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "High"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +286,43 @@
     "text": "Holly, say, always retaining popularity",
     "enumeration": "9"
    },
-   "solution": "EVERGREEN"
+   "solution": "EVERGREEN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EVERGREEN",
+    "definitions": [
+     {
+      "text": "Holly, say",
+      "at": 0
+     },
+     {
+      "text": "always retaining popularity",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Holly, say",
+      "note": "first meaning: a plant that keeps its leaves all year, of which holly is an example"
+     },
+     {
+      "clueFragment": "always retaining popularity",
+      "note": "second meaning: perennially popular, as a song that never dates"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Holly' could be read as a person's name, a singer perhaps; 'say' marks it as an example of a plant.",
+     "definitionFit": "The word names plants that stay leafy through winter and, figuratively, things whose appeal never fades."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Holly"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +336,46 @@
     "text": "One thinking about male drug addict",
     "enumeration": "5"
    },
-   "solution": "MUSER"
+   "solution": "MUSER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MUSER",
+    "definitions": [
+     {
+      "text": "One thinking about",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the standard abbreviation for male"
+     },
+     {
+      "clueFragment": "drug addict",
+      "gives": "USER",
+      "note": "a user is slang for someone who takes drugs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "USER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pondering the plight of a man hooked on drugs.",
+     "definitionFit": "To muse is to ponder or reflect, so one who muses about something is a thinker on it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +395,53 @@
      }
     ]
    },
-   "solution": "CROSSDRESSER"
+   "solution": "CROSSDRESSER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CROSS-DRESSER",
+    "definitions": [
+     {
+      "text": "Transvestite",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down entry, over says the first part sits above the second in the column"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "annoyed",
+      "gives": "CROSS",
+      "note": "cross means angry or irritated"
+     },
+     {
+      "clueFragment": "actor's assistant",
+      "gives": "DRESSER",
+      "note": "a dresser helps an actor with costumes backstage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CROSS",
+      "DRESSER"
+     ]
+    },
+    "explanation": {
+     "surface": "A cross-dressing performer is irritated with the theatre helper.",
+     "definitionFit": "A cross-dresser wears clothes associated with the other sex, a less formal word for transvestite."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +455,43 @@
     "text": "Refuse a stretcher",
     "enumeration": "6"
    },
-   "solution": "LITTER"
+   "solution": "LITTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LITTER",
+    "definitions": [
+     {
+      "text": "Refuse",
+      "at": 0
+     },
+     {
+      "text": "a stretcher",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Refuse",
+      "note": "first meaning: rubbish dropped in the street, refuse as a noun"
+     },
+     {
+      "clueFragment": "a stretcher",
+      "note": "second meaning: a frame for carrying the sick or injured"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Refuse' looks like the verb (to decline) but is the noun meaning rubbish.",
+     "definitionFit": "Litter means scattered rubbish and also a portable bed or stretcher carried by bearers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Refuse"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +505,63 @@
     "text": "One's upset king and country",
     "enumeration": "6"
    },
-   "solution": "ISRAEL"
+   "solution": "ISRAEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ISRAEL",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down entry, upset means turned upside down, so the word reads from the bottom up"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One's",
+      "gives": "IS",
+      "note": "one is I, so one's (one is) gives I + S"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "LEAR",
+      "note": "King Lear, Shakespeare's tragic monarch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "RAEL"
+     ],
+     "reversals": [
+      {
+       "from": "LEAR",
+       "to": "RAEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A person distressed over both monarch and homeland.",
+     "definitionFit": "Israel is a country in the Middle East."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +575,58 @@
     "text": "Quaintly attractive copper given endless tea",
     "enumeration": "4"
    },
-   "solution": "CUTE"
+   "solution": "CUTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CUTE",
+    "definitions": [
+     {
+      "text": "Quaintly attractive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "endless means without an end, so the final letter of the word is lopped off"
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "TEA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CU",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A charming policeman is handed a cup of tea that never runs out.",
+     "walkthrough": "'Copper' suggests a police officer, but it is the metal, whose symbol is Cu.",
+     "definitionFit": "Cute describes something pretty or endearing in a dainty, appealing way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +640,67 @@
     "text": "Nobody about as he waved toy weapon?",
     "enumeration": "10"
    },
-   "solution": "PEASHOOTER"
+   "solution": "PEASHOOTER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PEASHOOTER",
+    "definitions": [
+     {
+      "text": "toy weapon",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the first part goes around the second"
+     },
+     {
+      "text": "waved",
+      "for": "anagram",
+      "note": "waved means moved to and fro, so the two short words are shaken into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nobody",
+      "gives": "POOTER",
+      "note": "Charles Pooter is the hero of The Diary of a Nobody by George and Weedon Grossmith"
+     },
+     {
+      "clueFragment": "as he",
+      "gives": "ASHE",
+      "note": "anagram fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "EASH",
+      "OOTER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ASHE",
+       "gives": "EASH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man of no importance wanders about brandishing a toy gun.",
+     "walkthrough": "'Nobody' reads as no person at all; here it names Pooter, the self-important clerk of the comic novel The Diary of a Nobody.",
+     "definitionFit": "A peashooter is a small tube through which children blow dried peas, a toy gun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Nobody"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +714,51 @@
     "text": "Plants found on a golf course between autumn and spring?",
     "enumeration": "12"
    },
-   "solution": "WINTERGREENS"
+   "solution": "WINTERGREENS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WINTERGREENS",
+    "definitions": [
+     {
+      "text": "Plants",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "found"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "between autumn and spring?",
+      "gives": "WINTER",
+      "note": "the season that falls between autumn and spring"
+     },
+     {
+      "clueFragment": "on a golf course",
+      "gives": "GREENS",
+      "note": "greens are the closely mown putting areas of a golf course"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WINTER",
+      "GREENS"
+     ]
+    },
+    "explanation": {
+     "surface": "Shrubs that grow on a golf course during the cold months.",
+     "walkthrough": "The clue reads backwards from the answer: the season comes first, then the golf-course areas, and the question mark flags the playful split.",
+     "definitionFit": "Wintergreens are low creeping evergreen shrubs, one of which yields an aromatic oil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Plants"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +772,54 @@
     "text": "Doing wrong wearing the German pistol",
     "enumeration": "9"
    },
-   "solution": "DERRINGER"
+   "solution": "DERRINGER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DERRINGER",
+    "definitions": [
+     {
+      "text": "pistol",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "something worn is enclosed by its wearer, so the first part sits inside the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doing wrong",
+      "gives": "ERRING",
+      "note": "to err is to make a mistake or sin"
+     },
+     {
+      "clueFragment": "the German",
+      "gives": "DER",
+      "note": "der is a German word for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ERRING",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A German gunman commits a crime with a handgun.",
+     "definitionFit": "A derringer is a small, short-barrelled pocket pistol named after its American maker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wearing"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +833,43 @@
     "text": "Reportedly spotted site",
     "enumeration": "5"
    },
-   "solution": "SCENE"
+   "solution": "SCENE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SCENE",
+    "definitions": [
+     {
+      "text": "site",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "reportedly means as it is said, so the word is matched by its sound rather than spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spotted",
+      "gives": "SCENE",
+      "soundsLike": "SEEN",
+      "note": "spotted means noticed or observed"
+     }
+    ],
+    "explanation": {
+     "surface": "A location said to have been sighted, perhaps by witnesses.",
+     "definitionFit": "A scene is the place where something happens, as the scene of a crime."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spotted"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +893,39 @@
      }
     ]
    },
-   "solution": "KNOWTHESCORE"
+   "solution": "KNOWTHESCORE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "KNOW THE SCORE",
+    "definitions": [
+     {
+      "text": "be well-informed",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An orchestra should",
+      "note": "surface reading: players must be familiar with the written music they perform"
+     },
+     {
+      "clueFragment": "be well-informed",
+      "note": "setter's reading: an idiom for being aware of the real facts of a situation"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The orchestra must literally have learned its sheet music; the same phrase is an idiom for being clued up.",
+     "definitionFit": "The idiom means to understand the true state of affairs, here literally applied to musicians and their written music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "orchestra"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +945,53 @@
      }
     ]
    },
-   "solution": "COMESINTO"
+   "solution": "COMESINTO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COMES INTO",
+    "definitions": [
+     {
+      "text": "Inherits",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "murdered",
+      "for": "anagram",
+      "note": "something murdered is done violence to, so the word is mangled into a new order"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "economist",
+      "gives": "ECONOMIST",
+      "note": "the anagram fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ECONOMIST",
+       "gives": "COMESINTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An heir gains a fortune from an economist who was killed.",
+     "definitionFit": "To come into money or property is the phrasal-verb equivalent of to inherit it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "murdered"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1005,69 @@
     "text": "Be beaten up during meeting - it makes one very sad",
     "enumeration": "8"
    },
-   "solution": "DESOLATE"
+   "solution": "DESOLATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DESOLATE",
+    "definitions": [
+     {
+      "text": "very sad",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the word is read from the bottom upwards"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during means within the span of, so the first part sits inside the second"
+     }
+    ],
+    "linkWords": [
+     "it makes one"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Be beaten",
+      "gives": "LOSE",
+      "note": "to lose is to be beaten in a contest"
+     },
+     {
+      "clueFragment": "meeting",
+      "gives": "DATE",
+      "note": "a date is an arranged meeting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ESOL",
+      "ATE"
+     ],
+     "reversals": [
+      {
+       "from": "LOSE",
+       "to": "ESOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Being thrashed at a sports meeting leaves a competitor miserable.",
+     "definitionFit": "Desolate means utterly wretched and forlorn, a stronger synonym of very sad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "meeting"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1081,54 @@
     "text": "One who judges animals, tailless kind",
     "enumeration": "8"
    },
-   "solution": "ASSESSOR"
+   "solution": "ASSESSOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ASSESSOR",
+    "definitions": [
+     {
+      "text": "One who judges",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tailless",
+      "for": "deletion",
+      "note": "tailless means with the tail docked, so the last letter of the word goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "animals",
+      "gives": "ASSES",
+      "note": "asses are donkeys"
+     },
+     {
+      "clueFragment": "kind",
+      "gives": "SORT",
+      "note": "a kind or type is a sort"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASSES",
+      "SOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A show judge assesses animals, including one breed without a tail.",
+     "definitionFit": "An assessor evaluates or appraises things, such as property or claims, forming a judgement on them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "kind"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1142,39 @@
     "text": "On the board, proven man-managers?",
     "enumeration": "12"
    },
-   "solution": "GRANDMASTERS"
+   "solution": "GRANDMASTERS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GRANDMASTERS",
+    "definitions": [
+     {
+      "text": "On the board, proven man-managers?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "On the board, proven man-managers?",
+      "note": "surface reading: company directors with a strong record of handling staff"
+     },
+     {
+      "clueFragment": "On the board, proven man-managers?",
+      "note": "setter's reading: top players who expertly control the men, or pieces, on a chessboard"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Board' suggests a company board of directors and 'man-managers' handlers of staff, but the board is for chess and the men are the pieces.",
+     "definitionFit": "The highest title awarded to chess players, earned by proven results, held by experts at moving pieces."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1188,49 @@
     "text": "Oddball in stupid hat",
     "enumeration": "6"
    },
-   "solution": "MADCAP"
+   "solution": "MADCAP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MADCAP",
+    "definitions": [
+     {
+      "text": "Oddball",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stupid",
+      "gives": "MAD",
+      "note": "mad means foolish or senseless"
+     },
+     {
+      "clueFragment": "hat",
+      "gives": "CAP",
+      "note": "a cap is a kind of hat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAD",
+      "CAP"
+     ]
+    },
+    "explanation": {
+     "surface": "An eccentric person wearing a silly hat.",
+     "definitionFit": "A madcap is a reckless, eccentric person, a near synonym of an oddball."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1244,62 @@
     "text": "Good man's article on church reveals point of view",
     "enumeration": "6"
    },
-   "solution": "STANCE"
+   "solution": "STANCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STANCE",
+    "definitions": [
+     {
+      "text": "point of view",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down entry, on means placed above, so the earlier parts sit atop the last"
+     }
+    ],
+    "linkWords": [
+     "reveals"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good man's",
+      "gives": "ST",
+      "note": "a good man is a saint, abbreviated St"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "an is the indefinite article"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "AN",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A holy man's essay about the church shows his opinion.",
+     "definitionFit": "A stance is an attitude or position taken on an issue, an outlook."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 21,
@@ -349,7 +1313,49 @@
     "text": "Star part (not the lead)",
     "enumeration": "5"
    },
-   "solution": "ACTOR"
+   "solution": "ACTOR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ACTOR",
+    "definitions": [
+     {
+      "text": "Star",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not the lead",
+      "for": "deletion",
+      "note": "the lead is the leading letter, and not the lead says the first letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part",
+      "gives": "FACTOR",
+      "note": "a factor is a part or element of something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACTOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A star taking a supporting part rather than the leading role.",
+     "walkthrough": "The theatre picture makes 'part' look like a role and 'lead' the leading role; really 'lead' is the first letter.",
+     "definitionFit": "A star is a celebrated performer, and an actor is the performer of stage or screen roles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 22,
@@ -363,7 +1369,50 @@
     "text": "Oven dish, as Creoles prepared",
     "enumeration": "9"
    },
-   "solution": "CASSEROLE"
+   "solution": "CASSEROLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CASSEROLE",
+    "definitions": [
+     {
+      "text": "Oven dish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "prepared means made ready, like ingredients, so the letters are worked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as Creoles",
+      "gives": "ASCREOLES",
+      "note": "the anagram fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASCREOLES",
+       "gives": "CASSEROLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A baked dish made the way Creole cooks would make it.",
+     "definitionFit": "A casserole is a covered pot for slow cooking in the oven, and the dish cooked in it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prepared"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1426,47 @@
     "text": "Punch a mate",
     "enumeration": "5"
    },
-   "solution": "CHINA"
+   "solution": "CHINA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHINA",
+    "definitions": [
+     {
+      "text": "mate",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Punch",
+      "gives": "CHIN",
+      "note": "to chin someone is slang for punching them on the jaw"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHIN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "An order to hit one's friend.",
+     "walkthrough": "China means friend by Cockney rhyming slang: china plate, mate.",
+     "definitionFit": "In Cockney rhyming slang china plate rhymes with mate, so china means a friend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Punch"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1480,60 @@
     "text": "Appropriate name that is found in nunnery",
     "enumeration": "10"
    },
-   "solution": "CONVENIENT"
+   "solution": "CONVENIENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CONVENIENT",
+    "definitions": [
+     {
+      "text": "Appropriate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "found in means located inside, so the first parts sit within the last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. abbreviates the Latin id est, that is"
+     },
+     {
+      "clueFragment": "nunnery",
+      "gives": "CONVENT",
+      "note": "a convent is a community of nuns"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONVE",
+      "NIE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A suitable name discovered in the records of a convent.",
+     "definitionFit": "Convenient means suitable or fitting for one's needs, a synonym of appropriate as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Appropriate"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1547,54 @@
     "text": "Singer promptly dropping off instruments",
     "enumeration": "4"
    },
-   "solution": "BASS"
+   "solution": "BASS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BASS",
+    "definitions": [
+     {
+      "text": "Singer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropping off",
+      "for": "deletion",
+      "note": "dropping off means shedding, so the letters of the following word fall out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "promptly",
+      "gives": "SOON",
+      "note": "soon means promptly, without delay"
+     },
+     {
+      "clueFragment": "instruments",
+      "gives": "BASSOONS",
+      "note": "bassoons are woodwind instruments"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BASS"
+     ]
+    },
+    "explanation": {
+     "surface": "A vocalist nods off promptly once the instruments start playing.",
+     "walkthrough": "'Dropping off' suggests falling asleep; here it means removing SOON from BASSOONS.",
+     "definitionFit": "A bass is a singer with the lowest male voice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dropping"
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1614,56 @@
      }
     ]
    },
-   "solution": "PRESSBARON"
+   "solution": "PRESSBARON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRESS BARON",
+    "definitions": [
+     {
+      "text": "Newspaper magnate",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crowd",
+      "gives": "PRESS",
+      "note": "a press is a dense crowd of people"
+     },
+     {
+      "clueFragment": "pub",
+      "gives": "BAR",
+      "note": "a bar is a pub or the counter in one"
+     },
+     {
+      "clueFragment": "tipsy",
+      "gives": "ON",
+      "note": "on, as in 'a bit on', is informal for slightly drunk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRESS",
+      "BAR",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A media mogul, a little drunk, among the throng in a pub.",
+     "definitionFit": "A press baron is a powerful owner of newspapers, synonymous with a newspaper magnate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crowd"
+    }
+   }
   },
   {
    "number": 26,
@@ -439,7 +1677,42 @@
     "text": "Carry large animal",
     "enumeration": "4"
    },
-   "solution": "BEAR"
+   "solution": "BEAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BEAR",
+    "definitions": [
+     {
+      "text": "Carry",
+      "at": 0
+     },
+     {
+      "text": "large animal",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Carry",
+      "note": "first meaning: to ... a load is to carry it"
+     },
+     {
+      "clueFragment": "large animal",
+      "note": "second meaning: a big furry mammal such as a grizzly"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read as an instruction to carry a big beast, but the two parts are separate meanings.",
+     "definitionFit": "The word is a verb for supporting or carrying a load and a noun for the heavy omnivorous mammal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Carry"
+    }
+   }
   }
  ]
 }
