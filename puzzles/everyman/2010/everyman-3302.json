@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,42 @@
     "text": "Kind person",
     "enumeration": "4"
    },
-   "solution": "TYPE"
+   "solution": "TYPE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TYPE",
+    "definitions": [
+     {
+      "text": "Kind",
+      "at": 0
+     },
+     {
+      "text": "person",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kind",
+      "note": "first meaning: a sort or category"
+     },
+     {
+      "clueFragment": "person",
+      "note": "second meaning: an individual of a particular character, as in 'the quiet sort'"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a description of a kind-hearted person, but 'Kind' is a noun here, not an adjective.",
+     "definitionFit": "The word means both a category or sort and, informally, an individual with a given character, as in 'an outdoor sort'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Kind"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +85,67 @@
     "text": "Theatrical type, he's covered in applied paint",
     "enumeration": "8"
    },
-   "solution": "THESPIAN"
+   "solution": "THESPIAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "THESPIAN",
+    "definitions": [
+     {
+      "text": "Theatrical type",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covered in",
+      "for": "container",
+      "note": "something covered in a substance is enclosed by it, so these letters sit inside the other"
+     },
+     {
+      "text": "applied",
+      "for": "anagram",
+      "note": "applied paint is spread about rather than left as it was, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "he's",
+      "gives": "HES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "paint",
+      "gives": "PAINT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HES",
+      "PIAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PAINT",
+       "gives": "TPIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor caked in greasepaint.",
+     "walkthrough": "'applied' reads as describing the paint on the actor's face, but it tells you to rearrange that word, and the rearrangement is then split around the other piece.",
+     "definitionFit": "A thespian is an actor, named after Thespis, the supposed founder of Greek drama."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "applied"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +159,49 @@
     "text": "Vegetables of equal value, bargains",
     "enumeration": "8"
    },
-   "solution": "PARSNIPS"
+   "solution": "PARSNIPS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARSNIPS",
+    "definitions": [
+     {
+      "text": "Vegetables",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "equal value",
+      "gives": "PAR",
+      "note": "at par means at equal value"
+     },
+     {
+      "clueFragment": "bargains",
+      "gives": "SNIPS",
+      "note": "a snip is British slang for a bargain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "SNIPS"
+     ]
+    },
+    "explanation": {
+     "surface": "Vegetables all priced the same, and cheap at that, like a market stall offer.",
+     "definitionFit": "Parsnips are pale root vegetables related to the carrot, so they are one example of the class."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bargains"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +215,65 @@
     "text": "Playing Chopin, us in a small pad",
     "enumeration": "10"
    },
-   "solution": "PINCUSHION"
+   "solution": "PINCUSHION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PINCUSHION",
+    "definitions": [
+     {
+      "text": "a small pad",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Playing",
+      "for": "anagram",
+      "note": "playing a piece is performing it, here read as rearranging the letters of the words that follow"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chopin",
+      "gives": "CHOPIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "us",
+      "gives": "US",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHOPINUSIN",
+       "gives": "PINCUSHION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pianist performing Chopin for us in a small flat.",
+     "walkthrough": "'Playing Chopin' sets up a recital, and 'pad' suggests a modest apartment; the first 'in' is fodder, the second the link.",
+     "definitionFit": "A pincushion is a small stuffed cushion into which sewing pins are stuck for storage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pad"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +287,49 @@
     "text": "Model of one Kent resort",
     "enumeration": "5"
    },
-   "solution": "IDEAL"
+   "solution": "IDEAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IDEAL",
+    "definitions": [
+     {
+      "text": "Model",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "Kent resort",
+      "gives": "DEAL",
+      "note": "Deal is a seaside town in Kent, England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "DEAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A scale model of a seaside town in Kent.",
+     "definitionFit": "An ideal is a perfect example to follow, the same sense as a model of behaviour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Model"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +343,55 @@
     "text": "Lucas sets out swords",
     "enumeration": "9"
    },
-   "solution": "CUTLASSES"
+   "solution": "CUTLASSES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CUTLASSES",
+    "definitions": [
+     {
+      "text": "swords",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "letters that are out are put out of place, so they are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lucas",
+      "gives": "LUCAS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sets",
+      "gives": "SETS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LUCASSETS",
+       "gives": "CUTLASSES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Lucas laying out his weapons.",
+     "definitionFit": "Cutlasses are short curved swords, traditionally carried by sailors and pirates."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sets"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +419,79 @@
      }
     ]
    },
-   "solution": "SPEAKOUTOFTURN"
+   "solution": "SPEAKOUTOFTURN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SPEAK OUT OF TURN",
+    "definitions": [
+     {
+      "text": "Say something you shouldn't have said?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "a thing in another is held within it, so the summit sits inside the country's code"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something during another happens within its span, so one word is set inside the other"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one piece after another is placed behind it, so this group comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Somalia",
+      "gives": "SO",
+      "note": "SO is the international country code for Somalia"
+     },
+     {
+      "clueFragment": "summit",
+      "gives": "PEAK",
+      "note": "a summit is a peak"
+     },
+     {
+      "clueFragment": "reversal of policy",
+      "gives": "UTURN",
+      "note": "a U-turn is a complete change of policy"
+     },
+     {
+      "clueFragment": "Many times",
+      "gives": "OFT",
+      "note": "oft is an old word for often"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PEAK",
+      "O",
+      "UT",
+      "OFT",
+      "URN"
+     ]
+    },
+    "explanation": {
+     "surface": "A news item about a government abruptly changing course after a summit meeting held in Somalia.",
+     "walkthrough": "Both insertions happen first and the two halves are then joined; the second insertion lands mid-word, after the first two letters of the policy reversal. Somalia's two-letter country code is easy to miss.",
+     "definitionFit": "To speak out of turn is an idiom for saying something tactless or inappropriate for one's position."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "summit"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +511,49 @@
      }
     ]
    },
-   "solution": "INTRIM"
+   "solution": "INTRIM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IN TRIM",
+    "definitions": [
+     {
+      "text": "Slim and fit",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trendy",
+      "gives": "IN",
+      "note": "in means fashionable"
+     },
+     {
+      "clueFragment": "haircut",
+      "gives": "TRIM",
+      "note": "a trim is a light haircut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "TRIM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lean and healthy showing off a fashionable new hairstyle.",
+     "definitionFit": "To be in trim is an idiom for being in good physical condition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "haircut"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +567,43 @@
     "text": "Provoke pointer",
     "enumeration": "6"
    },
-   "solution": "NEEDLE"
+   "solution": "NEEDLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NEEDLE",
+    "definitions": [
+     {
+      "text": "Provoke",
+      "at": 0
+     },
+     {
+      "text": "pointer",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Provoke",
+      "note": "first meaning: to irritate or goad someone"
+     },
+     {
+      "clueFragment": "pointer",
+      "note": "second meaning: the indicator on a dial or compass"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'pointer' suggests a breed of dog that could be provoked; it is the gauge's indicating arm.",
+     "definitionFit": "The word is both a verb for goading someone and a noun for the indicator on an instrument dial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pointer"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +623,64 @@
      }
     ]
    },
-   "solution": "PORTLANDCEMENT"
+   "solution": "PORTLANDCEMENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PORTLAND CEMENT",
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "building",
+      "for": "anagram",
+      "note": "building something means assembling it from parts, so these letters are put together in a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "modern",
+      "gives": "MODERN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "plant",
+      "gives": "PLANT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "etc",
+      "gives": "ETC",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MODERNPLANTETC",
+       "gives": "PORTLANDCEMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A supply list of what is needed to construct a new factory and so on.",
+     "walkthrough": "'Material for building' reads as one phrase, but 'building' is the rearrangement signal.",
+     "definitionFit": "Portland cement is the standard construction binder, named for its resemblance to Portland stone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "building"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +694,71 @@
     "text": "An opening for a listener in the east with a part to play around hospital",
     "enumeration": "7"
    },
-   "solution": "EARHOLE"
+   "solution": "EARHOLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EARHOLE",
+    "definitions": [
+     {
+      "text": "An opening for a listener",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "something placed around another item encloses it, so the role wraps the hospital letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the east",
+      "gives": "E",
+      "note": "E is the abbreviation for east"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "part to play",
+      "gives": "ROLE",
+      "note": "an actor's part is a role"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the abbreviation for hospital, as on road signs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "A",
+      "R",
+      "H",
+      "OLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Describing something like a theatre box: a spot in the east of the building for someone who listens while playing a part.",
+     "walkthrough": "E and A come first, then ROLE goes around H to give RHOLE: E + A + RHOLE.",
+     "definitionFit": "An earhole is, informally, the ear's opening, the passage through which a listener hears sound."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "listener"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +772,67 @@
     "text": "Article, a piece of tosh about playhouse",
     "enumeration": "7"
    },
-   "solution": "THEATRE"
+   "solution": "THEATRE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "THEATRE",
+    "definitions": [
+     {
+      "text": "playhouse",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "piece of",
+      "for": "letter_selection",
+      "note": "a piece of something is only a small part of it, here just its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tosh",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of tosh"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "A",
+      "T",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper article dismissing some piece as rubbish about a playhouse, like a sniffy review.",
+     "definitionFit": "A playhouse is a building where plays are staged, which is what a theatre is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Article"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +846,76 @@
     "text": "Old man receiving an order that includes a cigar",
     "enumeration": "9"
    },
-   "solution": "PANATELLA"
+   "solution": "PANATELLA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PANATELLA",
+    "definitions": [
+     {
+      "text": "cigar",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "a person receiving something takes it in, so the old man's letters hold what follows"
+     },
+     {
+      "text": "that includes",
+      "for": "container",
+      "note": "something that includes another thing holds it within, so the order takes in a letter"
+     }
+    ],
+    "linkWords": [
+     "a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old man",
+      "gives": "PA",
+      "note": "pa is an informal word for father"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the 'a' that the order includes"
+     },
+     {
+      "clueFragment": "order",
+      "gives": "TELL",
+      "note": "to tell someone to do something is to order them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "AN",
+      "A",
+      "TELL",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly man being handed an order that comes with a cigar.",
+     "walkthrough": "The clue's 'a' is included between the first two inner pieces, and the old man then goes around the lot; 'Old man' is father, not an elderly man.",
+     "definitionFit": "A panatella is a long, slender cigar, so the general word names it as one example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +929,62 @@
     "text": "Finish off snapping tail of lobster, seafood",
     "enumeration": "5"
    },
-   "solution": "KRILL"
+   "solution": "KRILL",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "KRILL",
+    "definitions": [
+     {
+      "text": "seafood",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "snapping",
+      "for": "container",
+      "note": "snapping means seizing in the jaws, so one word catches and holds the other letter"
+     },
+     {
+      "text": "tail of",
+      "for": "letter_selection",
+      "note": "the tail of a word is its end, so only the final letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finish off",
+      "gives": "KILL",
+      "note": "to finish off is to kill"
+     },
+     {
+      "clueFragment": "lobster",
+      "gives": "R",
+      "select": "last",
+      "note": "the last letter of lobster"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "R",
+      "ILL"
+     ]
+    },
+    "explanation": {
+     "surface": "Killing a lobster by snapping off its tail before serving it as seafood.",
+     "walkthrough": "R goes inside KILL after the K.",
+     "definitionFit": "Krill are tiny marine crustaceans, eaten by whales and sometimes by people, so they count as seafood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "snapping"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +1004,59 @@
      }
     ]
    },
-   "solution": "ALPHABETSOUP"
+   "solution": "ALPHABETSOUP",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "ALPHABET SOUP",
+    "definitions": [
+     {
+      "text": "A confusing series of letters",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as heard said, so a word is spelt from its spoken form"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boy",
+      "gives": "ALPH",
+      "soundsLike": "ALF",
+      "note": "Alf is a boy's name, spelt here as it is pronounced in a different way"
+     },
+     {
+      "clueFragment": "assists",
+      "gives": "ABETS",
+      "note": "to abet is to assist"
+     },
+     {
+      "clueFragment": "Oxford publisher",
+      "gives": "OUP",
+      "note": "OUP is Oxford University Press"
+     }
+    ],
+    "explanation": {
+     "surface": "A puzzling string of letters received from a lad said to be helping an Oxford publishing house.",
+     "walkthrough": "The phrase is the soup with pasta letters in it, used figuratively for a bewildering mass of acronyms.",
+     "definitionFit": "Alphabet soup figuratively means a confusing jumble of abbreviations and initials, from the pasta-letter soup."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "boy"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +1076,50 @@
      }
     ]
    },
-   "solution": "EYEOPENER"
+   "solution": "EYEOPENER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EYE-OPENER",
+    "definitions": [
+     {
+      "text": "wonder",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Watch",
+      "gives": "EYE",
+      "note": "to eye something is to watch it"
+     },
+     {
+      "clueFragment": "batsman, perhaps",
+      "gives": "OPENER",
+      "note": "in cricket an opener is a batsman who starts the innings"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EYE",
+      "OPENER"
+     ]
+    },
+    "explanation": {
+     "surface": "A spectator gazing in amazement at a cricketer.",
+     "walkthrough": "In cricket the opening batsmen are the first pair to bat in an innings.",
+     "definitionFit": "An eye-opener is a surprising revelation, a thing that makes one marvel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Watch"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1133,66 @@
     "text": "Lacking knowledge, ranting stupidly about love",
     "enumeration": "8"
    },
-   "solution": "IGNORANT"
+   "solution": "IGNORANT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "IGNORANT",
+    "definitions": [
+     {
+      "text": "Lacking knowledge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stupidly",
+      "for": "anagram",
+      "note": "doing something stupidly means doing it senselessly, so the letters lose their order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the rearranged letters go around the love symbol"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ranting",
+      "gives": "RANTING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IGN",
+      "O",
+      "RANT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RANTING",
+       "gives": "IGNRANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone uninformed foolishly sounding off about romance.",
+     "definitionFit": "Ignorant describes someone without education or awareness, the condition of having no information."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1206,51 @@
     "text": "Envy bum on Dickens character",
     "enumeration": "8"
    },
-   "solution": "BEGRUDGE"
+   "solution": "BEGRUDGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEGRUDGE",
+    "definitions": [
+     {
+      "text": "Envy",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bum",
+      "gives": "BEG",
+      "note": "to bum is to cadge or beg"
+     },
+     {
+      "clueFragment": "Dickens character",
+      "gives": "RUDGE",
+      "note": "Barnaby Rudge is the title character of a Dickens novel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEG",
+      "RUDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Jealousy aimed at some Dickensian figure's backside.",
+     "walkthrough": "'bum' looks like the noun for a backside; it is the verb meaning to cadge. In a down clue, 'on' puts the first piece above the second.",
+     "definitionFit": "To begrudge someone something is to resent their having it, a form of jealousy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bum"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1270,58 @@
      }
     ]
    },
-   "solution": "ADDERSTONGUE"
+   "solution": "ADDERSTONGUE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ADDERS TONGUE",
+    "definitions": [
+     {
+      "text": "Fern",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "poorly",
+      "for": "anagram",
+      "note": "something done poorly is done badly or out of order, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ground",
+      "gives": "GROUND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "seated",
+      "gives": "SEATED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GROUNDSEATED",
+       "gives": "ADDERSTONGUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fern sitting awkwardly in the soil.",
+     "definitionFit": "Adder's tongue is a small fern named for its spore-bearing spike, which resembles a snake's tongue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1335,49 @@
     "text": "Maiden on racecourse - good luck charm required",
     "enumeration": "6"
    },
-   "solution": "MASCOT"
+   "solution": "MASCOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MASCOT",
+    "definitions": [
+     {
+      "text": "good luck charm",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "required"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maiden",
+      "gives": "M",
+      "note": "in cricket scoring M stands for a maiden over"
+     },
+     {
+      "clueFragment": "racecourse",
+      "gives": "ASCOT",
+      "note": "Ascot is a famous English racecourse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ASCOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman at the races who needs a lucky charm.",
+     "definitionFit": "A mascot is a person, animal or object thought to bring good fortune to a team or group."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Maiden"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1391,42 @@
     "text": "Conspicuous beacon",
     "enumeration": "6"
    },
-   "solution": "SIGNAL"
+   "solution": "SIGNAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SIGNAL",
+    "definitions": [
+     {
+      "text": "Conspicuous",
+      "at": 0
+     },
+     {
+      "text": "beacon",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conspicuous",
+      "note": "first meaning: striking or notable"
+     },
+     {
+      "clueFragment": "beacon",
+      "note": "second meaning: a light or sign used to give warning"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a beacon that stands out; the adjective sense is the less familiar one, as in 'a signal achievement'.",
+     "definitionFit": "As an adjective the word means striking or remarkable; as a noun it is a sign or light conveying a message."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Conspicuous"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1440,39 @@
     "text": "Girl that might front band?",
     "enumeration": "5"
    },
-   "solution": "ALICE"
+   "solution": "ALICE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ALICE",
+    "definitions": [
+     {
+      "text": "Girl that might front band?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl that might front band?",
+      "note": "surface reading: a young woman who could be lead singer of a pop group"
+     },
+     {
+      "clueFragment": "front band",
+      "note": "setter's reading: a girl's name that goes in front of the word band to make a kind of hairband"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "An Alice band is a broad headband worn over the hair, named after Alice in Through the Looking-Glass.",
+     "definitionFit": "The girl's name precedes 'band' in the name of a headband, so it literally stands at the front of band."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1492,64 @@
      }
     ]
    },
-   "solution": "PINOTNOIR"
+   "solution": "PINOTNOIR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PINOT NOIR",
+    "definitions": [
+     {
+      "text": "Wine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must be changed",
+      "for": "anagram",
+      "note": "what must be changed has to be altered, so the letters are put into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inn",
+      "gives": "INN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "poor",
+      "gives": "POOR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INNPOORIT",
+       "gives": "PINOTNOIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that the wine at a pub is bad and has to be replaced.",
+     "walkthrough": "'poor' looks like the complaint about the wine but is part of the letters to rearrange.",
+     "definitionFit": "Pinot noir is a red grape variety and the red wine made from it, especially in Burgundy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "poor"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1563,47 @@
     "text": "Aristocratic head, the Parisian",
     "enumeration": "5"
    },
-   "solution": "NOBLE"
+   "solution": "NOBLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOBLE",
+    "definitions": [
+     {
+      "text": "Aristocratic",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "head",
+      "gives": "NOB",
+      "note": "nob is slang for the head"
+     },
+     {
+      "clueFragment": "the Parisian",
+      "gives": "LE",
+      "note": "le is French for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOB",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Describing a Paris-born head of some grand family.",
+     "walkthrough": "'nob' also means a toff, which suits the aristocratic surface.",
+     "definitionFit": "Noble describes someone belonging to the hereditary titled class, the aristocracy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1617,42 @@
     "text": "Business interest",
     "enumeration": "7"
    },
-   "solution": "CONCERN"
+   "solution": "CONCERN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CONCERN",
+    "definitions": [
+     {
+      "text": "Business",
+      "at": 0
+     },
+     {
+      "text": "interest",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Business",
+      "note": "first meaning: a firm or company"
+     },
+     {
+      "clueFragment": "interest",
+      "note": "second meaning: a matter one cares about or is involved in"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a single commercial phrase, but the two words are separate meanings.",
+     "definitionFit": "The word is both a noun for a commercial firm and for a matter that engages someone or affects them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "interest"
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1666,59 @@
     "text": "Local girl, not quite insane, needs help",
     "enumeration": "7"
    },
-   "solution": "BARMAID"
+   "solution": "BARMAID",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BARMAID",
+    "definitions": [
+     {
+      "text": "Local girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not quite",
+      "for": "deletion",
+      "note": "not quite means falling just short, so the word loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "insane",
+      "gives": "BARMY",
+      "note": "barmy is British slang for mad"
+     },
+     {
+      "clueFragment": "help",
+      "gives": "AID",
+      "note": "aid means help"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BARM",
+      "AID"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl from the neighbourhood, a bit unhinged, who needs assistance.",
+     "walkthrough": "'Local' is British slang for one's nearby pub, so a local girl serves drinks there; it is not about a girl from the area.",
+     "definitionFit": "A barmaid is a woman serving drinks behind a bar, and the local is a regular pub."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Local"
+    }
+   }
   },
   {
    "number": 26,
@@ -453,7 +1738,56 @@
      }
     ]
    },
-   "solution": "TALKTURKEY"
+   "solution": "TALKTURKEY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TALK TURKEY",
+    "definitions": [
+     {
+      "text": "Don't mince words",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "one thing following another comes after it, so the country is placed second"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "speech",
+      "gives": "TALK",
+      "note": "a talk is a speech"
+     },
+     {
+      "clueFragment": "republic",
+      "gives": "TURKEY",
+      "note": "Turkey is a republic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TALK",
+      "TURKEY"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to speak bluntly when delivering an address in some republic.",
+     "definitionFit": "To talk turkey is an idiom meaning to discuss something frankly and directly, without evasion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "republic"
+    }
+   }
   },
   {
    "number": 27,
@@ -467,7 +1801,57 @@
     "text": "Filthy place close to lane, an eyesore",
     "enumeration": "4"
    },
-   "solution": "STYE"
+   "solution": "STYE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "STYE",
+    "definitions": [
+     {
+      "text": "an eyesore",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its final letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Filthy place",
+      "gives": "STY",
+      "note": "a pigsty, or any dirty place"
+     },
+     {
+      "clueFragment": "lane",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of lane"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STY",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A grubby spot by a lane that is ugly to look at.",
+     "walkthrough": "'eyesore' usually means an ugly sight; here it is read literally as a sore on the eye.",
+     "definitionFit": "A stye is an inflamed swelling on the eyelid, literally a sore on the eye."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "eyesore"
+    }
+   }
   }
  ]
 }
