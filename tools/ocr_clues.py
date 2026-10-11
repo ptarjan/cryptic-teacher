@@ -1585,7 +1585,10 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
         if len(seen_ends) < 2:
             continue
         top = max(seen_ends, key=seen_ends.count)
-        worded = [e for e in seen_ends if any(t not in MARKS for t in e)]
+        # Figure specks no word ("fS", "ll") are no words seen there when the
+        # call knows no number or count to test them by (number_read).
+        specks = not (number if side == "start" else count) and not re.search(r"\d", clue)
+        worded = [e for e in seen_ends if any(t not in MARKS for t in e) and not (specks and figure_specks(e, side))]
         if seen_ends.count(top) < 2 and len(worded) * 2 < len(others):
             # Specks a few of many readings each see apart (a second copy's
             # readings vote too): no end is lost unless half the readings
@@ -2103,6 +2106,15 @@ def number_shaped(end, side):
         words = words[1:]
     read = "".join(words)
     return len(read) <= 3 and set(read) <= FIGURE_LETTERS
+
+
+def figure_specks(end, side):
+    """Whether `end` is number_shaped and holds no word of the lexicon
+    ("fS", "ll", "i i"; not "is" or "it", which may be a word lost)."""
+    words = [t for t in end if t not in MARKS]
+    if side == "start" and words and words[0] in ("down", "across"):
+        words = words[1:]
+    return number_shaped(end, side) and not any(is_word(t) for t in words)
 
 
 def is_word_only_capital(word, seen):
