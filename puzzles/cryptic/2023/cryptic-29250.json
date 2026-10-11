@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -46,7 +49,49 @@
     "text": "Already shaved and ready",
     "enumeration": "8"
    },
-   "solution": "PREPARED"
+   "solution": "PREPARED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PREPARED",
+    "definitions": [
+     {
+      "text": "ready",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Already",
+      "gives": "PRE",
+      "note": "pre- is the prefix meaning before, so already"
+     },
+     {
+      "clueFragment": "shaved",
+      "gives": "PARED",
+      "note": "pared means trimmed or shaved thin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRE",
+      "PARED"
+     ]
+    },
+    "explanation": {
+     "surface": "A man who has had his shave already and is set to go out.",
+     "definitionFit": "Something prepared is set up in advance, fit and ready for use."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Already"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +105,44 @@
     "text": "Try to make money having lost your shirt?",
     "enumeration": "6"
    },
-   "solution": "INVEST"
+   "solution": "INVEST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INVEST",
+    "definitions": [
+     {
+      "text": "Try to make money",
+      "at": 0
+     },
+     {
+      "text": "having lost your shirt?",
+      "at": 18,
+      "note": "a phrase read as 'in vest'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Try to make money",
+      "note": "first meaning: put capital into something hoping for a return"
+     },
+     {
+      "clueFragment": "having lost your shirt?",
+      "note": "second meaning, split into two words: with the shirt gone you are down to your undershirt"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Lost your shirt' is the idiom for losing all your money, which suits the surface; read literally, without a shirt you stand IN VEST, a vest being the British word for an undershirt.",
+     "definitionFit": "To invest is to commit funds to a venture in the hope of profit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shirt"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +156,69 @@
     "text": "Nicely manoeuvres round measure for tolerance",
     "enumeration": "8"
    },
-   "solution": "LENIENCY"
+   "solution": "LENIENCY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LENIENCY",
+    "definitions": [
+     {
+      "text": "tolerance",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "manoeuvres",
+      "for": "anagram",
+      "note": "letters that are manoeuvred are moved about into new positions"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "the rearranged word goes round the other piece, enclosing it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nicely",
+      "gives": "NICELY",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "measure",
+      "gives": "EN",
+      "note": "an en is a printer's measure of width"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LENI",
+      "EN",
+      "CY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NICELY",
+       "gives": "LENICY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tactfully steering a policy of tolerance into place.",
+     "definitionFit": "Leniency is mercy or indulgence, a tolerant attitude towards faults."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "measure"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +232,58 @@
     "text": "Talk of leak being suppressed by school",
     "enumeration": "6"
    },
-   "solution": "SPEECH"
+   "solution": "SPEECH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPEECH",
+    "definitions": [
+     {
+      "text": "Talk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being suppressed by",
+      "for": "container",
+      "note": "something suppressed by another thing is held down inside it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "SCH",
+      "note": "SCH is a standard abbreviation for school"
+     },
+     {
+      "clueFragment": "leak",
+      "gives": "PEE",
+      "note": "slang for urinating, to take a leak"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PEE",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "Gossip about a scandalous leak that a school is trying to hush up.",
+     "definitionFit": "A speech is a formal talk delivered to an audience."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "leak"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,7 +297,47 @@
     "text": "Units regularly taking drugs",
     "enumeration": "4"
    },
-   "solution": "ONES"
+   "solution": "ONES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ONES",
+    "definitions": [
+     {
+      "text": "Units",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "regularly taking",
+      "gives": "ON",
+      "note": "to be on a drug is to take it as a regular habit"
+     },
+     {
+      "clueFragment": "drugs",
+      "gives": "ES",
+      "note": "E is ecstasy, so Es are ecstasy tablets"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Army units whose soldiers keep using narcotics.",
+     "walkthrough": "A person 'on Es' is someone regularly taking drugs.",
+     "definitionFit": "Ones are single units, the numbers counted in the units column."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Units"
+    }
+   }
   },
   {
    "number": 7,
@@ -116,7 +351,47 @@
     "text": "Failing to start clipping trial",
     "enumeration": "7"
    },
-   "solution": "HEARING"
+   "solution": "HEARING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HEARING",
+    "definitions": [
+     {
+      "text": "trial",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Failing to start",
+      "for": "deletion",
+      "note": "a word failing to start has lost its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clipping",
+      "gives": "SHEARING",
+      "note": "shearing is clipping, as of a sheep's fleece"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEARING"
+     ]
+    },
+    "explanation": {
+     "surface": "A trial collapses before getting under way because of a procedural cut.",
+     "definitionFit": "A hearing is a court session in which a case is tried before a judge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clipping"
+    }
+   }
   },
   {
    "number": 8,
@@ -130,7 +405,52 @@
     "text": "Counter on small pool",
     "enumeration": "7"
    },
-   "solution": "RESPOND"
+   "solution": "RESPOND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RESPOND",
+    "definitions": [
+     {
+      "text": "Counter",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "pool",
+      "gives": "POND",
+      "note": "a pond is a small pool of water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "S",
+      "POND"
+     ]
+    },
+    "explanation": {
+     "surface": "Something set on a little pool, like a token floating on water.",
+     "definitionFit": "To counter a remark is to respond or reply to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Counter"
+    }
+   }
   },
   {
    "number": 9,
@@ -144,7 +464,54 @@
     "text": "Botha's back-tracking dodge?",
     "enumeration": "4"
    },
-   "solution": "SKIP"
+   "solution": "SKIP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SKIP",
+    "definitions": [
+     {
+      "text": "dodge",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back-tracking",
+      "for": "reversal",
+      "note": "going back over the track means the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Botha's",
+      "gives": "PIKS",
+      "note": "Pik Botha was South Africa's foreign minister, so Botha's is Pik's"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKIP"
+     ],
+     "reversals": [
+      {
+       "from": "PIKS",
+       "to": "SKIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether a South African politician's U-turn was an evasion.",
+     "walkthrough": "Roelof 'Pik' Botha was a long-serving apartheid-era foreign minister; the setter swaps his surname for his nickname.",
+     "definitionFit": "To skip something is to avoid or dodge it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Botha's"
+    }
+   }
   },
   {
    "number": 10,
@@ -158,7 +525,88 @@
     "text": "Void produced by Epstein and Beatles ultimately failing to take moral lead",
     "enumeration": "9"
    },
-   "solution": "EMPTINESS"
+   "solution": "EMPTINESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "EMPTINESS",
+    "definitions": [
+     {
+      "text": "Void",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the final letter of the word before it"
+     },
+     {
+      "text": "failing",
+      "for": "anagram",
+      "note": "failing means breaking down, so these letters fall apart and regroup"
+     },
+     {
+      "text": "to take",
+      "for": "container",
+      "note": "the jumbled letters take in another piece, holding it inside"
+     },
+     {
+      "text": "lead",
+      "for": "letter_selection",
+      "note": "the lead is the front, so only the first letter of the word is used"
+     }
+    ],
+    "linkWords": [
+     "produced by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Epstein",
+      "gives": "EPSTEIN",
+      "note": "the name supplies its letters for rearranging"
+     },
+     {
+      "clueFragment": "Beatles",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of Beatles"
+     },
+     {
+      "clueFragment": "moral",
+      "gives": "M",
+      "select": "first",
+      "note": "the opening letter of moral"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "M",
+      "PTINESS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EPSTEINS",
+       "gives": "EPTINESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gap left when manager Brian Epstein and the Beatles stopped showing moral leadership.",
+     "walkthrough": "Brian Epstein was the Beatles' manager, which is what makes the surface hang together.",
+     "definitionFit": "Emptiness is a void, the state of containing nothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "failing"
+    }
+   }
   },
   {
    "number": 11,
@@ -172,7 +620,59 @@
     "text": "French city papering over new cracks",
     "enumeration": "9"
    },
-   "solution": "PERPIGNAN"
+   "solution": "PERPIGNAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PERPIGNAN",
+    "definitions": [
+     {
+      "text": "French city",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cracks",
+      "for": "anagram",
+      "note": "something that cracks breaks up, so the letters are broken and reassembled"
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "papering",
+      "gives": "PAPERING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PAPERINGN",
+       "gives": "PERPIGNAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French town hiding fresh cracks in its walls with wallpaper.",
+     "walkthrough": "'Over' places the abbreviation after the other word; in a down clue papering sits above new.",
+     "definitionFit": "Perpignan is a city in southern France near the Spanish border."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cracks"
+    }
+   }
   },
   {
    "number": 12,
@@ -186,7 +686,43 @@
     "text": "Act as a peacock's prop?",
     "enumeration": "5"
    },
-   "solution": "STRUT"
+   "solution": "STRUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRUT",
+    "definitions": [
+     {
+      "text": "Act as a peacock",
+      "at": 0
+     },
+     {
+      "text": "prop",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Act as a peacock",
+      "note": "first meaning: swagger about showing off, as a peacock does"
+     },
+     {
+      "clueFragment": "prop",
+      "note": "second meaning: a brace or bar that supports a structure"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The 's makes it read as one peacock's support, but the clue splits there into two separate meanings.",
+     "definitionFit": "The word means both to walk proudly and showily, and a supporting rod in a frame."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "peacock's"
+    }
+   }
   },
   {
    "number": 12,
@@ -200,7 +736,55 @@
     "text": "Track suit opening broke",
     "enumeration": "5"
    },
-   "solution": "SPOOR"
+   "solution": "SPOOR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SPOOR",
+    "definitions": [
+     {
+      "text": "Track",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suit",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of suit"
+     },
+     {
+      "clueFragment": "broke",
+      "gives": "POOR",
+      "note": "broke means having no money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "POOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A tracksuit that someone short of money cannot afford.",
+     "definitionFit": "Spoor is the track or trail of droppings and prints left by an animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Track"
+    }
+   }
   },
   {
    "number": 13,
@@ -214,7 +798,55 @@
     "text": "Hacienda manager trotted around with lion",
     "enumeration": "8"
    },
-   "solution": "RANCHERO"
+   "solution": "RANCHERO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RANCHERO",
+    "definitions": [
+     {
+      "text": "Hacienda manager",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trotted",
+      "gives": "RAN",
+      "note": "ran is a past tense like trotted"
+     },
+     {
+      "clueFragment": "around",
+      "gives": "C",
+      "note": "c, for circa, means around or approximately"
+     },
+     {
+      "clueFragment": "lion",
+      "gives": "HERO",
+      "note": "a lion is a brave hero, as in a literary lion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAN",
+      "C",
+      "HERO"
+     ]
+    },
+    "explanation": {
+     "surface": "A ranch boss rides around the estate with a lion in tow.",
+     "definitionFit": "A ranchero is the owner or manager of a Mexican ranch, or hacienda."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 14,
@@ -228,7 +860,46 @@
     "text": "Run every single stretch",
     "enumeration": "5"
    },
-   "solution": "REACH"
+   "solution": "REACH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REACH",
+    "definitions": [
+     {
+      "text": "stretch",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     },
+     {
+      "clueFragment": "every single",
+      "gives": "EACH",
+      "note": "each means every single one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EACH"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to jog every stretch of a course.",
+     "definitionFit": "To reach is to stretch out an arm, or a reach is a stretch of river."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Run"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +924,62 @@
     "15-across",
     "16-across",
     "17-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LORD PRIVY SEAL",
+    "definitions": [
+     {
+      "text": "Minister",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "realigned",
+      "for": "anagram",
+      "note": "realigned letters have been set out in a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pisa",
+      "gives": "PISA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Very",
+      "gives": "VERY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "droll",
+      "gives": "DROLL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PISAVERYDROLL",
+       "gives": "LORDPRIVYSEAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A government minister has straightened the Leaning Tower of Pisa, which is very funny.",
+     "walkthrough": "The Lord Privy Seal is one of the ancient offices of the British cabinet.",
+     "definitionFit": "The Lord Privy Seal is a senior UK government minister, usually without departmental duties."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "realigned"
+    }
+   }
   },
   {
    "number": 16,
@@ -286,7 +1012,52 @@
     "text": "Disease-causing organism – track oxygen data",
     "enumeration": "8"
    },
-   "solution": "PATHOGEN"
+   "solution": "PATHOGEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PATHOGEN",
+    "definitions": [
+     {
+      "text": "Disease-causing organism",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "track",
+      "gives": "PATH",
+      "note": "a path is a track"
+     },
+     {
+      "clueFragment": "oxygen",
+      "gives": "O",
+      "note": "O is the chemical symbol for oxygen"
+     },
+     {
+      "clueFragment": "data",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PATH",
+      "O",
+      "GEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A lab note: a germ, plus readings to track its oxygen use.",
+     "definitionFit": "A pathogen is a microbe such as a bacterium or virus that produces illness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "track"
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1084,56 @@
     "text": "Unyielding state makes a Republican withdraw from group support",
     "enumeration": "8"
    },
-   "solution": "SOLIDITY"
+   "solution": "SOLIDITY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SOLIDITY",
+    "definitions": [
+     {
+      "text": "Unyielding state",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "withdraw from",
+      "for": "deletion",
+      "note": "letters that withdraw from a word leave it, so they are taken out"
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a Republican",
+      "gives": "AR",
+      "note": "a stays as written and R is the abbreviation for Republican"
+     },
+     {
+      "clueFragment": "group support",
+      "gives": "SOLIDARITY",
+      "note": "solidarity is mutual support within a group"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOLID",
+      "ITY"
+     ]
+    },
+    "explanation": {
+     "surface": "A Republican pulling out of a support group, which leaves things firm.",
+     "definitionFit": "Solidity is firmness, the quality of being hard and not giving way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 18,
@@ -327,7 +1147,54 @@
     "text": "'Marsh crushes political faction' scare",
     "enumeration": "8"
    },
-   "solution": "FRIGHTEN"
+   "solution": "FRIGHTEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FRIGHTEN",
+    "definitions": [
+     {
+      "text": "scare",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crushes",
+      "for": "container",
+      "note": "something that crushes another wraps tightly around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Marsh",
+      "gives": "FEN",
+      "note": "a fen is a marsh"
+     },
+     {
+      "clueFragment": "political faction",
+      "gives": "RIGHT",
+      "note": "the right is a political wing or faction"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RIGHT",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A headline about someone called Marsh flattening a party faction, spreading fear.",
+     "definitionFit": "To frighten is to scare or alarm someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Marsh"
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1208,69 @@
     "text": "End of mourning under review, as exemplified in this clue?",
     "enumeration": "6"
    },
-   "solution": "GERUND"
+   "solution": "GERUND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "GERUND",
+    "definitions": [
+     {
+      "text": "as exemplified in this clue",
+      "at": 30,
+      "note": "points at a word in the clue; the answer is the grammatical term it illustrates"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "End of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter"
+     },
+     {
+      "text": "review",
+      "for": "anagram",
+      "note": "under review suggests being gone over and reworked into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mourning",
+      "gives": "G",
+      "select": "last",
+      "note": "the final letter of mourning"
+     },
+     {
+      "clueFragment": "under",
+      "gives": "UNDER",
+      "note": "the word itself is the material to rework"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ERUND"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UNDER",
+       "gives": "ERUND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A period of mourning ends after a review, with a nod to the clue itself.",
+     "walkthrough": "'under' serves twice in the surface but only once in the parse: it is the fodder, with 'review' the signal. 'Mourning' is itself a verb used as a noun, the term for which is the answer.",
+     "definitionFit": "A gerund is an -ing verb form acting as a noun, which is exactly what mourning is here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "review"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1284,61 @@
     "text": "Sly, unsteady boozer, who's quite slim",
     "enumeration": "5"
    },
-   "solution": "SYLPH"
+   "solution": "SYLPH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SYLPH",
+    "definitions": [
+     {
+      "text": "who's quite slim",
+      "at": 22,
+      "note": "a relative clause standing for a slender person"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unsteady",
+      "for": "anagram",
+      "note": "unsteady letters wobble out of their places into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sly",
+      "gives": "SLY",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "boozer",
+      "gives": "PH",
+      "note": "a boozer is British slang for a pub, and PH is short for public house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SYL",
+      "PH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SLY",
+       "gives": "SYL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cunning, tottering drinker who is rather thin.",
+     "definitionFit": "A sylph is a slender, graceful woman, named after the airy spirits of folklore."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boozer"
+    }
+   }
   },
   {
    "number": 20,
@@ -369,7 +1352,70 @@
     "text": "Following rise of American left, judge is oppressive",
     "enumeration": "6"
    },
-   "solution": "SULTRY"
+   "solution": "SULTRY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SULTRY",
+    "definitions": [
+     {
+      "text": "oppressive",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rise of",
+      "for": "reversal",
+      "note": "in a down clue rising letters read from bottom to top, the other way round"
+     }
+    ],
+    "linkWords": [
+     "Following",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is short for American"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "judge",
+      "gives": "TRY",
+      "note": "to try a case is to judge it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "L",
+      "TRY"
+     ],
+     "reversals": [
+      {
+       "from": "US",
+       "to": "SU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political comment: with the US left gaining ground, a judge turns harsh.",
+     "definitionFit": "Sultry weather is hot and humid, oppressive in the sense of heavy and close."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rise"
+    }
+   }
   },
   {
    "number": 21,
@@ -383,7 +1429,45 @@
     "text": "Staff's contribution to papers on Nelson",
     "enumeration": "9"
    },
-   "solution": "PERSONNEL"
+   "solution": "PERSONNEL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PERSONNEL",
+    "definitions": [
+     {
+      "text": "Staff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contribution to",
+      "for": "hidden_word",
+      "note": "a contribution to something is a part of it, so the letters sit inside the following words"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "papers on Nelson",
+      "gives": "PERSONNEL",
+      "note": "runs from the middle of papers to the middle of Nelson"
+     }
+    ],
+    "explanation": {
+     "surface": "Office workers writing an article for the newspapers about Admiral Nelson.",
+     "definitionFit": "Personnel are the people employed by an organisation, its staff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "contribution"
+    }
+   }
   },
   {
    "number": 21,
@@ -407,7 +1491,63 @@
    "group": [
     "21-down",
     "1-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POOP DECK",
+    "definitions": [
+     {
+      "text": "Part of the craft",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "putting",
+      "for": "charade",
+      "note": "putting one thing on another sets it above the next in this down answer"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "polonium",
+      "gives": "PO",
+      "note": "Po is the chemical symbol for polonium"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op is short for opus, a musical work"
+     },
+     {
+      "clueFragment": "dress",
+      "gives": "DECK",
+      "note": "to deck is to dress or adorn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "OP",
+      "DECK"
+     ]
+    },
+    "explanation": {
+     "surface": "A crafting tip about applying a radioactive element to a dress.",
+     "definitionFit": "A poop deck is the raised deck at the stern of a ship, part of the vessel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "craft"
+    }
+   }
   },
   {
    "number": 22,
@@ -421,7 +1561,56 @@
     "text": "Policeman has right time – and gossip!",
     "enumeration": "4"
    },
-   "solution": "DIRT"
+   "solution": "DIRT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIRT",
+    "definitions": [
+     {
+      "text": "gossip",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "has",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Policeman",
+      "gives": "DI",
+      "note": "DI is a Detective Inspector"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "R",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A detective arrives at just the right moment and hears all the rumours.",
+     "definitionFit": "Dirt is scandalous information, as in digging the dirt on someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 23,
@@ -435,7 +1624,58 @@
     "text": "Proceed quickly with opening of gin bar",
     "enumeration": "4"
    },
-   "solution": "RUNG"
+   "solution": "RUNG",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RUNG",
+    "definitions": [
+     {
+      "text": "bar",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening of",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Proceed quickly",
+      "gives": "RUN",
+      "note": "to run is to go fast"
+     },
+     {
+      "clueFragment": "gin",
+      "gives": "G",
+      "select": "first",
+      "note": "the first letter of gin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Hurry along to the gin bar as it opens.",
+     "definitionFit": "A rung is a bar or crosspiece of a ladder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 24,
@@ -449,7 +1689,44 @@
     "text": "Dog that's handy in a laser presentation",
     "enumeration": "7"
    },
-   "solution": "POINTER"
+   "solution": "POINTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POINTER",
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0
+     },
+     {
+      "text": "that's handy in a laser presentation",
+      "at": 4,
+      "note": "a descriptive phrase for a noun"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dog",
+      "note": "first meaning: a gun dog breed that stands still aiming its nose at game"
+     },
+     {
+      "clueFragment": "that's handy in a laser presentation",
+      "note": "second meaning: the device a speaker uses to indicate items on a screen"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A dog seems an odd thing to bring to a slide show; the two halves are separate meanings.",
+     "definitionFit": "The word names both a hunting dog breed and a stick or laser device used to indicate something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dog"
+    }
+   }
   },
   {
    "number": 25,
@@ -463,7 +1740,44 @@
     "text": "Broadcast rectifying text",
     "enumeration": "7"
    },
-   "solution": "WRITING"
+   "solution": "WRITING",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WRITING",
+    "definitions": [
+     {
+      "text": "text",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Broadcast",
+      "for": "homophone",
+      "note": "something broadcast is heard rather than read, so go by sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rectifying",
+      "gives": "WRITING",
+      "soundsLike": "RIGHTING",
+      "note": "rectifying means putting right"
+     }
+    ],
+    "explanation": {
+     "surface": "A radio or TV correction to an earlier report.",
+     "definitionFit": "Writing is written text, words set down on a page."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Broadcast"
+    }
+   }
   }
  ]
 }
