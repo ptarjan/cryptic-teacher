@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -47,7 +50,54 @@
     "text": "Shipment miles away from Channel?",
     "enumeration": "7"
    },
-   "solution": "TRANSIT"
+   "solution": "TRANSIT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TRANSIT",
+    "definitions": [
+     {
+      "text": "Shipment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "away from",
+      "for": "deletion",
+      "note": "something away from a place is no longer in it, so that letter is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "miles",
+      "gives": "M",
+      "note": "M is the standard abbreviation for miles"
+     },
+     {
+      "clueFragment": "Channel",
+      "gives": "TRANSMIT",
+      "note": "to channel something is to pass it on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRANS",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "Goods being sent a long way off from the English Channel.",
+     "walkthrough": "'Channel' with its capital letter looks like the sea between England and France, but it is a verb meaning pass on.",
+     "definitionFit": "Transit is the conveying of goods from one place to another, so it can stand for shipment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Channel"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +117,56 @@
      }
     ]
    },
-   "solution": "MOUSEDEER"
+   "solution": "MOUSEDEER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MOUSE DEER",
+    "definitions": [
+     {
+      "text": "chevrotain",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "across",
+      "for": "container",
+      "note": "lying across something means spanning it, so one piece stretches around the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cat that hunts",
+      "gives": "MOUSER",
+      "note": "a mouser is a cat valued for catching mice"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "DEE",
+      "note": "the Dee is a river in Britain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOUSE",
+      "DEE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A hunting cat goes over the river after a small deer.",
+     "definitionFit": "The chevrotain is a tiny hoofed animal of Asian and African forests, commonly called the mouse deer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -87,7 +186,39 @@
      }
     ]
    },
-   "solution": "ELECTRICBLANKET"
+   "solution": "ELECTRICBLANKET",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ELECTRIC BLANKET",
+    "definitions": [
+     {
+      "text": "One may be employed by one before retiring",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One may be employed by one before retiring",
+      "note": "surface reading: someone is hired by a person about to stop working"
+     },
+     {
+      "clueFragment": "retiring",
+      "note": "setter's reading: retiring means going to bed, and the thing is used to warm the bed beforehand"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Employed' and 'retiring' suggest a job and a pension; retiring here means going to bed, and employed means used.",
+     "definitionFit": "This heated bed covering is switched on to warm the bed before someone goes to sleep."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "retiring"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +232,47 @@
     "text": "Bucket down in stable, reportedly",
     "enumeration": "4"
    },
-   "solution": "TEEM"
+   "solution": "TEEM",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TEEM",
+    "definitions": [
+     {
+      "text": "Bucket down",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as heard or told, so the word is taken by its sound"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stable",
+      "gives": "TEEM",
+      "soundsLike": "TEAM",
+      "note": "a stable is a group of racehorses, wrestlers or drivers working together, a team"
+     }
+    ],
+    "explanation": {
+     "surface": "Rain pours down on a horse's stable.",
+     "walkthrough": "Bucket down is British for rain heavily; 'stable' looks like a building but is a group of performers under one owner.",
+     "definitionFit": "To teem with rain and to bucket down both mean to rain very heavily, so they are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stable"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +286,67 @@
     "text": "Protestant bishop suitable? It's doubtful",
     "enumeration": "7"
    },
-   "solution": "BAPTIST"
+   "solution": "BAPTIST",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "BAPTIST",
+    "definitions": [
+     {
+      "text": "Protestant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doubtful",
+      "for": "anagram",
+      "note": "when something is doubtful it is uncertain and unsettled, so these letters are not in their final order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     },
+     {
+      "clueFragment": "suitable",
+      "gives": "APT",
+      "note": "apt means suitable"
+     },
+     {
+      "clueFragment": "It's",
+      "gives": "IST",
+      "note": "the three letters of the word rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "APT",
+      "IST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITS",
+       "gives": "IST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders whether a bishop is right for a Protestant post and decides it is uncertain.",
+     "walkthrough": "The question mark makes 'It's doubtful' look like a comment on the bishop; it is the shuffled 'It's' that ends the word.",
+     "definitionFit": "A Baptist belongs to a Protestant denomination practising adult baptism by immersion, so it is one example of a Protestant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doubtful"
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +360,69 @@
     "text": "Detain someone in conversation, but not round hovel",
     "enumeration": "10"
    },
-   "solution": "BUTTONHOLE"
+   "solution": "BUTTONHOLE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "BUTTONHOLE",
+    "definitions": [
+     {
+      "text": "Detain someone in conversation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "reversal",
+      "note": "turned round means facing the other way, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "but",
+      "gives": "BUT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written, before being turned"
+     },
+     {
+      "clueFragment": "hovel",
+      "gives": "HOLE",
+      "note": "a hole is a dingy, wretched dwelling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUT",
+      "TON",
+      "HOLE"
+     ],
+     "reversals": [
+      {
+       "from": "NOT",
+       "to": "TON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is kept talking, though not about a shabby little house.",
+     "definitionFit": "To buttonhole someone is an idiom for stopping them and keeping them in a conversation they may not want."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 6,
@@ -153,7 +446,54 @@
      }
     ]
    },
-   "solution": "PARAGONOFVIRTUE"
+   "solution": "PARAGONOFVIRTUE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PARAGON OF VIRTUE",
+    "definitions": [
+     {
+      "text": "little angel",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rattles",
+      "for": "anagram",
+      "note": "rattles means shakes about, so the letters before it are jumbled"
+     }
+    ],
+    "linkWords": [
+     "for the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I favour top range",
+      "gives": "IFAVOURTOPRANGE",
+      "note": "all fifteen letters, rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IFAVOURTOPRANGE",
+       "gives": "PARAGONOFVIRTUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper prefers the best toy rattles to buy for a sweet baby.",
+     "walkthrough": "'Rattles' looks like a noun, babies' toys, but it is a verb meaning shakes up.",
+     "definitionFit": "A little angel is an ironic or fond name for a perfectly behaved person, which is a model of goodness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "rattles"
+    }
+   }
   },
   {
    "number": 7,
@@ -167,7 +507,46 @@
     "text": "Home, small apartment, not suitable",
     "enumeration": "5"
    },
-   "solution": "INAPT"
+   "solution": "INAPT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INAPT",
+    "definitions": [
+     {
+      "text": "not suitable",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Home",
+      "gives": "IN",
+      "note": "at home means in"
+     },
+     {
+      "clueFragment": "small apartment",
+      "gives": "APT",
+      "note": "APT is the short form of apartment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "APT"
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny flat makes an unsuitable home.",
+     "definitionFit": "Inapt means inappropriate or unfitting, so it is a synonym for not suitable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "number": 8,
@@ -187,7 +566,53 @@
      }
     ]
    },
-   "solution": "THEROBE"
+   "solution": "THEROBE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THE ROBE",
+    "definitions": [
+     {
+      "text": "Film",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must involve",
+      "for": "container",
+      "note": "to involve is to take in or include, so the first piece holds the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in that place",
+      "gives": "THERE",
+      "note": "in that place means there"
+     },
+     {
+      "clueFragment": "outside broadcast",
+      "gives": "OB",
+      "note": "OB is the broadcasting abbreviation for an outside broadcast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THER",
+      "OB",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Shooting a movie on location needs an outside broadcast unit.",
+     "definitionFit": "The Robe is a 1953 Biblical epic, the first film released in CinemaScope, so it is an example of a film."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -207,7 +632,39 @@
      }
     ]
    },
-   "solution": "AMUSEMENTARCADE"
+   "solution": "AMUSEMENTARCADE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "AMUSEMENT ARCADE",
+    "definitions": [
+     {
+      "text": "Where many a bandit may be sent into a spin",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where many a bandit may be sent into a spin",
+      "note": "surface reading: a hideout where outlaws are thrown into confusion"
+     },
+     {
+      "clueFragment": "bandit",
+      "note": "setter's reading: a one-armed bandit is a slot machine whose reels spin, found in rows at a seaside gaming hall"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A one-armed bandit is a coin-operated fruit machine; its reels are set spinning, and such machines fill seaside gaming halls.",
+     "definitionFit": "An amusement arcade is a venue full of coin-operated games, including many fruit machines whose reels spin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bandit"
+    }
+   }
   },
   {
    "number": 10,
@@ -221,7 +678,41 @@
     "text": "Afternoon nap in cosiest armchair",
     "enumeration": "6"
    },
-   "solution": "SIESTA"
+   "solution": "SIESTA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SIESTA",
+    "definitions": [
+     {
+      "text": "Afternoon nap",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the word sits inside the run of letters that follows, spanning two words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cosiest armchair",
+      "gives": "SIESTA",
+      "note": "the letters run from inside the first word into the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone takes an afternoon doze in the most comfortable armchair in the house.",
+     "definitionFit": "A siesta is the Spanish custom of a short rest or sleep after lunch, so an afternoon nap."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -249,7 +740,48 @@
    "group": [
     "11-across",
     "13-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FOUGHT TO THE FINISH",
+    "definitions": [
+     {
+      "text": "never gave up",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rowed",
+      "gives": "FOUGHT",
+      "note": "rowed in the sense of quarrelled, rhyming with 'cowed'"
+     },
+     {
+      "clueFragment": "all the way",
+      "gives": "TOTHEFINISH",
+      "note": "going all the way means going right to the end"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOUGHT",
+      "TOTHEFINISH"
+     ]
+    },
+    "explanation": {
+     "surface": "An oarsman kept pulling right to the line without giving in.",
+     "walkthrough": "'Rowed' reads as rowing a boat, but here it is the other pronunciation, meaning had a quarrel.",
+     "definitionFit": "To fight something to the finish is an idiom for persisting until the end, which is never giving up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Rowed"
+    }
+   }
   },
   {
    "number": 12,
@@ -263,7 +795,50 @@
     "text": "Biscuit may give stimulation, taken with instant",
     "enumeration": "10"
    },
-   "solution": "GINGERSNAP"
+   "solution": "GINGERSNAP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GINGER SNAP",
+    "definitions": [
+     {
+      "text": "Biscuit",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "may give",
+     "taken with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stimulation",
+      "gives": "GINGER",
+      "note": "ginger means liveliness or spirit, as in to ginger up"
+     },
+     {
+      "clueFragment": "instant",
+      "gives": "SNAP",
+      "note": "a snap decision is an instant one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GINGER",
+      "SNAP"
+     ]
+    },
+    "explanation": {
+     "surface": "A biscuit gives a quick boost when eaten straight away.",
+     "definitionFit": "A ginger snap is a crisp, thin biscuit flavoured with ginger, so it is a kind of biscuit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stimulation"
+    }
+   }
   },
   {
    "number": 13,
@@ -296,7 +871,68 @@
     "text": "Regular returned carrying right bottle",
     "enumeration": "5"
    },
-   "solution": "NERVE"
+   "solution": "NERVE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "NERVE",
+    "definitions": [
+     {
+      "text": "bottle",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "returned means sent back the way it came, so the word is read backwards"
+     },
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "carrying means holding something within, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Regular",
+      "gives": "EVEN",
+      "note": "regular, as in uniform or steady, is even"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "R",
+      "VE"
+     ],
+     "reversals": [
+      {
+       "from": "EVREN",
+       "to": "NERVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pub regular came back with the right bottle.",
+     "walkthrough": "Bottle is British slang for courage, as in 'lose your bottle'; the pub scene makes it look like a container of drink.",
+     "definitionFit": "Nerve and bottle are both informal words for courage or daring, so they are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bottle"
+    }
+   }
   },
   {
    "number": 15,
@@ -334,7 +970,50 @@
     "text": "Odd-looking brush plant",
     "enumeration": "5"
    },
-   "solution": "SHRUB"
+   "solution": "SHRUB",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SHRUB",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Odd-looking",
+      "for": "anagram",
+      "note": "something odd-looking appears strange or out of shape, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brush",
+      "gives": "BRUSH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BRUSH",
+       "gives": "SHRUB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strange-looking bristly plant in the garden.",
+     "definitionFit": "A shrub is a woody plant smaller than a tree, so it is one kind of plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brush"
+    }
+   }
   },
   {
    "number": 16,
@@ -348,7 +1027,53 @@
     "text": "Skiffs, in the morning, passing through bridges",
     "enumeration": "7"
    },
-   "solution": "SAMPANS"
+   "solution": "SAMPANS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SAMPANS",
+    "definitions": [
+     {
+      "text": "Skiffs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "passing through",
+      "for": "container",
+      "note": "passing through means going inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bridges",
+      "gives": "SPANS",
+      "note": "a span is a bridge or the stretch it covers"
+     },
+     {
+      "clueFragment": "in the morning",
+      "gives": "AM",
+      "note": "AM is the abbreviation for the morning hours, ante meridiem"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AM",
+      "PANS"
+     ]
+    },
+    "explanation": {
+     "surface": "Small boats float under the bridges early in the day.",
+     "definitionFit": "Sampans are small flat-bottomed boats of East Asia, comparable to skiffs, which are light small boats."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -362,7 +1087,65 @@
     "text": "On west of island, daughter is pecked by game bird",
     "enumeration": "9"
    },
-   "solution": "GOLDFINCH"
+   "solution": "GOLDFINCH",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "GOLDFINCH",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is pecked by",
+      "for": "container",
+      "note": "being pecked puts one thing inside the beak of another, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "On west of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game",
+      "gives": "GOLF",
+      "note": "golf is a game"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "INCH",
+      "note": "inch is a Scottish word for a small island, as in Inchcolm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOL",
+      "D",
+      "F",
+      "INCH"
+     ]
+    },
+    "explanation": {
+     "surface": "On the western side of an island a girl is pecked by a game bird.",
+     "walkthrough": "'Game bird' looks like one phrase, but game is the sport and bird alone is the definition. 'On west of island' places the first part before the island word.",
+     "definitionFit": "The goldfinch is a small songbird with a red face and yellow wing bars, so it is an example of a bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 18,
@@ -382,7 +1165,62 @@
      }
     ]
    },
-   "solution": "HEATHEN"
+   "solution": "HEATHEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HEATHEN",
+    "definitions": [
+     {
+      "text": "Barbaric",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "the leader is whoever comes first, so only the initial letter of the word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "male",
+      "gives": "HE",
+      "note": "he is the male pronoun"
+     },
+     {
+      "clueFragment": "Amazons",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "at that time",
+      "gives": "THEN",
+      "note": "at that time means then"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "A",
+      "THEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A savage man leads a tribe of warrior women in some past era.",
+     "walkthrough": "'Barbaric' is used as an adjective; heathen can be one too, meaning uncivilised.",
+     "definitionFit": "Heathen as an adjective means uncivilised or pagan, close in sense to barbaric."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 19,
@@ -396,7 +1234,56 @@
     "text": "Wholesale slaughter in ancient city following religious ceremony",
     "enumeration": "8"
    },
-   "solution": "MASSACRE"
+   "solution": "MASSACRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MASSACRE",
+    "definitions": [
+     {
+      "text": "Wholesale slaughter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "one thing following another comes after it, so the city's name is placed second"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "religious ceremony",
+      "gives": "MASS",
+      "note": "the Mass is the Catholic service of the Eucharist"
+     },
+     {
+      "clueFragment": "ancient city",
+      "gives": "ACRE",
+      "note": "Acre is an ancient port city in present-day Israel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MASS",
+      "ACRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A massacre takes place in an old city right after a church service.",
+     "walkthrough": "'following' puts the city after the ceremony.",
+     "definitionFit": "A massacre is the killing of many people at once, which is what wholesale slaughter means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -410,7 +1297,56 @@
     "text": "Opening of sewage farm, in spite of this",
     "enumeration": "5"
    },
-   "solution": "STILL"
+   "solution": "STILL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STILL",
+    "definitions": [
+     {
+      "text": "in spite of this",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Opening of",
+      "for": "letter_selection",
+      "note": "the opening is where a word begins, so its first letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sewage",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "farm",
+      "gives": "TILL",
+      "note": "to farm land is to till it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TILL"
+     ]
+    },
+    "explanation": {
+     "surface": "A sewage works opens despite objections.",
+     "walkthrough": "'Farm' looks like a noun after 'sewage', but it is the verb meaning cultivate.",
+     "definitionFit": "Still as an adverb means nevertheless, which is the same as in spite of this."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "farm"
+    }
+   }
   },
   {
    "number": 21,
@@ -424,7 +1360,57 @@
     "text": "Managed to bump into Spanish aunt in capital",
     "enumeration": "6"
    },
-   "solution": "TIRANA"
+   "solution": "TIRANA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TIRANA",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to bump into",
+      "for": "container",
+      "note": "bumping into something means going into it, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spanish aunt",
+      "gives": "TIA",
+      "note": "tía is the Spanish word for aunt"
+     },
+     {
+      "clueFragment": "Managed",
+      "gives": "RAN",
+      "note": "managed, as in ran a business"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "RAN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone happened to meet their Spanish aunt while in a capital city.",
+     "definitionFit": "Tirana is the capital city of Albania, so it is an example of a capital."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Managed"
+    }
+   }
   },
   {
    "number": 22,
@@ -438,7 +1424,58 @@
     "text": "Terrified, initially, to embrace ruffian",
     "enumeration": "4"
    },
-   "solution": "THUG"
+   "solution": "THUG",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "THUG",
+    "definitions": [
+     {
+      "text": "ruffian",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the first letter of the word is kept"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Terrified",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "embrace",
+      "gives": "HUG",
+      "note": "to embrace is to hug"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HUG"
+     ]
+    },
+    "explanation": {
+     "surface": "A frightened person is grabbed by a violent thug.",
+     "definitionFit": "A thug is a violent, rough criminal, so it is a synonym for ruffian."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "embrace"
+    }
+   }
   },
   {
    "number": 23,
@@ -470,7 +1507,39 @@
      }
     ]
    },
-   "solution": "AKICKINTHETEETH"
+   "solution": "AKICKINTHETEETH",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "A KICK IN THE TEETH",
+    "definitions": [
+     {
+      "text": "Such a hurtful rebuff may knock the smile off one's face!",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hurtful rebuff",
+      "note": "surface reading: a cruel rejection that leaves someone unhappy"
+     },
+     {
+      "clueFragment": "knock the smile off one's face",
+      "note": "setter's reading: literally, a blow to the mouth that knocks out the teeth one smiles with"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The idiom for a cruel setback is read literally: a blow to the mouth would remove the teeth that make a smile.",
+     "definitionFit": "The phrase is an idiom for a harsh disappointment or humiliating rejection, especially from someone unexpected."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "smile"
+    }
+   }
   },
   {
    "number": 24,
@@ -490,7 +1559,47 @@
      }
     ]
    },
-   "solution": "SPLITUP"
+   "solution": "SPLITUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPLIT UP",
+    "definitions": [
+     {
+      "text": "Part",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Croatian resort",
+      "gives": "SPLIT",
+      "note": "Split is a resort city on Croatia's Adriatic coast"
+     },
+     {
+      "clueFragment": "elevated",
+      "gives": "UP",
+      "note": "elevated means raised, up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPLIT",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A section of a Croatian holiday town that stands on high ground.",
+     "walkthrough": "'Part' looks like a noun, a piece of the resort, but it is the verb meaning separate.",
+     "definitionFit": "To part, as a couple does, is to separate, and split up is the everyday phrasal verb for that."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Part"
+    }
+   }
   },
   {
    "number": 25,
@@ -504,7 +1613,78 @@
     "text": "Sprite in ring formed round diseased elm",
     "enumeration": "7"
    },
-   "solution": "GREMLIN"
+   "solution": "GREMLIN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GREMLIN",
+    "definitions": [
+     {
+      "text": "Sprite",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "formed",
+      "for": "anagram",
+      "note": "formed means shaped into something new, so the letters before it are rearranged"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means going around the outside, so one piece wraps the other"
+     },
+     {
+      "text": "diseased",
+      "for": "anagram",
+      "note": "diseased suggests something unhealthy and out of order, so those letters are rearranged too"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ring",
+      "gives": "GRIN",
+      "note": "the four letters rearranged"
+     },
+     {
+      "clueFragment": "elm",
+      "gives": "EML",
+      "note": "the three letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GR",
+      "EML",
+      "IN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RING",
+       "gives": "GRIN"
+      },
+      {
+       "fodder": "ELM",
+       "gives": "EML"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woodland spirit dances in a fairy ring around a sick elm tree.",
+     "definitionFit": "A gremlin is an imaginary mischievous creature blamed for mechanical faults, a kind of sprite or imp."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   }
  ]
 }
