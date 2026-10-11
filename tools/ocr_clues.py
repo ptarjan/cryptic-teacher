@@ -1383,6 +1383,8 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
     # readings printing the clue have no more numbers after that word than
     # the count's and the next clue's: more is a reference the clue makes
     # ("third of8" with a count of 3: "of # # #"), but none follows its "?".
+    # A figure the readings print as a mark ("Hunts7" for "Hunts?") is that
+    # mark, no count.
     end_fig = re.search(r"(?<=[A-Za-z?!])\d+[\s).,:;]*$", clue)
     end_word = max((i for i, (at, t) in enumerate(spans) if at + len(t) <= end_fig.start()
                     and t not in MARKS and t != BREAK and not t.isdigit()), default=None) if end_fig else None
@@ -1744,6 +1746,7 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
     if lead_cut is not None and (0 in adds or printing < 2 or not glued_digits(0, low, seen, extra, fixes, before=True)):
         lead_cut = None
     if (end_word is not None and count_cut is None and printing >= 2 and len(end_runs) >= 2
+            and not any(fixes.get(i, "#") in MARKS for i, (at, t) in enumerate(spans) if at >= end_fig.start())
             and all(1 <= r <= (len(clue) if clue[end_fig.start() - 1] in "?!" else 1 + len(re.findall(r"\d+", count or "0")))
                     for r in end_runs)
             and printed_as_voted(end_word, low, seen, fixes)):
