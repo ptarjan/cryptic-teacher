@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,46 @@
     "text": "Side effects of accident abroad",
     "enumeration": "7"
    },
-   "solution": "FALLOUT"
+   "solution": "FALLOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FALLOUT",
+    "definitions": [
+     {
+      "text": "Side effects",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "accident",
+      "gives": "FALL",
+      "note": "a fall is an accident, a tumble"
+     },
+     {
+      "clueFragment": "abroad",
+      "gives": "OUT",
+      "note": "out and abroad both mean away from home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FALL",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone abroad suffers the aftermath of an accident.",
+     "definitionFit": "Fallout is the unwelcome consequences that follow an event, its side effects."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "abroad"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +89,46 @@
     "text": "Announcement concerning catering at football ground?",
     "enumeration": "7"
    },
-   "solution": "FANFARE"
+   "solution": "FANFARE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FANFARE",
+    "definitions": [
+     {
+      "text": "Announcement",
+      "at": 0
+     },
+     {
+      "text": "catering at football ground",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "concerning"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Announcement",
+      "note": "first meaning: a flourish of trumpets heralding someone"
+     },
+     {
+      "clueFragment": "catering at football ground",
+      "note": "second meaning, split in two: the food sold to supporters is their fare"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags a whimsical reading: food for the fans at a match would be fan fare.",
+     "definitionFit": "A fanfare is a short burst of trumpets announcing an arrival, so a showy announcement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "catering"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +142,74 @@
     "text": "Medication presents zero alternative before cuts ordered",
     "enumeration": "7"
    },
-   "solution": "LINCTUS"
+   "solution": "LINCTUS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "LINCTUS",
+    "definitions": [
+     {
+      "text": "Medication",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "alternative",
+      "for": "anagram",
+      "note": "an alternative version of a word here is another arrangement of its letters"
+     },
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "ordered means put in a new sequence, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "presents",
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "zero",
+      "gives": "LIN",
+      "note": "zero is nil, whose letters are rearranged"
+     },
+     {
+      "clueFragment": "cuts",
+      "gives": "CTUS",
+      "note": "the letters of cuts, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIN",
+      "CTUS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NIL",
+       "gives": "LIN"
+      },
+      {
+       "fodder": "CUTS",
+       "gives": "CTUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A medicine offers a no-option choice ahead of ordered cuts, like a health budget.",
+     "walkthrough": "Zero must first become NIL before its letters are rearranged.",
+     "definitionFit": "Linctus is a syrupy cough medicine, a kind of medication."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "alternative"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +223,53 @@
     "text": "Scoundrel has no right, the beast",
     "enumeration": "5"
    },
-   "solution": "OTTER"
+   "solution": "OTTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OTTER",
+    "definitions": [
+     {
+      "text": "the beast",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has no",
+      "for": "deletion",
+      "note": "having none of something means it is removed from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scoundrel",
+      "gives": "ROTTER",
+      "note": "a rotter is a scoundrel"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OTTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A scoundrel with no sense of right is called a beast.",
+     "walkthrough": "Rotter is old-fashioned British slang for a scoundrel.",
+     "definitionFit": "The otter is a river mammal, so it is an example of a beast or animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "beast"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +289,39 @@
      }
     ]
    },
-   "solution": "TAPDANCER"
+   "solution": "TAPDANCER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TAP DANCER",
+    "definitions": [
+     {
+      "text": "Performer's bound to make an impact?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Performer's bound to make an impact?",
+      "note": "surface reading: this entertainer is sure to impress"
+     },
+     {
+      "clueFragment": "impact",
+      "note": "setter's reading: a performer whose every bound and step strikes the floor, making noise"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Bound' looks like 'certain' and 'impact' like 'impression'; read literally, it is a leap that strikes the floor, as metal-soled shoes do.",
+     "definitionFit": "This dancer wears shoes with metal plates and makes rhythms by striking the floor with them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bound"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +335,39 @@
     "text": "Behaves in a masterly way",
     "enumeration": "7"
    },
-   "solution": "TEACHES"
+   "solution": "TEACHES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TEACHES",
+    "definitions": [
+     {
+      "text": "Behaves in a masterly way",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Behaves in a masterly way",
+      "note": "surface reading: acts with skill and command"
+     },
+     {
+      "clueFragment": "masterly",
+      "note": "setter's reading: acts as a schoolmaster does in the classroom"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Masterly suggests virtuoso skill, but a master is also a schoolteacher, and what a schoolmaster does is instruct a class.",
+     "definitionFit": "Instructing pupils is the work of a schoolmaster, so to act like one is to instruct."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "masterly"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +381,58 @@
     "text": "Saying thanks at outset shows good judgement",
     "enumeration": "5"
    },
-   "solution": "TASTE"
+   "solution": "TASTE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TASTE",
+    "definitions": [
+     {
+      "text": "good judgement",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at outset",
+      "for": "charade",
+      "note": "at outset says this piece is moved to stand at the very start"
+     }
+    ],
+    "linkWords": [
+     "shows"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thanks",
+      "gives": "TA",
+      "note": "ta is British informal for thank you"
+     },
+     {
+      "clueFragment": "Saying",
+      "gives": "STATE",
+      "note": "to state something is to say it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "STE"
+     ]
+    },
+    "explanation": {
+     "surface": "Saying thank you right at the start shows good judgement.",
+     "walkthrough": "Take TA out of STATE to leave STE, then put TA at the outset. Ta is a casual British thank-you.",
+     "definitionFit": "Taste is discernment in matters of style and quality, a sense of good judgement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Saying"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +446,55 @@
     "text": "Scrapped a prohibition order against two men",
     "enumeration": "9"
    },
-   "solution": "ABANDONED"
+   "solution": "ABANDONED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABANDONED",
+    "definitions": [
+     {
+      "text": "Scrapped",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "against"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "prohibition order",
+      "gives": "BAN",
+      "note": "a ban is an order prohibiting something"
+     },
+     {
+      "clueFragment": "two men",
+      "gives": "DONED",
+      "note": "Don and Ed are two men's names"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BAN",
+      "DONED"
+     ]
+    },
+    "explanation": {
+     "surface": "A prohibition order against two men was scrapped.",
+     "definitionFit": "Something abandoned has been given up and discarded, so scrapped."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "men"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +508,49 @@
     "text": "Arrogance shown by hospital director",
     "enumeration": "7"
    },
-   "solution": "HAUTEUR"
+   "solution": "HAUTEUR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HAUTEUR",
+    "definitions": [
+     {
+      "text": "Arrogance",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "shown by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the abbreviation for hospital, as on road signs"
+     },
+     {
+      "clueFragment": "director",
+      "gives": "AUTEUR",
+      "note": "an auteur is a film director with a distinctive personal style"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AUTEUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A hospital director shows arrogance.",
+     "definitionFit": "Hauteur is haughtiness, a proud and superior manner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "director"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +564,69 @@
     "text": "Believe it's stupid to accept law being overturned",
     "enumeration": "7"
    },
-   "solution": "SWALLOW"
+   "solution": "SWALLOW",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SWALLOW",
+    "definitions": [
+     {
+      "text": "Believe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being overturned",
+      "for": "reversal",
+      "note": "overturned means turned upside down, so in a down entry the word reads back up"
+     },
+     {
+      "text": "to accept",
+      "for": "container",
+      "note": "accepting something means taking it in, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stupid",
+      "gives": "SLOW",
+      "note": "slow means dim-witted"
+     },
+     {
+      "clueFragment": "law",
+      "gives": "LAW",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WAL",
+      "LOW"
+     ],
+     "reversals": [
+      {
+       "from": "LAW",
+       "to": "WAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone believes it is foolish to accept a law being overturned.",
+     "definitionFit": "To swallow a story is to accept it as true without question, to believe it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "accept"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +646,55 @@
      }
     ]
    },
-   "solution": "NONSTOP"
+   "solution": "NONSTOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NON-STOP",
+    "definitions": [
+     {
+      "text": "Constant",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "refusal",
+      "gives": "NO",
+      "note": "a refusal is a no"
+     },
+     {
+      "clueFragment": "directions",
+      "gives": "NS",
+      "note": "N and S, north and south, are compass directions"
+     },
+     {
+      "clueFragment": "summit",
+      "gives": "TOP",
+      "note": "the summit is the top"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "NS",
+      "TOP"
+     ]
+    },
+    "explanation": {
+     "surface": "A climber is repeatedly refused directions to a mountain summit.",
+     "definitionFit": "Something nonstop continues without a break, so it is constant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "refusal"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +708,59 @@
     "text": "Stir up salt with a cooking utensil",
     "enumeration": "7"
    },
-   "solution": "SPATULA"
+   "solution": "SPATULA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPATULA",
+    "definitions": [
+     {
+      "text": "cooking utensil",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Stir",
+      "for": "anagram",
+      "note": "stirring mixes contents around, so the letters that follow are jumbled"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "up salt",
+      "gives": "UPSALT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UPSALTA",
+       "gives": "SPATULA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe instruction: stir the salt in with a utensil.",
+     "walkthrough": "'Stir up' looks like one phrasal verb, but only 'Stir' signals the mix; 'up' is part of the letters.",
+     "definitionFit": "A spatula is a flat-bladed kitchen tool used for spreading and turning food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +774,87 @@
     "text": "Every other officer in near chaos at the end",
     "enumeration": "9"
    },
-   "solution": "ALTERNATE"
+   "solution": "ALTERNATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ALTERNATE",
+    "definitions": [
+     {
+      "text": "Every other",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chaos",
+      "for": "anagram",
+      "note": "chaos is disorder, so the word beside it is thrown into a jumbled order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing sitting in another means it is placed inside it"
+     },
+     {
+      "text": "end",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, the only one kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "near",
+      "gives": "AERN",
+      "note": "the letters of near, rearranged"
+     },
+     {
+      "clueFragment": "officer",
+      "gives": "LT",
+      "note": "Lt is the abbreviation for lieutenant, an officer"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LT",
+      "ERN",
+      "AT",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEAR",
+       "gives": "AERN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An officer finds things nearly chaotic by the end.",
+     "walkthrough": "'Near chaos' reads as 'almost chaos', but 'near' is the word to be jumbled, with the officer slipped inside it. Lt is the standard abbreviation for lieutenant.",
+     "definitionFit": "Alternate as an adjective means every second one, as in alternate days."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "near"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +868,50 @@
     "text": "To live with daughter is fine",
     "enumeration": "5"
    },
-   "solution": "DWELL"
+   "solution": "DWELL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DWELL",
+    "definitions": [
+     {
+      "text": "To live",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "WELL",
+      "note": "fine and well both describe good health"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "WELL"
+     ]
+    },
+    "explanation": {
+     "surface": "Living with one's daughter is a perfectly fine arrangement.",
+     "definitionFit": "To dwell somewhere is to reside or make a home there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fine"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +925,39 @@
     "text": "Stand adopted by artist",
     "enumeration": "5"
    },
-   "solution": "EASEL"
+   "solution": "EASEL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EASEL",
+    "definitions": [
+     {
+      "text": "Stand adopted by artist",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stand adopted by artist",
+      "note": "surface reading: a position or stance an artist takes up"
+     },
+     {
+      "clueFragment": "Stand",
+      "note": "setter's reading: a physical frame a painter uses to hold the canvas"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Stand adopted' sounds like an opinion or principle an artist holds; read literally it is the wooden support a painter works at.",
+     "definitionFit": "An easel is the upright frame that holds a painter's canvas while they work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stand"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +971,76 @@
     "text": "Look up name on sign for bookkeeper",
     "enumeration": "9"
    },
-   "solution": "LIBRARIAN"
+   "solution": "LIBRARIAN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "LIBRARIAN",
+    "definitions": [
+     {
+      "text": "bookkeeper",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means the word reads from bottom to top"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "on here means placed next to, so these pieces follow the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sign",
+      "gives": "LIBRA",
+      "note": "Libra is a sign of the zodiac"
+     },
+     {
+      "clueFragment": "Look",
+      "gives": "AIR",
+      "note": "an air is a look or appearance"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIBRA",
+      "RIA",
+      "N"
+     ],
+     "reversals": [
+      {
+       "from": "AIR",
+       "to": "RIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Looking up a name on a sign to find the bookkeeper.",
+     "walkthrough": "'Bookkeeper' wants to be an accountant; it is the person who keeps a library's books.",
+     "definitionFit": "A librarian is in charge of a library, literally a keeper of books."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bookkeeper"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1060,58 @@
      }
     ]
    },
-   "solution": "CABINCREW"
+   "solution": "CABINCREW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CABIN CREW",
+    "definitions": [
+     {
+      "text": "Flighty lot",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "get",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taxi",
+      "gives": "CAB",
+      "note": "a cab is a taxi"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     },
+     {
+      "clueFragment": "team",
+      "gives": "CREW",
+      "note": "a crew is a team"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAB",
+      "IN",
+      "CREW"
+     ]
+    },
+    "explanation": {
+     "surface": "A flighty group takes a taxi home together with their team.",
+     "walkthrough": "'Flighty' suggests fickle people, but here it means those who work on flights.",
+     "definitionFit": "The staff who look after passengers on aeroplane flights are a group of people working aloft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Flighty"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1125,66 @@
     "text": "Partner strangely fiery in relationship",
     "enumeration": "9"
    },
-   "solution": "BOYFRIEND"
+   "solution": "BOYFRIEND",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BOYFRIEND",
+    "definitions": [
+     {
+      "text": "Partner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strangely",
+      "for": "anagram",
+      "note": "strangely means in an odd way, so the word's letters come out oddly arranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fiery",
+      "gives": "YFRIE",
+      "note": "the letters of fiery, rearranged"
+     },
+     {
+      "clueFragment": "relationship",
+      "gives": "BOND",
+      "note": "a bond is a relationship or tie between people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "YFRIE",
+      "ND"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FIERY",
+       "gives": "YFRIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A partner proves strangely fiery in a relationship.",
+     "definitionFit": "A boyfriend is a male romantic partner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "relationship"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1198,64 @@
     "text": "File by, slip inside for some fruit",
     "enumeration": "9"
    },
-   "solution": "RASPBERRY"
+   "solution": "RASPBERRY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "RASPBERRY",
+    "definitions": [
+     {
+      "text": "some fruit",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "something inside goes within the other word, splitting it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "File",
+      "gives": "RASP",
+      "note": "a rasp is a coarse file"
+     },
+     {
+      "clueFragment": "by",
+      "gives": "BY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "slip",
+      "gives": "ERR",
+      "note": "to slip is to make a mistake, to err"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RASP",
+      "B",
+      "ERR",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to file something, with a slip tucked inside, while fruit picking.",
+     "definitionFit": "A raspberry is a soft red berry, so it names one kind of fruit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "File"
+    }
+   }
   },
   {
    "number": 17,
@@ -317,7 +1269,56 @@
     "text": "Know being sincere is to the point",
     "enumeration": "7"
    },
-   "solution": "REALISE"
+   "solution": "REALISE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REALISE",
+    "definitions": [
+     {
+      "text": "Know",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "being",
+     "to the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sincere",
+      "gives": "REAL",
+      "note": "real feelings are sincere ones"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "E",
+      "note": "E, east, is a compass point"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REAL",
+      "IS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Knowing that being sincere is to the point.",
+     "definitionFit": "To realise something is to become aware of it, to understand or know it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 18,
@@ -331,7 +1332,39 @@
     "text": "He's out to score",
     "enumeration": "7"
    },
-   "solution": "STRIKER"
+   "solution": "STRIKER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "STRIKER",
+    "definitions": [
+     {
+      "text": "He's out to score",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He's out to score",
+      "note": "surface reading: someone intent on getting what they want"
+     },
+     {
+      "clueFragment": "out",
+      "note": "setter's reading: a worker on a walkout is out, and a football forward's job is to score goals"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Two readings meet: a worker out on a walkout, and the forward in football whose role is scoring goals.",
+     "definitionFit": "The word names both a worker who has walked out in protest and a football forward who tries for goals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1378,71 @@
     "text": "Dominate mixed ward at formal opening",
     "enumeration": "5"
    },
-   "solution": "DWARF"
+   "solution": "DWARF",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DWARF",
+    "definitions": [
+     {
+      "text": "Dominate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixed",
+      "for": "anagram",
+      "note": "mixed means jumbled together, so these letters are rearranged"
+     },
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter, the only one kept"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ward",
+      "gives": "DWAR",
+      "note": "the letters of ward, rearranged"
+     },
+     {
+      "clueFragment": "formal",
+      "gives": "F",
+      "select": "first",
+      "note": "the first letter of formal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DWAR",
+      "F"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WARD",
+       "gives": "DWAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes charge of a mixed hospital ward at its formal opening.",
+     "walkthrough": "'Mixed ward' reads as a hospital ward for both sexes; 'mixed' is really the signal to rearrange.",
+     "definitionFit": "To dwarf something is to tower over it, making it look small, so to dominate it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mixed"
+    }
+   }
   },
   {
    "number": 20,
@@ -359,7 +1456,56 @@
     "text": "Put out at Mavis reverting to type",
     "enumeration": "7"
    },
-   "solution": "ATAVISM"
+   "solution": "ATAVISM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ATAVISM",
+    "definitions": [
+     {
+      "text": "reverting to type",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Put out",
+      "for": "anagram",
+      "note": "someone put out is upset, disturbed, so the letters are disturbed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Mavis",
+      "gives": "MAVIS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATMAVIS",
+       "gives": "ATAVISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mavis is put out by someone reverting to type.",
+     "walkthrough": "'Reverting to type' sounds like describing a person's behaviour; here it is the definition.",
+     "definitionFit": "Atavism is the reappearance of ancestral traits, a throwback or reversion to an earlier type."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Put"
+    }
+   }
   },
   {
    "number": 21,
@@ -373,7 +1519,61 @@
     "text": "Having nothing to do as I arranged the flower",
     "enumeration": "7"
    },
-   "solution": "FREESIA"
+   "solution": "FREESIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "FREESIA",
+    "definitions": [
+     {
+      "text": "the flower",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "arranged means set out in some order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Having nothing to do",
+      "gives": "FREE",
+      "note": "with nothing to do, one is free"
+     },
+     {
+      "clueFragment": "as I",
+      "gives": "SIA",
+      "note": "the letters of as and I, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FREE",
+      "SIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ASI",
+       "gives": "SIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "With nothing else to do, someone arranges flowers.",
+     "walkthrough": "'Arranged the flower' fits flower arranging; 'arranged' only works on the two words before it.",
+     "definitionFit": "The freesia is a fragrant flowering plant, so it is a flower."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "arranged"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1587,65 @@
     "text": "First organised rota for one giving blood",
     "enumeration": "5"
    },
-   "solution": "AORTA"
+   "solution": "AORTA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "AORTA",
+    "definitions": [
+     {
+      "text": "one giving blood",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "organised",
+      "for": "anagram",
+      "note": "something organised is put into a new order, so the word is rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "First",
+      "gives": "A",
+      "note": "A is the first letter of the alphabet"
+     },
+     {
+      "clueFragment": "rota",
+      "gives": "ORTA",
+      "note": "the letters of rota, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "ORTA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROTA",
+       "gives": "ORTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The first thing organised is a rota for blood donors.",
+     "walkthrough": "'One giving blood' sounds like a donor, but it is the great artery that supplies blood from the heart to the body.",
+     "definitionFit": "The aorta is the main artery carrying blood out of the heart to the rest of the body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "giving"
+    }
+   }
   },
   {
    "number": 23,
@@ -401,7 +1659,61 @@
     "text": "Graduate carried out the defence",
     "enumeration": "9"
    },
-   "solution": "BARRICADE"
+   "solution": "BARRICADE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "BARRICADE",
+    "definitions": [
+     {
+      "text": "the defence",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "carried out suggests something taken apart and moved, so its letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Graduate",
+      "gives": "BA",
+      "note": "a BA, Bachelor of Arts, is a graduate"
+     },
+     {
+      "clueFragment": "carried",
+      "gives": "RRICADE",
+      "note": "the letters of carried, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "RRICADE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CARRIED",
+       "gives": "RRICADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A graduate conducted the defence, perhaps of a thesis.",
+     "walkthrough": "'Carried out' reads as a phrasal verb meaning performed; split, 'carried' gives the letters and 'out' rearranges them.",
+     "definitionFit": "A barricade is a makeshift barrier set up to defend a position against attack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 23,
@@ -415,7 +1727,66 @@
     "text": "Go back in vehicle — not the genuine article",
     "enumeration": "5"
    },
-   "solution": "BOGUS"
+   "solution": "BOGUS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "BOGUS",
+    "definitions": [
+     {
+      "text": "not the genuine article",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling the other way, so the word reads backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something in a vehicle sits inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go",
+      "gives": "GO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "BUS",
+      "note": "a bus is a vehicle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "OG",
+      "US"
+     ],
+     "reversals": [
+      {
+       "from": "GO",
+       "to": "OG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Returning in a vehicle that turns out to be a fake.",
+     "definitionFit": "Something bogus is a sham or counterfeit, so it is not real."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Go"
+    }
+   }
   },
   {
    "number": 24,
@@ -429,7 +1800,46 @@
     "text": "Perfect one to do business with",
     "enumeration": "5"
    },
-   "solution": "IDEAL"
+   "solution": "IDEAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IDEAL",
+    "definitions": [
+     {
+      "text": "Perfect",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "to do business with",
+      "gives": "DEAL",
+      "note": "to deal with someone is to do business with them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "DEAL"
+     ]
+    },
+    "explanation": {
+     "surface": "The perfect person to do business with.",
+     "definitionFit": "Ideal as an adjective means flawless, exactly as good as could be wished."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 25,
@@ -443,7 +1853,56 @@
     "text": "Timeless sound gives one idea",
     "enumeration": "7"
    },
-   "solution": "INKLING"
+   "solution": "INKLING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "INKLING",
+    "definitions": [
+     {
+      "text": "idea",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Timeless",
+      "for": "deletion",
+      "note": "read as time-less, it says the sound is without time, so that letter goes"
+     }
+    ],
+    "linkWords": [
+     "gives one"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "sound",
+      "gives": "TINKLING",
+      "note": "a tinkling is a light ringing sound"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INKLING"
+     ]
+    },
+    "explanation": {
+     "surface": "A sound without a sense of time gives someone an idea.",
+     "walkthrough": "'Timeless' looks like one adjective; split it as 'time' plus 'less', and the T comes off the front of the sound.",
+     "definitionFit": "An inkling is a slight hint or vague notion, a faint idea of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Timeless"
+    }
+   }
   },
   {
    "number": 26,
@@ -457,7 +1916,39 @@
     "text": "Pupils hide behind them",
     "enumeration": "7"
    },
-   "solution": "EYELIDS"
+   "solution": "EYELIDS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EYELIDS",
+    "definitions": [
+     {
+      "text": "Pupils hide behind them",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pupils hide behind them",
+      "note": "surface reading: schoolchildren take cover behind something"
+     },
+     {
+      "clueFragment": "Pupils",
+      "note": "setter's reading: the dark centres of the eyes, covered when the eyes close"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Pupils suggests schoolchildren ducking behind desks; the pupils are really parts of the eye, hidden behind the folds of skin that close over it.",
+     "definitionFit": "The folds of skin that close over the eyeball cover the pupil when someone blinks or sleeps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pupils"
+    }
+   }
   },
   {
    "number": 27,
@@ -471,7 +1962,69 @@
     "text": "German chap takes hour off — and son gets chores!",
     "enumeration": "7"
    },
-   "solution": "ERRANDS"
+   "solution": "ERRANDS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ERRANDS",
+    "definitions": [
+     {
+      "text": "chores",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "takes",
+      "for": "deletion",
+      "note": "takes ... off means removes, so the item named is dropped from the word before"
+     }
+    ],
+    "linkWords": [
+     "off —",
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German chap",
+      "gives": "HERR",
+      "note": "Herr is the German for Mr, a German man's title"
+     },
+     {
+      "clueFragment": "hour",
+      "gives": "H",
+      "note": "H is the abbreviation for hour"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERR",
+      "AND",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A German father takes an hour off work, and his son is left with the housework.",
+     "definitionFit": "Errands are short trips to do jobs such as shopping, everyday tasks or chores."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chap"
+    }
+   }
   },
   {
    "number": 28,
@@ -485,7 +2038,61 @@
     "text": "Cover reflected novel predicament",
     "enumeration": "7"
    },
-   "solution": "DILEMMA"
+   "solution": "DILEMMA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DILEMMA",
+    "definitions": [
+     {
+      "text": "predicament",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reflected",
+      "for": "reversal",
+      "note": "a reflection in a mirror shows things the wrong way round"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cover",
+      "gives": "LID",
+      "note": "a lid is a cover"
+     },
+     {
+      "clueFragment": "novel",
+      "gives": "EMMA",
+      "note": "Emma is the Jane Austen novel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIL",
+      "EMMA"
+     ],
+     "reversals": [
+      {
+       "from": "LID",
+       "to": "DIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A book's cover mirrors the dilemma at the heart of the novel.",
+     "walkthrough": "'Novel' looks like an adjective meaning new, but it stands for a particular novel, Austen's Emma.",
+     "definitionFit": "A dilemma is a difficult situation needing a choice between bad options, a predicament."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   }
  ]
 }
