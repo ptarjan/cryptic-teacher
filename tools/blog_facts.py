@@ -40,6 +40,7 @@ Reads the caches the fetchers write under downloads.ROOT; never the
 network.
 """
 import argparse
+import atexit
 import ast
 import collections
 import hashlib
@@ -49,6 +50,7 @@ import json
 import os
 import random
 import re
+import shutil
 import sqlite3
 import sys
 import tempfile
@@ -1809,11 +1811,12 @@ def load_puzzles(extra=()):
 
 @lru_cache(maxsize=4096)
 def entries_of(source):
-    """puzzle_entries of a load_puzzles source: a puzzle file, or the byte
-    offset of a record in bigdave44's parsed.jsonl."""
-    if isinstance(source, int):
-        with (BLOGS["bigdave44"][0] / "parsed.jsonl").open("rb") as f:
-            f.seek(source)
+    """puzzle_entries of a load_puzzles source: a puzzle file, or (path, byte
+    offset) of a record in bigdave_records' copy of bigdave44's parsed.jsonl."""
+    if isinstance(source, tuple):
+        path, at = source
+        with open(path, "rb") as f:
+            f.seek(at)
             return bigdave_entries(json.loads(f.readline()))
     return puzzle_entries(read_puzzle_file(source))
 
@@ -1826,22 +1829,39 @@ def bigdave_entries(r):
 
 def bigdave_records():
     """bigdave44's own parsed light lists, as stand-in puzzles to measure on,
-    each (id, number, byte offset of its record, digest of its record,
-    series). Ids are prefixed so nothing
-    mistakes them for ours."""
+    each (id, number, (copy, byte offset of its record), digest of its
+    record, series). Ids are prefixed so nothing mistakes them for ours. The
+    offsets point into a private copy, since the blog fetchers rewrite
+    parsed.jsonl while a run is still reading records by offset."""
     path = BLOGS["bigdave44"][0] / "parsed.jsonl"
     if not path.exists():
         return []
+    copy = parsed_copy(path)
     out = []
-    with path.open("rb") as f:
+    with open(copy, "rb") as f:
         at = 0
         for line in f:
             r = json.loads(line)
             if bigdave_entries(r):
-                out.append((f"bd:{r['series']}-{r['number']}", r["number"], at,
+                out.append((f"bd:{r['series']}-{r['number']}", r["number"], (copy, at),
                             hashlib.sha256(line).hexdigest(), "bd:" + r["series"]))
             at += len(line)
     return out
+
+
+_PARSED_COPIES = {}
+
+
+def parsed_copy(path):
+    """A copy of `path` this process keeps until it exits."""
+    if path not in _PARSED_COPIES:
+        fd, copy = tempfile.mkstemp(prefix="bigdave-parsed-", suffix=".jsonl")
+        with os.fdopen(fd, "wb") as out, open(path, "rb") as f:
+            shutil.copyfileobj(f, out)
+        pid = os.getpid()
+        atexit.register(lambda: os.getpid() == pid and os.unlink(copy))
+        _PARSED_COPIES[path] = copy
+    return _PARSED_COPIES[path]
 
 
 class Spool:
