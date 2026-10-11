@@ -18,8 +18,14 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "unsolved"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-11",
+  "check": "29 entries, 56 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -42,6 +48,50 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "NOTSOBAD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOT SO BAD",
+    "definitions": [
+     {
+      "text": "Less mediocre",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adapting",
+      "for": "anagram",
+      "note": "adapting something remakes it into a different form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dobson, at",
+      "gives": "DOBSONAT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DOBSONAT",
+       "gives": "NOTSOBAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Frank Dobson, the Labour minister, improving a little at adapting to something.",
+     "definitionFit": "Something not so bad is passable, a notch above mediocre, so less mediocre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dobson"
+    }
    }
   },
   {
@@ -55,6 +105,75 @@
    "clue": {
     "text": "\"Senior Tory starts getting into something shocking\", Sun figures",
     "enumeration": "10"
+   },
+   "solution": "STATISTICS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "STATISTICS",
+    "definitions": [
+     {
+      "text": "figures",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts",
+      "for": "letter_selection",
+      "note": "starts are the opening letters of the words they refer to"
+     },
+     {
+      "text": "getting",
+      "for": "container",
+      "note": "getting here means getting in, going inside the piece that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "something shocking",
+      "gives": "STATIC",
+      "note": "static electricity gives a small shock"
+     },
+     {
+      "clueFragment": "Senior Tory",
+      "gives": "ST",
+      "select": "first",
+      "note": "the opening letters of the two words"
+     },
+     {
+      "clueFragment": "into",
+      "gives": "I",
+      "select": "first",
+      "note": "the opening letter of this word too"
+     },
+     {
+      "clueFragment": "Sun",
+      "gives": "S",
+      "note": "S is the abbreviation for sun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STATI",
+      "STI",
+      "C",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A tabloid headline about a top Tory caught in a scandal, quoting the Sun's figures.",
+     "walkthrough": "The parse is loose: 'starts' must take the first letters of Senior, Tory and into, with 'getting' alone as the signal to go inside; Sun as S then trails at the end.",
+     "definitionFit": "Statistics are numerical data, which is what figures means here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sun"
+    }
    }
   },
   {
@@ -68,6 +187,54 @@
    "clue": {
     "text": "Botha's arse-over-tip dodge",
     "enumeration": "4"
+   },
+   "solution": "SKIP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SKIP",
+    "definitions": [
+     {
+      "text": "dodge",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arse-over-tip",
+      "for": "reversal",
+      "note": "arse over tip means head over heels, turned completely upside down"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Botha's",
+      "gives": "PIKS",
+      "note": "Pik Botha was apartheid South Africa's foreign minister"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKIP"
+     ],
+     "reversals": [
+      {
+       "from": "PIKS",
+       "to": "SKIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An apartheid-era politician tumbling while trying to dodge something.",
+     "walkthrough": "In a down entry the turned-over name reads from bottom to top.",
+     "definitionFit": "To skip a class or a duty is to dodge it, avoid doing it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arse-over-tip"
+    }
    }
   },
   {
@@ -82,10 +249,50 @@
     "text": "& 25dn The warmth of a welcoming hearth? A tragically ironic experience for our troops in Iraq",
     "enumeration": "8"
    },
+   "solution": "FRIENDLY",
    "group": [
     "4-down",
     "25-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FRIENDLY FIRE",
+    "definitions": [
+     {
+      "text": "The warmth of a welcoming hearth?",
+      "at": 7
+     },
+     {
+      "text": "A tragically ironic experience for our troops in Iraq",
+      "at": 41
+     }
+    ],
+    "linkWords": [
+     "& 25dn"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The warmth of a welcoming hearth?",
+      "note": "first meaning, read literally"
+     },
+     {
+      "clueFragment": "A tragically ironic experience for our troops in Iraq",
+      "note": "second meaning: being shot at by one's own allies"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "British soldiers in Iraq were killed in incidents involving American aircraft; the first meaning takes the military term literally.",
+     "definitionFit": "Friendly fire is the military term for casualties caused by one's own side, and literally a cosy fire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "warmth"
+    }
+   }
   },
   {
    "number": 5,
@@ -108,6 +315,39 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "BLOWUPDOLL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BLOW-UP DOLL",
+    "definitions": [
+     {
+      "text": "A stand-in model of inflation that satisfies certain needs",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A stand-in model of inflation",
+      "note": "surface reading: an economist's substitute model of rising prices"
+     },
+     {
+      "clueFragment": "that satisfies certain needs",
+      "note": "setter's reading: an inflatable figure that stands in for a sexual partner"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Inflation here is pumping up with air, not rising prices, and the model is a figure, not a theory.",
+     "definitionFit": "A sex toy shaped like a person, filled with air, serving as a substitute partner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "inflation"
+    }
    }
   },
   {
@@ -121,6 +361,43 @@
    "clue": {
     "text": "Quango's lopped housing capital",
     "enumeration": "4"
+   },
+   "solution": "OSLO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OSLO",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "housing",
+      "for": "hidden_word",
+      "note": "housing means the words contain the answer within them, spanning the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quango's lopped",
+      "gives": "OSLO",
+      "note": "read straight across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A government quango has been cut, but it keeps its capital funding.",
+     "walkthrough": "A quango is a semi-independent public body; 'lopped' is just surface.",
+     "definitionFit": "Oslo is the capital city of Norway."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
    }
   },
   {
@@ -134,6 +411,43 @@
    "clue": {
     "text": "\"Titbits!\" as an excited Boris Johnson might say?",
     "enumeration": "6"
+   },
+   "solution": "CRUMBS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CRUMBS",
+    "definitions": [
+     {
+      "text": "Titbits!",
+      "at": 1
+     },
+     {
+      "text": "as an excited Boris Johnson might say",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Titbits!",
+      "note": "first meaning: small scraps or morsels, as of bread"
+     },
+     {
+      "clueFragment": "as an excited Boris Johnson might say",
+      "note": "second meaning: a mild old-fashioned exclamation of surprise"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Boris Johnson is known for public-school exclamations such as 'Crikey!' and 'Cripes!'.",
+     "definitionFit": "Crumbs are small morsels, and 'Crumbs!' is a dated exclamation of surprise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Titbits"
+    }
    }
   },
   {
@@ -147,6 +461,55 @@
    "clue": {
     "text": "Openly gay with female clothing and fringes",
     "enumeration": "9"
+   },
+   "solution": "OUTSKIRTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTSKIRTS",
+    "definitions": [
+     {
+      "text": "fringes",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Openly gay",
+      "gives": "OUT",
+      "note": "someone who is out is openly gay"
+     },
+     {
+      "clueFragment": "with",
+      "note": "joins the two pieces"
+     },
+     {
+      "clueFragment": "female clothing",
+      "gives": "SKIRTS",
+      "note": "skirts are women's garments"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "SKIRTS"
+     ]
+    },
+    "explanation": {
+     "surface": "A flamboyant figure in a frock trimmed with fringes.",
+     "walkthrough": "OUT plus SKIRTS gives OUTSKIRTS; 'with' simply joins the two pieces.",
+     "definitionFit": "The outskirts of a town are its edges or margins, so a synonym for fringes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fringes"
+    }
    }
   },
   {
@@ -160,6 +523,52 @@
    "clue": {
     "text": "No longer pissed off, Boers?",
     "enumeration": "5"
+   },
+   "solution": "SOBER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOBER",
+    "definitions": [
+     {
+      "text": "No longer pissed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone wrong, so the letters are out of their proper order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boers",
+      "gives": "BOERS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BOERS",
+       "gives": "SOBER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether some Afrikaners have dried out, or just stopped being angry.",
+     "walkthrough": "'Pissed off' reads as one phrase meaning annoyed; split it, and 'pissed' (drunk) is the definition.",
+     "definitionFit": "Pissed is British slang for drunk, so someone no longer pissed is sober."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "off"
+    }
    }
   },
   {
@@ -173,6 +582,59 @@
    "clue": {
     "text": "Bloody hell getting round Kent, etc. for England team usually?",
     "enumeration": "5"
+   },
+   "solution": "LOSER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LOSER",
+    "definitions": [
+     {
+      "text": "England team usually",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting round",
+      "for": "container",
+      "note": "to get round something is to surround it, so one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bloody hell",
+      "gives": "LOR",
+      "note": "Lor! is an old exclamation of surprise or dismay, a clipped form of Lord!"
+     },
+     {
+      "clueFragment": "Kent, etc.",
+      "gives": "SE",
+      "note": "Kent and its neighbours are counties of the South-East"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "SE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "An exasperated fan swears at the home counties' selection policy for the national side.",
+     "walkthrough": "Lor! is a dated cry of dismay. The definition is Private Eye's dig at the England sporting sides, flagged by the question mark.",
+     "definitionFit": "A loser is one who habitually fails, which the clue jokingly says England's team usually is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Bloody"
+    }
    }
   },
   {
@@ -192,6 +654,39 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "SETUP",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SET UP",
+    "definitions": [
+     {
+      "text": "Be an establishment type",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Be an establishment type",
+      "note": "surface reading: be one of the Establishment, a pillar of the ruling class"
+     },
+     {
+      "clueFragment": "establishment",
+      "note": "setter's reading: an establishment is something founded, and to found something is the two-word phrasal verb meaning establish"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The capital-E Establishment of the surface gives way to the plain act of founding something.",
+     "definitionFit": "To set up a business or school is to found it, which makes it an establishment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "establishment"
+    }
    }
   },
   {
@@ -211,6 +706,84 @@
       "mark": "-"
      }
     ]
+   },
+   "solution": "ELBOWROOM",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ELBOW-ROOM",
+    "definitions": [
+     {
+      "text": "Sufficient scope",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to turn",
+      "for": "reversal",
+      "note": "turning a name round makes it read from its end back to its start"
+     },
+     {
+      "text": "chief of",
+      "for": "letter_selection",
+      "note": "the chief of a word is its head, its opening letter"
+     },
+     {
+      "text": "squeeze",
+      "for": "container",
+      "note": "to squeeze something is to hold it tight inside, so the reversed name encloses the rest"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ex-Torygraph editor",
+      "gives": "MOORE",
+      "note": "Charles Moore edited the Daily Telegraph, which Private Eye calls the Torygraph"
+     },
+     {
+      "clueFragment": "liars",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of liars"
+     },
+     {
+      "clueFragment": "Archer's thing",
+      "gives": "BOW",
+      "note": "an archer shoots with a bow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "L",
+      "BOW",
+      "ROOM"
+     ],
+     "reversals": [
+      {
+       "from": "MOORE",
+       "to": "EROOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former Telegraph editor turning on liars, with a sly nod to Jeffrey Archer, the novelist peer jailed for perjury.",
+     "walkthrough": "'Archer' tempts you towards Jeffrey Archer, a Private Eye target; here it is just a bowman. The Torygraph is the Eye's nickname for the Daily Telegraph.",
+     "definitionFit": "Elbow-room is enough space to move or act freely, an idiom for adequate scope."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Archer's"
+    }
    }
   },
   {
@@ -224,6 +797,59 @@
    "clue": {
     "text": "Old John Major colleague, possibly gets off holding a celebrity",
     "enumeration": "7"
+   },
+   "solution": "BASTARD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BASTARD",
+    "definitions": [
+     {
+      "text": "Old John Major colleague, possibly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "something holding another thing keeps it inside, so one word wraps round the other"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "off",
+      "gives": "BAD",
+      "note": "food that is off has gone bad"
+     },
+     {
+      "clueFragment": "a celebrity",
+      "gives": "STAR",
+      "note": "a star is a celebrity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "STAR",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A former Cabinet minister of John Major's slips away clutching some famous figure.",
+     "walkthrough": "BAD holds STAR: BA(STAR)D. John Major, UK Prime Minister 1990-97, was caught on tape calling three Eurosceptic Cabinet colleagues bastards.",
+     "definitionFit": "Major's own off-mic word for his rebellious ministers, so a colleague of his might be one, as 'possibly' admits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "off"
+    }
    }
   },
   {
@@ -243,6 +869,73 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "ABELINCOLN",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ABE LINCOLN",
+    "definitions": [
+     {
+      "text": "a final bang ended his presidency",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no",
+      "for": "deletion",
+      "note": "no here means without, so a letter is dropped from the name"
+     },
+     {
+      "text": "to get screwed",
+      "for": "anagram",
+      "note": "screwed means twisted round, so the remaining letters are turned into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Done-in brother",
+      "gives": "ABEL",
+      "note": "Abel was the brother killed by Cain in Genesis"
+     },
+     {
+      "clueFragment": "Clinton",
+      "gives": "CLINTON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABEL",
+      "INCOLN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CLINON",
+       "gives": "INCOLN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lurid sketch of Bill Clinton's scandals, with a sly bang at the end of a presidency.",
+     "walkthrough": "ABEL's final L doubles as LINCOLN's first; the rest is CLINTON without T, rearranged.",
+     "definitionFit": "Abraham Lincoln was shot dead in 1865 at Ford's Theatre, a gunshot that ended his presidency."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bang"
+    }
    }
   },
   {
@@ -256,6 +949,64 @@
    "clue": {
     "text": "Brenda repulsed by collective hacks' put down",
     "enumeration": "7"
+   },
+   "solution": "REPRESS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "REPRESS",
+    "definitions": [
+     {
+      "text": "put down",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "repulsed",
+      "for": "reversal",
+      "note": "something repulsed is driven back the way it came"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brenda",
+      "gives": "ER",
+      "note": "Brenda is Private Eye's nickname for the Queen, Elizabeth Regina, ER"
+     },
+     {
+      "clueFragment": "collective hacks",
+      "gives": "PRESS",
+      "note": "journalists collectively are the press"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "PRESS"
+     ],
+     "reversals": [
+      {
+       "from": "ER",
+       "to": "RE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Queen recoils from the massed tabloid hacks' insults.",
+     "walkthrough": "Brenda is a Private Eye running joke; read with the Eye's conventions, it is just the Queen's royal cipher.",
+     "definitionFit": "To repress a revolt is to put it down, crush it by force."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Brenda"
+    }
    }
   },
   {
@@ -275,6 +1026,68 @@
       "mark": "-"
      }
     ]
+   },
+   "solution": "EVILMINDED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "EVIL-MINDED",
+    "definitions": [
+     {
+      "text": "inclined to be naughty",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "something broadcast is scattered widely, so its letters land in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Live",
+      "gives": "LIVE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "beware",
+      "gives": "MIND",
+      "note": "to mind is to beware, as in 'mind the gap'"
+     },
+     {
+      "clueFragment": "Hislop",
+      "gives": "ED",
+      "note": "Ian Hislop is editor of Private Eye, and ED is short for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVIL",
+      "MIND",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LIVE",
+       "gives": "EVIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning before Ian Hislop goes on air live, given his mischievous streak.",
+     "walkthrough": "'Live broadcast' reads as a TV phrase, but 'broadcast' acts on the word before it.",
+     "definitionFit": "Evil-minded means having wicked or smutty thoughts, so given to naughtiness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "broadcast"
+    }
    }
   },
   {
@@ -298,6 +1111,78 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "DRIVEBYSHOOTING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "DRIVE-BY SHOOTING",
+    "definitions": [
+     {
+      "text": "the crime of taking pot while in moving car",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "roughly",
+      "for": "anagram",
+      "note": "done roughly means done loosely, without keeping the letters in their careful order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the shuffled letters go round the numeral"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bird? Yes",
+      "gives": "BIRDYES",
+      "note": "the letters of the two words, taken as written"
+     },
+     {
+      "clueFragment": "five",
+      "gives": "V",
+      "note": "V is the Roman numeral for five"
+     },
+     {
+      "clueFragment": "sounding a warning",
+      "gives": "HOOTING",
+      "note": "a driver sounds a warning by hooting the horn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRI",
+      "V",
+      "EBYS",
+      "HOOTING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BIRDYES",
+       "gives": "DRIEBYS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rambling tale of a bird and five hooters ends in a crime committed from a passing car.",
+     "walkthrough": "'Taking pot' means taking pot shots, not smoking cannabis; the surface wants you thinking of drugs at the wheel.",
+     "definitionFit": "A drive-by shooting is firing at someone from a passing vehicle, which is taking pot shots from a moving car."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pot"
+    }
    }
   },
   {
@@ -311,6 +1196,66 @@
    "clue": {
     "text": "Aggressive salesman stuck bananas in the woman",
     "enumeration": "8"
+   },
+   "solution": "HUCKSTER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "HUCKSTER",
+    "definitions": [
+     {
+      "text": "Aggressive salesman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bananas",
+      "for": "anagram",
+      "note": "bananas is slang for crazy, so the letters go wild"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the woman",
+      "gives": "HER",
+      "note": "her is the pronoun for the woman"
+     },
+     {
+      "clueFragment": "stuck",
+      "gives": "STUCK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "UCKST",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STUCK",
+       "gives": "UCKST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pushy salesman got a woman stuck with some bananas.",
+     "definitionFit": "A huckster is a pushy salesman, a hawker using showy, aggressive methods."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bananas"
+    }
    }
   },
   {
@@ -330,6 +1275,51 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "GAYPRIDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GAY PRIDE",
+    "definitions": [
+     {
+      "text": "Campaign",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "supporting the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pink-hued",
+      "gives": "GAY",
+      "note": "pink is the colour long linked with gay culture, as in the pink pound"
+     },
+     {
+      "clueFragment": "lions that would not produce cubs",
+      "gives": "PRIDE",
+      "note": "a pride is a group of lions; these, being gay, would not breed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAY",
+      "PRIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A campaign to protect a rare breed of pink lions that will not breed.",
+     "walkthrough": "In a down clue 'supporting' tells you the definition sits on top, above the wordplay.",
+     "definitionFit": "Gay Pride is the movement and annual campaign for lesbian and gay rights."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "lions"
+    }
    }
   },
   {
@@ -343,6 +1333,74 @@
    "clue": {
     "text": "Without Clare's lead, is fast moving far to the right",
     "enumeration": "7"
+   },
+   "solution": "FASCIST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "FASCIST",
+    "definitions": [
+     {
+      "text": "far to the right",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lead",
+      "for": "letter_selection",
+      "note": "a word's lead is the letter at its front"
+     },
+     {
+      "text": "moving",
+      "for": "anagram",
+      "note": "letters that are moving do not stay where they were put"
+     },
+     {
+      "text": "Without",
+      "for": "container",
+      "note": "without in its old sense means outside, so one piece sits round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clare's",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of Clare"
+     },
+     {
+      "clueFragment": "is fast",
+      "gives": "ISFAST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAS",
+      "C",
+      "IST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISFAST",
+       "gives": "FASIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Without Clare Short leading them, some hasty group drifts sharply rightwards.",
+     "walkthrough": "IS FAST rearranged to FASIST has C set in its middle. 'Without' looks like 'lacking', but here means outside.",
+     "definitionFit": "A fascist holds extreme nationalist, authoritarian views at the far-right end of politics."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Without"
+    }
    }
   },
   {
@@ -356,6 +1414,67 @@
    "clue": {
     "text": "Top Nazi stuffed her in mink?",
     "enumeration": "6"
+   },
+   "solution": "FUHRER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FUHRER",
+    "definitions": [
+     {
+      "text": "Top Nazi",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuffed",
+      "for": "anagram",
+      "note": "something stuffed is wrecked, so the word is knocked out of order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mink",
+      "gives": "FUR",
+      "note": "mink is a kind of fur"
+     },
+     {
+      "clueFragment": "her",
+      "gives": "HER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FU",
+      "HRE",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HER",
+       "gives": "HRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A top Nazi crammed a woman into a mink coat.",
+     "walkthrough": "'Stuffed' looks like the filling instruction, but it scrambles the pronoun, and 'in' does the placing. The question mark admits mink is only one kind of fur.",
+     "definitionFit": "Führer, leader, was Hitler's title as head of Nazi Germany."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stuffed"
+    }
    }
   },
   {
@@ -369,6 +1488,67 @@
    "clue": {
     "text": "Dicky, getting in way over, swells",
     "enumeration": "5"
+   },
+   "solution": "TOFFS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TOFFS",
+    "definitions": [
+     {
+      "text": "swells",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "over means turned over, so the word reads the other way"
+     },
+     {
+      "text": "getting in",
+      "for": "container",
+      "note": "getting in means going inside another piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "way",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street, a way"
+     },
+     {
+      "clueFragment": "Dicky",
+      "gives": "OFF",
+      "note": "dicky is British slang for unwell or faulty, which is what off can mean"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OFF",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "ST",
+       "to": "TS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone named Dicky barges in, and something swells.",
+     "walkthrough": "'Swells' looks like a verb but is the plural noun.",
+     "definitionFit": "Swells and toffs are both old slang for smartly dressed upper-class people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "swells"
+    }
    }
   },
   {
@@ -382,6 +1562,77 @@
    "clue": {
     "text": "Labour lunacy — Miliband's first in for a slagging-off",
     "enumeration": "7"
+   },
+   "solution": "CALUMNY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CALUMNY",
+    "definitions": [
+     {
+      "text": "a slagging-off",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Labour",
+      "for": "anagram",
+      "note": "laboured letters are worked over until they take a new form"
+     },
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first picks out the opening letter of the name"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lunacy",
+      "gives": "LUNACY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Miliband's",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of Miliband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CALU",
+      "M",
+      "NY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LUNACY",
+       "gives": "CALUNY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jibe at the madness of the Labour Party under the Milibands.",
+     "walkthrough": "'Labour' looks like the party but works as a verb on lunacy; M goes inside the result.",
+     "definitionFit": "Calumny is a false and slanderous attack on someone's reputation, so a malicious slagging-off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Labour"
+    }
    }
   },
   {
@@ -395,6 +1646,56 @@
    "clue": {
     "text": "Restraints put on dukes' workmen taking smack",
     "enumeration": "9"
+   },
+   "solution": "HANDCUFFS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HANDCUFFS",
+    "definitions": [
+     {
+      "text": "Restraints put on dukes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking something in means holding it within, so one word goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "workmen",
+      "gives": "HANDS",
+      "note": "hired workers are hands"
+     },
+     {
+      "clueFragment": "smack",
+      "gives": "CUFF",
+      "note": "a cuff is a blow with the open hand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAND",
+      "CUFF",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Workmen of some aristocrats get a slap and are put in restraints.",
+     "walkthrough": "'Dukes' looks like noblemen but is old slang for fists, from rhyming slang Duke of Yorks = forks = fingers.",
+     "definitionFit": "Handcuffs are restraints locked on to the wrists, here jokingly put on 'dukes', the hands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dukes"
+    }
    }
   },
   {
@@ -408,6 +1709,48 @@
    "clue": {
     "text": "Cowboy's negative refusal to exercise?",
     "enumeration": "4"
+   },
+   "solution": "NOPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOPE",
+    "definitions": [
+     {
+      "text": "Cowboy's negative",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "refusal",
+      "gives": "NO",
+      "note": "no is a refusal"
+     },
+     {
+      "clueFragment": "to exercise",
+      "gives": "PE",
+      "note": "PE is physical education, school exercise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "PE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cowboy refuses to do any exercise.",
+     "walkthrough": "PE is physical education, the school gym lesson.",
+     "definitionFit": "Nope is the drawled, informal no associated with Western cowboys."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cowboy's"
+    }
    }
   },
   {
@@ -421,6 +1764,43 @@
    "clue": {
     "text": "Not so dull type handing out penalties",
     "enumeration": "5"
+   },
+   "solution": "FINER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FINER",
+    "definitions": [
+     {
+      "text": "Not so dull",
+      "at": 0
+     },
+     {
+      "text": "type handing out penalties",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not so dull",
+      "note": "first meaning: brighter, as weather that is less overcast"
+     },
+     {
+      "clueFragment": "type handing out penalties",
+      "note": "second meaning: one who fines people, read as a fanciful noun"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense is a whimsical coinage: one who fines, on the pattern of baker and singer.",
+     "definitionFit": "Weather that is less dull is brighter, and a person who imposes fines would be one who fines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "type"
+    }
    }
   },
   {
@@ -434,7 +1814,8 @@
    "clue": {
     "text": "see 4dn",
     "enumeration": "4"
-   }
+   },
+   "solution": "FIRE"
   },
   {
    "number": 26,
@@ -447,6 +1828,61 @@
    "clue": {
     "text": "Put out part of pelvis after topless bonking",
     "enumeration": "5"
+   },
+   "solution": "EXPEL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "EXPEL",
+    "definitions": [
+     {
+      "text": "Put out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topless",
+      "for": "deletion",
+      "note": "topless means without the top, so the word loses its head"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says the piece from the bone comes second, behind the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bonking",
+      "gives": "SEX",
+      "note": "bonking is British slang for having sex"
+     },
+     {
+      "clueFragment": "part of pelvis",
+      "gives": "PEL",
+      "note": "the first three letters of the word, a part of it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "PEL"
+     ]
+    },
+    "explanation": {
+     "surface": "A saucy story of someone thrown out after a pelvic encounter without a top on.",
+     "walkthrough": "'Part of pelvis' tempts you towards a bone such as the hip; it is simply a few letters of the word itself.",
+     "definitionFit": "To expel is to throw out or eject, as from a school or party."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "topless"
+    }
    }
   },
   {
@@ -460,6 +1896,51 @@
    "clue": {
     "text": "Maybe Trident nut is to be the leader",
     "enumeration": "9"
+   },
+   "solution": "SPEARHEAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPEARHEAD",
+    "definitions": [
+     {
+      "text": "be the leader",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "is to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maybe Trident",
+      "gives": "SPEAR",
+      "note": "a trident is a three-pronged spear, one example of the weapon"
+     },
+     {
+      "clueFragment": "nut",
+      "gives": "HEAD",
+      "note": "nut is slang for the head"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPEAR",
+      "HEAD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone crazy about Trident, Britain's nuclear missile system, wants to take charge.",
+     "walkthrough": "'Trident' looks like the nuclear deterrent, but here it is a fork-like weapon, and 'nut' is not a madman but a head.",
+     "definitionFit": "To spearhead a campaign is to lead it from the front."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nut"
+    }
    }
   }
  ]
