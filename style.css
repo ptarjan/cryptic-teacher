@@ -1587,6 +1587,13 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
    of these styles up; <span> is, which is why .s-type and .s-note stay classes. */
 .s-list article { border-bottom: 1px solid var(--line); padding: 14px 0; }
 .s-list article:last-child { border-bottom: 0; }
+/* The clue a visitor arrived at (landing.js, or a #12-across link): marked the
+   way the glossary marks its :target, with the one quiet line under it. */
+.s-list article.s-landed, .s-list article:target {
+  background: var(--accent-soft); box-shadow: 0 0 0 8px var(--accent-soft); border-radius: 2px;
+}
+.s-list article > p.s-hint { font-size: .9rem; color: var(--muted); margin: 0 0 8px; }
+.s-hint a { font-weight: 700; }
 .s-list h3 { font-size: 1rem; margin: 0 0 4px; display: flex; gap: 10px; flex-wrap: wrap; }
 .s-list h3 > span { color: var(--muted); font-weight: 400; min-width: 5.5em; }
 .s-list h3 > b { letter-spacing: 1px; }

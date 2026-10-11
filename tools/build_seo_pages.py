@@ -550,6 +550,13 @@ def app_return(pid):
             "}catch(e){}</script>\n")
 
 
+def landing_script(pid):
+    """landing.js, which marks the clue a search visitor came for and offers the
+    rest of the crossword with hints under it. Most visitors from Google typed a
+    single clue; this is the one place on the page that knows which."""
+    return f'<script src="{asset("landing.js")}" data-p="{esc(pid)}" defer></script>\n'
+
+
 def puzzle_page(puz, meta, prev_p, next_p):
     setter = puz.get("setter") or ""
     what = kind(puz)                  # "Cryptic", "Quiptic", "Everyman"
@@ -755,7 +762,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
         card, alt = "og.png", site_card_alt()
 
     return (head(title, desc, canonical,
-                 app_return(puz["id"]) + ld(article_ld) + ld(breadcrumb_ld(crumbs)),
+                 app_return(puz["id"]) + landing_script(puz["id"]) + ld(article_ld) + ld(breadcrumb_ld(crumbs)),
                  card, alt)
             + "\n".join(body) + "\n" + FOOTER)
 
