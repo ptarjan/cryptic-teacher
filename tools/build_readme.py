@@ -278,6 +278,7 @@ LAYOUT = [
     ("building and checking the site", "tools/ci_shards.js", "splits the test scripts across the workflow’s parallel jobs, so the suite takes as long as its slowest single script rather than all of them added up"),
     ("building and checking the site", "tools/pre_push.py", "the pre-push hook's check (.githooks/pre-push): refuses in seconds a push that would turn CI red, saying why"),
     ("building and checking the site", "tools/test_ci_coverage.js", "checks every test in tools/ is run, in exactly one shard, by the workflow a later push cannot cancel, so no check is quietly optional"),
+    ("building and checking the site", "tools/test_no_noqa.sh", "refuses a noqa lint suppression in any tracked Python file: fix what the rule flags; a broad catch or lazy import that is right says why in a plain comment"),
     ("building and checking the site", "tools/test_ci_cache_deps.js", "checks the smoke test's declared cache dependencies cover every file it reaches, so a cached pass is never served after one of them changes"),
     ("building and checking the site", "tools/qr_check.py", "decodes qr.js’s own output with a real decoder — a wrong QR code draws perfectly and simply never scans"),
     ("building and checking the site", "tools/tutorial.html", "source of the learn/ lesson"),
@@ -708,7 +709,6 @@ def build_corpus():
     # Rebuilt, not read: the manifest is generated and untracked, and these
     # counts go into a file that IS committed. Reading whatever the tree happened
     # to hold is how a README comes to name a corpus size nobody has any more.
-    sys.path.insert(0, str(REPO / "tools"))
     import parallel
     import series as series_meta
     from fetch_puzzle import corpus_row, puzzle_files
@@ -982,7 +982,6 @@ RUNG_NOTES = {
 def build_ladder():
     """The ladder, named with app.js's own button labels and in its own order."""
     app = (REPO / "app.js").read_text(encoding="utf-8")
-    sys.path.insert(0, str(REPO / "tools"))
     import app_tables
     # The numbering is app.js's own: `ladder()` reads the ordered LABELS map the
     # app sorts its rungs by, and raises if app.js stops deriving the order from

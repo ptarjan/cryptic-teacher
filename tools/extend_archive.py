@@ -40,10 +40,8 @@ import json
 import subprocess
 import sys
 import time
-from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-from backlog_burndown import events  # noqa: E402
+from backlog_burndown import events
 
 # One call each, round-robin, so a source that has run out of archive costs one
 # chunk and not the whole top-up. Ordered by how much the app wants them: the

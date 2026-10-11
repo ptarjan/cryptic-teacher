@@ -25,10 +25,8 @@ Only published puzzles count: our own clues cannot vote for our own rules.
 
 import collections
 import json
-import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from puzzle_paths import puzzle_files
 
 ROOT = Path(__file__).resolve().parent.parent

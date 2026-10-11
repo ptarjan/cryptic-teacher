@@ -20,13 +20,11 @@ nothing, and the run is parked like any other.
 """
 import copy
 import sys
-from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import puzzle_paths  # noqa: E402
-import puzzle_schema  # noqa: E402
-import validate_annotations  # noqa: E402
-from fetch_puzzle import read_puzzle_file, write_puzzle_file  # noqa: E402
+import puzzle_paths
+import puzzle_schema
+import validate_annotations
+from fetch_puzzle import read_puzzle_file, write_puzzle_file
 
 STAND_IN = "The paper's preamble, which we do not hold."
 

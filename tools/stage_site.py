@@ -27,8 +27,7 @@ import sys
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import parallel  # noqa: E402 — the pages across the cores
+import parallel  # the pages across the cores
 
 REPO = Path(__file__).resolve().parent.parent
 ORIGIN = "https://cryptic.paultarjan.com"

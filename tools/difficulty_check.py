@@ -28,14 +28,12 @@ describe a different index. The nightly job runs --write. No model calls.
 import argparse
 import hashlib
 import json
-import sys
 from pathlib import Path
+import difficulty as D
+import series as series_meta
+from fetch_puzzle import puzzle_files, puzzle_is_annotated, read_puzzle_file
 
 ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "tools"))
-import difficulty as D  # noqa: E402
-import series as series_meta  # noqa: E402
-from fetch_puzzle import puzzle_files, puzzle_is_annotated, read_puzzle_file  # noqa: E402
 
 OUT = ROOT / "tools" / "data" / "difficulty_check.json"
 

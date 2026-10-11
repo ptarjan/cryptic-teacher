@@ -62,15 +62,14 @@ from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 from datetime import date
 from pathlib import Path
-
-TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
 import enumeration
 import json_merge
 import provenance
 import downloads
 import series as series_meta
 from groups import entry_id
+
+TOOLS = Path(__file__).resolve().parent
 
 DATA = downloads.ROOT
 GEORGEHO = DATA / "georgeho" / "data.db"

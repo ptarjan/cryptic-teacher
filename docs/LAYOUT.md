@@ -851,6 +851,10 @@ tools/pre_push.py                             the pre-push hook's check (.githoo
 tools/test_ci_coverage.js                     checks every test in tools/ is run, in exactly
                                               one shard, by the workflow a later push cannot
                                               cancel, so no check is quietly optional
+tools/test_no_noqa.sh                         refuses a noqa lint suppression in any tracked
+                                              Python file: fix what the rule flags; a broad
+                                              catch or lazy import that is right says why in a
+                                              plain comment
 tools/test_ci_cache_deps.js                   checks the smoke test's declared cache
                                               dependencies cover every file it reaches, so a
                                               cached pass is never served after one of them

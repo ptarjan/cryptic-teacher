@@ -45,6 +45,7 @@ import itertools
 import json
 import os
 import re
+import subprocess
 import sys
 import time
 import unicodedata
@@ -54,17 +55,16 @@ from collections import Counter
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import series as series_meta  # noqa: E402 — what each series IS; see tools/series.py
-import provenance  # noqa: E402 — where each puzzle came from; see tools/provenance.py
+import series as series_meta  # what each series IS; see tools/series.py
+import provenance  # where each puzzle came from; see tools/provenance.py
 import corroborate  # every other source we hold; see tools/corroborate.py
 import clue_types  # the closed list of clue types; see tools/clue_types.py
-import puzzle_schema  # noqa: E402 — the file's shape and presence rule; see tools/puzzle_schema.py
-import puzzle_paths  # noqa: E402 — where each file lives; see tools/puzzle_paths.py
-import deleted_paths  # noqa: E402 — the commit that last deleted a path; see tools/deleted_paths.py
-from clue_index import ClueIndex, StoredClueIndex, clue_keys  # noqa: E402 — which puzzles share clues
-import groups  # noqa: E402 — linked answers; see tools/groups.py
-from groups import entry_id  # noqa: E402
+import puzzle_schema  # the file's shape and presence rule; see tools/puzzle_schema.py
+import puzzle_paths  # where each file lives; see tools/puzzle_paths.py
+import deleted_paths  # the commit that last deleted a path; see tools/deleted_paths.py
+from clue_index import ClueIndex, StoredClueIndex, clue_keys  # which puzzles share clues
+import groups  # linked answers; see tools/groups.py
+from groups import entry_id
 import definitions  # where each definition sits in its clue; see tools/definitions.py
 import enumeration  # a clue's printed letter counts; see tools/enumeration.py
 import boilerplate  # the paper's publishing notes in the preamble; see tools/boilerplate.py
@@ -72,8 +72,8 @@ import errata  # a paper's corrections in the preamble; see tools/errata.py
 import quotes  # clue text is stored with straight quotes; see tools/quotes.py
 import punctuation  # the marks no print breaks; see tools/punctuation.py
 import puzzle_tags  # what is unusual about a puzzle; see tools/puzzle_tags.py
-from puzzle_paths import (  # noqa: E402, F401 — re-exported for the tools that ask here
-    puzzle_path, puzzle_files, resolve_puzzle, shim_path)
+from puzzle_paths import (  # re-exported for the tools that ask here
+    puzzle_path, puzzle_files, resolve_puzzle as resolve_puzzle, shim_path)
 
 ROOT = Path(__file__).resolve().parent.parent
 UA = {"User-Agent": "Mozilla/5.0 (cryptic-teacher; personal educational use)"}
@@ -950,7 +950,6 @@ def committed_copy(puzzle):
     """The puzzle's file as last committed, or None: what a puzzle that was
     deleted and is being filed again looked like before. That is HEAD's copy,
     or for a file deleted in an earlier commit, the copy that commit removed."""
-    import subprocess  # noqa: PLC0415
     path = puzzle_paths.file_for(puzzle)
     if path is None or not path.is_relative_to(ROOT):
         return None
@@ -1061,7 +1060,7 @@ def write_puzzle_file(path, puzzle, generator=None):
     puzzle = puzzle_schema.order(puzzle)
     # Every write goes through the corpus sweep's per-puzzle checks, so no
     # fetcher can write what tools/puzzle_integrity.py would report.
-    import puzzle_integrity  # noqa: PLC0415 — it imports this module
+    import puzzle_integrity  # lazy: it imports this module
     puzzle_integrity.refuse_bad_write(puzzle, old)
     # A new id is refused when its clues are another held puzzle's, whichever
     # filer wrote it, and every corpus write enters the index, so a second
@@ -1081,7 +1080,7 @@ def write_puzzle_file(path, puzzle, generator=None):
     # A puzzle filed with its grid leaves the clues-only state: one id, one
     # state (tools/clues_only.py).
     if corpus:
-        import clues_only  # noqa: PLC0415 — it imports this module
+        import clues_only  # lazy: it imports this module
         if (waiting := clues_only.find(puzzle["id"])) is not None:
             waiting.unlink()
         if held is None or (_CLUE_INDEX is not None
@@ -2708,7 +2707,7 @@ def index_row(path):
     """Write the puzzle's shim and return its row of the index, all but the
     difficulty, which reindex() adds from the corpus-wide ratings. One read of
     the file does both: the row hashes the shim bytes just written."""
-    import puzzle_integrity  # noqa: PLC0415 — it imports this module
+    import puzzle_integrity  # lazy: it imports this module
     p = read_puzzle_file(path)
     shim, text = shim_path(path), shim_text(path, p)
     shim.write_text(text, encoding="utf-8")
@@ -2850,14 +2849,13 @@ def reindex():
     # optional so that a checkout missing any of its data still gets a working
     # index, with the ratings left off rather than the whole file unwritten.
     try:
-        sys.path.insert(0, str(Path(__file__).resolve().parent))
         from difficulty import all_scores, snitch_ranges
         ratings = all_scores()
         # The NITCH each band's SNITCH-rated Times puzzles typically got,
         # which a Times badge quotes; recomputed from the ratings every time.
         snitch = snitch_ranges(ratings)
-    except Exception as err:  # noqa: BLE001 — never let this break the index
-        print(f"difficulty scoring skipped: {err}")
+    except Exception as err:  # any raise: the index is written without ratings, never not at all
+        print(f"difficulty scoring skipped: {type(err).__name__}: {err}")
         ratings, snitch = {}, {}
 
     import row_cache
@@ -3041,7 +3039,7 @@ def check_not_copy(puzzle):
     filed first: when every match is a held book-N file and `puzzle` is no
     book, those ids are returned, for write_puzzle_file to turn into readings
     of `puzzle` once it is filed (supersede_book). Otherwise [] or refused."""
-    import puzzle_integrity  # noqa: PLC0415 — it imports this module
+    import puzzle_integrity  # lazy: it imports this module
     hits = clue_index().matches(puzzle["id"], clue_keys(puzzle))
     if hits and not is_book(puzzle["id"]) and all(is_book(h[0]) for h in hits):
         return [h[0] for h in hits]

@@ -72,19 +72,17 @@ import urllib.error
 import urllib.request
 from datetime import datetime
 from zoneinfo import ZoneInfo
-from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import enumeration  # noqa: E402 — a clue's printed counts; tools/enumeration.py
-from fetch_puzzle import (http_bytes, flatten_clue, grade_model_fill,  # noqa: E402
+import enumeration  # a clue's printed counts; tools/enumeration.py
+from fetch_puzzle import (http_bytes, flatten_clue, grade_model_fill,
                           merge_annotations, print_grade, puzzle_files, puzzle_path,
                           read_puzzle_file, reindex, still_worth_refreshing,
                           write_puzzle_file)
-from fetch_independent import span  # noqa: E402 — same 1-based "2-7"/"7" span format
+from fetch_independent import span  # same 1-based "2-7"/"7" span format
                                      # for a different paper's crossword
-import provenance  # noqa: E402
-import series as series_meta  # noqa: E402
-from groups import entry_id  # noqa: E402
+import provenance
+import series as series_meta
+from groups import entry_id
 
 ARTICLE_URL = "https://observer.co.uk/puzzles/everyman/article/everyman-no-{num}"
 TOPICS_URL = "https://observer.co.uk/topics/everyman"
@@ -357,8 +355,8 @@ def walk(numbers, what="backfill"):
         except urllib.error.HTTPError as err:
             print(f"skip {num}: HTTP {err.code}")
             missing += 1
-        except Exception as err:  # noqa: BLE001 — one bad puzzle shouldn't stop the run
-            print(f"skip {num}: {err}")
+        except Exception as err:  # one bad puzzle is reported, not the run's end
+            print(f"skip {num}: {type(err).__name__}: {err}")
             missing += 1
         time.sleep(1)
     reindex()
@@ -448,8 +446,8 @@ def refresh_unsolved():
             print(f"solutions now published for {num}")
             filled += 1
             time.sleep(1)
-        except Exception as err:  # noqa: BLE001 — reported, then the next puzzle
-            print(f"refresh {num} failed: {err}")
+        except Exception as err:  # one bad puzzle is reported, then the next is checked
+            print(f"refresh {num} failed: {type(err).__name__}: {err}")
     if pending:
         reindex()
     print(f"refresh-unsolved: {filled}/{len(pending)} puzzle(s) gained solutions")

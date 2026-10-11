@@ -75,6 +75,8 @@ A fetch unit loads only its source's module and that module's MODULES
 """
 import argparse
 import hashlib
+import importlib
+import importlib.util
 import json
 import os
 import shlex
@@ -86,7 +88,6 @@ import time
 from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
 
 
 def snapshot():
@@ -117,11 +118,7 @@ def unit_title(unit):
 
 def titled():
     """Whether units can name themselves (setproctitle is installed)."""
-    try:
-        import setproctitle  # noqa: F401
-    except ImportError:
-        return False
-    return True
+    return importlib.util.find_spec("setproctitle") is not None
 
 
 def unit_status(unit, run):
@@ -143,7 +140,7 @@ def unit_status(unit, run):
     except ocr_remote.DesktopBusy as e:
         print(f"{unit['kind']} {unit['rel']}: deferred, the desktop is busy ({e})", file=sys.stderr, flush=True)
         return edition_commit.EXITS["deferred"]
-    except Exception as e:  # noqa: BLE001 -- the unit's end is its exit status, logged
+    except Exception as e:  # any raise: the unit's end is its exit status, logged
         scan_queue.failure((unit["rel"],), e)
         return 1
 
@@ -158,7 +155,6 @@ FETCH_UNITS = {"archive.org": ("fetch_archive_org_editions", lambda m, u: m.fetc
 def load_fetcher(source):
     """Import fetch `source`'s module, its MODULES and what unit_status
     uses (a fetch unit's start, under the code lock); return the module."""
-    import importlib
     module = importlib.import_module(FETCH_UNITS[source][0])
     for name in (*module.MODULES, "edition_commit", "scan_queue"):
         importlib.import_module(name)
@@ -171,7 +167,6 @@ UNIT_MODULES = {"trove": "file_trove_puzzles", "listener": "gale_listener", None
 
 
 def unit_module(paper):
-    import importlib
     return importlib.import_module(UNIT_MODULES.get(paper, UNIT_MODULES[None]))
 
 
@@ -207,7 +202,6 @@ def load_reach(names, reach):
     installed here (fetch_ia_book's requests) is skipped: the path that
     needs it fails when taken, not every start. A missing module of
     `reach` (the tree's) raises."""
-    import importlib
     for name in sorted(names):
         try:
             importlib.import_module(name)
@@ -250,7 +244,7 @@ if _snapshot is not None and _spec.get("brief"):
         sys.exit(edition_commit.EXITS["lost"])
     except ocr_remote.DesktopBusy:
         sys.exit(edition_commit.EXITS["deferred"])
-    except Exception as e:  # noqa: BLE001 -- the unit's end is its exit status, logged
+    except Exception as e:  # any raise: the unit's end is its exit status, logged
         import scan_queue
         scan_queue.failure((_spec["unit"]["rel"],), e)
         sys.exit(1)
@@ -259,17 +253,19 @@ if _spec.get("unit", {}).get("kind") in ("scan", "read"):
     if _snapshot is not None:
         os.close(_snapshot)
     sys.exit(unit_main(_spec))
-import code_reach  # noqa: E402
-import dir_cache  # noqa: E402
-import edition_commit  # noqa: E402
-import fetch_archive_org_editions as fetch_ao  # noqa: E402
-import fetch_trove  # noqa: E402
-import file_archive_org_puzzles as fa  # noqa: E402
-import file_trove_puzzles as ftp  # noqa: E402
-import gale_listener  # noqa: E402
-import mem_gate  # noqa: E402
-import ocr_remote  # noqa: E402
-import scan_queue  # noqa: E402
+# The queue's own modules: imported only past the unit dispatch above, so a
+# unit's process never loads them.
+import code_reach
+import dir_cache
+import edition_commit
+import fetch_archive_org_editions as fetch_ao
+import fetch_trove
+import file_archive_org_puzzles as fa
+import file_trove_puzzles as ftp
+import gale_listener
+import mem_gate
+import ocr_remote
+import scan_queue
 
 if _snapshot is not None:
     _reach = code_reach.modules("edition_queue")
@@ -515,7 +511,7 @@ def prepare(unit, cache, puzzles, reread):
         os.close(fd)
         edition_commit.save_brief(path, *made)
         return path
-    except Exception as e:  # noqa: BLE001 -- the unit runs whole and says nothing of it; the cause is logged here
+    except Exception as e:  # any raise: the unit runs whole and says nothing of it; the cause is logged here
         return whole(unit, f"brief failed: {scan_queue.failure((unit['rel'],), e)}")
 
 
@@ -865,7 +861,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                     while upkept:
                         upkept.pop()()
                     box["plan"] = replan_all(box["notes"])
-                except BaseException as e:  # noqa: BLE001 -- raised again on the dispatch loop
+                except BaseException as e:  # raised again on the dispatch loop
                     box["error"] = e
             planner = (threading.Thread(target=make, daemon=True), box)
             if planned is None and fetch:

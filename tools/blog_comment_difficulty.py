@@ -24,13 +24,12 @@ import statistics
 import sys
 from collections import defaultdict
 from pathlib import Path
+from blog_facts import DATA
+from fetch_puzzle import read_puzzle_file
+import puzzle_paths
+from groups import entry_id
 
 ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "tools"))
-from blog_facts import DATA  # noqa: E402
-from fetch_puzzle import read_puzzle_file  # noqa: E402
-import puzzle_paths  # noqa: E402
-from groups import entry_id  # noqa: E402
 
 BLOG = DATA / "timesforthetimes"
 OUT = ROOT / "tools/data/blog_comment_difficulty.json"

@@ -7,10 +7,7 @@ must key it the same way, or "upside-down" is counted as UPSIDEDOWN and looked
 up as UPSIDE DOWN and never matches.
 """
 import re
-import sys
-from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from blog_facts import fold
 from difficulty import FUNCTION_WORDS
 

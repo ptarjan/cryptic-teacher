@@ -111,6 +111,7 @@ refile_ft().
 """
 import argparse
 import html
+import http.client
 import json
 import re
 import sys
@@ -119,11 +120,11 @@ import time
 import unicodedata
 import urllib.error
 import urllib.request
+import xml.etree.ElementTree as ET
 from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 import groups
 import downloads
 import provenance
@@ -403,7 +404,7 @@ class Independent(Adapter):
             ymd = path.stem[2:]
             try:
                 pid = fi.parse(path.read_bytes(), ymd)["id"]
-            except Exception:  # noqa: BLE001 — a repeat or staging key names nothing
+            except (ValueError, KeyError, ET.ParseError):  # a repeat or staging key names nothing
                 continue
             out.setdefault(pid, ymd)
         return out
@@ -442,8 +443,6 @@ def independent_shape(xml_bytes, ymd):
     trailing comma dropped). A clue fetch_puzzle's SOURCE_CLUE_WRONG or a
     count fetch_independent's FORMAT_FIXES proves wrong is read as printed,
     as witness() does for a known wrong answer."""
-    import xml.etree.ElementTree as ET
-
     import fetch_independent as fi
     pid = fi.parse(xml_bytes, ymd)["id"]
     ns = fi.NS
@@ -1109,7 +1108,7 @@ def fetch(adapter, todo):
             try:
                 got = adapter.fetch_one(key)
                 break
-            except Exception as err:  # noqa: BLE001 — retried, then reported
+            except (OSError, http.client.HTTPException, ValueError) as err:  # retried, then reported
                 if attempt == 2:
                     with lock:
                         done["failed"] += 1
@@ -1270,9 +1269,9 @@ def run(adapter, only=None):
         try:
             theirs = (adapter.puzzle(keys[pid], ours) if isinstance(adapter, GeorgeHo)
                       else adapter.puzzle(keys[pid]))
-        except Exception as err:  # noqa: BLE001 — a source page we cannot read is reported
+        except Exception as err:  # any raise: a source page we cannot read is reported
             skipped["source unreadable"] += 1
-            rows.append({"id": pid, "unreadable": str(err)})
+            rows.append({"id": pid, "unreadable": f"{type(err).__name__}: {err}"})
             continue
         if theirs is None:
             skipped["not cached"] += 1
@@ -1546,8 +1545,8 @@ def refile(adapter, limit=None):
             continue
         try:
             notes = one(adapter, pid, disk[pid], keys[pid], found.get(pid, []))
-        except Exception as err:  # noqa: BLE001 — one refused write, named, not the run
-            print(f"{pid}: not refiled: {err}")
+        except Exception as err:  # any raise: one refused write, named, not the run
+            print(f"{pid}: not refiled: {type(err).__name__}: {err}")
             done["refused"] += 1
             continue
         if notes is None:
@@ -1602,8 +1601,8 @@ def copies(pid, ours, adapters, keys):
             continue
         try:
             theirs = a.puzzle(key, ours) if isinstance(a, GeorgeHo) else a.puzzle(key)
-        except Exception as err:  # noqa: BLE001 — an unreadable copy is no vote, named
-            print(f"{pid}: {a.name}'s copy unreadable: {err}")
+        except Exception as err:  # any raise: an unreadable copy is no vote, named
+            print(f"{pid}: {a.name}'s copy unreadable: {type(err).__name__}: {err}")
             continue
         if theirs is not None and theirs.get("id") == pid:
             out.append((a, witness(theirs)))
@@ -1861,8 +1860,8 @@ def corroborate_all(series=None, limit=None, only=None, new=False, write=False, 
     for a in adapters:
         try:
             keys[a.name] = a.ids()
-        except (Exception, SystemExit) as err:  # noqa: BLE001 — a source we lack is no vote
-            print(f"{a.name}: no copies ({err})")
+        except (Exception, SystemExit) as err:  # any raise, or ids()'s missing-cache exit: no vote
+            print(f"{a.name}: no copies ({type(err).__name__}: {err})")
     pair, verdict_tally, leads, fixed_files = Counter(), Counter(), {}, 0
     copies_seen = Counter()
     for pid in todo:

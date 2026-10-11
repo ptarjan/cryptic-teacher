@@ -27,7 +27,6 @@ import sys
 from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
 
 #: $defs/hiddenLetterKind in tools/data/puzzle.schema.json copies this list.
 KINDS = ["extra", "omitted", "misprint", "clue"]

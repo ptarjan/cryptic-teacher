@@ -72,6 +72,7 @@ tools/daily_update.sh runs after its fetchers) rebuilds them.
 import argparse
 import datetime
 import html
+import http.client
 import itertools
 import json
 import re
@@ -83,16 +84,15 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import provenance  # noqa: E402
-import enumeration  # noqa: E402 — a clue's printed counts; tools/enumeration.py
-import puzzle_paths  # noqa: E402
-import series as series_meta  # noqa: E402
-from fetch_puzzle import (enumeration_separators, grade_model_fill, has_words,  # noqa: E402
+import provenance
+import enumeration  # a clue's printed counts; tools/enumeration.py
+import puzzle_paths
+import series as series_meta
+from fetch_puzzle import (enumeration_separators, grade_model_fill, has_words,
                           http_bytes, merge_annotations, print_grade, puzzle_files,
                           puzzle_path, read_puzzle_file, still_worth_refreshing,
                           write_puzzle_file)
-from groups import entry_id  # noqa: E402
+from groups import entry_id
 
 INDEX_URL = "https://www.private-eye.co.uk/crossword"
 PUZ_URL = "https://www.private-eye.co.uk/pictures/crossword/download/{num}.puz"
@@ -942,8 +942,8 @@ def fill_answers(puzzle, num, old_puzzle):
     can never wipe out a fill that was already verified and written."""
     try:
         post = fetch_fifteensquared_post(num)
-    except Exception as err:  # noqa: BLE001 — a solve failure must never break the .puz fetch
-        print(f"  fifteensquared lookup failed for Cyclops {num}: {err}")
+    except Exception as err:  # a solve failure must never break the .puz fetch
+        print(f"  fifteensquared lookup failed for Cyclops {num}: {type(err).__name__}: {err}")
         post = "error"  # distinct from None (not found) so the message below doesn't repeat
 
     solutions = problem = None
@@ -952,7 +952,7 @@ def fill_answers(puzzle, num, old_puzzle):
     elif post != "error":
         try:
             solutions, problem = solve_from_fifteensquared(puzzle, post)
-        except Exception as err:  # noqa: BLE001 — same: never let a parse bug corrupt the puzzle
+        except Exception as err:  # a parse bug in the join must never corrupt the puzzle
             problem = f"{type(err).__name__}: {err}"
         if problem:
             print(f"  fifteensquared join failed for Cyclops {num}, leaving solution: null — {problem}")
@@ -1055,8 +1055,8 @@ def refresh_unsolved():
                 print(f"{num}: solutions still withheld — keeping our own fill")
             else:
                 print(f"{num}: solutions still withheld")
-        except Exception as err:  # noqa: BLE001 — one bad puzzle shouldn't stop the refresh
-            print(f"refresh {num} failed: {err}")
+        except Exception as err:  # one bad puzzle is reported, not the refresh's end
+            print(f"refresh {num} failed: {type(err).__name__}: {err}")
         time.sleep(1)
     print(f"refresh-unsolved: {filled}/{len(pending)} puzzle(s) gained solutions")
 
@@ -1107,8 +1107,8 @@ def backfill_dates(out_dir, dry_run=False):
         try:
             data = http_bytes(PUZ_URL.format(num=num))
             day = cover_date(num, parse_puz(data)["title"])
-        except Exception as err:  # noqa: BLE001 — one bad puzzle shouldn't stop the walk
-            print(f"skip {SERIES}-{num}: {err}")
+        except (OSError, http.client.HTTPException, ValueError, IndexError, struct.error) as err:
+            print(f"skip {SERIES}-{num}: {type(err).__name__}: {err}")
             day = None
         if day in held:
             print(f"skip {SERIES}-{num}: its title's issue is {SERIES}-{held[day]}'s")
@@ -1179,8 +1179,8 @@ def walk(numbers, out_dir, dry_run=False):
         except urllib.error.HTTPError as err:
             print(f"skip {num}: HTTP {err.code}")
             missing += 1
-        except Exception as err:  # noqa: BLE001 — one bad puzzle shouldn't stop the walk
-            print(f"skip {num}: {err}")
+        except Exception as err:  # one bad puzzle is reported, not the walk's end
+            print(f"skip {num}: {type(err).__name__}: {err}")
             missing += 1
         time.sleep(1)  # one request per second, max
     print(f"done: {fetched} fetched, {skipped} already present, {missing} unavailable")

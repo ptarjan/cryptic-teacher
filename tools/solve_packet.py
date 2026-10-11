@@ -15,14 +15,11 @@ we already have.
 Usage: python3 tools/solve_packet.py 30080
 """
 import argparse
-import sys
-from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import clues_only  # noqa: E402
-from fetch_puzzle import read_puzzle_file, resolve_puzzle  # noqa: E402
-from groups import entry_id  # noqa: E402
-from provenance import printed_answers  # noqa: E402
+import clues_only
+from fetch_puzzle import read_puzzle_file, resolve_puzzle
+from groups import entry_id
+from provenance import printed_answers
 
 
 def crossing_map(entries):

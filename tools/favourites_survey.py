@@ -18,12 +18,10 @@ import html
 import json
 import os
 import re
-import sys
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from fetch_puzzle import puzzle_files, read_puzzle_file  # noqa: E402 — one glob, one reader
-from groups import entry_id  # noqa: E402
-import downloads  # noqa: E402
+from fetch_puzzle import puzzle_files, read_puzzle_file  # one glob, one reader
+from groups import entry_id
+import downloads
 
 CACHE = str(downloads.FIFTEENSQUARED)
 

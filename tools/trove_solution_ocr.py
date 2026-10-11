@@ -62,6 +62,7 @@ light stays unsolved and available() says why.
 """
 import argparse
 import datetime
+import time
 import gzip
 import hashlib
 import itertools
@@ -76,11 +77,10 @@ from pathlib import Path
 
 import numpy as np
 from PIL import Image, ImageFilter
-
-TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
 import downloads
 import trove_grid
+
+TOOLS = Path(__file__).resolve().parent
 
 CACHE = downloads.TROVE
 #: Every letter of an accepted answer is read at least this surely.
@@ -1335,7 +1335,7 @@ def corpus_words():
 def _day(text):
     m = re.search(r"\w+day (\d{1,2} \w+ \d{4})", text)
     try:
-        return datetime.datetime.strptime(m.group(1), "%d %B %Y").date() if m else None  # noqa: DTZ007 -- a print day
+        return datetime.date(*time.strptime(m.group(1), "%d %B %Y")[:3]) if m else None
     except ValueError:
         return None
 

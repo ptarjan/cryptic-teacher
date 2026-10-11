@@ -176,7 +176,7 @@ def main(argv=None):
     args = ap.parse_args(argv)
     try:
         lines, facts = report(args.session, args.puzzle)
-    except Exception as exc:  # noqa: BLE001 — see the docstring: never two failures
+    except Exception as exc:  # a post-mortem that raises turns one failure into two
         print(f"post-mortem failed to read session {args.session}: "
               f"{type(exc).__name__}: {exc}")
         return 0

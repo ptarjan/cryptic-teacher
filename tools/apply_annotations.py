@@ -56,17 +56,16 @@ import subprocess
 import sys
 import time
 from pathlib import Path
+import definitions
+import provenance
+import puzzle_integrity
+import groups  # linked answers
+from derive_assembly import complete
+from groups import entry_id
+from validate_annotations import SELECT_NOUNS, selector_in_block
+from fetch_puzzle import read_puzzle_file, resolve_puzzle, source_clue, write_puzzle_file
 
 TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
-import definitions  # noqa: E402
-import provenance  # noqa: E402
-import puzzle_integrity  # noqa: E402
-import groups  # noqa: E402 — linked answers
-from derive_assembly import complete  # noqa: E402
-from groups import entry_id  # noqa: E402
-from validate_annotations import SELECT_NOUNS, selector_in_block  # noqa: E402
-from fetch_puzzle import read_puzzle_file, resolve_puzzle, source_clue, write_puzzle_file  # noqa: E402
 
 # The commands whose Bash call is the one running this file right now.
 LANDING_COMMANDS = ("apply_annotations", "annotate_check")

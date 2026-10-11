@@ -23,15 +23,13 @@ line, not the notes that are wrong.
 import argparse
 import collections
 import json
-import pathlib
 import re
 import sys
 
-sys.path.insert(0, str(pathlib.Path(__file__).parent))
-import clue_types  # noqa: E402
-from fetch_puzzle import (  # noqa: E402 — one glob, one reader, one id resolver
+import clue_types
+from fetch_puzzle import (  # one glob, one reader, one id resolver
     puzzle_files, read_puzzle_file, resolve_puzzle)
-from groups import entry_id  # noqa: E402
+from groups import entry_id
 
 # An inflection the same word can carry without becoming a different word. Longer
 # tails are a different word and not a leak: "cutter" does not give away CUT.

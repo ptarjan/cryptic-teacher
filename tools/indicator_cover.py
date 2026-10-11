@@ -20,11 +20,9 @@ import hashlib
 import heapq
 import json
 import os
-import sys
 import tempfile
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 import indicator_keys
 from fetch_puzzle import puzzle_files, read_puzzle_file
 from indicator_keys import clue_pairs

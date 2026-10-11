@@ -366,7 +366,7 @@ def each_article(tv, ids, one, what, stop_at=float("inf")):
         tv.deadline = t + ITEM_SECONDS
         try:
             said = one(aid)
-        except Exception as e:  # noqa: BLE001 -- one article's failure is reported, not fatal
+        except Exception as e:  # one article's failure is reported, not fatal
             failed += 1
             in_a_row += 1
             print(f"FAILED {what} {aid} after {time.time() - t:.0f}s, left for the next run: "
@@ -436,7 +436,7 @@ def fetch_unit(unit, out=str(downloads.TROVE), zones=ZONES_DIR, delay=1.0, grid_
         t = time.time()
         try:
             print(run(), flush=True)
-        except Exception as e:  # noqa: BLE001 -- the unit's failure is its exit, logged
+        except Exception as e:  # the unit's failure is its exit, logged
             print(f"FAILED {unit['rel']} after {time.time() - t:.0f}s, left for the next run: "
                   f"{type(e).__name__}: {e}", flush=True)
             return "outage" if isinstance(e, Transient) else "failed"

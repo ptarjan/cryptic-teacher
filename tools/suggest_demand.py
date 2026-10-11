@@ -27,6 +27,7 @@ queries converge on is more wanted than one only one query happened to
 mention.
 """
 
+import http.client
 import json
 import re
 import sys
@@ -151,7 +152,7 @@ def main():
                   file=sys.stderr)
             time.sleep(SLEEP_SECONDS)
             continue
-        except Exception as e:  # noqa: BLE001
+        except (OSError, http.client.HTTPException, ValueError, TypeError) as e:
             print(f"WARNING: {type(e).__name__} on {query!r}: {e}, skipping",
                   file=sys.stderr)
             time.sleep(SLEEP_SECONDS)

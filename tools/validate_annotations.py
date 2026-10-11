@@ -65,17 +65,14 @@ import subprocess
 import sys
 import unicodedata
 from pathlib import Path
-
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import clue_types  # noqa: E402
+import clue_types
 import definitions  # where each definition sits; tools/definitions.py
-import enumeration  # noqa: E402 — a clue's printed counts; tools/enumeration.py
-import groups  # noqa: E402 — linked answers; tools/groups.py
-import provenance  # noqa: E402 — where each puzzle came from; tools/provenance.py
-import puzzle_schema  # noqa: E402 — tools/data/puzzle.schema.json
+import enumeration  # a clue's printed counts; tools/enumeration.py
+import groups  # linked answers; tools/groups.py
+import provenance  # where each puzzle came from; tools/provenance.py
+import puzzle_schema  # tools/data/puzzle.schema.json
 from annotation import assembly, explanation, whole_anagram, wordplay_letters
-from fetch_puzzle import (  # noqa: E402 — one reader, one exemption
+from fetch_puzzle import (  # one reader, one exemption
     blog_facts_for,
     clue_words,
     corrected_clue,
@@ -85,13 +82,15 @@ from fetch_puzzle import (  # noqa: E402 — one reader, one exemption
     source_clue,
     SOURCE_CLUE_WRONG,
 )
-from find_answer_leaks import light_solutions, named, pieces_of, says  # noqa: E402 — one matcher, shared with the finder
-from groups import entry_id  # noqa: E402
-from hidden_messages import block_letters, check_preamble, letter_problems, message_problems  # noqa: E402
-from puzzle_paths import (  # noqa: E402 — one glob, one id resolver
+from find_answer_leaks import light_solutions, named, pieces_of, says  # one matcher, shared with the finder
+from groups import entry_id
+from hidden_messages import block_letters, check_preamble, letter_problems, message_problems
+from puzzle_paths import (  # one glob, one id resolver
     puzzle_files,
     resolve_puzzle,
 )
+
+ROOT = Path(__file__).resolve().parent.parent
 
 # The controlled vocabulary for `type`: an array of names from
 # tools/data/clue_types.json, naming EVERY mechanism the wordplay uses in the
@@ -1695,11 +1694,10 @@ def check_part_of_speech(tag, ann, warnings):
         dwords = words_of(d.get("text"))
         if not ans or not dwords or d.get("note"):
             continue
-        ends = lambda sufs: any(w.endswith(sufs) for w in dwords)  # noqa: B023
         # A long definition is usually a descriptive phrase ("About to go off
         # perhaps" = TICKING), where the -ing test says nothing; only short ones
         # are meaningful.
-        if is_gerund(ans) and len(dwords) <= 2 and not ends(("ing",)):
+        if is_gerund(ans) and len(dwords) <= 2 and not any(w.endswith("ing") for w in dwords):
             warnings.append(f"{tag}: answer ends -ING but no word in the definition does "
                             f"({d.get('text')!r}). The definition must substitute "
                             f"for the answer in a sentence: say the swap out loud. If it "
@@ -1709,7 +1707,7 @@ def check_part_of_speech(tag, ann, warnings):
         # Multi-word answers are phrases whose trailing -S is rarely the head's
         # inflection: PICK UP THE PIECES is a verb phrase, defined by a verb phrase.
         elif (is_plural(ans) and " " not in (ann.get("answer") or "")
-              and not ends(("s",)) and not (set(dwords) & INVARIANT_PLURALS)):
+              and not any(w.endswith("s") for w in dwords) and not (set(dwords) & INVARIANT_PLURALS)):
             warnings.append(f"{tag}: answer looks plural but the definition "
                             f"({d.get('text')!r}) is not. The definition must "
                             f"substitute for the answer in a sentence: say the swap out "
@@ -2510,7 +2508,6 @@ CP1252_C1 = {0x82: "\u201a", 0x83: "\u0192", 0x84: "\u201e", 0x85: "\u2026",
              0x94: "\u201d", 0x95: "\u2022", 0x96: "\u2013", 0x97: "\u2014",
              0x99: "\u2122", 0x9b: "\u203a"}
 C1_RE = re.compile(r"[\x80-\x9f\ufffd]")
-
 
 
 def verbatim_hint(fragment, clue):

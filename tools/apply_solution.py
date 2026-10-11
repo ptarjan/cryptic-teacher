@@ -46,21 +46,19 @@ import argparse
 import datetime
 import json
 import re
-import sys
 from collections import defaultdict
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-from fetch_puzzle import (read_puzzle_file, reindex,  # noqa: E402
+from fetch_puzzle import (read_puzzle_file, reindex,
                           resolve_puzzle, write_puzzle_file)
-from grid_fill import MIN_CHECKED_RATIO  # noqa: E402 — the authoring rulebook's floor
-from series import official_key  # noqa: E402
-import clues_only  # noqa: E402
-import corroborate  # noqa: E402
-import puzzle_paths  # noqa: E402
-from definitions import LOOKALIKES  # noqa: E402
-import provenance  # noqa: E402
-from groups import entry_id  # noqa: E402
+from grid_fill import MIN_CHECKED_RATIO  # the authoring rulebook's floor
+from series import official_key
+import clues_only
+import corroborate
+import puzzle_paths
+from definitions import LOOKALIKES
+import provenance
+from groups import entry_id
 
 
 def normalise(answer):

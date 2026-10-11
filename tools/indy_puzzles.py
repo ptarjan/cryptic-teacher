@@ -28,9 +28,6 @@ import json
 import re
 import sys
 from pathlib import Path
-
-TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
 import fetch_fifteensquared as fsq
 import file_blog_puzzles
 import file_times_puzzles as ftp
@@ -38,6 +35,8 @@ import ft_puzzles as ft
 import puzzle_integrity
 import times_grids as tg
 from fetch_puzzle import puzzle_files, puzzle_path, read_puzzle_file, write_puzzle_file
+
+TOOLS = Path(__file__).resolve().parent
 
 CATEGORY = "Independent"
 CACHE = fsq.CACHE / "independent"

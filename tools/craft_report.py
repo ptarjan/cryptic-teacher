@@ -156,12 +156,11 @@ import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-import clue_types  # noqa: E402
-from difficulty import _rank_list, moments  # noqa: E402
-from fetch_puzzle import puzzle_files, read_puzzle_file  # noqa: E402 — one glob, one reader for every tool
-from groups import entry_id  # noqa: E402
+import clue_types
+from difficulty import _rank_list, moments
+from fetch_puzzle import puzzle_files, read_puzzle_file  # one glob, one reader for every tool
+from groups import entry_id
 
 # Below this a device's count is dominated by which puzzles happen to be
 # blogged, not by whether solvers like it.

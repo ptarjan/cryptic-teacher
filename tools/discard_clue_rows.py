@@ -19,7 +19,6 @@ import json
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 import fetch_puzzle as fetcher
 from groups import entry_id
 from json_merge import dump_lines

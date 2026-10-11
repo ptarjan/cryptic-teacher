@@ -67,9 +67,6 @@ import tempfile
 import threading
 import time
 from pathlib import Path
-
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "tools"))
 import enumeration
 from blog_facts import (
     ABBR,
@@ -91,6 +88,8 @@ from indicator_keys import WORD, letters
 from indicator_keys import indicator_words as _key
 from puzzle_paths import find as find_puzzle
 from puzzle_paths import puzzle_files
+
+ROOT = Path(__file__).resolve().parent.parent
 
 #: A hidden answer shorter than this turns up by chance in too many clues.
 MIN_HIDDEN = 4

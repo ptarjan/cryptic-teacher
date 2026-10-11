@@ -20,11 +20,10 @@ import json
 import re
 import sys
 from pathlib import Path
-
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "tools"))
 import parallel
 import puzzle_tags
+
+ROOT = Path(__file__).resolve().parent.parent
 
 OUT = ROOT / "tools" / "data" / "ninas.json"
 
@@ -44,7 +43,6 @@ WINDOW = 400
 # square or of unchecked squares, which nothing but a planted message spells.
 MIN_FULL = 8
 MIN_SPACED = 6
-
 
 
 def cell_entries(puzzle):

@@ -29,15 +29,13 @@ import json
 import re
 import sys
 from pathlib import Path
-
-TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
 import archive_org_listener as listener
 import file_archive_org_puzzles as fa
 import file_trove_puzzles as ftp
 import reconstruct_grid as rg
 import trove_grid
 import trove_solution_ocr
+
 
 SERIES = "timesjumbo"
 TOOL = "tools/archive_org_jumbo.py"
@@ -300,7 +298,7 @@ def run(cache=fa.CACHE, out_dir=None, write=True, puzzles=None, out=sys.stdout):
             counts["found"] += 1
             try:
                 verdict, puzzle = read(d, found, hit, solutions)
-            except Exception as e:  # noqa: BLE001 -- one bad page is a verdict, not a crash
+            except Exception as e:  # any raise: one bad page is a verdict, not a crash
                 verdict, puzzle = {"refused": f"crashed: {type(e).__name__}: {e}"}, None
             name = f"{SERIES}-{hit['number']}"
             if puzzle is None:

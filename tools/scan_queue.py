@@ -49,6 +49,7 @@ tools/file_trove_puzzles.py).
 import contextlib
 import datetime
 import hashlib
+import importlib
 import json
 import multiprocessing
 import os
@@ -61,6 +62,9 @@ from pathlib import Path
 
 import downloads
 
+#: The modules file_puzzle() loads lazily (importing this module must not
+#: load them), which parallel() loads up front.
+WRITE_PATH_MODULES = ("ocr_clues", "puzzle_integrity")
 
 def now():
     return datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
@@ -226,7 +230,7 @@ def file_puzzle(write_puzzle_file, generator, path, puzzle, verdict):
         write_puzzle_file(path, puzzle, generator=generator)
     except puzzle_integrity.RefusedWrite as e:
         verdict["refusedWrite"] = str(e)
-    except Exception as e:  # noqa: BLE001 -- one bad puzzle is a verdict, not a crash
+    except Exception as e:  # any raise: one bad puzzle is a verdict, not a crash
         verdict["writeFailed"] = failure((puzzle.get("id"),), e)
     else:
         verdict["wrote"] = True
@@ -244,8 +248,8 @@ def parallel(items, fn, workers=1, deadline=None, init=None, initargs=(), failed
     # One snapshot of the code for the whole run: the write path loads
     # puzzle_integrity lazily, and a checkout that moved since this process
     # started would pair its new file with the older modules already loaded.
-    import ocr_clues  # noqa: F401
-    import puzzle_integrity  # noqa: F401
+    for name in WRITE_PATH_MODULES:
+        importlib.import_module(name)
     def due():
         return deadline is not None and time.monotonic() >= deadline
     items = iter(items)
@@ -257,7 +261,7 @@ def parallel(items, fn, workers=1, deadline=None, init=None, initargs=(), failed
                 return
             try:
                 result = fn(*item)
-            except Exception as e:  # noqa: BLE001 -- one bad source is logged, not the run's end
+            except Exception as e:  # any raise: one bad source is logged, not the run's end
                 error = failure(item, e)
                 if failed is not None:
                     yield item, failed(item, error)
@@ -286,7 +290,7 @@ def parallel(items, fn, workers=1, deadline=None, init=None, initargs=(), failed
                     result = fut.result()
                 except BrokenProcessPool:
                     raise
-                except Exception as e:  # noqa: BLE001 -- one bad source is logged, not the run's end
+                except Exception as e:  # any raise: one bad source is logged, not the run's end
                     error = failure(item, e)
                     if failed is not None:
                         yield item, failed(item, error)

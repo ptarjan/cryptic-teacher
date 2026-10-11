@@ -38,9 +38,6 @@ import threading
 import time
 from pathlib import Path
 
-TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
-
 import ocr_remote
 
 #: The desktop's directory (ocr_remote.HOME); OCR_GPU_HOME in tests.
@@ -359,7 +356,7 @@ class Server:
                 img = np.frombuffer(data, dtype=np.uint8).reshape(head["shape"])
                 res, elapse = self.engine(head["model"])(img, use_cls=False)
             return {"res": res, "elapse": elapse}
-        except Exception as e:  # noqa: BLE001 -- the session reads it on its CPU and the log says why
+        except Exception as e:  # any raise: the session reads it on its CPU and the log says why
             log(f"read failed: {type(e).__name__}: {e}")
             return {"error": f"{type(e).__name__}: {e}"}
         finally:

@@ -49,7 +49,6 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 import downloads
 import enumeration
 import puzzle_paths
@@ -549,9 +548,9 @@ def main(argv=None):
         try:
             written, asked = fetch(variant, slug, expect=(series, number), setters=setters)
             done += bool(written)
-        except Exception as err:  # noqa: BLE001 — one bad puzzle must not stop the walk
+        except Exception as err:  # one bad puzzle is reported, not the walk's end
             failed += 1
-            print(f"failed: {series}-{number} {slug}: {err}")
+            print(f"failed: {series}-{number} {slug}: {type(err).__name__}: {err}")
         if asked:
             time.sleep(DELAY)
     print(f"done: {done} fetched, {failed} failed")

@@ -960,7 +960,6 @@ _ENTRIES = {}
 def entries_of(pid):
     """{entry id: entry} of a corpus puzzle, each with its spoken `_phrase`."""
     if pid not in _ENTRIES:
-        sys.path.insert(0, str(ROOT / "tools"))
         import puzzle_paths
         p = json.loads(Path(puzzle_paths.find(pid)).read_text())
         for e in p["entries"]:
@@ -1431,7 +1430,6 @@ if __name__ == "__main__":
         del args[k:k + 2]
     cmd = args[0] if args else ""
     if channel == "all" and cmd in ("solvecheck", "unstick"):
-        sys.path.insert(0, str(ROOT / "tools"))
         (skillcheck if cmd == "solvecheck" else unstick_by_skill)()
         sys.exit()
     todo = list(CHANNELS) if channel == "all" else channel.split(",")
@@ -1452,7 +1450,6 @@ if __name__ == "__main__":
         elif cmd == "parsecheck":
             parsecheck(subs)
         elif cmd == "solvecheck":
-            sys.path.insert(0, str(ROOT / "tools"))
             solvecheck()
         elif cmd == "extract":
             extract(subs, args[2] if len(args) > 2 else None)

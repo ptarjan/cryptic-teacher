@@ -47,7 +47,6 @@ import statistics
 import subprocess
 import sys
 
-sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from turn_cost import (
     ANNOTATE_PREFIX,
     CLAUDE_DIR,
@@ -257,7 +256,7 @@ def read_session(path, templates, retired=()):
     calls, check_ids, check_outs = {}, set(), []
     s = {"tool_errors": collections.Counter(), "memory": False, "validator_reads": 0, "max_tokens": 0}
     try:
-        fh = open(path, encoding="utf-8", errors="replace")  # noqa: SIM115 — closed by `with fh` below
+        fh = open(path, encoding="utf-8", errors="replace")  # closed by `with fh` below
     except OSError:
         return None
     with fh:

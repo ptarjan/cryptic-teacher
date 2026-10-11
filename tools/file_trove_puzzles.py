@@ -87,10 +87,6 @@ import re
 import sys
 import time
 from pathlib import Path
-
-TOOLS = Path(__file__).resolve().parent
-ROOT = TOOLS.parent
-sys.path.insert(0, str(TOOLS))
 import canberra_london_numbers
 import dir_cache
 import downloads
@@ -108,6 +104,9 @@ from fetch_puzzle import puzzle_path, source_clue, write_puzzle_file
 from file_penguin_puzzle import separators
 from groups import entry_id
 from ocr_clues import SEE_RE
+
+TOOLS = Path(__file__).resolve().parent
+ROOT = TOOLS.parent
 
 SERIES = "canberra"
 CACHE = downloads.TROVE
@@ -215,7 +214,7 @@ def header(ocr):
     """(date, the article's head: its lines before ACROSS, lowercased)."""
     lines = ocr.splitlines()
     m = re.search(r"\w+day (\d{1,2} \w+ \d{4})", lines[0] if lines else "")
-    day = datetime.datetime.strptime(m.group(1), "%d %B %Y").date() if m else None  # noqa: DTZ007 -- a print day, no time zone
+    day = datetime.date(*time.strptime(m.group(1), "%d %B %Y")[:3]) if m else None
     head = []
     for line in lines[1:]:
         if re.match(r"\s*(clues\s+)?across\b", line, re.IGNORECASE):
@@ -1396,7 +1395,7 @@ def article_date(d):
             if "title" not in memo:
                 memo["title"] = json.loads((d / "meta.json").read_text()).get("title", "")
             title = memo["title"]
-            day = datetime.datetime.strptime(title.split(" - ", 1)[0].strip(), "%d %b %Y").date().isoformat()  # noqa: DTZ007 -- a print day
+            day = datetime.date(*time.strptime(title.split(" - ", 1)[0].strip(), "%d %b %Y")[:3]).isoformat()
         except (OSError, ValueError, AttributeError):
             day = ""
         _DATES[d.name] = day
@@ -1498,7 +1497,7 @@ def consider_article(d):
     after it)."""
     try:
         verdict, puzzle, voted = consider(d, _TAKEN)
-    except Exception as e:  # noqa: BLE001 -- one bad article is a verdict, not a crash
+    except Exception as e:  # any raise: one bad article is a verdict, not a crash
         verdict, puzzle, voted = refuse({}, "crashed", f"crashed: {type(e).__name__}: {e}"), None, None
     return verdict, puzzle, voted, vlm.reachable()
 

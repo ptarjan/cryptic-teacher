@@ -190,7 +190,7 @@ def _set_text(puzzle, entry, text, enum, reworded):
     if enum and enum != clue.get("enumeration"):
         clue["enumeration"] = enum
         if not entry.get("group") and entry.get("length"):
-            import fetch_puzzle  # noqa: PLC0415 — it imports this module
+            import fetch_puzzle  # lazy: it imports this module
             seps = fetch_puzzle.separators(enum, [entry["length"]])[0]
             if seps:
                 clue["separators"] = seps
@@ -468,7 +468,7 @@ def apply(puzzle):
             kept.append(bare)
     if unresolved:
         raise ValueError(f"{puzzle.get('id')}: erratum not applied: " + " | ".join(unresolved))
-    import fetch_puzzle  # noqa: PLC0415 — it imports this module
+    import fetch_puzzle  # lazy: it imports this module
     rest = fetch_puzzle.LINK_SENTENCE.sub("", " ".join(kept)).strip()
     rest = re.sub(r"^[\s\[\]().:;,-]+$", "", rest)
     if re.search(r"\w\w", rest):

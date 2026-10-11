@@ -27,8 +27,7 @@ import os
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import series as series_meta  # noqa: E402
+import series as series_meta
 
 ROOT = Path(__file__).resolve().parent.parent
 # Reassignable: the tests point it at a scratch tree, and every function here

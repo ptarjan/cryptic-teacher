@@ -19,13 +19,11 @@ sync code is a crossword, not an identity (see sync/worker.js).
 """
 import argparse
 import json
-import os
 import sys
 import urllib.request
 from collections import Counter
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import app_tables  # noqa: E402 — needs the sys.path line above
+import app_tables  # needs the sys.path line above
 
 SYNC = "https://cryptic-teacher-sync.curly-unit-b9e0.workers.dev"
 ANSWER = "answer"

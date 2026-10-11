@@ -19,16 +19,12 @@ already finds it through its own synsets.
 import gzip
 import json
 import re
-import sys
-from pathlib import Path
-
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "tools"))
 import definitions
-import difficulty as D  # noqa: E402
-from fetch_puzzle import puzzle_files, read_puzzle_file  # noqa: E402
-from nltk.corpus import wordnet as wn  # noqa: E402
-from groups import entry_id  # noqa: E402
+import difficulty as D
+from fetch_puzzle import puzzle_files, read_puzzle_file
+from nltk.corpus import wordnet as wn
+from groups import entry_id
+
 
 
 def vocabulary():

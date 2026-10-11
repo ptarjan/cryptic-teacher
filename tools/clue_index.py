@@ -21,8 +21,7 @@ import time
 from collections import Counter, defaultdict
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import puzzle_paths  # noqa: E402
+import puzzle_paths
 
 #: A pair sharing at least this fraction of the smaller puzzle's clues is one
 #: puzzle filed twice.
@@ -205,7 +204,7 @@ class StoredClueIndex:
 
     @classmethod
     def _open(cls, store_dir):
-        import puzzle_integrity  # noqa: PLC0415 — it imports this module
+        import puzzle_integrity  # lazy: it imports this module
         files = puzzle_integrity.listing()
         names = puzzle_integrity.published(files)
         store_dir.mkdir(parents=True, exist_ok=True)

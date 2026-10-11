@@ -59,9 +59,6 @@ import unicodedata
 from concurrent.futures import ProcessPoolExecutor
 from functools import lru_cache
 from pathlib import Path
-
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "tools"))
 import downloads
 from build_abbreviations import table as abbreviations_table
 from clue_types import NAMES
@@ -69,6 +66,8 @@ from definitions import place
 from fetch_puzzle import puzzle_files, read_puzzle_file
 from groups import entry_id
 from puzzle_schema import order
+
+ROOT = Path(__file__).resolve().parent.parent
 
 DATA = downloads.ROOT
 OUT = ROOT / "tools" / "data" / "blog_facts"
@@ -1870,7 +1869,7 @@ class Spool:
     until write() lays them out in id order."""
 
     def __init__(self):
-        self.f = tempfile.TemporaryFile()  # noqa: SIM115 -- deleted when the Spool is collected
+        self.f = tempfile.TemporaryFile()  # deleted when the Spool is collected
 
     def put(self, text):
         if text is None:
@@ -2402,7 +2401,7 @@ def main():
     # sharing this machine. So it runs at NICE, and one at a time machine-wide: the lock lives in $HOME, not in the checkout, so a
     # second clone kept for an old-vs-new comparison waits its turn too.
     renice(NICE)
-    lock = open(Path.home() / ".cache" / "cryptic-blog-facts.lock", "a")  # noqa: SIM115 -- held until exit
+    lock = open(Path.home() / ".cache" / "cryptic-blog-facts.lock", "a")  # held until exit: the lock lasts the run
     try:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
     except BlockingIOError:

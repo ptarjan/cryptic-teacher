@@ -78,17 +78,17 @@ part of the site, and must not touch the real index.
 import argparse
 import gzip
 import html
+import http.client
 import json
 import sys
 import time
 import urllib.error
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import puzzle_paths  # noqa: E402
-from fetch_puzzle import (convert, http_bytes,  # noqa: E402
+import puzzle_paths
+from fetch_puzzle import (convert, http_bytes,
                           puzzle_path, reindex, write_puzzle_file)
-import series as series_meta  # noqa: E402
+import series as series_meta
 
 WAYBACK_URL = ("https://web.archive.org/web/{year}id_/"
                "https://www.theguardian.com/crosswords/{series}/{num}")
@@ -159,8 +159,8 @@ def fetch_one(series, num, years=YEARS_TO_TRY):
             last_reason = f"HTTP {err.code}"
             time.sleep(SLEEP_SECONDS)
             continue
-        except Exception as err:  # noqa: BLE001 — one bad capture, not a stop
-            last_reason = str(err)
+        except (OSError, http.client.HTTPException, EOFError, ValueError) as err:
+            last_reason = f"{type(err).__name__}: {err}"
             time.sleep(SLEEP_SECONDS)
             continue
         time.sleep(SLEEP_SECONDS)

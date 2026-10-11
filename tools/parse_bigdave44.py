@@ -27,9 +27,7 @@ import html
 import json
 import re
 import sys
-from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 import fetch_wp_blog
 import file_blog_puzzles
 import parse_timesforthetimes as tftt

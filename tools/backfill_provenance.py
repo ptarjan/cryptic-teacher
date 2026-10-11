@@ -113,13 +113,11 @@ here, not to keep asserting "published" because this file once did.
 """
 import argparse
 import subprocess
-import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import provenance  # noqa: E402
-import series as series_table  # noqa: E402
-from fetch_puzzle import (generator_of, puzzle_files,  # noqa: E402
+import provenance
+import series as series_table
+from fetch_puzzle import (generator_of, puzzle_files,
                           read_puzzle_file, write_puzzle_file)
 
 ROOT = Path(__file__).resolve().parent.parent

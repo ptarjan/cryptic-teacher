@@ -36,7 +36,6 @@ from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
-sys.path.insert(0, str(TOOLS))
 
 WORK = Path(os.path.expanduser("~/.cache/archive_org_tess"))
 GOLD = TOOLS / "data" / "archive_org_ocr_gold.json"

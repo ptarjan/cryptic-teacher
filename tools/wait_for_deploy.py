@@ -21,6 +21,7 @@ Exit 0 live, 1 timed out or mismatched. Run it as the last step of the deploy
 pipeline, after the push.
 """
 import argparse
+import http.client
 import json
 import os
 import re
@@ -29,10 +30,9 @@ import sys
 import tempfile
 import time
 import urllib.request
+from stamp_assets import digest
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, os.path.join(ROOT, "tools"))
-from stamp_assets import digest                      # noqa: E402 - needs ROOT on the path
 
 URL = "https://cryptic.paultarjan.com/"
 REPO = "ptarjan/cryptic-teacher"
@@ -128,8 +128,8 @@ def built_commit():
             if any(st.get("state") == "success" for st in states):
                 return dep["sha"]
         return ""
-    except Exception:                                 # noqa: BLE001 - "cannot say"
-        return None
+    except (OSError, subprocess.TimeoutExpired, ValueError, KeyError, TypeError, AttributeError):
+        return None  # gh missing or slow, or an answer of another shape: cannot say
 
 
 def contains(built, head):
@@ -221,7 +221,7 @@ def main():
             if built not in (None, head):
                 note = ((note + "; ") if note else "") + (
                     f"Pages has {built[:8] or 'a build in flight'}, want {head[:8]}")
-        except Exception as exc:                      # noqa: BLE001 - any failure is "not live yet"
+        except (OSError, http.client.HTTPException) as exc:  # the site or git unreachable: not live yet
             note = f"{type(exc).__name__}: {exc}"
         if time.time() >= deadline:
             # Out of clock is not the same as out of hope. Ask what the build

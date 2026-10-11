@@ -90,9 +90,7 @@ import copy
 import json
 import sys
 from datetime import timedelta
-from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 import fetch_puzzle as fetcher  # the rules being applied live there
 import groups
 from groups import entry_id

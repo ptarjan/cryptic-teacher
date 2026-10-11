@@ -67,13 +67,11 @@ than an absent one: absent, someone goes and looks; invented, nobody does.
 import datetime
 import re
 import sys
-from pathlib import Path
 from urllib.parse import urlparse
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import puzzle_schema  # noqa: E402
-from groups import entry_id  # noqa: E402
-import series as series_table  # noqa: E402
+import puzzle_schema
+from groups import entry_id
+import series as series_table
 
 # One series for the whole shelf, with the book in the number (series.py:
 # book_index * 1000 + position). Both questions — is this a book, and which

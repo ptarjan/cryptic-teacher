@@ -39,10 +39,6 @@ import json
 import re
 import sqlite3
 import sys
-from pathlib import Path
-
-TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
 import corroborate
 import fetch_telegraph
 import file_blog_puzzles as fbp
@@ -51,6 +47,7 @@ import puzzle_paths
 import series as series_meta
 import times_grids as tg
 from fetch_puzzle import puzzle_path, read_puzzle_file, write_puzzle_file
+
 
 TOOL = "tools/file_georgeho_puzzles.py"
 CACHE = corroborate.GEORGEHO.parent / "blog"

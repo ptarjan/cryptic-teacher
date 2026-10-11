@@ -30,10 +30,9 @@ import subprocess
 import sys
 import time
 from pathlib import Path
+from unit_queue import STATE, Unit, main_checkout
 
 TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
-from unit_queue import STATE, Unit, main_checkout
 
 LOG = ".update.log"
 #: Trees daily_unit-1 .. daily_unit-SLOTS: at most this many units at once.

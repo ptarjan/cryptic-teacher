@@ -77,9 +77,6 @@ import subprocess
 import sys
 import threading
 from pathlib import Path
-
-TOOLS = Path(__file__).resolve().parent
-sys.path.insert(0, str(TOOLS))
 import cross_validate as cv
 import file_archive_org_puzzles as fa
 import gale_inbox as gi
@@ -91,6 +88,7 @@ import scan_queue
 import series as series_meta
 import trove_solution_ocr as ts
 from fetch_puzzle import puzzle_path, write_puzzle_file
+
 
 TOOL = "tools/file_gale_listener.py"
 SERIES = gl.lp.SERIES
