@@ -24,6 +24,9 @@
   "date": "2023-12-06",
   "check": "grid rebuilt from the blog's light list (unique after crossings); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,50 @@
     "text": "Location unspecified when year changes",
     "enumeration": "8"
    },
-   "solution": "ANYWHERE"
+   "solution": "ANYWHERE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANYWHERE",
+    "definitions": [
+     {
+      "text": "Location unspecified",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changes",
+      "for": "anagram",
+      "note": "when something changes it takes a new form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when year",
+      "gives": "WHENYEAR",
+      "note": "the two words taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WHENYEAR",
+       "gives": "ANYWHERE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A calendar puzzle: where do you end up at the moment one year turns into the next?",
+     "definitionFit": "Anywhere names no particular place, so it is a location left unspecified."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "changes"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +97,52 @@
     "text": "Strange man in tedious climb here?",
     "enumeration": "12"
    },
-   "solution": "MOUNTAINSIDE"
+   "solution": "MOUNTAINSIDE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "MOUNTAINSIDE",
+    "definitions": [
+     {
+      "text": "Strange man in tedious climb here?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Strange",
+      "for": "anagram",
+      "note": "something strange is out of its normal order, so the letters that follow are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man in tedious",
+      "gives": "MANINTEDIOUS",
+      "note": "the three words taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MANINTEDIOUS",
+       "gives": "MOUNTAINSIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An odd fellow slogging up a dreary ascent: where is he doing it?",
+     "walkthrough": "The whole clue does double duty: the letters of the first part rearrange, and the question as a whole points to where such a tiresome ascent happens.",
+     "definitionFit": "A long, wearisome climb is made up the slope of a peak, which is exactly the place the question asks about."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Strange"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +156,60 @@
     "text": "Hard to understand inclusion of prison in area ultimately lacking",
     "enumeration": "6"
    },
-   "solution": "ARCANE"
+   "solution": "ARCANE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ARCANE",
+    "definitions": [
+     {
+      "text": "Hard to understand",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately lacking",
+      "for": "deletion",
+      "note": "lacking its final part means the last letter of the word is dropped"
+     },
+     {
+      "text": "inclusion of",
+      "for": "container",
+      "note": "an inclusion is something placed inside another, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "area",
+      "gives": "ARE",
+      "note": "the word area with its last letter removed"
+     },
+     {
+      "clueFragment": "prison",
+      "gives": "CAN",
+      "note": "the can is slang for a prison"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "CAN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A baffling report about where a jail sits within a district with missing facilities.",
+     "definitionFit": "Arcane knowledge is secret or obscure, understood by only a few."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lacking"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +223,73 @@
     "text": "Extremely irate after politician collecting silver becomes hoarder",
     "enumeration": "6"
    },
-   "solution": "MAGPIE"
+   "solution": "MAGPIE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MAGPIE",
+    "definitions": [
+     {
+      "text": "hoarder",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collecting",
+      "for": "container",
+      "note": "to collect something is to take it in, so one piece is held inside the other"
+     },
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only its first and last letters are kept"
+     }
+    ],
+    "linkWords": [
+     "after",
+     "becomes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "Member of Parliament"
+     },
+     {
+      "clueFragment": "silver",
+      "gives": "AG",
+      "note": "chemical symbol for silver"
+     },
+     {
+      "clueFragment": "irate",
+      "gives": "IE",
+      "select": "outer",
+      "note": "the first and last letters of irate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AG",
+      "P",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "A furious MP, having pocketed the silver, turns into a miser.",
+     "walkthrough": "'After' places the irate letters behind the politician-and-silver unit. The magpie is famed in folklore for stealing and stashing shiny objects.",
+     "definitionFit": "The magpie is a bird reputed to collect glittering trinkets, and the word is used of a person who compulsively gathers things."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "silver"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +303,53 @@
     "text": "Small weight university abandoned in the past",
     "enumeration": "4"
    },
-   "solution": "ONCE"
+   "solution": "ONCE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ONCE",
+    "definitions": [
+     {
+      "text": "in the past",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandoned",
+      "for": "deletion",
+      "note": "something abandoned is left behind, so the named letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small weight",
+      "gives": "OUNCE",
+      "note": "a small unit of weight"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "standard abbreviation for university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "NCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny measure of something that a college gave up long ago.",
+     "definitionFit": "Once means at some former time, which is in the past."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "abandoned"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +363,55 @@
     "text": "Popular party, otherwise not held outside",
     "enumeration": "6"
    },
-   "solution": "INDOOR"
+   "solution": "INDOOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INDOOR",
+    "definitions": [
+     {
+      "text": "not held outside",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party"
+     },
+     {
+      "clueFragment": "otherwise",
+      "gives": "OR",
+      "note": "or introduces the alternative, as otherwise does"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "DO",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A popular party that, failing other plans, stays under a roof.",
+     "definitionFit": "An indoor event takes place inside a building rather than out in the open air."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "otherwise"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +425,43 @@
     "text": "Temporary pact in Greek cases",
     "enumeration": "6"
    },
-   "solution": "ACTING"
+   "solution": "ACTING",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ACTING",
+    "definitions": [
+     {
+      "text": "Temporary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cases",
+      "for": "hidden_word",
+      "note": "to case something is to enclose it, so the outer words hold the solution within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pact in Greek",
+      "gives": "ACTING",
+      "note": "the run of letters straddling these three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A provisional agreement written up in Greek legal cases.",
+     "walkthrough": "'Cases' reads like legal proceedings, but it is the signal that pact, in and Greek hold the solution across their boundaries.",
+     "definitionFit": "An acting manager holds the post temporarily until a permanent appointment is made."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cases"
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +475,61 @@
     "text": "One doing wrong upsetting songsters? Rare? Not entirely",
     "enumeration": "12"
    },
-   "solution": "TRANSGRESSOR"
+   "solution": "TRANSGRESSOR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "TRANSGRESSOR",
+    "definitions": [
+     {
+      "text": "One doing wrong",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upsetting",
+      "for": "anagram",
+      "note": "upsetting something knocks it out of order, so the letters are rearranged"
+     },
+     {
+      "text": "Not entirely",
+      "for": "deletion",
+      "note": "not the entire word, so its last letter is cut off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "songsters",
+      "gives": "SONGSTERS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Rare",
+      "gives": "RAR",
+      "note": "the word rare missing its final letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SONGSTERSRAR",
+       "gives": "TRANSGRESSOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is it rare for a sinner to be the one who annoys singers?",
+     "definitionFit": "A transgressor breaks a law or moral rule, so is a wrongdoer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upsetting"
+    }
+   }
   },
   {
    "number": 9,
@@ -149,7 +543,45 @@
     "text": "Small, pale bird",
     "enumeration": "4"
    },
-   "solution": "SWAN"
+   "solution": "SWAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SWAN",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "standard abbreviation for small"
+     },
+     {
+      "clueFragment": "pale",
+      "gives": "WAN",
+      "note": "wan means pale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A small, pallid bird, perhaps a cygnet.",
+     "definitionFit": "The swan is a large, long-necked water bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -163,7 +595,58 @@
     "text": "Letters in order, bathe with pal at work",
     "enumeration": "8"
    },
-   "solution": "ALPHABET"
+   "solution": "ALPHABET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALPHABET",
+    "definitions": [
+     {
+      "text": "Letters in order",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at work",
+      "for": "anagram",
+      "note": "letters put to work are moved about, so they appear in a fresh arrangement"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bathe",
+      "gives": "BATHE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pal",
+      "gives": "PAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BATHEPAL",
+       "gives": "ALPHABET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Neatly arranged correspondence, while a friend has a wash at the office.",
+     "definitionFit": "The alphabet is the full set of letters of a language arranged in their set sequence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Letters"
+    }
+   }
   },
   {
    "number": 11,
@@ -177,7 +660,43 @@
     "text": "Some whole gales expected — special language there",
     "enumeration": "8"
    },
-   "solution": "LEGALESE"
+   "solution": "LEGALESE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LEGALESE",
+    "definitions": [
+     {
+      "text": "special language there",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "only some of the words are used, a continuous stretch of their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "whole gales expected",
+      "gives": "LEGALESE",
+      "note": "the run of letters straddling these three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A forecast of full-blown storms, couched in some technical jargon.",
+     "walkthrough": "'There' points back to the clue's own words: the special language is found right there inside them.",
+     "definitionFit": "Legalese is the specialised, often impenetrable, jargon used by lawyers in documents."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gales"
+    }
+   }
   },
   {
    "number": 12,
@@ -191,7 +710,42 @@
     "text": "Take legal case against girl",
     "enumeration": "3"
    },
-   "solution": "SUE"
+   "solution": "SUE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SUE",
+    "definitions": [
+     {
+      "text": "Take legal case against",
+      "at": 0
+     },
+     {
+      "text": "girl",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Take legal case against",
+      "note": "first meaning: bring a lawsuit against someone"
+     },
+     {
+      "clueFragment": "girl",
+      "note": "second meaning: a girl's name"
+     }
+    ],
+    "explanation": {
+     "surface": "Prosecuting a young woman in court.",
+     "definitionFit": "The verb means to take court action against someone, and the same letters form a common female first name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "girl"
+    }
+   }
   },
   {
    "number": 13,
@@ -205,7 +759,55 @@
     "text": "Beginning of sale — writing material to fall in price?",
     "enumeration": "4"
    },
-   "solution": "SINK"
+   "solution": "SINK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SINK",
+    "definitions": [
+     {
+      "text": "fall in price",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Beginning of",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, which is all that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sale",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of sale"
+     },
+     {
+      "clueFragment": "writing material",
+      "gives": "INK",
+      "note": "ink is what one writes with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "INK"
+     ]
+    },
+    "explanation": {
+     "surface": "As the sale opens, will stationery become cheaper?",
+     "definitionFit": "Prices that sink drop to a lower level, a common figurative use of the word for going down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "material"
+    }
+   }
   },
   {
    "number": 14,
@@ -219,7 +821,56 @@
     "text": "Regularly observed inbound sight maybe? Balderdash",
     "enumeration": "8"
    },
-   "solution": "NONSENSE"
+   "solution": "NONSENSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NONSENSE",
+    "definitions": [
+     {
+      "text": "Balderdash",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Regularly observed",
+      "for": "letter_selection",
+      "note": "observing at regular intervals means looking only at every other letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inbound",
+      "gives": "NON",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters of inbound"
+     },
+     {
+      "clueFragment": "sight maybe",
+      "gives": "SENSE",
+      "note": "sight is one of the five senses"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NON",
+      "SENSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Was some inbound vision seen at regular intervals? Rubbish!",
+     "walkthrough": "'Maybe' signals that sight is just one example of the wider category.",
+     "definitionFit": "Balderdash is foolish talk, a synonym for meaningless rubbish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "observed"
+    }
+   }
   },
   {
    "number": 15,
@@ -233,7 +884,42 @@
     "text": "Far from abundant incline",
     "enumeration": "4"
    },
-   "solution": "LEAN"
+   "solution": "LEAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEAN",
+    "definitions": [
+     {
+      "text": "Far from abundant",
+      "at": 0
+     },
+     {
+      "text": "incline",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Far from abundant",
+      "note": "first meaning: meagre, scanty"
+     },
+     {
+      "clueFragment": "incline",
+      "note": "second meaning: to tilt or rest at an angle"
+     }
+    ],
+    "explanation": {
+     "surface": "A slope that is anything but plentiful.",
+     "definitionFit": "The adjective means sparse or meagre, while the verb means to slope or tilt to one side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "incline"
+    }
+   }
   },
   {
    "number": 16,
@@ -247,7 +933,57 @@
     "text": "Despatched to welcome hairstyle in coastal area",
     "enumeration": "8"
    },
-   "solution": "SEAFRONT"
+   "solution": "SEAFRONT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEAFRONT",
+    "definitions": [
+     {
+      "text": "coastal area",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to welcome",
+      "for": "container",
+      "note": "to welcome someone is to take them in, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Despatched",
+      "gives": "SENT",
+      "note": "despatched means sent off"
+     },
+     {
+      "clueFragment": "hairstyle",
+      "gives": "AFRO",
+      "note": "a full, rounded hairstyle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "AFRO",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is sent to greet a stylish haircut at the beach.",
+     "definitionFit": "A seafront is the part of a town that faces the sea, a coastal strip."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "welcome"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +997,58 @@
     "text": "With little confidence about eg worker's song",
     "enumeration": "6"
    },
-   "solution": "SHANTY"
+   "solution": "SHANTY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHANTY",
+    "definitions": [
+     {
+      "text": "song",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one word wraps round the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "With little confidence",
+      "gives": "SHY",
+      "note": "shy means lacking confidence"
+     },
+     {
+      "clueFragment": "eg worker",
+      "gives": "ANT",
+      "note": "a worker ant is one type of ant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "ANT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A timid labourer singing, perhaps, a nervous work tune.",
+     "walkthrough": "'eg' marks worker as an example: worker ants are a caste of ant.",
+     "definitionFit": "A shanty is a sailors' work song, traditionally sung while hauling ropes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worker"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1062,56 @@
     "text": "One writing there's a universal God",
     "enumeration": "6"
    },
-   "solution": "AUTHOR"
+   "solution": "AUTHOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AUTHOR",
+    "definitions": [
+     {
+      "text": "One writing",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "there's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "universal",
+      "gives": "U",
+      "note": "U is the film-classification letter for universal"
+     },
+     {
+      "clueFragment": "God",
+      "gives": "THOR",
+      "note": "Thor is the Norse god of thunder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "U",
+      "THOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer declares there is a God for everyone.",
+     "walkthrough": "U is the British film certificate meaning suitable for all audiences.",
+     "definitionFit": "An author is a person who writes books or other works."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "universal"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1125,52 @@
     "text": "Wannabe snake — I speak violently",
     "enumeration": "8"
    },
-   "solution": "ASPIRANT"
+   "solution": "ASPIRANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASPIRANT",
+    "definitions": [
+     {
+      "text": "Wannabe",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snake",
+      "gives": "ASP",
+      "note": "an asp is a small venomous snake"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "speak violently",
+      "gives": "RANT",
+      "note": "to rant is to speak loudly and angrily"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASP",
+      "I",
+      "RANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A would-be star, a real snake, admits to angry outbursts.",
+     "definitionFit": "An aspirant is someone hoping to achieve a position, as a wannabe is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "snake"
+    }
+   }
   },
   {
    "number": 19,
@@ -303,7 +1184,53 @@
     "text": "Fraudulent scheme? Clear off — not right!",
     "enumeration": "4"
    },
-   "solution": "SCAM"
+   "solution": "SCAM",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SCAM",
+    "definitions": [
+     {
+      "text": "Fraudulent scheme?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means without, so the letter named after it is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clear off",
+      "gives": "SCRAM",
+      "note": "scram is an order to go away"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "standard abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CAM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spots a swindle and tells the trickster to clear off because it is wrong.",
+     "definitionFit": "A scam is a dishonest scheme to cheat people out of money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 20,
@@ -317,7 +1244,47 @@
     "text": "That lady would get rid of outbuilding",
     "enumeration": "4"
    },
-   "solution": "SHED"
+   "solution": "SHED",
+   "annotation": {
+    "type": [
+     "double_definition",
+     "charade"
+    ],
+    "answer": "SHED",
+    "definitions": [
+     {
+      "text": "get rid of",
+      "at": 16
+     },
+     {
+      "text": "outbuilding",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "That lady",
+      "gives": "SHE",
+      "note": "she refers to that lady"
+     },
+     {
+      "clueFragment": "would",
+      "gives": "D",
+      "note": "'d is the contracted form of would"
+     }
+    ],
+    "explanation": {
+     "surface": "She would like to clear out the garden hut.",
+     "walkthrough": "Three readings meet: she'd (she would), a verb for discarding, and a noun for a small hut; the apostrophe is ignored, as usual.",
+     "definitionFit": "To shed is to cast off or discard, and a shed is a simple outbuilding for storage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "would"
+    }
+   }
   },
   {
    "number": 21,
@@ -331,7 +1298,47 @@
     "text": "Cheers advanced ability",
     "enumeration": "6"
    },
-   "solution": "TALENT"
+   "solution": "TALENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TALENT",
+    "definitions": [
+     {
+      "text": "ability",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cheers",
+      "gives": "TA",
+      "note": "ta is British informal thanks"
+     },
+     {
+      "clueFragment": "advanced",
+      "gives": "LENT",
+      "note": "to advance money is to lend it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "LENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A toast to gifted progress.",
+     "walkthrough": "In Britain 'cheers' and 'ta' are both casual ways of saying thanks.",
+     "definitionFit": "Talent is a natural aptitude or skill, a synonym for ability."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cheers"
+    }
+   }
   },
   {
    "number": 22,
@@ -345,7 +1352,61 @@
     "text": "Musician, old, is introduced to computer program",
     "enumeration": "6"
    },
-   "solution": "OBOIST"
+   "solution": "OBOIST",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "OBOIST",
+    "definitions": [
+     {
+      "text": "Musician",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduced to",
+      "for": "container",
+      "note": "introduced to means put into, so one piece is placed inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "standard abbreviation for old"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "computer program",
+      "gives": "BOT",
+      "note": "a bot is an automated computer program"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "BO",
+      "IS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly musician gets to grips with some new software.",
+     "definitionFit": "An oboist plays the oboe, a woodwind instrument, so is a type of musician."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "program"
+    }
+   }
   }
  ]
 }
