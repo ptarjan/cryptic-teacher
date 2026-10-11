@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,72 @@
     "text": "Raft with hole initially lost at sea — not one of these then?",
     "enumeration": "7"
    },
-   "solution": "FLOATER"
+   "solution": "FLOATER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "FLOATER",
+    "definitions": [
+     {
+      "text": "one of these",
+      "at": 43,
+      "note": "the answer is one of 'these'; the 'not' says the holed raft fails to be one"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially lost",
+      "for": "deletion",
+      "note": "the opening letter is lost, so the word that follows is trimmed at its front"
+     },
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "something at sea is adrift and confused, so the letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "not",
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Raft",
+      "gives": "RAFT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hole",
+      "gives": "HOLE",
+      "note": "taken as written, before losing its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLOATER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAFTOLE",
+       "gives": "FLOATER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A raft holed and drifting at sea is hardly going to stay up, is it?",
+     "walkthrough": "RAFT plus (h)OLE shuffles to FLOATER, and the tail comments on the picture: a raft with a hole is not a FLOATER at all.",
+     "definitionFit": "Something that stays on the water's surface rather than sinking is called a floater."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sea"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +115,63 @@
     "text": "Food around which fire skirts — served so?",
     "enumeration": "6"
    },
-   "solution": "FLAMBE"
+   "solution": "FLAMBE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "FLAMBE",
+    "definitions": [
+     {
+      "text": "served so",
+      "at": 32,
+      "note": "a phrase describing the manner of serving; the answer is an adjective for food so served"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "skirts",
+      "for": "letter_selection",
+      "note": "the skirts of a word are its edges, so only its outermost letters are kept"
+     },
+     {
+      "text": "around which",
+      "for": "container",
+      "note": "the kept edges go around the earlier word, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fire",
+      "gives": "FE",
+      "select": "outer",
+      "note": "the first and last letters of fire"
+     },
+     {
+      "clueFragment": "Food",
+      "gives": "LAMB",
+      "note": "lamb is a meat, so a food"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LAMB",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A dish with flames licking round its edges: is that how it reached the table?",
+     "walkthrough": "The surface describes the dish itself, which makes the whole clue feel like the definition; only 'served so' defines, with LAMB inside F(ir)E.",
+     "definitionFit": "Flambé describes food doused in spirit and set alight at the table, which is exactly how such a dish is presented."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "skirts"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +185,59 @@
     "text": "Drug I took after work",
     "enumeration": "6"
    },
-   "solution": "OPIATE"
+   "solution": "OPIATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPIATE",
+    "definitions": [
+     {
+      "text": "Drug",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after places the following pieces behind the word for work in reading order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op is short for opus, a work"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "took",
+      "gives": "ATE",
+      "note": "took food, consumed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OP",
+      "I",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone confessing they swallowed a drug once their shift was over.",
+     "definitionFit": "An opiate is a narcotic derived from opium, a classic example of a drug."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "took"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +251,67 @@
     "text": "Lines at end of book about sweet capers",
     "enumeration": "10"
    },
-   "solution": "TOMFOOLERY"
+   "solution": "TOMFOOLERY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TOMFOOLERY",
+    "definitions": [
+     {
+      "text": "capers",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the word for book wraps around the sweet"
+     },
+     {
+      "text": "at end of",
+      "for": "charade",
+      "note": "being at the end puts the lines after everything else in reading order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "book",
+      "gives": "TOME",
+      "note": "a tome is a large book"
+     },
+     {
+      "clueFragment": "sweet",
+      "gives": "FOOL",
+      "note": "a fool is a British dessert of puréed fruit folded into cream"
+     },
+     {
+      "clueFragment": "Lines",
+      "gives": "RY",
+      "note": "RY is the abbreviation for railway, railway lines"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOM",
+      "FOOL",
+      "E",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "Some closing verses in a book about desserts, bounded by sweet antics.",
+     "walkthrough": "A fool is a British pudding of fruit and cream, not a person here.",
+     "definitionFit": "Capers are playful pranks, and tomfoolery is silly, foolish behaviour of the same kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capers"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +325,48 @@
     "text": "Lid off delving tool, device dug into horse's flank",
     "enumeration": "5"
    },
-   "solution": "ROWEL"
+   "solution": "ROWEL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ROWEL",
+    "definitions": [
+     {
+      "text": "device dug into horse's flank",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Lid off",
+      "for": "deletion",
+      "note": "taking off the lid removes the top, which in a down answer is the first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "delving tool",
+      "gives": "TROWEL",
+      "note": "a trowel is a small hand tool for digging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROWEL"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions about a garden tool losing its cap, then a rider's spur jabbed into a horse.",
+     "walkthrough": "In a down answer the lid is the top letter, so T(rowel) loses it.",
+     "definitionFit": "A rowel is the spiked revolving wheel at the end of a rider's spur, pressed into a horse's side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lid"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +380,63 @@
     "text": "Body in garage, head of hair covered in drink",
     "enumeration": "7"
    },
-   "solution": "CHASSIS"
+   "solution": "CHASSIS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CHASSIS",
+    "definitions": [
+     {
+      "text": "Body in garage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter alone"
+     },
+     {
+      "text": "covered in",
+      "for": "container",
+      "note": "being covered puts the letter inside the drink, wrapped by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hair",
+      "gives": "H",
+      "select": "first",
+      "note": "first letter of hair"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "CASSIS",
+      "note": "cassis is a blackcurrant liqueur"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "H",
+      "ASSIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A body found in a garage, its hair soaked in booze: a crime scene.",
+     "walkthrough": "'Body' suggests a corpse, but the garage points to a car's frame.",
+     "definitionFit": "A chassis is the base frame of a motor vehicle, the car body a garage works on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Body"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +450,61 @@
     "text": "Waspish insect has eaten one for breakfast",
     "enumeration": "9"
    },
-   "solution": "CROISSANT"
+   "solution": "CROISSANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CROISSANT",
+    "definitions": [
+     {
+      "text": "for breakfast",
+      "at": 29,
+      "note": "a phrase; the answer is a noun, something eaten for breakfast"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has eaten",
+      "for": "container",
+      "note": "whatever has eaten something holds it inside, so the pair of words surrounds the numeral"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Waspish",
+      "gives": "CROSS",
+      "note": "waspish means irritable, cross"
+     },
+     {
+      "clueFragment": "insect",
+      "gives": "ANT",
+      "note": "an ant is an insect"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRO",
+      "I",
+      "SSANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A wasp-like bug has gobbled one of somebody's breakfast pastries.",
+     "definitionFit": "A croissant is a flaky crescent pastry, a standard continental breakfast item."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Waspish"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +518,49 @@
     "text": "Range and length problematic, say, for openers?",
     "enumeration": "4"
    },
-   "solution": "ALPS"
+   "solution": "ALPS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ALPS",
+    "definitions": [
+     {
+      "text": "Range",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for openers",
+      "for": "letter_selection",
+      "note": "openers are the beginnings, so only the opening letter of each word counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and length problematic, say",
+      "gives": "ALPS",
+      "select": "first",
+      "note": "first letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALPS"
+     ]
+    },
+    "explanation": {
+     "surface": "Is the range and the length of something a problem when starting out?",
+     "walkthrough": "'Range' looks like part of the phrase, but it stands alone as the definition.",
+     "definitionFit": "The Alps are the great mountain range of central Europe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "openers"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +580,84 @@
      }
     ]
    },
-   "solution": "SHEEPDIP"
+   "solution": "SHEEPDIP",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "reversal",
+     "container"
+    ],
+    "answer": "SHEEP DIP",
+    "definitions": [
+     {
+      "text": "Farm cleaner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means at first, so only the opening letter is wanted"
+     },
+     {
+      "text": "from below",
+      "for": "reversal",
+      "note": "in a down answer, reading from the bottom upward turns the word around"
+     },
+     {
+      "text": "introduced to",
+      "for": "container",
+      "note": "something introduced to another is put inside it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "novel",
+      "gives": "SHE",
+      "note": "She is the novel by H. Rider Haggard"
+     },
+     {
+      "clueFragment": "tube",
+      "gives": "PIPE",
+      "note": "a pipe is a tube"
+     },
+     {
+      "clueFragment": "disinfectants",
+      "gives": "D",
+      "select": "first",
+      "note": "first letter of disinfectants"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHE",
+      "EP",
+      "D",
+      "IP"
+     ],
+     "reversals": [
+      {
+       "from": "PIPE",
+       "to": "EPIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farmyard cleaning product: a novel disinfectant squirted up a pipe from underneath.",
+     "walkthrough": "SHE is Haggard's adventure novel, a crossword regular.",
+     "definitionFit": "Sheep dip is the insecticidal liquid farmers plunge sheep into to clean their fleeces of parasites."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +671,55 @@
     "text": "Want marker secured by strand",
     "enumeration": "8"
    },
-   "solution": "SHORTAGE"
+   "solution": "SHORTAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHORTAGE",
+    "definitions": [
+     {
+      "text": "Want",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "secured by",
+      "for": "container",
+      "note": "something secured by another is held within it, so one word goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strand",
+      "gives": "SHORE",
+      "note": "a strand is a beach, a shore"
+     },
+     {
+      "clueFragment": "marker",
+      "gives": "TAG",
+      "note": "a tag is a label or marker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHOR",
+      "TAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A request for a marker pen fastened to a thread.",
+     "walkthrough": "'Want' reads as a verb but is the noun meaning lack; 'strand' is the beach, not a thread.",
+     "definitionFit": "Want in the sense of lack or scarcity matches a shortage, an insufficient supply."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "strand"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +733,61 @@
     "text": "Eleven in a room evens out, one's assumed",
     "enumeration": "5"
    },
-   "solution": "AXIOM"
+   "solution": "AXIOM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AXIOM",
+    "definitions": [
+     {
+      "text": "one's assumed",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "evens out",
+      "for": "letter_selection",
+      "note": "the even-numbered letters are thrown out, leaving the odd ones"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the number goes inside what remains"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a room",
+      "gives": "AOM",
+      "select": "alternate",
+      "note": "first, third and fifth letters of a room"
+     },
+     {
+      "clueFragment": "Eleven",
+      "gives": "XI",
+      "note": "XI is eleven in Roman numerals, and a cricket or football eleven is also a team called an XI"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "XI",
+      "OM"
+     ]
+    },
+    "explanation": {
+     "surface": "A football eleven in a room levels the score; someone is taken for granted.",
+     "definitionFit": "An axiom is a proposition taken as true without proof, something assumed as a starting point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "evens"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +811,88 @@
      }
     ]
    },
-   "solution": "WHOOPDEDO"
+   "solution": "WHOOPDEDO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container",
+     "reversal"
+    ],
+    "answer": "WHOOP-DE-DO",
+    "definitions": [
+     {
+      "text": "it's exciting!",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Recalled",
+      "for": "reversal",
+      "note": "to recall is to call back, so the following material reads backwards"
+     },
+     {
+      "text": "ending in",
+      "for": "letter_selection",
+      "note": "the ending of a word is its last letter only"
+     },
+     {
+      "text": "hugs",
+      "for": "container",
+      "note": "whatever hugs something holds it inside"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     },
+     {
+      "clueFragment": "occasional",
+      "gives": "ODD",
+      "note": "odd as in now and then, the odd drink"
+     },
+     {
+      "clueFragment": "nookie",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of nookie"
+     },
+     {
+      "clueFragment": "bear",
+      "gives": "POOH",
+      "note": "Winnie-the-Pooh, the famous bear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HOOPDEDO"
+     ],
+     "reversals": [
+      {
+       "from": "ODEDPOOH",
+       "to": "HOOPDEDO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wife recalls a cuddly bear's hugs leading on to some nookie: thrilling stuff.",
+     "walkthrough": "'Recalled by wife' reads as a memory, but it signals that everything after the wife's letter runs backwards; 'occasional' is odd as in the odd drink.",
+     "definitionFit": "Whoop-de-do is an exclamation, often sarcastic, used to greet something supposedly thrilling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Recalled"
+    }
+   }
   },
   {
    "number": 11,
@@ -227,7 +916,43 @@
    "group": [
     "11-across",
     "12-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOTTOMLESS PIT",
+    "definitions": [
+     {
+      "text": "Abyss",
+      "at": 0
+     },
+     {
+      "text": "constant by inference",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Abyss",
+      "note": "first meaning: a chasm with no apparent floor"
+     },
+     {
+      "clueFragment": "constant by inference",
+      "note": "second reading: the mathematical constant pi is what remains of a three-letter hole once its last letter goes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half is cryptic: chop the bottom letter off P-I-T and you get PI, a constant, so PI is a 'bottomless PIT'.",
+     "definitionFit": "A bottomless pit is a hole so deep it seems endless, which is what an abyss is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "constant"
+    }
+   }
   },
   {
    "number": 12,
@@ -260,7 +985,52 @@
      }
     ]
    },
-   "solution": "MINORSCALE"
+   "solution": "MINORSCALE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MINOR SCALE",
+    "definitions": [
+     {
+      "text": "23 series",
+      "at": 0,
+      "note": "23 is NOTED, so this reads 'noted series', a series of notes"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "astonishing",
+      "for": "anagram",
+      "note": "astonishing suggests something stunned out of its normal state, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on miracles",
+      "gives": "ONMIRACLES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONMIRACLES",
+       "gives": "MINORSCALE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrated series about miracles, which is pretty amazing.",
+     "walkthrough": "Plug in the answer to 23, NOTED: a noted series is a sequence of notes.",
+     "definitionFit": "A minor scale is a sequence of musical notes in ascending order with a flattened third, a series of notes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "series"
+    }
+   }
   },
   {
    "number": 14,
@@ -274,7 +1044,87 @@
     "text": "Dubious pal, one happening to admit copying in the end — doing this?",
     "enumeration": "12"
    },
-   "solution": "PLAGIARISING"
+   "solution": "PLAGIARISING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PLAGIARISING",
+    "definitions": [
+     {
+      "text": "doing this",
+      "at": 57,
+      "note": "'this' is the copying the clue describes; the answer is a present participle like 'doing'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dubious",
+      "for": "anagram",
+      "note": "something dubious is suspect and not straight, so its letters are scrambled"
+     },
+     {
+      "text": "in the end",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter"
+     },
+     {
+      "text": "to admit",
+      "for": "container",
+      "note": "to admit is to let in, so the letter goes inside the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pal",
+      "gives": "PAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "copying",
+      "gives": "G",
+      "select": "last",
+      "note": "last letter of copying"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "happening",
+      "gives": "ARISING",
+      "note": "arising means occurring, happening"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLA",
+      "G",
+      "I",
+      "ARISING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PAL",
+       "gives": "PLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shady friend is caught out copying in the end; is that what this is?",
+     "walkthrough": "The definition points back at the copying the surface describes, so the clue half-defines itself.",
+     "definitionFit": "Plagiarising is passing off someone else's work as your own, which is the copying the clue mentions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "happening"
+    }
+   }
   },
   {
    "number": 15,
@@ -298,7 +1148,56 @@
      }
     ]
    },
-   "solution": "GETHOLDOF"
+   "solution": "GETHOLDOF",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GET HOLD OF",
+    "definitions": [
+     {
+      "text": "Grasp",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caged",
+      "for": "container",
+      "note": "something caged is shut inside another, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bob the Rat",
+      "gives": "GELDOF",
+      "note": "Bob Geldof fronted the Boomtown Rats"
+     },
+     {
+      "clueFragment": "though",
+      "gives": "THO",
+      "note": "tho is an informal short spelling of though"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GE",
+      "THO",
+      "LDOF"
+     ]
+    },
+    "explanation": {
+     "surface": "Catch a rat called Bob, even though it is locked up.",
+     "walkthrough": "'the Rat' sounds like a rodent, but Bob Geldof was singer of the Irish band the Boomtown Rats.",
+     "definitionFit": "To get hold of something is to grasp or seize it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Rat"
+    }
+   }
   },
   {
    "number": 16,
@@ -318,7 +1217,48 @@
      }
     ]
    },
-   "solution": "ICECUBES"
+   "solution": "ICECUBES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ICE CUBES",
+    "definitions": [
+     {
+      "text": "Local requirement",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to decorate",
+      "gives": "ICE",
+      "note": "to ice a cake is to decorate it"
+     },
+     {
+      "clueFragment": "a thousand or a million, say",
+      "gives": "CUBES",
+      "note": "a thousand is ten cubed and a million a hundred cubed, examples of cube numbers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICE",
+      "CUBES"
+     ]
+    },
+    "explanation": {
+     "surface": "A local council rule about decorating, costing a thousand or a million.",
+     "walkthrough": "'Local' is the British word for one's neighbourhood pub, which needs these for drinks.",
+     "definitionFit": "Ice cubes are something a pub (a local) needs to chill drinks, so they are a requirement of one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Local"
+    }
+   }
   },
   {
    "number": 17,
@@ -332,7 +1272,43 @@
     "text": "Breakfast time?",
     "enumeration": "8"
    },
-   "solution": "PORRIDGE"
+   "solution": "PORRIDGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PORRIDGE",
+    "definitions": [
+     {
+      "text": "Breakfast",
+      "at": 0
+     },
+     {
+      "text": "time",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Breakfast",
+      "note": "first meaning: oat cereal boiled in milk or water, eaten in the morning"
+     },
+     {
+      "clueFragment": "time",
+      "note": "second meaning: British slang for a prison sentence"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as 'breakfast time', but the two words are separate meanings; 'doing porridge' is British slang for serving time in jail.",
+     "definitionFit": "The word means both a hot oat cereal and, in British slang, a stretch in prison."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 18,
@@ -352,7 +1328,44 @@
      }
     ]
    },
-   "solution": "CROPROTATION"
+   "solution": "CROPROTATION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CROP ROTATION",
+    "definitions": [
+     {
+      "text": "Agricultural system",
+      "at": 0
+     },
+     {
+      "text": "formation of TUC, say",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agricultural system",
+      "note": "first meaning: growing different plants in a field in successive seasons"
+     },
+     {
+      "clueFragment": "formation of TUC, say",
+      "note": "second reading: the letters TUC are a turned-round form of a word for crop"
+     }
+    ],
+    "explanation": {
+     "surface": "A farming scheme set up by the trade unions.",
+     "walkthrough": "The TUC is Britain's Trades Union Congress, but here it is three letters: CUT, which means crop, cycled round becomes TUC.",
+     "definitionFit": "Crop rotation is the farming practice of changing which plant grows in a field each season to keep soil healthy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "TUC"
+    }
+   }
   },
   {
    "number": 19,
@@ -366,7 +1379,67 @@
     "text": "State of European geese, as seen in flight, when caught by duck",
     "enumeration": "6"
    },
-   "solution": "NEVADA"
+   "solution": "NEVADA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "NEVADA",
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caught by",
+      "for": "container",
+      "note": "being caught by something means being held inside it"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "duck",
+      "gives": "NADA",
+      "note": "a duck is a score of nothing in cricket, and nada is Spanish-derived slang for nothing"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "geese, as seen in flight",
+      "gives": "V",
+      "note": "geese fly in a V formation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "E",
+      "V",
+      "ADA"
+     ]
+    },
+    "explanation": {
+     "surface": "A picture of European geese in flying formation being caught by a duck.",
+     "walkthrough": "A duck is cricket's zero score, so it gives a word for nothing; the geese give the letter of their flying shape.",
+     "definitionFit": "Nevada is one of the fifty US states."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 20,
@@ -380,7 +1453,59 @@
     "text": "Squat where agent keeps spare tyre?",
     "enumeration": "6"
    },
-   "solution": "STUMPY"
+   "solution": "STUMPY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STUMPY",
+    "definitions": [
+     {
+      "text": "Squat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeps",
+      "for": "container",
+      "note": "something that keeps another holds it inside"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agent",
+      "gives": "SPY",
+      "note": "a spy is a secret agent"
+     },
+     {
+      "clueFragment": "spare tyre",
+      "gives": "TUM",
+      "note": "a spare tyre is a roll of fat round the tummy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TUM",
+      "PY"
+     ]
+    },
+    "explanation": {
+     "surface": "A squat building where a car agent stores the spare wheel.",
+     "walkthrough": "'Spare tyre' suggests a car, but it is the joke name for a paunch.",
+     "definitionFit": "Squat as an adjective means short and thickset, which stumpy also describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tyre"
+    }
+   }
   },
   {
    "number": 21,
@@ -404,7 +1529,58 @@
    "group": [
     "21-across",
     "26-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CAR ALARM",
+    "definitions": [
+     {
+      "text": "security device",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nameless",
+      "for": "deletion",
+      "note": "without a name, so the standard abbreviation for name is dropped from the word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "animal",
+      "gives": "CARNAL",
+      "note": "animal as an adjective means fleshly, carnal"
+     },
+     {
+      "clueFragment": "Limb",
+      "gives": "ARM",
+      "note": "an arm is a limb"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARAL",
+      "ARM"
+     ]
+    },
+    "explanation": {
+     "surface": "A leg attached to an unnamed beast, used as a guard.",
+     "walkthrough": "'animal' looks like a noun but is the adjective meaning carnal; dropping N for name leaves CARAL, and ARM goes on the end.",
+     "definitionFit": "A car alarm is a siren fitted to a vehicle to deter theft, a type of security device."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "animal"
+    }
+   }
   },
   {
    "number": 22,
@@ -428,7 +1604,52 @@
      }
     ]
    },
-   "solution": "DOONESBEST"
+   "solution": "DOONESBEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DO ONES BEST",
+    "definitions": [
+     {
+      "text": "bend over backwards",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for whipping",
+      "for": "anagram",
+      "note": "whipping beats things up, like whisking eggs, so the letters are churned into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "On bed, so set",
+      "gives": "ONBEDSOSET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONBEDSOSET",
+       "gives": "DOONESBEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kinky scene: someone on a bed, ready to be whipped, told to bend over.",
+     "walkthrough": "The surface's 'bend over backwards' looks like a stage direction, but it is the idiom for trying very hard.",
+     "definitionFit": "To bend over backwards is an idiom for making every effort, which is doing one's best."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "whipping"
+    }
+   }
   },
   {
    "number": 23,
@@ -442,7 +1663,43 @@
     "text": "Celebrated, like musical work?",
     "enumeration": "5"
    },
-   "solution": "NOTED"
+   "solution": "NOTED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NOTED",
+    "definitions": [
+     {
+      "text": "Celebrated",
+      "at": 0
+     },
+     {
+      "text": "like musical work",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Celebrated",
+      "note": "first meaning: famous, renowned"
+     },
+     {
+      "clueFragment": "like musical work",
+      "note": "second meaning: written out in musical symbols"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the playful second meaning: a musical work is literally set down in notes.",
+     "definitionFit": "The word means famous, and also describes something written in musical notation, as a score is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Celebrated"
+    }
+   }
   },
   {
    "number": 24,
@@ -456,7 +1713,44 @@
     "text": "Australian PM taking a percentage of popular vote",
     "enumeration": "4"
    },
-   "solution": "ARVO"
+   "solution": "ARVO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ARVO",
+    "definitions": [
+     {
+      "text": "Australian PM",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking a percentage of",
+      "for": "hidden_word",
+      "note": "taking only a share of the following words means the answer sits within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular vote",
+      "gives": "ARVO",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "An Australian prime minister winning part of the popular vote.",
+     "walkthrough": "'PM' reads as prime minister, but it is post meridiem: arvo is Australian slang for afternoon.",
+     "definitionFit": "Arvo is Australian slang for the afternoon, the PM part of the day."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "PM"
+    }
+   }
   },
   {
    "number": 25,
@@ -476,7 +1770,43 @@
      }
     ]
    },
-   "solution": "BADCREDIT"
+   "solution": "BADCREDIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BAD CREDIT",
+    "definitions": [
+     {
+      "text": "Indication of risk to bank",
+      "at": 0
+     },
+     {
+      "text": "direct, possibly",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Indication of risk to bank",
+      "note": "first meaning: a poor record of repaying loans, which warns lenders off"
+     },
+     {
+      "clueFragment": "direct, possibly",
+      "note": "second reading: the word direct is one possible rearrangement of a six-letter word for trust in repayment, when that word goes bad"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half works backwards: read 'bad' as a shuffle signal and CREDIT goes bad to give DIRECT.",
+     "definitionFit": "A bad credit history signals to a lender that a borrower may not repay, so it indicates risk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "direct"
+    }
+   }
   },
   {
    "number": 26,
@@ -509,7 +1839,49 @@
      }
     ]
    },
-   "solution": "SEENOFF"
+   "solution": "SEENOFF",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "SEEN OFF",
+    "definitions": [
+     {
+      "text": "Taken to the airport, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "the answer comes out of the following words, drawn from within them"
+     },
+     {
+      "text": "to the West",
+      "for": "reversal",
+      "note": "travelling west in an across answer runs right to left, so read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cardiff, one escaping",
+      "gives": "FFONEES",
+      "note": "the letters run across these three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Driven to the airport from Cardiff, someone fleeing west.",
+     "walkthrough": "The geography is a decoy: Cardiff is in the west of Britain, but 'to the West' is purely a direction for reading.",
+     "definitionFit": "To see someone off is to accompany them to their departure point, such as an airport, and say goodbye."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cardiff"
+    }
+   }
   },
   {
    "number": 28,
@@ -523,7 +1895,54 @@
     "text": "About food, Spielberg film booked for a later date?",
     "enumeration": "7"
    },
-   "solution": "DIETARY"
+   "solution": "DIETARY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DIETARY",
+    "definitions": [
+     {
+      "text": "About food",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "booked for",
+      "for": "container",
+      "note": "a thing booked for a slot is entered into it, so the film goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a later date",
+      "gives": "DIARY",
+      "note": "a diary is where one notes plans for a later date"
+     },
+     {
+      "clueFragment": "Spielberg film",
+      "gives": "ET",
+      "note": "E.T. is Steven Spielberg's 1982 film"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "ET",
+      "ARY"
+     ]
+    },
+    "explanation": {
+     "surface": "A cinema scheduling a Spielberg film about food for some future date.",
+     "definitionFit": "Dietary means relating to diet, the food a person eats."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "booked"
+    }
+   }
   }
  ]
 }
