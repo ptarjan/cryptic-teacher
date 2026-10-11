@@ -233,7 +233,7 @@ FETCHED = Path(sys.argv[1]) / "fetched.json"
 FETCHED.write_text(json.dumps({"IF0502610073": {"date": "1988-01-13", "file": "GALE_IF0502610073.pdf",
                                                 "at": datetime.datetime.now().astimezone().isoformat()}}))
 LIMITS = Path(sys.argv[1]) / "limits.json"
-LIMITS.write_text(json.dumps({"refusals": [{"at": "2026-10-11T15:00:00-06:00", "since_rest": 480}],
+LIMITS.write_text(json.dumps({"refusals": [{"at": "2026-10-11T15:00:00-06:00", "in_window": 480}],
                               "recoveries": [{"waited": 1800}]}))
 html = g.checklist(rows, cache, un, docs={}, ledger={}, log=LOG, fetched=FETCHED, limits=LIMITS)
 check("nothing to click: no Download, no script, no instructions; it reloads itself", (False, False, False, True),
@@ -242,7 +242,7 @@ check("its counts: wanted, to fetch, waiting to be read", (True, True, True),
       ("<th>Wanted (no puzzle filed)</th><td>4</td>" in html, "<th>Still to fetch</th><td>3</td>" in html,
        "<th>Fetched, waiting to be read</th><td>1</td>" in html))
 check("the script's downloads and Gale's refusals", (True, True, True),
-      ("<td>1 (1 today)</td>" in html, "after 480 since a rest" in html, "worked again after 30 min" in html))
+      ("<td>1 (1 today)</td>" in html, "after 480 in its window" in html, "worked again after 30 min" in html))
 check("the years in next_up's order, the worst first", True, html.index("<td>1988</td>") < html.index("<td>1987</td>"))
 note = html[html.index('<details class="notes">'):]
 check("a hand file that names no edition is a note: left in the inbox", True,

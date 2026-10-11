@@ -17,18 +17,26 @@ tools/gale_read.sh reads and files, and kept as FETCHED_DIR/GALE_<doc>.pdf
 on the Mac (out of the inbox, so no sweep, match or set-aside sees it).
 
 Pace (Pacer): GAP seconds between downloads, jittered, an occasional
-longer PAUSE, never more than WINDOW_MAX in WINDOW seconds; after a
-session cap (learned, below) it rests and opens a fresh portal session.
+longer PAUSE, never more than WINDOW_MAX in WINDOW seconds.
 
-Gale's download limit (Paul 2026-10-11: his browser hit one at about 500)
-is learned, not guessed: a download answered by HTTP 401/403/429, a login
-or other HTML page, or a non-PDF is a refusal. Each is recorded in LIMITS
-(when, downloads this portal session, since the last rest, in the last hour
-and day, the status and the first bytes of the answer), the room is told
-quietly, and one fresh-session download is tried after each wait of PROBES
-until one works; that wait is recorded too. The session cap is then
-CAP_SHARE of the fewest downloads any refusal came after, and the rest at
-least the longest wait seen (learned). With none recorded there is no cap.
+Gale's download limit counts per IP/institution over time, not per portal
+session (Paul's browser agent, 2026-10-11: caps hit after ~475-500
+downloads; a fresh session right after one was still blocked; a cap hit at
+09:29 UTC was open again by 16:00). LIMITS holds the current count window
+(its start, and downloads in it made elsewhere, e.g. by the browser), each
+refusal and each recovery. At the cap (CAP_SEED, until a refusal teaches
+CAP_SHARE of the fewest downloads one came after) it waits until the
+window's start plus the window length (WINDOW_SEED, until a recovery
+teaches a shorter one), then starts a new window.
+
+An answer that is not the PDF (HTTP 401/403/429, a login or other HTML
+page, a non-PDF) is first taken for Gale having logged the session out: a
+fresh session retries it at once, and that is only recorded (relogins).
+Refused again, it is a refusal: recorded (when, downloads in the window, in
+the last hour and day, the status, the answer's first bytes), the room told
+quietly, and one fresh-session download tried every PROBE_EVERY seconds
+until one works, each refused probe's time recorded, so the reset time is
+pinned to within PROBE_EVERY; that recovery starts a new window.
 
 It stops, and wakes the room (tools/wake.sh), at a captcha, a PDF too small
 or naming another document, the portal not opening a session, Gale still
@@ -69,16 +77,18 @@ PAUSE = (0.05, (60.0, 180.0))
 #: At most WINDOW_MAX downloads in any WINDOW seconds (the pace asked for:
 #: about 15 per 3 minutes at most).
 WINDOW, WINDOW_MAX = 180.0, 15
-#: The shortest rest after a session cap (learned may lengthen it).
-REST = (1800.0, 3600.0)
-#: Each refusal (Gale's limit) and how long until a download worked again.
+#: The count window, each refusal, recovery and re-login.
 LIMITS = Path(os.path.expanduser("~/.cache/gale_inbox/limits.json"))
-#: After a refusal, one download is tried after each of these waits (s),
-#: about 7 hours in all, then it stops.
-PROBES = (600, 600, 1200, 1800, 3600, 3600, 7200, 7200)
-#: The cap is this share of the fewest downloads a refusal came after, and
-#: never below CAP_FLOOR.
+#: Downloads per window until a refusal is recorded (Paul's caps came at
+#: ~475-500), and how long a window lasts until a recovery says (a cap
+#: at 09:29 UTC was open by 16:00).
+CAP_SEED, WINDOW_SEED = 450, 6.5 * 3600
+#: The learned cap is this share of the fewest downloads in a window a
+#: refusal came after, and never below CAP_FLOOR.
 CAP_SHARE, CAP_FLOOR = 0.9, 50
+#: After a refusal, one download every PROBE_EVERY seconds, at most
+#: PROBE_MAX (a day), then it stops.
+PROBE_EVERY, PROBE_MAX = 1800.0, 48
 #: Errors in a row (network, 5xx, a write to the Mac) before it stops;
 #: each one waits BACKOFF * its number first.
 MAX_ERRORS = 3
@@ -119,13 +129,10 @@ class Pacer:
     """When the next download may start. `clock`, `sleep` and `rand` are
     injectable so the test runs it on a fake clock."""
 
-    def __init__(self, clock=time.time, sleep=time.sleep, rand=None, limits=LIMITS):
+    def __init__(self, clock=time.time, sleep=time.sleep, rand=None):
         self.clock, self.sleep, self.rand = clock, sleep, rand or random.Random()
         self.done = collections.deque()  # start times of the last WINDOW_MAX downloads
         self.last = None  # when the last download ended
-        self.session = 0  # downloads since the last rest
-        self.limits = limits
-        self.cap, self.rests = learned(limits)
 
     def delay(self):
         """Seconds to wait before the next download."""
@@ -151,38 +158,76 @@ class Pacer:
             self.done.popleft()
 
     def finished(self):
-        """A download ended. True when the session is at its cap (the caller
-        rests (rest()) and opens a fresh one)."""
+        """A download ended."""
         self.last = self.clock()
-        self.session += 1
-        return self.cap is not None and self.session >= self.cap
-
-    def rest(self):
-        self.sleep(self.rand.uniform(*self.rests))
-        self.session = 0
-        self.last = self.clock()
-
-    def relearn(self):
-        self.cap, self.rests = learned(self.limits)
 
 
 def learned(path=LIMITS):
-    """(session cap or None, rest range) from the refusals in `path`."""
+    """(cap, window seconds) from the refusals and recoveries in `path`."""
     kept = load(path)
-    after = [r["since_rest"] for r in kept.get("refusals", ())]
-    cap = max(CAP_FLOOR, int(CAP_SHARE * min(after))) if after else None
-    longest = max((r["waited"] for r in kept.get("recoveries", ())), default=0.0)
-    return cap, (max(REST[0], longest), max(REST[1], 1.5 * longest))
+    after = [r["in_window"] for r in kept.get("refusals", ()) if "in_window" in r]
+    cap = max(CAP_FLOOR, int(CAP_SHARE * min(after))) if after else CAP_SEED
+    spans = [r["since_window_start"] for r in kept.get("recoveries", ()) if "since_window_start" in r]
+    return cap, min(spans, default=WINDOW_SEED)
+
+
+def iso(ts):
+    return datetime.datetime.fromtimestamp(ts).astimezone().isoformat(timespec="seconds")
+
+
+def stamp(text):
+    return datetime.datetime.fromisoformat(text).timestamp()
+
+
+def save(path, kept):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(".tmp")
+    tmp.write_text(json.dumps(kept, indent=1))
+    tmp.replace(path)
 
 
 def record(path, kind, entry):
     """Append `entry` to list `kind` of `path` (LIMITS), whole or not at all."""
     kept = load(path)
     kept.setdefault(kind, []).append(entry)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    tmp = path.with_suffix(".tmp")
-    tmp.write_text(json.dumps(kept, indent=1))
-    tmp.replace(path)
+    save(path, kept)
+
+
+def new_window(path, at, before=0):
+    """Start a count window at `at`, `before` downloads in it made elsewhere."""
+    kept = load(path)
+    kept["window"] = {"start": iso(at), "before": before}
+    save(path, kept)
+
+
+def in_window(path, fetched, now):
+    """(window start, downloads in it: those made elsewhere plus this
+    script's since the start), a new window started at `now` when none is."""
+    w = load(path).get("window")
+    if not w:
+        new_window(path, now)
+        return now, 0
+    start = stamp(w["start"])
+    mine = 0
+    for e in load(fetched).values():
+        try:
+            mine += stamp(e["at"]) >= start
+        except (KeyError, ValueError):
+            continue
+    return start, w.get("before", 0) + mine
+
+
+def mean_gap(fetched, now, last=20):
+    """The mean seconds between this script's last `last` downloads before
+    `now` (the pace a refusal came at), or None."""
+    ats = []
+    for e in load(fetched).values():
+        try:
+            ats.append(stamp(e["at"]))
+        except (KeyError, ValueError):
+            continue
+    ats = sorted(t for t in ats if t <= now)[-last:]
+    return round((ats[-1] - ats[0]) / (len(ats) - 1), 1) if len(ats) > 1 else None
 
 
 def recent(fetched, now, seconds):
@@ -190,7 +235,7 @@ def recent(fetched, now, seconds):
     n = 0
     for e in load(fetched).values():
         try:
-            n += now - datetime.datetime.fromisoformat(e["at"]).timestamp() <= seconds
+            n += 0 <= now - stamp(e["at"]) <= seconds
         except (KeyError, ValueError):
             continue
     return n
@@ -273,10 +318,9 @@ def load(path):
         return {}
 
 
-def note(doc, day, name, path=FETCHED):
+def note(doc, day, name, path=FETCHED, at=None):
     kept = load(path)
-    kept[doc] = {"date": day.isoformat(), "file": name,
-                 "at": datetime.datetime.now().astimezone().isoformat(timespec="seconds")}
+    kept[doc] = {"date": day.isoformat(), "file": name, "at": iso(time.time() if at is None else at)}
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(".tmp")
     tmp.write_text(json.dumps(kept, indent=0, sort_keys=True))
@@ -360,9 +404,8 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
     `got_of()`, `lookup_of(day)`, `fetched`, `limits`, `tell(text)`) stand
     in for Gale, the Mac, the logs and the room in the test. Returns
     (downloads, why it ended); raises Stop to stop."""
-    pacer = pacer or Pacer(limits=limits)
+    pacer = pacer or Pacer()
     session = None
-    in_session = 0  # downloads since the portal session opened
 
     def real_fetch(url):
         nonlocal session
@@ -370,8 +413,8 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
         return session.open(url)[0]
 
     def fresh_session():
-        nonlocal session, in_session
-        session, in_session = None, 0
+        nonlocal session
+        session = None
 
     fetch = fetch or real_fetch
     store = store or file_page
@@ -384,42 +427,72 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
         gale = gale or gale_docs.Gale()
         return look_up(day, gale)
 
-    def recover(refusal, url, day, doc):
-        """Record `refusal`, then try one download in a fresh session after
-        each of PROBES; the body that came, the wait recorded. Raises Stop
-        when none came."""
+    def hold():
+        """At the window's cap, wait out the window, then start a new one;
+        a window past its length is ended either way."""
+        cap, span = learned(limits)
         now = pacer.clock()
-        at = datetime.datetime.fromtimestamp(now).astimezone().isoformat(timespec="seconds")
-        entry = {"at": at, "session": in_session, "since_rest": pacer.session, "run": n,
-                 "last_hour": recent(fetched, now, 3600), "last_day": recent(fetched, now, 86400),
+        start, count = in_window(limits, fetched, now)
+        if count >= cap and start + span > now:
+            log(f"{count} downloads in the window since {iso(start)}, the cap is {cap}: waiting until"
+                f" {iso(start + span)}")
+            pacer.sleep(start + span - now)
+            now = pacer.clock()
+        if now >= start + span:
+            new_window(limits, now)
+
+    def refused(first, url, day, doc):
+        """`first` was not the PDF. A fresh session retries at once (Gale
+        logs a session out now and then); refused again, it is Gale's limit:
+        recorded, then one fresh-session download every PROBE_EVERY until
+        one works. The body that came; raises Stop when none did."""
+        fresh_session()
+        try:
+            body = pdf_of(fetch, url, day, doc, text_of)
+            record(limits, "relogins", {"at": iso(pacer.clock()), "why": str(first)})
+            log(f"{day}: {first}; a fresh session got it (a logout)")
+            return body
+        except Stop as again:
+            if not again.refused:
+                raise
+            refusal = again
+        now = pacer.clock()
+        start, count = in_window(limits, fetched, now)
+        entry = {"at": iso(now), "in_window": count, "window_start": iso(start), "run": n,
+                 "last_10min": recent(fetched, now, 600), "last_hour": recent(fetched, now, 3600),
+                 "last_day": recent(fetched, now, 86400), "mean_gap_last_20": mean_gap(fetched, now),
                  "status": refusal.status, "why": str(refusal), "head": refusal.head.decode("utf-8", "replace")}
         record(limits, "refusals", entry)
-        pacer.relearn()
-        tell(f"Gale refused a download after {pacer.session} since the last rest ({in_session} this portal session,"
-             f" {entry['last_hour']} in the last hour): {refusal}. Recorded in {limits}; trying again after"
-             f" {PROBES[0] // 60} min and longer waits. Session cap now {pacer.cap}.")
-        log(f"refused after {pacer.session} since the last rest: {refusal}")
-        for i, wait in enumerate(PROBES, 1):
-            pacer.sleep(wait)
+        tell(f"Gale refused a download after {count} in the window since {entry['window_start']}"
+             f" ({entry['last_hour']} in the last hour), in a fresh session too: {refusal}. Recorded in {limits};"
+             f" trying one every {PROBE_EVERY / 60:.0f} min to time the reset. Cap now {learned(limits)[0]}.")
+        log(f"refused after {count} in the window: {refusal}")
+        last_refused = now
+        for i in range(1, PROBE_MAX + 1):
+            pacer.sleep(PROBE_EVERY)
             fresh_session()
             try:
                 body = pdf_of(fetch, url, day, doc, text_of)
             except Stop as again:
                 if not again.refused:
                     raise
+                last_refused = pacer.clock()
                 log(f"probe {i}: still refused ({again})")
                 continue
             except (urllib.error.URLError, http.client.HTTPException, OSError) as ex:
                 log(f"probe {i}: {type(ex).__name__}: {ex}")
                 continue
-            waited = pacer.clock() - now
-            record(limits, "recoveries", {"refused_at": at, "waited": waited, "probes": i})
-            pacer.session = 0
-            pacer.relearn()
-            log(f"Gale works again after {waited / 60:.0f} min; session cap {pacer.cap}, rest"
-                f" {pacer.rests[0] / 60:.0f}-{pacer.rests[1] / 60:.0f} min")
+            ok = pacer.clock()
+            record(limits, "recoveries", {"refused_at": iso(now), "last_refused_at": iso(last_refused),
+                                          "ok_at": iso(ok), "ok_utc": datetime.datetime.fromtimestamp(
+                                              ok, datetime.timezone.utc).strftime("%H:%M"),
+                                          "waited": ok - now, "since_window_start": ok - start, "probes": i})
+            new_window(limits, ok)
+            log(f"Gale works again at {iso(ok)} (refused still at {iso(last_refused)}); a new window starts")
+            tell(f"Gale works again at {iso(ok)}, {(ok - now) / 60:.0f} min after the refusal (still refused at"
+                 f" {iso(last_refused)}). Recorded in {limits}.")
             return body
-        raise Stop(f"Gale still refused {sum(PROBES) / 3600:.1f} h after a refusal ({refusal})")
+        raise Stop(f"Gale still refused {PROBE_MAX * PROBE_EVERY / 3600:.0f} h after a refusal ({refusal})")
 
     lookup_of = lookup_of or real_lookup
     got_of = got_of or have_docs
@@ -463,14 +536,15 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
                 log(f"would fetch {day} {doc} {e.get('title', '')}")
                 n += 1
                 continue
+            hold()
             pacer.wait()
             try:
                 try:
                     body = pdf_of(fetch, url, day, doc, text_of)
-                except Stop as refusal:
-                    if not refusal.refused:
+                except Stop as first:
+                    if not first.refused:
                         raise
-                    body = recover(refusal, url, day, doc)
+                    body = refused(first, url, day, doc)
                 store(body, day, doc, e)
             except Stop:
                 raise
@@ -485,14 +559,10 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
                 break  # plan again: the row is still wanted
             errors = 0
             got.add(doc)
-            note(doc, day, f"GALE_{doc}.pdf", fetched)
+            note(doc, day, f"GALE_{doc}.pdf", fetched, pacer.clock())
             n += 1
-            in_session += 1
             log(f"{datetime.datetime.now():%H:%M:%S} got {day} {doc} ({len(body):,} bytes) [{n}]")
-            if pacer.finished():
-                log(f"session cap {pacer.cap} reached; resting before a fresh portal session")
-                fresh_session()
-                pacer.rest()
+            pacer.finished()
         if dry:
             return n, "dry run: one plan shown"
     return n, f"reached --max {limit}"
@@ -503,12 +573,17 @@ def main(argv=None):
     ap.add_argument("--max", type=int, help="stop after this many downloads")
     ap.add_argument("--skip", type=int, default=SKIP, help=f"pass over this many next-up rows first (default {SKIP})")
     ap.add_argument("--dry-run", action="store_true", help="list what would be fetched")
+    ap.add_argument("--window", nargs=2, metavar=("START", "BEFORE"),
+                    help="start the count window at ISO time START with BEFORE downloads made elsewhere, then run")
     a = ap.parse_args(argv)
     sys.stdout.reconfigure(line_buffering=True)
-    cap, rests = learned()
+    if a.window:
+        new_window(LIMITS, stamp(a.window[0]), int(a.window[1]))
+    cap, span = learned()
+    start, count = in_window(LIMITS, FETCHED, time.time())
     print(f"=== Gale downloads from {datetime.datetime.now():%F %T}: gap {GAP[0]:.0f}-{GAP[1]:.0f}s, "
-          f"<= {WINDOW_MAX}/{WINDOW:.0f}s, session cap {cap or 'none until a refusal is seen'}, "
-          f"rest {rests[0] / 60:.0f}-{rests[1] / 60:.0f} min, next-up rows from {a.skip + 1} ===")
+          f"<= {WINDOW_MAX}/{WINDOW:.0f}s, cap {cap} a {span / 3600:.1f} h window ({count} in the one since "
+          f"{iso(start)}), next-up rows from {a.skip + 1} ===")
     try:
         n, why = run(a.max, a.dry_run, skip=a.skip)
     except Stop as e:
