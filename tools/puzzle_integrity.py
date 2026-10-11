@@ -163,6 +163,7 @@ belongs in the fetcher or in a re-fetch, not in a repair pass over the files.
 import hashlib
 import inspect
 import json
+import os
 import pickle
 import re
 import sqlite3
@@ -1474,6 +1475,89 @@ def check_dates(held, flags):
                 finding = f"dated {db}, not after {series}-{a}'s {da}"
                 if (pid, finding) not in PUBLISHED_WRONG:
                     flags.append(("DATE", pid, finding))
+
+
+def _numbering(series, number):
+    """Which numbering run of `series` `number` is in (check_dates' split)."""
+    restart = series_meta.meta(series).get("renumberedBelow")
+    return bool(restart and number < restart)
+
+
+def filed_neighbours(puzzle):
+    """((number, day, id) or None, same): the nearest puzzles filed under
+    puzzle_paths.PUZZLE_DIR below and above `puzzle`'s number, in its
+    numbering run, that carry a date. Names only are listed; two files read."""
+    try:
+        series, number = series_meta.parse_id(puzzle.get("id"))
+    except (AssertionError, ValueError):
+        return None, None
+    folder = puzzle_paths.PUZZLE_DIR / str(series)
+    if not series or series_meta.is_book(series) or not folder.is_dir():
+        return None, None
+    run, prefix = _numbering(series, number), f"{series}-"
+    below, above = [], []
+    for year in folder.iterdir():
+        if not year.is_dir():
+            continue
+        for name in os.listdir(year):
+            tail = name[len(prefix):-5] if name.startswith(prefix) and name.endswith(".json") else ""
+            if tail.isdigit() and (n := int(tail)) != number and _numbering(series, n) == run:
+                (below if n < number else above).append((n, year / name))
+
+    def nearest(candidates):
+        for n, path in candidates:
+            try:
+                day = date_of(json.loads(path.read_text(encoding="utf-8")))
+            except (OSError, ValueError):
+                continue
+            if day is not None:
+                return n, day, f"{series}-{n}"
+        return None
+    return nearest(sorted(below, reverse=True)), nearest(sorted(above))
+
+
+def check_new_date(old, new, flags):
+    """DATE at write time, so no writer can file what check_dates reports.
+    A puzzle whose date it brings (new, or moved) must fall after the filed
+    puzzle numbered below it and before the one numbered above. And a reading
+    off a scan may not move a filed puzzle to a later issue's date: a later
+    issue carrying the same puzzle (a prize reprinted with its solution, or
+    another day's pages bound into the scan, as archive.org's Financial Times
+    items are) is not when it was printed. Seen 2026-10-11: ftcryptic-8021
+    re-filed off the 12 December 1992 scan, 8425/8427/8948/9304/9306 filed
+    under the dates of scans that also hold their real day's puzzle."""
+    day = date_of(new)
+    if day is None:
+        return
+    pid = new.get("id")
+    was = date_of(old) if old is not None else None
+    if was == day:
+        return
+    url = (new.get("source") or {}).get("url")
+    if (was is not None and day > was and url != ((old or {}).get("source") or {}).get("url")
+            and (new.get("source") or {}).get("retrievedFrom") in provenance.OCR_CHANNELS):
+        flags.append(("DATE", pid, f"would move {pid} from {was} to {day}: a later issue "
+                      "printing it again is not its date"))
+    below, above = filed_neighbours(new)
+    if below and day <= below[1]:
+        finding = f"dated {day}, not after {below[2]}'s {below[1]}"
+        if (pid, finding) not in PUBLISHED_WRONG:
+            flags.append(("DATE", pid, finding))
+    if above and day >= above[1]:
+        finding = f"dated {day}, not before {above[2]}'s {above[1]}"
+        if (pid, finding) not in PUBLISHED_WRONG:
+            flags.append(("DATE", pid, finding))
+
+
+def refuse_misdated_write(puzzle, old=None):
+    """Raise RefusedWrite when writing `puzzle` into the corpus would break its
+    series' number/date order (check_new_date). Only for the real corpus: it
+    reads the neighbours filed beside it."""
+    flags = []
+    check_new_date(old, puzzle, flags)
+    if flags:
+        raise RefusedWrite(f"refusing to write {puzzle['id']}: "
+                           + "; ".join(f"{flag} {what}" for flag, _, what in flags), flags)
 
 
 def _rel(path):

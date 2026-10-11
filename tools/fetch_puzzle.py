@@ -1065,6 +1065,10 @@ def write_puzzle_file(path, puzzle, generator=None):
     # fetcher can write what tools/puzzle_integrity.py would report.
     import puzzle_integrity  # lazy: it imports this module
     puzzle_integrity.refuse_bad_write(puzzle, old)
+    # Nor what its cross-file DATE check would: a date out of order with the
+    # puzzles filed either side, or a filed puzzle moved to a later reprint.
+    if corpus:
+        puzzle_integrity.refuse_misdated_write(puzzle, old)
     # A new id is refused when its clues are another held puzzle's, whichever
     # filer wrote it, and every corpus write enters the index, so a second
     # copy filed by the same run is refused too.
