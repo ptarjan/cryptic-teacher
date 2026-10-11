@@ -38,6 +38,9 @@
   "date": "2019-06-16",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,53 @@
     "text": "Destroy Scottish island (no small island)",
     "enumeration": "4"
    },
-   "solution": "SLAY"
+   "solution": "SLAY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SLAY",
+    "definitions": [
+     {
+      "text": "Destroy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no",
+      "for": "deletion",
+      "note": "'no' says the following item is to be left out of the island's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scottish island",
+      "gives": "ISLAY",
+      "note": "Islay is an island of the Inner Hebrides, famous for whisky"
+     },
+     {
+      "clueFragment": "small island",
+      "gives": "I",
+      "note": "I is the standard abbreviation for island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLAY"
+     ]
+    },
+    "explanation": {
+     "surface": "An order to wipe out a Hebridean island, with a pedantic bracket about not counting a little islet.",
+     "walkthrough": "Take the I from the front of ISLAY to leave SLAY.",
+     "definitionFit": "To slay is to kill, a straightforward synonym for destroy a living thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "number": 1,
@@ -65,7 +114,66 @@
     "text": "Tortures pastors conjured up, having caught highway thief",
     "enumeration": "10"
    },
-   "solution": "STRAPPADOS"
+   "solution": "STRAPPADOS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "STRAPPADOS",
+    "definitions": [
+     {
+      "text": "Tortures",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conjured up",
+      "for": "anagram",
+      "note": "something conjured up is magicked into a new form, so the letters are rearranged"
+     },
+     {
+      "text": "having caught",
+      "for": "container",
+      "note": "having caught something means holding it inside, so the thief goes within the shuffled letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pastors",
+      "gives": "PASTORS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "highway thief",
+      "gives": "PAD",
+      "note": "a pad is an old word for a highwayman, as in footpad"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRAP",
+      "PAD",
+      "OS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PASTORS",
+       "gives": "STRAPOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Clergymen magically produce instruments of torture after catching a highwayman.",
+     "definitionFit": "The strappado was a torture in which the victim was hoisted by a rope tied to the wrists and dropped."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "conjured"
+    }
+   }
   },
   {
    "number": 2,
@@ -79,7 +187,55 @@
     "text": "Solitary person outside a public library, say?",
     "enumeration": "6"
    },
-   "solution": "LOANER"
+   "solution": "LOANER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LOANER",
+    "definitions": [
+     {
+      "text": "public library, say?",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "'outside' puts the word for a solitary person around the following letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Solitary person",
+      "gives": "LONER",
+      "note": "a loner keeps to themselves"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "A",
+      "NER"
+     ]
+    },
+    "explanation": {
+     "surface": "A recluse standing outside the public library.",
+     "walkthrough": "The 'say?' warns the library is only an example of something that lends.",
+     "definitionFit": "A loaner is one who lends, and a public library exists to lend books."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "library"
+    }
+   }
   },
   {
    "number": 3,
@@ -93,7 +249,56 @@
     "text": "Summon old expert to squash common fellow",
     "enumeration": "6"
    },
-   "solution": "ACCITE"
+   "solution": "ACCITE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ACCITE",
+    "definitions": [
+     {
+      "text": "Summon old",
+      "at": 0,
+      "note": "'old' marks the verb as archaic"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to squash",
+      "for": "container",
+      "note": "squashing something in presses it inside, so the word for a common fellow goes within the word for expert"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expert",
+      "gives": "ACE",
+      "note": "an ace is an expert"
+     },
+     {
+      "clueFragment": "common fellow",
+      "gives": "CIT",
+      "note": "cit is an old contemptuous word for a townsman or citizen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "CIT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A call for a veteran expert to crush an ordinary chap.",
+     "walkthrough": "Cit, short for citizen, was an old sneer at a mere townsman, which is why it fits 'common fellow'.",
+     "definitionFit": "Accite is an obsolete verb for calling or citing someone, so to summon in old usage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "squash"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +312,65 @@
     "text": "Harmony around home associated with a fireplace",
     "enumeration": "8"
    },
-   "solution": "CHIMINEA"
+   "solution": "CHIMINEA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CHIMINEA",
+    "definitions": [
+     {
+      "text": "fireplace",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "'around' puts the word for harmony on both sides of the word for home"
+     }
+    ],
+    "linkWords": [
+     "associated with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Harmony",
+      "gives": "CHIME",
+      "note": "to be in chime is to be in harmony"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "being in is being at home"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHIM",
+      "IN",
+      "E",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A note on domestic harmony and the hearth at the centre of the home.",
+     "walkthrough": "'Home' looks like part of the domestic picture but is just the word for being at home, which sits inside the harmony word.",
+     "definitionFit": "A chiminea is a free-standing clay outdoor stove with a chimney, a kind of portable fireplace."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 4,
@@ -121,7 +384,49 @@
     "text": "Blackmail coming from China not acceptable",
     "enumeration": "5"
    },
-   "solution": "CHOUT"
+   "solution": "CHOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHOUT",
+    "definitions": [
+     {
+      "text": "Blackmail",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "coming from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "China",
+      "gives": "CH",
+      "note": "CH is an abbreviation for China"
+     },
+     {
+      "clueFragment": "not acceptable",
+      "gives": "OUT",
+      "note": "out means not acceptable, as in that's out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "An extortion racket based in China being ruled unacceptable.",
+     "definitionFit": "Chout was a levy extorted by the Marathas in India, hence blackmail or extortion in Chambers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 5,
@@ -135,7 +440,62 @@
     "text": "Islander, one wearing headgear — a Scotsman?",
     "enumeration": "7"
    },
-   "solution": "HAITIAN"
+   "solution": "HAITIAN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HAITIAN",
+    "definitions": [
+     {
+      "text": "Islander",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "something worn on the head goes around it, so the headgear surrounds the one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "headgear",
+      "gives": "HAT",
+      "note": "a hat is headgear"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "a Scotsman",
+      "gives": "IAN",
+      "note": "Ian is a typically Scottish first name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HA",
+      "I",
+      "T",
+      "IAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Puzzling over whether someone from an island wearing a hat is a Scot.",
+     "walkthrough": "The Scotsman is not a definition but a typical Scottish first name; the islander is the one being defined.",
+     "definitionFit": "A Haitian is a native of Haiti, which shares the Caribbean island of Hispaniola."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Scotsman"
+    }
+   }
   },
   {
    "number": 6,
@@ -149,7 +509,43 @@
     "text": "Opinion being heard, proceeded secretly",
     "enumeration": "5"
    },
-   "solution": "MINED"
+   "solution": "MINED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MINED",
+    "definitions": [
+     {
+      "text": "proceeded secretly",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being heard",
+      "for": "homophone",
+      "note": "'being heard' means we go by how the word for opinion sounds when spoken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Opinion",
+      "gives": "MINED",
+      "soundsLike": "MIND",
+      "note": "to my mind means in my opinion"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone voicing a view while quietly getting on with things.",
+     "definitionFit": "To mine is to dig tunnels, and figuratively to work underhandedly, as in undermine, so to proceed secretly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "proceeded"
+    }
+   }
   },
   {
    "number": 7,
@@ -163,7 +559,58 @@
     "text": "Centres in which one sees any number slave, cruelly exploited",
     "enumeration": "6"
    },
-   "solution": "NAVELS"
+   "solution": "NAVELS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NAVELS",
+    "definitions": [
+     {
+      "text": "Centres",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cruelly exploited",
+      "for": "anagram",
+      "note": "something cruelly exploited is knocked about, so the letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "in which one sees"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "any number",
+      "gives": "N",
+      "note": "n stands for an indefinite number in maths"
+     },
+     {
+      "clueFragment": "slave",
+      "gives": "SLAVE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NSLAVE",
+       "gives": "NAVELS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Places where countless slaves are seen being brutally used.",
+     "definitionFit": "The navel is the centre of the belly, and by extension the central point of anything."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exploited"
+    }
+   }
   },
   {
    "number": 8,
@@ -177,7 +624,53 @@
     "text": "Friendly agreement? Not with one of two knights opinionated",
     "enumeration": "6"
    },
-   "solution": "ENTETE"
+   "solution": "ENTETE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ENTETE",
+    "definitions": [
+     {
+      "text": "opinionated",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not with",
+      "for": "deletion",
+      "note": "'Not with' says the agreement is to be taken without the named item"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Friendly agreement?",
+      "gives": "ENTENTE",
+      "note": "an entente cordiale is a friendly understanding between nations"
+     },
+     {
+      "clueFragment": "one of two knights",
+      "gives": "N",
+      "note": "N is the chess notation for knight; the word has two"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENTETE"
+     ]
+    },
+    "explanation": {
+     "surface": "A friendly deal that one of a pair of knights stubbornly won't join.",
+     "walkthrough": "Remove one of the two Ns from ENTENTE.",
+     "definitionFit": "Entete, from French, means obstinate or headstrong, holding stubbornly to one's views."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "knights"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +684,54 @@
     "text": "Bacon that I get cooked for flatmate?",
     "enumeration": "10"
    },
-   "solution": "COHABITANT"
+   "solution": "COHABITANT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COHABITANT",
+    "definitions": [
+     {
+      "text": "flatmate?",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "get cooked",
+      "for": "anagram",
+      "note": "food that gets cooked is transformed, so the letters are made over into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bacon that I",
+      "gives": "BACONTHATI",
+      "note": "the ten letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BACONTHATI",
+       "gives": "COHABITANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone frying breakfast bacon for the person they share a flat with.",
+     "walkthrough": "The question mark flags that a flatmate is only one example of a person living with another.",
+     "definitionFit": "A cohabitant is anyone who lives with someone else, of whom a flatmate is one example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +745,69 @@
     "text": "Vehicle reversing by French river stopping short — something scraping",
     "enumeration": "7"
    },
-   "solution": "RACLOIR"
+   "solution": "RACLOIR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "RACLOIR",
+    "definitions": [
+     {
+      "text": "something scraping",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversing",
+      "for": "reversal",
+      "note": "a vehicle reversing goes backwards, so its word is read right to left"
+     },
+     {
+      "text": "stopping short",
+      "for": "deletion",
+      "note": "stopping short means falling short of the end, so the river's last letter goes"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vehicle",
+      "gives": "CAR",
+      "note": "a car is a vehicle"
+     },
+     {
+      "clueFragment": "French river",
+      "gives": "LOIRE",
+      "note": "the Loire is France's longest river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAC",
+      "LOIR"
+     ],
+     "reversals": [
+      {
+       "from": "CAR",
+       "to": "RAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A driver backing up beside a French river and pulling up before reaching it, with a scraping noise.",
+     "definitionFit": "A racloir is a prehistoric flint scraper, a tool for scraping hides, hence something scraping."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scraping"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +821,69 @@
     "text": "Bishop is coming in ruined, upset, in knots",
     "enumeration": "6"
    },
-   "solution": "KNURRS"
+   "solution": "KNURRS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "KNURRS",
+    "definitions": [
+     {
+      "text": "knots",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down entry, something upset is turned upside down, so the word reads bottom to top"
+     },
+     {
+      "text": "is coming in",
+      "for": "container",
+      "note": "'is coming in' says the churchman enters inside the other word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ruined",
+      "gives": "SUNK",
+      "note": "sunk means done for, ruined"
+     },
+     {
+      "clueFragment": "Bishop",
+      "gives": "RR",
+      "note": "RR is Right Reverend, the title of a bishop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KNU",
+      "RR",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SUNK",
+       "to": "KNUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A churchman arrives ruined and upset, his stomach in knots.",
+     "definitionFit": "Knurrs are knots or hard lumps, especially knots in wood, a variant of knur."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "knots"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +897,49 @@
     "text": "Embroiderers in Cheshire town registers",
     "enumeration": "10"
    },
-   "solution": "CREWELISTS"
+   "solution": "CREWELISTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CREWELISTS",
+    "definitions": [
+     {
+      "text": "Embroiderers",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cheshire town",
+      "gives": "CREWE",
+      "note": "Crewe is a railway town in Cheshire, England"
+     },
+     {
+      "clueFragment": "registers",
+      "gives": "LISTS",
+      "note": "a register is a list"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CREWE",
+      "LISTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Needleworkers recorded in the registers of an English town.",
+     "definitionFit": "Crewelists do crewel work, embroidery in loosely twisted worsted yarn."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "registers"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +953,63 @@
     "text": "Little old dam like this bursting? Caution!",
     "enumeration": "6"
    },
-   "solution": "ANICUT"
+   "solution": "ANICUT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ANICUT",
+    "definitions": [
+     {
+      "text": "dam",
+      "at": 11
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bursting",
+      "for": "anagram",
+      "note": "something bursting breaks apart, so its letters scatter and regroup"
+     }
+    ],
+    "linkWords": [
+     "like this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Little old",
+      "gives": "O",
+      "note": "a little old, the abbreviation O for old, is the extra letter in the warning word"
+     },
+     {
+      "clueFragment": "Caution",
+      "gives": "CAUTION",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANICUT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CAUTIN",
+       "gives": "ANICUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning shouted as a small old dam threatens to burst.",
+     "walkthrough": "Read in reverse: the answer plus O for old, burst apart, makes CAUTION. So take O out of CAUTION and rearrange the rest.",
+     "definitionFit": "An anicut is an Indian term for a dam or weir built across a river for irrigation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bursting"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +1023,54 @@
     "text": "My lord always backing soldiers",
     "enumeration": "6"
    },
-   "solution": "MENEER"
+   "solution": "MENEER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MENEER",
+    "definitions": [
+     {
+      "text": "My lord",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "charade",
+      "note": "'backing' says the word for always comes behind, supporting the troops from the rear"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldiers",
+      "gives": "MEN",
+      "note": "soldiers as men in the ranks"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "EER",
+      "note": "e'er is the poetic contraction of ever"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEN",
+      "EER"
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman forever standing behind his troops.",
+     "walkthrough": "The soldiers come first and 'always' follows them.",
+     "definitionFit": "Meneer is the Afrikaans form of address equivalent to sir or Mr, Chambers glossing it as lord."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1084,53 @@
     "text": "Internet facility providing e-tunes possibly?",
     "enumeration": "6"
    },
-   "solution": "USENET"
+   "solution": "USENET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "USENET",
+    "definitions": [
+     {
+      "text": "Internet facility",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "'possibly' says the letters are only one possible arrangement of what is needed"
+     }
+    ],
+    "linkWords": [
+     "providing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "e-tunes",
+      "gives": "ETUNES",
+      "note": "the six letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ETUNES",
+       "gives": "USENET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether an online service might supply downloadable music.",
+     "definitionFit": "Usenet is the worldwide system of discussion newsgroups, one of the oldest services on the internet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "e-tunes"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1144,46 @@
     "text": "Papal licence in the name of God ultimately",
     "enumeration": "6"
    },
-   "solution": "INDULT"
+   "solution": "INDULT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INDULT",
+    "definitions": [
+     {
+      "text": "Papal licence",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in the name of God",
+      "gives": "IND",
+      "note": "I.N.D. abbreviates the Latin in nomine Dei"
+     },
+     {
+      "clueFragment": "ultimately",
+      "gives": "ULT",
+      "note": "ult. abbreviates ultimo or ultimately"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IND",
+      "ULT"
+     ]
+    },
+    "explanation": {
+     "surface": "A dispensation granted by the Pope, issued in God's name in the last resort.",
+     "definitionFit": "An indult is a special licence or dispensation granted by the Pope from the ordinary rules of canon law."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ultimately"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1197,50 @@
     "text": "Quiet repose making one ready, as before",
     "enumeration": "5"
    },
-   "solution": "PREST"
+   "solution": "PREST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PREST",
+    "definitions": [
+     {
+      "text": "ready, as before",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "making one"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quiet",
+      "gives": "P",
+      "note": "p is the musical marking piano, quietly"
+     },
+     {
+      "clueFragment": "repose",
+      "gives": "REST",
+      "note": "rest is repose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "REST"
+     ]
+    },
+    "explanation": {
+     "surface": "A spell of quiet rest that leaves someone refreshed and ready again.",
+     "walkthrough": "'as before' marks the definition as an archaic sense.",
+     "definitionFit": "Prest is an obsolete adjective for ready or prepared, from Old French, hence 'as before', meaning formerly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "before"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1254,50 @@
     "text": "No longer chase after prize money, having got weak",
     "enumeration": "6"
    },
-   "solution": "PURSEW"
+   "solution": "PURSEW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PURSEW",
+    "definitions": [
+     {
+      "text": "No longer chase after",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "having got"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prize money",
+      "gives": "PURSE",
+      "note": "a purse is the prize money in a boxing match or race"
+     },
+     {
+      "clueFragment": "weak",
+      "gives": "W",
+      "note": "W is the abbreviation for weak"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PURSE",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "A boxer who has gone soft and stopped chasing the prize money.",
+     "walkthrough": "'No longer' marks the definition as an obsolete spelling, not a negative.",
+     "definitionFit": "Pursew is an old Spenserian spelling of pursue, meaning to chase after."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "No"
+    }
+   }
   },
   {
    "number": 18,
@@ -331,7 +1311,50 @@
     "text": "Tree in China at foot of which is girl",
     "enumeration": "7"
    },
-   "solution": "PALMYRA"
+   "solution": "PALMYRA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PALMYRA",
+    "definitions": [
+     {
+      "text": "Tree",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "at foot of which is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "China",
+      "gives": "PAL",
+      "note": "in rhyming slang, china plate means mate, so a pal"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "MYRA",
+      "note": "Myra is a girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAL",
+      "MYRA"
+     ]
+    },
+    "explanation": {
+     "surface": "A tree from China with a girl sitting at its base.",
+     "walkthrough": "'at foot of which' places the girl below the friend in this down entry.",
+     "definitionFit": "The palmyra is an Asian palm tree grown for its sap, leaves and timber."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1368,47 @@
     "text": "Difficult summer month to bear at one time",
     "enumeration": "6"
    },
-   "solution": "AUGEAN"
+   "solution": "AUGEAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AUGEAN",
+    "definitions": [
+     {
+      "text": "Difficult",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "summer month",
+      "gives": "AUG",
+      "note": "Aug. abbreviates August"
+     },
+     {
+      "clueFragment": "to bear at one time",
+      "gives": "EAN",
+      "note": "ean is an obsolete verb meaning to give birth, as of ewes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUG",
+      "EAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A summer month that was hard to endure in the past.",
+     "walkthrough": "'at one time' marks EAN as an archaic word.",
+     "definitionFit": "An Augean task is filthy and hugely difficult, after Hercules cleaning the stables of King Augeas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bear"
+    }
+   }
   },
   {
    "number": 20,
@@ -359,7 +1422,50 @@
     "text": "Cart heading off to deliver piece of armour",
     "enumeration": "6"
    },
-   "solution": "UMBREL"
+   "solution": "UMBREL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UMBREL",
+    "definitions": [
+     {
+      "text": "piece of armour",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading off",
+      "for": "deletion",
+      "note": "'heading off' means the head, the first letter, is removed"
+     }
+    ],
+    "linkWords": [
+     "to deliver"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cart",
+      "gives": "TUMBREL",
+      "note": "a tumbrel is a cart, famous for taking victims to the guillotine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UMBREL"
+     ]
+    },
+    "explanation": {
+     "surface": "A cart setting off to bring a piece of armour.",
+     "definitionFit": "Umbrel is a variant of umbrere, the movable visor on a helmet that shaded the face."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 21,
@@ -373,7 +1479,58 @@
     "text": "Crocodile gets through biting into girl",
     "enumeration": "6"
    },
-   "solution": "GAVIAL"
+   "solution": "GAVIAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GAVIAL",
+    "definitions": [
+     {
+      "text": "Crocodile",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "biting into",
+      "for": "container",
+      "note": "something biting into another sinks into it, so the word for through goes inside the word for girl"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "GAL",
+      "note": "gal is a casual word for a girl"
+     },
+     {
+      "clueFragment": "through",
+      "gives": "VIA",
+      "note": "via means by way of, through"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GA",
+      "VIA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A crocodile gets its teeth through a girl.",
+     "walkthrough": "Gavial is the older spelling of gharial, from a misreading of the Hindi name.",
+     "definitionFit": "The gavial, or gharial, is a long-snouted crocodilian of Indian rivers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "biting"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1544,42 @@
     "text": "Old-fashioned counsel taken on board by daredevil",
     "enumeration": "5"
    },
-   "solution": "AREDE"
+   "solution": "AREDE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AREDE",
+    "definitions": [
+     {
+      "text": "Old-fashioned counsel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken on board by",
+      "for": "hidden_word",
+      "note": "something taken on board is carried inside, so the answer sits within the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daredevil",
+      "gives": "AREDE",
+      "note": "the letters run inside this word"
+     }
+    ],
+    "explanation": {
+     "surface": "Old-school advice being accepted by a reckless risk-taker.",
+     "definitionFit": "Arede is an archaic verb meaning to counsel or advise, a variant of areed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 23,
@@ -401,7 +1593,48 @@
     "text": "Net for fish gets some quite sleepy going upstream",
     "enumeration": "6"
    },
-   "solution": "EELSET"
+   "solution": "EELSET",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "EELSET",
+    "definitions": [
+     {
+      "text": "Net for fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gets some",
+      "for": "hidden_word",
+      "note": "'some' of the following words means only a part of them is taken"
+     },
+     {
+      "text": "going upstream",
+      "for": "reversal",
+      "note": "going upstream in a down entry means running from bottom to top, against the flow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quite sleepy",
+      "gives": "TESLEE",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A drowsy fish swimming upriver ends up in a net.",
+     "definitionFit": "An eelset is a net set across a river to catch eels, so a net for fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upstream"
+    }
+   }
   },
   {
    "number": 24,
@@ -415,7 +1648,58 @@
     "text": "I'm stupid, restricting power and seeking peace",
     "enumeration": "6"
    },
-   "solution": "DOVISH"
+   "solution": "DOVISH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DOVISH",
+    "definitions": [
+     {
+      "text": "seeking peace",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restricting",
+      "for": "container",
+      "note": "restricting means hemming in, so the exclamation goes around the word for power"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'm stupid",
+      "gives": "DOH",
+      "note": "d'oh is Homer Simpson's cry on realising he has been stupid"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "VIS",
+      "note": "vis is Latin for force or power"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "VIS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone admits their foolishness in holding power while wanting peace.",
+     "walkthrough": "'I'm stupid' is not a confession but the exclamation used to make it.",
+     "definitionFit": "Dovish means favouring negotiation over war, the dove being the bird of peace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stupid"
+    }
+   }
   },
   {
    "number": 25,
@@ -429,7 +1713,49 @@
     "text": "Vassal set to provide cattle food",
     "enumeration": "6"
    },
-   "solution": "MANGEL"
+   "solution": "MANGEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MANGEL",
+    "definitions": [
+     {
+      "text": "cattle food",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "to provide"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vassal",
+      "gives": "MAN",
+      "note": "a feudal lord's man was his vassal"
+     },
+     {
+      "clueFragment": "set",
+      "gives": "GEL",
+      "note": "to gel is to set, like a jelly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "GEL"
+     ]
+    },
+    "explanation": {
+     "surface": "A feudal vassal assigned to feed the herd.",
+     "definitionFit": "A mangel, or mangel-wurzel, is a large beet grown chiefly as fodder for cattle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 26,
@@ -443,7 +1769,58 @@
     "text": "Like wine that's dull from US but with hidden power",
     "enumeration": "5"
    },
-   "solution": "GRAPY"
+   "solution": "GRAPY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GRAPY",
+    "definitions": [
+     {
+      "text": "Like wine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with hidden",
+      "for": "container",
+      "note": "something hidden is tucked inside, so the letter for power goes within the colour"
+     }
+    ],
+    "linkWords": [
+     "that's",
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dull from US",
+      "gives": "GRAY",
+      "note": "gray is the American spelling of grey, dull"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the symbol for power"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRA",
+      "P",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A flat American wine that nonetheless has hidden strength.",
+     "definitionFit": "Grapy means tasting of or resembling grapes, as wine made from them may."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dull"
+    }
+   }
   },
   {
    "number": 27,
@@ -457,7 +1834,64 @@
     "text": "Prohibition slapped on revolutionary army in part of Hungary",
     "enumeration": "5"
    },
-   "solution": "BANAT"
+   "solution": "BANAT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "BANAT",
+    "definitions": [
+     {
+      "text": "part of Hungary",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "revolutionary suggests turning round, so the army's letters are read backwards"
+     }
+    ],
+    "linkWords": [
+     "slapped on",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prohibition",
+      "gives": "BAN",
+      "note": "a ban is a prohibition"
+     },
+     {
+      "clueFragment": "army",
+      "gives": "TA",
+      "note": "TA is the Territorial Army, Britain's volunteer reserve"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAN",
+      "AT"
+     ],
+     "reversals": [
+      {
+       "from": "TA",
+       "to": "AT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ban imposed on a rebel army in a Hungarian district.",
+     "definitionFit": "The Banat is a historical region of Hungary, now divided between Romania, Serbia and Hungary."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 28,
@@ -471,7 +1905,52 @@
     "text": "Come face to face with old bishop and one new to the faith",
     "enumeration": "6"
    },
-   "solution": "OBVERT"
+   "solution": "OBVERT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OBVERT",
+    "definitions": [
+     {
+      "text": "Come face to face with",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess notation for bishop"
+     },
+     {
+      "clueFragment": "one new to the faith",
+      "gives": "VERT",
+      "note": "a vert is a convert, short for the full word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "B",
+      "VERT"
+     ]
+    },
+    "explanation": {
+     "surface": "A newly converted believer meeting an elderly bishop in person.",
+     "definitionFit": "To obvert is to turn something so its front faces you, hence turning towards or confronting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "faith"
+    }
+   }
   },
   {
    "number": 29,
@@ -485,7 +1964,50 @@
     "text": "Learned man to mistreat half a dozen",
     "enumeration": "6"
    },
-   "solution": "MAULVI"
+   "solution": "MAULVI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAULVI",
+    "definitions": [
+     {
+      "text": "Learned man",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mistreat",
+      "gives": "MAUL",
+      "note": "to maul is to handle roughly"
+     },
+     {
+      "clueFragment": "half a dozen",
+      "gives": "VI",
+      "note": "VI is six in Roman numerals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAUL",
+      "VI"
+     ]
+    },
+    "explanation": {
+     "surface": "A scholar who manhandles six people.",
+     "definitionFit": "A maulvi is a Muslim doctor of the law, a learned teacher in South Asia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "dozen"
+    }
+   }
   },
   {
    "number": 30,
@@ -499,7 +2021,49 @@
     "text": "Afterwards girl comes to meaningful agreement",
     "enumeration": "7"
    },
-   "solution": "SYNESIS"
+   "solution": "SYNESIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SYNESIS",
+    "definitions": [
+     {
+      "text": "meaningful agreement",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "comes to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Afterwards",
+      "gives": "SYNE",
+      "note": "syne is Scots for afterwards, as in auld lang syne"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "SIS",
+      "note": "sis is short for sister, a girl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SYNE",
+      "SIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl who later comes round to a meaningful agreement.",
+     "definitionFit": "Synesis is grammatical agreement by sense rather than form, as in 'the crowd were', agreement governed by meaning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "agreement"
+    }
+   }
   },
   {
    "number": 31,
@@ -513,7 +2077,55 @@
     "text": "Dearies apt to get excited get breathless",
     "enumeration": "10"
    },
-   "solution": "DEASPIRATE"
+   "solution": "DEASPIRATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEASPIRATE",
+    "definitions": [
+     {
+      "text": "get breathless",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "get excited",
+      "for": "anagram",
+      "note": "being excited means being stirred up, so the letters are shaken into a new order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dearies apt",
+      "gives": "DEARIESAPT",
+      "note": "the ten letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DEARIESAPT",
+       "gives": "DEASPIRATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sweethearts prone to excitement end up gasping for breath.",
+     "walkthrough": "'breathless' here is the phonetic sense: losing the breath of an aspirated sound.",
+     "definitionFit": "To deaspirate is to pronounce a sound without its aspiration, removing the breathy h, so losing breath."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "breathless"
+    }
+   }
   },
   {
    "number": 32,
@@ -527,7 +2139,65 @@
     "text": "Homeless creature? Everyone needs to have food, Young Conservative admitted",
     "enumeration": "8"
    },
-   "solution": "ALLEYCAT"
+   "solution": "ALLEYCAT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ALLEYCAT",
+    "definitions": [
+     {
+      "text": "Homeless creature?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitted",
+      "for": "container",
+      "note": "something admitted is let inside, so the two-letter party abbreviation goes within the word for having food"
+     }
+    ],
+    "linkWords": [
+     "needs to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everyone",
+      "gives": "ALL",
+      "note": "everyone is all"
+     },
+     {
+      "clueFragment": "have food",
+      "gives": "EAT",
+      "note": "to eat is to have food"
+     },
+     {
+      "clueFragment": "Young Conservative",
+      "gives": "YC",
+      "note": "YC abbreviates Young Conservative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "E",
+      "YC",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "A plea that everyone, the homeless included, needs feeding, with a young Tory let in.",
+     "walkthrough": "The Young Conservatives were the youth wing of Britain's Conservative Party.",
+     "definitionFit": "An alley cat is a stray cat living on the streets, so a homeless animal; the question mark admits it is one example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Homeless"
+    }
+   }
   },
   {
    "number": 33,
@@ -541,7 +2211,52 @@
     "text": "Letters from fourth man circulating",
     "enumeration": "4"
    },
-   "solution": "ETHS"
+   "solution": "ETHS",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "ETHS",
+    "definitions": [
+     {
+      "text": "Letters",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circulating",
+      "for": "cycling",
+      "note": "circulating means going round, so the first letter of the name moves round to the end"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fourth man",
+      "gives": "SETH",
+      "note": "in Genesis, after Adam, Cain and Abel, Seth is the fourth man named"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETHS"
+     ]
+    },
+    "explanation": {
+     "surface": "Correspondence coming from some fourth man who is going around.",
+     "walkthrough": "The S moves from front to back of SETH.",
+     "definitionFit": "Eth is the Old English letter for the th sound, so eths are letters of the alphabet, not mail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Letters"
+    }
+   }
   }
  ]
 }
