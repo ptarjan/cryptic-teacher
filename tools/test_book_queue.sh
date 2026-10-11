@@ -174,4 +174,13 @@ print(" ".join(str(p) for p in sorted(d.glob("*/*.txt")) if d.is_dir()
 (cd "$REPO" && python3 tools/book_queue.py >/dev/null 2>&1)
 check "the real registry still produces a queue" "0" "$?"
 
+# Commit subjects name the book ("Read The Penguin Book of ..."), never its
+# archive.org identifier, so every registered book needs a title.
+check "every registered book has a title for its commit subject" "" \
+  "$(cd "$REPO" && python3 -c '
+import json
+print(" ".join(b["identifier"] for b in json.load(open("tools/data/books.json"))["books"] if not b.get("title")))')"
+check "a read names its book by title" "The Penguin Book of Sunday Times Crosswords, volume 2" \
+  "$(cd "$REPO" && python3 tools/book_queue.py --title secondpenguinboo0000unse_c2w6)"
+
 [ "$fails" = 0 ] && echo "PASSED" || { echo "$fails FAILED"; exit 1; }
