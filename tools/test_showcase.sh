@@ -50,7 +50,8 @@ book = min(fp.ROOT.glob("puzzles/book/*/book-*.json")).stem
 check("a book's year is not a print date", not facts(book)["dated"])
 check("a book's number is volume and position, not an issue",
       not facts(book)["counted"])
-check("a date-keyed number is not an issue", not facts("metro-20260902")["counted"])
+check("a date-keyed number is not an issue", not facts("canberra-670714")["counted"])
+check("a number we count from the date is not an issue", not facts("metro-10033")["counted"])
 
 # --- selection ---
 def fake(i, series, **kw):

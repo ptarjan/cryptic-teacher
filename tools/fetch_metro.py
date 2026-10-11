@@ -22,18 +22,18 @@ own independent captures of that same URL taken on past days, each still
 carrying that day's `starting_puzzle` object, which is how it can recover
 days fetch_today() never ran for. See backfill_wayback() below.
 
-The puzzle's own id (pml_id) is an opaque token that cannot be verified across
-days, so puzzles are keyed by their publication date instead, taken from the
-page's own `rdate` field (e.g. "17 Sep 2026") rather than the machine's clock —
-the page is UK-served and the fetching machine's notion of "today" can be a day
-off near UK midnight. The id is metro-YYYYMMDD: a single digit run, not
-YYYY-MM-DD with internal hyphens, because every other id in this codebase is
-`<series>-<number>` split on the LAST hyphen (series.puzzle_id / parse_id,
-asserted by tools/smoke_test.js as `^[a-z0-9]+-\\d+$`) — a hyphenated date would
-parse as series "metro-2026-09" number "17". YYYYMMDD keeps the id
-date-derived and sortable while staying a plain integer, so it also sorts
-correctly against every other series' number in tools/fetch_puzzle.py's
-reindex() without a str/int comparison crash.
+Neither Metro nor Puzzler prints a puzzle number: the page's `seqnum` field is
+empty, its grid images are named by date (XC-20261011_grid.png), and its pml_id
+is an opaque database key that is not even monotonic (September 2026's weekday
+puzzles carry ids below October 2025's). So the number is our own, and every
+fetch reproduces it from the publication date alone: Metro runs the cryptic
+every day, and No N is the Nth calendar day since Metro's first edition, 16
+March 1999 = No 1 (series.py numberIsDayCount, series.day_count_number()) —
+3 Apr 2025 is No 9,516, 11 Oct 2026 No 10,072. The date is the page's own
+`rdate` field (e.g. "17 Sep 2026") rather than the machine's clock — the page is
+UK-served and the fetching machine's notion of "today" can be a day off near UK
+midnight. Until 2026-10-11 the id was metro-YYYYMMDD; those ids still resolve
+(series.legacy_ids(), tools/data/renamed_ids.json).
 
 Bare invocation and --force write only the one puzzle file and never touch
 puzzles/index.* — same as every other fetcher's single-puzzle commands, so a
@@ -55,7 +55,7 @@ import enumeration  # a clue's printed counts; tools/enumeration.py
 from fetch_puzzle import (enumeration_separators, flatten_clue, http_bytes, has_words,
                           puzzle_path, reindex, write_puzzle_file)
 from fetch_wayback import maybe_gunzip, SLEEP_SECONDS  # shared Wayback plumbing
-import series as series_meta  # for puzzle_id()/default_setter() only
+import series as series_meta  # puzzle_id(), default_setter(), day_count_number()
 from groups import entry_id
 
 URL = "https://metro.co.uk/puzzles/cryptic-crossword/"
@@ -242,19 +242,19 @@ def convert(data):
     entries.sort(key=lambda e: (e["position"]["y"], e["position"]["x"], e["direction"]))
 
     date = publication_date(data)
-    number = int(date.strftime("%Y%m%d"))
+    number = series_meta.day_count_number(SERIES, date)
 
     return {
         "id": series_meta.puzzle_id(SERIES, number),
         "number": number,
         "series": SERIES,
-        "name": f"Metro cryptic crossword, {date.day} {date.strftime('%B %Y')}",
+        "name": f"Metro cryptic crossword No {number:,}",
         # Metro prints no byline, so this is null unless series.py names one.
         "setter": series_meta.default_setter(SERIES),
         "date": date.isoformat(),
         "dimensions": {"cols": cols, "rows": rows},
         # feedId is provenance, not identity — see the module docstring for
-        # why the id is date-keyed instead. Harmless extra key for every
+        # why the number is counted from the date instead. Harmless extra key for every
         # other tool here: each reads named fields off the puzzle dict and
         # ignores the rest.
         "source": {"url": URL, "feedId": data.get("pml_id")},
@@ -359,7 +359,7 @@ def backfill_wayback(dry_run=False):
             failed += 1
             continue
 
-        number = int(date.strftime("%Y%m%d"))
+        number = series_meta.day_count_number(SERIES, date)
         path = puzzle_path(SERIES, number)
         if path.exists() or path in planned:
             already += 1

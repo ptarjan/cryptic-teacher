@@ -116,7 +116,8 @@ CADENCE_DAYS = {
 
 def is_date_keyed(held):
     """True when a series' "number" is really its own date spelled YYYYMMDD
-    (metro: number 20260918 on 2026-09-18), not a running puzzle count.
+    (metro until 2026-10-11: number 20260918 on 2026-09-18), not a running
+    puzzle count.
 
     Checked structurally -- every puzzle that carries a date must parse as
     YYYYMMDD and equal that same puzzle's date -- rather than by series name,
@@ -175,7 +176,7 @@ def audit(puzzles, today):
 
         if dates and cadence and is_date_keyed(held):
             # numbers[0] and numbers[-1] are dates in disguise here, so their
-            # difference (metro: 20260918 - 20250403 = 10,464) isn't a puzzle
+            # difference (old metro: 20260918 - 20250403 = 10,464) isn't a puzzle
             # count -- measure the axis this series actually has: publication
             # days, at its own cadence, between the oldest and newest held.
             expected = depth // cadence + 1

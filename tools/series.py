@@ -44,6 +44,13 @@ import re
 #   date, YYYYMMDD once this prefix is put in front of it ("" for a YYYYMMDD
 #   number, "19" for YYMMDD). Every reader-facing name shows the day instead
 #   (number_date()); "No 20,260,922" is a date with thousands separators.
+# numberIsDayCount — the paper prints no number, so we number it ourselves:
+#   the day this names is No 1 and every calendar day after it is the next
+#   number (day_count_number()). It reads like any other series ("Metro Cryptic
+#   No 10,072"), new fetches reproduce it from the print date alone, and it has
+#   no first issue to go looking for (first_number() is None).
+# dateIdsUntil — the series was once numberIsDate: each puzzle printed up to
+#   this day also answers to <series>-YYYYMMDD (legacy_ids()).
 # firstIssue — the number the series' first puzzle printed under, when that is
 #   not 1. first_number() reads it.
 SERIES = {
@@ -91,7 +98,16 @@ SERIES = {
         "kind": "Cryptic",
         "publisher": "Metro",
         "badge": "metro",
-        "numberIsDate": "",
+        # Neither Metro nor Puzzler prints a number: the feed's `seqnum` is
+        # empty, its image files are named by date (XC-20261011_grid.png) and
+        # its pml_id is a database key that runs backwards (Sep 2026 weekdays
+        # carry 1086xxx, below Oct 2025's 1080xxx-1085xxx). Metro runs the
+        # cryptic every day of the week, so No N is the Nth day since Metro's
+        # first edition, 16 March 1999 = No 1: 3 Apr 2025 is No 9,516 and
+        # 11 Oct 2026 No 10,072. Our number, not the paper's.
+        "numberIsDayCount": "1999-03-16",
+        # Until 2026-10-11 these were numberIsDate, ids metro-YYYYMMDD.
+        "dateIdsUntil": "2026-10-11",
     },
     "cyclops": {
         # Private Eye ships the grid and the clues but strips the answers -- the
@@ -509,11 +525,11 @@ def unlisted(series):
 def first_number(series):
     """The number the series' first puzzle printed under: `firstIssue`, else
     1. None where the series has no first issue of its own: a number that is a
-    date, a reprint under another series' numbers, the book shelf (each book is
+    date or our own day count, a reprint under another series' numbers, the book shelf (each book is
     a run of positions) and our own unlisted puzzles."""
     m = meta(series)
     if (series not in SERIES or is_book(series) or "numberIsDate" in m
-            or m.get("reprints") or m.get("unlisted")):
+            or "numberIsDayCount" in m or m.get("reprints") or m.get("unlisted")):
         return None
     return m.get("firstIssue", 1)
 
@@ -609,10 +625,10 @@ def date_numbered():
 
     Such a paper prints no number, so a row's date column carries the day and
     the title slot names the puzzle instead. It is the paper AND the kind
-    ("Metro Cryptic"), never the kind alone: "Cryptic" is what half the
-    corpus is, so a list of them reads as one puzzle repeated with no paper on
-    it, while the answer page's prev/next and series links say "Metro
-    Cryptic". tools/fetch_puzzle.py copies this into the index for app.js's
+    ("Canberra Times Cryptic"), never the kind alone: "Cryptic" is what half
+    the corpus is, so a list of them reads as one puzzle repeated with no paper
+    on it, while the answer page's prev/next and series links say "Canberra
+    Times Cryptic". tools/fetch_puzzle.py copies this into the index for app.js's
     pickerRow, and build_seo_pages.hub_row reads it, so the two rows agree.
     """
     return {s: paper_kind(s) for s in sorted(SERIES) if "numberIsDate" in meta(s)}
@@ -746,6 +762,24 @@ def number_date(series, number):
     return datetime.datetime.strptime(f"{prefix}{int(number)}", "%Y%m%d").date()
 
 
+def day_count_number(series, day):
+    """The number a numberIsDayCount series gives the puzzle printed on `day`
+    (a date): days since the series' No 1, plus one. None for any other series."""
+    first = meta(series).get("numberIsDayCount")
+    if first is None:
+        return None
+    return (day - datetime.date.fromisoformat(first)).days + 1
+
+
+def day_count_date(series, number):
+    """The day a numberIsDayCount number was printed on, else None: the
+    inverse of day_count_number()."""
+    first = meta(series).get("numberIsDayCount")
+    if first is None:
+        return None
+    return datetime.date.fromisoformat(first) + datetime.timedelta(days=int(number) - 1)
+
+
 def position_of(series, number):
     """The puzzle's place in its book: 18, for book-3018.
 
@@ -800,8 +834,14 @@ def legacy_ids(series, number):
     writes redirects for ids that were never published, harmless for the same reason the bare-number pages say "is at" rather than
     "has moved": the page's job is to say which puzzle a name refers to.
 
+    A third: a series that was date-numbered (dateIdsUntil, Metro until
+    2026-10-11) also answers to <series>-YYYYMMDD for each day up to then.
+
     Read by build_seo_pages.legacy_ids() and mirrored by legacyIds() in app.js.
     """
+    until = meta(series).get("dateIdsUntil")
+    if until and (day := day_count_date(series, number)) and day.isoformat() <= until:
+        return [f"{series}-{day:%Y%m%d}"]
     if not is_book(series):
         return []
     row = book_row(series, number)

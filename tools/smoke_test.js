@@ -629,9 +629,9 @@ const openPuz = (global.window.CRYPTIC_PUZZLES || {})[openId];
 assert(openPuz, "the opened puzzle's data is loaded: " + openId);
 // The title carries the puzzle's own name, so the check is that it says that
 // name. A number is ONE series' way of naming itself and must not be read as
-// the puzzle's identity: Metro names itself by date and carries no "No", so a
-// /No [\d,]+/ scrape resolves to no puzzle at all the first night a Metro is
-// the newest one. Escaped the way app.js escapes it, so the two cannot drift.
+// the puzzle's identity: a date-keyed paper (the Canberra Times) names itself by
+// date and carries no "No", so a /No [\d,]+/ scrape resolves to no puzzle at all
+// the night one is the newest. Escaped the way app.js escapes it, so the two cannot drift.
 // app.js's esc(): an expected string with an apostrophe in it must be compared escaped.
 const htmlEsc = (t) => String(t).replace(/[&<>"']/g, (c) =>
   ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));

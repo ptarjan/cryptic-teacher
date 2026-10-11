@@ -41,7 +41,7 @@ REPO="$PWD"
 # One puzzle per value of every enum: published/reconstructed grids; published,
 # writeup, model and unsolved answers; publisher, blog, wayback, newspaper,
 # book and unknown channels; a model fill since confirmed (everyman-4165).
-SAMPLE="cyclops-526 book-3027 book-8001 cryptic-30078 cryptic-12575 cryptic-26407 everyman-4165 everyman-3551 canberra-670714 metro-20260917"
+SAMPLE="cyclops-526 book-3027 book-8001 cryptic-30078 cryptic-12575 cryptic-26407 everyman-4165 everyman-3551 canberra-670714 metro-10048"
 fails=0
 same() { if [ "$2" = "$3" ]; then echo "  ok: $1"; else
   echo "  FAIL: $1"$'\n'"    want $3"$'\n'"    got  $2"; fails=$((fails + 1)); fi; }
