@@ -77,6 +77,7 @@ import clue_types  # noqa: E402 — the one list of clue types, their labels and
 import difficulty  # noqa: E402 — the weights, bands and constants /difficulty/ quotes
 import difficulty_check  # noqa: E402 — the held-out scorecard /difficulty/ quotes
 import provenance  # noqa: E402 — solution_detail(), source_url()
+import renamed_ids  # noqa: E402 — the ids commits renamed, for their redirect pages
 import quotes  # noqa: E402 — curl(): clue text is stored straight, shown curled
 import series as series_meta  # noqa: E402 — what each series IS; see tools/series.py
 import showcase  # noqa: E402 — which puzzles /showcase/ picks, and why
@@ -2006,6 +2007,27 @@ def legacy_ids(solved, ids):
                 f'This puzzle has a new address: <a href="{target}">{esc(label)}</a>.')
 
 
+def renamed_ids_pages(solved, taken):
+    """A page at every id a commit renamed, pointing at the id its puzzle has now.
+
+    Read from tools/data/renamed_ids.json (tools/renamed_ids.py), which every
+    renaming commit carries a row of. Kept forever, as the pages above are: an
+    old id is in shared links, indexed pages and saved progress. An old id that
+    a puzzle holds today, or that legacy_ids() already answers, is skipped
+    (`taken`), and so is one whose puzzle was later deleted or has no page of
+    its own to point at (renamed_ids.current).
+    """
+    paged = {p["id"]: p for p in solved}
+    for was, now in sorted(renamed_ids.current(renamed_ids.read(), paged.keys()).items()):
+        if was in taken:
+            continue
+        target = f"{BASE}/puzzles/{now}/"
+        label = named(paged[now])
+        yield moved_page(
+            was, target, f"{label} has moved",
+            f'This puzzle has a new address: <a href="{target}">{esc(label)}</a>.')
+
+
 def legacy_redirects(solved):
     """A page at /puzzles/<bare number>/ for every puzzle, pointing at its id.
 
@@ -2158,7 +2180,10 @@ def outputs(check=False):
 
     def rest():
         yield from legacy_redirects(stubs)
-        yield from legacy_ids(stubs, meta.keys() | {p["id"] for p in idx.get("unlisted", [])})
+        live = meta.keys() | {p["id"] for p in idx.get("unlisted", [])}
+        derived = list(legacy_ids(stubs, live))
+        yield from derived
+        yield from renamed_ids_pages(stubs, live | {path.parent.name for path, _ in derived})
         yield puzzle_paths.PUZZLE_DIR / "index.html", hub_page(idx)
         yield from series_pages(idx)
         yield from listing_pages(idx)

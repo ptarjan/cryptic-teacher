@@ -63,6 +63,11 @@ durable_checkpoint() {  # durable_checkpoint <what>: commit what is filed, push 
       [[ "$line" == *.json ]] || continue
       IFS=$'\t' read -r -a p <<<"$line"
       subj="$(printf '%s\n' "$line" | python3 "$_durable_dir/commit_subject.py" "$what")"
+      # A rename carries its row of tools/data/renamed_ids.json, the old id's redirect.
+      if [[ "$line" == R* ]]; then
+        python3 "$_durable_dir/renamed_ids.py" --stage || return 1
+        p+=(tools/data/renamed_ids.json)
+      fi
       git commit -q -m "$(printf '%s\n\n%s' "$subj" "$trailer")" -- "${p[@]:1}" || return 1
     done < <(git diff --cached --name-status -M -- puzzles)
     if ! git diff --cached --quiet; then
