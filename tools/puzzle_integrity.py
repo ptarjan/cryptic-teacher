@@ -118,7 +118,13 @@ The flags, in the order they matter:
             ellipsis other than "…" (tools/dashes.py): any clue dashes.normal
             would still change. Checked on every write, which normalises
             first.
-  FILED     a puzzle file that is not where puzzle_paths.file_for puts it:
+  LEAD      an OCR channel's clue text opening with a quote nothing after it
+            closes — a speck read as a quote ("'Hasten.") or one with the
+            clue's printed number leaked after it ('"5 Covered with a coat') —
+            where only a quotation's matched pair may open a clue
+            (tools/leading_quote.py): any OCR clue leading_quote.clean would
+            still change. Checked on every write, which mends first.
+  FILED    a puzzle file that is not where puzzle_paths.file_for puts it:
             puzzles/<series>/<year>/<id>.json, the year its `date`'s. A file in
             the wrong year folder, under a name that is not its id, or left flat
             at puzzles/<id>.json is a copy every reader that finds by id either
@@ -181,6 +187,7 @@ import dashes
 import enumeration
 import errata
 import groups  # linked answers
+import leading_quote
 import ocr_clues
 import parallel
 import provenance
@@ -222,7 +229,7 @@ from reconstruct_grid import grid_of, lights_from_grid, lights_of
 # The flags, in the order they are reported. One tuple, read by both the
 # per-finding listing and the tally, so a check cannot be added to one and
 # missed from the other.
-FLAGS = ("LENGTH", "ORDER", "APOSTROPHE", "CROSS", "CELLS", "ALTERED", "GRID", "NUMBER", "DATE", "SETTER", "SHAPE", "PROV", "QUOTE", "CURLY", "DASH", "FILED", "NEARDUP", "REPRINT", "COUNT")
+FLAGS = ("LENGTH", "ORDER", "APOSTROPHE", "CROSS", "CELLS", "ALTERED", "GRID", "NUMBER", "DATE", "SETTER", "SHAPE", "PROV", "QUOTE", "CURLY", "DASH", "LEAD", "FILED", "NEARDUP", "REPRINT", "COUNT")
 
 # No cryptic crossword in this corpus predates the Guardian's, which began in 1929.
 # A date below this is a page the publisher mis-filed or a fetcher that lost one,
@@ -1209,6 +1216,7 @@ def check_puzzle(puzzle, today, flags):
     check_annotation_quotes(puzzle, flags)
     check_curly_quotes(puzzle, flags)
     check_dashes(puzzle, flags)
+    check_leading_quotes(puzzle, flags)
     check_reprint(puzzle, flags)
 
 
@@ -1266,6 +1274,18 @@ def check_dashes(puzzle, flags):
             flags.append(("DASH", puzzle.get("id"), f"{entry_id(e)}: annotation quotes {holder[key]!r} "
                           f"for the clue's {dashes.quote(holder[key], clue)!r}; quoted clue words "
                           "spell a dash or ellipsis as the clue does (dashes.quote)"))
+
+
+def _lead_finding(e, text):
+    return (f"{entry_id(e)}: {text!r} opens with a quote nothing closes; an OCR clue is "
+            f"stored {leading_quote.clean(text)!r} (leading_quote.clean)")
+
+
+def check_leading_quotes(puzzle, flags):
+    """LEAD: an OCR clue opening with a stray quote, or a quote and a leaked
+    clue number, that leading_quote.clean would still mend."""
+    for e, text in leading_quote.unclean(puzzle):
+        flags.append(("LEAD", puzzle.get("id"), _lead_finding(e, text)))
 
 
 def check_semicolon_counts(puzzle, flags):
@@ -1427,7 +1447,8 @@ def refuse_bad_clues_only(record):
     import puzzle_paths
     pid = record.get("id")
     flags = [("SCHEMA", pid, p) for p in puzzle_schema.validate_clues_only(record)]
-    by = (record.get("source") or {}).get("acquiredBy")
+    flags += [("LEAD", pid, _lead_finding(l, t)) for l, t in leading_quote.unclean_clues_only(record)]
+    by =(record.get("source") or {}).get("acquiredBy")
     if clues_only.builder(record) is None:
         flags.append(("STATE", pid, (f"no builder in clues_only.BUILDERS for a "
                                      f"{clues_only.grid_kind(record)} grid filed by {by}, "

@@ -607,6 +607,8 @@ LAYOUT = [
     ("fetching", "tools/test_block_confirm.js", "a building block that would cost a hint takes two taps; a free one takes one"),
     ("fetching", "tools/mend_clue_punctuation.py", "one-shot migration (2026-10-11): punctuation's certain mends in held book clue text, the faults left listed"),
     ("fetching", "tools/resolve_promotion_conflict.py", "settle the one conflict a promotion races into, for tools/push_puzzle_commit.sh"),
+    ("fetching", "tools/leading_quote.py", "an OCR'd clue opens with a quote mark only when it is a quotation"),
+    ("fetching", "tools/test_leading_quote.sh", "an OCR'd clue opens with a quote only when it is a quotation (tools/leading_quote.py): a stray unclosed quote and a clue number leaked after one go, an attributed quotation that lost its closing quote is closed, a matched quotation, an elision and a dropped h stand, offsets move with the text, a publisher's clue is never touched, both OCR readers finish a clue through it, and the write gate refuses what it would still mend"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

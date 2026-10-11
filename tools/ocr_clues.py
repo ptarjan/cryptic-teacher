@@ -38,9 +38,10 @@ import unicodedata
 from difflib import SequenceMatcher
 from pathlib import Path
 import enumeration
+import leading_quote
 import punctuation
 
-TOOLS = Path(__file__).resolve().parent
+TOOLS =Path(__file__).resolve().parent
 
 #: A "See N" clue, which carries no words of its own.
 SEE_RE = re.compile(r"^see\s+(\d+)", re.IGNORECASE)
@@ -3065,7 +3066,9 @@ def trimmed(text, lid, voted=True):
       - a last token with no word in it and a bracket the clue never opened
         ("0,6)", "S).", "writer 1 7).") or a digit among symbols ("&%S4),");
       - a count torn open at its end ("hair-dresser (6", "(5.41.", "( 8 .")
-        and a speck read as a bracket before its first word (") The man").
+        and a speck read as a bracket before its first word (") The man");
+      - from a `voted` text, a stray leading quote or a leaked clue number
+        after one ('"5 Covered'), as every OCR reader's (leading_quote.clean).
     The lone i goes only from a `voted` text: before the vote, the other
     readings may have the word it is a remnant of ("raised i sharp" for
     "raised in sharp")."""
@@ -3099,6 +3102,8 @@ def trimmed(text, lid, voted=True):
     k = unpaired(text)
     if k is not None and not text[:k].strip():
         text = text[k + 1:].lstrip()
+    if voted:
+        text = leading_quote.clean(text)
     return text
 
 
