@@ -37,6 +37,9 @@
   "date": "2018-06-03",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -49,7 +52,76 @@
    "clue": {
     "text": "Dancing stable, colder around start of performance? (13, three words)"
    },
-   "solution": "CORPSDEBALLET"
+   "solution": "CORPSDEBALLET",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "CORPSDEBALLET",
+    "definitions": [
+     {
+      "text": "Dancing stable, colder around start of performance?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dancing",
+      "for": "anagram",
+      "note": "letters that are dancing move about and land in a new order"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "one piece sits around another, so the second goes inside the first"
+     },
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stable, colder",
+      "gives": "STABLECOLDER",
+      "note": "both words taken letter for letter as the material to rearrange"
+     },
+     {
+      "clueFragment": "performance",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter of performance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CORPS",
+      "DE",
+      "BALLET"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STABLECOLDERP",
+       "gives": "CORPSDEBALLET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A yard of racehorses feels chillier once the show begins.",
+     "walkthrough": "The whole clue is the definition too: a ballet company's ensemble is a 'stable' of dancers, and the rearranged letters wrap round P.",
+     "definitionFit": "The corps de ballet is the body of ensemble dancers in a company, a group kept together much as a stable keeps a string of horses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stable"
+    }
+   }
   },
   {
    "number": 1,
@@ -63,7 +135,53 @@
     "text": "Fish, rather plump, passing by",
     "enumeration": "4"
    },
-   "solution": "CHUB"
+   "solution": "CHUB",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CHUB",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "passing",
+      "for": "deletion",
+      "note": "what is passing goes away, so the small word is dropped from the longer one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rather plump",
+      "gives": "CHUBBY",
+      "note": "chubby means rather plump"
+     },
+     {
+      "clueFragment": "by",
+      "gives": "BY",
+      "note": "taken as written; these letters are removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHUB"
+     ]
+    },
+    "explanation": {
+     "surface": "A fairly fat fish swims past.",
+     "walkthrough": "'by' is not a link here: it is the very pair of letters that leaves the end of the adjective.",
+     "definitionFit": "The chub is a freshwater fish of the carp family, common in European rivers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "by"
+    }
+   }
   },
   {
    "number": 2,
@@ -77,7 +195,43 @@
     "text": "Toxic substance secreted by prehistoric insects",
     "enumeration": "5"
    },
-   "solution": "RICIN"
+   "solution": "RICIN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RICIN",
+    "definitions": [
+     {
+      "text": "Toxic substance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "secreted by",
+      "for": "hidden_word",
+      "note": "something secreted is tucked away out of sight inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prehistoric insects",
+      "gives": "RICIN",
+      "note": "the letters run across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Ancient bugs ooze a poison.",
+     "definitionFit": "Ricin is a highly poisonous protein extracted from castor-oil seeds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "secreted"
+    }
+   }
   },
   {
    "number": 3,
@@ -91,7 +245,76 @@
     "text": "Personification from love poet in non-verse writing mostly I accepted",
     "enumeration": "11"
    },
-   "solution": "PROSOPOPEIA"
+   "solution": "PROSOPOPEIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PROSOPOPEIA",
+    "definitions": [
+     {
+      "text": "Personification",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means most of the word but not all, so the last letter goes"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "non-verse writing",
+      "gives": "PROS",
+      "note": "prose is writing that is not verse, here without its last letter"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is nil in tennis scoring, the round letter"
+     },
+     {
+      "clueFragment": "poet",
+      "gives": "POPE",
+      "note": "Alexander Pope, the eighteenth-century poet"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "accepted",
+      "gives": "A",
+      "note": "A is a standard abbreviation for accepted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROS",
+      "O",
+      "POPE",
+      "I",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A poet of love, writing in prose, admits that personifying things is his habit.",
+     "walkthrough": "The poet is Pope, not Poe; the blocks join in order once prose loses its E.",
+     "definitionFit": "Prosopopeia is the rhetorical figure of personification, giving human voice or form to abstractions or absent persons."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "accepted"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +328,61 @@
     "text": "Thrill for Jock racket led astray",
     "enumeration": "6"
    },
-   "solution": "DINDLE"
+   "solution": "DINDLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "DINDLE",
+    "definitions": [
+     {
+      "text": "Thrill for Jock",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "astray",
+      "for": "anagram",
+      "note": "led astray means taken off the right path, so the letters wander out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "racket",
+      "gives": "DIN",
+      "note": "a din is a loud racket"
+     },
+     {
+      "clueFragment": "led",
+      "gives": "DLE",
+      "note": "the three letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIN",
+      "DLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LED",
+       "gives": "DLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Scotsman feels a thrill as a noisy gang is led off course.",
+     "walkthrough": "'for Jock' marks the word as Scottish; Jock is a nickname for a Scot.",
+     "definitionFit": "Dindle is a Scots word meaning to tingle or quiver, a thrill running through the body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "racket"
+    }
+   }
   },
   {
    "number": 5,
@@ -118,7 +395,72 @@
    "clue": {
     "text": "As a sight to see in Paris, accept line 'Seine's fantastic'? Not I (11, two words)"
    },
-   "solution": "ENSPECTACLE"
+   "solution": "ENSPECTACLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion"
+    ],
+    "answer": "EN SPECTACLE",
+    "definitions": [
+     {
+      "text": "As a sight to see in Paris",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fantastic",
+      "for": "anagram",
+      "note": "something fantastic is fanciful and wild, so the letters are freely recombined"
+     },
+     {
+      "text": "Not I",
+      "for": "deletion",
+      "note": "not I tells us the single letter named must be left out of the mix"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "accept",
+      "gives": "ACCEPT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     },
+     {
+      "clueFragment": "Seine's",
+      "gives": "SEINE",
+      "note": "the river's name, its possessive ending ignored"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the letter to be removed from the material"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACCEPTLSENE",
+       "gives": "ENSPECTACLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Parisian invites us to admire the line 'The Seine is wonderful', modestly disowning it.",
+     "walkthrough": "The I comes out of SEINE before the eleven letters are rearranged.",
+     "definitionFit": "En spectacle is French for 'as a spectacle', on show for people to look at, hence the Paris tag."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "accept"
+    }
+   }
   },
   {
    "number": 6,
@@ -132,7 +474,52 @@
     "text": "Smashed bust, obscure",
     "enumeration": "5"
    },
-   "solution": "BLIND"
+   "solution": "BLIND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BLIND",
+    "definitions": [
+     {
+      "text": "Smashed",
+      "at": 0
+     },
+     {
+      "text": "bust",
+      "at": 8
+     },
+     {
+      "text": "obscure",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Smashed",
+      "note": "first meaning: very drunk"
+     },
+     {
+      "clueFragment": "bust",
+      "note": "second meaning: a drinking spree or binge, a noun"
+     },
+     {
+      "clueFragment": "obscure",
+      "note": "third meaning: to hide from view or dazzle, a verb"
+     }
+    ],
+    "explanation": {
+     "surface": "A broken statue is hard to make out.",
+     "walkthrough": "Three separate meanings: drunk, a bout of drinking, and to hide. 'Smashed bust' looks like a damaged sculpture.",
+     "definitionFit": "Blind serves as slang for intoxicated, as a noun for a drinking bout, and as a verb meaning to conceal or keep from sight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bust"
+    }
+   }
   },
   {
    "number": 7,
@@ -146,7 +533,85 @@
     "text": "Old spears: a lunge directed catches cadet, one certainly following behind",
     "enumeration": "11"
    },
-   "solution": "LAUNCEGAYES"
+   "solution": "LAUNCEGAYES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "LAUNCEGAYES",
+    "definitions": [
+     {
+      "text": "Old spears",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "directed",
+      "for": "anagram",
+      "note": "something directed has been steered and arranged, so the letters are put into a new order"
+     },
+     {
+      "text": "catches",
+      "for": "container",
+      "note": "to catch something is to hold it, so one piece is held inside the other"
+     },
+     {
+      "text": "following behind",
+      "for": "charade",
+      "note": "following behind places the last pieces after what came before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a lunge",
+      "gives": "ALUNGE",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "cadet",
+      "gives": "C",
+      "note": "C is the abbreviation for cadet"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "certainly",
+      "gives": "YES",
+      "note": "yes, certainly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAUN",
+      "C",
+      "EG",
+      "A",
+      "YES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALUNGE",
+       "gives": "LAUNEG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cadet in an old fencing or jousting drill makes a thrust with a spear.",
+     "walkthrough": "'one certainly' looks like a single phrase but is two pieces placed at the end.",
+     "definitionFit": "Launcegay is an archaic word for a kind of light lance or spear, so the plural names several of the old weapons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "directed"
+    }
+   }
   },
   {
    "number": 8,
@@ -160,7 +625,58 @@
     "text": "They make settlements creating trouble in records",
     "enumeration": "9"
    },
-   "solution": "ENTAILERS"
+   "solution": "ENTAILERS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ENTAILERS",
+    "definitions": [
+     {
+      "text": "They make settlements",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another"
+     }
+    ],
+    "linkWords": [
+     "creating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "records",
+      "gives": "ENTERS",
+      "note": "to enter something in a ledger is to record it"
+     },
+     {
+      "clueFragment": "trouble",
+      "gives": "AIL",
+      "note": "to ail is to trouble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENT",
+      "AIL",
+      "ERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Settlers stir up trouble in the official records.",
+     "walkthrough": "'records' is a verb here, not a noun.",
+     "definitionFit": "To entail property is to settle it on a fixed line of heirs, so those who do so make legal settlements."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "records"
+    }
+   }
   },
   {
    "number": 9,
@@ -174,7 +690,47 @@
     "text": "Township in short suggests this temporary accommodation",
     "enumeration": "6"
    },
-   "solution": "TEEPEE"
+   "solution": "TEEPEE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TEEPEE",
+    "definitions": [
+     {
+      "text": "temporary accommodation",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suggests",
+      "for": "homophone",
+      "note": "suggests means the abbreviation, said as letter names, points to the word"
+     }
+    ],
+    "linkWords": [
+     "this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Township in short",
+      "gives": "TEEPEE",
+      "soundsLike": "T P",
+      "note": "TP is the short form for township; the two letter names said one after the other"
+     }
+    ],
+    "explanation": {
+     "surface": "A small town's abbreviation hints at where a traveller might stay for a while.",
+     "definitionFit": "A tepee is a conical tent of skins or bark used by Plains peoples, easily moved and so a non-permanent dwelling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Township"
+    }
+   }
   },
   {
    "number": 10,
@@ -188,7 +744,53 @@
     "text": "Locks leg after bend",
     "enumeration": "7"
    },
-   "solution": "HAIRPIN"
+   "solution": "HAIRPIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HAIRPIN",
+    "definitions": [
+     {
+      "text": "bend",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after puts the second item behind the first in the finished word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Locks",
+      "gives": "HAIR",
+      "note": "locks of hair"
+     },
+     {
+      "clueFragment": "leg",
+      "gives": "PIN",
+      "note": "pins is slang for legs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAIR",
+      "PIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's hair is put up and then they bend down to a leg.",
+     "definitionFit": "A hairpin is a very tight U-shaped turn in a road, named after the shape of the hair clip."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Locks"
+    }
+   }
   },
   {
    "number": 11,
@@ -202,7 +804,51 @@
     "text": "Lady that's spare, and not old",
     "enumeration": "6"
    },
-   "solution": "LEANNE"
+   "solution": "LEANNE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEANNE",
+    "definitions": [
+     {
+      "text": "Lady",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "that's",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spare",
+      "gives": "LEAN",
+      "note": "a spare figure is lean"
+     },
+     {
+      "clueFragment": "not old",
+      "gives": "NE",
+      "note": "ne is an archaic word for not"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEAN",
+      "NE"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman who is thin and still young.",
+     "walkthrough": "'not old' looks like 'young' but means an old word for 'not'.",
+     "definitionFit": "Leanne is a woman's first name, and crosswords freely clue girls' names as 'lady' or 'girl'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 12,
@@ -216,7 +862,54 @@
     "text": "Seat required for dance performance, of course",
     "enumeration": "5"
    },
-   "solution": "NATCH"
+   "solution": "NATCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NATCH",
+    "definitions": [
+     {
+      "text": "Seat",
+      "at": 0
+     },
+     {
+      "text": "dance performance",
+      "at": 18
+     },
+     {
+      "text": "of course",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "required for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seat",
+      "note": "first meaning: the rump or buttock, a dialect sense"
+     },
+     {
+      "clueFragment": "dance performance",
+      "note": "second meaning: a variant spelling of nautch, an Indian dance show"
+     },
+     {
+      "clueFragment": "of course",
+      "note": "third meaning: slang short for naturally"
+     }
+    ],
+    "explanation": {
+     "surface": "You need a chair for the dance show, naturally.",
+     "walkthrough": "Three meanings stacked up; the middle one is a variant of nautch, a display by professional Indian dancing girls.",
+     "definitionFit": "Chambers lists the word as the rump of beef, as a form of nautch, and as informal shorthand for naturally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Seat"
+    }
+   }
   },
   {
    "number": 13,
@@ -230,7 +923,55 @@
     "text": "Get a gun and scare bats in plantation crop",
     "enumeration": "9"
    },
-   "solution": "SUGARCANE"
+   "solution": "SUGARCANE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SUGARCANE",
+    "definitions": [
+     {
+      "text": "plantation crop",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bats",
+      "for": "anagram",
+      "note": "bats is slang for crazy, and crazy letters fall into a new order"
+     }
+    ],
+    "linkWords": [
+     "Get",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a gun and scare",
+      "gives": "AGUNSCARE",
+      "note": "these letters only, and joining is dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AGUNSCARE",
+       "gives": "SUGARCANE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A planter fetches a gun to frighten off the bats in the fields.",
+     "walkthrough": "'bats' looks like the flying animals, but it is the word for crazy. Only 'a gun' and 'scare' are rearranged.",
+     "definitionFit": "Sugar cane is a tall grass grown on tropical plantations for the sugar in its stems."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bats"
+    }
+   }
   },
   {
    "number": 14,
@@ -244,7 +985,64 @@
     "text": "Hint isn't in a clue that's half missing, faulty",
     "enumeration": "9"
    },
-   "solution": "INSINUATE"
+   "solution": "INSINUATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "INSINUATE",
+    "definitions": [
+     {
+      "text": "Hint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half missing",
+      "for": "deletion",
+      "note": "half missing means two of the four letters of that word are not there"
+     },
+     {
+      "text": "faulty",
+      "for": "anagram",
+      "note": "faulty means broken or wrongly put together, so the order changes"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "isn't in a",
+      "gives": "ISNTINA",
+      "note": "taken as written, apostrophe ignored"
+     },
+     {
+      "clueFragment": "clue",
+      "gives": "UE",
+      "note": "the word without its first half"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISNTINAUE",
+       "gives": "INSINUATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A setter admits a hint is not in the clue because part of it has gone wrong.",
+     "definitionFit": "To insinuate is to suggest something indirectly, which is to hint at it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hint"
+    }
+   }
   },
   {
    "number": 15,
@@ -258,7 +1056,58 @@
     "text": "One's kept in chest or box (Scottish)",
     "enumeration": "5"
    },
-   "solution": "BUIST"
+   "solution": "BUIST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BUIST",
+    "definitions": [
+     {
+      "text": "box (Scottish)",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kept in",
+      "for": "container",
+      "note": "kept in means held inside, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chest",
+      "gives": "BUST",
+      "note": "the bust is the chest"
+     },
+     {
+      "clueFragment": "One's",
+      "gives": "I",
+      "note": "one is the Roman numeral I; the 's is 'is'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BU",
+      "I",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "A single item stored in a trunk or crate in Scotland.",
+     "walkthrough": "'chest or box' looks like two words for the same thing; chest is wordplay, box is the definition.",
+     "definitionFit": "Buist is a Scots word for a box or chest, including a coffin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chest"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1120,46 @@
    "clue": {
     "text": "What's hot often, and available at all times (5, two words)"
    },
-   "solution": "ONTAP"
+   "solution": "ONTAP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ON TAP",
+    "definitions": [
+     {
+      "text": "What's hot often",
+      "at": 0
+     },
+     {
+      "text": "available at all times",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What's hot often",
+      "note": "first meaning: hot water often comes from a tap"
+     },
+     {
+      "clueFragment": "available at all times",
+      "note": "second meaning: ready whenever needed"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first half is cryptic: hot water usually comes from a tap.",
+     "definitionFit": "Something on tap is ready for use at any time, as beer drawn from a cask is always to hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hot"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1173,69 @@
     "text": "Nigel's troubled about outside broadcast that's inferior",
     "enumeration": "7"
    },
-   "solution": "IGNOBLE"
+   "solution": "IGNOBLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "IGNOBLE",
+    "definitions": [
+     {
+      "text": "inferior",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "troubled",
+      "for": "anagram",
+      "note": "troubled means disturbed, so the letters of the name are stirred up"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round, so one piece surrounds the other"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nigel's",
+      "gives": "NIGEL",
+      "note": "the name, its 's being 'is'"
+     },
+     {
+      "clueFragment": "outside broadcast",
+      "gives": "OB",
+      "note": "OB is the abbreviation for outside broadcast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IGN",
+      "OB",
+      "LE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NIGEL",
+       "gives": "IGNLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nigel is upset by a poor-quality outside broadcast.",
+     "definitionFit": "Ignoble means of low character or quality, lowly and base, hence inferior."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1249,62 @@
     "text": "Interior design, one inspired by Dutch look!",
     "enumeration": "6"
    },
-   "solution": "DECCIE"
+   "solution": "DECCIE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DECCIE",
+    "definitions": [
+     {
+      "text": "Interior design",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inspired by",
+      "for": "container",
+      "note": "what is inspired is breathed in, so the single letter goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dutch",
+      "gives": "D",
+      "note": "D is the abbreviation for Dutch"
+     },
+     {
+      "clueFragment": "look!",
+      "gives": "ECCE",
+      "note": "ecce is Latin for behold or look"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ECC",
+      "I",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A decorator, inspired by a Dutch style, says 'Look at this!'.",
+     "walkthrough": "'look!' with its exclamation is the Latin interjection ECCE, as in ecce homo.",
+     "definitionFit": "Deccie is an informal short form for decoration, the decorating and furnishing of rooms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "look!"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1318,46 @@
     "text": "One of algae group that invades mid-sea environs",
     "enumeration": "6"
    },
-   "solution": "DESMID"
+   "solution": "DESMID",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DESMID",
+    "definitions": [
+     {
+      "text": "One of algae group",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "environs",
+      "for": "hidden_word",
+      "note": "environs are surroundings, so the words around it hold the letters"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "invades mid-sea",
+      "gives": "DESMID",
+      "note": "the letters run across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "An alga spreads out into the middle of the ocean.",
+     "walkthrough": "'invades' looks like the action of the alga, but it holds the first half of the answer.",
+     "definitionFit": "Desmids are a family of microscopic green freshwater algae, so one desmid is one member of that group."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "invades"
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1371,58 @@
     "text": "Ventriloquist's prop, about right for making us laugh",
     "enumeration": "5"
    },
-   "solution": "DROLL"
+   "solution": "DROLL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DROLL",
+    "definitions": [
+     {
+      "text": "making us laugh",
+      "at": 38,
+      "note": "adjectival phrase: amusing"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the first piece goes round the second"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ventriloquist's prop",
+      "gives": "DOLL",
+      "note": "a ventriloquist works with a dummy, a doll"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "R",
+      "OLL"
+     ]
+    },
+    "explanation": {
+     "surface": "A ventriloquist's dummy is just right for getting laughs.",
+     "definitionFit": "Droll means oddly amusing, so something droll gets a laugh from us."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prop"
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1436,68 @@
     "text": "Headless ghost holding lute, initially it twangs the strings",
     "enumeration": "7"
    },
-   "solution": "PLECTRE"
+   "solution": "PLECTRE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PLECTRE",
+    "definitions": [
+     {
+      "text": "it twangs the strings",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Headless",
+      "for": "deletion",
+      "note": "headless means the first letter is cut off"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word just before it"
+     },
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means having something inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ghost",
+      "gives": "PECTRE",
+      "note": "a spectre is a ghost; here without its head"
+     },
+     {
+      "clueFragment": "lute",
+      "gives": "L",
+      "select": "first",
+      "note": "the opening letter of lute"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "L",
+      "ECTRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A phantom with no head clutches a lute and plucks its strings.",
+     "walkthrough": "SPECTRE loses its S, then L goes in after the P.",
+     "definitionFit": "Plectre is an old form of plectrum, the small pick used to pluck a stringed instrument."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Headless"
+    }
+   }
   },
   {
    "number": 22,
@@ -355,7 +1511,59 @@
     "text": "What looms pass yarn through mostly on time",
     "enumeration": "6"
    },
-   "solution": "THREAT"
+   "solution": "THREAT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "THREAT",
+    "definitions": [
+     {
+      "text": "What looms",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means all but the end of the word"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pass yarn through",
+      "gives": "THREA",
+      "note": "to thread is to pass yarn through, minus its last letter"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THREA",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "On a loom, the weaver passes yarn through as time goes by.",
+     "walkthrough": "'looms' looks like weaving machines, but it is the verb: what looms is what threatens.",
+     "definitionFit": "A threat is something menacing that hangs over us, which is to say it looms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "looms"
+    }
+   }
   },
   {
    "number": 23,
@@ -369,7 +1577,82 @@
     "text": "Duck during basic education, being caught in 's' for slips",
     "enumeration": "6"
    },
-   "solution": "ERRORS"
+   "solution": "ERRORS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ERRORS",
+    "definitions": [
+     {
+      "text": "slips",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during places one thing in the middle of another"
+     },
+     {
+      "text": "being caught in",
+      "for": "container",
+      "note": "being caught in means being held inside"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "'s'",
+      "gives": "E",
+      "note": "the letter s spelt out is ES; this is its first half"
+     },
+     {
+      "clueFragment": "basic education",
+      "gives": "RR",
+      "note": "the three Rs are the basics of education: reading, writing and arithmetic"
+     },
+     {
+      "clueFragment": "Duck",
+      "gives": "O",
+      "note": "a duck is a score of nought in cricket"
+     },
+     {
+      "clueFragment": "basic education",
+      "gives": "R",
+      "note": "the third R"
+     },
+     {
+      "clueFragment": "'s'",
+      "gives": "S",
+      "note": "the second half of the letter's spelt name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "R",
+      "R",
+      "O",
+      "R",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A batsman out for nought, caught in the slips — a cricketing disaster during school.",
+     "walkthrough": "O sits inside RRR, and that goes inside ES, the spelt name of the letter S. In cricket a duck is no score, and slips are fielders near the batsman.",
+     "definitionFit": "Slips are small mistakes, and errors are mistakes of any kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "slips"
+    }
+   }
   },
   {
    "number": 24,
@@ -383,7 +1666,71 @@
     "text": "Merkel's brow isn't furrowed when Right gets in",
     "enumeration": "5"
    },
-   "solution": "STIRN"
+   "solution": "STIRN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "STIRN",
+    "definitions": [
+     {
+      "text": "Merkel's brow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "furrowed",
+      "for": "anagram",
+      "note": "a furrowed surface is creased and ploughed up, so the letters are turned over"
+     },
+     {
+      "text": "gets in",
+      "for": "container",
+      "note": "gets in means enters the middle of the other piece"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "isn't",
+      "gives": "ISNT",
+      "note": "taken as written, apostrophe ignored"
+     },
+     {
+      "clueFragment": "Right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "I",
+      "R",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISNTR",
+       "gives": "STIRN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Angela Merkel's forehead stays smooth when the right wing wins seats.",
+     "walkthrough": "Merkel is German, so her brow is the German word for forehead.",
+     "definitionFit": "Stirn is German for forehead, and Merkel was the German chancellor, so the clue asks for a German word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Right"
+    }
+   }
   },
   {
    "number": 25,
@@ -397,7 +1744,69 @@
     "text": "Loveless tough worked out tantrum in ritualistic crime",
     "enumeration": "7"
    },
-   "solution": "THUGGEE"
+   "solution": "THUGGEE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "THUGGEE",
+    "definitions": [
+     {
+      "text": "ritualistic crime",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Loveless",
+      "for": "deletion",
+      "note": "loveless means without love, the round letter for nil, which drops out"
+     },
+     {
+      "text": "worked out",
+      "for": "anagram",
+      "note": "worked out means rearranged by effort into a new form"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tough",
+      "gives": "TUGH",
+      "note": "the word without its O, then rearranged"
+     },
+     {
+      "clueFragment": "tantrum",
+      "gives": "GEE",
+      "note": "a gee is a fit of sulks or temper, a Scots word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THUG",
+      "GEE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TUGH",
+       "gives": "THUG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hardman without affection works off his temper through violent rites.",
+     "definitionFit": "Thuggee was the robbery and ritual strangling practised by the Thugs of India in the name of the goddess Kali."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worked"
+    }
+   }
   },
   {
    "number": 26,
@@ -411,7 +1820,54 @@
     "text": "Cunning dab escapes subject to control",
     "enumeration": "5"
    },
-   "solution": "GUILE"
+   "solution": "GUILE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GUILE",
+    "definitions": [
+     {
+      "text": "Cunning",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "escapes",
+      "for": "deletion",
+      "note": "what escapes gets out and away, so those letters leave the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dab",
+      "gives": "DAB",
+      "note": "taken as written; these letters leave"
+     },
+     {
+      "clueFragment": "subject to control",
+      "gives": "GUIDABLE",
+      "note": "something guidable can be steered or controlled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUI",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A crafty little fish gets away from those who would manage it.",
+     "walkthrough": "A dab is a flatfish, which the surface suggests; here the letters are lifted out of the middle.",
+     "definitionFit": "Guile is crafty, deceitful cleverness, the noun sense of cunning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dab"
+    }
+   }
   },
   {
    "number": 27,
@@ -425,7 +1881,63 @@
     "text": "Pollen gatherer getting work in southern California",
     "enumeration": "5"
    },
-   "solution": "SCOPA"
+   "solution": "SCOPA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCOPA",
+    "definitions": [
+     {
+      "text": "Pollen gatherer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting",
+      "for": "container",
+      "note": "getting means taking in or receiving something inside"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "southern",
+      "gives": "S",
+      "note": "S is the abbreviation for southern"
+     },
+     {
+      "clueFragment": "California",
+      "gives": "CA",
+      "note": "CA is the postal code for California"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op is short for opus, a work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "OP",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A bee finds work collecting pollen in southern California.",
+     "definitionFit": "A scopa is the brush of hairs on a bee's leg or abdomen that collects pollen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 28,
@@ -439,7 +1951,58 @@
     "text": "Hermit community offering minimum of luxurious mystique",
     "enumeration": "5"
    },
-   "solution": "LAURA"
+   "solution": "LAURA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LAURA",
+    "definitions": [
+     {
+      "text": "Hermit community",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "minimum of",
+      "for": "letter_selection",
+      "note": "the minimum of a word is the least of it, a single opening letter"
+     }
+    ],
+    "linkWords": [
+     "offering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "luxurious",
+      "gives": "L",
+      "select": "first",
+      "note": "the opening letter of luxurious"
+     },
+     {
+      "clueFragment": "mystique",
+      "gives": "AURA",
+      "note": "an aura is an air of mystique"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "AURA"
+     ]
+    },
+    "explanation": {
+     "surface": "Hermits who live together allow themselves only a hint of luxury and some mystery.",
+     "definitionFit": "A laura was a group of separate hermit cells under one superior in early Eastern monasticism."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "minimum"
+    }
+   }
   },
   {
    "number": 29,
@@ -453,7 +2016,49 @@
     "text": "Deipnosophist's gems appearing regularly in annuals?",
     "enumeration": "4"
    },
-   "solution": "ANAS"
+   "solution": "ANAS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ANAS",
+    "definitions": [
+     {
+      "text": "Deipnosophist's gems",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "appearing regularly in",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "annuals",
+      "gives": "ANAS",
+      "select": "alternate",
+      "note": "the first, third, fifth and seventh letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANAS"
+     ]
+    },
+    "explanation": {
+     "surface": "A witty diner's best sayings turn up each year in annual collections.",
+     "walkthrough": "A deipnosophist is a master of dinner-table conversation.",
+     "definitionFit": "Ana are collections of a person's sayings or anecdotes, the gems a clever table-talker produces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "gems"
+    }
+   }
   },
   {
    "number": 30,
@@ -467,7 +2072,54 @@
     "text": "Claim fees wrongly for past crimes",
     "enumeration": "9"
    },
-   "solution": "MALEFICES"
+   "solution": "MALEFICES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MALEFICES",
+    "definitions": [
+     {
+      "text": "past crimes",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrongly",
+      "for": "anagram",
+      "note": "wrongly means not in the right way, so the letters are set out of order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Claim fees",
+      "gives": "CLAIMFEES",
+      "note": "both words, every letter used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLAIMFEES",
+       "gives": "MALEFICES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone bills dishonestly for offences committed in the past.",
+     "walkthrough": "'past' signals an obsolete word rather than crimes done long ago.",
+     "definitionFit": "Malefice is an archaic word for an evil deed or enchantment, so the plural means wicked acts of former usage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "past"
+    }
+   }
   },
   {
    "number": 31,
@@ -481,7 +2133,65 @@
     "text": "Rocky outcrop, one overlooking meandering R. Nile",
     "enumeration": "6"
    },
-   "solution": "INLIER"
+   "solution": "INLIER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "INLIER",
+    "definitions": [
+     {
+      "text": "Rocky outcrop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overlooking",
+      "for": "charade",
+      "note": "overlooking means standing in front of and above, so this piece comes first"
+     },
+     {
+      "text": "meandering",
+      "for": "anagram",
+      "note": "a meandering river wanders, so these letters wander out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "R. Nile",
+      "gives": "LINER",
+      "note": "R is short for river; the letters with the name are rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "NLIER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RNILE",
+       "gives": "LINER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lone rock stands above the winding Nile.",
+     "definitionFit": "An inlier is an outcrop of older rock wholly surrounded by younger strata, a geological term for an isolated patch of rock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "meandering"
+    }
+   }
   },
   {
    "number": 32,
@@ -495,7 +2205,77 @@
     "text": "Cooked meal completely over – not a substantial plate",
     "enumeration": "7"
    },
-   "solution": "LAMELLA"
+   "solution": "LAMELLA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "charade"
+    ],
+    "answer": "LAMELLA",
+    "definitions": [
+     {
+      "text": "not a substantial plate",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cooked",
+      "for": "anagram",
+      "note": "cooked food is altered from its raw state, so the letters change places"
+     },
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "over means turned over, so this word reads backwards"
+     }
+    ],
+    "linkWords": [
+     "–"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meal",
+      "gives": "LAME",
+      "note": "the four letters rearranged"
+     },
+     {
+      "clueFragment": "completely",
+      "gives": "ALL",
+      "note": "all means completely, here read backwards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAME",
+      "LLA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MEAL",
+       "gives": "LAME"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "ALL",
+       "to": "LLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dinner is done and only a meagre plate remains.",
+     "walkthrough": "'plate' looks like crockery, but it is a thin layer.",
+     "definitionFit": "A lamella is a thin plate or layer, as in a gill or bone, so it is a plate of no great thickness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plate"
+    }
+   }
   },
   {
    "number": 33,
@@ -509,7 +2289,60 @@
     "text": "Eating mess with red bananas, Poles are rendered inactive by them?",
     "enumeration": "13"
    },
-   "solution": "DEMAGNETISERS"
+   "solution": "DEMAGNETISERS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEMAGNETISERS",
+    "definitions": [
+     {
+      "text": "Poles are rendered inactive by them?",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bananas",
+      "for": "anagram",
+      "note": "bananas is slang for crazy, and crazy letters go into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eating mess",
+      "gives": "EATINGMESS",
+      "note": "both words taken letter for letter"
+     },
+     {
+      "clueFragment": "red",
+      "gives": "RED",
+      "note": "taken as written and added to the mix"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EATINGMESSRED",
+       "gives": "DEMAGNETISERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Polish diners, made sluggish by a red mess of bananas, flop about.",
+     "walkthrough": "Poles are a magnet's two ends, not people from Poland.",
+     "definitionFit": "A demagnetiser removes magnetism, leaving a magnet's north and south poles without force."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Poles"
+    }
+   }
   }
  ]
 }
