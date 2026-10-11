@@ -23,6 +23,9 @@
   "date": "2023-01-21",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,71 @@
     "text": "Cheap fare provider carrying airline's frequent fliers in prime locations",
     "enumeration": "4"
    },
-   "solution": "CAFF"
+   "solution": "CAFF",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "CAFF",
+    "definitions": [
+     {
+      "text": "Cheap fare provider",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in prime locations",
+      "for": "letter_selection",
+      "note": "prime locations are the leading positions, so each word contributes its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carrying",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of carrying"
+     },
+     {
+      "clueFragment": "airline's",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter of airline's"
+     },
+     {
+      "clueFragment": "frequent",
+      "gives": "F",
+      "select": "first",
+      "note": "first letter of frequent"
+     },
+     {
+      "clueFragment": "fliers",
+      "gives": "F",
+      "select": "first",
+      "note": "first letter of fliers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "A",
+      "F",
+      "F"
+     ]
+    },
+    "explanation": {
+     "surface": "A budget airline whose regular passengers get the best seats.",
+     "walkthrough": "A CAFF is British slang for a cheap, basic café, such as a roadside transport café. The surface makes 'fare' sound like a ticket price.",
+     "definitionFit": "A caff is an inexpensive eatery, so it supplies cheap food, punning on fare as both meals and ticket price."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fare"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +117,69 @@
     "text": "Roman conspirator screening a mostly banal film",
     "enumeration": "10"
    },
-   "solution": "CASABLANCA"
+   "solution": "CASABLANCA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "container"
+    ],
+    "answer": "CASABLANCA",
+    "definitions": [
+     {
+      "text": "film",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "screening",
+      "for": "container",
+      "note": "screening means hiding behind or around, so the conspirator encloses the rest"
+     },
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the last letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roman conspirator",
+      "gives": "CASCA",
+      "note": "Casca was one of Julius Caesar's assassins"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "banal",
+      "gives": "BLAND",
+      "note": "banal and bland both mean dull"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAS",
+      "A",
+      "BLAN",
+      "CA"
+     ]
+    },
+    "explanation": {
+     "surface": "A Roman plotter sits through a fairly dull movie.",
+     "walkthrough": "'Screening' sounds like showing a film, which suits the surface; it is the container signal.",
+     "definitionFit": "Casablanca is the 1942 Bogart and Bergman classic, an example of a film."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "screening"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +193,64 @@
     "text": "Member is fine, if not lamenting work endlessly",
     "enumeration": "7"
    },
-   "solution": "FORELEG"
+   "solution": "FORELEG",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "FORELEG",
+    "definitions": [
+     {
+      "text": "Member",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without its end, the word loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the pencil-grade abbreviation for fine"
+     },
+     {
+      "clueFragment": "if not",
+      "gives": "OR",
+      "note": "or, meaning otherwise"
+     },
+     {
+      "clueFragment": "lamenting work",
+      "gives": "ELEGY",
+      "note": "an elegy is a poem of lament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "OR",
+      "ELEG"
+     ]
+    },
+    "explanation": {
+     "surface": "A club member is doing fine, as long as they are not grieving over endless work.",
+     "walkthrough": "'Member' suggests a person in a club; here it is a limb.",
+     "definitionFit": "A member is a limb of the body, and a foreleg is a front limb of an animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Member"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +264,70 @@
     "text": "Badgers and monkeys crossing one rut shakily",
     "enumeration": "10"
    },
-   "solution": "IMPORTUNES"
+   "solution": "IMPORTUNES",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "IMPORTUNES",
+    "definitions": [
+     {
+      "text": "Badgers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "to cross something here is to straddle it, so the monkeys sit either side of the other letters"
+     },
+     {
+      "text": "shakily",
+      "for": "anagram",
+      "note": "something done shakily is unsteady and disordered, so the preceding letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "monkeys",
+      "gives": "IMPS",
+      "note": "monkeys as in mischievous children, imps"
+     },
+     {
+      "clueFragment": "one rut",
+      "gives": "ORTUNE",
+      "note": "the letters of one and rut rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMP",
+      "ORTUNE",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONERUT",
+       "gives": "ORTUNE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Animals in the wild: badgers and monkeys stumbling across a rutted track.",
+     "walkthrough": "'Badgers' looks like a noun in a list of animals with monkeys; it is the verb, and monkeys is the container.",
+     "definitionFit": "To badger someone is to pester them persistently, which is exactly what importuning means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Badgers"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +341,78 @@
     "text": "I see teacher returning greeting by male teacher of distinction",
     "enumeration": "9"
    },
-   "solution": "MAHARISHI"
+   "solution": "MAHARISHI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MAHARISHI",
+    "definitions": [
+     {
+      "text": "teacher of distinction",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so that word is read backwards"
+     },
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "by means next to, so the abbreviation is placed alongside the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     },
+     {
+      "clueFragment": "I see",
+      "gives": "AHA",
+      "note": "aha is an exclamation of understanding"
+     },
+     {
+      "clueFragment": "teacher",
+      "gives": "SIR",
+      "note": "schoolchildren address a male teacher as sir"
+     },
+     {
+      "clueFragment": "greeting",
+      "gives": "HI",
+      "note": "hi is an informal greeting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AHA",
+      "RIS",
+      "HI"
+     ],
+     "reversals": [
+      {
+       "from": "SIR",
+       "to": "RIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pupil acknowledges a male teacher passing by with a hello.",
+     "walkthrough": "The male piece goes first in the answer although it comes last in the clue.",
+     "definitionFit": "A maharishi is a Hindu sage or great spiritual guide, literally a great seer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "returning"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +426,66 @@
     "text": "Group books houses and suchlike to the north",
     "enumeration": "5"
    },
-   "solution": "OCTET"
+   "solution": "OCTET",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "OCTET",
+    "definitions": [
+     {
+      "text": "Group",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "houses",
+      "for": "container",
+      "note": "to house something is to hold it inside, so the books surround the next piece"
+     },
+     {
+      "text": "to the north",
+      "for": "reversal",
+      "note": "in a down clue, heading north means reading upwards, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "books",
+      "gives": "OT",
+      "note": "OT, the Old Testament, is a collection of books"
+     },
+     {
+      "clueFragment": "and suchlike",
+      "gives": "ETC",
+      "note": "etc, et cetera, means and suchlike"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "CTE",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "ETC",
+       "to": "CTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A group books accommodation, houses and so forth, somewhere up north.",
+     "definitionFit": "An octet is a set of eight, a musical or other group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "houses"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +499,58 @@
     "text": "Agitators in time meeting Moscow Mint employees?",
     "enumeration": "13"
    },
-   "solution": "TROUBLEMAKERS"
+   "solution": "TROUBLEMAKERS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TROUBLEMAKERS",
+    "definitions": [
+     {
+      "text": "Agitators",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "meeting",
+      "for": "charade",
+      "note": "meeting means coming up against, so the two pieces are joined end to end"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "Moscow Mint employees",
+      "gives": "ROUBLEMAKERS",
+      "note": "the Russian mint's workers make roubles, Russia's currency"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ROUBLEMAKERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Political agitators turn up to meet the staff at the Russian mint.",
+     "walkthrough": "The question mark flags the invented phrase: mint workers make money, and in Moscow that money is roubles.",
+     "definitionFit": "Troublemakers stir up unrest, which is what agitators do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Mint"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +564,51 @@
     "text": "What suggests Mother Superior's part of London",
     "enumeration": "7"
    },
-   "solution": "NUNHEAD"
+   "solution": "NUNHEAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NUNHEAD",
+    "definitions": [
+     {
+      "text": "part of London",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "What suggests"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mother",
+      "gives": "NUN",
+      "note": "a Mother is a nun in charge of a convent"
+     },
+     {
+      "clueFragment": "Superior",
+      "gives": "HEAD",
+      "note": "a superior is a head or chief"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUN",
+      "HEAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A riddle: which London district does a convent's Mother Superior call to mind?",
+     "walkthrough": "A Mother Superior is the head nun of a convent, so the name splits into those two words. Nunhead is a district of south-east London.",
+     "definitionFit": "Nunhead is a district in the London Borough of Southwark, so it is literally a part of the capital."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Superior"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +622,53 @@
     "text": "Following revolution, party moderates feel agitation",
     "enumeration": "4"
    },
-   "solution": "STEW"
+   "solution": "STEW",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "STEW",
+    "definitions": [
+     {
+      "text": "feel agitation",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Following revolution",
+      "for": "reversal",
+      "note": "a revolution turns something right round, so the letters are read the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party moderates",
+      "gives": "WETS",
+      "note": "wets are moderate members of the British Conservative party, a label from the Thatcher era"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEW"
+     ],
+     "reversals": [
+      {
+       "from": "WETS",
+       "to": "STEW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After an uprising, the party's moderates are nervous.",
+     "definitionFit": "To stew is to fret or worry anxiously, a state of agitation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolution"
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +682,62 @@
     "text": "Beside edges of tablecloth spread crumbs",
     "enumeration": "7"
    },
-   "solution": "STREWTH"
+   "solution": "STREWTH",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "STREWTH",
+    "definitions": [
+     {
+      "text": "crumbs",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Beside",
+      "for": "charade",
+      "note": "beside places one piece alongside the next, joining them in sequence"
+     },
+     {
+      "text": "edges of",
+      "for": "letter_selection",
+      "note": "the edges of a word are its outermost letters, first and last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spread",
+      "gives": "STREW",
+      "note": "to strew is to scatter or spread"
+     },
+     {
+      "clueFragment": "tablecloth",
+      "gives": "TH",
+      "select": "outer",
+      "note": "first and last letters of tablecloth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STREW",
+      "TH"
+     ]
+    },
+    "explanation": {
+     "surface": "Clearing up after a meal: crumbs scattered next to the tablecloth's edge.",
+     "walkthrough": "'Crumbs' reads as bits of bread, but it is the mild exclamation of surprise, like STREWTH.",
+     "definitionFit": "Both are informal British exclamations of surprise or dismay, so one interjection substitutes for the other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "crumbs"
+    }
+   }
   },
   {
    "number": 10,
@@ -182,7 +757,70 @@
      }
     ]
    },
-   "solution": "WHISTLEBLOWER"
+   "solution": "WHISTLEBLOWER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WHISTLE-BLOWER",
+    "definitions": [
+     {
+      "text": "a critic of foul play",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After",
+      "for": "charade",
+      "note": "after places the following pieces behind the first one in sequence"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game",
+      "gives": "WHIST",
+      "note": "whist is a card game"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "fan, say",
+      "gives": "BLOWER",
+      "note": "a fan is an example of a blower, a device that pushes air"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHIST",
+      "L",
+      "E",
+      "BLOWER"
+     ]
+    },
+    "explanation": {
+     "surface": "After the match a big English supporter complains about foul play.",
+     "walkthrough": "'Fan' reads as a supporter of the game; it is an air-blowing device.",
+     "definitionFit": "A whistleblower exposes wrongdoing inside an organisation, publicly condemning foul play."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fan"
+    }
+   }
   },
   {
    "number": 11,
@@ -196,7 +834,65 @@
     "text": "Turning right, cat getting cream",
     "enumeration": "7"
    },
-   "solution": "TROUNCE"
+   "solution": "TROUNCE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TROUNCE",
+    "definitions": [
+     {
+      "text": "cream",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Turning",
+      "for": "reversal",
+      "note": "turning something round makes it face the other way, so the abbreviation is read backwards"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "right",
+      "gives": "RT",
+      "note": "RT is a standard abbreviation for right"
+     },
+     {
+      "clueFragment": "cat",
+      "gives": "OUNCE",
+      "note": "the ounce is another name for the snow leopard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "OUNCE"
+     ],
+     "reversals": [
+      {
+       "from": "RT",
+       "to": "TR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cat swerves to the right on its way to the cream.",
+     "walkthrough": "'Cream' suggests a saucer for the cat, but here it is the slang verb meaning to beat heavily.",
+     "definitionFit": "To cream an opponent is informal for defeating them overwhelmingly, the same sense as trounce."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cream"
+    }
+   }
   },
   {
    "number": 12,
@@ -216,7 +912,68 @@
      }
     ]
    },
-   "solution": "BILLIARDTABLE"
+   "solution": "BILLIARDTABLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "BILLIARD TABLE",
+    "definitions": [
+     {
+      "text": "potter around this",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "criminal suggests the following word is crooked, bent out of its proper order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Will",
+      "gives": "BILL",
+      "note": "Will and Bill are both short forms of William"
+     },
+     {
+      "clueFragment": "triad",
+      "gives": "IARDT",
+      "note": "the letters of triad rearranged"
+     },
+     {
+      "clueFragment": "with brains",
+      "gives": "ABLE",
+      "note": "someone with brains is able, clever"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BILL",
+      "IARDT",
+      "ABLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRIAD",
+       "gives": "IARDT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Will a gangster with brains loiter around here? A question about a seedy hangout.",
+     "walkthrough": "'Potter' looks like the verb to dawdle; it is a player who pots balls, and the table is what they move around.",
+     "definitionFit": "A snooker or billiards player who pots balls walks around the table, so the table is where a potter circles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "potter"
+    }
+   }
   },
   {
    "number": 13,
@@ -230,7 +987,69 @@
     "text": "Probably dressing like head of Armani in extravagant fashion",
     "enumeration": "10"
    },
-   "solution": "PRODIGALLY"
+   "solution": "PRODIGALLY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PRODIGALLY",
+    "definitions": [
+     {
+      "text": "in extravagant fashion",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dressing",
+      "for": "container",
+      "note": "dressing something means wrapping clothes around it, so the outer word encloses the others"
+     },
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "'head of' keeps only the first letter of 'Armani'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Probably",
+      "gives": "PROLLY",
+      "note": "prolly is a slangy contraction of probably"
+     },
+     {
+      "clueFragment": "like",
+      "gives": "DIG",
+      "note": "to dig something is slang for liking it"
+     },
+     {
+      "clueFragment": "Armani",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter of Armani"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "DIG",
+      "A",
+      "LLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Wearing something Armani-ish is likely an extravagant way to dress.",
+     "walkthrough": "PROLLY is very informal internet slang for probably, surprising in The Times.",
+     "definitionFit": "Prodigally means wastefully lavish, spending without restraint, which is acting in an extravagant manner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dressing"
+    }
+   }
   },
   {
    "number": 14,
@@ -244,7 +1063,59 @@
     "text": "Are contracts obtained giving special terms?",
     "enumeration": "5"
    },
-   "solution": "ARGOT"
+   "solution": "ARGOT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ARGOT",
+    "definitions": [
+     {
+      "text": "special terms",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contracts",
+      "for": "deletion",
+      "note": "a word that contracts gets shorter, so it loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Are",
+      "gives": "AR",
+      "note": "are with its last letter dropped"
+     },
+     {
+      "clueFragment": "obtained",
+      "gives": "GOT",
+      "note": "got is the past tense of get, to obtain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "GOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether signed contracts include special conditions.",
+     "walkthrough": "'Contracts' looks like a noun for agreements, which suits 'special terms'; it is a verb telling you to shorten the word before it.",
+     "definitionFit": "Argot is the jargon or slang of a particular group, the special vocabulary its members use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "contracts"
+    }
+   }
   },
   {
    "number": 15,
@@ -258,7 +1129,65 @@
     "text": "Bit of elastic in hem for undies consumer grabs",
     "enumeration": "9"
    },
-   "solution": "SUSPENDER"
+   "solution": "SUSPENDER",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "SUSPENDER",
+    "definitions": [
+     {
+      "text": "Bit of elastic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hem for",
+      "for": "letter_selection",
+      "note": "a hem is the border of a garment, so only the edge letters of the next word are kept"
+     },
+     {
+      "text": "grabs",
+      "for": "container",
+      "note": "to grab is to seize and hold, so one piece closes around the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "consumer",
+      "gives": "SPENDER",
+      "note": "a consumer is someone who spends"
+     },
+     {
+      "clueFragment": "undies",
+      "gives": "US",
+      "select": "outer",
+      "note": "first and last letters of undies"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "US",
+      "PENDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper snatching underwear that has elastic in its hem.",
+     "walkthrough": "The undies are inserted after the first letter of the consumer.",
+     "definitionFit": "A suspender is an elastic strap that holds up a stocking or sock, so it is a piece of elastic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hem"
+    }
+   }
   },
   {
    "number": 16,
@@ -272,7 +1201,55 @@
     "text": "Influential banks providing a bit of competition",
     "enumeration": "9"
    },
-   "solution": "SEMIFINAL"
+   "solution": "SEMIFINAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEMIFINAL",
+    "definitions": [
+     {
+      "text": "a bit of competition",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "banks",
+      "for": "container",
+      "note": "banks are the sides of a river, so the outer word lines both sides of the inserted pair"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Influential",
+      "gives": "SEMINAL",
+      "note": "seminal means highly influential"
+     },
+     {
+      "clueFragment": "providing",
+      "gives": "IF",
+      "note": "providing means on condition that, if"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEM",
+      "IF",
+      "INAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Powerful banks supply a little rivalry in the market.",
+     "walkthrough": "'Banks' reads as financial institutions; it is a verb meaning to flank.",
+     "definitionFit": "A semifinal is one round of a knockout tournament, so it is one part of a competition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "banks"
+    }
+   }
   },
   {
    "number": 17,
@@ -292,7 +1269,61 @@
      }
     ]
    },
-   "solution": "CARPEDIEM"
+   "solution": "CARPEDIEM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CARPE DIEM",
+    "definitions": [
+     {
+      "text": "life advice",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocked back",
+      "for": "reversal",
+      "note": "something knocked back is pushed backwards, so those letters are read in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Moaned",
+      "gives": "CARPED",
+      "note": "to carp is to complain or moan"
+     },
+     {
+      "clueFragment": "this person twice",
+      "gives": "MEI",
+      "note": "the setter refers to himself two ways, as me and as I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARPED",
+      "IEM"
+     ],
+     "reversals": [
+      {
+       "from": "MEI",
+       "to": "IEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone grumbles about being rebuffed twice when offering advice on how to live.",
+     "walkthrough": "'This person' is the setter, who can be ME or I; both are needed here, then turned round.",
+     "definitionFit": "Carpe diem, Latin for seize the day, is a motto urging people to make the most of life now."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Moaned"
+    }
+   }
   },
   {
    "number": 18,
@@ -306,7 +1337,58 @@
     "text": "Group serving meat cut for British colonialist",
     "enumeration": "7"
    },
-   "solution": "RAFFLES"
+   "solution": "RAFFLES",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "RAFFLES",
+    "definitions": [
+     {
+      "text": "British colonialist",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "cut means shortened, so the final letter is trimmed off"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Group serving",
+      "gives": "RAF",
+      "note": "the RAF is the Royal Air Force, an armed service"
+     },
+     {
+      "clueFragment": "meat",
+      "gives": "FLESH",
+      "note": "flesh is meat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAF",
+      "FLES"
+     ]
+    },
+    "explanation": {
+     "surface": "A catering team serving sliced meat to a British empire builder.",
+     "walkthrough": "Sir Stamford Raffles founded modern Singapore in 1819.",
+     "definitionFit": "Raffles was an administrator of the British Empire in Southeast Asia, a famous colonial figure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "serving"
+    }
+   }
   },
   {
    "number": 19,
@@ -320,7 +1402,74 @@
     "text": "Was a ham scoffed by daughter around 4th of March?",
     "enumeration": "5"
    },
-   "solution": "ACTED"
+   "solution": "ACTED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "ACTED",
+    "definitions": [
+     {
+      "text": "Was a ham",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "by places one item next to another, so the abbreviation follows directly"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so the earlier letters wrap the selected one"
+     },
+     {
+      "text": "4th of",
+      "for": "letter_selection",
+      "note": "the ordinal tells you which single letter of the month's name to take"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scoffed",
+      "gives": "ATE",
+      "note": "to scoff food is to eat it greedily"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     },
+     {
+      "clueFragment": "March",
+      "gives": "C",
+      "select": 4,
+      "note": "the fourth letter of March"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "TED"
+     ]
+    },
+    "explanation": {
+     "surface": "Did the daughter eat the ham around early March?",
+     "walkthrough": "'Ham' looks like meat that was scoffed; it is an over-the-top performer.",
+     "definitionFit": "A ham is a showy, overacting performer, so being a ham means having acted, theatrically and badly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ham"
+    }
+   }
   },
   {
    "number": 20,
@@ -334,7 +1483,52 @@
     "text": "Fantastic plant's amazing, finally five times bigger",
     "enumeration": "7"
    },
-   "solution": "TRIFFID"
+   "solution": "TRIFFID",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "TRIFFID",
+    "definitions": [
+     {
+      "text": "Fantastic plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally five times bigger",
+      "for": "substitution",
+      "note": "the last letter, read as a Roman numeral, is swapped for the numeral worth five times as much"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "amazing",
+      "gives": "TRIFFIC",
+      "note": "a slangy spelling of terrific, how the word is often said"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRIFFI",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "An enthusiast praises a wonder plant that grows to five times its size.",
+     "walkthrough": "The last letter C is Roman 100; five times that is 500, written D.",
+     "definitionFit": "Triffids are the walking, man-eating plants of John Wyndham's novel, so a fictional, fantastical plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "bigger"
+    }
+   }
   },
   {
    "number": 21,
@@ -354,7 +1548,63 @@
      }
     ]
    },
-   "solution": "FELLOWFEELING"
+   "solution": "FELLOWFEELING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FELLOW FEELING",
+    "definitions": [
+     {
+      "text": "a valued bond",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cuts",
+      "for": "container",
+      "note": "something that cuts into another thing pushes inside it, so these letters go into the middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bringing down",
+      "gives": "FELLING",
+      "note": "felling is cutting down or bringing down, as with trees"
+     },
+     {
+      "clueFragment": "Base",
+      "gives": "LOW",
+      "note": "base means low"
+     },
+     {
+      "clueFragment": "rate",
+      "gives": "FEE",
+      "note": "a rate or charge is a fee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FEL",
+      "LOW",
+      "FEE",
+      "LING"
+     ]
+    },
+    "explanation": {
+     "surface": "Central bank interest rate cuts depress the value of a bond.",
+     "walkthrough": "The financial vocabulary is all false: base rate and bond suggest the Bank of England, but the bond here is sympathy between people.",
+     "definitionFit": "Fellow feeling is sympathy arising from shared experience, a cherished connection between people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bond"
+    }
+   }
   },
   {
    "number": 22,
@@ -368,7 +1618,68 @@
     "text": "Dealing with wrapping paper close to Yule in many cases",
     "enumeration": "5"
    },
-   "solution": "OFTEN"
+   "solution": "OFTEN",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "OFTEN",
+    "definitions": [
+     {
+      "text": "in many cases",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrapping",
+      "for": "container",
+      "note": "wrapping means enclosing, so the first word goes round the others"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its last letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dealing with",
+      "gives": "ON",
+      "note": "on means about or concerning"
+     },
+     {
+      "clueFragment": "paper",
+      "gives": "FT",
+      "note": "the FT is the Financial Times newspaper"
+     },
+     {
+      "clueFragment": "Yule",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of Yule"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "FT",
+      "E",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Wrapping Christmas presents, frequently near Yuletide.",
+     "walkthrough": "'Wrapping paper' looks like gift wrap; wrapping is the container signal and paper the newspaper.",
+     "definitionFit": "Often means frequently, happening on many occasions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "paper"
+    }
+   }
   },
   {
    "number": 23,
@@ -382,7 +1693,57 @@
     "text": "Dull sound of one day following another",
     "enumeration": "4"
    },
-   "solution": "THUD"
+   "solution": "THUD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THUD",
+    "definitions": [
+     {
+      "text": "Dull sound",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so the first piece is placed after the second"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "another",
+      "gives": "THU",
+      "note": "Thu is the abbreviation for Thursday, another day"
+     },
+     {
+      "clueFragment": "one day",
+      "gives": "D",
+      "note": "D is the abbreviation for day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THU",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Monotony of one day after another making a dull noise.",
+     "walkthrough": "Both pieces are days: D as the abbreviation for day, THU for Thursday.",
+     "definitionFit": "A thud is a heavy, muffled noise, a low dull sound."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dull"
+    }
+   }
   },
   {
    "number": 24,
@@ -396,7 +1757,62 @@
     "text": "Prince with attractive clothes, a simple fellow",
     "enumeration": "7"
    },
-   "solution": "HALFWIT"
+   "solution": "HALFWIT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HALFWIT",
+    "definitions": [
+     {
+      "text": "a simple fellow",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clothes",
+      "for": "container",
+      "note": "clothes is a verb here: to clothe something is to wrap it, so one piece goes round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prince",
+      "gives": "HAL",
+      "note": "Prince Hal, the young Henry V in Shakespeare"
+     },
+     {
+      "clueFragment": "attractive",
+      "gives": "FIT",
+      "note": "fit is British slang for good-looking"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAL",
+      "F",
+      "W",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A prince in fine clothes turns out to be a fool.",
+     "walkthrough": "'Clothes' reads as a plural noun; it is the verb, with attractive wrapped around with.",
+     "definitionFit": "A halfwit is a foolish or dim person, which is what a simple fellow means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clothes"
+    }
+   }
   },
   {
    "number": 25,
@@ -410,7 +1826,54 @@
     "text": "Amount of fish bearing small amount of eggs",
     "enumeration": "7"
    },
-   "solution": "NESTFUL"
+   "solution": "NESTFUL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NESTFUL",
+    "definitions": [
+     {
+      "text": "amount of eggs",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bearing",
+      "for": "container",
+      "note": "bearing means carrying, so the first piece holds the abbreviation inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Amount of fish",
+      "gives": "NETFUL",
+      "note": "a netful is as many fish as a net holds"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "S",
+      "TFUL"
+     ]
+    },
+    "explanation": {
+     "surface": "A quantity of fish carrying a few eggs, as with roe.",
+     "definitionFit": "A nestful is as many as a nest holds, a natural measure for a clutch of eggs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bearing"
+    }
+   }
   },
   {
    "number": 26,
@@ -424,7 +1887,87 @@
     "text": "Hack off nose of Stilton with swinish remark in fancy deli",
     "enumeration": "10"
    },
-   "solution": "DISGRUNTLE"
+   "solution": "DISGRUNTLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "DISGRUNTLE",
+    "definitions": [
+     {
+      "text": "Hack off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nose of",
+      "for": "letter_selection",
+      "note": "the nose is the front, so only the opening letter of the cheese is used"
+     },
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "with joins two pieces together side by side"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places those letters inside the rearranged shop word"
+     },
+     {
+      "text": "fancy",
+      "for": "anagram",
+      "note": "fancy means elaborate or fanciful, so the following word is rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deli",
+      "gives": "DILE",
+      "note": "deli with its letters rearranged"
+     },
+     {
+      "clueFragment": "Stilton",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of Stilton"
+     },
+     {
+      "clueFragment": "swinish remark",
+      "gives": "GRUNT",
+      "note": "a grunt is the noise a pig makes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "S",
+      "GRUNT",
+      "LE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DELI",
+       "gives": "DILE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A customer cuts off the end of a Stilton with a rude snort in a posh delicatessen.",
+     "walkthrough": "'Hack off' reads like slicing cheese; it is British slang for annoy. Stilton is an English blue cheese.",
+     "definitionFit": "To be hacked off is to be fed up, so to hack someone off is to annoy or disgruntle them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hack"
+    }
+   }
   },
   {
    "number": 27,
@@ -438,7 +1981,52 @@
     "text": "Bear losing face in current disruption",
     "enumeration": "4"
    },
-   "solution": "EDDY"
+   "solution": "EDDY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EDDY",
+    "definitions": [
+     {
+      "text": "current disruption",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing face",
+      "for": "deletion",
+      "note": "losing its face means losing its front, so the opening letter goes"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bear",
+      "gives": "TEDDY",
+      "note": "a teddy is a toy bear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDDY"
+     ]
+    },
+    "explanation": {
+     "surface": "A bear embarrassed amid present-day upheaval.",
+     "walkthrough": "'Current' reads as present-day; it is a flow of water.",
+     "definitionFit": "An eddy is a swirl that breaks the smooth flow of water or air, a disturbance in a current."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "current"
+    }
+   }
   }
  ]
 }
