@@ -898,6 +898,8 @@ unit_commit() {  # subject
     fi
     # The subject names what was filed (tools/commit_subject.py), the unit
     # after it (daily_units.py job: a backfill's commits say so, not "daily").
+    # A rename carries its row of tools/data/renamed_ids.json, the old id's redirect.
+    python3 tools/renamed_ids.py --stage
     git diff --cached --quiet ||
       git commit -m "$(printf '%s\n\n%s' "$(git diff --cached --name-status -M -- puzzles | python3 tools/commit_subject.py "$(python3 tools/daily_units.py job "$1")")" "$(python3 tools/provenance.py trailer)")"
     # Nothing may be left behind. With one writer this is not a judgement

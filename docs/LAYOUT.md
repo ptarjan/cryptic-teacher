@@ -892,6 +892,19 @@ tools/indexnow.py                             tells IndexNow (Bing and the engin
                                               page without its ?v= stamps against the last
                                               deploy's, and posts the difference once the
                                               deploy is live
+tools/renamed_ids.py                          every puzzle id a commit renamed, read from git
+                                              history into tools/data/renamed_ids.json;
+                                              --check-staged is the pre-commit refusal of a
+                                              rename without its row, --stage adds the row
+tools/test_renamed_ids.sh                     does a renamed puzzle's old id keep resolving? A
+                                              rename inside a commit that moves every file is
+                                              still paired, a staged rename the map lacks is
+                                              refused until --stage adds it, --check agrees
+                                              with history, a chain lands on its last id, an
+                                              old id a live puzzle holds and one whose puzzle
+                                              was deleted get no page, and the page at an old
+                                              id is canonical to the new one with a refresh
+                                              indexnow.py never sends
 tools/test_indexnow.sh                        does a deploy tell IndexNow only what changed? A
                                               page whose only difference is its ?v= stamps is
                                               unchanged, a redirect page is never sent, a cold
@@ -1217,6 +1230,11 @@ tools/fold_reprints.py                        folds each held Globe and Mail fil
                                               tools/data/reprints_pending.json as it goes
 
 tables everything else reads
+tools/data/renamed_ids.json                   every puzzle id renamed, {old id: new id}, one
+                                              line per id and merged per key
+                                              (tools/renamed_ids.py); build_seo_pages.py writes
+                                              a redirect page at each old id no live puzzle
+                                              holds
 tools/data/reprints_pending.json              the reprint files held before tools/reprints.py's
                                               rule, still to fold into their originals;
                                               puzzle_integrity.py's REPRINT check forgives
