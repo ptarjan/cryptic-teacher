@@ -441,6 +441,18 @@ check("a word's halves, once the next word is parted off, join as most readings 
 check("halves most readings print apart stay apart (mirror)", "imported orig inally by old",
       oc.agree("imported orig inallyby old", [mark("5 imported orig inally by old 6")] * 2
                + [mark("5 imported originally by old 6")])[0])
+# times-1982-09-20, news-1974-11-01: a first letter read as a bracket the clue never closes.
+check("a bracket the vote fills with the word's lost first letter goes",
+      "Flat-bottomed boat from firm in Cornwall",
+      oc.agree("Flat-bottomed boat from firm in (ornwall", [mark("5 Flat bottomed boat from firm in Cornwall 6 A")] * 3)[0])
+check("a bracket the clue closes stays though the vote fills its word (mirror)",
+      "and (this for protection)",
+      oc.agree("and (his for protection)", [mark("5 and this for protection 6 A")] * 3)[0])
+check("a bracket before a word the vote leaves stays (mirror)", "Fairly (slow movement",
+      oc.agree("Fairly (slow movement", [mark("5 Fairly slow movement 6 A")] * 3)[0])
+# news-1986-02-01, news-1981-02-05: a k's lost arm reads h; an h never reads k.
+check("a k read as h is a confused letter", True, "king" in oc.confused("hing"))
+check("an h is never a misread k (mirror)", False, "caneh" in oc.confused("canek"))
 glued = ["some", "consider", "this", "an", "irritating", "featureofengland'snationai", "game"]
 at = [(i, i) for i in range(6)] + [(6, None)]
 check("a reading prints a clue whose run-together word holds its word (No 4 21D)", True,

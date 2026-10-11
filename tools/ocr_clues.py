@@ -687,6 +687,9 @@ def common_slip(word):
 #: for "judge", "ear" for "eat", "ad" for "an").
 CONFUSED = tuple(p for p in SLIPS if len(p[0]) == len(p[1]) == 1) + (
     ("f", "j"), ("r", "t"), ("d", "n"), ("n", "h"))
+#: A (read, printed) slip one way only: a k's arm lost reads h ("hing" for
+#: "king"); an h never reads k, so "Canek" is no "Caneh".
+CONFUSED_ONE_WAY = (("h", "k"),)
 #: How much better a word one CONFUSED letter from the voted one must fit
 #: its neighbours in the corpus's clues to replace it ("single element", not
 #: "single clement"; "for an entertainer", not "for ad entertainer").
@@ -696,7 +699,7 @@ CONFUSED_FIT = 3.5
 def confused(word):
     """The spellings one CONFUSED letter from `word` (lower case)."""
     low, out = word.lower(), set()
-    for a, b in CONFUSED + tuple((b, a) for a, b in CONFUSED):
+    for a, b in CONFUSED + tuple((b, a) for a, b in CONFUSED) + CONFUSED_ONE_WAY:
         at = low.find(a)
         while at >= 0:
             out.add(low[:at] + b + low[at + 1:])
@@ -1764,6 +1767,12 @@ def agree(clue, others, keep_known=False, families=None, rates=None, clues=(), n
         elif new and i == 0 and old[0].isupper():
             new = new[0].upper() + new[1:]
         gap = speckless(text[k:at])
+        if (new != old and gap.endswith("(") and len(new) == len(old) + 1 and ")" not in text[at:]
+                and (new[1:].lower() == old.lower() or within_one(new[1:].lower(), old.lower()))):
+            # The word's first letter read as a bracket the clue never closes
+            # ("(ornwall" for "Cornwall", "(his" for "this"): the vote put the
+            # letter back, so the bracket goes.
+            gap = gap[:-1]
         if i in stray_stops and (m := STRAY_STOP.fullmatch(gap)):
             gap = stray_stops[i] + m.group(2)
         if i == 1 and 0 in drop:
