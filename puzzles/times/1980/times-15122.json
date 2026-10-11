@@ -20,8 +20,19 @@
   "origin": "model",
   "model": "opus",
   "date": "2026-10-03",
-  "check": "32 entries, 64 crossings, 0 conflicts"
+  "check": "32 entries, 64 crossings, 0 conflicts",
+  "corrected": [
+   {
+    "entry": "5-down",
+    "was": "ADEPT",
+    "now": "ALERT",
+    "date": "2026-10-11"
+   }
+  ]
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +46,55 @@
     "text": "Record a way to dispose of rubbish",
     "enumeration": "7"
    },
-   "solution": "DISCARD"
+   "solution": "DISCARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISCARD",
+    "definitions": [
+     {
+      "text": "dispose of rubbish",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Record",
+      "gives": "DISC",
+      "note": "a gramophone record is a disc"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "RD",
+      "note": "RD is the abbreviation for road, a way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISC",
+      "A",
+      "RD"
+     ]
+    },
+    "explanation": {
+     "surface": "A council leaflet describing how to get rid of household rubbish.",
+     "definitionFit": "To discard is to throw away something unwanted, which is exactly what disposing of rubbish means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Record"
+    }
+   }
   },
   {
    "number": 1,
@@ -49,7 +108,58 @@
     "text": "With half the month gone, I have to bluff",
     "enumeration": "7"
    },
-   "solution": "DECEIVE"
+   "solution": "DECEIVE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "DECEIVE",
+    "definitions": [
+     {
+      "text": "bluff",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "With half the month gone",
+      "for": "deletion",
+      "note": "half of it gone means only part of the named word survives"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the month",
+      "gives": "DECEMBER",
+      "note": "the month of the year at the end, the last month"
+     },
+     {
+      "clueFragment": "I have",
+      "gives": "IVE",
+      "note": "the contraction I've"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DECE",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone running out of time this month and forced to fake it.",
+     "walkthrough": "The month here is the last of the year; losing half its eight letters leaves the first four.",
+     "definitionFit": "To bluff is to mislead by pretence, the same as deceiving someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bluff"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +173,69 @@
     "text": "Bad girl's put up a diamond perhaps for the trick",
     "enumeration": "9"
    },
-   "solution": "STRATAGEM"
+   "solution": "STRATAGEM",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "STRATAGEM",
+    "definitions": [
+     {
+      "text": "trick",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put up",
+      "for": "reversal",
+      "note": "in a down clue, put up means the word is read from the bottom upwards"
+     }
+    ],
+    "linkWords": [
+     "for the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bad girl's",
+      "gives": "TARTS",
+      "note": "a tart is a loose woman, and the 's makes it TART'S"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "diamond perhaps",
+      "gives": "GEM",
+      "note": "a diamond is an example of a gem"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRAT",
+      "A",
+      "GEM"
+     ],
+     "reversals": [
+      {
+       "from": "TARTS",
+       "to": "STRAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wicked woman staking a diamond in a game of cards.",
+     "definitionFit": "A stratagem is a cunning plan or ruse, a synonym for a trick."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "diamond"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +249,52 @@
     "text": "Convert needs no introduction to Pater",
     "enumeration": "5"
    },
-   "solution": "ALTER"
+   "solution": "ALTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ALTER",
+    "definitions": [
+     {
+      "text": "Convert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needs no introduction",
+      "for": "deletion",
+      "note": "without an introduction a name loses its opening letter"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pater",
+      "gives": "WALTER",
+      "note": "Walter Pater was the Victorian critic and essayist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A religious convert hardly needs introducing to a priest called Father.",
+     "walkthrough": "Pater looks like father or a priest; it is Walter Pater, author of The Renaissance, whose first name loses its W.",
+     "definitionFit": "To convert something is to change it, and alter is a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pater"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,10 +305,71 @@
    },
    "length": 9,
    "clue": {
-    "text": "Wild speed artist to .perform. Bravo!",
+    "text": "Wild speed artist to perform. Bravo!",
     "enumeration": "9"
    },
-   "solution": "DESPERADO"
+   "solution": "DESPERADO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DESPERADO",
+    "definitions": [
+     {
+      "text": "Bravo",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Wild",
+      "for": "anagram",
+      "note": "wild means out of control, so the letters run riot into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "speed",
+      "gives": "SPEED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA, Royal Academician, is an artist"
+     },
+     {
+      "clueFragment": "to perform",
+      "gives": "DO",
+      "note": "to do is to perform"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DESPE",
+      "RA",
+      "DO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SPEED",
+       "gives": "DESPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Applause for a racing painter who performs at breakneck pace.",
+     "walkthrough": "'Bravo!' reads as a cheer, but a bravo is a hired thug.",
+     "definitionFit": "A bravo is a hired ruffian or bandit, and a desperado is a reckless outlaw."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bravo"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +383,44 @@
     "text": "Insult a forward line in speech",
     "enumeration": "7"
    },
-   "solution": "AFFRONT"
+   "solution": "AFFRONT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "AFFRONT",
+    "definitions": [
+     {
+      "text": "Insult",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in speech",
+      "for": "homophone",
+      "note": "in speech means the words are to be heard spoken, not read on the page"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a forward line",
+      "gives": "AFFRONT",
+      "soundsLike": "A FRONT",
+      "note": "a front is the forward line of an army"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone speaking rudely about a team's attacking line.",
+     "definitionFit": "An affront is a deliberate slight or offence, a synonym for an insult."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "forward"
+    }
+   }
   },
   {
    "number": 5,
@@ -116,10 +431,53 @@
    },
    "length": 5,
    "clue": {
-    "enumeration": "5",
-    "missing": true
+    "text": "3 3 on the watch",
+    "enumeration": "5"
    },
-   "solution": "ADEPT"
+   "solution": "ALERT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALERT",
+    "definitions": [
+     {
+      "text": "on the watch",
+      "at": 4
+     }
+    ],
+    "indicators": [
+     {
+      "text": "3",
+      "for": "anagram",
+      "note": "the first cross-reference stands for the clue word Convert, which tells us to change the letters around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "3",
+      "gives": "ALTER",
+      "note": "the second cross-reference stands for the answer to 3-down"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALTER",
+       "gives": "ALERT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bare pair of cross-references followed by a watchman's state.",
+     "walkthrough": "The first 3 is read as 3-down's definition, Convert; the second as its answer, so ALTER is converted.",
+     "definitionFit": "To be alert is to be watchful and ready, which is being on the watch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +491,45 @@
     "text": "Like birds or oars skimming the water",
     "enumeration": "9"
    },
-   "solution": "FEATHERED"
+   "solution": "FEATHERED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FEATHERED",
+    "definitions": [
+     {
+      "text": "Like birds",
+      "at": 0
+     },
+     {
+      "text": "oars skimming the water",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like birds",
+      "note": "first meaning: covered in plumage"
+     },
+     {
+      "clueFragment": "oars skimming the water",
+      "note": "second meaning: a rowing term for blades turned flat as they pass over the surface"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In rowing, oars are turned horizontal between strokes so they skim the water.",
+     "definitionFit": "Birds are plumed creatures, and rowers turn blades flat between strokes, so both are described by the same past participle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +543,47 @@
     "text": "Otherwise the German Command",
     "enumeration": "5"
    },
-   "solution": "ORDER"
+   "solution": "ORDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORDER",
+    "definitions": [
+     {
+      "text": "Command",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Otherwise",
+      "gives": "OR",
+      "note": "or means otherwise, as in do it or else"
+     },
+     {
+      "clueFragment": "the German",
+      "gives": "DER",
+      "note": "der is German for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "DER"
+     ]
+    },
+    "explanation": {
+     "surface": "A warning about the German high command.",
+     "walkthrough": "'Command' looks like the military noun for the German leadership; here it is an instruction.",
+     "definitionFit": "An order is an instruction to be obeyed, the same as a command."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Command"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +597,57 @@
     "text": "They must accept blame for the treatment",
     "enumeration": "7"
    },
-   "solution": "THERAPY"
+   "solution": "THERAPY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THERAPY",
+    "definitions": [
+     {
+      "text": "treatment",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must accept",
+      "for": "container",
+      "note": "to accept something is to take it in, so one word goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "for the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They",
+      "gives": "THEY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "blame",
+      "gives": "RAP",
+      "note": "to take the rap is to accept blame"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "RAP",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Wrongdoers having to take responsibility for how someone was handled.",
+     "definitionFit": "Therapy is medical or psychological treatment intended to heal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "treatment"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +661,55 @@
     "text": "Form of rustic 14 holding a precious weight",
     "enumeration": "5"
    },
-   "solution": "CARAT"
+   "solution": "CARAT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CARAT",
+    "definitions": [
+     {
+      "text": "precious weight",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means one piece clasps the other inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Form of rustic 14",
+      "gives": "CART",
+      "note": "14 is transport, and a farm cart is a rustic form of it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "A",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A country vehicle laden with something valuable.",
+     "walkthrough": "The cross-reference sends you to 14-down, TRANSPORT; the rustic kind is a CART, which holds A.",
+     "definitionFit": "A carat is the unit of mass used for weighing gems, so it is the weight of precious stones."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Form"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +723,51 @@
     "text": "Absquatulate — a slip of the tongue, bad",
     "enumeration": "9"
    },
-   "solution": "SKEDADDLE"
+   "solution": "SKEDADDLE",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "SKEDADDLE",
+    "definitions": [
+     {
+      "text": "Absquatulate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of the tongue",
+      "for": "homophone",
+      "note": "of the tongue says the word is as pronounced, here a careless spoken version"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a slip",
+      "gives": "SKED",
+      "soundsLike": "SKID",
+      "note": "a skid is a slip, spoken with a clipped vowel"
+     },
+     {
+      "clueFragment": "bad",
+      "gives": "ADDLE",
+      "note": "an addle egg is a rotten, bad one"
+     }
+    ],
+    "explanation": {
+     "surface": "A long, comic word followed by an apology for a bad verbal slip.",
+     "walkthrough": "'A slip of the tongue' looks like a lapse in speech; it is a skid said aloud. Addle as an adjective means rotten, as in an addled egg.",
+     "definitionFit": "Absquatulate is jocular American slang for running off or decamping, the same as skedaddle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "slip"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +781,72 @@
     "text": "Design confines me, after completion of murder, to hiding the body",
     "enumeration": "9"
    },
-   "solution": "INTERMENT"
+   "solution": "INTERMENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "INTERMENT",
+    "definitions": [
+     {
+      "text": "hiding the body",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "completion of",
+      "for": "letter_selection",
+      "note": "the completion of a word is its final letter, so only the end is kept"
+     },
+     {
+      "text": "confines",
+      "for": "container",
+      "note": "confines means one word shuts the others up inside it"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Design",
+      "gives": "INTENT",
+      "note": "a design is an intent or purpose"
+     },
+     {
+      "clueFragment": "murder",
+      "gives": "R",
+      "select": "last",
+      "note": "the closing letter of murder"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTE",
+      "R",
+      "ME",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A killer's plan to conceal the corpse once the deed is done.",
+     "walkthrough": "The order of the inserted letters follows the clue: me comes after the end of murder, and both go inside the design.",
+     "definitionFit": "Interment is burial, putting a corpse in the ground, which hides the body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Design"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +860,45 @@
     "text": "Jute sounds huskier",
     "enumeration": "5"
    },
-   "solution": "HORSA"
+   "solution": "HORSA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HORSA",
+    "definitions": [
+     {
+      "text": "Jute",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sounds",
+      "for": "homophone",
+      "note": "sounds says we want a word that is heard like the next one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "huskier",
+      "gives": "HORSA",
+      "soundsLike": "HOARSER",
+      "note": "huskier means more hoarse, of a voice"
+     }
+    ],
+    "explanation": {
+     "surface": "A sack of jute fibre making a rougher noise.",
+     "walkthrough": "Jute looks like the fibre, but it is a member of the Germanic tribe; Horsa and Hengist were the Jutish leaders said to have landed in Kent.",
+     "definitionFit": "Horsa was a legendary chief of the Jutes who invaded Britain, so he is a Jute."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Jute"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +912,37 @@
     "text": "under twenty-one",
     "enumeration": "5"
    },
-   "solution": "EIGHT"
+   "solution": "EIGHT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EIGHT",
+    "definitions": [
+     {
+      "text": "under twenty-one",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "under twenty-one",
+      "note": "surface reading: someone not yet of age, a minor in the old British sense when majority came at twenty-one"
+     },
+     {
+      "clueFragment": "twenty-one",
+      "note": "setter's reading: a whole number smaller than twenty-one, one of the five-letter ones"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The page prints only these words, starting in lower case, so the clue's opening was probably lost in typesetting. As printed, the crossings fix a five-letter number below twenty-one; any wordplay in the missing words cannot be recovered.",
+     "definitionFit": "Eight is a number less than twenty-one, the only five-letter number that fits the crossing letters E, G and T."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +956,41 @@
     "text": "Convey ecstasy",
     "enumeration": "9"
    },
-   "solution": "TRANSPORT"
+   "solution": "TRANSPORT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRANSPORT",
+    "definitions": [
+     {
+      "text": "Convey",
+      "at": 0
+     },
+     {
+      "text": "ecstasy",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Convey",
+      "note": "first meaning: carry from one place to another"
+     },
+     {
+      "clueFragment": "ecstasy",
+      "note": "second meaning: a state of rapture"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The verb and the noun share a spelling; the noun is often plural, transports of joy.",
+     "definitionFit": "As a verb the word means carry; as a noun it means an overwhelming emotion such as rapture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +1004,60 @@
     "text": "Hard luck — confound it — very sad",
     "enumeration": "9"
    },
-   "solution": "ADVERSITY"
+   "solution": "ADVERSITY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ADVERSITY",
+    "definitions": [
+     {
+      "text": "Hard luck",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confound",
+      "for": "anagram",
+      "note": "to confound is to throw into confusion, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "VERY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sad",
+      "gives": "SAD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITVERYSAD",
+       "gives": "ADVERSITY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cursing their bad fortune and feeling miserable.",
+     "definitionFit": "Adversity is misfortune or difficult circumstances, an equivalent of hard luck."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "confound"
+    }
+   }
   },
   {
    "number": 16,
@@ -273,7 +1071,51 @@
     "text": "Composer put on French grey green coat",
     "enumeration": "9"
    },
-   "solution": "VERDIGRIS"
+   "solution": "VERDIGRIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VERDIGRIS",
+    "definitions": [
+     {
+      "text": "green coat",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "put on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Composer",
+      "gives": "VERDI",
+      "note": "Giuseppe Verdi, the Italian opera composer"
+     },
+     {
+      "clueFragment": "French grey",
+      "gives": "GRIS",
+      "note": "gris is French for grey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VERDI",
+      "GRIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A composer wearing a grey-green jacket in the French style.",
+     "walkthrough": "'Coat' looks like clothing; it is a coating on metal.",
+     "definitionFit": "Verdigris is the green film that forms on copper and brass, a coating of green."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "coat"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +1129,39 @@
     "text": "Like the writings found in Cheddar",
     "enumeration": "9"
    },
-   "solution": "ICELANDIC"
+   "solution": "ICELANDIC",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ICELANDIC",
+    "definitions": [
+     {
+      "text": "Like the writings found in Cheddar",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like the writings found in Cheddar",
+      "note": "surface reading: some texts discovered in the Somerset town known for cheese"
+     },
+     {
+      "clueFragment": "the writings found in Cheddar",
+      "note": "setter's reading: the Old Norse Edda sits inside the letters of Cheddar"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Cheddar is a Somerset village famous for cheese, but here it is just a string of letters holding EDDA, the medieval collection of Norse poems.",
+     "definitionFit": "The Eddas are medieval texts written down in Iceland, so being like them means being of that northern island."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cheddar"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1175,52 @@
     "text": "Display a stern hair-style",
     "enumeration": "9"
    },
-   "solution": "POMPADOUR"
+   "solution": "POMPADOUR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POMPADOUR",
+    "definitions": [
+     {
+      "text": "hair-style",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Display",
+      "gives": "POMP",
+      "note": "pomp is grand display"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "stern",
+      "gives": "DOUR",
+      "note": "dour means stern and severe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POMP",
+      "A",
+      "DOUR"
+     ]
+    },
+    "explanation": {
+     "surface": "Showing off a severe haircut.",
+     "definitionFit": "A pompadour is a hairstyle with the hair swept up high from the forehead, named after Madame de Pompadour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stern"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1234,63 @@
     "text": "Bill and he follow Peter in the grand manner",
     "enumeration": "7"
    },
-   "solution": "PANACHE"
+   "solution": "PANACHE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PANACHE",
+    "definitions": [
+     {
+      "text": "the grand manner",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "follow",
+      "for": "charade",
+      "note": "follow says these pieces come after the other one, placing Peter's piece first"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Peter",
+      "gives": "PAN",
+      "note": "Peter Pan, the boy who never grew up"
+     },
+     {
+      "clueFragment": "Bill",
+      "gives": "AC",
+      "note": "AC, short for account, is a bill"
+     },
+     {
+      "clueFragment": "he",
+      "gives": "HE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAN",
+      "AC",
+      "HE"
+     ]
+    },
+    "explanation": {
+     "surface": "Two people walking behind Peter with great style.",
+     "walkthrough": "Bill looks like a man's name alongside Peter; it is an account, abbreviated in the usual way.",
+     "definitionFit": "Panache is flamboyant style and confidence, a grand manner of doing things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bill"
+    }
+   }
   },
   {
    "number": 19,
@@ -326,10 +1301,42 @@
    },
    "length": 5,
    "clue": {
-    "text": "\" The glory and the — '*, Wordsworth missed",
+    "text": "\"The glory and the —\", Wordsworth missed",
     "enumeration": "5"
    },
-   "solution": "DREAM"
+   "solution": "DREAM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DREAM",
+    "definitions": [
+     {
+      "text": "\"The glory and the —\", Wordsworth missed",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The glory and the",
+      "note": "surface reading: a quotation with its last word blanked out"
+     },
+     {
+      "clueFragment": "Wordsworth missed",
+      "note": "setter's reading: the poet lamented losing this, so the missing word is the thing he missed"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The quotation is from Wordsworth's Immortality Ode: 'Whither is fled the visionary gleam? Where is it now, the glory and the dream?' He mourns its loss, so it is what he missed.",
+     "definitionFit": "The fill-in word completes the famous line, and the poem is about the vision of childhood the poet has lost."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "missed"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1350,58 @@
     "text": "Eminent conductor is crazy — most are",
     "enumeration": "7"
    },
-   "solution": "MAESTRO"
+   "solution": "MAESTRO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MAESTRO",
+    "definitions": [
+     {
+      "text": "Eminent conductor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crazy",
+      "for": "anagram",
+      "note": "crazy means mad and disordered, so the letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "most",
+      "gives": "MOST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "ARE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MOSTARE",
+       "gives": "MAESTRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wry remark that most great conductors are mad.",
+     "definitionFit": "Maestro is the honorific for a distinguished conductor or musician."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crazy"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1415,43 @@
     "text": "Steals jugs",
     "enumeration": "5"
    },
-   "solution": "NICKS"
+   "solution": "NICKS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NICKS",
+    "definitions": [
+     {
+      "text": "Steals",
+      "at": 0
+     },
+     {
+      "text": "jugs",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Steals",
+      "note": "first meaning: slang for pinches or takes"
+     },
+     {
+      "clueFragment": "jugs",
+      "note": "second meaning: slang for prisons, as jug is"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Jugs looks like pitchers; it is the slang for jails.",
+     "definitionFit": "Nick is British slang both for stealing and for a prison or police station, so the plural works for both."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "jugs"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1465,49 @@
     "text": "Rest wrong way round in hammock",
     "enumeration": "5"
    },
-   "solution": "COMMA"
+   "solution": "COMMA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "COMMA",
+    "definitions": [
+     {
+      "text": "Rest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the following word"
+     },
+     {
+      "text": "wrong way round",
+      "for": "reversal",
+      "note": "the wrong way round means read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hammock",
+      "gives": "AMMOC",
+      "note": "letters from inside the word"
+     }
+    ],
+    "explanation": {
+     "surface": "Lying in a hammock the wrong way round.",
+     "walkthrough": "'Rest' looks like lying down; it is a pause in writing.",
+     "definitionFit": "A comma marks a short pause in a sentence, a rest for the reader."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Rest"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1521,53 @@
     "text": "Fix position of nothing, nothing, in French gallery",
     "enumeration": "9"
    },
-   "solution": "ORIENTATE"
+   "solution": "ORIENTATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORIENTATE",
+    "definitions": [
+     {
+      "text": "Fix position of",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O is zero, nothing"
+     },
+     {
+      "clueFragment": "nothing, in French",
+      "gives": "RIEN",
+      "note": "rien is French for nothing"
+     },
+     {
+      "clueFragment": "gallery",
+      "gives": "TATE",
+      "note": "the Tate is the London art gallery"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "RIEN",
+      "TATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Trying to place something amid the emptiness of a French art gallery.",
+     "walkthrough": "The 'in French' attaches to the second nothing only; the gallery is the Tate in London.",
+     "definitionFit": "To orientate is to find or fix one's position relative to surroundings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1581,46 @@
     "text": "Full of gin in the bar? What a nerve!",
     "enumeration": "5"
    },
-   "solution": "OPTIC"
+   "solution": "OPTIC",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OPTIC",
+    "definitions": [
+     {
+      "text": "Full of gin in the bar?",
+      "at": 0
+     },
+     {
+      "text": "a nerve",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "What"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Full of gin in the bar?",
+      "note": "first meaning: the measuring device fixed to an upturned spirit bottle in a pub"
+     },
+     {
+      "clueFragment": "a nerve",
+      "note": "second meaning: the nerve carrying signals from the eye"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In British pubs spirits are poured through an optic, a dispenser that gives an exact measure. 'What a nerve!' reads as outrage.",
+     "definitionFit": "The word names both a bar's spirit-measuring device and the nerve of sight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nerve"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1634,42 @@
     "text": "More precise definition — I certainly provide it",
     "enumeration": "5"
    },
-   "solution": "NICER"
+   "solution": "NICER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NICER",
+    "definitions": [
+     {
+      "text": "More precise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "provide it",
+      "for": "hidden_word",
+      "note": "the words provide it means they supply the letters themselves, within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "definition — I certainly",
+      "gives": "NICER",
+      "note": "letters running across the end of one word, a lone letter and the start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "A pedant promising to give a tighter definition.",
+     "definitionFit": "Nice in its older sense means fine or precise, as in a nice distinction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "definition"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1683,43 @@
     "text": "Job having one — against ill winds ?",
     "enumeration": "9"
    },
-   "solution": "COMFORTER"
+   "solution": "COMFORTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COMFORTER",
+    "definitions": [
+     {
+      "text": "Job having one",
+      "at": 0
+     },
+     {
+      "text": "against ill winds",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Job having one",
+      "note": "first meaning: the Bible's Job had friends whose consolation only made him feel worse"
+     },
+     {
+      "clueFragment": "against ill winds",
+      "note": "second meaning: a long woollen scarf worn to keep out cold, harmful winds"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A Job's comforter is someone who makes things worse while trying to console; a comforter is also an old word for a long woollen scarf.",
+     "definitionFit": "The word means both a consoler, as with Job's false friends, and a warm scarf that protects against bitter weather."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Job"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1733,51 @@
     "text": "Younger son's a bounder — and in France, too !",
     "enumeration": "5"
    },
-   "solution": "CADET"
+   "solution": "CADET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CADET",
+    "definitions": [
+     {
+      "text": "Younger son",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "too"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a bounder",
+      "gives": "CAD",
+      "note": "a cad or bounder is an ill-mannered man"
+     },
+     {
+      "clueFragment": "and in France",
+      "gives": "ET",
+      "note": "et is French for and"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAD",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A disreputable younger son, one who behaves badly in France too.",
+     "walkthrough": "A bounder is an old British word for a cad, a man of bad behaviour.",
+     "definitionFit": "Cadet originally means a younger son of a family, as against the eldest, the heir."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "France"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1791,57 @@
     "text": "With spring, last ice melts",
     "enumeration": "7"
    },
-   "solution": "ELASTIC"
+   "solution": "ELASTIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ELASTIC",
+    "definitions": [
+     {
+      "text": "With spring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "melts",
+      "for": "anagram",
+      "note": "melting things lose their shape, so these letters reform in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "last",
+      "gives": "LAST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ice",
+      "gives": "ICE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LASTICE",
+       "gives": "ELASTIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "As the season turns, the last of the winter ice thaws.",
+     "walkthrough": "'With spring' reads as a time of year; it means having springiness.",
+     "definitionFit": "Something elastic is springy, returning to shape after stretching, so it has spring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spring"
+    }
+   }
   },
   {
    "number": 28,
@@ -466,10 +1852,61 @@
    },
    "length": 7,
    "clue": {
-    "text": "Wind interior of microcosm into knots 7.",
+    "text": "Wind interior of microcosm into knots",
     "enumeration": "7"
    },
-   "solution": "SIROCCO"
+   "solution": "SIROCCO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SIROCCO",
+    "definitions": [
+     {
+      "text": "Wind",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interior of",
+      "for": "letter_selection",
+      "note": "the interior of a word is everything but its outside letters"
+     },
+     {
+      "text": "into knots",
+      "for": "anagram",
+      "note": "tied into knots means twisted and tangled, so the letters are muddled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "microcosm",
+      "gives": "ICROCOS",
+      "select": "middle",
+      "note": "the word without its first and last letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ICROCOS",
+       "gives": "SIROCCO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small world twisted up by a gale.",
+     "walkthrough": "'Wind' could be the verb to twist; it is the noun, a named wind.",
+     "definitionFit": "The sirocco is a hot wind blowing from North Africa across the Mediterranean."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wind"
+    }
+   }
   }
  ]
 }
