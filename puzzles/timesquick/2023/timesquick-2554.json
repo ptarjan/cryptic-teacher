@@ -24,6 +24,9 @@
   "date": "2023-12-22",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,53 @@
     "text": "Collection of beach pebbles, not hard — one only",
     "enumeration": "6"
    },
-   "solution": "SINGLE"
+   "solution": "SINGLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SINGLE",
+    "definitions": [
+     {
+      "text": "one only",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "'not' tells you to leave out the thing named right after it from the word before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Collection of beach pebbles",
+      "gives": "SHINGLE",
+      "note": "shingle is a mass of small rounded stones on a beach"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil-grade abbreviation for hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SINGLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes a beach of pebbles, saying only one pebble is soft rather than hard.",
+     "walkthrough": "Take the H out of SHINGLE to leave SINGLE.",
+     "definitionFit": "Single and 'one only' both describe a lone item, with no partner or companion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hard"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +100,55 @@
     "text": "Bitter, extremely credible, informant",
     "enumeration": "6"
    },
-   "solution": "SOURCE"
+   "solution": "SOURCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SOURCE",
+    "definitions": [
+     {
+      "text": "informant",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "'extremely' points to the extremes of a word, its very first and very last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bitter",
+      "gives": "SOUR",
+      "note": "sour means bitter in taste or mood"
+     },
+     {
+      "clueFragment": "credible",
+      "gives": "CE",
+      "select": "outer",
+      "note": "the two end letters of the word credible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOUR",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sour but highly believable person supplying information, perhaps to a journalist.",
+     "definitionFit": "A source is a person who supplies information, as a journalist's informant does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +162,67 @@
     "text": "Fruit, fine (not half!) — certain to be reordered",
     "enumeration": "9"
    },
-   "solution": "NECTARINE"
+   "solution": "NECTARINE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "NECTARINE",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not half",
+      "for": "letter_selection",
+      "note": "'not half' says only half of the word is kept, here its second half"
+     },
+     {
+      "text": "to be reordered",
+      "for": "anagram",
+      "note": "reordering puts the letters of the word into a new sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fine",
+      "gives": "NE",
+      "select": "last",
+      "note": "the back half of the four-letter word fine"
+     },
+     {
+      "clueFragment": "certain",
+      "gives": "CTARINE",
+      "note": "the letters of certain rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "CTARINE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CERTAIN",
+       "gives": "CTARINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone praises a fruit as fine, then hedges ('not half!') and insists it be ordered again.",
+     "definitionFit": "A nectarine is a smooth-skinned variety of peach, a common fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reordered"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +236,51 @@
     "text": "Move suddenly forward in swim? Not at first",
     "enumeration": "5"
    },
-   "solution": "LUNGE"
+   "solution": "LUNGE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LUNGE",
+    "definitions": [
+     {
+      "text": "Move suddenly forward",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not at first",
+      "for": "deletion",
+      "note": "'not at first' means the opening letter of the word is to be dropped"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "swim",
+      "gives": "PLUNGE",
+      "note": "to plunge is to dive or take a swim, as in a plunge pool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LUNGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A swimmer wonders whether to dart forward, though not at the start of the race.",
+     "walkthrough": "PLUNGE loses its first letter to give LUNGE.",
+     "definitionFit": "To lunge is to make a sudden forward thrust of the body, as a fencer does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "swim"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +294,49 @@
     "text": "Reportedly become aware of American count",
     "enumeration": "6"
    },
-   "solution": "CENSUS"
+   "solution": "CENSUS",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "CENSUS",
+    "definitions": [
+     {
+      "text": "count",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "'reportedly' means as heard or said, so we want a word that sounds like the one meant"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "become aware of",
+      "gives": "CENS",
+      "soundsLike": "SENSE",
+      "note": "to sense is to become aware of something; spelt to match the sound"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is short for the United States, so American"
+     }
+    ],
+    "explanation": {
+     "surface": "A rumour that someone noticed an American counting something.",
+     "definitionFit": "A census is an official count of a population."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "count"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +350,51 @@
     "text": "Issue of 6 maybe, ode in it surprisingly?",
     "enumeration": "7"
    },
-   "solution": "EDITION"
+   "solution": "EDITION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EDITION",
+    "definitions": [
+     {
+      "text": "Issue of 6 maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surprisingly",
+      "for": "anagram",
+      "note": "something done surprisingly comes out in an unexpected form, so the letters are mixed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ode in it",
+      "gives": "EDITION",
+      "note": "the seven letters of these three words, rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ODEINIT",
+       "gives": "EDITION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering whether a newspaper issue might contain a poem.",
+     "walkthrough": "6 refers to 6-down, SUN, the British tabloid newspaper, so the definition is an issue of a newspaper.",
+     "definitionFit": "An edition is one printed issue of a newspaper, such as a single day's copy of The Sun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "surprisingly"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +408,44 @@
     "text": "Tabloid relative mentioned",
     "enumeration": "3"
    },
-   "solution": "SUN"
+   "solution": "SUN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SUN",
+    "definitions": [
+     {
+      "text": "Tabloid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mentioned",
+      "for": "homophone",
+      "note": "something mentioned is spoken, so the word is matched by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "relative",
+      "gives": "SUN",
+      "soundsLike": "SON",
+      "note": "a son is a family relative"
+     }
+    ],
+    "explanation": {
+     "surface": "A family member gets named in a tabloid newspaper.",
+     "walkthrough": "The Sun is a British tabloid daily newspaper.",
+     "definitionFit": "The Sun is a well-known British tabloid newspaper, an example of the type."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "relative"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +459,55 @@
     "text": "Ostentatious display cut — power intervenes",
     "enumeration": "6"
    },
-   "solution": "SPLASH"
+   "solution": "SPLASH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPLASH",
+    "definitions": [
+     {
+      "text": "Ostentatious display",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "intervenes",
+      "for": "container",
+      "note": "to intervene is to come between, so one letter goes inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cut",
+      "gives": "SLASH",
+      "note": "a slash is a cut"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the physics symbol for power"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "LASH"
+     ]
+    },
+    "explanation": {
+     "surface": "A showy display gets reduced, and the authorities step in.",
+     "walkthrough": "P goes inside SLASH, after its first letter.",
+     "definitionFit": "To make a splash is to put on a showy, attention-grabbing display."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "power"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +521,61 @@
     "text": "A French proviso a learner finds categorical",
     "enumeration": "13"
    },
-   "solution": "UNCONDITIONAL"
+   "solution": "UNCONDITIONAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNCONDITIONAL",
+    "definitions": [
+     {
+      "text": "categorical",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "finds"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A French",
+      "gives": "UN",
+      "note": "un is the French for a"
+     },
+     {
+      "clueFragment": "proviso",
+      "gives": "CONDITION",
+      "note": "a proviso is a condition attached to an agreement"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L is for a learner, from the L-plate on a British learner driver's car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "CONDITION",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A student discovers that a French contract clause is absolute.",
+     "definitionFit": "Unconditional and categorical both mean absolute, with no qualification or exception."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +589,53 @@
     "text": "Rising in South calling for immediate action",
     "enumeration": "9"
    },
-   "solution": "INSURGENT"
+   "solution": "INSURGENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INSURGENT",
+    "definitions": [
+     {
+      "text": "Rising",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "South",
+      "gives": "S",
+      "note": "S is the compass abbreviation for south"
+     },
+     {
+      "clueFragment": "calling for immediate action",
+      "gives": "URGENT",
+      "note": "something urgent demands action at once"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "S",
+      "URGENT"
+     ]
+    },
+    "explanation": {
+     "surface": "An uprising in the southern region demands an immediate response.",
+     "walkthrough": "'Rising' looks like a verb, but it is an adjective here, as in rising in revolt.",
+     "definitionFit": "Insurgent describes people rising in revolt against authority, so it can mean rebellious or rising."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rising"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +649,47 @@
     "text": "Be in great need of Conservative party?",
     "enumeration": "5"
    },
-   "solution": "CRAVE"
+   "solution": "CRAVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRAVE",
+    "definitions": [
+     {
+      "text": "Be in great need of",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "RAVE",
+      "note": "a rave is a large dance party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RAVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky question: does someone desperately need a Tory party gathering?",
+     "definitionFit": "To crave something is to long for it intensely, as though one urgently needs it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +703,71 @@
     "text": "Is feeling cold in small area of activity by river, sunless initially",
     "enumeration": "7"
    },
-   "solution": "SHIVERS"
+   "solution": "SHIVERS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SHIVERS",
+    "definitions": [
+     {
+      "text": "Is feeling cold",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "'initially' asks for the first letter of the word next to it"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as on clothing labels"
+     },
+     {
+      "clueFragment": "area of activity",
+      "gives": "HIVE",
+      "note": "a hive of activity is a busy place"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the map abbreviation for river"
+     },
+     {
+      "clueFragment": "sunless",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of sunless"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HIVE",
+      "R",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is chilly in a cramped, busy spot by a river with no sunshine.",
+     "definitionFit": "He or she shivers means trembles from cold, so the verb form matches 'is feeling cold'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sunless"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +781,62 @@
     "text": "Senior worker no longer — energy reduction I've seen finally",
     "enumeration": "9"
    },
-   "solution": "EXECUTIVE"
+   "solution": "EXECUTIVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXECUTIVE",
+    "definitions": [
+     {
+      "text": "Senior worker",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "seen finally"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no longer",
+      "gives": "EX",
+      "note": "an ex is something no longer current, as in ex-wife"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     },
+     {
+      "clueFragment": "reduction",
+      "gives": "CUT",
+      "note": "a cut is a reduction"
+     },
+     {
+      "clueFragment": "I've",
+      "gives": "IVE",
+      "note": "the contraction without its apostrophe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "E",
+      "CUT",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A former manager laments the energy cutbacks they have finally witnessed.",
+     "walkthrough": "The letters come from the first four pieces alone; 'seen finally' adds nothing and seems to be there just to finish the sentence, as the Times for the Times blogger also noted.",
+     "definitionFit": "An executive is a senior manager in a company, a high-ranking employee."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reduction"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +850,53 @@
     "text": "Lack of knowledge of racing — one at sea",
     "enumeration": "9"
    },
-   "solution": "IGNORANCE"
+   "solution": "IGNORANCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IGNORANCE",
+    "definitions": [
+     {
+      "text": "Lack of knowledge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "being at sea means being confused or lost, so the letters are in disorder"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "racing — one",
+      "gives": "IGNORANCE",
+      "note": "the nine letters of these two words, rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RACINGONE",
+       "gives": "IGNORANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who knows nothing about horse racing feels all at sea.",
+     "definitionFit": "Ignorance is the state of not knowing, a want of information or learning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "racing"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +910,42 @@
     "text": "Want of sophistication in arena I 've tested",
     "enumeration": "7"
    },
-   "solution": "NAIVETE"
+   "solution": "NAIVETE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NAIVETE",
+    "definitions": [
+     {
+      "text": "Want of sophistication",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "'in' says the letters sit inside the run of words that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arena I 've tested",
+      "gives": "NAIVETE",
+      "note": "the letters run across the end of arena, all of I've and the start of tested"
+     }
+    ],
+    "explanation": {
+     "surface": "A performer admits their lack of polish was exposed when tried out in a big arena.",
+     "definitionFit": "Naivete is innocence or lack of worldly experience, the opposite of sophistication."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "arena"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +959,56 @@
     "text": "Police officer's helicopter losing height",
     "enumeration": "6"
    },
-   "solution": "COPPER"
+   "solution": "COPPER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "COPPER",
+    "definitions": [
+     {
+      "text": "Police officer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing something means it is taken away, so a letter is dropped from the word"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "helicopter",
+      "gives": "CHOPPER",
+      "note": "chopper is a slang word for a helicopter"
+     },
+     {
+      "clueFragment": "height",
+      "gives": "H",
+      "note": "H is the abbreviation for height"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COPPER"
+     ]
+    },
+    "explanation": {
+     "surface": "A police helicopter loses altitude.",
+     "walkthrough": "CHOPPER minus H leaves COPPER; the 's is read as 'is'.",
+     "definitionFit": "Copper is informal British slang for a police officer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "height"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +1022,61 @@
     "text": "Society girl at first turns on Romeo — one owing money",
     "enumeration": "6"
    },
-   "solution": "DEBTOR"
+   "solution": "DEBTOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DEBTOR",
+    "definitions": [
+     {
+      "text": "one owing money",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "'at first' asks for the opening letter of each of the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Society girl",
+      "gives": "DEB",
+      "note": "a deb, or debutante, is a young woman making her debut in high society"
+     },
+     {
+      "clueFragment": "turns on",
+      "gives": "TO",
+      "select": "first",
+      "note": "the opening letters of turns and of on"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "Romeo is R in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEB",
+      "TO",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A debutante rounds on her lover Romeo, who owes her money.",
+     "definitionFit": "A debtor is a person who owes a debt to someone else."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turns"
+    }
+   }
   },
   {
    "number": 17,
@@ -281,7 +1096,62 @@
      }
     ]
    },
-   "solution": "ONETIME"
+   "solution": "ONETIME",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ONE-TIME",
+    "definitions": [
+     {
+      "text": "Past",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "'around' says one piece is wrapped about the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like O"
+     },
+     {
+      "clueFragment": "originally called",
+      "gives": "NEE",
+      "note": "née means born as, introducing a woman's original name"
+     },
+     {
+      "clueFragment": "Tim",
+      "gives": "TIM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "NE",
+      "TIM",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A former sweetheart, Tim, first phoned round.",
+     "walkthrough": "'Called' looks like a phone call, but 'originally called' is née, the word put before a married woman's birth name.",
+     "definitionFit": "One-time means former, as in a one-time champion, so it fits 'past' as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "originally"
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1165,48 @@
     "text": "Regularly missing usual uncle's piquancy",
     "enumeration": "5"
    },
-   "solution": "SAUCE"
+   "solution": "SAUCE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SAUCE",
+    "definitions": [
+     {
+      "text": "piquancy",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Regularly missing",
+      "for": "letter_selection",
+      "note": "dropping letters at regular intervals leaves every other letter behind"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "usual uncle's",
+      "gives": "SAUCE",
+      "select": "alternate",
+      "note": "the second, fourth, sixth, eighth and tenth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAUCE"
+     ]
+    },
+    "explanation": {
+     "surface": "An uncle's usual zing or cheek is absent now and then.",
+     "definitionFit": "Sauce means cheek or sauciness, a lively boldness, which is a kind of piquancy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uncle's"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1220,44 @@
     "text": "Ray said something",
     "enumeration": "5"
    },
-   "solution": "SPOKE"
+   "solution": "SPOKE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPOKE",
+    "definitions": [
+     {
+      "text": "Ray",
+      "at": 0
+     },
+     {
+      "text": "said something",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ray",
+      "note": "first meaning: a rod radiating from a wheel's hub"
+     },
+     {
+      "clueFragment": "said something",
+      "note": "second meaning: the past tense of speak"
+     }
+    ],
+    "explanation": {
+     "surface": "Ray, a man, spoke up.",
+     "walkthrough": "Ray looks like a man's name, but it means a line radiating from a centre.",
+     "definitionFit": "A spoke is one of the radial bars of a wheel, and spoke is also the past tense of speak."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ray"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1271,52 @@
     "text": "One seeking very best refit pics — note resort needed",
     "enumeration": "13"
    },
-   "solution": "PERFECTIONIST"
+   "solution": "PERFECTIONIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PERFECTIONIST",
+    "definitions": [
+     {
+      "text": "One seeking very best",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "resort needed",
+      "for": "anagram",
+      "note": "to re-sort is to sort again, so the letters must be put in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "refit pics — note",
+      "gives": "PERFECTIONIST",
+      "note": "the thirteen letters of these three words, rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REFITPICSNOTE",
+       "gives": "PERFECTIONIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fussy photographer insists the pictures be refitted and sorted again.",
+     "walkthrough": "'Resort' looks like a holiday place, but it is re-sort, to sort again.",
+     "definitionFit": "A perfectionist is someone who will not accept anything short of flawless results."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "resort"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1330,43 @@
     "text": "Move fast for rent",
     "enumeration": "3"
    },
-   "solution": "RIP"
+   "solution": "RIP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RIP",
+    "definitions": [
+     {
+      "text": "Move fast",
+      "at": 0
+     },
+     {
+      "text": "rent",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Move fast",
+      "note": "first meaning: to rush along"
+     },
+     {
+      "clueFragment": "rent",
+      "note": "second meaning: a tear in cloth"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Rent' looks like a payment, but here it is a tear.",
+     "definitionFit": "To rip can mean to go very fast, and a rip is a tear or split in fabric."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rent"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1380,52 @@
     "text": "Sword charge? That is right",
     "enumeration": "6"
    },
-   "solution": "RAPIER"
+   "solution": "RAPIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAPIER",
+    "definitions": [
+     {
+      "text": "Sword",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "charge",
+      "gives": "RAP",
+      "note": "a rap is a criminal charge, as in a murder rap"
+     },
+     {
+      "clueFragment": "That is",
+      "gives": "IE",
+      "note": "i.e. abbreviates id est, Latin for that is"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAP",
+      "IE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A swordsman's attack is approved as correct.",
+     "definitionFit": "A rapier is a thin, light sword used for thrusting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1439,42 @@
     "text": "Some intervene — erasing superficial display",
     "enumeration": "6"
    },
-   "solution": "VENEER"
+   "solution": "VENEER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "VENEER",
+    "definitions": [
+     {
+      "text": "superficial display",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "'some' means only part of the words that follow is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "intervene — erasing",
+      "gives": "VENEER",
+      "note": "the letters run from inside intervene into the start of erasing"
+     }
+    ],
+    "explanation": {
+     "surface": "Some people step in to wipe away a shallow outward show.",
+     "definitionFit": "A veneer is a thin outer layer, figuratively a show hiding what is underneath."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   }
  ]
 }
