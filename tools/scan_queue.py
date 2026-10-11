@@ -404,9 +404,12 @@ def flagged_requests():
 #: when no number or count is known (number_shaped), held as an end lost.
 #: The 07:31 one is agree() taking the clue's own edge word split or run
 #: apart in other readings ("broom slick", "prer criptious ?") as that word,
-#: not an end lost (edge_split). The last is agree() not counting figure
+#: not an end lost (edge_split). The 07:55 one is agree() not counting figure
 #: specks no word ("fS", "ll", "ii") as words seen at a clue's edge, so
 #: words one reading of many sees there are no end lost (figure_specks).
+#: The 08:10 one is consensus() taking the word one reading prints when
+#: every other reading lies within PRINTED_SLIPS of it ("with" for "ujLh /
+#: ujth"), held as readings differ.
 VOTE_MENDED = (
     ("2026-10-09T07:56:00+00:00", ("a stray mark inside a word", "end is lost: other readings have",
                                    "start is lost: other readings have")),
@@ -429,6 +432,7 @@ VOTE_MENDED = (
     ("2026-10-11T07:05:00+00:00", ("end is lost: other readings have", "start is lost: other readings have")),
     ("2026-10-11T07:31:00+00:00", ("end is lost: other readings have", "start is lost: other readings have")),
     ("2026-10-11T07:55:00+00:00", ("end is lost: other readings have", "start is lost: other readings have")),
+    ("2026-10-11T08:10:00+00:00", ("readings differ",)),
 )
 
 
