@@ -38,10 +38,10 @@ SECONDS_CAP=900
 GRACE=1300
 mkdir -p "$HOME/.cache/archive_org_crops/unfiled"
 echo "=== Gale reads from $(date '+%F %T'), editions laid out in the last ${FRESH}s ==="
-durable_run "Gale read" \
+durable_run "Gale OCR" \
   timeout "$((SECONDS_CAP + GRACE))" nice -n 19 python3 tools/edition_queue.py run --paper gale \
   --newer-than "$FRESH" --seconds "$SECONDS_CAP" --workers 2 --out "$HOME/.cache/archive_org_crops/unfiled"
 rc=$?
-durable_checkpoint "Gale read" || echo "commit failed for the Gale reads; the next start salvages them"
+durable_checkpoint "Gale OCR" || echo "commit failed for the Gale reads; the next start salvages them"
 echo "=== Gale reads done $(date '+%F %T') (rc=$rc) ==="
 exit "$rc"
