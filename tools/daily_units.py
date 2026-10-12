@@ -54,6 +54,13 @@ HOUR = 3600
 DAY = 24 * HOUR
 FETCHERS = ["fetch_puzzle", "fetch_independent", "fetch_observer", "fetch_privateeye", "fetch_globeandmail",
             "fetch_metro"]
+#: Fortnightly series, on their own slower cadence in PHASES. The Genius has
+#: its own unit (genius: its fifteensquared posts, then genius_puzzles.py).
+#: Not fetched at all, and why (2026-10-12): the Listener's clues are printed only by
+#: the Times, behind its Puzzle Club subscription (listenercrossword.com posts
+#: notes and the solution weeks later), so feeding it is a paid source and
+#: Paul's call; the Nation's weekly cryptic ended with No 3529 (2020-04-13).
+SLOW_FETCHERS = ["tls_puzzles"]
 
 
 def knob(name):
@@ -90,6 +97,11 @@ FRESH_DAYS = 2
 #: the Telegraph filer 45m, blog_facts 28-57m), with room to spare.
 PHASES = [
     *[(f"fetch:{f}", HOUR, 45 * 60, ()) for f in FETCHERS],
+    # The slow series, looked for a few times a day: the TLS is fortnightly.
+    # Each is a fetch:<tool> like the dailies (tools/<tool>.py --latest, exit
+    # 3 when its newest is held), but outside FETCHERS: a fortnightly tool's
+    # "nothing new" is no evidence about the dailies' fetchers in after_tick.
+    *[(f"fetch:{f}", 6 * HOUR, 30 * 60, ()) for f in SLOW_FETCHERS],
     ("solutions", 3 * HOUR, 60 * 60, ()),
     ("blog:times", 3 * HOUR, 120 * 60, ()),
     ("blog:telegraph", 3 * HOUR, 120 * 60, ()),

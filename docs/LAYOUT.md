@@ -582,6 +582,12 @@ tools/genius_puzzles.py                       files the Guardian's monthly Geniu
                                               preamble's rule carries its answer, a jigsaw's
                                               clues are placed (JIGSAW), and a puzzle with no
                                               post files unsolved
+tools/tls_puzzles.py                          files the newest Times Literary Supplement
+                                              crossword unsolved off the TLS's own page image
+                                              (WordPress listing on www.the-tls.com): the grid
+                                              read from its pixels, the clues by the en5 OCR
+                                              reader, filed only when every light has a clue of
+                                              its length
 tools/listener_puzzles.py                     files the Listener crossword from the Listener
                                               Team's archive PDFs (clues, bars and letters read
                                               from the vector pages) and from Wayback copies of
