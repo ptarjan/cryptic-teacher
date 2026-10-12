@@ -24,6 +24,9 @@
   "date": "2024-09-05",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,57 @@
     "text": "Stoat essentially mesmerises quarry",
     "enumeration": "6"
    },
-   "solution": "ERMINE"
+   "solution": "ERMINE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ERMINE",
+    "definitions": [
+     {
+      "text": "Stoat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of something is its core, so only the central pair of letters of the next word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mesmerises",
+      "gives": "ER",
+      "select": "middle",
+      "note": "the two central letters of this ten-letter word"
+     },
+     {
+      "clueFragment": "quarry",
+      "gives": "MINE",
+      "note": "a quarry is an open mine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "MINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A stoat transfixes the rabbit it is hunting before the kill.",
+     "walkthrough": "'Quarry' looks like the hunted prey in the picture, but here it is a place where stone is dug.",
+     "definitionFit": "Ermine is the name for a stoat, especially in its white winter coat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "quarry"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +104,50 @@
     "text": "Paint porcelain food container",
     "enumeration": "8"
    },
-   "solution": "EGGSHELL"
+   "solution": "EGGSHELL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EGGSHELL",
+    "definitions": [
+     {
+      "text": "Paint",
+      "at": 0
+     },
+     {
+      "text": "porcelain",
+      "at": 6
+     },
+     {
+      "text": "food container",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paint",
+      "note": "first meaning: a paint finish with a slight sheen"
+     },
+     {
+      "clueFragment": "porcelain",
+      "note": "second meaning: very thin, delicate china"
+     },
+     {
+      "clueFragment": "food container",
+      "note": "third meaning: the casing round something we eat at breakfast"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "This is a triple definition: three separate meanings of one word, strung together to read like a shopping list for a kitchen.",
+     "definitionFit": "The word names a semi-matt paint finish, a thin translucent porcelain, and the brittle outer casing of a hen's egg."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Paint"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +161,84 @@
     "text": "A false name cunningly conceals cleric's latest wrongdoing",
     "enumeration": "11"
    },
-   "solution": "MALFEASANCE"
+   "solution": "MALFEASANCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "MALFEASANCE",
+    "definitions": [
+     {
+      "text": "wrongdoing",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "latest",
+      "for": "letter_selection",
+      "note": "the latest is the one that comes at the very end, so the final letter is kept"
+     },
+     {
+      "text": "cunningly",
+      "for": "anagram",
+      "note": "doing something cunningly means arranging it craftily, so the letters are reworked"
+     },
+     {
+      "text": "conceals",
+      "for": "container",
+      "note": "what conceals something holds it inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "false",
+      "gives": "FALSE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "NAME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cleric's",
+      "gives": "C",
+      "select": "last",
+      "note": "the final letter of cleric"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MALFEASAN",
+      "C",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AFALSENAME",
+       "gives": "MALFEASANE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A churchman's latest misconduct is hidden behind a cleverly chosen alias.",
+     "walkthrough": "The ten letters of 'a false name' are rearranged and the cleric's last letter slips in just before the final E.",
+     "definitionFit": "Malfeasance is a legal term for wrongdoing, especially by someone holding public office."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cunningly"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +252,61 @@
     "text": "Elegantly simple trap ensnares head of acquisitions",
     "enumeration": "4"
    },
-   "solution": "NEAT"
+   "solution": "NEAT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "NEAT",
+    "definitions": [
+     {
+      "text": "Elegantly simple",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter, which is all that is kept"
+     },
+     {
+      "text": "ensnares",
+      "for": "container",
+      "note": "to ensnare is to catch and hold, so one piece is held within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trap",
+      "gives": "NET",
+      "note": "a net is a trap for fish or birds"
+     },
+     {
+      "clueFragment": "acquisitions",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of acquisitions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "A",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A plain, uncomplicated snare catches the leading acquisition.",
+     "definitionFit": "Neat can describe something tidy and pleasingly simple in design, a near synonym of elegantly plain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trap"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +326,53 @@
      }
     ]
    },
-   "solution": "JUNKMAIL"
+   "solution": "JUNKMAIL",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "JUNK MAIL",
+    "definitions": [
+     {
+      "text": "Unsolicited correspondence",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner's",
+      "for": "spoonerism",
+      "note": "Reverend Spooner's name signals swapping the opening sounds of two words"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brother's lock-up",
+      "gives": "JUNK MAIL",
+      "soundsLike": "MONK JAIL",
+      "note": "a brother is a monk, a lock-up is a jail; swap their opening sounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JUNKMAIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Tongue-twisted mail seems to come from a sibling's garage.",
+     "walkthrough": "'Brother' suggests a sibling and 'lock-up' a garage, but here they mean a member of a religious order and a prison.",
+     "definitionFit": "Junk mail is advertising material sent to people who never asked for it, so it is unsolicited post."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "brother's"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +386,69 @@
     "text": "Desperately posh fellow enters rally periodically",
     "enumeration": "8"
    },
-   "solution": "URGENTLY"
+   "solution": "URGENTLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "URGENTLY",
+    "definitions": [
+     {
+      "text": "Desperately",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "periodically",
+      "for": "letter_selection",
+      "note": "periodically means at regular intervals, so every other letter is kept"
+     },
+     {
+      "text": "enters",
+      "for": "container",
+      "note": "something that enters goes inside, so these pieces sit within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rally",
+      "gives": "RLY",
+      "select": "alternate",
+      "note": "first, third and fifth letters"
+     },
+     {
+      "clueFragment": "posh",
+      "gives": "U",
+      "note": "U means upper-class"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "GENT",
+      "note": "a gent is a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "R",
+      "GENT",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "An upper-class man desperately joins a rally from time to time.",
+     "walkthrough": "U for upper-class is a crossword convention; U comes first, then GENT goes inside the alternate letters of rally.",
+     "definitionFit": "Urgently and desperately are synonyms, both describing acting with pressing need."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rally"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +462,66 @@
     "text": "Cats patrolling promenade devoid of large birds",
     "enumeration": "10"
    },
-   "solution": "KITTIWAKES"
+   "solution": "KITTIWAKES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "KITTIWAKES",
+    "definitions": [
+     {
+      "text": "birds",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "devoid of",
+      "for": "deletion",
+      "note": "devoid of means lacking, so a letter is removed"
+     },
+     {
+      "text": "patrolling",
+      "for": "container",
+      "note": "patrolling surrounds an area, so one piece wraps round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cats",
+      "gives": "KITTIES",
+      "note": "kitties are cats"
+     },
+     {
+      "clueFragment": "promenade",
+      "gives": "WALK",
+      "note": "a promenade is a walk"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KITTI",
+      "WAK",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Cats prowl along a seafront walk where no big birds remain.",
+     "walkthrough": "'Large birds' reads as a phrase, but large only gives the letter removed from the walk; the definition is just 'birds'.",
+     "definitionFit": "Kittiwakes are a kind of small gull that nest on sea cliffs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "large"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +535,48 @@
     "text": "Current measure affected declining leader",
     "enumeration": "3"
    },
-   "solution": "AMP"
+   "solution": "AMP",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AMP",
+    "definitions": [
+     {
+      "text": "Current measure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "declining leader",
+      "for": "deletion",
+      "note": "declining a leader means turning down the first letter, so it goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "affected",
+      "gives": "CAMP",
+      "note": "camp means affected or exaggerated in manner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMP"
+     ]
+    },
+    "explanation": {
+     "surface": "A gauge of the electric current is altered as the leading figure falls.",
+     "definitionFit": "The amp, short for ampere, is the unit by which electric current is measured."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Current"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +590,61 @@
     "text": "List shed light on an actuary's conclusion",
     "enumeration": "6"
    },
-   "solution": "LITANY"
+   "solution": "LITANY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LITANY",
+    "definitions": [
+     {
+      "text": "List",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conclusion",
+      "for": "letter_selection",
+      "note": "a conclusion is an ending, so only the final letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shed light on",
+      "gives": "LIT",
+      "note": "lit means illuminated"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "actuary's",
+      "gives": "Y",
+      "select": "last",
+      "note": "the last letter of actuary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIT",
+      "AN",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An actuary's final figures throw light on a list of risks.",
+     "definitionFit": "A litany is a long, repetitive list, from the series of prayers recited in church."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shed"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +658,50 @@
     "text": "Seduce cleaning lady on Malta",
     "enumeration": "5"
    },
-   "solution": "CHARM"
+   "solution": "CHARM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHARM",
+    "definitions": [
+     {
+      "text": "Seduce",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cleaning lady",
+      "gives": "CHAR",
+      "note": "a char is a British cleaning woman"
+     },
+     {
+      "clueFragment": "Malta",
+      "gives": "M",
+      "note": "M is the international vehicle code for Malta"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAR",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sets out to seduce the woman who cleans, while on holiday in Malta.",
+     "walkthrough": "A char, or charwoman, is an old British word for a woman paid to clean houses.",
+     "definitionFit": "To charm someone is to win them over by attraction, close in sense to seducing them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Malta"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +715,67 @@
     "text": "Giant barbarian besieges city bordering Italy",
     "enumeration": "7"
    },
-   "solution": "GOLIATH"
+   "solution": "GOLIATH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GOLIATH",
+    "definitions": [
+     {
+      "text": "Giant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "besieges",
+      "for": "container",
+      "note": "an army besieging a place surrounds it, so one piece wraps round another"
+     },
+     {
+      "text": "bordering",
+      "for": "container",
+      "note": "a border runs round the outside, so the city's letters surround the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "barbarian",
+      "gives": "GOTH",
+      "note": "the Goths were a barbarian people"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "LA",
+      "note": "LA is Los Angeles"
+     },
+     {
+      "clueFragment": "Italy",
+      "gives": "I",
+      "note": "I is the international vehicle code for Italy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "L",
+      "I",
+      "A",
+      "TH"
+     ]
+    },
+    "explanation": {
+     "surface": "A huge barbarian lays siege to a town near the Italian frontier.",
+     "walkthrough": "'Bordering' suggests a neighbouring country; here the city's two letters sit either side of Italy's code, and the barbarian surrounds that.",
+     "definitionFit": "Goliath was the giant Philistine slain by David, and his name is used for any giant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bordering"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +799,51 @@
      }
     ]
    },
-   "solution": "GOTOPOT"
+   "solution": "GOTOPOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GO TO POT",
+    "definitions": [
+     {
+      "text": "degenerate",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of choice",
+      "gives": "GOTO",
+      "note": "a go-to option is the one of choice"
+     },
+     {
+      "clueFragment": "Drug",
+      "gives": "POT",
+      "note": "pot is cannabis"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOTO",
+      "POT"
+     ]
+    },
+    "explanation": {
+     "surface": "A favourite narcotic for someone who has gone to the bad.",
+     "walkthrough": "The pieces are read in reverse of their clue order: the drug 'of choice' is a go-to pot.",
+     "definitionFit": "To go to pot is an idiom meaning to deteriorate, the verb sense of degenerate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "degenerate"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +857,43 @@
     "text": "Report that chap would listen to",
     "enumeration": "4"
    },
-   "solution": "HEED"
+   "solution": "HEED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HEED",
+    "definitions": [
+     {
+      "text": "listen to",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Report",
+      "for": "homophone",
+      "note": "a report is something spoken, so the words are heard rather than read"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that chap would",
+      "gives": "HEED",
+      "soundsLike": "HE'D",
+      "note": "that chap is he; he would contracts"
+     }
+    ],
+    "explanation": {
+     "surface": "That man would pay attention to a report.",
+     "definitionFit": "To heed something is to pay attention to it, a synonym of listening to advice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Report"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +907,76 @@
     "text": "Mendicant caught in dodgy S African quarter",
     "enumeration": "10"
    },
-   "solution": "FRANCISCAN"
+   "solution": "FRANCISCAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "FRANCISCAN",
+    "definitions": [
+     {
+      "text": "Mendicant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dodgy",
+      "for": "anagram",
+      "note": "something dodgy is unreliable or shaky, so the letters will not stay in place"
+     },
+     {
+      "text": "caught in",
+      "for": "charade",
+      "note": "caught joins the mix, sitting in among the other letters being reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "S",
+      "gives": "S",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "African",
+      "gives": "AFRICAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "quarter",
+      "gives": "N",
+      "note": "north is one quarter of the compass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRANCISCA",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CSAFRICAN",
+       "gives": "FRANCISCA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A beggar is nabbed in a shady district of a South African city.",
+     "walkthrough": "'Quarter' suggests a city district, but here it is a compass point.",
+     "definitionFit": "Franciscan friars belong to a mendicant order, living on alms rather than owning property."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quarter"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +990,80 @@
     "text": "Dim, heartless sycophant broadcast a slur about copper",
     "enumeration": "11"
    },
-   "solution": "CREPUSCULAR"
+   "solution": "CREPUSCULAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "CREPUSCULAR",
+    "definitions": [
+     {
+      "text": "Dim",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartless",
+      "for": "deletion",
+      "note": "without a heart, the word loses its central letter"
+     },
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "to broadcast seed is to scatter it, so the letters are scattered"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the scattered letters go round the metal"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sycophant",
+      "gives": "CREEP",
+      "note": "a creep is a toady"
+     },
+     {
+      "clueFragment": "a slur",
+      "gives": "ASLUR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CREP",
+      "US",
+      "CU",
+      "LAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ASLUR",
+       "gives": "USLAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slow-witted, spineless toady spreads an insult about a police officer.",
+     "walkthrough": "'Copper' looks like slang for a police officer, but here it is the metal.",
+     "definitionFit": "Crepuscular means relating to twilight, so dim or shadowy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1083,71 @@
      }
     ]
    },
-   "solution": "LOTUSEATER"
+   "solution": "LOTUSEATER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LOTUS-EATER",
+    "definitions": [
+     {
+      "text": "Carefree island-dweller",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "devoured by",
+      "for": "container",
+      "note": "what is devoured ends up inside the eater, so one piece is swallowed by the other"
+     },
+     {
+      "text": "terrible",
+      "for": "anagram",
+      "note": "something terrible is in a dreadful state, so the letters are mangled"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is a dictionary abbreviation for old"
+     },
+     {
+      "clueFragment": "sea turtle",
+      "gives": "SEATURTLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "O",
+      "TUSEATER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEATURTLE",
+       "gives": "LTUSEATER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A happy-go-lucky islander of ancient times is eaten by a fearsome turtle.",
+     "walkthrough": "'Of old' reads as part of the definition, but 'of' is the link and 'old' is the letter swallowed.",
+     "definitionFit": "In the Odyssey the lotus-eaters lived on an island, eating the lotus and drifting in dreamy indolence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1161,65 @@
     "text": "Life initially is good in French city",
     "enumeration": "6"
    },
-   "solution": "LISBON"
+   "solution": "LISBON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LISBON",
+    "definitions": [
+     {
+      "text": "city",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the beginning, so only the opening letter is kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Life",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "good in French",
+      "gives": "BON",
+      "note": "bon is French for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IS",
+      "BON"
+     ]
+    },
+    "explanation": {
+     "surface": "From the outset, life is pleasant in a city in France.",
+     "walkthrough": "'French city' wants to go together, but French belongs with good; the definition is just 'city', and Lisbon is in Portugal.",
+     "definitionFit": "Lisbon is the capital city of Portugal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1233,51 @@
     "text": "One who's departing on Charlie's chopper",
     "enumeration": "7"
    },
-   "solution": "CLEAVER"
+   "solution": "CLEAVER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLEAVER",
+    "definitions": [
+     {
+      "text": "chopper",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "One who's departing",
+      "gives": "LEAVER",
+      "note": "a leaver is someone leaving"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LEAVER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone leaving rides on Charlie's helicopter.",
+     "walkthrough": "'Chopper' suggests a helicopter, but it is a butcher's tool.",
+     "definitionFit": "A cleaver is a heavy broad-bladed knife used for chopping meat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "chopper"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1291,62 @@
     "text": "Study about breaking First Nation's trust",
     "enumeration": "8"
    },
-   "solution": "CREDENCE"
+   "solution": "CREDENCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CREDENCE",
+    "definitions": [
+     {
+      "text": "trust",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "breaking into something gets inside it, so these pieces sit within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "First Nation's",
+      "gives": "CREE",
+      "note": "the Cree are a First Nation people of Canada"
+     },
+     {
+      "clueFragment": "Study",
+      "gives": "DEN",
+      "note": "a den is a study or private room"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c is short for circa, about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRE",
+      "DEN",
+      "C",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Research that breaches an Indigenous nation's confidence.",
+     "walkthrough": "'First Nation' is the Canadian term for an Indigenous people, here the Cree.",
+     "definitionFit": "Credence means belief or trust, as in giving credence to a story."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Study"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1360,53 @@
     "text": "American bully left lunatic morsel of food",
     "enumeration": "8"
    },
-   "solution": "HAZELNUT"
+   "solution": "HAZELNUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HAZELNUT",
+    "definitions": [
+     {
+      "text": "morsel of food",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American bully",
+      "gives": "HAZE",
+      "note": "to haze is US slang for bullying new recruits"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "lunatic",
+      "gives": "NUT",
+      "note": "a nut is a crazy person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAZE",
+      "L",
+      "NUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A US thug abandoned a crazed scrap of food.",
+     "walkthrough": "In American usage, hazing is the bullying initiation of newcomers, as at colleges.",
+     "definitionFit": "A hazelnut is a small edible nut, a bite-sized piece to eat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1420,49 @@
     "text": "Question popular vocalists on the radio",
     "enumeration": "7"
    },
-   "solution": "INQUIRE"
+   "solution": "INQUIRE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "INQUIRE",
+    "definitions": [
+     {
+      "text": "Question",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the radio",
+      "for": "homophone",
+      "note": "what comes over the radio is only heard, so the sound matters, not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in means fashionable"
+     },
+     {
+      "clueFragment": "vocalists",
+      "gives": "QUIRE",
+      "soundsLike": "CHOIR",
+      "note": "a choir is a body of singers"
+     }
+    ],
+    "explanation": {
+     "surface": "Interrogate chart-topping singers being broadcast.",
+     "definitionFit": "To inquire is to ask, the verb sense of question."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "popular"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1476,55 @@
     "text": "Jellyfish from sea west of America",
     "enumeration": "6"
    },
-   "solution": "MEDUSA"
+   "solution": "MEDUSA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MEDUSA",
+    "definitions": [
+     {
+      "text": "Jellyfish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "west of",
+      "for": "charade",
+      "note": "in an across answer, west is the left-hand side, so this piece comes first"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sea",
+      "gives": "MED",
+      "note": "the Med is the Mediterranean Sea"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "USA",
+      "note": "the USA"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MED",
+      "USA"
+     ]
+    },
+    "explanation": {
+     "surface": "A jellyfish drifting in from the ocean off the American coast.",
+     "definitionFit": "Medusa is the zoological term for the free-swimming, bell-shaped form of a jellyfish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1538,47 @@
     "text": "Raises highly topical issue",
     "enumeration": "6"
    },
-   "solution": "UPSHOT"
+   "solution": "UPSHOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPSHOT",
+    "definitions": [
+     {
+      "text": "issue",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Raises",
+      "gives": "UPS",
+      "note": "ups is a verb meaning raises"
+     },
+     {
+      "clueFragment": "highly topical",
+      "gives": "HOT",
+      "note": "a hot topic is one of great current interest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UPS",
+      "HOT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone brings up a pressing current-affairs matter.",
+     "walkthrough": "'Issue' reads as a topic for debate, but here it means result.",
+     "definitionFit": "Upshot means the final outcome, and issue can mean the result that something leads to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "issue"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1592,46 @@
     "text": "Bishop ridicules vainglorious claims",
     "enumeration": "5"
    },
-   "solution": "BRAGS"
+   "solution": "BRAGS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRAGS",
+    "definitions": [
+     {
+      "text": "vainglorious claims",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     },
+     {
+      "clueFragment": "ridicules",
+      "gives": "RAGS",
+      "note": "to rag is to tease or mock"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RAGS"
+     ]
+    },
+    "explanation": {
+     "surface": "A churchman mocks someone's boastful assertions.",
+     "definitionFit": "Brags, as a plural noun, are boastful statements made out of vanity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bishop"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1645,60 @@
     "text": "Print media mostly filled with youthful wannabees",
     "enumeration": "10"
    },
-   "solution": "PRETENDERS"
+   "solution": "PRETENDERS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "PRETENDERS",
+    "definitions": [
+     {
+      "text": "wannabees",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "filled with",
+      "for": "container",
+      "note": "a thing filled with something holds it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Print media",
+      "gives": "PRESS",
+      "note": "the press is newspapers"
+     },
+     {
+      "clueFragment": "youthful",
+      "gives": "TENDER",
+      "note": "tender years are young years"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRE",
+      "TENDER",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Newspapers stuffed with young hopefuls eager for fame.",
+     "definitionFit": "Pretenders lay claim to a status, like a throne, they do not have, much as aspirants do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "youthful"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1712,44 @@
     "text": "Extract of lilac heals pain",
     "enumeration": "4"
    },
-   "solution": "ACHE"
+   "solution": "ACHE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ACHE",
+    "definitions": [
+     {
+      "text": "pain",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extract of",
+      "for": "hidden_word",
+      "note": "an extract is a portion taken from inside, so the letters lie within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lilac heals",
+      "gives": "ACHE",
+      "note": "spans the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A herbal remedy distilled from lilac relieves pain.",
+     "walkthrough": "'Extract' suggests a herbal essence, and that picture is the disguise.",
+     "definitionFit": "An ache is a dull continuous pain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Extract"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1763,52 @@
     "text": "Setter repeated idea that's doing the rounds",
     "enumeration": "4"
    },
-   "solution": "MEME"
+   "solution": "MEME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MEME",
+    "definitions": [
+     {
+      "text": "idea that's doing the rounds",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "repeated",
+      "for": "charade",
+      "note": "repeated means said twice, so the same piece appears two times in a row"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Setter",
+      "gives": "ME",
+      "note": "the setter refers to themself as me"
+     },
+     {
+      "clueFragment": "repeated",
+      "gives": "ME",
+      "note": "the same piece again"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "ME"
+     ]
+    },
+    "explanation": {
+     "surface": "The compiler keeps restating a fashionable notion.",
+     "definitionFit": "A meme is a concept or joke passed from person to person, typically spreading online."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 27,
@@ -437,7 +1822,59 @@
     "text": "Catch nurse neglecting daughter's comfort",
     "enumeration": "7"
    },
-   "solution": "HEARTEN"
+   "solution": "HEARTEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "HEARTEN",
+    "definitions": [
+     {
+      "text": "comfort",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "neglecting",
+      "for": "deletion",
+      "note": "neglecting something leaves it out, so a letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Catch",
+      "gives": "HEAR",
+      "note": "to catch what is said is to hear it"
+     },
+     {
+      "clueFragment": "nurse",
+      "gives": "TEND",
+      "note": "to nurse is to tend"
+     },
+     {
+      "clueFragment": "daughter's",
+      "gives": "D",
+      "note": "d is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEAR",
+      "TEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A sick child's carer is caught failing to look after her.",
+     "definitionFit": "To hearten someone is to encourage them, and comfort as a verb means to cheer or console."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Catch"
+    }
+   }
   },
   {
    "number": 28,
@@ -451,7 +1888,67 @@
     "text": "Times article sent up East 17",
     "enumeration": "3"
    },
-   "solution": "AXE"
+   "solution": "AXE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "AXE",
+    "definitions": [
+     {
+      "text": "17",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sent up",
+      "for": "reversal",
+      "note": "in a down answer, sending something up reads it from the bottom, so it is backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Times",
+      "gives": "X",
+      "note": "x is the multiplication sign"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     },
+     {
+      "clueFragment": "East",
+      "gives": "E",
+      "note": "E is the abbreviation for east"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AX",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "XA",
+       "to": "AX"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper story mocks the boy band East 17.",
+     "walkthrough": "East 17 was a 1990s pop group, but East is wordplay and 17 refers to the answer at 17-across, a chopper.",
+     "definitionFit": "An axe is a chopping tool, so it shares the sense of the cleaver at 17."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Times"
+    }
+   }
   },
   {
    "number": 29,
@@ -465,7 +1962,51 @@
     "text": "Garden mole isn't regularly seen? Mischievous creature!",
     "enumeration": "7"
    },
-   "solution": "GREMLIN"
+   "solution": "GREMLIN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "GREMLIN",
+    "definitions": [
+     {
+      "text": "Mischievous creature",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     }
+    ],
+    "linkWords": [
+     "seen?"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Garden mole isn't",
+      "gives": "GREMLIN",
+      "select": "alternate",
+      "note": "first, third, fifth letters and so on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREMLIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Is a mole in the garden not often spotted? What a rascal!",
+     "definitionFit": "A gremlin is an imaginary imp blamed for unexplained mechanical faults."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mole"
+    }
+   }
   },
   {
    "number": 30,
@@ -479,7 +2020,62 @@
     "text": "Conservatives defending extremely hardline ideas",
     "enumeration": "8"
    },
-   "solution": "THEORIES"
+   "solution": "THEORIES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "THEORIES",
+    "definitions": [
+     {
+      "text": "ideas",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only those letters are kept"
+     },
+     {
+      "text": "defending",
+      "for": "container",
+      "note": "defenders surround what they protect, so one piece wraps round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservatives",
+      "gives": "TORIES",
+      "note": "Tories are UK Conservatives"
+     },
+     {
+      "clueFragment": "hardline",
+      "gives": "HE",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HE",
+      "ORIES"
+     ]
+    },
+    "explanation": {
+     "surface": "Tories stand up for uncompromising policies.",
+     "walkthrough": "Tories is the everyday name for members of Britain's Conservative Party.",
+     "definitionFit": "Theories are systems of thought proposed to explain something, a type of idea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hardline"
+    }
+   }
   },
   {
    "number": 31,
@@ -493,7 +2089,48 @@
     "text": "Lament taking part of sinister German revolutionary",
     "enumeration": "6"
    },
-   "solution": "REGRET"
+   "solution": "REGRET",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "REGRET",
+    "definitions": [
+     {
+      "text": "Lament",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking part of",
+      "for": "hidden_word",
+      "note": "taking part of means using only a portion, so the letters sit within the words that follow"
+     },
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "a revolution turns things round, so the letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sinister German",
+      "gives": "TERGER",
+      "note": "the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Mourning the role played by a menacing German insurgent.",
+     "definitionFit": "To regret something is to feel sorrow over it, a synonym of lamenting it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   }
  ]
 }
