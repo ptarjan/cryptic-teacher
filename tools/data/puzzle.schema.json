@@ -261,6 +261,35 @@
    "items": {
     "$ref": "#/$defs/entry"
    }
+  },
+  "offGrid": {
+   "description": "Clues whose answers take no light of the grid, in the order the paper prints them; the preamble says where they go (Genius 280: seven entered unconventionally in the grid, one below it). Item k's id is \"<k>-offgrid\" (groups.off_grid). Its length is its enumeration's; it crosses nothing and is in no group. The player gives each a box beside its clue.",
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "required": [
+     "clue"
+    ],
+    "additionalProperties": false,
+    "properties": {
+     "clue": {
+      "$ref": "#/$defs/clue"
+     },
+     "solution": {
+      "description": "The answer, A-Z. Absent when the puzzle has no answers yet.",
+      "type": "string",
+      "minLength": 1
+     },
+     "solutionConfidence": {
+      "description": "The letters are a model's likely fill, not the paper's.",
+      "const": "LIKELY"
+     },
+     "annotation": {
+      "$ref": "#/$defs/annotation"
+     }
+    }
+   }
   }
  },
  "$defs": {

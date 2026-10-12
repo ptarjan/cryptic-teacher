@@ -199,7 +199,28 @@ grid = ["....", ".#..", "...."]
 pz, why = G.promote_jigsaw(rec, {"unplaced": ws}, grid=grid)
 print("jigsaw-placed", why, sorted(pz["_parts"].items()), pz["cluesUnplaced"])
 rec["clues"]["unplaced"].append({"clue": {"text": "Below the grid", "enumeration": "3"}, "length": 3})
-print("jigsaw-off-grid", G.promote_jigsaw(rec, {"unplaced": ws + ["XYZ"]}, grid=grid)[1])
+pz, why = G.promote_jigsaw(rec, {"unplaced": ws + ["XYZ"]}, grid=grid)
+print("jigsaw-off-grid", why, pz["offGrid"], pz["_parts"]["1-offgrid"])
+print("jigsaw-off-grid-count", G.promote_jigsaw(rec, {"unplaced": ws + ["XY"]}, grid=grid)[1])
+# The off-grid clue through the solve, the write gate and the validator.
+import apply_solution, puzzle_integrity, validate_annotations, fetch_puzzle, groups
+parts = pz.pop("_parts")
+fill = {eid: letters for eid, (_, letters) in parts.items()}
+print("off-grid-fill", apply_solution.check_fill(pz, fill)[2], apply_solution.check_off_grid(pz, fill),
+      apply_solution.check_off_grid(pz, {**fill, "1-offgrid": "XY"}))
+for e in pz["entries"]:
+    e["solution"] = fill[groups.entry_id(e)]
+pz["offGrid"][0]["solution"] = "XYZ"
+flags = []
+puzzle_integrity.check_puzzle_text(pz, flags)
+pz["offGrid"][0]["solution"] = "XYZW"
+puzzle_integrity.check_puzzle_text(pz, flags)
+print("off-grid-gate", [f[2] for f in flags])
+pz["offGrid"][0]["solution"] = "XYZ"
+print("off-grid-done", fetch_puzzle.puzzle_is_solved(pz), [groups.entry_id(e) for e in fetch_puzzle.unannotated_clues(pz)][-1])
+pz["offGrid"][0]["annotation"] = {"type": ["charade"], "answer": "XYZ", "definitions": [{"text": "Below", "at": 3}],
+    "blocks": [{"clueFragment": "the grid", "gives": "XYZ", "note": "n"}], "explanation": {"walkthrough": "w"}}
+print("off-grid-validate", [m.split(";")[0] for m in validate_annotations.validate_puzzle(pz)[1] if m.startswith("1-offgrid")])
 print("jigsaw-builder", clues_only.builder({"cluesUnplaced": True, "series": "genius",
       "source": {"acquiredBy": "tools/genius_puzzles.py"}}) is not None, 280 in G.SCHEMA_GAP)
 z = clues_only.read("genius-280")
@@ -262,7 +283,12 @@ check "a jigsaw clue's answer and entry come off the post row printing it (250)"
 check "an unnumbered list reads clue by clue, the instruction between two clues cut out (280)" "[('A board devoid of soft fruit (4)', '4'), ('Hard back (5)', '5'), ('Workforce keeping mum (3-4)', '3-4'), ('Run dry (4)', '4')]" "$(get unplaced-clues)"
 check "the instruction among the unnumbered clues is the preamble (280)" "Clues are listed in alphabetical order of their answers, to be entered jigsaw-fashion where they will fit." "$(get unplaced-preamble)"
 check "a Genius jigsaw's answers take the printed grid's lights, numbered there" "[] [('1-across', (0, 'ABCD')), ('1-down', (2, 'AEH')), ('2-down', (3, 'CFJ')), ('3-down', (4, 'DGK')), ('4-across', (5, 'FG')), ('5-across', (1, 'HIJK'))] True" "$(get jigsaw-placed)"
-check "an answer taking no light of the printed grid is refused, not dropped" "['1 answers take no light of the printed grid (XYZ): the puzzle schema has no place for an answer entered off the grid']" "$(get jigsaw-off-grid)"
+check "an answer taking no light of the printed grid is an offGrid clue" "[] [{'clue': {'text': 'Below the grid', 'enumeration': '3'}}] (6, 'XYZ')" "$(get jigsaw-off-grid)"
+check "an off-grid answer whose length is not its clue's count is refused" "[\"1 answers that take no light of the printed grid do not match their clue's count: XY (3)\"]" "$(get jigsaw-off-grid-count)"
+check "an off-grid answer crosses nothing: only its count is checked" "[] [] [\"1-offgrid: 'XY' is 2 letters, its clue counts 3\"]" "$(get off-grid-fill)"
+check "the write gate passes an off-grid answer its count long, refuses another" "['1-offgrid: solution XYZW is 4 letters, its enumeration (3) counts 3']" "$(get off-grid-gate)"
+check "an off-grid clue counts toward solved and annotated" "True 1-offgrid" "$(get off-grid-done)"
+check "an off-grid annotation is validated, its findings named by its id" "[\"1-offgrid: definition 'Below' is not at 3 in 'Below the grid'\"]" "$(get off-grid-validate)"
 check "a held Genius jigsaw has a builder (queued); 280 is out of SCHEMA_GAP" "True False" "$(get jigsaw-builder)"
 [ -z "$(get held-280)" ] || check "genius-280 is held clues-only: 39 unnumbered clues and its instruction" "True 39 True" "$(get held-280)"
 

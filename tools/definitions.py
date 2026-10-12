@@ -18,6 +18,7 @@ A text these leave ambiguous needs `at` written by hand; `place` refuses to
 guess.
 """
 import re
+import groups
 from groups import entry_id
 
 
@@ -148,8 +149,9 @@ def place_puzzle(puzzle):
     """`puzzle` with every annotation's definitions placed; raises ValueError,
     naming the entry, for one `place` cannot place."""
     # Each clue holder: an entry, and each further answer it starts (alsoLeads).
-    held = [(e, h) for e in puzzle.get("entries", []) for h in [e] + list(e.get("alsoLeads") or [])]
-    for e, h in held:
+    held = [(entry_id(e), h) for e in puzzle.get("entries", []) for h in [e] + list(e.get("alsoLeads") or [])]
+    held += groups.off_grid(puzzle)   # and each clue entered off the grid
+    for eid, h in held:
         ann = h.get("annotation")
         if not isinstance(ann, dict) or not isinstance(ann.get("definitions"), list):
             continue
@@ -158,7 +160,7 @@ def place_puzzle(puzzle):
         try:
             ann["definitions"] = place(ann["definitions"], h["clue"].get("text", ""))
         except ValueError as err:
-            raise ValueError(f"{puzzle.get('id')} {entry_id(e)}: {err}") from None
+            raise ValueError(f"{puzzle.get('id')} {eid}: {err}") from None
     return puzzle
 
 

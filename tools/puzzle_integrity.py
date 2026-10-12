@@ -1029,6 +1029,15 @@ def check_puzzle_text(puzzle, flags):
                 errors.append(f"{entry_id(e)}: alsoLeads[{k}] enumeration "
                               f"({item['clue']['enumeration']}) counts {total} letters, "
                               f"its group {item.get('group')} holds {cells}")
+    # A clue entered off the grid (offGrid) crosses nothing: its enumeration
+    # is its length, and its answer must be that long.
+    for cid, item in groups.off_grid(bare):
+        total = sum(enumeration.counts((item.get("clue") or {}).get("enumeration")))
+        if not total:
+            errors.append(f"{cid}: no enumeration; an answer entered off the grid has no light to count it")
+        elif item.get("solution") and len(item["solution"]) != total:
+            errors.append(f"{cid}: solution {item['solution']} is {len(item['solution'])} letters, "
+                          f"its enumeration ({item['clue']['enumeration']}) counts {total}")
     flags.extend(("SHAPE", puzzle["id"], err) for err in errors)
 
 

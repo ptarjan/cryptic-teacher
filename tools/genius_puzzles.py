@@ -1114,10 +1114,14 @@ def promote_jigsaw(record, answers, grid=None):
     placed, why = jigsaw_fit.fit_grid(given, grid)
     if why:
         return None, [why]
-    off = [w for n, w in enumerate(given) if n not in {p[0] for p in placed}]
-    if off:
-        return None, [(f"{len(off)} answers take no light of the printed grid ({', '.join(off)}): "
-                       "the puzzle schema has no place for an answer entered off the grid")]
+    # An answer taking no light is entered off the grid (the preamble says
+    # where), filed only when its length is exactly its clue's count.
+    off = [n for n in range(len(given)) if n not in {p[0] for p in placed}]
+    wrong = [f"{given[n]} ({lights[n].get('length')})" for n in off
+             if len(given[n]) != lights[n].get("length")]
+    if wrong:
+        return None, [(f"{len(wrong)} answers that take no light of the printed grid do not "
+                       f"match their clue's count: {', '.join(wrong)}")]
     starts = sorted({(x, y) for _, x, y, _ in placed}, key=lambda c: (c[1], c[0]))
     numbers = {c: k for k, c in enumerate(starts, 1)}
     clues, parts = [], {}
@@ -1135,6 +1139,9 @@ def promote_jigsaw(record, answers, grid=None):
     if why:
         return None, [f"{why[0]}: {why[1]}"]
     puzzle["cluesUnplaced"] = True
+    if off:
+        puzzle["offGrid"] = [{"clue": lights[n]["clue"]} for n in off]
+        parts.update({cid: (n, given[n]) for (cid, _), n in zip(groups.off_grid(puzzle), off)})
     puzzle["_parts"] = parts
     return puzzle, []
 

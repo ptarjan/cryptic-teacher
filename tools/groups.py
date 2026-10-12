@@ -59,6 +59,35 @@ def as_leader(puzzle, i, k):
     return {**puzzle, "entries": entries}
 
 
+OFF_GRID = "offgrid"
+
+
+def off_grid(puzzle):
+    """[(id, item)] for each clue whose answer takes no light (`offGrid`):
+    item k (1-based) is "<k>-offgrid", what entry_id gives its as_entry."""
+    return [(f"{k}-{OFF_GRID}", item) for k, item in enumerate(puzzle.get("offGrid") or [], 1)]
+
+
+def as_entry(puzzle, cid):
+    """The `offGrid` clue `cid` seen as an entry ({number: k, direction:
+    "offgrid", length: its enumeration's}), its clue, solution and annotation
+    the item's own objects: what a reader of entries reads to treat it as a clue."""
+    import enumeration
+    k = int(cid.split("-")[0])
+    item = puzzle["offGrid"][k - 1]
+    length = sum(enumeration.counts(item["clue"].get("enumeration"))) or len(item.get("solution") or "")
+    return {"number": k, "direction": OFF_GRID, "length": length, **item}
+
+
+def alone(puzzle, cid):
+    """A copy of puzzle whose one entry is the `offGrid` clue `cid` on a
+    light of its own (position 0,0 of a grid just its size): what a check
+    written for entries reads to check that clue, with no crossings."""
+    e = {**as_entry(puzzle, cid), "direction": "across", "position": {"x": 0, "y": 0}}
+    return {**{k: v for k, v in puzzle.items() if k != "offGrid"},
+            "dimensions": {"cols": max(e["length"], 1), "rows": 1}, "entries": [e]}
+
+
 def leaders(entries):
     """{leader id: its first group} for every leader in the puzzle; linked()
     gives a leader's alsoLeads groups too."""
