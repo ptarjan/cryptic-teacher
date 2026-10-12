@@ -2791,5 +2791,4361 @@
     "which": {}
    }
   }
- ]
+ ],
+ "round2_opus_med_vs_low": {
+  "_why": "Paul 10-12: 'saving 12% seems good, did low effort did as good of a job?' Round 1's 10-clue judging was too small. Same harness (worker_annotate + worker_finish, commit stubbed, scratch clones), Opus medium vs Opus low only, on 40 fresh burn-queue puzzles (15 series, max 3 each, keyed, >=5 unannotated clues, none of round 1's 20), 2 runs at a time per arm. A usage limit cut both arms mid-run; the 4 runs that had done real work were resumed (--resume, same session; tokens from the merged transcript), the ~50 refused within 16s with no work were rerun fresh. cyclops-321 dropped (its model answers were reopened for solving in both arms). Weights as round 1. Blind judging: 2 clues per paired puzzle, A/B shuffled per clue, 2 independent Opus judges (better of two + margin, wrong parse, giveaway) against cryptic-hint-rungs-no-giveaways + cryptic-surface-is-a-joke; a third Opus judge on clues where they disagreed on the better version or on wrong parses. Winner = the two judges' shared pick, else the third judge's. sign_test_p is two-sided on winners. prose = objective fullness of every newly annotated clue in paired puzzles.",
+  "date": "2026-10-12",
+  "puzzles": [
+   "azed-2552",
+   "azed-2633",
+   "azed-2675",
+   "book-1005",
+   "book-1006",
+   "book-16012",
+   "cryptic-29074",
+   "cryptic-29075",
+   "cryptic-29076",
+   "cyclops-322",
+   "everyman-3237",
+   "ftcryptic-17780",
+   "ftcryptic-17781",
+   "ftcryptic-17782",
+   "genius-142",
+   "genius-157",
+   "genius-76",
+   "independent-11517",
+   "independent-11518",
+   "independent-11519",
+   "quiptic-1402",
+   "quiptic-424",
+   "quiptic-425",
+   "sundaytel-2771",
+   "sundaytel-2772",
+   "sundaytel-2773",
+   "telegraph-30747",
+   "telegraph-30748",
+   "telegraph-30749",
+   "times-28419",
+   "times-28420",
+   "times-28422",
+   "timesclub-20175",
+   "timesquick-2453",
+   "timesquick-2454",
+   "timesquick-2455",
+   "toughie-3205",
+   "toughie-3206",
+   "toughie-3319"
+  ],
+  "verdict": "keep medium: low saves 14% eq tokens per clue but loses the blind judging 8-34 (sign test p=7e-5; easy 2-20, hard 6-14), writes a walkthrough on 46% of clues vs 70%, passes the first check on 16/38 vs 23/38, and has 3 majority wrong parses vs 1 plus one unshipped puzzle (book-16012). Not within noise.",
+  "summary": {
+   "opus_med": {
+    "runs_measured": 39,
+    "shipped": 39,
+    "eq_tokens_median": 119761,
+    "eq_tokens_total": 4853467,
+    "output_tokens_median": 16409,
+    "usd_total": 24.27,
+    "eq_per_shipped": 124448,
+    "usd_per_shipped": 0.622,
+    "first_check_clean": 23,
+    "first_check_spotless": 0,
+    "checks_with_errors_total": 23,
+    "check_retries_median": 1,
+    "check_retries_total": 48,
+    "fix_runs": 1,
+    "clues": 1157,
+    "annotated": 1150,
+    "new_annotated": 1104,
+    "eq_per_new_clue": 4396,
+    "answers_changed": 0,
+    "blog_compared": 1427,
+    "blog_disagree": 1,
+    "wall_s_median": 190
+   },
+   "opus_low": {
+    "runs_measured": 39,
+    "shipped": 38,
+    "eq_tokens_median": 101467,
+    "eq_tokens_total": 4246103,
+    "output_tokens_median": 13321,
+    "usd_total": 21.23,
+    "eq_per_shipped": 111740,
+    "usd_per_shipped": 0.559,
+    "first_check_clean": 17,
+    "first_check_spotless": 0,
+    "checks_with_errors_total": 33,
+    "check_retries_median": 1,
+    "check_retries_total": 60,
+    "fix_runs": 3,
+    "clues": 1125,
+    "annotated": 1118,
+    "new_annotated": 1072,
+    "eq_per_new_clue": 3961,
+    "answers_changed": 2,
+    "blog_compared": 1427,
+    "blog_disagree": 1,
+    "wall_s_median": 170
+   }
+  },
+  "paired": {
+   "all": {
+    "opus_med": {
+     "puzzles": 38,
+     "new_clues": 1072,
+     "eq_tokens": 4711077,
+     "out_tokens": 620804,
+     "usd": 23.56,
+     "eq_per_clue": 4395,
+     "first_check_pass": 23,
+     "check_retries": 47,
+     "checks_with_errors": 22,
+     "fix_runs": 1,
+     "wall_s_median": 190
+    },
+    "opus_low": {
+     "puzzles": 38,
+     "new_clues": 1072,
+     "eq_tokens": 4035404,
+     "out_tokens": 530942,
+     "usd": 20.18,
+     "eq_per_clue": 3764,
+     "first_check_pass": 16,
+     "check_retries": 52,
+     "checks_with_errors": 29,
+     "fix_runs": 2,
+     "wall_s_median": 170,
+     "eq_vs_opus_med": "-14%",
+     "usd_vs_opus_med": "-14%"
+    },
+    "low_cheaper_puzzles": "34/38"
+   },
+   "hard_series": {
+    "opus_med": {
+     "puzzles": 22,
+     "new_clues": 665,
+     "eq_tokens": 3061074,
+     "out_tokens": 404938,
+     "usd": 15.3,
+     "eq_per_clue": 4603,
+     "first_check_pass": 14,
+     "check_retries": 25,
+     "checks_with_errors": 9,
+     "fix_runs": 0,
+     "wall_s_median": 208
+    },
+    "opus_low": {
+     "puzzles": 22,
+     "new_clues": 665,
+     "eq_tokens": 2616025,
+     "out_tokens": 343858,
+     "usd": 13.08,
+     "eq_per_clue": 3934,
+     "first_check_pass": 7,
+     "check_retries": 34,
+     "checks_with_errors": 20,
+     "fix_runs": 1,
+     "wall_s_median": 183,
+     "eq_vs_opus_med": "-15%",
+     "usd_vs_opus_med": "-15%"
+    },
+    "low_cheaper_puzzles": "19/22"
+   },
+   "easy_series": {
+    "opus_med": {
+     "puzzles": 16,
+     "new_clues": 407,
+     "eq_tokens": 1650003,
+     "out_tokens": 215866,
+     "usd": 8.25,
+     "eq_per_clue": 4054,
+     "first_check_pass": 9,
+     "check_retries": 22,
+     "checks_with_errors": 13,
+     "fix_runs": 1,
+     "wall_s_median": 171
+    },
+    "opus_low": {
+     "puzzles": 16,
+     "new_clues": 407,
+     "eq_tokens": 1419379,
+     "out_tokens": 187084,
+     "usd": 7.1,
+     "eq_per_clue": 3487,
+     "first_check_pass": 9,
+     "check_retries": 18,
+     "checks_with_errors": 9,
+     "fix_runs": 1,
+     "wall_s_median": 143,
+     "eq_vs_opus_med": "-14%",
+     "usd_vs_opus_med": "-14%"
+    },
+    "low_cheaper_puzzles": "15/16"
+   },
+   "classes": {
+    "hard": [
+     "azed",
+     "cryptic",
+     "ftcryptic",
+     "genius",
+     "independent",
+     "times",
+     "timesclub",
+     "toughie"
+    ]
+   },
+   "not_both_shipped": [
+    "book-16012"
+   ]
+  },
+  "prose": {
+   "all": {
+    "opus_med": {
+     "clues": 1072,
+     "walkthrough": 747,
+     "surface": 987,
+     "definitionFit": 1072,
+     "prose_chars": 351530,
+     "walkthrough_pct": 70,
+     "surface_pct": 92,
+     "prose_chars_mean": 328
+    },
+    "opus_low": {
+     "clues": 1072,
+     "walkthrough": 495,
+     "surface": 1010,
+     "definitionFit": 1072,
+     "prose_chars": 274942,
+     "walkthrough_pct": 46,
+     "surface_pct": 94,
+     "prose_chars_mean": 256
+    }
+   },
+   "hard_series": {
+    "opus_med": {
+     "clues": 665,
+     "walkthrough": 468,
+     "surface": 631,
+     "definitionFit": 665,
+     "prose_chars": 221704,
+     "walkthrough_pct": 70,
+     "surface_pct": 95,
+     "prose_chars_mean": 333
+    },
+    "opus_low": {
+     "clues": 665,
+     "walkthrough": 328,
+     "surface": 640,
+     "definitionFit": 665,
+     "prose_chars": 171898,
+     "walkthrough_pct": 49,
+     "surface_pct": 96,
+     "prose_chars_mean": 258
+    }
+   },
+   "easy_series": {
+    "opus_med": {
+     "clues": 407,
+     "walkthrough": 279,
+     "surface": 356,
+     "definitionFit": 407,
+     "prose_chars": 129826,
+     "walkthrough_pct": 69,
+     "surface_pct": 87,
+     "prose_chars_mean": 319
+    },
+    "opus_low": {
+     "clues": 407,
+     "walkthrough": 167,
+     "surface": 370,
+     "definitionFit": 407,
+     "prose_chars": 103044,
+     "walkthrough_pct": 41,
+     "surface_pct": 91,
+     "prose_chars_mean": 253
+    }
+   }
+  },
+  "blind_judge": {
+   "all": {
+    "clues": 42,
+    "judge1_better": {
+     "opus_med": 33,
+     "opus_low": 9
+    },
+    "judge2_better": {
+     "opus_med": 35,
+     "opus_low": 7
+    },
+    "judge3_better": {
+     "opus_med": 7,
+     "opus_low": 3
+    },
+    "agree": 34,
+    "winner": {
+     "opus_med": 34,
+     "opus_low": 8
+    },
+    "rejudged": 2,
+    "undecided": 0,
+    "wrong_parse_by_judge": {
+     "opus_med": [
+      1,
+      1,
+      1
+     ],
+     "opus_low": [
+      2,
+      2,
+      2
+     ]
+    },
+    "wrong_parse_majority": {
+     "opus_med": 1,
+     "opus_low": 3
+    },
+    "giveaway_by_judge": {
+     "opus_med": [
+      1,
+      1
+     ],
+     "opus_low": [
+      0,
+      0
+     ]
+    },
+    "sign_test_p": 6.9e-05
+   },
+   "hard_series": {
+    "clues": 20,
+    "judge1_better": {
+     "opus_med": 17,
+     "opus_low": 3
+    },
+    "judge2_better": {
+     "opus_med": 15,
+     "opus_low": 5
+    },
+    "judge3_better": {
+     "opus_med": 0,
+     "opus_low": 2
+    },
+    "agree": 18,
+    "winner": {
+     "opus_med": 14,
+     "opus_low": 6
+    },
+    "rejudged": 1,
+    "undecided": 0,
+    "wrong_parse_by_judge": {
+     "opus_med": [
+      0,
+      1,
+      1
+     ],
+     "opus_low": [
+      1,
+      1,
+      0
+     ]
+    },
+    "wrong_parse_majority": {
+     "opus_med": 1,
+     "opus_low": 1
+    },
+    "giveaway_by_judge": {
+     "opus_med": [
+      1,
+      1
+     ],
+     "opus_low": [
+      0,
+      0
+     ]
+    },
+    "sign_test_p": 0.12
+   },
+   "easy_series": {
+    "clues": 22,
+    "judge1_better": {
+     "opus_med": 16,
+     "opus_low": 6
+    },
+    "judge2_better": {
+     "opus_med": 20,
+     "opus_low": 2
+    },
+    "judge3_better": {
+     "opus_med": 7,
+     "opus_low": 1
+    },
+    "agree": 16,
+    "winner": {
+     "opus_med": 20,
+     "opus_low": 2
+    },
+    "rejudged": 1,
+    "undecided": 0,
+    "wrong_parse_by_judge": {
+     "opus_med": [
+      1,
+      0,
+      0
+     ],
+     "opus_low": [
+      1,
+      1,
+      2
+     ]
+    },
+    "wrong_parse_majority": {
+     "opus_med": 0,
+     "opus_low": 2
+    },
+    "giveaway_by_judge": {
+     "opus_med": [
+      0,
+      0
+     ],
+     "opus_low": [
+      0,
+      0
+     ]
+    },
+    "sign_test_p": 0.00012
+   },
+   "per_clue": [
+    {
+     "n": 1,
+     "puzzle": "timesclub-20175",
+     "entry": "13-across",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Both parse REMOT(E)+SALE reversed correctly. B's block gives full REMOTE and lets the 'Most of' rung do the cut, and its surface (cars' wheels, rubber tyres) explains the misdirection better than A's awkward 'seen on wheels'."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Both parse REMOT(e)+SALE reversed correctly; B's walkthrough explains the 'wheels' misdirection more clearly and its surface (tyres of rubber) reads better than A's 'traffic seen on wheels'."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 2,
+     "puzzle": "timesclub-20175",
+     "entry": "1-across",
+     "judge1": {
+      "better": "opus_low",
+      "margin": "clear",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Same correct parse: Y(FIT+SR)AK reversed. A's walkthrough explains the real trick ('about to' reads as 'on the point of'). B's walkthrough just repeats the definition and spells out the whole assembly."
+     },
+     "judge2": {
+      "better": "opus_low",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Same correct Y(FIT SR)AK reversed parse; A's walkthrough explains the 'about to' misdirection, while B's walkthrough is just a definition gloss plus the formula, and B's definitionFit opens by naming KARSTIFY."
+     },
+     "agree": true,
+     "winner": "opus_low",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 3,
+     "puzzle": "cyclops-322",
+     "entry": "7-down",
+     "judge1": {
+      "better": "opus_low",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Near-identical, correct parses (anagram RAPPER around reversed E+GIT, before its last R). A's walkthrough is cleaner. B's adds a redundant git gloss and its misdirectedWord 'up' is weaker than A's 'Pisspoor'."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Near-identical correct parse (PAPER(TIG E)R); B keeps the definition to 'an insubstantial threat' with 'really' as a link, a cleaner boundary than A's, and its surface explains the pair as a hollow menace."
+     },
+     "judge3": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Near-identical, correct parses: PAPE(R) anagram of RAPPER holding E+GIT reversed (TIGE), then R. B's definition is cleaner because it treats 'really' as a link word rather than part of the definition, and its surface reading is a little sharper."
+     },
+     "agree": false,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 4,
+     "puzzle": "cyclops-322",
+     "entry": "24-across",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Near-identical RO(D)GER+S parses. A's walkthrough covers both the Sun misdirection and the shag/roger slang, while B covers only Sun."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Identical RO(D)GER+S parse; A's walkthrough also explains shag=roger, and its S note gives both Sun and Sunday."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 5,
+     "puzzle": "everyman-3237",
+     "entry": "1-down",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "clear",
+      "wrong_parse": [
+       "opus_low"
+      ],
+      "giveaway": [],
+      "notes": "A files 'under it' as link words, so the down-clue placement indicator 'under' gets no indicator rung. B marks 'under' as the placement indicator with a good down-entry note and keeps only 'it' as a link."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "clear",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "A files 'under it' as a link word although 'under' is the positional indicator that fixes TOTE before M in a down clue (its walkthrough explains this only afterwards); B makes 'under' an indicator and explains the maiden over."
+     },
+     "judge3": {
+      "better": "opus_med",
+      "margin": "clear",
+      "wrong_parse": [
+       "opus_low"
+      ],
+      "giveaway": [],
+      "notes": "B treats 'under' as the positional (down-clue) indicator that puts M after TOTE. A files 'under it' as link words, so the parse misses the indicator that places the letters, and A's surface misreads the clue."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": [
+      "opus_low"
+     ]
+    },
+    {
+     "n": 6,
+     "puzzle": "everyman-3237",
+     "entry": "2-down",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Same correct PARAS+I+TIC(K) parse. B's walkthrough lays out the order and explains that the sheep tick really is a fly. A's walkthrough blurs what 'ahead' does."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Same correct PARAS+I+TIC(k) parse; B's walkthrough walks the whole order and the tick-is-a-fly twist, while A only covers the ordering."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 7,
+     "puzzle": "azed-2675",
+     "entry": "5-down",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "clear",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Same T(WEE)T parse. A has a walkthrough explaining the bodily-water misdirection and fuller notes. B has no walkthrough and a thin surface."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "clear",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Same T(WEE)T parse; A has a walkthrough explaining that 'water' is bodily, not a drink, which is the joke. B has no walkthrough and a flat surface."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 8,
+     "puzzle": "azed-2675",
+     "entry": "34-across",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "clear",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Both parse K+U(DO)S correctly. A explains the banking misdirection (credit as praise, not a loan). B's surface just restates the clue, its notes are bare ('abbreviation') and it has no walkthrough."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "clear",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Both parses add up to K+U(DO)S; A explains the banking-credit misdirection and gives fuller notes, while B's notes are terse ('abbreviation') and its surface just restates the clue."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 9,
+     "puzzle": "quiptic-1402",
+     "entry": "3-down",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "clear",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Same anagram parse. B's walkthrough explains the penny-drop: 'it doesn't pay' looks like a remark about crime but means unpaid sport. A has no walkthrough."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "clear",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Identical anagram parse; B adds a walkthrough explaining that 'it doesn't pay' reads as crime but means unpaid sport. A has no walkthrough."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 10,
+     "puzzle": "quiptic-1402",
+     "entry": "22-across",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Near-identical cryptic-definition annotations. B's 'bucket and spade' walkthrough lands the penny-drop a little better without naming the answer."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Near-identical cryptic definitions; B's 'bucket and spade' walkthrough lands the penny-drop a little better, and A's definitionFit spells out 'castles of sand'."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 11,
+     "puzzle": "sundaytel-2773",
+     "entry": "11-across",
+     "judge1": {
+      "better": "opus_low",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Identical BAND+I+TRY parses. B's walkthrough names the sharper misdirection: 'I hear' looks like a homophone signal. A's reading of it as hearsay is fine but describes only the surface."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Identical BAND+I+TRY parse; A's surface (musicians up to no good) is a real reading, while B's is awkward. Both walkthroughs explain hear=try."
+     },
+     "judge3": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Identical parses (BAND+I+TRY). A's surface and its explanation of 'I hear' as hearsay misdirection read more naturally than B's."
+     },
+     "agree": false,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 12,
+     "puzzle": "sundaytel-2773",
+     "entry": "28-across",
+     "judge1": {
+      "better": "opus_low",
+      "margin": "slight",
+      "wrong_parse": [
+       "opus_med"
+      ],
+      "giveaway": [],
+      "notes": "A files the placement indicator 'after' as a link word, so it gets no indicator rung (only A's walkthrough mentions it). B marks it as an indicator, though B lacks a walkthrough."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Same ACT I+VIST(a) parse; B correctly marks 'after' as a positional indicator, but A's walkthrough explains the placement and its theatregoer surface teaches more. B has no walkthrough."
+     },
+     "judge3": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Both correct: ACT I + VIST(A). B makes 'after' an indicator but has no walkthrough. A has a walkthrough explaining the order, which teaches more overall."
+     },
+     "agree": false,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 13,
+     "puzzle": "book-1006",
+     "entry": "19-across",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Near-identical RE(CO)VERED parses. A's notes are slightly fuller ('revered means greatly respected' against B's bare 'respected')."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Near-identical RE(CO)VERED; the deciding difference is A's slightly fuller notes ('revered means greatly respected' versus just 'respected')."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 14,
+     "puzzle": "book-1006",
+     "entry": "3-down",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "B parses it as a double definition (BE HEAD / behead) with 'in order to' as the link, which gives the learner two definition rungs. A's cryptic-definition reading is defensible and has a nice surface, but its block labels call 'Assume control' the surface reading when it is really the BE HEAD sense."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Both are defensible; B's double definition (BE HEAD / BEHEAD with 'in order to' as a link) shows the two halves the clue is built on, though A's cryptic-definition walkthrough explains the same split and adds a surface."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 15,
+     "puzzle": "genius-76",
+     "entry": "24-down",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Both get CO around RED. B's walkthrough explains that 'Communist' does double duty as RED and as the source of the leading letters CO. A glosses 'leaders' as commanding officers, which is a weaker reading (it is plural but CO is singular)."
+     },
+     "judge2": {
+      "better": "opus_low",
+      "margin": "slight",
+      "wrong_parse": [
+       "opus_med"
+      ],
+      "giveaway": [],
+      "notes": "A reads 'leaders' as CO (commanding officers) around RED, a clean container. B makes 'Communist' do double duty as both RED and its own first letters CO, with no letter-selection type, and its features are inconsistent."
+     },
+     "judge3": {
+      "better": "opus_low",
+      "margin": "clear",
+      "wrong_parse": [
+       "opus_med"
+      ],
+      "giveaway": [],
+      "notes": "The parse is RED inside CO (leaders = commanding officers). B's notes say CO is the first letters of 'Communist' and that the word does double duty, which is wrong. A is right."
+     },
+     "agree": false,
+     "winner": "opus_low",
+     "wrong_parse_majority": [
+      "opus_med"
+     ]
+    },
+    {
+     "n": 16,
+     "puzzle": "genius-76",
+     "entry": "1-across",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "clear",
+      "wrong_parse": [
+       "opus_low"
+      ],
+      "giveaway": [],
+      "notes": "B correctly parses IN(HAL)ES: INES (a form of Agnes, 'chaste') takes HAL to heart, with the definition 'Takes'. A wrongly calls it a cryptic definition of the whole clue and never accounts for the letters."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "clear",
+      "wrong_parse": [
+       "opus_low"
+      ],
+      "giveaway": [],
+      "notes": "B gets it right: INES (chaste girl, from Agnes) takes HAL to heart, giving IN(HAL)ES, with 'Takes' as the definition. A calls it a cryptic definition and misses the wordplay entirely."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": [
+      "opus_low"
+     ]
+    },
+    {
+     "n": 17,
+     "puzzle": "timesquick-2455",
+     "entry": "2-down",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "The parses are identical. A's definitionFit names the answer ('an example of an airline') at the definition rung; B describes it without naming it.",
+      "giveaway_dropped": [
+       "opus_low"
+      ]
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "The parses are identical. A's definitionFit says KLM 'is an example of an airline', which names the answer; B describes it without naming it.",
+      "giveaway_dropped": [
+       "opus_low"
+      ]
+     },
+     "rejudge": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Near-identical correct AIR+LINE charades with the definition-by-example 'Maybe KLM'. B edges it: its walkthrough explains why 'Maybe' marks KLM as an example, its block note glosses tune with a new word (melody) instead of repeating it, and its surface keeps the 'Perhaps' reading."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 18,
+     "puzzle": "timesquick-2455",
+     "entry": "17-across",
+     "judge1": {
+      "better": "opus_low",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Same parse. A rightly treats 'After' as a positional indicator (I GO comes after TAC); B calls it a link word, which undersells what it does."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Both parses are right. A's indicator note for 'After' contradicts itself ('after places the reversed piece in front'); B treats 'After' as a link word and explains it in the walkthrough."
+     },
+     "judge3": {
+      "better": "opus_low",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Same letters (TAC+I+TURN). A correctly treats 'After' as the positional indicator ('I go' comes after the reversed animal). B calls it a link word, though it explains the clue order in a walkthrough. A's 'after' note is slightly awkward."
+     },
+     "agree": false,
+     "winner": "opus_low",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 19,
+     "puzzle": "toughie-3319",
+     "entry": "12-across",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Both are OLD(I)ER after S. A's assembly pieces split OLDER oddly as OL+D+...+ER, which obscures where I goes; B's S/OLD/I/ER shows the insertion cleanly."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "clear",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Both are S + OLD(I)ER. A's assembly splits it oddly as OL/D/I/ER and its block notes are bare ('abbreviation'). B's pieces are S/OLD/I/ER and its notes explain the conventions."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 20,
+     "puzzle": "toughie-3319",
+     "entry": "1-down",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Near-identical. B's walkthrough points out that all of 'New quantity of money' (N+WAD) is reversed, not just WAD, and its definitionFit gives an example ('the dawn of a new era')."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Near-identical. B's walkthrough adds that the whole of N+WAD is reversed, not just the money, and its definitionFit gives an example."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 21,
+     "puzzle": "ftcryptic-17782",
+     "entry": "14-down",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "clear",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "A explains that 'on the game' is British slang for prostitution, which is why prostitution gives THE GAME. B's note just says 'slang for sex work', which leaves a learner unable to see where THE GAME comes from."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "clear",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "A explains the British slang 'on the game' and why 'on' only joins the parts. B's note ('slang for sex work') and its bare definitionFit teach much less."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 22,
+     "puzzle": "ftcryptic-17782",
+     "entry": "4-down",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Near-identical. A adds a walkthrough on the 'Serve' misdirection (it reads as dishing up food but means a tennis serve)."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Near-identical parses. A adds a walkthrough on the misdirection: 'Serve' reads as a cook's verb but is a tennis ace."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 23,
+     "puzzle": "times-28422",
+     "entry": "3-down",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Near-identical. B's walkthrough spells out the funeral-wake reading of the surface more clearly."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Near-identical. B's walkthrough spells out the funeral-wake surface reading more fully."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 24,
+     "puzzle": "times-28422",
+     "entry": "23-across",
+     "judge1": {
+      "better": "opus_low",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [
+       "opus_med"
+      ],
+      "notes": "Both get US inside HOT + ON. B splits 'in demand' into two blocks and its HO note says 'first part of HOT', which hands over the T block. A's single HOT block is cleaner, though B explains the surface reading of 'dons' (academics) better."
+     },
+     "judge2": {
+      "better": "opus_low",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [
+       "opus_med"
+      ],
+      "notes": "Both are HO(US)T + ON. B splits HOT into two blocks, and the note on its HO block ('first part of HOT') hands over the T block's work. B's surface on dons-as-academics is good, but A's single HOT block is cleaner."
+     },
+     "agree": true,
+     "winner": "opus_low",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 25,
+     "puzzle": "cryptic-29076",
+     "entry": "10-across",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "clear",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Same parse. A's walkthrough explains the key trick: 'about to' reads as one phrase meaning soon, but 'about' is the container indicator and 'to' is fodder. B has nothing on this."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "clear",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Same parse, but A's walkthrough explains the key trick: 'about to' reads as 'soon', yet 'about' is the container indicator and 'to' is fodder. B has no walkthrough."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 26,
+     "puzzle": "cryptic-29076",
+     "entry": "8-down",
+     "judge1": {
+      "better": "opus_low",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Identical parses. A adds that RY for railway is a crossword convention, which helps a learner."
+     },
+     "judge2": {
+      "better": "opus_low",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Identical parses. A adds a walkthrough noting that RY for railway is a crossword convention."
+     },
+     "agree": true,
+     "winner": "opus_low",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 27,
+     "puzzle": "independent-11519",
+     "entry": "18-down",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Identical parses. B's definitionFit explains that the -USES plural is accepted, which is the one thing a learner might question."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Same parse. B's definitionFit explains the less familiar plural FUNGUSES, which a learner expecting FUNGI needs; A instead explains the question mark."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 28,
+     "puzzle": "independent-11519",
+     "entry": "6-down",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "clear",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Same anagram. B's definitionFit names the answer ('Tin openers are...') at the definition rung, and its surface misreads 'They' as pompous figures. A explains the 'can' pun without naming the answer.",
+      "giveaway_dropped": [
+       "opus_low"
+      ]
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Same anagram. B's definitionFit opens with 'Tin openers are...', naming the answer. A explains the 'They can' pun without naming it.",
+      "giveaway_dropped": [
+       "opus_low"
+      ]
+     },
+     "rejudge": {
+      "better": "opus_low",
+      "margin": "clear",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Both parse PRETENSION* = TIN OPENERS correctly. B's surface gives the real misdirecting scene (pompous people unveiling humble beans with a flourish) and names 'can' (verb read as noun) as the pun. A's surface describes the gadgets, which is the cryptic reading, not the surface, so it explains no misdirection."
+     },
+     "agree": true,
+     "winner": "opus_low",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 29,
+     "puzzle": "telegraph-30749",
+     "entry": "25-down",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Both readings are valid: A has TUSK + 'S, B has a double definition. A's charade teaches the letters more clearly and its surface explanation reads well. B's first-meaning note effectively states the answer."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "clear",
+      "wrong_parse": [
+       "opus_low"
+      ],
+      "giveaway": [],
+      "notes": "A has the standard parse: TUSK (Polish PM) + 'S. B calls it a double definition, but 'Polish PM's' does not define TUSKS; it is wordplay."
+     },
+     "judge3": {
+      "better": "opus_med",
+      "margin": "clear",
+      "wrong_parse": [
+       "opus_low"
+      ],
+      "giveaway": [],
+      "notes": "TUSK + 'S, with 'long teeth' as the definition, is a charade. B calls it a double definition, but 'Polish PM's' is wordplay and does not define TUSKS."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": [
+      "opus_low"
+     ]
+    },
+    {
+     "n": 30,
+     "puzzle": "telegraph-30749",
+     "entry": "14-down",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Near-identical. B's indicator note says outright that 'clothes' is a verb, and its definitionFit flags boob as British slang."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Identical parses. B puts the '?' in the definition and explains both the verb 'clothes' and boob as British slang a little more fully."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 31,
+     "puzzle": "azed-2633",
+     "entry": "18-across",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Near-identical. B's block note gives the full equivalence ('a hop is an informal dance') and its definitionFit is slightly fuller."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Near-identical. B's block notes are full sentences ('a hop is an informal dance') rather than fragments."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 32,
+     "puzzle": "azed-2633",
+     "entry": "3-down",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Both are HOVERING minus RING. A's definitionFit explains that 'the old' marks an archaic word, and its surface reads 'The old' as an old man, which catches the misdirection."
+     },
+     "judge2": {
+      "better": "opus_low",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Both are HOVERING minus RING. B's note for brooding (of a cloud, hanging overhead) and its surface ('after losing a ring') read better. A taking 'brooding over' as one unit is also defensible."
+     },
+     "judge3": {
+      "better": "opus_low",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Both give HOVERING minus RING = HOVE. B's note that brooding clouds hang overhead is accurate, while A says a brooding bird hovers over its nest, which is wrong (it sits on it). A's definitionFit is better at explaining 'The old'."
+     },
+     "agree": false,
+     "winner": "opus_low",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 33,
+     "puzzle": "quiptic-425",
+     "entry": "22-across",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Same double definition. A's walkthrough explains the possessive surface and the lawyer slang clearly; B's walkthrough muddles 'brief' the lawyer with briefs the case papers."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "A's walkthrough explains the surface trap (the lawyers' own underwear). B's walkthrough is muddled ('briefs are a lawyer's instructions'). A drops the apostrophe from the definition span, which is minor."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 34,
+     "puzzle": "quiptic-425",
+     "entry": "4-across",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Same double definition. A's walkthrough explains the riding-school surface; B's surface line is plain and says nothing about the misdirection."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Near-identical. A's walkthrough explains that the surface reads as one reputable riding school while the two phrases are separate meanings."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 35,
+     "puzzle": "sundaytel-2772",
+     "entry": "14-down",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Both have the same correct parse, ME(D)AL. B's meal note explains why 'say' is there, and its surface keeps the 'middle of banquet' idea."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Both parse D inside MEAL correctly and are near-identical. B's MEAL note explains what 'say' is doing, and its surface (an honour midway through a formal dinner) captures the scene better."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 36,
+     "puzzle": "sundaytel-2772",
+     "entry": "1-across",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "clear",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "The parses are identical. B's walkthrough explains the misdirection (a railway carriage in the surface, a horse-drawn victoria in the answer); A just restates the two meanings."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Same parse and same blocks. B's surface and walkthrough name the misdirection (the reader pictures a train carriage, but it is a horse-drawn victoria); A's surface just restates the clue."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 37,
+     "puzzle": "book-1005",
+     "entry": "1-down",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Both read the cryptic definition correctly. B's walkthrough spells out the pun (jarred = jolted or tipsy versus literally put in jars) and its block covers 'fatally jarred'. A has a surface field, but it catches only the 'jolt' sense."
+     },
+     "judge2": {
+      "better": "opus_low",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Both read the cryptic definition correctly. A's definitionFit explains why 'His' points to Ali Baba (the hero whose robber foes died in jars). B's definitionFit talks only about Morgiana, though B's walkthrough explains the 'jarred' pun better, and B has no surface field."
+     },
+     "judge3": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Both are correct cryptic definitions. B's walkthrough explains the pun outright: 'jarred' reads as jolted or tipsy but means literally put in jars. A has a surface field, but its walkthrough only retells the story and never names the double meaning. A's definitionFit ties 'his' to the hero better, which is why the margin is slight."
+     },
+     "agree": false,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 38,
+     "puzzle": "book-1005",
+     "entry": "17-across",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Both give A + STEROIDS with the definition 'Heavenly'. B explicitly says the definition is truncated (adjective standing for the plural noun 'heavenly bodies'), which a learner needs to know."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Both have A+STEROIDS right. B's walkthrough states plainly that the definition is truncated ('Heavenly' standing for heavenly bodies), which is the main thing a learner needs here. Neither surface is strong."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 39,
+     "puzzle": "genius-157",
+     "entry": "13-down",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "The parse is the same: SUB + CELLAR (sounds like SELLER), entered reversed. B's 'a merchant is a seller' teaches the homophone link, where A's 'a trader' does not. A's walkthrough is clearer about the reversal."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Identical parse: SUB + CELLAR (which sounds like SELLER), entered reversed. B's notes teach more: its homophone note says a same-sounding spelling may be used, and its merchant note links merchant to seller, where A only says 'a trader'."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 40,
+     "puzzle": "genius-157",
+     "entry": "2-down",
+     "judge1": {
+      "better": "opus_med",
+      "margin": "clear",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "The parse is the same, UNI(V)ERSE. B's walkthrough explains how 'place to learn language' falsely reads as one phrase. A's definitionFit is muddled ('the cosmos... which is what everything denotes') and never ties the word to universe."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "clear",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Both parse UNI+V+ERSE correctly. B adds a walkthrough on the misdirection ('Place to learn language' reads as one phrase but splits around the verb's letter) without spelling out any letters. A has no walkthrough."
+     },
+     "agree": true,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 41,
+     "puzzle": "timesquick-2454",
+     "entry": "17-across",
+     "judge1": {
+      "better": "opus_low",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Both parse it as HOOPS minus H. A's walkthrough states the deletion outright. B has no walkthrough and lists a stray comma as a link word, though its hoopla surface is nicer."
+     },
+     "judge2": {
+      "better": "opus_low",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Both have HOOPS minus H right. A leaves 'of' unaccounted for, which is minor, while B's surface misreads the scene ('misses the first one') and tags a comma as a link word. A's surface and its 'HOOPS loses its H' walkthrough are clearer."
+     },
+     "agree": true,
+     "winner": "opus_low",
+     "wrong_parse_majority": []
+    },
+    {
+     "n": 42,
+     "puzzle": "timesquick-2454",
+     "entry": "7-down",
+     "judge1": {
+      "better": "opus_low",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "The two are near-identical: correct SH + RUG with matching walkthroughs. I picked B on small wording: its 'shy athlete' surface reflects 'Quiet' and its SH note is fuller."
+     },
+     "judge2": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Near-identical SH+RUG with the same runner/rug walkthrough. A's surface ('silent athlete') follows the clue more closely than B's 'shy athlete'."
+     },
+     "judge3": {
+      "better": "opus_med",
+      "margin": "slight",
+      "wrong_parse": [],
+      "giveaway": [],
+      "notes": "Near-identical: both give SH + RUG with the definition 'shoulder motion' and the same runner misdirection. A wins only on the surface line: 'silent athlete' keeps quiet's plain meaning, while B's 'shy athlete' drifts from it."
+     },
+     "agree": false,
+     "winner": "opus_med",
+     "wrong_parse_majority": []
+    }
+   ]
+  },
+  "rows": [
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "timesclub-20175",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 272,
+    "total_s": 275,
+    "usage": {
+     "in": 22,
+     "cw": 45077,
+     "cr": 274049,
+     "out": 24899
+    },
+    "calls": 11,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 208268,
+    "usd": 1.041,
+    "checks": 2,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 28,
+    "annotated": 28,
+    "new_annotated": 28,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 52,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "cyclops-322",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 45,
+    "total_s": 50,
+    "usage": {
+     "in": 8,
+     "cw": 22150,
+     "cr": 83848,
+     "out": 3359
+    },
+    "calls": 4,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 52875,
+    "usd": 0.264,
+    "checks": 1,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 0,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 29,
+    "annotated": 27,
+    "new_annotated": 3,
+    "answers_changed": 0,
+    "blog": null
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "everyman-3237",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 69,
+    "total_s": 71,
+    "usage": {
+     "in": 12,
+     "cw": 21317,
+     "cr": 137743,
+     "out": 5640
+    },
+    "calls": 6,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 68633,
+    "usd": 0.343,
+    "checks": 2,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 28,
+    "annotated": 28,
+    "new_annotated": 6,
+    "answers_changed": 0,
+    "blog": null
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "azed-2675",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 185,
+    "total_s": 188,
+    "usage": {
+     "in": 10,
+     "cw": 24155,
+     "cr": 104550,
+     "out": 20647
+    },
+    "calls": 5,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 143894,
+    "usd": 0.719,
+    "checks": 2,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 36,
+    "annotated": 36,
+    "new_annotated": 36,
+    "answers_changed": 0,
+    "blog": null
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "quiptic-1402",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 125,
+    "total_s": 127,
+    "usage": {
+     "in": 10,
+     "cw": 17440,
+     "cr": 89561,
+     "out": 13764
+    },
+    "calls": 5,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 99586,
+    "usd": 0.498,
+    "checks": 2,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 30,
+    "annotated": 30,
+    "new_annotated": 30,
+    "answers_changed": 0,
+    "blog": null
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "sundaytel-2773",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 152,
+    "total_s": 155,
+    "usage": {
+     "in": 8,
+     "cw": 20253,
+     "cr": 65845,
+     "out": 16409
+    },
+    "calls": 4,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 113954,
+    "usd": 0.57,
+    "checks": 2,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 28,
+    "annotated": 28,
+    "new_annotated": 28,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 62,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "book-1006",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 158,
+    "total_s": 189,
+    "usage": {
+     "in": 18,
+     "cw": 24784,
+     "cr": 218007,
+     "out": 17201
+    },
+    "calls": 9,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 138804,
+    "usd": 0.694,
+    "checks": 4,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 2,
+    "check_retries": 3,
+    "ended_clean": true,
+    "fix_run": true,
+    "shipped": true,
+    "discarded": false,
+    "clues": 29,
+    "annotated": 29,
+    "new_annotated": 29,
+    "answers_changed": 0,
+    "blog": null
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "genius-76",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 242,
+    "total_s": 245,
+    "usage": {
+     "in": 18,
+     "cw": 27902,
+     "cr": 170206,
+     "out": 21397
+    },
+    "calls": 9,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 158901,
+    "usd": 0.795,
+    "checks": 2,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 32,
+    "annotated": 32,
+    "new_annotated": 32,
+    "answers_changed": 0,
+    "blog": null
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "timesquick-2455",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 105,
+    "total_s": 114,
+    "usage": {
+     "in": 8,
+     "cw": 12524,
+     "cr": 58343,
+     "out": 9662
+    },
+    "calls": 4,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 69807,
+    "usd": 0.349,
+    "checks": 1,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 0,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 24,
+    "annotated": 24,
+    "new_annotated": 24,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 58,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "toughie-3319",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 233,
+    "total_s": 236,
+    "usage": {
+     "in": 22,
+     "cw": 25584,
+     "cr": 241410,
+     "out": 19085
+    },
+    "calls": 11,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 151568,
+    "usd": 0.758,
+    "checks": 3,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 2,
+    "check_retries": 2,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 30,
+    "annotated": 30,
+    "new_annotated": 30,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 35,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "ftcryptic-17782",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 199,
+    "total_s": 206,
+    "usage": {
+     "in": 14,
+     "cw": 25140,
+     "cr": 166233,
+     "out": 19174
+    },
+    "calls": 7,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 143932,
+    "usd": 0.72,
+    "checks": 4,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 3,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 32,
+    "annotated": 32,
+    "new_annotated": 32,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 71,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "times-28422",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 186,
+    "total_s": 190,
+    "resumed": true,
+    "usage": {
+     "in": 12,
+     "cw": 29798,
+     "cr": 113067,
+     "out": 14239
+    },
+    "calls": 7,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 119761,
+    "usd": 0.599,
+    "checks": 3,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 2,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 30,
+    "annotated": 30,
+    "new_annotated": 30,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 68,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "cryptic-29076",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 210,
+    "total_s": 221,
+    "resumed": true,
+    "usage": {
+     "in": 18,
+     "cw": 28085,
+     "cr": 161565,
+     "out": 14579
+    },
+    "calls": 10,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 124176,
+    "usd": 0.621,
+    "checks": 2,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 27,
+    "annotated": 27,
+    "new_annotated": 27,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 59,
+     "disagree": 1,
+     "which": {
+      "definition": [
+       "22-down"
+      ]
+     }
+    }
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "independent-11519",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 194,
+    "total_s": 196,
+    "usage": {
+     "in": 10,
+     "cw": 27362,
+     "cr": 106484,
+     "out": 21192
+    },
+    "calls": 5,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 150821,
+    "usd": 0.754,
+    "checks": 2,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 32,
+    "annotated": 32,
+    "new_annotated": 32,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 35,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "telegraph-30749",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 185,
+    "total_s": 196,
+    "usage": {
+     "in": 8,
+     "cw": 18811,
+     "cr": 65805,
+     "out": 14761
+    },
+    "calls": 4,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 103907,
+    "usd": 0.52,
+    "checks": 2,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 32,
+    "annotated": 31,
+    "new_annotated": 31,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 75,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "azed-2633",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 225,
+    "total_s": 238,
+    "usage": {
+     "in": 16,
+     "cw": 27215,
+     "cr": 142329,
+     "out": 20790
+    },
+    "calls": 8,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 152218,
+    "usd": 0.761,
+    "checks": 2,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 36,
+    "annotated": 36,
+    "new_annotated": 36,
+    "answers_changed": 0,
+    "blog": null
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "quiptic-425",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 173,
+    "total_s": 184,
+    "usage": {
+     "in": 8,
+     "cw": 20921,
+     "cr": 67162,
+     "out": 16454
+    },
+    "calls": 4,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 115145,
+    "usd": 0.576,
+    "checks": 2,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 28,
+    "annotated": 28,
+    "new_annotated": 28,
+    "answers_changed": 0,
+    "blog": null
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "sundaytel-2772",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 152,
+    "total_s": 156,
+    "usage": {
+     "in": 10,
+     "cw": 20228,
+     "cr": 95290,
+     "out": 15232
+    },
+    "calls": 5,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 110984,
+    "usd": 0.555,
+    "checks": 3,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 2,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 30,
+    "annotated": 30,
+    "new_annotated": 30,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 69,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "book-1005",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 207,
+    "total_s": 212,
+    "usage": {
+     "in": 26,
+     "cw": 27210,
+     "cr": 377094,
+     "out": 17259
+    },
+    "calls": 13,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 158043,
+    "usd": 0.79,
+    "checks": 6,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 5,
+    "check_retries": 5,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 29,
+    "annotated": 28,
+    "new_annotated": 28,
+    "answers_changed": 0,
+    "blog": null
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "genius-157",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 192,
+    "total_s": 194,
+    "usage": {
+     "in": 14,
+     "cw": 25966,
+     "cr": 119137,
+     "out": 18272
+    },
+    "calls": 7,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 135745,
+    "usd": 0.679,
+    "checks": 2,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 26,
+    "annotated": 26,
+    "new_annotated": 26,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 44,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "timesquick-2454",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 116,
+    "total_s": 119,
+    "usage": {
+     "in": 10,
+     "cw": 15592,
+     "cr": 87007,
+     "out": 11145
+    },
+    "calls": 5,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 83926,
+    "usd": 0.42,
+    "checks": 3,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 2,
+    "check_retries": 2,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 26,
+    "annotated": 26,
+    "new_annotated": 26,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 50,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "toughie-3206",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 145,
+    "total_s": 152,
+    "usage": {
+     "in": 8,
+     "cw": 20859,
+     "cr": 67897,
+     "out": 16359
+    },
+    "calls": 4,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 114666,
+    "usd": 0.573,
+    "checks": 2,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 28,
+    "annotated": 27,
+    "new_annotated": 27,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 35,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "ftcryptic-17781",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 200,
+    "total_s": 208,
+    "usage": {
+     "in": 18,
+     "cw": 24469,
+     "cr": 182895,
+     "out": 18278
+    },
+    "calls": 9,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 140284,
+    "usd": 0.701,
+    "checks": 3,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 2,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 29,
+    "annotated": 29,
+    "new_annotated": 29,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 79,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "times-28420",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 214,
+    "total_s": 221,
+    "usage": {
+     "in": 10,
+     "cw": 26692,
+     "cr": 94932,
+     "out": 18759
+    },
+    "calls": 5,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 136663,
+    "usd": 0.683,
+    "checks": 2,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 28,
+    "annotated": 28,
+    "new_annotated": 28,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 69,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "cryptic-29075",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 155,
+    "total_s": 170,
+    "usage": {
+     "in": 10,
+     "cw": 19368,
+     "cr": 85585,
+     "out": 15565
+    },
+    "calls": 5,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 110604,
+    "usd": 0.553,
+    "checks": 1,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 0,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 33,
+    "annotated": 32,
+    "new_annotated": 32,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 78,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "independent-11518",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 190,
+    "total_s": 227,
+    "usage": {
+     "in": 12,
+     "cw": 17762,
+     "cr": 120985,
+     "out": 13785
+    },
+    "calls": 6,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 103238,
+    "usd": 0.516,
+    "checks": 2,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 28,
+    "annotated": 28,
+    "new_annotated": 28,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 55,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "telegraph-30748",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 244,
+    "total_s": 281,
+    "usage": {
+     "in": 10,
+     "cw": 20564,
+     "cr": 96354,
+     "out": 15155
+    },
+    "calls": 5,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 111125,
+    "usd": 0.556,
+    "checks": 3,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 2,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 30,
+    "annotated": 30,
+    "new_annotated": 30,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 8,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "azed-2552",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 292,
+    "total_s": 312,
+    "usage": {
+     "in": 22,
+     "cw": 32537,
+     "cr": 293175,
+     "out": 23101
+    },
+    "calls": 11,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 185516,
+    "usd": 0.928,
+    "checks": 3,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 2,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 36,
+    "annotated": 36,
+    "new_annotated": 36,
+    "answers_changed": 0,
+    "blog": null
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "quiptic-424",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 168,
+    "total_s": 182,
+    "usage": {
+     "in": 10,
+     "cw": 19102,
+     "cr": 93634,
+     "out": 14417
+    },
+    "calls": 5,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 105336,
+    "usd": 0.527,
+    "checks": 2,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 30,
+    "annotated": 30,
+    "new_annotated": 30,
+    "answers_changed": 0,
+    "blog": null
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "sundaytel-2771",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 158,
+    "total_s": 172,
+    "usage": {
+     "in": 6,
+     "cw": 18342,
+     "cr": 37668,
+     "out": 14497
+    },
+    "calls": 3,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 99185,
+    "usd": 0.496,
+    "checks": 1,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 0,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 28,
+    "annotated": 28,
+    "new_annotated": 28,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 49,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "book-16012",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 230,
+    "total_s": 243,
+    "usage": {
+     "in": 12,
+     "cw": 25629,
+     "cr": 123916,
+     "out": 19590
+    },
+    "calls": 6,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 142390,
+    "usd": 0.712,
+    "checks": 2,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 32,
+    "annotated": 32,
+    "new_annotated": 32,
+    "answers_changed": 0,
+    "blog": null
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "genius-142",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 319,
+    "total_s": 331,
+    "usage": {
+     "in": 28,
+     "cw": 35316,
+     "cr": 385030,
+     "out": 26099
+    },
+    "calls": 14,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 213171,
+    "usd": 1.066,
+    "checks": 2,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 29,
+    "annotated": 29,
+    "new_annotated": 29,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 17,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "timesquick-2453",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 158,
+    "total_s": 165,
+    "usage": {
+     "in": 8,
+     "cw": 17347,
+     "cr": 64424,
+     "out": 12624
+    },
+    "calls": 4,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 91254,
+    "usd": 0.456,
+    "checks": 2,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 24,
+    "annotated": 24,
+    "new_annotated": 24,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 55,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "toughie-3205",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 167,
+    "total_s": 179,
+    "usage": {
+     "in": 14,
+     "cw": 20123,
+     "cr": 112672,
+     "out": 14059
+    },
+    "calls": 7,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 106730,
+    "usd": 0.534,
+    "checks": 1,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 0,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 28,
+    "annotated": 28,
+    "new_annotated": 28,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 37,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "ftcryptic-17780",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 204,
+    "total_s": 216,
+    "usage": {
+     "in": 8,
+     "cw": 18718,
+     "cr": 66500,
+     "out": 14084
+    },
+    "calls": 4,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 100476,
+    "usd": 0.502,
+    "checks": 2,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 30,
+    "annotated": 30,
+    "new_annotated": 30,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 60,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "times-28419",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 143,
+    "total_s": 151,
+    "usage": {
+     "in": 6,
+     "cw": 18836,
+     "cr": 37918,
+     "out": 14402
+    },
+    "calls": 3,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 99353,
+    "usd": 0.497,
+    "checks": 1,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 0,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 32,
+    "annotated": 32,
+    "new_annotated": 32,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 60,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "cryptic-29074",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 200,
+    "total_s": 203,
+    "usage": {
+     "in": 14,
+     "cw": 24314,
+     "cr": 145674,
+     "out": 18844
+    },
+    "calls": 7,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 139194,
+    "usd": 0.696,
+    "checks": 2,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 28,
+    "annotated": 27,
+    "new_annotated": 27,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 70,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "independent-11517",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 164,
+    "total_s": 167,
+    "usage": {
+     "in": 8,
+     "cw": 22580,
+     "cr": 70167,
+     "out": 17329
+    },
+    "calls": 4,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 121895,
+    "usd": 0.609,
+    "checks": 2,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 30,
+    "annotated": 30,
+    "new_annotated": 30,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 29,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_med",
+    "model": "opus",
+    "effort": "medium",
+    "id": "telegraph-30747",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 169,
+    "total_s": 171,
+    "usage": {
+     "in": 8,
+     "cw": 23093,
+     "cr": 71299,
+     "out": 18287
+    },
+    "calls": 4,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 127439,
+    "usd": 0.637,
+    "checks": 2,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 32,
+    "annotated": 32,
+    "new_annotated": 32,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 48,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "timesclub-20175",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 174,
+    "total_s": 177,
+    "usage": {
+     "in": 8,
+     "cw": 21238,
+     "cr": 67381,
+     "out": 17006
+    },
+    "calls": 4,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 118324,
+    "usd": 0.592,
+    "checks": 2,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 28,
+    "annotated": 28,
+    "new_annotated": 28,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 52,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "cyclops-322",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 44,
+    "total_s": 49,
+    "usage": {
+     "in": 8,
+     "cw": 20881,
+     "cr": 83137,
+     "out": 2284
+    },
+    "calls": 4,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 45843,
+    "usd": 0.229,
+    "checks": 1,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 0,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 29,
+    "annotated": 27,
+    "new_annotated": 3,
+    "answers_changed": 0,
+    "blog": null
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "everyman-3237",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 46,
+    "total_s": 48,
+    "usage": {
+     "in": 8,
+     "cw": 15961,
+     "cr": 72913,
+     "out": 3930
+    },
+    "calls": 4,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 46901,
+    "usd": 0.235,
+    "checks": 2,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 28,
+    "annotated": 28,
+    "new_annotated": 6,
+    "answers_changed": 0,
+    "blog": null
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "azed-2675",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 166,
+    "total_s": 169,
+    "usage": {
+     "in": 8,
+     "cw": 22775,
+     "cr": 68852,
+     "out": 18155
+    },
+    "calls": 4,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 126137,
+    "usd": 0.631,
+    "checks": 2,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 36,
+    "annotated": 36,
+    "new_annotated": 36,
+    "answers_changed": 0,
+    "blog": null
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "quiptic-1402",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 107,
+    "total_s": 109,
+    "usage": {
+     "in": 8,
+     "cw": 15662,
+     "cr": 61282,
+     "out": 11638
+    },
+    "calls": 4,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 83904,
+    "usd": 0.42,
+    "checks": 2,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 30,
+    "annotated": 30,
+    "new_annotated": 30,
+    "answers_changed": 0,
+    "blog": null
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "sundaytel-2773",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 140,
+    "total_s": 143,
+    "usage": {
+     "in": 8,
+     "cw": 19165,
+     "cr": 64892,
+     "out": 14669
+    },
+    "calls": 4,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 103798,
+    "usd": 0.519,
+    "checks": 2,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 28,
+    "annotated": 28,
+    "new_annotated": 28,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 62,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "book-1006",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 109,
+    "total_s": 133,
+    "usage": {
+     "in": 16,
+     "cw": 19442,
+     "cr": 167362,
+     "out": 12760
+    },
+    "calls": 8,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 104855,
+    "usd": 0.524,
+    "checks": 4,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 3,
+    "check_retries": 3,
+    "ended_clean": true,
+    "fix_run": true,
+    "shipped": true,
+    "discarded": false,
+    "clues": 29,
+    "annotated": 29,
+    "new_annotated": 29,
+    "answers_changed": 0,
+    "blog": null
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "genius-76",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 158,
+    "total_s": 176,
+    "usage": {
+     "in": 12,
+     "cw": 22575,
+     "cr": 127719,
+     "out": 17382
+    },
+    "calls": 6,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 127913,
+    "usd": 0.64,
+    "checks": 3,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 2,
+    "check_retries": 2,
+    "ended_clean": true,
+    "fix_run": true,
+    "shipped": true,
+    "discarded": false,
+    "clues": 32,
+    "annotated": 32,
+    "new_annotated": 32,
+    "answers_changed": 0,
+    "blog": null
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "timesquick-2455",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 71,
+    "total_s": 75,
+    "usage": {
+     "in": 6,
+     "cw": 10883,
+     "cr": 35935,
+     "out": 8129
+    },
+    "calls": 3,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 57848,
+    "usd": 0.289,
+    "checks": 1,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 0,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 24,
+    "annotated": 24,
+    "new_annotated": 24,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 58,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "toughie-3319",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 189,
+    "total_s": 199,
+    "usage": {
+     "in": 12,
+     "cw": 20028,
+     "cr": 120988,
+     "out": 14466
+    },
+    "calls": 6,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 109476,
+    "usd": 0.547,
+    "checks": 3,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 2,
+    "check_retries": 2,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 30,
+    "annotated": 30,
+    "new_annotated": 30,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 35,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "ftcryptic-17782",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 193,
+    "total_s": 196,
+    "usage": {
+     "in": 12,
+     "cw": 28589,
+     "cr": 137074,
+     "out": 22891
+    },
+    "calls": 6,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 163911,
+    "usd": 0.82,
+    "checks": 4,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 3,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 32,
+    "annotated": 32,
+    "new_annotated": 32,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 71,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "times-28422",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 114,
+    "total_s": 117,
+    "usage": {
+     "in": 10,
+     "cw": 16950,
+     "cr": 88941,
+     "out": 11595
+    },
+    "calls": 5,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 88067,
+    "usd": 0.44,
+    "checks": 3,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 2,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 30,
+    "annotated": 30,
+    "new_annotated": 30,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 68,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "cryptic-29076",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 147,
+    "total_s": 149,
+    "usage": {
+     "in": 10,
+     "cw": 18164,
+     "cr": 90241,
+     "out": 11933
+    },
+    "calls": 5,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 91404,
+    "usd": 0.457,
+    "checks": 3,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 2,
+    "check_retries": 2,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 27,
+    "annotated": 27,
+    "new_annotated": 27,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 59,
+     "disagree": 1,
+     "which": {
+      "definition": [
+       "22-down"
+      ]
+     }
+    }
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "independent-11519",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 208,
+    "total_s": 216,
+    "resumed": true,
+    "usage": {
+     "in": 12,
+     "cw": 46552,
+     "cr": 116964,
+     "out": 18452
+    },
+    "calls": 7,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 162158,
+    "usd": 0.811,
+    "checks": 3,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 2,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 32,
+    "annotated": 32,
+    "new_annotated": 32,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 35,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "telegraph-30749",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 165,
+    "total_s": 170,
+    "resumed": true,
+    "usage": {
+     "in": 10,
+     "cw": 20699,
+     "cr": 88709,
+     "out": 13321
+    },
+    "calls": 6,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 101360,
+    "usd": 0.507,
+    "checks": 3,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 2,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 32,
+    "annotated": 31,
+    "new_annotated": 31,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 75,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "azed-2633",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 168,
+    "total_s": 172,
+    "usage": {
+     "in": 8,
+     "cw": 22081,
+     "cr": 69056,
+     "out": 17365
+    },
+    "calls": 4,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 121340,
+    "usd": 0.607,
+    "checks": 2,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 36,
+    "annotated": 36,
+    "new_annotated": 36,
+    "answers_changed": 0,
+    "blog": null
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "quiptic-425",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 129,
+    "total_s": 145,
+    "usage": {
+     "in": 8,
+     "cw": 16403,
+     "cr": 63397,
+     "out": 12345
+    },
+    "calls": 4,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 88576,
+    "usd": 0.443,
+    "checks": 2,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 28,
+    "annotated": 28,
+    "new_annotated": 28,
+    "answers_changed": 0,
+    "blog": null
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "sundaytel-2772",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 125,
+    "total_s": 146,
+    "usage": {
+     "in": 8,
+     "cw": 16510,
+     "cr": 63053,
+     "out": 11278
+    },
+    "calls": 4,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 83341,
+    "usd": 0.417,
+    "checks": 2,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 30,
+    "annotated": 30,
+    "new_annotated": 30,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 69,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "book-1005",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 151,
+    "total_s": 164,
+    "usage": {
+     "in": 8,
+     "cw": 21536,
+     "cr": 60543,
+     "out": 17166
+    },
+    "calls": 4,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 118812,
+    "usd": 0.594,
+    "checks": 2,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 29,
+    "annotated": 28,
+    "new_annotated": 28,
+    "answers_changed": 0,
+    "blog": null
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "genius-157",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 200,
+    "total_s": 210,
+    "usage": {
+     "in": 12,
+     "cw": 21861,
+     "cr": 114356,
+     "out": 14690
+    },
+    "calls": 6,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 112224,
+    "usd": 0.561,
+    "checks": 2,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 26,
+    "annotated": 26,
+    "new_annotated": 26,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 44,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "timesquick-2454",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 117,
+    "total_s": 130,
+    "usage": {
+     "in": 8,
+     "cw": 12722,
+     "cr": 59888,
+     "out": 8920
+    },
+    "calls": 4,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 66499,
+    "usd": 0.332,
+    "checks": 2,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 26,
+    "annotated": 26,
+    "new_annotated": 26,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 50,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "toughie-3206",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 131,
+    "total_s": 134,
+    "usage": {
+     "in": 8,
+     "cw": 19539,
+     "cr": 65436,
+     "out": 13283
+    },
+    "calls": 4,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 97390,
+    "usd": 0.487,
+    "checks": 2,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 28,
+    "annotated": 27,
+    "new_annotated": 27,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 35,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "ftcryptic-17781",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 216,
+    "total_s": 226,
+    "usage": {
+     "in": 14,
+     "cw": 24106,
+     "cr": 139192,
+     "out": 16406
+    },
+    "calls": 7,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 126096,
+    "usd": 0.63,
+    "checks": 3,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 2,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 29,
+    "annotated": 29,
+    "new_annotated": 29,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 79,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "times-28420",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 180,
+    "total_s": 183,
+    "usage": {
+     "in": 10,
+     "cw": 21846,
+     "cr": 98830,
+     "out": 15718
+    },
+    "calls": 5,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 115790,
+    "usd": 0.579,
+    "checks": 3,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 2,
+    "check_retries": 2,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 28,
+    "annotated": 28,
+    "new_annotated": 28,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 69,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "cryptic-29075",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 132,
+    "total_s": 141,
+    "usage": {
+     "in": 8,
+     "cw": 17778,
+     "cr": 65369,
+     "out": 12949
+    },
+    "calls": 4,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 93512,
+    "usd": 0.468,
+    "checks": 2,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 33,
+    "annotated": 32,
+    "new_annotated": 32,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 78,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "independent-11518",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 113,
+    "total_s": 115,
+    "usage": {
+     "in": 8,
+     "cw": 18132,
+     "cr": 64399,
+     "out": 11773
+    },
+    "calls": 4,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 87978,
+    "usd": 0.44,
+    "checks": 2,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 28,
+    "annotated": 28,
+    "new_annotated": 28,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 55,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "telegraph-30748",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 123,
+    "total_s": 129,
+    "usage": {
+     "in": 10,
+     "cw": 17933,
+     "cr": 91359,
+     "out": 12954
+    },
+    "calls": 5,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 96332,
+    "usd": 0.482,
+    "checks": 2,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 30,
+    "annotated": 30,
+    "new_annotated": 30,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 8,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "azed-2552",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 233,
+    "total_s": 239,
+    "usage": {
+     "in": 20,
+     "cw": 28823,
+     "cr": 211837,
+     "out": 19652
+    },
+    "calls": 10,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 155492,
+    "usd": 0.777,
+    "checks": 2,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 36,
+    "annotated": 36,
+    "new_annotated": 36,
+    "answers_changed": 0,
+    "blog": null
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "quiptic-424",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 131,
+    "total_s": 143,
+    "usage": {
+     "in": 10,
+     "cw": 16998,
+     "cr": 88914,
+     "out": 11734
+    },
+    "calls": 5,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 88819,
+    "usd": 0.444,
+    "checks": 2,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 30,
+    "annotated": 30,
+    "new_annotated": 30,
+    "answers_changed": 0,
+    "blog": null
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "sundaytel-2771",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 149,
+    "total_s": 175,
+    "usage": {
+     "in": 8,
+     "cw": 16590,
+     "cr": 64113,
+     "out": 11669
+    },
+    "calls": 4,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 85502,
+    "usd": 0.428,
+    "checks": 2,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 28,
+    "annotated": 28,
+    "new_annotated": 28,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 49,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "book-16012",
+    "rc": 0,
+    "finish_rc": 2,
+    "run_s": 275,
+    "total_s": 456,
+    "usage": {
+     "in": 38,
+     "cw": 35853,
+     "cr": 617349,
+     "out": 20822
+    },
+    "calls": 19,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 210699,
+    "usd": 1.053,
+    "checks": 9,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 4,
+    "check_retries": 8,
+    "ended_clean": false,
+    "fix_run": true,
+    "shipped": false,
+    "discarded": false,
+    "clues": 32,
+    "annotated": 0,
+    "new_annotated": 0,
+    "answers_changed": 2
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "genius-142",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 311,
+    "total_s": 324,
+    "usage": {
+     "in": 32,
+     "cw": 34206,
+     "cr": 489187,
+     "out": 21440
+    },
+    "calls": 16,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 198908,
+    "usd": 0.995,
+    "checks": 4,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 3,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 29,
+    "annotated": 29,
+    "new_annotated": 29,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 17,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "timesquick-2453",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 176,
+    "total_s": 202,
+    "usage": {
+     "in": 8,
+     "cw": 14269,
+     "cr": 61505,
+     "out": 9628
+    },
+    "calls": 4,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 72135,
+    "usd": 0.361,
+    "checks": 2,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 24,
+    "annotated": 24,
+    "new_annotated": 24,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 55,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "toughie-3205",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 207,
+    "total_s": 222,
+    "usage": {
+     "in": 14,
+     "cw": 20694,
+     "cr": 134234,
+     "out": 14063
+    },
+    "calls": 7,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 109620,
+    "usd": 0.548,
+    "checks": 3,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 2,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 28,
+    "annotated": 28,
+    "new_annotated": 28,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 37,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "ftcryptic-17780",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 152,
+    "total_s": 163,
+    "usage": {
+     "in": 8,
+     "cw": 16899,
+     "cr": 64324,
+     "out": 11818
+    },
+    "calls": 4,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 86654,
+    "usd": 0.433,
+    "checks": 2,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 30,
+    "annotated": 30,
+    "new_annotated": 30,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 60,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "times-28419",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 188,
+    "total_s": 208,
+    "usage": {
+     "in": 10,
+     "cw": 18663,
+     "cr": 82549,
+     "out": 13068
+    },
+    "calls": 5,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 96934,
+    "usd": 0.485,
+    "checks": 2,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 32,
+    "annotated": 32,
+    "new_annotated": 32,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 60,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "cryptic-29074",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 183,
+    "total_s": 194,
+    "usage": {
+     "in": 14,
+     "cw": 25484,
+     "cr": 148515,
+     "out": 15702
+    },
+    "calls": 7,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 125230,
+    "usd": 0.626,
+    "checks": 2,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 28,
+    "annotated": 27,
+    "new_annotated": 27,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 70,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "independent-11517",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 147,
+    "total_s": 173,
+    "usage": {
+     "in": 8,
+     "cw": 19583,
+     "cr": 67257,
+     "out": 14051
+    },
+    "calls": 4,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 101467,
+    "usd": 0.507,
+    "checks": 2,
+    "first_check_clean": false,
+    "first_check_spotless": false,
+    "check_errors": 1,
+    "check_retries": 1,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 30,
+    "annotated": 30,
+    "new_annotated": 30,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 29,
+     "disagree": 0,
+     "which": {}
+    }
+   },
+   {
+    "arm": "opus_low",
+    "model": "opus",
+    "effort": "low",
+    "id": "telegraph-30747",
+    "rc": 0,
+    "finish_rc": 0,
+    "run_s": 259,
+    "total_s": 267,
+    "usage": {
+     "in": 12,
+     "cw": 30427,
+     "cr": 135131,
+     "out": 24659
+    },
+    "calls": 6,
+    "model_id": "claude-opus-5-5",
+    "eq_tokens": 174854,
+    "usd": 0.874,
+    "checks": 3,
+    "first_check_clean": true,
+    "first_check_spotless": false,
+    "check_errors": 0,
+    "check_retries": 2,
+    "ended_clean": true,
+    "fix_run": false,
+    "shipped": true,
+    "discarded": false,
+    "clues": 32,
+    "annotated": 32,
+    "new_annotated": 32,
+    "answers_changed": 0,
+    "blog": {
+     "compared": 48,
+     "disagree": 0,
+     "which": {}
+    }
+   }
+  ]
+ }
 }
