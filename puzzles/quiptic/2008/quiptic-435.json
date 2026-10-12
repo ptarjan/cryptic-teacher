@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,61 @@
      }
     ]
    },
-   "solution": "BASERATE"
+   "solution": "BASERATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BASE RATE",
+    "definitions": [
+     {
+      "text": "level of interest",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to how the following word begins, so only its opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Graduates",
+      "gives": "BAS",
+      "note": "BAs are Bachelors of Arts, graduates"
+     },
+     {
+      "clueFragment": "employed",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter of employed"
+     },
+     {
+      "clueFragment": "to assess",
+      "gives": "RATE",
+      "note": "to rate something is to assess it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAS",
+      "E",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions about how to value a level of interest, with graduates hired to do the assessing.",
+     "definitionFit": "The base rate is the central bank's benchmark lending figure that sets the general level of interest charged."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Graduates"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +110,45 @@
     "text": "Venerable old monk said part of the rosary",
     "enumeration": "4"
    },
-   "solution": "BEAD"
+   "solution": "BEAD",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BEAD",
+    "definitions": [
+     {
+      "text": "part of the rosary",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said",
+      "for": "homophone",
+      "note": "said tells us to go by how the monk's name is spoken, not how it is written"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Venerable old monk",
+      "gives": "BEAD",
+      "soundsLike": "BEDE",
+      "note": "the Venerable Bede was an Anglo-Saxon monk and historian"
+     }
+    ],
+    "explanation": {
+     "surface": "An ancient monk reciting a section of his rosary prayers.",
+     "walkthrough": "'Part of the rosary' could be a prayer, but it is a physical bead on the string.",
+     "definitionFit": "A rosary is a string of beads, each one counted off during a prayer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "said"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +162,67 @@
     "text": "Eric's mad about the French lady",
     "enumeration": "6"
    },
-   "solution": "CLAIRE"
+   "solution": "CLAIRE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CLAIRE",
+    "definitions": [
+     {
+      "text": "lady",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mad",
+      "for": "anagram",
+      "note": "something mad is deranged, so the letters of the name are thrown into disorder"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round, so the jumbled name wraps around the French article"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eric's",
+      "gives": "ERIC",
+      "note": "the name supplies the letters to be rearranged"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LA",
+      "note": "la is French for the (feminine)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LA",
+      "IRE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ERIC",
+       "gives": "CIRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Eric is angry about some French woman.",
+     "walkthrough": "'The French' points to a French word for 'the', and the jumbled name opens up after one letter to take it in.",
+     "definitionFit": "Claire is a woman's given name, so it is an example of a lady."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mad"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +236,51 @@
     "text": "Enemy contaminated the soil",
     "enumeration": "7"
    },
-   "solution": "HOSTILE"
+   "solution": "HOSTILE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HOSTILE",
+    "definitions": [
+     {
+      "text": "Enemy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contaminated",
+      "for": "anagram",
+      "note": "contaminated soil has been disturbed and spoiled, so its letters are mixed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the soil",
+      "gives": "THESOIL",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THESOIL",
+       "gives": "HOSTILE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An enemy force poisoned the ground.",
+     "walkthrough": "Enemy is read as an adjective, as in enemy aircraft.",
+     "definitionFit": "Used adjectivally, enemy means belonging to the opposing side, which is what hostile forces are."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Enemy"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +294,43 @@
     "text": "Labourer's wild punch",
     "enumeration": "8"
    },
-   "solution": "HAYMAKER"
+   "solution": "HAYMAKER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HAYMAKER",
+    "definitions": [
+     {
+      "text": "Labourer's",
+      "at": 0
+     },
+     {
+      "text": "wild punch",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Labourer's",
+      "note": "first meaning: a farm worker who makes hay; the 's is read as 'is'"
+     },
+     {
+      "clueFragment": "wild punch",
+      "note": "second meaning: a wide, swinging blow in boxing"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The 's looks possessive, but it stands for 'is', linking the two meanings.",
+     "definitionFit": "The word names both a farmhand cutting and drying grass and a big swinging fist thrown in a fight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Labourer's"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +344,49 @@
     "text": "Lyrics have value for poet",
     "enumeration": "10"
    },
-   "solution": "WORDSWORTH"
+   "solution": "WORDSWORTH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WORDSWORTH",
+    "definitions": [
+     {
+      "text": "poet",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lyrics",
+      "gives": "WORDS",
+      "note": "the lyrics of a song are its words"
+     },
+     {
+      "clueFragment": "have value",
+      "gives": "WORTH",
+      "note": "to have value is to have worth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WORDS",
+      "WORTH"
+     ]
+    },
+    "explanation": {
+     "surface": "Song lyrics are worth something to a poet.",
+     "definitionFit": "William Wordsworth was the English Romantic poet of the Lake District."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lyrics"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +400,61 @@
     "text": "Henry hates fluttering butterflies",
     "enumeration": "6"
    },
-   "solution": "HEATHS"
+   "solution": "HEATHS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "HEATHS",
+    "definitions": [
+     {
+      "text": "butterflies",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fluttering",
+      "for": "anagram",
+      "note": "fluttering is restless movement, so the letters flit into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Henry",
+      "gives": "H",
+      "note": "H is the symbol for the henry, the unit of inductance"
+     },
+     {
+      "clueFragment": "hates",
+      "gives": "HATES",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "EATHS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HATES",
+       "gives": "EATHS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Henry loathes butterflies flapping about.",
+     "walkthrough": "Fluttering seems to describe the butterflies, but it works on the word before it.",
+     "definitionFit": "Heaths are a group of small brown butterflies, such as the small heath and large heath."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fluttering"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +468,64 @@
     "text": "Washington injured looter in battle",
     "enumeration": "8"
    },
-   "solution": "WATERLOO"
+   "solution": "WATERLOO",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "WATERLOO",
+    "definitions": [
+     {
+      "text": "battle",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "injured",
+      "for": "anagram",
+      "note": "something injured is damaged and bent out of shape, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Washington",
+      "gives": "WA",
+      "note": "WA is the postal abbreviation for the US state of Washington"
+     },
+     {
+      "clueFragment": "looter",
+      "gives": "LOOTER",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WA",
+      "TERLOO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOOTER",
+       "gives": "TERLOO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "George Washington hurt a plunderer during a battle.",
+     "walkthrough": "Washington suggests the general, but only its abbreviation is used.",
+     "definitionFit": "Waterloo, in 1815, was the battle where Napoleon was finally defeated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Washington"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +539,52 @@
     "text": "A fuss about love",
     "enumeration": "5"
    },
-   "solution": "ADORE"
+   "solution": "ADORE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADORE",
+    "definitions": [
+     {
+      "text": "love",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fuss",
+      "gives": "DO",
+      "note": "a do is a fuss or commotion"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DO",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "Making a song and dance over romance.",
+     "definitionFit": "To adore someone is to love them deeply; both are verbs of strong affection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +598,54 @@
     "text": "Imprisoned soldier leaving Afghan province",
     "enumeration": "4"
    },
-   "solution": "HELD"
+   "solution": "HELD",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HELD",
+    "definitions": [
+     {
+      "text": "Imprisoned",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "leaving means departing, so that word walks out of the place name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldier",
+      "gives": "MAN",
+      "note": "a man is a private soldier"
+     },
+     {
+      "clueFragment": "Afghan province",
+      "gives": "HELMAND",
+      "note": "Helmand is a province in southern Afghanistan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEL",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier held captive as troops pull out of an Afghan province.",
+     "walkthrough": "Take MAN out of the middle of HELMAND.",
+     "definitionFit": "Someone imprisoned is held in custody, kept captive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leaving"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +659,56 @@
     "text": "Pal's hidden identity causing dismay",
     "enumeration": "10"
    },
-   "solution": "INTIMIDATE"
+   "solution": "INTIMIDATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INTIMIDATE",
+    "definitions": [
+     {
+      "text": "causing dismay",
+      "at": 22,
+      "note": "a participial phrase standing for an adjective-like verb; intimidate means cause dismay"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hidden",
+      "for": "container",
+      "note": "a thing hidden is tucked inside something else, so the abbreviation sits within the word for pal"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pal's",
+      "gives": "INTIMATE",
+      "note": "an intimate is a close friend; the 's reads as 'has'"
+     },
+     {
+      "clueFragment": "identity",
+      "gives": "ID",
+      "note": "ID is short for identity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTIM",
+      "ID",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A friend has a secret identity, which is upsetting.",
+     "walkthrough": "Hidden here does not mean the answer is spelled inside the clue; it signals one piece placed inside another.",
+     "definitionFit": "To intimidate is to frighten or daunt, which is to cause dismay in someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hidden"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +722,60 @@
     "text": "Hangman, perhaps, approaches the empty cell",
     "enumeration": "6"
    },
-   "solution": "GAMETE"
+   "solution": "GAMETE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "GAMETE",
+    "definitions": [
+     {
+      "text": "cell",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "emptying a word removes its insides, leaving only the outside pair of letters"
+     }
+    ],
+    "linkWords": [
+     "approaches"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hangman, perhaps",
+      "gives": "GAME",
+      "note": "hangman is an example of a word game"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "TE",
+      "select": "outer",
+      "note": "the outer letters of the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAME",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A prison executioner walks up to an unoccupied cell.",
+     "walkthrough": "The hangman and cell suggest a prison; hangman is the pencil-and-paper game, and the cell is biological.",
+     "definitionFit": "A gamete is a reproductive cell, such as a sperm or egg."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Hangman"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +795,51 @@
      }
     ]
    },
-   "solution": "EVENNUMBER"
+   "solution": "EVENNUMBER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EVEN NUMBER",
+    "definitions": [
+     {
+      "text": "four, say",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Square",
+      "gives": "EVEN",
+      "note": "all square means level, even"
+     },
+     {
+      "clueFragment": "two, say",
+      "gives": "NUMBER",
+      "note": "two is an example of a number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVEN",
+      "NUMBER"
+     ]
+    },
+    "explanation": {
+     "surface": "An arithmetic sum: square two to get four.",
+     "walkthrough": "The surface is maths, and two squared really is four; but square here means level, not multiplied by itself.",
+     "definitionFit": "Four is divisible by two, making it an example of an even number."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Square"
+    }
+   }
   },
   {
    "number": 14,
@@ -227,7 +853,60 @@
     "text": "\"Fifty-one weeks I worked\". \"Same here!\"",
     "enumeration": "8"
    },
-   "solution": "LIKEWISE"
+   "solution": "LIKEWISE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "LIKEWISE",
+    "definitions": [
+     {
+      "text": "Same here!",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worked",
+      "for": "anagram",
+      "note": "worked means kneaded or manipulated, so these letters are reshaped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fifty-one",
+      "gives": "LI",
+      "note": "LI is 51 in Roman numerals"
+     },
+     {
+      "clueFragment": "weeks I",
+      "gives": "WEEKSI",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "KEWISE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WEEKSI",
+       "gives": "KEWISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "One worker says they slogged for nearly a year; another replies that they did too.",
+     "definitionFit": "Likewise is an interjection agreeing that the same applies to the speaker, just as 'same here' does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "worked"
+    }
+   }
   },
   {
    "number": 15,
@@ -241,7 +920,73 @@
     "text": "Exposes slaver returning to capture last of tribe",
     "enumeration": "7"
    },
-   "solution": "REVEALS"
+   "solution": "REVEALS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "REVEALS",
+    "definitions": [
+     {
+      "text": "Exposes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so the word is read from right to left"
+     },
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "last of asks for the closing letter of the following word"
+     },
+     {
+      "text": "to capture",
+      "for": "container",
+      "note": "to capture is to take prisoner, so the reversed word holds the single letter inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slaver",
+      "gives": "SLAVER",
+      "note": "taken as written, then turned round"
+     },
+     {
+      "clueFragment": "tribe",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter of tribe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REV",
+      "E",
+      "ALS"
+     ],
+     "reversals": [
+      {
+       "from": "SLAVER",
+       "to": "REVALS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slave trader comes back to seize the final member of a tribe, and is exposed.",
+     "definitionFit": "To reveal something is to uncover it, which is what exposing does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "returning"
+    }
+   }
   },
   {
    "number": 16,
@@ -255,7 +1000,43 @@
     "text": "An emotional Evita tearfully described rise",
     "enumeration": "8"
    },
-   "solution": "LEVITATE"
+   "solution": "LEVITATE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LEVITATE",
+    "definitions": [
+     {
+      "text": "rise",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "described",
+      "for": "hidden_word",
+      "note": "described is taken as 'contained in the description', so the letters lie within the run of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "emotional Evita tearfully",
+      "gives": "LEVITATE",
+      "note": "the run of letters spans the end of one word, all of the next, and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A weeping Eva Peron recounted her rise to power.",
+     "walkthrough": "'Rise' sounds like Evita's political ascent; here it means to float upwards.",
+     "definitionFit": "To levitate is to rise into the air, apparently defying gravity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "described"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1056,55 @@
      }
     ]
    },
-   "solution": "PRORATA"
+   "solution": "PRORATA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PRO RATA",
+    "definitions": [
+     {
+      "text": "in proportion",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "deformed",
+      "for": "anagram",
+      "note": "deformed means pushed out of its proper shape, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A parrot",
+      "gives": "APARROT",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "APARROT",
+       "gives": "PRORATA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A misshapen parrot that is nevertheless well proportioned.",
+     "walkthrough": "The surface contrasts deformed with in proportion; the contrast is the joke.",
+     "definitionFit": "Pro rata is Latin for 'according to the rate', meaning shared in proportion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "deformed"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1118,62 @@
     "text": "Planner finally creates new rows of houses",
     "enumeration": "8"
    },
-   "solution": "TERRACES"
+   "solution": "TERRACES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "TERRACES",
+    "definitions": [
+     {
+      "text": "rows of houses",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end of the word before it, keeping just its closing letter"
+     },
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "new suggests a fresh version, so the letters are formed into a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Planner",
+      "gives": "R",
+      "select": "last",
+      "note": "last letter of planner"
+     },
+     {
+      "clueFragment": "creates",
+      "gives": "CREATES",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RCREATES",
+       "gives": "TERRACES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A town planner at last builds fresh streets of housing.",
+     "definitionFit": "A terrace is a row of joined houses, so terraces are rows of houses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Planner"
+    }
+   }
   },
   {
    "number": 19,
@@ -303,7 +1187,58 @@
     "text": "Small girl meets Queen and Princess in southern state",
     "enumeration": "7"
    },
-   "solution": "FLORIDA"
+   "solution": "FLORIDA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLORIDA",
+    "definitions": [
+     {
+      "text": "southern state",
+      "at": 39
+     }
+    ],
+    "linkWords": [
+     "meets",
+     "and",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small girl",
+      "gives": "FLO",
+      "note": "Flo is a short form of the name Florence"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "R",
+      "note": "R for Regina, Latin for queen"
+     },
+     {
+      "clueFragment": "Princess",
+      "gives": "IDA",
+      "note": "Princess Ida is the Gilbert and Sullivan opera heroine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLO",
+      "R",
+      "IDA"
+     ]
+    },
+    "explanation": {
+     "surface": "A little girl meets royalty somewhere in the American South.",
+     "walkthrough": "Small means a shortened name, not a young child. Princess usually gives DI; here it is IDA, from Gilbert and Sullivan.",
+     "definitionFit": "Florida is the US state at the far south-eastern tip of the country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Small"
+    }
+   }
   },
   {
    "number": 20,
@@ -317,7 +1252,54 @@
     "text": "Four taking part in lecherous revelry",
     "enumeration": "8"
    },
-   "solution": "CARNIVAL"
+   "solution": "CARNIVAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CARNIVAL",
+    "definitions": [
+     {
+      "text": "revelry",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking part in",
+      "for": "container",
+      "note": "taking part in means joining from inside, so the numeral goes within the word for lecherous"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lecherous",
+      "gives": "CARNAL",
+      "note": "carnal means of the flesh, lustful"
+     },
+     {
+      "clueFragment": "Four",
+      "gives": "IV",
+      "note": "IV is four in Roman numerals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARN",
+      "IV",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A foursome joining in some lustful partying.",
+     "definitionFit": "A carnival is a public festival of merrymaking, which is revelry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Four"
+    }
+   }
   },
   {
    "number": 21,
@@ -331,7 +1313,46 @@
     "text": "Hostile American lines",
     "enumeration": "6"
    },
-   "solution": "AVERSE"
+   "solution": "AVERSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AVERSE",
+    "definitions": [
+     {
+      "text": "Hostile",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "lines",
+      "gives": "VERSE",
+      "note": "verse is poetry, written in lines"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "VERSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Antagonistic lines of poetry from the United States.",
+     "definitionFit": "Averse means opposed or strongly disinclined, as hostile does in 'hostile to change'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lines"
+    }
+   }
   },
   {
    "number": 22,
@@ -345,7 +1366,44 @@
     "text": "Mother sometimes going without rest",
     "enumeration": "6"
    },
-   "solution": "OTHERS"
+   "solution": "OTHERS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OTHERS",
+    "definitions": [
+     {
+      "text": "rest",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going without",
+      "for": "hidden_word",
+      "note": "going without means doing without something, so the outer parts of the phrase are dropped and the inside kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mother sometimes",
+      "gives": "OTHERS",
+      "note": "the letters run from the second of the first word into the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A mother who now and then gets no sleep.",
+     "walkthrough": "'Rest' looks like sleep; it means the remainder.",
+     "definitionFit": "The rest, meaning the remaining people or things, are the others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rest"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1417,60 @@
     "text": "Goes round Bristol, almost lost",
     "enumeration": "6"
    },
-   "solution": "ORBITS"
+   "solution": "ORBITS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ORBITS",
+    "definitions": [
+     {
+      "text": "Goes round",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the city's final letter is cut off"
+     },
+     {
+      "text": "lost",
+      "for": "anagram",
+      "note": "something lost has gone astray, so the letters wander into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bristol",
+      "gives": "BRISTOL",
+      "note": "Bristol is a city in south-west England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORBITS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BRISTO",
+       "gives": "ORBITS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone circles Bristol, nearly losing their way.",
+     "walkthrough": "'Goes round' fits a lost driver circling the city, and also defines the answer.",
+     "definitionFit": "To orbit is to circle around something, as a satellite circles a planet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lost"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1490,48 @@
      }
     ]
    },
-   "solution": "HERMITCRAB"
+   "solution": "HERMITCRAB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HERMIT CRAB",
+    "definitions": [
+     {
+      "text": "one who wears castoffs",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ascetic",
+      "gives": "HERMIT",
+      "note": "a hermit lives an ascetic life of solitude and self-denial"
+     },
+     {
+      "clueFragment": "sour-tempered chap",
+      "gives": "CRAB",
+      "note": "a crab is a crabby, bad-tempered person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HERMIT",
+      "CRAB"
+     ]
+    },
+    "explanation": {
+     "surface": "A grumpy, austere man who dresses in second-hand clothes.",
+     "walkthrough": "The castoffs sound like old clothes; they are shells discarded by other creatures.",
+     "definitionFit": "A hermit crab protects its soft body by living in empty shells abandoned by other molluscs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "castoffs"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1545,55 @@
     "text": "Pole hits back",
     "enumeration": "4"
    },
-   "solution": "SPAR"
+   "solution": "SPAR",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SPAR",
+    "definitions": [
+     {
+      "text": "Pole",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means backwards, so the word for hits is read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hits",
+      "gives": "RAPS",
+      "note": "raps are sharp knocks or hits"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPAR"
+     ],
+     "reversals": [
+      {
+       "from": "RAPS",
+       "to": "SPAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Polish person strikes back.",
+     "walkthrough": "Pole looks like a nationality; it is a long rod.",
+     "definitionFit": "A spar is a stout pole, such as a mast or boom on a ship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pole"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1607,46 @@
     "text": "Woman married Noah's son",
     "enumeration": "4"
    },
-   "solution": "SHEM"
+   "solution": "SHEM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHEM",
+    "definitions": [
+     {
+      "text": "Noah's son",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Woman",
+      "gives": "SHE",
+      "note": "she is the pronoun for a woman"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the abbreviation for married"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHE",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman wed one of Noah's sons.",
+     "definitionFit": "In Genesis, Shem is one of the three sons of Noah, with Ham and Japheth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "married"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1660,58 @@
     "text": "Holy man without shelter in bad weather",
     "enumeration": "5"
    },
-   "solution": "SLEET"
+   "solution": "SLEET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SLEET",
+    "definitions": [
+     {
+      "text": "bad weather",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without is used in its old sense of outside, so the saint goes around the shelter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Holy man",
+      "gives": "ST",
+      "note": "St is the abbreviation for saint"
+     },
+     {
+      "clueFragment": "shelter",
+      "gives": "LEE",
+      "note": "the lee is the sheltered side, away from the wind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LEE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A holy man caught without cover in a storm.",
+     "walkthrough": "Without seems to mean lacking, but here it means outside.",
+     "definitionFit": "Sleet is a mix of rain and snow or ice pellets, a kind of bad weather."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1725,61 @@
     "text": "Princess's partial expression of sympathy initially reassured faint heart",
     "enumeration": "8"
    },
-   "solution": "DITHERER"
+   "solution": "DITHERER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DITHERER",
+    "definitions": [
+     {
+      "text": "faint heart",
+      "at": 62
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the start of the word before it, keeping just its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Princess's",
+      "gives": "DI",
+      "note": "Di is Princess Diana; the 's joins it to the next piece"
+     },
+     {
+      "clueFragment": "partial expression of sympathy",
+      "gives": "THERE",
+      "note": "'there, there' is a soothing phrase; partial means only half of it"
+     },
+     {
+      "clueFragment": "reassured",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of reassured"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "THERE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A princess half-comforts a timid soul, mostly reassuring them.",
+     "definitionFit": "A faint heart is a timid, irresolute person, and a ditherer is someone who cannot make up their mind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "partial"
+    }
+   }
   }
  ]
 }
