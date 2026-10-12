@@ -5,7 +5,9 @@ desktop Paul games on, and even at idle priority they froze his game for
 seconds at a time. busy(hosts) says why the desktop is busy, or None. It is
 busy while
 
-- a game runs there (GAMES, by process name), or
+- a game runs there: GAMES by process name, or any process run from a
+  GAME_DIRS folder (Paul installs his games on D:, so a small one that
+  barely touches the GPU, like Mina the Hollower, still counts), or
 - its 3D engines are more than GPU_3D percent busy, summed over every
   process but VLM_SERVERS (llama-server's CUDA work shows there as 3D).
 
@@ -32,6 +34,10 @@ DESKTOPS = ("100.68.145.15", "192.168.1.198")
 USER = "micro"
 #: World of Warcraft's builds (retail, Classic, and their test clients).
 GAMES = ("Wow", "WowClassic", "WowT", "WowB", "WowClassicT", "WowClassicB")
+#: Folders whose programs are games, and those inside them that are not
+#: (D:\\llm holds the VLM's llama-server).
+GAME_DIRS = ("D:\\",)
+NOT_GAME_DIRS = ("D:\\llm\\", "D:\\Guilds-of-WoW-Addon\\")
 #: Summed 3D utilisation, in percent, above which some other game is running.
 GPU_3D = 20
 #: The VLM's processes (tools/vlm_reader.py), whose 3D load is our own work.
@@ -54,7 +60,11 @@ def probe(host):
     """The desktop's reading {"games", "gpu3d", "serving", "freeMB"} over ssh to
     `host`, or None when it does not answer one."""
     script = ("$Names = " + ", ".join(f"'{g}'" for g in GAMES) + "\n"
-              + "$Vlm = " + ", ".join(f"'{v}'" for v in VLM_SERVERS) + "\n" + PROBE.read_text())
+              + "$GameDirs = " + ", ".join(f"'{d}'" for d in GAME_DIRS) + "\n"
+              + "$NotGameDirs = " + ", ".join(f"'{d}'" for d in NOT_GAME_DIRS) + "\n"
+              + "$Vlm = " + ", ".join(f"'{v}'" for v in VLM_SERVERS) + "\n"
+              # Comments dropped: the encoded script rides one cmd line, 8191 characters at most.
+              + "\n".join(l for l in PROBE.read_text().splitlines() if not l.lstrip().startswith("#")))
     enc = base64.b64encode(script.encode("utf-16-le")).decode()
     try:
         cmd = f'start "" /low /b /wait powershell -NoProfile -NonInteractive -EncodedCommand {enc}'

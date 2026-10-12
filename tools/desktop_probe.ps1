@@ -1,5 +1,5 @@
 # What tools/desktop_busy.py decides on, as one JSON line: the game processes
-# running ($Names, set by the caller), the 3D engines' utilisation summed over
+# running ($Names, and anything run from $GameDirs but not $NotGameDirs, set by the caller), the 3D engines' utilisation summed over
 # every process but the VLM's ($Vlm, set by the caller: llama-server's
 # CUDA work shows on the 3D engines, 50-1700% summed) and our OCR's, averaged
 # over three one-second samples, the pids of the OCR sessions
@@ -7,6 +7,10 @@
 # running here, and the free physical memory in MB.
 $ProgressPreference = 'SilentlyContinue'
 $games = @(Get-Process -Name $Names -ErrorAction SilentlyContinue | ForEach-Object { $_.Name })
+# Any program run from a game folder ($GameDirs, less $NotGameDirs) is a game too.
+$games += @(Get-Process -ErrorAction SilentlyContinue | Where-Object {
+    $p = $_.Path; $p -and ($GameDirs | Where-Object { $p.StartsWith($_, 'OrdinalIgnoreCase') }) -and
+    -not ($NotGameDirs | Where-Object { $p.StartsWith($_, 'OrdinalIgnoreCase') }) } | ForEach-Object { $_.Name })
 $serving = @(Get-CimInstance Win32_Process -Filter "Name='python.exe' AND (CommandLine LIKE '%ocr_remote.py serve%' OR CommandLine LIKE '%ocr_gpu.py serve%')" | ForEach-Object { $_.ProcessId })
 $ours = @(Get-Process -Name $Vlm -ErrorAction SilentlyContinue | ForEach-Object { "pid_$($_.Id)_" }) + @($serving | ForEach-Object { "pid_$($_)_" })
 $sets = @(Get-Counter '\GPU Engine(*engtype_3D)\Utilization Percentage' -SampleInterval 1 -MaxSamples 3 -ErrorAction SilentlyContinue)
