@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,65 @@
     "text": "Exterior of empty cafeteria in decline",
     "enumeration": "6"
    },
-   "solution": "FACADE"
+   "solution": "FACADE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "FACADE",
+    "definitions": [
+     {
+      "text": "Exterior",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "an emptied word has lost its contents, leaving only its first and last letters"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece sits in the other, so the second word wraps around the first"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "decline",
+      "gives": "FADE",
+      "note": "to decline is to fade away"
+     },
+     {
+      "clueFragment": "cafeteria",
+      "gives": "CA",
+      "select": "outer",
+      "note": "only the end letters of the word are kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FA",
+      "CA",
+      "DE"
+     ]
+    },
+    "explanation": {
+     "surface": "The outside of a run-down, deserted cafeteria looks shabby.",
+     "walkthrough": "The two letters go inside FADE after its first letter: F-CA-ADE gives FACADE.",
+     "definitionFit": "A facade is the front face of a building, its outward exterior."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "decline"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +107,62 @@
     "text": "Downy winged creature circling university very loudly",
     "enumeration": "6"
    },
-   "solution": "FLUFFY"
+   "solution": "FLUFFY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FLUFFY",
+    "definitions": [
+     {
+      "text": "Downy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circling",
+      "for": "container",
+      "note": "something circling goes all the way round, so the insect's name surrounds the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "winged creature",
+      "gives": "FLY",
+      "note": "a fly is a winged insect"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the standard abbreviation for university"
+     },
+     {
+      "clueFragment": "very loudly",
+      "gives": "FF",
+      "note": "fortissimo, marked ff in music, means very loudly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FL",
+      "U",
+      "FF",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A soft little insect buzzes loudly round a campus.",
+     "walkthrough": "ff is the musical marking for fortissimo, an instruction to play very loudly.",
+     "definitionFit": "Fluffy and downy both describe something covered in soft fine feathers or hair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "creature"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +176,52 @@
     "text": "Sound from pet barking at a curlew",
     "enumeration": "9"
    },
-   "solution": "CATERWAUL"
+   "solution": "CATERWAUL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CATERWAUL",
+    "definitions": [
+     {
+      "text": "Sound from pet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "barking",
+      "for": "anagram",
+      "note": "barking is British slang for mad, and crazy letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at a curlew",
+      "gives": "ATACURLEW",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATACURLEW",
+       "gives": "CATERWAUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A household dog yaps at a wading bird, a curlew.",
+     "walkthrough": "'Barking' suggests the pet is a dog, but the answer is a cat's noise; barking is just the anagram signal.",
+     "definitionFit": "A caterwaul is the wailing howl a cat makes, so it is a noise from a household animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "barking"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +235,53 @@
     "text": "Agricultural deity encountered among hoofed animals",
     "enumeration": "7"
    },
-   "solution": "DEMETER"
+   "solution": "DEMETER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEMETER",
+    "definitions": [
+     {
+      "text": "Agricultural deity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "among",
+      "for": "container",
+      "note": "being among things means standing in their midst, so one word goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hoofed animals",
+      "gives": "DEER",
+      "note": "deer are hoofed animals"
+     },
+     {
+      "clueFragment": "encountered",
+      "gives": "MET",
+      "note": "encountered means met"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "MET",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A farming goddess runs into a herd of hoofed beasts.",
+     "definitionFit": "Demeter is the Greek goddess of the harvest and grain, the deity of farming."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +295,60 @@
     "text": "Check old boy renovated castle",
     "enumeration": "8"
    },
-   "solution": "OBSTACLE"
+   "solution": "OBSTACLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "OBSTACLE",
+    "definitions": [
+     {
+      "text": "Check",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "renovated",
+      "for": "anagram",
+      "note": "a renovated building has been reworked, so these letters get rebuilt in a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old boy",
+      "gives": "OB",
+      "note": "OB is the abbreviation for old boy, a former pupil"
+     },
+     {
+      "clueFragment": "castle",
+      "gives": "CASTLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "STACLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CASTLE",
+       "gives": "STACLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former pupil restored an old castle.",
+     "definitionFit": "A check is something that halts progress, which is what an obstacle does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Check"
+    }
+   }
   },
   {
    "number": 5,
@@ -108,7 +368,75 @@
      }
     ]
    },
-   "solution": "BARLEYWATER"
+   "solution": "BARLEYWATER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "deletion"
+    ],
+    "answer": "BARLEY WATER",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "setting base down",
+      "for": "anagram",
+      "note": "base is the mathematical constant e, and setting it further down the word shifts that letter one place later"
+     },
+     {
+      "text": "passing",
+      "for": "deletion",
+      "note": "passing something means going by without stopping, so that letter is skipped"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hardly",
+      "gives": "BARELY",
+      "note": "hardly means barely"
+     },
+     {
+      "clueFragment": "server",
+      "gives": "WAITER",
+      "note": "a waiter serves at table"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BARLEY",
+      "WATER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BARELY",
+       "gives": "BARLEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A waiter, barely managing to put down a tray, walks past someone with a drink.",
+     "walkthrough": "Moving the E of BARELY one place down gives BARLEY; WAITER without its I gives WATER. E is the base of natural logarithms.",
+     "definitionFit": "Barley water is a soft drink made by boiling barley, often flavoured with lemon, popular in Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "base"
+    }
+   }
   },
   {
    "number": 6,
@@ -122,7 +450,72 @@
     "text": "Case for racket turned up, sufficient for squash",
     "enumeration": "7"
    },
-   "solution": "TRAMPLE"
+   "solution": "TRAMPLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "TRAMPLE",
+    "definitions": [
+     {
+      "text": "squash",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Case for",
+      "for": "letter_selection",
+      "note": "the case of a word is its outside, so only its outer letters are kept"
+     },
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turning letters up means reading them from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "racket",
+      "gives": "RT",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "sufficient",
+      "gives": "AMPLE",
+      "note": "ample means sufficient"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "AMPLE"
+     ],
+     "reversals": [
+      {
+       "from": "RT",
+       "to": "TR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A racket cover pushed up proves good enough for a game of squash.",
+     "walkthrough": "'Squash' looks like the racket sport, but it is the verb, to crush underfoot.",
+     "definitionFit": "To trample something is to crush or flatten it, which is to squash it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "squash"
+    }
+   }
   },
   {
    "number": 7,
@@ -136,7 +529,50 @@
     "text": "Beam of light hit facial feature on king",
     "enumeration": "5"
    },
-   "solution": "CHINK"
+   "solution": "CHINK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHINK",
+    "definitions": [
+     {
+      "text": "Beam of light",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hit facial feature",
+      "gives": "CHIN",
+      "note": "to chin someone is to punch them on the jaw"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess and card abbreviation for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHIN",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "A boxer lands a punch on a king's jaw.",
+     "walkthrough": "In a down clue 'on' means placed below, so K follows CHIN.",
+     "definitionFit": "A chink of light is a narrow ray that slips through a small gap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hit"
+    }
+   }
   },
   {
    "number": 8,
@@ -150,7 +586,62 @@
     "text": "Remark is penned by established writer",
     "enumeration": "8"
    },
-   "solution": "ESSAYIST"
+   "solution": "ESSAYIST",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ESSAYIST",
+    "definitions": [
+     {
+      "text": "writer",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "penned by",
+      "for": "container",
+      "note": "something penned is shut inside an enclosure, so these words sit within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "established",
+      "gives": "EST",
+      "note": "est. is the abbreviation for established"
+     },
+     {
+      "clueFragment": "Remark",
+      "gives": "SAY",
+      "note": "to remark is to say"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ES",
+      "SAY",
+      "IS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A comment is written down by a well-known author.",
+     "walkthrough": "'Penned' suggests writing, fitting the author, but here it means enclosed as in a pen.",
+     "definitionFit": "An essayist is a writer who composes essays."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "penned"
+    }
+   }
   },
   {
    "number": 9,
@@ -164,7 +655,48 @@
     "text": "Period of operating Muppet film set at regular points",
     "enumeration": "6"
    },
-   "solution": "UPTIME"
+   "solution": "UPTIME",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "UPTIME",
+    "definitions": [
+     {
+      "text": "Period of operating",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at regular points",
+      "for": "letter_selection",
+      "note": "taking letters at regular points means every other letter, at even intervals"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Muppet film set",
+      "gives": "UPTIME",
+      "select": "alternate",
+      "note": "the second, fourth, sixth letters and so on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UPTIME"
+     ]
+    },
+    "explanation": {
+     "surface": "A Muppet movie is shot at set intervals.",
+     "definitionFit": "Uptime is the time a computer or machine spends running, as opposed to downtime."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "points"
+    }
+   }
   },
   {
    "number": 10,
@@ -178,7 +710,58 @@
     "text": "Worry in attempts to make pacts",
     "enumeration": "8"
    },
-   "solution": "TREATIES"
+   "solution": "TREATIES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TREATIES",
+    "definitions": [
+     {
+      "text": "pacts",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one word goes in the other, being enclosed by it"
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attempts",
+      "gives": "TRIES",
+      "note": "attempts are tries"
+     },
+     {
+      "clueFragment": "Worry",
+      "gives": "EAT",
+      "note": "to eat at someone is to worry or trouble them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "EAT",
+      "IES"
+     ]
+    },
+    "explanation": {
+     "surface": "Anxious efforts to strike agreements.",
+     "walkthrough": "'Worry' reads as a noun, but it is the verb: something that eats at you worries you.",
+     "definitionFit": "Treaties are formal agreements between states, that is, pacts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Worry"
+    }
+   }
   },
   {
    "number": 11,
@@ -192,7 +775,68 @@
     "text": "Sample speciality wraps Greek character originally sourced",
     "enumeration": "9"
    },
-   "solution": "FORETASTE"
+   "solution": "FORETASTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "FORETASTE",
+    "definitions": [
+     {
+      "text": "Sample",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wraps",
+      "for": "container",
+      "note": "to wrap something is to surround it, so the first word encloses what follows"
+     },
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to the origin, the opening letter of the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "speciality",
+      "gives": "FORTE",
+      "note": "a forte is someone's speciality"
+     },
+     {
+      "clueFragment": "Greek character",
+      "gives": "ETA",
+      "note": "eta is a letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "sourced",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "ETA",
+      "S",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A specialist dish contains a Greek ingredient from its source.",
+     "definitionFit": "A foretaste is an early sample of something to come."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 12,
@@ -206,7 +850,55 @@
     "text": "Protected Farage in conflict with dudes",
     "enumeration": "11"
    },
-   "solution": "SAFEGUARDED"
+   "solution": "SAFEGUARDED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SAFEGUARDED",
+    "definitions": [
+     {
+      "text": "Protected",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in conflict with",
+      "for": "anagram",
+      "note": "things in conflict are in disorder, so these letters are thrown into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Farage",
+      "gives": "FARAGE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dudes",
+      "gives": "DUDES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FARAGEDUDES",
+       "gives": "SAFEGUARDED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nigel Farage, the British populist politician, gets guarded while clashing with some lads.",
+     "definitionFit": "Safeguarded means kept from harm, which is protected."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "conflict"
+    }
+   }
   },
   {
    "number": 13,
@@ -220,7 +912,48 @@
     "text": "Post Office locker without much room",
     "enumeration": "5"
    },
-   "solution": "POKEY"
+   "solution": "POKEY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POKEY",
+    "definitions": [
+     {
+      "text": "without much room",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Post Office",
+      "gives": "PO",
+      "note": "PO is the abbreviation for Post Office"
+     },
+     {
+      "clueFragment": "locker",
+      "gives": "KEY",
+      "note": "a key is something that locks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "KEY"
+     ]
+    },
+    "explanation": {
+     "surface": "A post office storage locker is cramped.",
+     "walkthrough": "'Locker' looks like a storage cupboard, but it is read as a thing that locks.",
+     "definitionFit": "Pokey describes a room that is small and cramped, with little space."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "locker"
+    }
+   }
   },
   {
    "number": 14,
@@ -244,7 +977,61 @@
      }
     ]
    },
-   "solution": "PAIROFTWEEZERS"
+   "solution": "PAIROFTWEEZERS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PAIR OF TWEEZERS",
+    "definitions": [
+     {
+      "text": "tool for fiddly jobs",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Needing to change",
+      "for": "anagram",
+      "note": "letters that need to change must be put into a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "size",
+      "gives": "SIZE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "after",
+      "gives": "AFTER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "POWER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SIZEAFTERPOWER",
+       "gives": "PAIROFTWEEZERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A power tool must be resized to manage delicate work.",
+     "walkthrough": "'After power' reads as a P placed first, but both words are part of the letters to rearrange.",
+     "definitionFit": "Tweezers are small pincers used for delicate, intricate tasks like removing splinters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "power"
+    }
+   }
   },
   {
    "number": 15,
@@ -258,7 +1045,76 @@
     "text": "Mouths busy crane fed in tangled nest",
     "enumeration": "9"
    },
-   "solution": "ENTRANCES"
+   "solution": "ENTRANCES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ENTRANCES",
+    "definitions": [
+     {
+      "text": "Mouths",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "busy",
+      "for": "anagram",
+      "note": "busy suggests bustling activity, stirring these letters about"
+     },
+     {
+      "text": "fed in",
+      "for": "container",
+      "note": "something fed in is put inside, so these letters go within the other group"
+     },
+     {
+      "text": "tangled",
+      "for": "anagram",
+      "note": "tangled things are jumbled, so these letters are mixed up too"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nest",
+      "gives": "NEST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "crane",
+      "gives": "CRANE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENT",
+      "RANCE",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CRANE",
+       "gives": "RANCE"
+      },
+      {
+       "fodder": "NEST",
+       "gives": "ENTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bustling crane bird feeds hungry beaks in a messy nest.",
+     "walkthrough": "'Mouths' suggests chicks' beaks, but it means openings such as cave mouths.",
+     "definitionFit": "Entrances are ways in, as are the mouths of caves, rivers or tunnels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mouths"
+    }
+   }
   },
   {
    "number": 16,
@@ -272,7 +1128,74 @@
     "text": "One nursing commercial objective upset world of scholars",
     "enumeration": "8"
    },
-   "solution": "ACADEMIA"
+   "solution": "ACADEMIA",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal",
+     "charade"
+    ],
+    "answer": "ACADEMIA",
+    "definitions": [
+     {
+      "text": "world of scholars",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nursing",
+      "for": "container",
+      "note": "to nurse something is to hold it close, so the first word cradles the next"
+     },
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upset means turned upside down, so the word reads from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "ACE",
+      "note": "an ace is a one in cards"
+     },
+     {
+      "clueFragment": "commercial",
+      "gives": "AD",
+      "note": "an ad is a commercial"
+     },
+     {
+      "clueFragment": "objective",
+      "gives": "AIM",
+      "note": "an aim is an objective"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "AD",
+      "E",
+      "MIA"
+     ],
+     "reversals": [
+      {
+       "from": "AIM",
+       "to": "MIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tending a business goal ends up disrupting the scholarly world.",
+     "walkthrough": "An ace is the one in a pack of cards, which is why 'One' can stand for it.",
+     "definitionFit": "Academia is the community and environment of universities and scholarly research."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nursing"
+    }
+   }
   },
   {
    "number": 17,
@@ -296,7 +1219,54 @@
      }
     ]
    },
-   "solution": "CALLINGITQUITS"
+   "solution": "CALLINGITQUITS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CALLING IT QUITS",
+    "definitions": [
+     {
+      "text": "Agreeing not to continue",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "career",
+      "gives": "CALLING",
+      "note": "a calling is a vocation or career"
+     },
+     {
+      "clueFragment": "IT",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "resigns",
+      "gives": "QUITS",
+      "note": "someone who resigns quits"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CALLING",
+      "IT",
+      "QUITS"
+     ]
+    },
+    "explanation": {
+     "surface": "A worker in a tech career decides to resign and stop.",
+     "definitionFit": "Calling it quits is an idiom for agreeing to stop doing something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -310,7 +1280,64 @@
     "text": "Immediate and popular way to obtain bronzed look",
     "enumeration": "7"
    },
-   "solution": "INSTANT"
+   "solution": "INSTANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INSTANT",
+    "definitions": [
+     {
+      "text": "Immediate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to obtain",
+      "for": "container",
+      "note": "to obtain something is to take hold of it, so the word for way holds the next piece inside"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "something popular is in"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "ST",
+      "note": "St is the abbreviation for street, a way"
+     },
+     {
+      "clueFragment": "bronzed look",
+      "gives": "TAN",
+      "note": "a tan is a bronzed look"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "S",
+      "TAN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A quick, fashionable method of getting a suntan.",
+     "walkthrough": "The surface evokes a fake instant tan; the tan goes inside the abbreviation for street, between its S and T.",
+     "definitionFit": "Instant means happening at once, without delay, that is, immediate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -324,7 +1351,65 @@
     "text": "Many a Parisian welcoming politician with support",
     "enumeration": "7"
    },
-   "solution": "UMPTEEN"
+   "solution": "UMPTEEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "UMPTEEN",
+    "definitions": [
+     {
+      "text": "Many",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "to welcome someone is to take them in, so the French word surrounds what follows"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a Parisian",
+      "gives": "UN",
+      "note": "un is French for a"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "an MP is a Member of Parliament"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "TEE",
+      "note": "a tee supports a golf ball"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "MP",
+      "TEE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Plenty of French people greet a politician with their backing.",
+     "walkthrough": "A tee is the peg that supports a golf ball before it is struck.",
+     "definitionFit": "Umpteen is an informal word for a great many, an indefinitely large number."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Parisian"
+    }
+   }
   },
   {
    "number": 20,
@@ -338,7 +1423,63 @@
     "text": "Scoffed starters of jellied eels before daughter",
     "enumeration": "6"
    },
-   "solution": "JEERED"
+   "solution": "JEERED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "JEERED",
+    "definitions": [
+     {
+      "text": "Scoffed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starters of",
+      "for": "letter_selection",
+      "note": "starters are the opening parts, so each word gives only its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jellied eels",
+      "gives": "JE",
+      "select": "first",
+      "note": "the first letter of each word"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "ERE",
+      "note": "ere is an old word for before"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JE",
+      "ERE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wolfed down the first jellied eels, a Cockney dish of eels in jelly, before their daughter.",
+     "walkthrough": "'Scoffed' suggests eating greedily, but it means mocked.",
+     "definitionFit": "To scoff is to mock, and jeered means mocked with taunts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Scoffed"
+    }
+   }
   },
   {
    "number": 21,
@@ -352,7 +1493,67 @@
     "text": "Spoke about five backing singers",
     "enumeration": "5"
    },
-   "solution": "DIVAS"
+   "solution": "DIVAS",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "DIVAS",
+    "definitions": [
+     {
+      "text": "singers",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the word for spoke goes around the numeral"
+     },
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "going backwards means the letters are read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spoke",
+      "gives": "SAID",
+      "note": "spoke means said"
+     },
+     {
+      "clueFragment": "five",
+      "gives": "V",
+      "note": "V is the Roman numeral for five"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "V",
+      "AS"
+     ],
+     "reversals": [
+      {
+       "from": "SAVID",
+       "to": "DIVAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spokesperson talked about five backing singers.",
+     "walkthrough": "'Backing singers' looks like one phrase, but 'backing' is the reversal signal and 'singers' the definition.",
+     "definitionFit": "Divas are celebrated female opera singers, prima donnas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 22,
@@ -366,7 +1567,67 @@
     "text": "Clean sides of the toilet all over",
     "enumeration": "5"
    },
-   "solution": "VALET"
+   "solution": "VALET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "VALET",
+    "definitions": [
+     {
+      "text": "Clean",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sides of",
+      "for": "letter_selection",
+      "note": "the sides of a word are its edges, its first and last letters"
+     },
+     {
+      "text": "all over",
+      "for": "reversal",
+      "note": "over means flipped, so everything reads from the other end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "TE",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "toilet",
+      "gives": "LAV",
+      "note": "lav is short for lavatory, a toilet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VAL",
+      "ET"
+     ],
+     "reversals": [
+      {
+       "from": "TELAV",
+       "to": "VALET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Clean the toilet everywhere, sides included.",
+     "definitionFit": "To valet a car is to clean it thoroughly inside and out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sides"
+    }
+   }
   },
   {
    "number": 23,
@@ -380,7 +1641,70 @@
     "text": "Transport opening from rear on a track",
     "enumeration": "9"
    },
-   "solution": "AEROPLANE"
+   "solution": "AEROPLANE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "AEROPLANE",
+    "definitions": [
+     {
+      "text": "Transport",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from rear",
+      "for": "reversal",
+      "note": "reading from the rear means starting at the end of the word"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "opening",
+      "gives": "PORE",
+      "note": "a pore is a tiny opening in the skin"
+     },
+     {
+      "clueFragment": "track",
+      "gives": "LANE",
+      "note": "a lane is a track or narrow road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "EROP",
+      "LANE"
+     ],
+     "reversals": [
+      {
+       "from": "PORE",
+       "to": "EROP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vehicle with a door at the back runs along a track.",
+     "walkthrough": "In an across clue 'on' means placed after, so the backward word follows A, then LANE.",
+     "definitionFit": "An aeroplane is a means of transport by air."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 24,
@@ -394,7 +1718,68 @@
     "text": "Turning pan containing fat fowl",
     "enumeration": "8"
    },
-   "solution": "MALLARDS"
+   "solution": "MALLARDS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "MALLARDS",
+    "definitions": [
+     {
+      "text": "fowl",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Turning",
+      "for": "reversal",
+      "note": "turning a word round makes it run the other way"
+     },
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "to contain is to hold inside, so the first word wraps around the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pan",
+      "gives": "SLAM",
+      "note": "to pan a show is to slam it, criticising it harshly"
+     },
+     {
+      "clueFragment": "fat",
+      "gives": "LARD",
+      "note": "lard is pig fat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAL",
+      "LARD",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SLAM",
+       "to": "MALS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook turns a frying pan full of fat with ducks in it.",
+     "walkthrough": "'Pan' looks like a cooking vessel; it is the verb to criticise.",
+     "definitionFit": "Mallards are common wild ducks, a kind of fowl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pan"
+    }
+   }
   },
   {
    "number": 25,
@@ -408,7 +1793,47 @@
     "text": "Sportsperson runs after receiver",
     "enumeration": "6"
    },
-   "solution": "FENCER"
+   "solution": "FENCER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FENCER",
+    "definitions": [
+     {
+      "text": "Sportsperson",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "receiver",
+      "gives": "FENCE",
+      "note": "a fence is a receiver of stolen goods"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FENCE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "An athlete sprints after catching a pass.",
+     "walkthrough": "'Receiver' suggests a sports catcher, but it is criminal slang for someone who handles stolen goods. The R goes after.",
+     "definitionFit": "A fencer is an athlete who competes in the sport of fencing with swords."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "receiver"
+    }
+   }
   },
   {
    "number": 26,
@@ -422,7 +1847,70 @@
     "text": "Leaning position gaining power for cyclist ultimately",
     "enumeration": "8"
    },
-   "solution": "APTITUDE"
+   "solution": "APTITUDE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "APTITUDE",
+    "definitions": [
+     {
+      "text": "Leaning",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter is wanted"
+     },
+     {
+      "text": "gaining",
+      "for": "substitution",
+      "note": "gaining one thing for another means it is taken in as a swap"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "position",
+      "gives": "ATTITUDE",
+      "note": "an attitude is a position or stance"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the physics abbreviation for power"
+     },
+     {
+      "clueFragment": "cyclist",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "P",
+      "TITUDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cyclist, in the end, leans into position to gain power.",
+     "walkthrough": "The second T of ATTITUDE is swapped for P.",
+     "definitionFit": "A leaning is a natural inclination or talent, which is an aptitude."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Leaning"
+    }
+   }
   },
   {
    "number": 27,
@@ -436,7 +1924,53 @@
     "text": "Remaining disgruntled leaving in the morning",
     "enumeration": "6"
    },
-   "solution": "UNUSED"
+   "solution": "UNUSED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UNUSED",
+    "definitions": [
+     {
+      "text": "Remaining",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "something leaving goes away, so those letters drop out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "disgruntled",
+      "gives": "UNAMUSED",
+      "note": "a disgruntled person is unamused"
+     },
+     {
+      "clueFragment": "in the morning",
+      "gives": "AM",
+      "note": "a.m. means in the morning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "USED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone still grumpy is leaving early in the day.",
+     "definitionFit": "Unused things are left over and still available, that is, remaining."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Remaining"
+    }
+   }
   }
  ]
 }
