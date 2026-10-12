@@ -345,6 +345,10 @@ def build(rec, row, series, date, setter, typed=None, pairs=False, loose_counts=
     # heading takes the direction the grid gives it. One no split fits is lights
     # the grid was rebuilt without: telegraph-26396's "1a/25a" HANDLEBAR
     # MOUSTACHE gave a grid with no 1-across at all.
+    # The grid row's corrections go in first: a grid found at a light's
+    # enumeration length (toughie-275's DOGSBANE in DOGBANE's 7 cells) fits
+    # no split of a linked answer while the typo is still in the record.
+    rec = dict(rec, entries=tg.answers(rec, row))
     rec = tg.numbered_by(tg.headed_by(tg.split_by(rec, row["grid"]), row["grid"]), row["grid"])
     if rec.get("unsplit"):
         return None, CAUSES["unsplit-link"]
