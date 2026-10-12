@@ -41,6 +41,7 @@ from pathlib import Path
 import enumeration
 import leading_quote
 import punctuation
+import quotes
 
 TOOLS =Path(__file__).resolve().parent
 
@@ -2500,7 +2501,7 @@ def is_word_only_capital(word, seen):
 
 
 FULL_WIDTH = {c: c - 0xfee0 for c in range(0xff01, 0xff5f)}
-LIGATURES = str.maketrans({"\u00e6": "ae", "\u00c6": "Ae", "\u0153": "oe", "\u0152": "Oe"})
+LIGATURES = str.maketrans({"\u00e6": "ae", "\u00c6": "Ae", "\u0153": "oe", "\u0152": "Oe", **quotes.LIGATURES})
 #: A ligature as readers without it print it: its two letters, or the last.
 LIGATURE_E = str.maketrans({"\u00e6": "e", "\u00c6": "E", "\u0153": "e", "\u0152": "E"})
 
