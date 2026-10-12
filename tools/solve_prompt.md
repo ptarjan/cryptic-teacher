@@ -12,6 +12,12 @@ arrives: a wrong entry has its annotation rewritten.
 This prints every clue with its length, plus a crossing map: which letters
 each entry shares with which other entry. It is the only thing that can tell you an answer is wrong.
 An entry marked `printed answer` is the paper's own: your fill must agree with it.
+A puzzle held as its clues alone has no grid yet, and the packet says so and
+gives its own fill shape: use that shape, not entry ids. A JIGSAW (one
+unnumbered clue list under an instruction such as "fit the solutions in
+jigsaw-wise") is answered clue by clue in the printed order; you do not place
+anything: the check fits your answers into the grid and refuses them when no
+single grid holds them all.
 
 A grid search runs only as `python3 tools/reconstruct_grid.py --lights … [--words …]`
 ; never write your own search script or use multiprocessing.

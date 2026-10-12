@@ -142,8 +142,8 @@ def from_jigsaw(meta, clues, preamble, generator):
     numbers and no across or down, under the instruction `preamble` ("Method:
     solve the clues and enter the answers jigsaw-wise, wherever they will go").
     `clues` are [(text, enumeration)] in printed order. The record holds them
-    as `unplaced` with `cluesUnplaced`; no builder takes it yet (builder()),
-    so it is held as data, as the Listener book's barred grids are."""
+    as `unplaced` with `cluesUnplaced`; the solve answers them in that order
+    and _jigsaw_build fits the answers into the grid."""
     import enumeration
     from fetch_puzzle import has_words
     out, problems = [], []
@@ -279,6 +279,104 @@ def _book_build(record, answers):
     return puzzle, []
 
 
+# The jigsaw fitter's budget: a real 15x15 proves its one grid in a few hundred
+# nodes when the answers are right; a wrong answer can cost the whole budget.
+JIGSAW_BUDGET = 400_000
+
+
+def slots_of(grid):
+    """[(number, x, y, length, direction)] of a blocked grid's lights, numbered
+    in reading order, as entries_from_grid numbers them."""
+    rows, cols = len(grid), len(grid[0])
+    white = [[c != "#" for c in row] for row in grid]
+    out, number = [], 0
+    for y in range(rows):
+        for x in range(cols):
+            if not white[y][x]:
+                continue
+            a = (x == 0 or not white[y][x - 1]) and x + 1 < cols and white[y][x + 1]
+            d = (y == 0 or not white[y - 1][x]) and y + 1 < rows and white[y + 1][x]
+            if not (a or d):
+                continue
+            number += 1
+            for direction, ok, dx, dy in (("across", a, 1, 0), ("down", d, 0, 1)):
+                if not ok:
+                    continue
+                run = 1
+                while (x + dx * run < cols and y + dy * run < rows
+                       and white[y + dy * run][x + dx * run]):
+                    run += 1
+                out.append((number, x, y, run, direction))
+    return out
+
+
+def fit_jigsaw(record, answers):
+    """(entries, part by entry id, problems) for a jigsaw: the grid its answers
+    (`answers["unplaced"]`, letters, in the printed order) interlock in
+    (tools/jigsaw_fit.py), numbered, each light given its clue. A linked
+    answer's leader carries the clue and the whole count; its continuation
+    reads "See N", the shape every book's linked lights take. The part map is
+    {entry id: (clue index, letters in that light)}, how apply_solution hands
+    each light its share of the answer."""
+    import jigsaw_fit
+    from groups import entry_id
+    lights, given = record["clues"]["unplaced"], answers.get("unplaced") or []
+    if len(given) != len(lights):
+        return None, None, [f"{len(given)} answers for {len(lights)} jigsaw clues"]
+    for n, (light, word) in enumerate(zip(lights, given), 1):
+        if light.get("length") and light["length"] != len(word):
+            return None, None, [f"clue {n}'s answer {word} is {len(word)} letters; "
+                                f"its enumeration says {light['length']}"]
+    dims = record["dimensions"]
+    rows, placed, why = jigsaw_fit.fit(given, dims["cols"], dims["rows"],
+                                       max_nodes=JIGSAW_BUDGET)
+    if rows is None:
+        return None, None, [f"the answers fit no single grid: {why}"]
+    at = {(x, y, d): (n, part, w) for n, part, w, x, y, d in placed}
+    slots = slots_of(rows)
+    leader = {at[(x, y, d)][0]: num for num, x, y, _, d in slots if at[(x, y, d)][1] == 0}
+    entries, parts = [], {}
+    for num, x, y, run, d in slots:
+        n, part, letters = at[(x, y, d)]
+        clue = lights[n]["clue"]
+        entry = {"number": num, "direction": d, "position": {"x": x, "y": y},
+                 "length": run}
+        if part == 0:
+            entry.update({"clue": clue.get("text"), "enumeration": clue.get("enumeration")})
+        else:
+            entry.update({"clue": f"See {leader[n]}", "enumeration": None})
+        entries.append(entry)
+        parts[entry_id(entry)] = (n, letters)
+    entries.sort(key=lambda e: (e["number"], e["direction"] != "across"))
+    return entries, parts, []
+
+
+def _jigsaw_build(record, answers):
+    """(puzzle, problems): a book jigsaw filed as the grid puzzle its answers
+    fit, unsolved, through file_penguin_puzzle.build like any book puzzle; it
+    keeps `cluesUnplaced` and its preamble so the page shows the clues as the
+    book printed them. puzzle["_parts"] carries fit_jigsaw's part map to
+    tools/apply_solution.py, which pops it before anything is written."""
+    import series
+    from file_penguin_puzzle import build
+    entries, parts, problems = fit_jigsaw(record, answers)
+    if problems:
+        return None, problems
+    index, position = divmod(record["number"], series.POSITIONS_PER_BOOK)
+    identifier = next(b["identifier"] for b in series.BOOKS.values()
+                      if b["book_index"] == index)
+    dims = record["dimensions"]
+    puzzle = build({"book_number": position, "setter": record.get("setter"),
+                    "puzzle": {"dimensions": {"cols": dims["cols"], "rows": dims["rows"]},
+                               "entries": entries}},
+                   identifier, "unsolved", unsolved=True)
+    puzzle["cluesUnplaced"] = True
+    if record.get("preamble"):
+        puzzle["preamble"] = record["preamble"]
+    puzzle["_parts"] = parts
+    return puzzle, []
+
+
 # (filer, grid kind) -> how its answers become the grid puzzle. A record whose
 # pair is missing here cannot be written (refuse_bad_clues_only) or queued for
 # a solve (solvable): its answers could never become a grid. A Listener book is
@@ -309,13 +407,18 @@ def grid_kind(record):
         return None
 
 
+# A jigsaw (`cluesUnplaced`) of these filers: its answers are fitted into the
+# grid (fit_jigsaw), since they say nothing of where each goes.
+JIGSAW_BUILDERS = {("tools/acquire_book.py", "blocked"): _jigsaw_build}
+
+
 def builder(record):
-    """The BUILDERS entry that promotes `record`, or None. None for a jigsaw
-    (`cluesUnplaced`): its answers say nothing of where each goes, and no
-    builder fits a word list into a grid yet."""
+    """The BUILDERS entry that promotes `record`, or None; a jigsaw's comes
+    from JIGSAW_BUILDERS."""
+    key = ((record.get("source") or {}).get("acquiredBy"), grid_kind(record))
     if record.get("cluesUnplaced"):
-        return None
-    return BUILDERS.get(((record.get("source") or {}).get("acquiredBy"), grid_kind(record)))
+        return JIGSAW_BUILDERS.get(key)
+    return BUILDERS.get(key)
 
 
 def solvable(root=None):
@@ -329,7 +432,8 @@ def solvable(root=None):
 
 def promote(record, answers):
     """(puzzle, problems): the grid puzzle `record` becomes, unsolved, from
-    `answers` ({"across": [...], "down": [...]}, letters, in clue order).
+    `answers` ({"across": [...], "down": [...]}, or a jigsaw's {"unplaced":
+    [...]}, letters, in clue order).
     tools/apply_solution.py checks the answers against it and writes both."""
     build = builder(record)
     if build is None:
