@@ -24,6 +24,9 @@
   "date": "2023-08-08",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,55 @@
     "text": "Plain-speaking genius ignoring one gothic novel",
     "enumeration": "12"
    },
-   "solution": "FRANKENSTEIN"
+   "solution": "FRANKENSTEIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "FRANKENSTEIN",
+    "definitions": [
+     {
+      "text": "gothic novel",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring one",
+      "for": "deletion",
+      "note": "to ignore one is to leave out a single 'I', the letter standing for one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plain-speaking",
+      "gives": "FRANK",
+      "note": "someone frank speaks plainly"
+     },
+     {
+      "clueFragment": "genius",
+      "gives": "EINSTEIN",
+      "note": "Albert Einstein, the byword for genius"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRANK",
+      "ENSTEIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A blunt, brilliant author leaves something out of a gothic novel.",
+     "walkthrough": "'One' is the letter I here, and only the first of the genius's two I's is dropped.",
+     "definitionFit": "Mary Shelley's Frankenstein is the classic gothic horror novel of 1818."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +102,51 @@
     "text": "Metal carton is crushed",
     "enumeration": "8"
    },
-   "solution": "CASTIRON"
+   "solution": "CASTIRON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CASTIRON",
+    "definitions": [
+     {
+      "text": "Metal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crushed",
+      "for": "anagram",
+      "note": "something crushed is squashed out of shape, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carton is",
+      "gives": "CARTONIS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CARTONIS",
+       "gives": "CASTIRON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A metal carton gets squashed.",
+     "walkthrough": "'Is' looks like part of the verb 'is crushed', but it belongs to the fodder.",
+     "definitionFit": "Cast iron is an iron alloy poured into moulds, a common metal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crushed"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +160,53 @@
     "text": "Knife crazy revolutionary",
     "enumeration": "4"
    },
-   "solution": "STAB"
+   "solution": "STAB",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "STAB",
+    "definitions": [
+     {
+      "text": "Knife",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "something revolutionary turns over, so the word is read from the end backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crazy",
+      "gives": "BATS",
+      "note": "bats is slang for mad"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAB"
+     ],
+     "reversals": [
+      {
+       "from": "BATS",
+       "to": "STAB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mad rebel wielding a knife.",
+     "definitionFit": "To knife someone is to stab them; both are verbs of wounding with a blade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +220,56 @@
     "text": "Flower close to capstan at the back of a ship",
     "enumeration": "6"
    },
-   "solution": "ASTERN"
+   "solution": "ASTERN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ASTERN",
+    "definitions": [
+     {
+      "text": "at the back of a ship",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its final letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flower",
+      "gives": "ASTER",
+      "note": "the aster is a daisy-like flower"
+     },
+     {
+      "clueFragment": "capstan",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of capstan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASTER",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A flower lies near the capstan at a ship's stern.",
+     "walkthrough": "A capstan is the winch on a ship's deck, which makes 'Flower' read as a deck ornament rather than wordplay.",
+     "definitionFit": "Astern is the nautical term for behind or towards the rear of a vessel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flower"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +289,49 @@
      }
     ]
    },
-   "solution": "TRAINSET"
+   "solution": "TRAINSET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRAIN SET",
+    "definitions": [
+     {
+      "text": "toy",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "to produce"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Instructs",
+      "gives": "TRAINS",
+      "note": "to train someone is to instruct them"
+     },
+     {
+      "clueFragment": "alien",
+      "gives": "ET",
+      "note": "E.T., the film's extra-terrestrial"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAINS",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone teaches a visitor from space how to make a plaything.",
+     "definitionFit": "A train set is a model railway, a classic children's plaything."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Instructs"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +345,47 @@
     "text": "Briefly examine earring",
     "enumeration": "4"
    },
-   "solution": "STUD"
+   "solution": "STUD",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STUD",
+    "definitions": [
+     {
+      "text": "earring",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Briefly",
+      "for": "deletion",
+      "note": "made brief means cut short, so the word's last letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "examine",
+      "gives": "STUDY",
+      "note": "to study is to examine closely"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STUD"
+     ]
+    },
+    "explanation": {
+     "surface": "Take a quick look at an earring.",
+     "definitionFit": "A stud is a small earring fixed through the lobe by a post."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Briefly"
+    }
+   }
   },
   {
    "number": 7,
@@ -127,7 +399,50 @@
     "text": "Crate is moving — do something!",
     "enumeration": "5"
    },
-   "solution": "REACT"
+   "solution": "REACT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REACT",
+    "definitions": [
+     {
+      "text": "do something!",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is moving",
+      "for": "anagram",
+      "note": "letters that are moving shift about into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crate",
+      "gives": "CRATE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CRATE",
+       "gives": "REACT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shout of alarm as a crate starts to slide.",
+     "definitionFit": "To react is to respond with some action, as an urgent call for a response demands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "moving"
+    }
+   }
   },
   {
    "number": 8,
@@ -141,7 +456,42 @@
     "text": "Lengthen a prison sentence",
     "enumeration": "7"
    },
-   "solution": "STRETCH"
+   "solution": "STRETCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRETCH",
+    "definitions": [
+     {
+      "text": "Lengthen",
+      "at": 0
+     },
+     {
+      "text": "a prison sentence",
+      "at": 9,
+      "note": "a noun phrase: 'a stretch' is a term inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lengthen",
+      "note": "first meaning: to extend or draw out"
+     },
+     {
+      "clueFragment": "a prison sentence",
+      "note": "second meaning: slang for a term of imprisonment"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone's time behind bars is extended.",
+     "definitionFit": "Stretch means to make longer, and is also criminal slang for a period served in jail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -161,7 +511,50 @@
      }
     ]
    },
-   "solution": "HEARTRENDING"
+   "solution": "HEARTRENDING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEART-RENDING",
+    "definitions": [
+     {
+      "text": "tragic",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Try",
+      "gives": "HEAR",
+      "note": "a judge hears or tries a case"
+     },
+     {
+      "clueFragment": "going viral",
+      "gives": "TRENDING",
+      "note": "a post going viral is trending online"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEAR",
+      "TRENDING"
+     ]
+    },
+    "explanation": {
+     "surface": "An attempt to make something spread online ends sadly.",
+     "walkthrough": "'Try' reads as 'attempt'; it is the courtroom sense, to hear a case.",
+     "definitionFit": "Something heart-rending causes deep grief, which is what a tragic event does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Try"
+    }
+   }
   },
   {
    "number": 10,
@@ -175,7 +568,54 @@
     "text": "Remarkable aristocrat accepts thanks",
     "enumeration": "7"
    },
-   "solution": "NOTABLE"
+   "solution": "NOTABLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NOTABLE",
+    "definitions": [
+     {
+      "text": "Remarkable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepts",
+      "for": "container",
+      "note": "one word accepting another takes it inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aristocrat",
+      "gives": "NOBLE",
+      "note": "a noble is a member of the aristocracy"
+     },
+     {
+      "clueFragment": "thanks",
+      "gives": "TA",
+      "note": "ta is informal British for thanks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "TA",
+      "BLE"
+     ]
+    },
+    "explanation": {
+     "surface": "An unusual lord who actually says thank you.",
+     "definitionFit": "Notable means worth noticing, a close synonym of remarkable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "thanks"
+    }
+   }
   },
   {
    "number": 11,
@@ -189,7 +629,61 @@
     "text": "Fashionable to help backward country",
     "enumeration": "5"
    },
-   "solution": "INDIA"
+   "solution": "INDIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "INDIA",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backward",
+      "for": "reversal",
+      "note": "going backward means the word is read from its end to its start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fashionable",
+      "gives": "IN",
+      "note": "in means in fashion"
+     },
+     {
+      "clueFragment": "help",
+      "gives": "AID",
+      "note": "to aid is to help"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "DIA"
+     ],
+     "reversals": [
+      {
+       "from": "AID",
+       "to": "DIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It is trendy to give aid to a developing nation.",
+     "walkthrough": "'Backward country' looks like an insult to the nation; 'backward' applies only to the word for help.",
+     "definitionFit": "India is a country in South Asia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backward"
+    }
+   }
   },
   {
    "number": 12,
@@ -203,7 +697,46 @@
     "text": "American lawman perfects listening devices",
     "enumeration": "9"
    },
-   "solution": "EARPHONES"
+   "solution": "EARPHONES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EARPHONES",
+    "definitions": [
+     {
+      "text": "listening devices",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American lawman",
+      "gives": "EARP",
+      "note": "Wyatt Earp, the Wild West marshal"
+     },
+     {
+      "clueFragment": "perfects",
+      "gives": "HONES",
+      "note": "to hone a skill is to perfect it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EARP",
+      "HONES"
+     ]
+    },
+    "explanation": {
+     "surface": "A US sheriff polishing his surveillance gear.",
+     "definitionFit": "Earphones are worn on or in the ears to listen to audio."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "perfects"
+    }
+   }
   },
   {
    "number": 13,
@@ -223,7 +756,64 @@
      }
     ]
    },
-   "solution": "HAILMARY"
+   "solution": "HAILMARY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "HAIL MARY",
+    "definitions": [
+     {
+      "text": "prayer",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finale of",
+      "for": "letter_selection",
+      "note": "a finale is the ending, so only the final letter is kept"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bad weather",
+      "gives": "HAIL",
+      "note": "hail is a fall of ice pellets"
+     },
+     {
+      "clueFragment": "spoil",
+      "gives": "MAR",
+      "note": "to mar is to spoil"
+     },
+     {
+      "clueFragment": "wordy",
+      "gives": "Y",
+      "select": "last",
+      "note": "the last letter of wordy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAIL",
+      "MAR",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A storm ruins the end of a long-winded prayer.",
+     "definitionFit": "The Hail Mary is the Catholic devotion to the Virgin, beginning with the angel's greeting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "weather"
+    }
+   }
   },
   {
    "number": 14,
@@ -237,7 +827,48 @@
     "text": "Occasionally crafty pet",
     "enumeration": "3"
    },
-   "solution": "CAT"
+   "solution": "CAT",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "CAT",
+    "definitions": [
+     {
+      "text": "pet",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means every so often, so only every other letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crafty",
+      "gives": "CAT",
+      "select": "alternate",
+      "note": "first, third and fifth letters of crafty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A pet that is sometimes sly.",
+     "definitionFit": "The cat is one of the commonest household pets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Occasionally"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +882,59 @@
     "text": "Instrument put wine outside home",
     "enumeration": "8"
    },
-   "solution": "CLARINET"
+   "solution": "CLARINET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLARINET",
+    "definitions": [
+     {
+      "text": "Instrument",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put",
+      "for": "container",
+      "note": "one word is put with another outside it, so the second wraps round the first"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "the wine sits outside, so it wraps around the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wine",
+      "gives": "CLARET",
+      "note": "claret is red Bordeaux wine"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "at home means in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLAR",
+      "IN",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "An order to leave the wine out of the house.",
+     "definitionFit": "The clarinet is a single-reed woodwind instrument."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +948,51 @@
     "text": "Child's ditty not finished",
     "enumeration": "3"
    },
-   "solution": "SON"
+   "solution": "SON",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SON",
+    "definitions": [
+     {
+      "text": "Child",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not finished",
+      "for": "deletion",
+      "note": "a word not finished stops short, so its last letter is lost"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ditty",
+      "gives": "SONG",
+      "note": "a ditty is a simple song"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SON"
+     ]
+    },
+    "explanation": {
+     "surface": "A youngster's little song is left incomplete.",
+     "walkthrough": "The 's of 'Child's' reads as a possessive but stands for 'is', linking definition to wordplay.",
+     "definitionFit": "A son is a male child of his parents."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Child's"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1016,42 @@
      }
     ]
    },
-   "solution": "ILLATEASE"
+   "solution": "ILLATEASE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ILL AT EASE",
+    "definitions": [
+     {
+      "text": "Uncomfortable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sample",
+      "for": "hidden_word",
+      "note": "a sample is a small part taken from the whole, so the letters come from inside the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bill ate a seafood",
+      "gives": "ILLATEASE",
+      "note": "runs from inside Bill to the start of seafood"
+     }
+    ],
+    "explanation": {
+     "surface": "Bill felt queasy after trying some seafood.",
+     "definitionFit": "To be ill at ease is to feel awkward or uncomfortable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sample"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1065,54 @@
     "text": "Misplacing something naughty in record",
     "enumeration": "6"
    },
-   "solution": "LOSING"
+   "solution": "LOSING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LOSING",
+    "definitions": [
+     {
+      "text": "Misplacing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one word placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "record",
+      "gives": "LOG",
+      "note": "a log is a record, as a ship's log"
+     },
+     {
+      "clueFragment": "something naughty",
+      "gives": "SIN",
+      "note": "a sin is a wrongdoing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "SIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has mislaid a misdeed noted down in a register.",
+     "definitionFit": "Losing something is mislaying it, so it is misplacing in the same participle form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1126,54 @@
     "text": "Poems composed for racecourse",
     "enumeration": "5"
    },
-   "solution": "EPSOM"
+   "solution": "EPSOM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EPSOM",
+    "definitions": [
+     {
+      "text": "racecourse",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "composed",
+      "for": "anagram",
+      "note": "something composed is put together anew, so the letters are arranged in a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poems",
+      "gives": "POEMS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POEMS",
+       "gives": "EPSOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Verses written about a horse-racing venue.",
+     "walkthrough": "Epsom Downs, in Surrey, is the English racecourse where the Derby is run.",
+     "definitionFit": "Epsom is a famous English racecourse, home of the Derby horse race."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "composed"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1187,47 @@
     "text": "Style of music from Asian capital overheard",
     "enumeration": "4"
    },
-   "solution": "SOUL"
+   "solution": "SOUL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SOUL",
+    "definitions": [
+     {
+      "text": "Style of music",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overheard",
+      "for": "homophone",
+      "note": "something overheard is caught by the ear, so the word is judged by its sound"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Asian capital",
+      "gives": "SOUL",
+      "soundsLike": "SEOUL",
+      "note": "Seoul is the capital of South Korea"
+     }
+    ],
+    "explanation": {
+     "surface": "A kind of music heard drifting from a city in Asia.",
+     "definitionFit": "Soul is a genre of African-American popular music rooted in gospel and rhythm and blues."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "overheard"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1241,53 @@
     "text": "Bread is tossed for gull, say",
     "enumeration": "7"
    },
-   "solution": "SEABIRD"
+   "solution": "SEABIRD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEABIRD",
+    "definitions": [
+     {
+      "text": "gull, say",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tossed",
+      "for": "anagram",
+      "note": "things tossed are thrown about and land in a different order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bread is",
+      "gives": "BREADIS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BREADIS",
+       "gives": "SEABIRD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bread is thrown to a gull at the seaside.",
+     "definitionFit": "A gull is one example of a bird of the coast, signalled by 'say'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tossed"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1301,43 @@
     "text": "Mischievous principal",
     "enumeration": "4"
    },
-   "solution": "ARCH"
+   "solution": "ARCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ARCH",
+    "definitions": [
+     {
+      "text": "Mischievous",
+      "at": 0
+     },
+     {
+      "text": "principal",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mischievous",
+      "note": "first meaning: playfully knowing or roguish"
+     },
+     {
+      "clueFragment": "principal",
+      "note": "second meaning: chief"
+     }
+    ],
+    "explanation": {
+     "surface": "A naughty head teacher.",
+     "walkthrough": "'Principal' tempts as a noun, the head of a school; here it is the adjective chief.",
+     "definitionFit": "Arch means roguishly playful as an adjective, and also chief or leading, as in archbishop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "principal"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1351,61 @@
     "text": "Particle of dirt ultimately found in nerve cell",
     "enumeration": "7"
    },
-   "solution": "NEUTRON"
+   "solution": "NEUTRON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "NEUTRON",
+    "definitions": [
+     {
+      "text": "Particle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the very end, so just the final letter is kept"
+     },
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "a thing found in something lies inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nerve cell",
+      "gives": "NEURON",
+      "note": "a neuron is a nerve cell"
+     },
+     {
+      "clueFragment": "dirt",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of dirt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEU",
+      "T",
+      "RON"
+     ]
+    },
+    "explanation": {
+     "surface": "A speck of grime discovered inside a nerve cell.",
+     "definitionFit": "A neutron is an uncharged subatomic particle in the atomic nucleus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dirt"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1419,50 @@
     "text": "Wash broken lance",
     "enumeration": "5"
    },
-   "solution": "CLEAN"
+   "solution": "CLEAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CLEAN",
+    "definitions": [
+     {
+      "text": "Wash",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken is in pieces that can be reassembled differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lance",
+      "gives": "LANCE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LANCE",
+       "gives": "CLEAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cleaning up a shattered spear.",
+     "definitionFit": "To wash something is to clean it with water, so the two verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broken"
+    }
+   }
   }
  ]
 }
