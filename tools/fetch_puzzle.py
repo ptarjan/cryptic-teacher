@@ -3099,6 +3099,14 @@ def supersede_book(book_id, original_id):
     path.unlink()
     puzzle_paths.shim_path(path).unlink(missing_ok=True)
     clue_index().discard(book_id)
+    # The book id lives on as the newspaper puzzle's: a redirect at its old
+    # address, and its book still lists it (renamed_ids.reprinted_in). Its
+    # per-puzzle table rows described the book's own reading, now a reprint
+    # text, so they go (puzzle_rows; book-12076 kept one and CI failed).
+    import puzzle_rows
+    import renamed_ids
+    renamed_ids.write({**renamed_ids.read(), book_id: original_id})
+    puzzle_rows.retire(book_id)
     print(f"{book_id} reprints {original_id}: removed, its clues kept as a "
           f"reading at {saved}", file=sys.stderr)
 
