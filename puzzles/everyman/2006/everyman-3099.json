@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,67 @@
     "text": "Seduced, leader of team? Gutted, I must leave",
     "enumeration": "7"
    },
-   "solution": "TEMPTED"
+   "solution": "TEMPTED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "TEMPTED",
+    "definitions": [
+     {
+      "text": "Seduced",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "the leader of a word is its opening letter, so only that one is kept"
+     },
+     {
+      "text": "must leave",
+      "for": "deletion",
+      "note": "the word I must leave the synonym, so that single letter is dropped from it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "team",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of team"
+     },
+     {
+      "clueFragment": "Gutted",
+      "gives": "EMPTIED",
+      "note": "a gutted fish or building has been emptied"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written, the letter that leaves"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "EMPTED"
+     ]
+    },
+    "explanation": {
+     "surface": "A team captain, lured away and devastated, has to quit.",
+     "walkthrough": "'Gutted' looks like British slang for bitterly disappointed, but it means emptied out; the 'I' of the clue is the letter that leaves.",
+     "definitionFit": "To be tempted is to be enticed or lured, which is the past-participle sense of seduced."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Gutted"
+    }
+   }
   },
   {
    "number": 1,
@@ -65,7 +128,39 @@
    "group": [
     "1-down",
     "2-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "THE HEART OF MIDLOTHIAN",
+    "definitions": [
+     {
+      "text": "A Scott novel",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lot H?",
+      "note": "surface reading: a lot number at an auction, with a query"
+     },
+     {
+      "clueFragment": "Lot H? A Scott novel",
+      "note": "setter's reading: the four central letters of a Scottish county name spell these letters, and the title of a Walter Scott book describes exactly that"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "MIDLOTHIAN has ten letters; its middle four, its heart, are L-O-T-H. So 'Lot H' is literally the heart of Midlothian, which is also Scott's 1818 novel.",
+     "definitionFit": "The Heart of Midlothian is a historical novel by Sir Walter Scott, named after Edinburgh's old Tolbooth prison."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lot"
+    }
+   }
   },
   {
    "number": 2,
@@ -92,7 +187,71 @@
     "text": "Heavy blow to rear with end of cane or strap",
     "enumeration": "5"
    },
-   "solution": "TAWSE"
+   "solution": "TAWSE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TAWSE",
+    "definitions": [
+     {
+      "text": "strap",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to rear",
+      "for": "reversal",
+      "note": "in a down clue, rearing up means reading the word from the bottom upwards"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, the only one kept"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Heavy blow",
+      "gives": "SWAT",
+      "note": "a swat is a hard smack"
+     },
+     {
+      "clueFragment": "cane",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of cane"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAWS",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "SWAT",
+       "to": "TAWS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A description of corporal punishment: a hard smack on the backside with a cane or a belt.",
+     "walkthrough": "'with' joins the two pieces. A TAWSE is a leather strap with split ends once used to punish Scottish schoolchildren, so the surface is apt.",
+     "definitionFit": "The tawse is a Scottish leather strap, formerly used for punishment in schools."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rear"
+    }
+   }
   },
   {
    "number": 4,
@@ -112,7 +271,61 @@
      }
     ]
    },
-   "solution": "DEEPSEA"
+   "solution": "DEEPSEA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "homophone"
+    ],
+    "answer": "DEEP-SEA",
+    "definitions": [
+     {
+      "text": "of distant waters",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the pilot's first is the opening letter of that word"
+     },
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as spoken, so we want a word pronounced the same as the synonym"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "River",
+      "gives": "DEE",
+      "note": "the Dee is a river in Scotland, and another in Wales and England"
+     },
+     {
+      "clueFragment": "pilot",
+      "gives": "P",
+      "select": "first",
+      "note": "first letter of pilot"
+     },
+     {
+      "clueFragment": "view",
+      "gives": "SEA",
+      "soundsLike": "SEE",
+      "note": "to view is to see, which is pronounced like the word for the ocean"
+     }
+    ],
+    "explanation": {
+     "surface": "A river pilot gets a first glimpse of faraway waters.",
+     "definitionFit": "Deep-sea describes the open ocean far from shore, so it suits waters that are distant from land."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pilot"
+    }
+   }
   },
   {
    "number": 5,
@@ -126,7 +339,50 @@
     "text": "Weigh down with work at mill",
     "enumeration": "7"
    },
-   "solution": "OPPRESS"
+   "solution": "OPPRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPPRESS",
+    "definitions": [
+     {
+      "text": "Weigh down",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "OP is short for opus, a work"
+     },
+     {
+      "clueFragment": "at mill",
+      "gives": "PRESS",
+      "note": "a press is a machine for crushing, as a mill is; 'at mill' is the thing working there"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OP",
+      "PRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A worker in a mill is burdened by toil.",
+     "walkthrough": "OP is the usual crossword abbreviation for opus, a musical work; a press, like a mill, squeezes or crushes.",
+     "definitionFit": "To oppress is to burden someone heavily, just as being weighed down means bearing a heavy load."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mill"
+    }
+   }
   },
   {
    "number": 5,
@@ -140,7 +396,62 @@
     "text": "Old copper's bagging best fairground ride",
     "enumeration": "7"
    },
-   "solution": "OCTOPUS"
+   "solution": "OCTOPUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OCTOPUS",
+    "definitions": [
+     {
+      "text": "fairground ride",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bagging",
+      "for": "container",
+      "note": "bagging means capturing and holding inside, so one piece sits within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "copper's",
+      "gives": "CUS",
+      "note": "Cu is the chemical symbol for copper, plus the S of the possessive"
+     },
+     {
+      "clueFragment": "best",
+      "gives": "TOP",
+      "note": "top means the best"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "C",
+      "TOP",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly policeman is capturing the best ride at the funfair.",
+     "walkthrough": "'Copper' looks like a policeman but is the metal, Cu; TOP slips in between its C and U.",
+     "definitionFit": "The octopus is a fairground ride whose cars spin on the ends of several long arms, like tentacles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "copper's"
+    }
+   }
   },
   {
    "number": 6,
@@ -154,7 +465,74 @@
     "text": "Phone, by special arrangement, one pursued by spies in ancient land",
     "enumeration": "9"
    },
-   "solution": "PHOENICAA"
+   "solution": "PHOENICIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PHOENICIA",
+    "definitions": [
+     {
+      "text": "ancient land",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by special arrangement",
+      "for": "anagram",
+      "note": "a special arrangement of letters means they are put into a different order"
+     },
+     {
+      "text": "pursued by",
+      "for": "charade",
+      "note": "something pursued by another goes in front, so the second piece follows the first"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Phone",
+      "gives": "PHONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "spies",
+      "gives": "CIA",
+      "note": "the CIA is the US intelligence agency"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PHOEN",
+      "I",
+      "CIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PHONE",
+       "gives": "PHOEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Arrange a telephone call specially, with someone tailed by secret agents in an old country.",
+     "definitionFit": "Phoenicia was an ancient civilisation on the coast of the Levant, in present-day Lebanon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Phone"
+    }
+   }
   },
   {
    "number": 7,
@@ -168,7 +546,62 @@
     "text": "Marathon record I start to challenge",
     "enumeration": "4"
    },
-   "solution": "EPIC"
+   "solution": "EPIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EPIC",
+    "definitions": [
+     {
+      "text": "Marathon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter, which is all we keep"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "record",
+      "gives": "EP",
+      "note": "an EP is an extended-play record"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "challenge",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of challenge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EP",
+      "I",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A runner sets out to challenge a marathon record.",
+     "walkthrough": "'Marathon' looks like a race, but here it is an adjective meaning very long.",
+     "definitionFit": "A marathon session is very long and arduous, and epic likewise describes something huge in length or scale."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Marathon"
+    }
+   }
   },
   {
    "number": 8,
@@ -182,7 +615,55 @@
     "text": "Extremely stark, the old island",
     "enumeration": "4"
    },
-   "solution": "SKYE"
+   "solution": "SKYE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SKYE",
+    "definitions": [
+     {
+      "text": "island",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two outermost letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stark",
+      "gives": "SK",
+      "select": "outer",
+      "note": "outer letters of stark"
+     },
+     {
+      "clueFragment": "the old",
+      "gives": "YE",
+      "note": "ye is an old spelling of the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SK",
+      "YE"
+     ]
+    },
+    "explanation": {
+     "surface": "The bleak old isle is very stark.",
+     "definitionFit": "Skye is the largest island of the Inner Hebrides, off Scotland's west coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Extremely"
+    }
+   }
   },
   {
    "number": 9,
@@ -202,7 +683,76 @@
      }
     ]
    },
-   "solution": "ENDOWMENTPOLICY"
+   "solution": "ENDOWMENTPOLICY",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "ENDOWMENT POLICY",
+    "definitions": [
+     {
+      "text": "it should mature in time",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round, so one piece is placed around another"
+     },
+     {
+      "text": "Special",
+      "for": "anagram",
+      "note": "special suggests something specially made up, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "aand"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wine",
+      "gives": "WINE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "comply",
+      "gives": "COMPLY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "NOTE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "date",
+      "gives": "D",
+      "note": "D is an abbreviation for date"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WINECOMPLYNODTE",
+       "gives": "ENDOWMENTPOLICY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sommelier's note on a special wine that should age well over time.",
+     "walkthrough": "The wine surface makes 'mature' sound like ageing in the bottle; the definition is about money. 'aand' is a misprint of 'and' in the source.",
+     "definitionFit": "An endowment policy is a life insurance savings plan that pays out a lump sum when it matures at the end of a fixed term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "mature"
+    }
+   }
   },
   {
    "number": 10,
@@ -216,7 +766,58 @@
     "text": "Call up? That's all right during late part of day",
     "enumeration": "5"
    },
-   "solution": "EVOKE"
+   "solution": "EVOKE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EVOKE",
+    "definitions": [
+     {
+      "text": "Call up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during means within the span of, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "late part of day",
+      "gives": "EVE",
+      "note": "evening, the late part of the day"
+     },
+     {
+      "clueFragment": "all right",
+      "gives": "OK",
+      "note": "OK means all right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EV",
+      "OK",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A late-evening phone call: is it all right to ring?",
+     "walkthrough": "'Call up' looks like telephoning; here it means bringing to mind.",
+     "definitionFit": "To evoke a memory is to summon it into the mind, which is calling it up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Call"
+    }
+   }
   },
   {
    "number": 11,
@@ -230,7 +831,66 @@
     "text": "Lying down in middle of bed after drink",
     "enumeration": "6"
    },
-   "solution": "SUPINE"
+   "solution": "SUPINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SUPINE",
+    "definitions": [
+     {
+      "text": "Lying down",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "the earlier words come after the drink, so the drink is placed first"
+     },
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "the middle of a three-letter word is its single central letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "SUP",
+      "note": "to sup is to drink"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bed",
+      "gives": "E",
+      "select": "middle",
+      "note": "middle letter of bed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUP",
+      "IN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lies in the middle of the bed after a nightcap.",
+     "definitionFit": "Supine means lying flat on the back, face upward, which is one way of lying down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 12,
@@ -258,7 +918,70 @@
    "group": [
     "12-down",
     "13-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "DUCK-BILLED PLATYPUSES",
+    "definitions": [
+     {
+      "text": "Aquatic Mammals",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at Sea",
+      "for": "anagram",
+      "note": "being at sea means confused and all over the place, so the letters are muddled"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bob",
+      "gives": "DUCK",
+      "note": "to bob is to dip down quickly, to duck"
+     },
+     {
+      "clueFragment": "William",
+      "gives": "BILL",
+      "note": "Bill is short for William"
+     },
+     {
+      "clueFragment": "typed up 'Seals",
+      "gives": "TYPEDUPSEALS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUCK",
+      "BILL",
+      "EDPLATYPUSES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TYPEDUPSEALS",
+       "gives": "EDPLATYPUSES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two men, Bob and William, typed up a magazine headline about seals and other sea mammals.",
+     "walkthrough": "Bob and William look like typists, but they become DUCK and BILL; the anagram of the next three words supplies the ED as well as the platypuses.",
+     "definitionFit": "Platypuses are egg-laying Australian mammals that hunt underwater in rivers and streams."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bob"
+    }
+   }
   },
   {
    "number": 13,
@@ -285,7 +1008,54 @@
     "text": "Tramp breaking lots of wine bottles",
     "enumeration": "9"
    },
-   "solution": "REHOBOAMS"
+   "solution": "REHOBOAMS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REHOBOAMS",
+    "definitions": [
+     {
+      "text": "wine bottles",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "breaking into something means getting inside it, so one piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lots of",
+      "gives": "REAMS",
+      "note": "reams means lots, as in reams of paper"
+     },
+     {
+      "clueFragment": "Tramp",
+      "gives": "HOBO",
+      "note": "a hobo is a tramp"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "HOBO",
+      "AMS"
+     ]
+    },
+    "explanation": {
+     "surface": "A vagrant smashes a pile of wine bottles.",
+     "definitionFit": "A rehoboam is a large wine or champagne bottle holding six standard bottles, named after a biblical king."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "breaking"
+    }
+   }
   },
   {
    "number": 15,
@@ -305,7 +1075,56 @@
      }
     ]
    },
-   "solution": "BOATTRAIN"
+   "solution": "BOATTRAIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BOAT TRAIN",
+    "definitions": [
+     {
+      "text": "One may be heading for a port",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strange",
+      "for": "anagram",
+      "note": "strange suggests the letters are in an odd, unnatural order and must be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "abattoir",
+      "gives": "ABATTOIR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is an abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ABATTOIRN",
+       "gives": "BOATTRAIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Livestock may be heading for an abattoir at a port, one with an odd name.",
+     "walkthrough": "'a port abattoir' sounds like the destination of animals; the definition is the opening words only.",
+     "definitionFit": "A boat train runs to a harbour to connect with a ferry or ship, so it heads for a port."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "abattoir"
+    }
+   }
   },
   {
    "number": 16,
@@ -319,7 +1138,50 @@
     "text": "Painful ulcer needs treatment",
     "enumeration": "5"
    },
-   "solution": "CRUEL"
+   "solution": "CRUEL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CRUEL",
+    "definitions": [
+     {
+      "text": "Painful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needs treatment",
+      "for": "anagram",
+      "note": "treatment works something over, so the letters are reworked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ulcer",
+      "gives": "ULCER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ULCER",
+       "gives": "CRUEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sore ulcer needs medical attention.",
+     "definitionFit": "Cruel can mean causing pain or distress, as in a cruel blow, so it is a synonym of painful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "treatment"
+    }
+   }
   },
   {
    "number": 17,
@@ -333,7 +1195,46 @@
     "text": "Port in Japan, very large, known by another name as well?",
     "enumeration": "5"
    },
-   "solution": "OSAKA"
+   "solution": "OSAKA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OSAKA",
+    "definitions": [
+     {
+      "text": "Port in Japan",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very large",
+      "gives": "OS",
+      "note": "OS is short for outsize, a clothing size"
+     },
+     {
+      "clueFragment": "known by another name as well?",
+      "gives": "AKA",
+      "note": "aka stands for also known as"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OS",
+      "AKA"
+     ]
+    },
+    "explanation": {
+     "surface": "Is this big Japanese port also called by another name?",
+     "definitionFit": "Osaka is a major city and seaport on the Japanese island of Honshu."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "known"
+    }
+   }
   },
   {
    "number": 18,
@@ -347,7 +1248,49 @@
     "text": "Additional demand in racing town",
     "enumeration": "9"
    },
-   "solution": "NEWMARKET"
+   "solution": "NEWMARKET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NEWMARKET",
+    "definitions": [
+     {
+      "text": "racing town",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Additional",
+      "gives": "NEW",
+      "note": "new can mean additional, as in a new supply"
+     },
+     {
+      "clueFragment": "demand",
+      "gives": "MARKET",
+      "note": "a market for goods is the demand for them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEW",
+      "MARKET"
+     ]
+    },
+    "explanation": {
+     "surface": "A fresh levy is imposed in a town known for horse racing.",
+     "definitionFit": "Newmarket in Suffolk is the headquarters of British horse racing, with famous courses and training stables."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "demand"
+    }
+   }
   },
   {
    "number": 18,
@@ -361,7 +1304,64 @@
     "text": "Not settled in the Channel Islands, boy's upset",
     "enumeration": "7"
    },
-   "solution": "NOMADIC"
+   "solution": "NOMADIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NOMADIC",
+    "definitions": [
+     {
+      "text": "Not settled",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upset means turned upside down, so read from the bottom up"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Channel Islands",
+      "gives": "CI",
+      "note": "CI is the abbreviation for the Channel Islands"
+     },
+     {
+      "clueFragment": "boy's",
+      "gives": "DAMON",
+      "note": "Damon is a boy's name; the 's makes it 'boy is'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOMAD",
+      "IC"
+     ],
+     "reversals": [
+      {
+       "from": "CIDAMON",
+       "to": "NOMADIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lad who has never settled in the Channel Islands is distressed.",
+     "walkthrough": "The Channel Islands are the British islands off Normandy, Jersey and Guernsey among them.",
+     "definitionFit": "Nomadic people move from place to place rather than living in one settled home."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 19,
@@ -375,7 +1375,72 @@
     "text": "US breakdown vehicle crew crashed by roadside? Almost",
     "enumeration": "7"
    },
-   "solution": "WRECKER"
+   "solution": "WRECKER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "deletion"
+    ],
+    "answer": "WRECKER",
+    "definitions": [
+     {
+      "text": "US breakdown vehicle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crashed",
+      "for": "anagram",
+      "note": "something crashed is wrecked and jumbled, so the letters are rearranged"
+     },
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "by means beside, so the two pieces sit next to each other"
+     },
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is cut off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crew",
+      "gives": "CREW",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "roadside",
+      "gives": "KERB",
+      "note": "the kerb is the edge of the pavement beside the road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WREC",
+      "KER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CREW",
+       "gives": "WREC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American tow truck's crew crashed by the side of the road.",
+     "walkthrough": "Kerb is the British spelling of curb, the raised edge of a pavement. The surface fits nicely: a wrecker is what would come to a roadside crash.",
+     "definitionFit": "In American English a wrecker is a tow truck used to haul away broken-down or crashed vehicles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crashed"
+    }
+   }
   },
   {
    "number": 20,
@@ -389,7 +1454,73 @@
     "text": "Awfully misty approaching end of office block",
     "enumeration": "6"
    },
-   "solution": "STYMIE"
+   "solution": "STYMIE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "STYMIE",
+    "definitions": [
+     {
+      "text": "block",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Awfully",
+      "for": "anagram",
+      "note": "awfully suggests something badly done, so the letters are jumbled"
+     },
+     {
+      "text": "approaching",
+      "for": "charade",
+      "note": "approaching means coming up to, so the first piece comes just before the second"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter alone"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "misty",
+      "gives": "MISTY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "office",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of office"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STYMI",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MISTY",
+       "gives": "STYMI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It is very foggy near the far end of the office block.",
+     "walkthrough": "'office block' reads as a building; 'block' alone is the verb definition.",
+     "definitionFit": "To stymie is to obstruct or thwart someone's plans, which is to block them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "block"
+    }
+   }
   },
   {
    "number": 21,
@@ -403,7 +1534,67 @@
     "text": "Strong and wiry copper arresting teacher in retirement",
     "enumeration": "5"
    },
-   "solution": "CRISP"
+   "solution": "CRISP",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "CRISP",
+    "definitions": [
+     {
+      "text": "Strong and wiry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arresting",
+      "for": "container",
+      "note": "arresting someone means holding them, so one piece is held inside the other"
+     },
+     {
+      "text": "in retirement",
+      "for": "reversal",
+      "note": "retiring means withdrawing or going back, so the whole is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "copper",
+      "gives": "PC",
+      "note": "a PC, police constable, is a copper"
+     },
+     {
+      "clueFragment": "teacher",
+      "gives": "SIR",
+      "note": "pupils address a male teacher as sir"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RIS",
+      "P"
+     ],
+     "reversals": [
+      {
+       "from": "PSIRC",
+       "to": "CRISP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tough, wiry policeman arrests a retired schoolmaster.",
+     "walkthrough": "'Copper' here is the policeman (PC), unlike in 5 down.",
+     "definitionFit": "Crisp hair is firm and springy, and crisp also means firm and brisk, close to strong and wiry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retirement"
+    }
+   }
   },
   {
    "number": 21,
@@ -417,7 +1608,56 @@
     "text": "Supply food for social event in Surrey town (not meat)",
     "enumeration": "5"
    },
-   "solution": "CATER"
+   "solution": "CATER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CATER",
+    "definitions": [
+     {
+      "text": "Supply food for social event",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means without, so the following word is removed"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Surrey town",
+      "gives": "CATERHAM",
+      "note": "Caterham is a town in Surrey"
+     },
+     {
+      "clueFragment": "meat",
+      "gives": "HAM",
+      "note": "ham is a meat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CATER"
+     ]
+    },
+    "explanation": {
+     "surface": "Feeding guests at a party in a Surrey town, with a vegetarian menu.",
+     "walkthrough": "Surrey is a county just south of London. Remove HAM from the end of CATERHAM.",
+     "definitionFit": "Caterers provide the meals and refreshments for parties, weddings and other functions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "meat"
+    }
+   }
   },
   {
    "number": 22,
@@ -431,7 +1671,55 @@
     "text": "A British graduate in pop group",
     "enumeration": "4"
    },
-   "solution": "ABBA"
+   "solution": "ABBA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABBA",
+    "definitions": [
+     {
+      "text": "pop group",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is an abbreviation for British"
+     },
+     {
+      "clueFragment": "graduate",
+      "gives": "BA",
+      "note": "a BA is a Bachelor of Arts graduate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "B",
+      "BA"
+     ]
+    },
+    "explanation": {
+     "surface": "A British university graduate plays in a band.",
+     "definitionFit": "ABBA was the Swedish band that won Eurovision in 1974 and had many pop hits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "graduate"
+    }
+   }
   },
   {
    "number": 23,
@@ -445,7 +1733,57 @@
     "text": "Join up, then fall heavily",
     "enumeration": "4"
    },
-   "solution": "TEEM"
+   "solution": "TEEM",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TEEM",
+    "definitions": [
+     {
+      "text": "fall heavily",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the word reads from the bottom to the top"
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Join",
+      "gives": "MEET",
+      "note": "to meet is to join, as roads meet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEEM"
+     ],
+     "reversals": [
+      {
+       "from": "MEET",
+       "to": "TEEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Enlist, then come down hard: a soldier's lot.",
+     "walkthrough": "'Join up' reads as enlisting; here 'up' turns the synonym over.",
+     "definitionFit": "Rain that teems pours down in torrents, so it falls heavily."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 24,
@@ -469,7 +1807,54 @@
      }
     ]
    },
-   "solution": "BEERANDSKITTLES"
+   "solution": "BEERANDSKITTLES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BEER AND SKITTLES",
+    "definitions": [
+     {
+      "text": "amusement",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing with something means moving it around, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like street bands",
+      "gives": "LIKESTREETBANDS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LIKESTREETBANDS",
+       "gives": "BEERANDSKITTLES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Buskers performing in the street to entertain people.",
+     "walkthrough": "Skittles is a pub game like ninepins; the phrase is usually used in the negative, as in 'life isn't all beer and skittles'.",
+     "definitionFit": "Beer and skittles stands for pleasure and leisure, so it is an idiom for amusement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bands"
+    }
+   }
   },
   {
    "number": 25,
@@ -483,7 +1868,44 @@
     "text": "Yearbook bound by local man, a collector",
     "enumeration": "7"
    },
-   "solution": "ALMANAC"
+   "solution": "ALMANAC",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ALMANAC",
+    "definitions": [
+     {
+      "text": "Yearbook",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bound by",
+      "for": "hidden_word",
+      "note": "bound by means held inside the following words, so the letters run across them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "local man, a collector",
+      "gives": "ALMANAC",
+      "note": "runs across the end of local, man, a and the start of collector"
+     }
+    ],
+    "explanation": {
+     "surface": "An annual is bound by a man from the area who collects things.",
+     "walkthrough": "'bound' suggests book-binding, which suits the yearbook.",
+     "definitionFit": "An almanac is an annual publication of calendars, tables and facts, so it is a yearbook."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bound"
+    }
+   }
   },
   {
    "number": 26,
@@ -497,7 +1919,50 @@
     "text": "New rose-red screen",
     "enumeration": "7"
    },
-   "solution": "REREDOS"
+   "solution": "REREDOS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REREDOS",
+    "definitions": [
+     {
+      "text": "screen",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "new suggests a fresh version, so the letters are made into a different arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rose-red",
+      "gives": "ROSERED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROSERED",
+       "gives": "REREDOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new screen in a rosy red colour.",
+     "definitionFit": "A reredos is an ornamental screen or panel behind a church altar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "New"
+    }
+   }
   }
  ]
 }
