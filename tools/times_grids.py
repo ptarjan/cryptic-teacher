@@ -813,7 +813,11 @@ def split_by(rec, grid):
         # A suffix against its heading is judged by the grid too: the split
         # fits once headed_by() has turned it (toughie-714's 28d-30d), and
         # keeps its `heading` marks for headed_by() to turn it after.
-        if answers_fit(grid, whole) or answers_fit(grid, headed_by(whole, grid)):
+        # The same for the one light the post misnumbers (toughie-2266's
+        # "8 across" is 4 across): the grid search freed that number, and
+        # numbered_by() turns it once the split gives the light count.
+        if (answers_fit(grid, whole) or answers_fit(grid, headed_by(whole, grid))
+                or answers_fit(grid, numbered_by(whole, grid))):
             return whole
     return rec
 
