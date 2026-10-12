@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "Creator with intelligence makes a bird",
     "enumeration": "6"
    },
-   "solution": "GODWIT"
+   "solution": "GODWIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GODWIT",
+    "definitions": [
+     {
+      "text": "a bird",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Creator",
+      "gives": "GOD",
+      "note": "God as the Creator of the world"
+     },
+     {
+      "clueFragment": "intelligence",
+      "gives": "WIT",
+      "note": "wit is mental sharpness"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOD",
+      "WIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A grand claim that divine intelligence is what produces a bird.",
+     "walkthrough": "'with' just puts the two pieces side by side.",
+     "definitionFit": "A godwit is a long-billed wading bird of mudflats and marshes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Creator"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +99,75 @@
      }
     ]
    },
-   "solution": "GOOSESTEP"
+   "solution": "GOOSESTEP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "charade"
+    ],
+    "answer": "GOOSE-STEP",
+    "definitions": [
+     {
+      "text": "Walk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "something done badly is botched, so the letters of goes so come out jumbled"
+     },
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upset means turned upside down, so the word is read bottom to top"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goes so",
+      "gives": "GOESSO",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "PET",
+      "note": "a dog is a typical pet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOOSES",
+      "TEP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GOESSO",
+       "gives": "GOOSES"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "PET",
+       "to": "TEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether a walk is going badly because the dog is upset.",
+     "definitionFit": "The goose-step is a stiff-legged marching walk associated with military parades."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dog"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +181,67 @@
     "text": "Cook tuna mostly over ring",
     "enumeration": "5"
    },
-   "solution": "DONUT"
+   "solution": "DONUT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "DONUT",
+    "definitions": [
+     {
+      "text": "ring",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means most but not all of the word, so its final letter goes"
+     },
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "in a down clue, over means flipped upward, so the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cook",
+      "gives": "DO",
+      "note": "to do food is to cook it, as in 'do the potatoes'"
+     },
+     {
+      "clueFragment": "tuna",
+      "gives": "TUNA",
+      "note": "taken as written before trimming"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "NUT"
+     ],
+     "reversals": [
+      {
+       "from": "TUN",
+       "to": "NUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cooking instruction: prepare most of the tuna and turn it into a ring.",
+     "walkthrough": "'Cook' looks like the anagram signal for tuna, but it is the verb DO.",
+     "definitionFit": "A donut (doughnut) is often a ring-shaped fried cake, and the word also means any ring shape."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cook"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +255,86 @@
     "text": "Poet raised hare-brained daughter in middle of city",
     "enumeration": "8"
    },
-   "solution": "IDYLLIST"
+   "solution": "IDYLLIST",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "IDYLLIST",
+    "definitions": [
+     {
+      "text": "Poet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, raised means lifted upwards, so the word reads bottom to top"
+     },
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "middle of asks for only the central letters of the following word"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding pieces inside the letters that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "city",
+      "gives": "I",
+      "select": "middle",
+      "note": "first of the two central letters of city, wrapped round the rest"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     },
+     {
+      "clueFragment": "hare-brained",
+      "gives": "YLLIS",
+      "note": "silly, meaning hare-brained, read upwards"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "T",
+      "select": "middle",
+      "note": "second of the two central letters of city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "D",
+      "YLLIS",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "SILLY",
+       "to": "YLLIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet who grew up with a scatterbrained daughter in a city centre.",
+     "walkthrough": "SILLY reversed and D sit inside IT, the middle of 'city'.",
+     "definitionFit": "An idyllist writes idylls, short pastoral poems, so is a kind of poet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +348,46 @@
     "text": "Yak, 5 14 reveals",
     "enumeration": "6"
    },
-   "solution": "RABBIT"
+   "solution": "RABBIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RABBIT",
+    "definitions": [
+     {
+      "text": "Yak",
+      "at": 0
+     },
+     {
+      "text": "5 14 reveals",
+      "at": 5
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yak",
+      "note": "first meaning: to chatter on at length"
+     },
+     {
+      "clueFragment": "5 14 reveals",
+      "note": "second meaning: the creature a magician famously pulls out of a hat"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "5 and 14 are ANIMAL and MAGIC; a stage conjuror's animal trick reveals one pulled from a top hat. Yak is the verb, not the ox.",
+     "definitionFit": "To rabbit on is British slang for talking endlessly, and a rabbit is the classic hat-trick creature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Yak"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +401,59 @@
     "text": "Monster clam in angler's nets, put back",
     "enumeration": "6"
    },
-   "solution": "ANIMAL"
+   "solution": "ANIMAL",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ANIMAL",
+    "definitions": [
+     {
+      "text": "Monster",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nets",
+      "for": "hidden_word",
+      "note": "nets means catches and holds, so the letters sit caught inside these words"
+     },
+     {
+      "text": "put back",
+      "for": "reversal",
+      "note": "put back means returned the other way, so the caught letters run in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clam in angler's",
+      "gives": "LAMINA",
+      "note": "a run of letters across clam in angler's"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANIMAL"
+     ],
+     "reversals": [
+      {
+       "from": "LAMINA",
+       "to": "ANIMAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fisherman returns a monstrous clam caught in his nets.",
+     "definitionFit": "A brute or beast of a person can be called an animal or a monster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nets"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +467,60 @@
     "text": "Fish ain't terribly bright",
     "enumeration": "9"
    },
-   "solution": "BRILLIANT"
+   "solution": "BRILLIANT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "BRILLIANT",
+    "definitions": [
+     {
+      "text": "bright",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "terribly",
+      "for": "anagram",
+      "note": "terribly means done in an awful way, so these letters are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fish",
+      "gives": "BRILL",
+      "note": "brill is a European flatfish"
+     },
+     {
+      "clueFragment": "ain't",
+      "gives": "AINT",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRILL",
+      "IANT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AINT",
+       "gives": "IANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grumble that a particular fish is not very clever.",
+     "definitionFit": "Brilliant and bright are synonyms for shining light and for cleverness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "terribly"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +534,61 @@
     "text": "Towelling front half of water tortoise dry, finally",
     "enumeration": "5"
    },
-   "solution": "TERRY"
+   "solution": "TERRY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TERRY",
+    "definitions": [
+     {
+      "text": "Towelling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front half of",
+      "for": "deletion",
+      "note": "front half of keeps only the first half of the word, dropping its back half"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end of the word just before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "water tortoise",
+      "gives": "TERRAPIN",
+      "note": "a terrapin is a freshwater turtle"
+     },
+     {
+      "clueFragment": "dry",
+      "gives": "Y",
+      "select": "last",
+      "note": "last letter of dry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TERR",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Rubbing down a pet tortoise with a towel, starting at the front and drying it fully.",
+     "definitionFit": "Terry is the looped cotton fabric used for towels and bathrobes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dry"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +602,66 @@
     "text": "Judge leads foxhunt regularly, state protection?",
     "enumeration": "6"
    },
-   "solution": "JOHNNY"
+   "solution": "JOHNNY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "JOHNNY",
+    "definitions": [
+     {
+      "text": "protection?",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     }
+    ],
+    "linkWords": [
+     "leads"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Judge",
+      "gives": "J",
+      "note": "J is the abbreviation for judge"
+     },
+     {
+      "clueFragment": "foxhunt",
+      "gives": "OHN",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "NY",
+      "note": "NY is the abbreviation for New York state"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "OHN",
+      "NY"
+     ]
+    },
+    "explanation": {
+     "surface": "A judge heading a hunt and asking whether the state should protect foxes.",
+     "walkthrough": "'leads' says the J comes first. The question mark flags the cheeky definition: a johnny, or rubber johnny, is British slang for a condom.",
+     "definitionFit": "Johnny is British slang for a condom, a form of contraceptive protection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "protection"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +675,69 @@
     "text": "Svelte Irish nurses start to eat more like slugs?",
     "enumeration": "7"
    },
-   "solution": "SLIMIER"
+   "solution": "SLIMIER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "SLIMIER",
+    "definitions": [
+     {
+      "text": "more like slugs?",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nurses",
+      "for": "container",
+      "note": "to nurse is to hold close, so one piece cradles another inside it"
+     },
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "start to points to the opening letter of the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Svelte",
+      "gives": "SLIM",
+      "note": "svelte means slim"
+     },
+     {
+      "clueFragment": "Irish",
+      "gives": "IR",
+      "note": "IR is an abbreviation for Irish"
+     },
+     {
+      "clueFragment": "eat",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter of eat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLIM",
+      "I",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Slim Irish nurses begin eating, prompting a comparison with slugs.",
+     "walkthrough": "IR is a standard abbreviation for Irish; 'nurses' is the containment signal, not the profession.",
+     "definitionFit": "Slugs leave a coat of slime, so being slimier is being more like them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "nurses"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +757,51 @@
      }
     ]
    },
-   "solution": "SPELLINGBEE"
+   "solution": "SPELLINGBEE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPELLING BEE",
+    "definitions": [
+     {
+      "text": "quiz",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "14",
+      "gives": "SPELLING",
+      "note": "entry 14 is magic, and spelling is casting magic spells"
+     },
+     {
+      "clueFragment": "5 buzzing",
+      "gives": "BEE",
+      "note": "entry 5 is animal, and a buzzing one is a bee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPELLING",
+      "BEE"
+     ]
+    },
+    "explanation": {
+     "surface": "Magic animals buzzing about in a quiz.",
+     "walkthrough": "The numbers point to MAGIC (14) and ANIMAL (5).",
+     "definitionFit": "A spelling bee is a competition where contestants spell words aloud, a type of quiz."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "buzzing"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +815,62 @@
     "text": "Study rat first to explain pattern on book's cover",
     "enumeration": "8"
    },
-   "solution": "DENTELLE"
+   "solution": "DENTELLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DENTELLE",
+    "definitions": [
+     {
+      "text": "pattern on book's cover",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first to",
+      "for": "letter_selection",
+      "note": "first to picks out the opening letter of the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Study",
+      "gives": "DEN",
+      "note": "a den is a private study room"
+     },
+     {
+      "clueFragment": "rat",
+      "gives": "TELL",
+      "note": "to rat is to tell on someone"
+     },
+     {
+      "clueFragment": "explain",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter of explain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEN",
+      "TELL",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to study a rat before explaining a design on a book cover.",
+     "walkthrough": "'rat' is the verb, to inform. Dentelle is a bookbinding term.",
+     "definitionFit": "Dentelle is lace-like gilt tooling on a book's binding, named from the French for lace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rat"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +884,55 @@
     "text": "Friend's crossing duck hybrids",
     "enumeration": "6"
    },
-   "solution": "ALLOYS"
+   "solution": "ALLOYS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ALLOYS",
+    "definitions": [
+     {
+      "text": "hybrids",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "crossing means straddling, so one piece lies across and around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Friend's",
+      "gives": "ALLYS",
+      "note": "ally's, a friend's"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "O",
+      "note": "a duck is a zero score in cricket, the shape of O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "O",
+      "YS"
+     ]
+    },
+    "explanation": {
+     "surface": "A friend's crossbreeding of ducks produces hybrids.",
+     "walkthrough": "'duck' looks like the bird given the hybrid theme; it is the cricket zero. A duck is a batter's score of nought.",
+     "definitionFit": "Alloys are blends of metals, so hybrids in the sense of mixtures."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +952,68 @@
      }
     ]
    },
-   "solution": "TAKESILK"
+   "solution": "TAKESILK",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "TAKE SILK",
+    "definitions": [
+     {
+      "text": "get promoted at the bar",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly keeps most of the word but drops its final letter"
+     },
+     {
+      "text": "flounders",
+      "for": "anagram",
+      "note": "to flounder is to struggle clumsily, so the letters tumble into a new order"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Skate",
+      "gives": "SKATE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "like",
+      "gives": "LIK",
+      "note": "like minus its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAKESILK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SKATELIK",
+       "gives": "TAKESILK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fishy scene: skate and flounder, both flatfish, before a lawyer's promotion.",
+     "walkthrough": "Skate and flounders look like fellow fish; flounders is the verb, the anagram signal. In Britain, senior barristers made King's Counsel wear silk gowns.",
+     "definitionFit": "To take silk is to become a King's or Queen's Counsel, a promotion for a British barrister."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flounders"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +1027,55 @@
     "text": "Perhaps Auntie's broadcast was on mink",
     "enumeration": "9"
    },
-   "solution": "KINSWOMAN"
+   "solution": "KINSWOMAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "KINSWOMAN",
+    "definitions": [
+     {
+      "text": "Perhaps Auntie",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast means scattered widely, so the letters are strewn into a new order"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "was on mink",
+      "gives": "WASONMINK",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WASONMINK",
+       "gives": "KINSWOMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Auntie, the BBC's nickname, broadcast a programme about mink.",
+     "walkthrough": "Auntie is a British nickname for the BBC, so 'broadcast' seems natural; here she is a literal aunt.",
+     "definitionFit": "An aunt is a female relative, an example of a kinswoman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Auntie"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +1089,69 @@
     "text": "Marvellous seeing a hundred and one whales rolling",
     "enumeration": "5"
    },
-   "solution": "MAGIC"
+   "solution": "MAGIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MAGIC",
+    "definitions": [
+     {
+      "text": "Marvellous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rolling",
+      "for": "reversal",
+      "note": "rolling suggests turning over, so the combined letters are read backwards"
+     }
+    ],
+    "linkWords": [
+     "seeing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a hundred",
+      "gives": "C",
+      "note": "C is the Roman numeral for a hundred"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "whales",
+      "gives": "GAM",
+      "note": "a gam is a school of whales"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAG",
+      "I",
+      "C"
+     ],
+     "reversals": [
+      {
+       "from": "CIGAM",
+       "to": "MAGIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Seeing a hundred and one whales rolling in the waves is marvellous.",
+     "definitionFit": "Magic as an adjective is informal for wonderful or marvellous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rolling"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1165,79 @@
     "text": "I sound like a cat climbing over tin houses, breaking in",
     "enumeration": "9"
    },
-   "solution": "IRRUPTION"
+   "solution": "IRRUPTION",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "IRRUPTION",
+    "definitions": [
+     {
+      "text": "breaking in",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down clue, climbing means moving upwards, so the letters read bottom to top"
+     },
+     {
+      "text": "houses",
+      "for": "container",
+      "note": "houses means contains, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sound like a cat",
+      "gives": "PURR",
+      "note": "a contented cat purrs"
+     },
+     {
+      "clueFragment": "tin",
+      "gives": "TIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket abbreviation for an over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "RRUP",
+      "TI",
+      "O",
+      "N"
+     ],
+     "reversals": [
+      {
+       "from": "PURR",
+       "to": "RRUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cat burglar's confession: purring while climbing over tin roofs to break in.",
+     "definitionFit": "An irruption is a sudden forcible entry, a bursting or breaking in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1251,51 @@
     "text": "Condensate on shellfish that kills parasites",
     "enumeration": "8"
    },
-   "solution": "DEWORMER"
+   "solution": "DEWORMER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEWORMER",
+    "definitions": [
+     {
+      "text": "that kills parasites",
+      "at": 24,
+      "note": "a relative clause standing for the noun: something that kills parasites"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Condensate",
+      "gives": "DEW",
+      "note": "dew is water condensed from the air"
+     },
+     {
+      "clueFragment": "shellfish",
+      "gives": "ORMER",
+      "note": "an ormer is an abalone, a Channel Islands shellfish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEW",
+      "ORMER"
+     ]
+    },
+    "explanation": {
+     "surface": "Morning moisture on a shellfish that rids it of parasites.",
+     "walkthrough": "In a down clue, 'on' puts DEW above ORMER.",
+     "definitionFit": "A dewormer is a medicine given to animals to kill intestinal worms, which are parasites."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Condensate"
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1319,54 @@
    "group": [
     "17-across",
     "18-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPINY ANTEATER",
+    "definitions": [
+     {
+      "text": "5",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cuckoo",
+      "for": "anagram",
+      "note": "cuckoo means crazy, so the letters go mad and rearrange themselves"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pretty insane, a",
+      "gives": "PRETTYINSANEA",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PRETTYINSANEA",
+       "gives": "SPINYANTEATER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An animal described as pretty insane, a cuckoo.",
+     "walkthrough": "5 is ANIMAL, the definition; 'cuckoo' looks like another bird but is the madness signal.",
+     "definitionFit": "The spiny anteater, or echidna, is an egg-laying mammal of Australia and New Guinea, so a creature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cuckoo"
+    }
+   }
   },
   {
    "number": 18,
@@ -340,7 +1393,55 @@
     "text": "French article about bats not tidied up yet",
     "enumeration": "6"
    },
-   "solution": "UNMADE"
+   "solution": "UNMADE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "UNMADE",
+    "definitions": [
+     {
+      "text": "not tidied up yet",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the French word wraps round the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French article",
+      "gives": "UNE",
+      "note": "une is the French feminine for 'a'"
+     },
+     {
+      "clueFragment": "bats",
+      "gives": "MAD",
+      "note": "bats is slang for crazy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "MAD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A French news story about bats that has not been tidied up.",
+     "walkthrough": "'bats' looks like the animals; it is slang for crazy.",
+     "definitionFit": "An unmade bed is one not yet straightened or tidied."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bats"
+    }
+   }
   },
   {
    "number": 20,
@@ -354,7 +1455,65 @@
     "text": "A king snake looped around naturalist",
     "enumeration": "6"
    },
-   "solution": "DARWIN"
+   "solution": "DARWIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "cycling"
+    ],
+    "answer": "DARWIN",
+    "definitions": [
+     {
+      "text": "naturalist",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "looped around",
+      "for": "cycling",
+      "note": "looped around means the string is bent into a loop, so its end swings round to the front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R for rex, Latin for king"
+     },
+     {
+      "clueFragment": "snake",
+      "gives": "WIND",
+      "note": "to snake is to wind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DARWIN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARWIND",
+       "gives": "DARWIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A king snake coiled around a naturalist.",
+     "walkthrough": "'king snake' looks like one reptile; it is two pieces, and snake is the verb. The last letter moves round to the start.",
+     "definitionFit": "Charles Darwin was the English naturalist who developed the theory of evolution by natural selection."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "snake"
+    }
+   }
   },
   {
    "number": 21,
@@ -368,7 +1527,64 @@
     "text": "Sloth the German found upside down shown on telly",
     "enumeration": "5"
    },
-   "solution": "AIRED"
+   "solution": "AIRED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "AIRED",
+    "definitions": [
+     {
+      "text": "shown on telly",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upside down",
+      "for": "reversal",
+      "note": "in a down clue, upside down means turned over so the letters read bottom to top"
+     }
+    ],
+    "linkWords": [
+     "found"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sloth",
+      "gives": "AI",
+      "note": "the ai is a three-toed sloth"
+     },
+     {
+      "clueFragment": "the German",
+      "gives": "DER",
+      "note": "der is German for 'the'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AI",
+      "RED"
+     ],
+     "reversals": [
+      {
+       "from": "DER",
+       "to": "RED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A German sloth hanging upside down, as seen on a wildlife programme.",
+     "walkthrough": "'Sloth' looks like laziness; it is the animal.",
+     "definitionFit": "A programme that has been aired has been broadcast, shown on television."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sloth"
+    }
+   }
   },
   {
    "number": 22,
@@ -382,7 +1598,71 @@
     "text": "Tailless biped breathes deep, pressure for this weapon?",
     "enumeration": "8"
    },
-   "solution": "BLOWPIPE"
+   "solution": "BLOWPIPE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "container"
+    ],
+    "answer": "BLOWPIPE",
+    "definitions": [
+     {
+      "text": "this weapon?",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Tailless",
+      "for": "deletion",
+      "note": "tailless means its final letter is cut off"
+     },
+     {
+      "text": "breathes",
+      "for": "container",
+      "note": "breathes in suggests taking something inside, so the word holds the others"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "biped",
+      "gives": "BIPED",
+      "note": "taken as written before trimming"
+     },
+     {
+      "clueFragment": "deep",
+      "gives": "LOW",
+      "note": "deep as in a deep, low voice"
+     },
+     {
+      "clueFragment": "pressure",
+      "gives": "P",
+      "note": "P is the physics symbol for pressure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LOW",
+      "P",
+      "IPE"
+     ]
+    },
+    "explanation": {
+     "surface": "A two-legged creature takes a deep breath to build pressure for firing a weapon.",
+     "walkthrough": "BIPE takes in LOW and P after its B. The question mark marks the whole picture as fitting: breath powers this weapon.",
+     "definitionFit": "A blowpipe is a tube through which darts are shot by blowing, a hunting weapon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "deep"
+    }
+   }
   },
   {
    "number": 23,
@@ -396,7 +1676,58 @@
     "text": "Penny decapitated otter for fur coat",
     "enumeration": "5"
    },
-   "solution": "PARKA"
+   "solution": "PARKA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "PARKA",
+    "definitions": [
+     {
+      "text": "fur coat",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "decapitated",
+      "for": "deletion",
+      "note": "decapitated means its head, the first letter, is cut off"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Penny",
+      "gives": "P",
+      "note": "P is the abbreviation for a penny"
+     },
+     {
+      "clueFragment": "otter",
+      "gives": "TARKA",
+      "note": "Tarka the Otter is the hero of Henry Williamson's classic novel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ARKA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone named Penny kills an otter for its fur coat.",
+     "walkthrough": "Tarka the Otter is a famous English nature novel; its otter supplies the name.",
+     "definitionFit": "A parka is a hooded windproof jacket, originally made of animal fur by Arctic peoples."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Penny"
+    }
+   }
   },
   {
    "number": 24,
@@ -410,7 +1741,60 @@
     "text": "Go berserk quietly after sheep turn grey",
     "enumeration": "7"
    },
-   "solution": "RAMPAGE"
+   "solution": "RAMPAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAMPAGE",
+    "definitions": [
+     {
+      "text": "Go berserk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the word before it second, behind the animal named next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sheep",
+      "gives": "RAM",
+      "note": "a ram is a male sheep"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "P is piano, the musical direction to play quietly"
+     },
+     {
+      "clueFragment": "turn grey",
+      "gives": "AGE",
+      "note": "hair turns grey with age"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAM",
+      "P",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone goes berserk quietly once the sheep turn grey.",
+     "walkthrough": "'turn grey' is read as the verb to age, as hair greys over the years.",
+     "definitionFit": "To rampage is to rush about wildly and violently, going berserk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quietly"
+    }
+   }
   },
   {
    "number": 25,
@@ -434,7 +1818,51 @@
    "group": [
     "25-across",
     "26-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MORRIS DANCER",
+    "definitions": [
+     {
+      "text": "jigger?",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "5 14's 8",
+      "gives": "MORRIS",
+      "note": "Johnny Morris presented the BBC children's programme Animal Magic"
+     },
+     {
+      "clueFragment": "one of 8 14 5's",
+      "gives": "DANCER",
+      "note": "one of Santa's eight magic reindeer; here 8 is the plain number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MORRIS",
+      "DANCER"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle built from cross-references to the TV show, hinting at someone who jigs.",
+     "walkthrough": "Animal Magic was a BBC wildlife show for children whose host Johnny Morris voiced the animals. The second '8' is not an entry: Santa's sleigh has eight reindeer, Dancer among them.",
+     "definitionFit": "Morris dancers perform jigs, so a morris dancer is literally one who jigs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "8"
+    }
+   }
   },
   {
    "number": 26,
@@ -461,7 +1889,51 @@
     "text": "Badger in road lay down",
     "enumeration": "6"
    },
-   "solution": "ORDAIN"
+   "solution": "ORDAIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ORDAIN",
+    "definitions": [
+     {
+      "text": "lay down",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Badger",
+      "for": "anagram",
+      "note": "to badger is to harass, so the letters are pestered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in road",
+      "gives": "INROAD",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INROAD",
+       "gives": "ORDAIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A badger in the road lies down.",
+     "walkthrough": "'Badger' looks like the animal; it is the verb, to pester. 'lay down' is lay down the law.",
+     "definitionFit": "To ordain is to decree or establish, as when laying down a rule."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Badger"
+    }
+   }
   }
  ]
 }
