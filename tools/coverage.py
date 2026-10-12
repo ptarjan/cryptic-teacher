@@ -114,6 +114,10 @@ def _causes():
         out[(blog, "answers-only")] = Cause(
             "tools/times_grids.py", "the post gives answers and wordplay, no clues (times_grids.has_clues), "
             "mostly 2007-2016: exhausted on the blog; only another source's clues can file it", False, False)
+        out[(blog, "partial-post")] = Cause(
+            "tools/times_grids.py", "the post hints only some of the clues: the grid search names "
+            "lights no entry has (attempts.jsonl `how`: no light numbered N); exhausted on the blog, "
+            "only another source's clues can file it", False, False)
         out[(blog, "no-grid")] = Cause(
             "tools/times_grids.py", "the grid search found none (attempts.jsonl `how`); a parser fix "
             "that changes the post's lights makes it due (light_key), and a search fix needs "
@@ -284,7 +288,7 @@ def blog_rows():
     for blog in ("timesforthetimes", "bigdave44"):
         d = BLOGS / blog
         grids = {r["post_id"] for r in jsonl(d / "grids.jsonl")}
-        tried = {r["post_id"] for r in jsonl(d / "attempts.jsonl")}
+        tried = {r["post_id"]: r.get("how") or "" for r in jsonl(d / "attempts.jsonl")}
         filings = {r["post_id"]: r["cause"] for r in jsonl(d / file_blog_puzzles.FILINGS)}
         for r in jsonl(d / "parsed.jsonl"):
             if not isinstance(r.get("number"), int):
@@ -300,7 +304,9 @@ def blog_rows():
                 cause = filings.get(pid, "grid-not-filed")
             else:
                 cause = ("answers-only" if not times_grids.has_clues(r) else
-                         "no-grid" if pid in tried else "grid-not-tried")
+                         "grid-not-tried" if pid not in tried else
+                         "partial-post" if tried[pid].startswith("no grid: no light numbered") else
+                         "no-grid")
             day = r.get("printed") or (r.get("date") or "")[:10]
             dates = ([day] if r.get("printed") else [day, day_after(day)]) if dated and day else []
             yield blog, key, r["number"], dates, cause

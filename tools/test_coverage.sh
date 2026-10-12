@@ -205,5 +205,22 @@ for built, wakes in ((quiet, False), (busy, True)):
     if wakes:
         args = calls.read_text().split("\n")
         assert args[:3] == ["-q", "-c", "cryptic-crosswords"], args
+# A blog post the grid search found lights missing from is a partial post,
+# not a search to retry; one it found no grid for is still no-grid.
+blogs = tmp / "blogs"
+for blog in ("timesforthetimes", "bigdave44"):
+    (blogs / blog).mkdir(parents=True)
+    (blogs / blog / "parsed.jsonl").write_text("")
+clue = lambda n: {"number": n, "direction": "across", "answer": "", "clue": "Clue words (5)", "enumeration": "5"}
+recs = [{"post_id": i, "series": "toughie", "number": n, "date": "2010-01-01", "entries": [clue(k) for k in range(1, 25)]}
+        for i, n in ((1, 92), (2, 101))]
+(blogs / "bigdave44" / "parsed.jsonl").write_text("".join(json.dumps(r) + "\n" for r in recs))
+(blogs / "bigdave44" / "attempts.jsonl").write_text(
+    json.dumps({"post_id": 1, "how": "no grid: no light numbered 20"}) + "\n"
+    + json.dumps({"post_id": 2, "how": "no grid"}) + "\n")
+cov.BLOGS = blogs
+got = {n: cause for _b, _s, n, _d, cause in cov.blog_rows()}
+assert got == {92: "partial-post", 101: "no-grid"}, got
+assert not cov.CAUSES[("bigdave44", "partial-post")].actionable
 print("coverage: ok")
 PY
