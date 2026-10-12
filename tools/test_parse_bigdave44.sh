@@ -263,4 +263,11 @@ p, why = F.build(rec, row, "toughie", None, "X")
 by = {"%d-%s" % (e["number"], e["direction"]): e.get("solution") for e in (p or {}).get("entries", [])}
 print(why, *(f"{k} {by.get(k)}" for k in ("1-across", "3-across", "2-down")))' 2>&1 | tail -1)"
 
+check "a post's linked answers count their lights toward a whole clue list (toughie-606)" \
+  "False True" "$(PYTHONPATH="$REPO/tools" python3 -c '
+import parse_bigdave44 as pb
+e = [{"number": n, "direction": "across"} for n in range(19)]
+g = [{"lights": [[30 + 2 * i, "across"], [31 + 2 * i, "down"]]} for i in range(3)]
+print(pb.plausible({"entries": e}), pb.plausible({"entries": e, "unsplit": g}))' 2>&1 | tail -1)"
+
 [ $fails -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }
