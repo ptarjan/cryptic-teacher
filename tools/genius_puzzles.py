@@ -849,6 +849,26 @@ def shared_answers(rendered, clues):
     return out
 
 
+def printed_order(puzzle, clues):
+    """Each linked clue's group in the order its heading prints its lights
+    ("22,17,3": IVOR HUGH JEGO), its separators placed again over that order:
+    build() groups the "See N" lights by number, 3 down before 17 down."""
+    import fetch_puzzle
+    by_id = {groups.entry_id(e): e for e in puzzle["entries"]}
+    for c in clues:
+        ids = [f"{n}-{d}" for n, d in c["lights"]]
+        lead = by_id.get(ids[0])
+        if (not c["enumeration"] or lead is None or lead.get("group") == ids
+                or sorted(lead.get("group") or []) != sorted(ids)):
+            continue
+        lead["group"] = ids
+        for eid, seps in zip(ids, fetch_puzzle.separators(c["enumeration"], [by_id[i]["length"] for i in ids])):
+            by_id[eid]["clue"].pop("separators", None)
+            if seps:
+                by_id[eid]["clue"]["separators"] = seps
+    return puzzle
+
+
 def join_shared_leaders(puzzle, shared):
     """Put each split_shared_leaders clue back as its leader's alsoLeads, its
     stand-in lights back to "See N" continuations."""
@@ -975,6 +995,7 @@ def assemble(number, pdf, post, date, url):
         if why == "answers disagree with the grid":
             return None, ("answers cross wrongly (entries altered)", why)
         return None, (why, "")
+    printed_order(puzzle, pdf["clues"])
     join_shared_leaders(puzzle, shared)
     if pdf["preamble"]:
         puzzle["preamble"] = pdf["preamble"]
@@ -999,6 +1020,7 @@ def unsolved(number, pdf, date, url, withheld=()):
     puzzle, why = file_blog_puzzles.build(rec, row, SERIES, date, pdf["setter"])
     if why:
         return None, (why, "unsolved")
+    printed_order(puzzle, pdf["clues"])
     join_shared_leaders(puzzle, shared)
     # The stand-in counts of clues that print none come off again.
     held = {c["lights"][0] for c in withheld}
