@@ -63,7 +63,7 @@ def packet(puzzle):
                     key=lambda e: (e["direction"], e["number"])):
         lines.append(f"{entry_id(e)}  {label(e)} ({e['length']}) {e['clue'].get('text', '')}")
         if entry_id(e) in printed:
-            lines.append(f"    printed answer: {printed[entry_id(e)]}")
+            lines.append(f"    printed answer: {printed[entry_id(e)]} (the paper's own: your fill must agree)")
         elif reopened.get(entry_id(e)):
             lines.append(f"    an earlier solve's {reopened[entry_id(e)]} was sent back: no parse "
                          f"of this clue was found for it. Keep it only if you can derive it")
