@@ -97,7 +97,25 @@ Terms used below:
   to work out here". The type-derived sentence is said only when some
   indicator has neither. The smoke test enforces this structurally, not by
   banned phrases: remove the notes from a fully-noted rung, and what is left
-  must be empty.
+  must be empty, apart from the rule to keep below.
+- **The indicator and type rungs end on a rule to keep.** One labelled line
+  says what the device's words usually mean in any clue and lists other words
+  that do the same job ("“occupying” usually means: put one piece inside
+  another; also: in, about, around…"), then links to that device's section of
+  /learn/. Everything else on a rung explains this one clue; this line is the
+  skill to reuse. The rules are a static table in app.js, `DEVICE_RULES` keyed
+  by clue type (an indicator's `for`) and `FAMILY_RULES` keyed by family (the
+  type rung names only the family, so its rule covers the whole family). The
+  table is fixed text, so it obeys the early-rung rules: the line goes through
+  `maskAnswer`, and any example word the clue prints is dropped, since on the
+  type rung it would point at the indicator. Each `learn` id is a section id in
+  `tools/tutorial.html`; the smoke test fails on a missing one, or on a type or
+  family with no rule.
+- **The finish box recaps what you needed.** Under the tally, "What you used
+  today" lists each clue type in a clue that took a hint or a revealed letter,
+  with how many such clues, each linked to its /learn/ section. It is derived
+  from the saved ladder state in `ct:<id>`, so a reopened or synced puzzle shows
+  the same recap and nothing new is stored.
 - **Do not refer to the surface picture with a definite noun phrase you never
   introduced** (for example "the impromptu band" in a walkthrough that never
   mentioned a band). Name the picture in the clue's own words. See

@@ -32,6 +32,13 @@ How the ladder behaves:
   definition, type) can be taken in any order. The building blocks and the
   walkthrough stay locked until the spotting rungs are up.
 - **Solving the clue unlocks every rung for free.**
+- **The indicator and type rungs end on a rule to keep.** A labelled line says
+  what that device's words usually mean in any clue, with other words that do
+  the same job, and links to the device's section of the /learn/ lesson. The
+  rest of the ladder explains this clue; the rule is what carries over to the
+  next one.
+- **Finishing a grid recaps what you used.** "What you used today" lists the
+  clue types you needed hints for, with how many clues each, linked to /learn/.
 
 Other features:
 
