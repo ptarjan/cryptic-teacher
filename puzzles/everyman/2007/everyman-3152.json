@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,74 @@
     "text": "Superior boat at sea rounding first of buoys",
     "enumeration": "5"
    },
-   "solution": "ABBOT"
+   "solution": "ABBOT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ABBOT",
+    "definitions": [
+     {
+      "text": "Superior",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "something at sea is adrift and confused, so the word before it is jumbled"
+     },
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "first of asks for only the opening letter of the next word"
+     },
+     {
+      "text": "rounding",
+      "for": "container",
+      "note": "rounding means going around, so the jumbled letters wrap the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boat",
+      "gives": "BOAT",
+      "note": "the fodder to be jumbled"
+     },
+     {
+      "clueFragment": "buoys",
+      "gives": "B",
+      "select": "first",
+      "note": "the initial letter of buoys"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "B",
+      "BOT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BOAT",
+       "gives": "ABOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fine vessel sails out, circling a marker buoy.",
+     "walkthrough": "ABOT, the shuffled boat, takes B after its first letter to give ABBOT. 'Superior' here is a noun: the head of a religious house.",
+     "definitionFit": "An abbot is the head of a monastery, and a monastic head is called a superior."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Superior"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +117,61 @@
     "text": "Biblical character very good graduate raised",
     "enumeration": "4"
    },
-   "solution": "AMOS"
+   "solution": "AMOS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "AMOS",
+    "definitions": [
+     {
+      "text": "Biblical character",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down entry, raised means lifted upwards, so the letters read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very good",
+      "gives": "SO",
+      "note": "so good means very good, and SO alone carries the 'very'"
+     },
+     {
+      "clueFragment": "graduate",
+      "gives": "MA",
+      "note": "a Master of Arts is a graduate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AM",
+      "OS"
+     ],
+     "reversals": [
+      {
+       "from": "SOMA",
+       "to": "AMOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A saintly figure from scripture who was also a university graduate gets promoted.",
+     "walkthrough": "SO plus MA makes SOMA, which read upwards gives AMOS.",
+     "definitionFit": "Amos is an Old Testament prophet with a book of the Bible named after him."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +185,66 @@
     "text": "Killed brutally, the cur, surprisingly in bed",
     "enumeration": "9"
    },
-   "solution": "BUTCHERED"
+   "solution": "BUTCHERED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BUTCHERED",
+    "definitions": [
+     {
+      "text": "Killed brutally",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surprisingly",
+      "for": "anagram",
+      "note": "surprisingly hints the letters turn out in an unexpected order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the rearranged letters inside the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the cur",
+      "gives": "THECUR",
+      "note": "the fodder for the rearrangement"
+     },
+     {
+      "clueFragment": "bed",
+      "gives": "BED",
+      "note": "taken as written, then split around the jumble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "UTCHER",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THECUR",
+       "gives": "UTCHER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog was found savagely slain in its bed, to everyone's surprise.",
+     "definitionFit": "To butcher someone is to slaughter them savagely, like an animal in an abattoir."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "surprisingly"
+    }
+   }
   },
   {
    "number": 3,
@@ -89,7 +272,43 @@
      }
     ]
    },
-   "solution": "THEGLOVESAREOFF"
+   "solution": "THEGLOVESAREOFF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "THE GLOVES ARE OFF",
+    "definitions": [
+     {
+      "text": "The serious fight is about to begin",
+      "at": 0
+     },
+     {
+      "text": "gauntlets having been thrown down?",
+      "at": 37
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The serious fight is about to begin",
+      "note": "first meaning: the idiom for when hostilities get earnest"
+     },
+     {
+      "clueFragment": "gauntlets having been thrown down?",
+      "note": "second meaning, literal: the hand coverings have been removed"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The idiom comes from boxing, where fighting bare-fisted signals real violence; the question mark flags the literal second reading.",
+     "definitionFit": "The idiom signals that restraint is abandoned and real conflict starts; literally, the protective handwear has been removed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gauntlets"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +322,52 @@
     "text": "Result of fine season",
     "enumeration": "9"
    },
-   "solution": "OFFSPRING"
+   "solution": "OFFSPRING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OFFSPRING",
+    "definitions": [
+     {
+      "text": "Result",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of",
+      "gives": "OF",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the pencil-grading abbreviation for fine"
+     },
+     {
+      "clueFragment": "season",
+      "gives": "SPRING",
+      "note": "spring is one of the four seasons"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OF",
+      "F",
+      "SPRING"
+     ]
+    },
+    "explanation": {
+     "surface": "A sunny spell produces a good outcome.",
+     "definitionFit": "Offspring are the product of breeding, and figuratively any result or outcome of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "of"
+    }
+   }
   },
   {
    "number": 4,
@@ -123,7 +387,75 @@
      }
     ]
    },
-   "solution": "OILWELL"
+   "solution": "OILWELL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "OIL WELL",
+    "definitions": [
+     {
+      "text": "Boring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned",
+      "for": "reversal",
+      "note": "turned means flipped round, so the name is read backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the flipped name inside the word for unwell"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is a common abbreviation for old"
+     },
+     {
+      "clueFragment": "sick",
+      "gives": "ILL",
+      "note": "sick means ill; it is split around the name"
+     },
+     {
+      "clueFragment": "Lew",
+      "gives": "LEW",
+      "note": "the name taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "IL",
+      "WEL",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "LEW",
+       "to": "WEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tedious old Lew has fallen ill.",
+     "walkthrough": "'Boring' looks like an adjective for dull Lew, but it is a noun: a hole drilled into the ground.",
+     "definitionFit": "A boring is a shaft drilled into the earth, and an oil well is exactly such a drilled shaft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Boring"
+    }
+   }
   },
   {
    "number": 5,
@@ -137,7 +469,76 @@
     "text": "Plant, unrestrained, is climbing onto roof of attic",
     "enumeration": "7"
    },
-   "solution": "FREESIA"
+   "solution": "FREESIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "letter_selection"
+    ],
+    "answer": "FREESIA",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down entry, climbing means going upwards, so the little word is read bottom to top"
+     },
+     {
+      "text": "roof of",
+      "for": "letter_selection",
+      "note": "the roof is the top of a down entry's word, so its first letter is wanted"
+     }
+    ],
+    "linkWords": [
+     "onto"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unrestrained",
+      "gives": "FREE",
+      "note": "unrestrained means free"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written, then read upwards"
+     },
+     {
+      "clueFragment": "attic",
+      "gives": "A",
+      "select": "first",
+      "note": "the top letter of attic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FREE",
+      "SI",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "IS",
+       "to": "SI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plant grows wild and climbs up to the attic roof.",
+     "definitionFit": "Freesia is a fragrant flowering plant grown from corms, popular as a cut flower."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "climbing"
+    }
+   }
   },
   {
    "number": 6,
@@ -157,7 +558,53 @@
      }
     ]
    },
-   "solution": "POCKETBILLIARDS"
+   "solution": "POCKETBILLIARDS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "POCKET BILLIARDS",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suspect",
+      "for": "anagram",
+      "note": "suspect as an adjective means dubious, not to be trusted as it stands, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blacklisted pro, I",
+      "gives": "BLACKLISTEDPROI",
+      "note": "the fifteen letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BLACKLISTEDPROI",
+       "gives": "POCKETBILLIARDS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A banned professional player is under suspicion, the speaker thinks.",
+     "definitionFit": "Pocket billiards is a cue game, another name for pool, played on a table with pockets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suspect"
+    }
+   }
   },
   {
    "number": 7,
@@ -171,7 +618,46 @@
     "text": "Unsuitable home, small apartment",
     "enumeration": "5"
    },
-   "solution": "INAPT"
+   "solution": "INAPT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INAPT",
+    "definitions": [
+     {
+      "text": "Unsuitable",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "to be in is to be at home"
+     },
+     {
+      "clueFragment": "small apartment",
+      "gives": "APT",
+      "note": "apt. is the short form of apartment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "APT"
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny flat is no good as a home.",
+     "definitionFit": "Inapt means inappropriate or ill-suited, the opposite of apt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 8,
@@ -191,7 +677,51 @@
      }
     ]
    },
-   "solution": "GETDRESSED"
+   "solution": "GETDRESSED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GET DRESSED",
+    "definitions": [
+     {
+      "text": "Don",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hit",
+      "gives": "GET",
+      "note": "to get someone can mean to strike them, as in 'the punch got him on the chin'"
+     },
+     {
+      "clueFragment": "treated",
+      "gives": "DRESSED",
+      "note": "a wound is dressed when it is treated and bandaged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GET",
+      "DRESSED"
+     ]
+    },
+    "explanation": {
+     "surface": "A university lecturer was struck and needed medical attention.",
+     "walkthrough": "'Don' looks like a university teacher, but here it is the verb meaning to put on clothes.",
+     "definitionFit": "To don clothing is to put it on, which is what you do when you clothe yourself in the morning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Don"
+    }
+   }
   },
   {
    "number": 9,
@@ -205,7 +735,50 @@
     "text": "Stir me a lot, a porridge",
     "enumeration": "7"
    },
-   "solution": "OATMEAL"
+   "solution": "OATMEAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OATMEAL",
+    "definitions": [
+     {
+      "text": "porridge",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Stir",
+      "for": "anagram",
+      "note": "to stir is to mix things around, so the letters are mixed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "me a lot, a",
+      "gives": "MEALOTA",
+      "note": "the seven letters to be mixed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MEALOTA",
+       "gives": "OATMEAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook is told to give the porridge a good stir.",
+     "definitionFit": "Oatmeal is ground oats, and in American usage the word names the cooked breakfast dish of porridge itself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Stir"
+    }
+   }
   },
   {
    "number": 10,
@@ -219,7 +792,64 @@
     "text": "Captivate audience, at the end, with new song",
     "enumeration": "7"
    },
-   "solution": "ENCHANT"
+   "solution": "ENCHANT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ENCHANT",
+    "definitions": [
+     {
+      "text": "Captivate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the end",
+      "for": "letter_selection",
+      "note": "at the end points to the closing letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "audience",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of audience"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     },
+     {
+      "clueFragment": "song",
+      "gives": "CHANT",
+      "note": "a chant is a simple song"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "N",
+      "CHANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A singer wins the crowd over at the close of the show with a fresh number.",
+     "definitionFit": "To enchant is to charm or delight, holding someone's attention as if by a spell."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "audience"
+    }
+   }
   },
   {
    "number": 11,
@@ -239,7 +869,42 @@
      }
     ]
    },
-   "solution": "HELTERSKELTER"
+   "solution": "HELTERSKELTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HELTER-SKELTER",
+    "definitions": [
+     {
+      "text": "In disorder",
+      "at": 0
+     },
+     {
+      "text": "slide",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In disorder",
+      "note": "first meaning: in a hurried, confused manner"
+     },
+     {
+      "clueFragment": "slide",
+      "note": "second meaning: a tall spiral slide at a fairground"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A helter-skelter is a British fairground ride: a tower with a slide spiralling round the outside, ridden on a mat.",
+     "definitionFit": "The adverb describes chaotic haste, and the noun names a spiral fairground slide."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "slide"
+    }
+   }
   },
   {
    "number": 12,
@@ -253,7 +918,51 @@
     "text": "Informer, good and bent?",
     "enumeration": "10"
    },
-   "solution": "SUPERGRASS"
+   "solution": "SUPERGRASS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUPERGRASS",
+    "definitions": [
+     {
+      "text": "Informer",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "SUPER",
+      "note": "super means very good"
+     },
+     {
+      "clueFragment": "bent",
+      "gives": "GRASS",
+      "note": "bent is a type of grass, common on lawns"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUPER",
+      "GRASS"
+     ]
+    },
+    "explanation": {
+     "surface": "Is the police informant honest, or crooked?",
+     "walkthrough": "'Bent' reads as crooked, fitting an informer, but it is the name of a grass. In British slang a supergrass is a criminal who informs on many associates.",
+     "definitionFit": "A grass is British slang for a police informant; a supergrass betrays a large number of fellow criminals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bent"
+    }
+   }
   },
   {
    "number": 13,
@@ -267,7 +976,46 @@
     "text": "Straighten out a French composer",
     "enumeration": "7"
    },
-   "solution": "UNRAVEL"
+   "solution": "UNRAVEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNRAVEL",
+    "definitions": [
+     {
+      "text": "Straighten out",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a French",
+      "gives": "UN",
+      "note": "un is French for a"
+     },
+     {
+      "clueFragment": "composer",
+      "gives": "RAVEL",
+      "note": "Maurice Ravel, composer of Bolero"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "RAVEL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sets a French composer straight.",
+     "definitionFit": "To unravel a tangle is to undo it, so sorting out or clearing up a muddle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 14,
@@ -281,7 +1029,53 @@
     "text": "Evergreen Arabian? On the contrary, American",
     "enumeration": "7"
    },
-   "solution": "ARBUTUS"
+   "solution": "ARBUTUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ARBUTUS",
+    "definitions": [
+     {
+      "text": "Evergreen",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arabian",
+      "gives": "AR",
+      "note": "Ar. is a dictionary abbreviation for Arabian or Arabic"
+     },
+     {
+      "clueFragment": "On the contrary",
+      "gives": "BUT",
+      "note": "but introduces a contrary statement"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US stands for the United States, hence American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "BUT",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "Is this evergreen plant from Arabia? No, from America.",
+     "walkthrough": "The clue reads as a question and answer, but each phrase supplies a piece in turn.",
+     "definitionFit": "The arbutus, or strawberry tree, is an evergreen shrub or small tree with red berries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "contrary"
+    }
+   }
   },
   {
    "number": 15,
@@ -295,7 +1089,51 @@
     "text": "Giant, dear comic actor",
     "enumeration": "9"
    },
-   "solution": "TRAGEDIAN"
+   "solution": "TRAGEDIAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRAGEDIAN",
+    "definitions": [
+     {
+      "text": "actor",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "comic",
+      "for": "anagram",
+      "note": "comic means funny or ridiculous, so the letters are made to clown about into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Giant, dear",
+      "gives": "GIANTDEAR",
+      "note": "the nine letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GIANTDEAR",
+       "gives": "TRAGEDIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A huge, lovable comedy performer.",
+     "walkthrough": "'Comic actor' looks like the definition, but a comic actor is the opposite of the answer: only 'actor' defines.",
+     "definitionFit": "A tragedian is an actor who specialises in tragic roles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "comic"
+    }
+   }
   },
   {
    "number": 16,
@@ -315,7 +1153,66 @@
      }
     ]
    },
-   "solution": "ENDUSER"
+   "solution": "ENDUSER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "END USER",
+    "definitions": [
+     {
+      "text": "ultimate consumer",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nervous",
+      "for": "anagram",
+      "note": "a nervous person is jittery and jumbled, so the word before it is mixed up"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so the jumble surrounds the chemical symbol"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sender",
+      "gives": "SENDER",
+      "note": "the fodder to be rearranged"
+     },
+     {
+      "clueFragment": "uranium",
+      "gives": "U",
+      "note": "U is the chemical symbol for uranium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "END",
+      "U",
+      "SER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SENDER",
+       "gives": "ENDSER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone posting a radioactive parcel frets about whether it will arrive.",
+     "definitionFit": "The end user is the person who finally uses a product, the last consumer in the supply chain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nervous"
+    }
+   }
   },
   {
    "number": 17,
@@ -329,7 +1226,52 @@
     "text": "Royal Engineers go, reportedly, to raise a siege",
     "enumeration": "7"
    },
-   "solution": "RELIEVE"
+   "solution": "RELIEVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "RELIEVE",
+    "definitions": [
+     {
+      "text": "raise a siege",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as it is said, so the word is heard rather than spelt"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Royal Engineers",
+      "gives": "RE",
+      "note": "RE is the abbreviation for the Royal Engineers, a British Army corps"
+     },
+     {
+      "clueFragment": "go",
+      "gives": "LIEVE",
+      "soundsLike": "LEAVE",
+      "note": "to go is to leave"
+     }
+    ],
+    "explanation": {
+     "surface": "Army engineers are said to be departing to break a blockade.",
+     "definitionFit": "To relieve a besieged town is to free it by driving off the attackers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "go"
+    }
+   }
   },
   {
    "number": 18,
@@ -349,7 +1291,54 @@
      }
     ]
    },
-   "solution": "PALEALE"
+   "solution": "PALEALE",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "PALE ALE",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "we hear means the words are listened to, so their sound counts, not their spelling"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bucket",
+      "gives": "PALE",
+      "soundsLike": "PAIL",
+      "note": "a pail is a bucket"
+     },
+     {
+      "clueFragment": "Feel unwell",
+      "gives": "ALE",
+      "soundsLike": "AIL",
+      "note": "to ail is to feel unwell"
+     }
+    ],
+    "explanation": {
+     "surface": "Drinking from a bucket would make anyone feel sick.",
+     "definitionFit": "Pale ale is a light-coloured beer brewed with pale malt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bucket"
+    }
+   }
   },
   {
    "number": 18,
@@ -363,7 +1352,50 @@
     "text": "Threw tar over editor",
     "enumeration": "7"
    },
-   "solution": "PITCHED"
+   "solution": "PITCHED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PITCHED",
+    "definitions": [
+     {
+      "text": "Threw",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tar",
+      "gives": "PITCH",
+      "note": "pitch is black tar"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ed. is the abbreviation for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PITCH",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone flung tar all over a newspaper editor.",
+     "walkthrough": "In a down entry, one piece over another means it sits above, so it comes first.",
+     "definitionFit": "To pitch a ball is to throw it, so pitched is the past tense meaning threw."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 19,
@@ -383,7 +1415,49 @@
      }
     ]
    },
-   "solution": "GENERALSTRIKE"
+   "solution": "GENERALSTRIKE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GENERAL STRIKE",
+    "definitions": [
+     {
+      "text": "nationwide walkout",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "has to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Army officer",
+      "gives": "GENERAL",
+      "note": "a general is a senior army officer"
+     },
+     {
+      "clueFragment": "attack",
+      "gives": "STRIKE",
+      "note": "to strike is to attack"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GENERAL",
+      "STRIKE"
+     ]
+    },
+    "explanation": {
+     "surface": "A senior commander must launch an assault during a national stoppage.",
+     "definitionFit": "A general strike is a coordinated stoppage of work by workers across a whole country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "attack"
+    }
+   }
   },
   {
    "number": 20,
@@ -397,7 +1471,50 @@
     "text": "The head on the French gold coin, now obsolete",
     "enumeration": "5"
    },
-   "solution": "NOBLE"
+   "solution": "NOBLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOBLE",
+    "definitions": [
+     {
+      "text": "gold coin, now obsolete",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The head",
+      "gives": "NOB",
+      "note": "nob is slang for the head"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOB",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A king's head appears on an old French gold coin.",
+     "walkthrough": "In a down entry, one piece on another sits above it, so it comes first.",
+     "definitionFit": "The noble was a medieval English gold coin, long out of circulation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 21,
@@ -411,7 +1528,50 @@
     "text": "Small piece of jewellery getting endless attention",
     "enumeration": "4"
    },
-   "solution": "STUD"
+   "solution": "STUD",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STUD",
+    "definitions": [
+     {
+      "text": "Small piece of jewellery",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "endless means without its end, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attention",
+      "gives": "STUDY",
+      "note": "study is close attention"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STUD"
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny jewel attracts unceasing notice.",
+     "definitionFit": "A stud is a small earring or ornament with a post, a little piece of jewellery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "attention"
+    }
+   }
   },
   {
    "number": 22,
@@ -425,7 +1585,54 @@
     "text": "Saint featured in some bar that's prejudiced",
     "enumeration": "7"
    },
-   "solution": "AMBROSE"
+   "solution": "AMBROSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AMBROSE",
+    "definitions": [
+     {
+      "text": "Saint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prejudiced",
+      "for": "anagram",
+      "note": "prejudiced means biased or bent away from the true line, so the letters are warped into a new order"
+     }
+    ],
+    "linkWords": [
+     "featured in",
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some bar",
+      "gives": "SOMEBAR",
+      "note": "the seven letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOMEBAR",
+       "gives": "AMBROSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A saint turns up in a pub where the drinkers are bigoted.",
+     "definitionFit": "St Ambrose was the fourth-century bishop of Milan, one of the four Latin Doctors of the Church."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "prejudiced"
+    }
+   }
   },
   {
    "number": 23,
@@ -439,7 +1646,50 @@
     "text": "Hit rear, upsetting girl",
     "enumeration": "7"
    },
-   "solution": "HARRIET"
+   "solution": "HARRIET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HARRIET",
+    "definitions": [
+     {
+      "text": "girl",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upsetting",
+      "for": "anagram",
+      "note": "upsetting means knocking over, so the letters are tipped into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hit rear",
+      "gives": "HITREAR",
+      "note": "the seven letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HITREAR",
+       "gives": "HARRIET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A smack on the bottom upsets a young girl.",
+     "definitionFit": "Harriet is a girl's name, and crosswords often define first names as boy or girl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upsetting"
+    }
+   }
   },
   {
    "number": 24,
@@ -453,7 +1703,57 @@
     "text": "Book by female, Irish composer from this city",
     "enumeration": "9"
    },
-   "solution": "SHEFFIELD"
+   "solution": "SHEFFIELD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHEFFIELD",
+    "definitions": [
+     {
+      "text": "city",
+      "at": 41
+     }
+    ],
+    "linkWords": [
+     "by",
+     "from this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Book",
+      "gives": "SHE",
+      "note": "She is the novel by H. Rider Haggard"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "Irish composer",
+      "gives": "FIELD",
+      "note": "John Field, Irish composer who invented the nocturne"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHE",
+      "F",
+      "FIELD"
+     ]
+    },
+    "explanation": {
+     "surface": "A novel by a woman and an Irish composer both come from this city.",
+     "walkthrough": "'Book' is not a general word for a book but a specific title: She, the Victorian adventure novel.",
+     "definitionFit": "Sheffield is a city in South Yorkshire, England, famous for steel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Book"
+    }
+   }
   },
   {
    "number": 25,
@@ -467,7 +1767,42 @@
     "text": "Church council, somewhat busy no doubt",
     "enumeration": "5"
    },
-   "solution": "SYNOD"
+   "solution": "SYNOD",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SYNOD",
+    "definitions": [
+     {
+      "text": "Church council",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means only to a degree, so just part of the phrase is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "busy no doubt",
+      "gives": "SYNOD",
+      "note": "the letters run across busy, no and doubt"
+     }
+    ],
+    "explanation": {
+     "surface": "The church committee is rather busy, no doubt.",
+     "definitionFit": "A synod is an assembly of clergy and church officials that governs church affairs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "somewhat"
+    }
+   }
   }
  ]
 }
