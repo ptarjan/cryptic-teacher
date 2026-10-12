@@ -209,8 +209,9 @@ def preamble_of(head):
     return text or None
 
 
-# Kosman and Picciotto's first number: every page below it is a Lewis reprint.
-FIRST_KP = 3197
+# Pages below this number are Lewis reprints of 2009-11; from it on (Lewis's
+# last run, 2008-09, then Kosman and Picciotto) each is dated by its own issue.
+REPRINTS_BELOW = 3100
 # How far a reprint naming no original issue may be dated from the nearest
 # number that names one, a week a number.
 NEIGHBOUR_REACH = 6
@@ -221,7 +222,7 @@ def original_dates():
     out = {}
     for path in PAGES.glob("*.html"):
         m = meta(path.read_text())
-        if m["number"] and m["number"] < FIRST_KP and m.get("original"):
+        if m["number"] and m["number"] < REPRINTS_BELOW and m.get("original"):
             out[m["number"]] = m["date"]
     return out
 
@@ -238,7 +239,7 @@ def reprint_date(number, known):
 def build(page, url, known=None):
     """(puzzle, None) or (None, why not)."""
     m = meta(page)
-    if m["number"] and m["number"] < FIRST_KP and not m["original"]:
+    if m["number"] and m["number"] < REPRINTS_BELOW and not m["original"]:
         m["date"] = reprint_date(m["number"], known or {})
         if m["date"] is None:
             return None, "a reprint naming no original issue, no dated neighbour"
@@ -338,6 +339,11 @@ def file_all(numbers=None, workers=4):
     _build_one.urls = {page_path(u).name: u for u in json.loads(URLS.read_text())}
     _build_one.known = original_dates()
     paths = sorted(PAGES.glob("*.html"))
+    # "puzzle-no-1588-0", "puzzle-no-3161-2": a later copy of a page held plain.
+    names = {p.name for p in paths}
+    paths = [p for p in paths
+             if not (re.search(r"-\d+-\d\.html$", p.name)
+                     and re.sub(r"-\d\.html$", ".html", p.name) in names)]
     if numbers:
         paths = [p for p in paths if meta(p.read_text())["number"] in numbers]
     filed, why, seen = 0, {}, set()
