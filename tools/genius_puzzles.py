@@ -259,7 +259,7 @@ ALTERED = re.compile(r"(?i)before (?:entry|being entered|entering)|(?:entry|ente
                      r"not be entered|non-words|entries are all|required entry|\bmodified\b|\bclash")
 #: The competition's small print, which is not the preamble.
 SMALL_PRINT = re.compile(r"(?i)register\s*once|\b(?:deadline|closing date|register\s*once|sign\s*(?:in|on)\s*to|"
-                         r"online competition|enter the competition|this grid was updated|click here for (?:the )?printable version|valid email address|resubmit your entry|competition (?:closes|not open)|monthly prize|one entry only|alternate winner|privacy policy|terms and conditions|promoter|name or location|eligible|prize draw|entries received|email you|£\d+|(?:one |the )?winners?|personal data|don[’']t respond)\b")
+                         r"online competition|enter the competition|this grid was updated|click here for (?:the )?printable version|valid email address|resubmit your entry|competition (?:closes|not open)|monthly prize|one entry only|alternate winner|privacy policy|terms and conditions|promoter|name or location|eligible|prize draw|entries received|email you|£\d+|(?:one |the )winners?|winners? (?:will|are|must|of the)|personal data|don[’']t respond)\b")
 #: A section's heading, as the PDFs case it ("ACross", "DoWN" too).
 SECTION_AT = {"across": re.compile(r"\b(?:ACROSS|A[Cc]ross)\b(?=\s*\d)"),
               "down": re.compile(r"\b(?:DOWN|D[Oo][Ww]N|Down)\b(?=\s*\d)")}
@@ -438,8 +438,10 @@ def parse_text(text):
         rest.append(text[at:a])
         at = max(at, b)
     rest.append(text[at:])
-    rest = [FURNITURE.sub("", x) for x in rest]
+    # The labels first, so a heading they hid ("Clues ACross Instructions
+    # Eight solutions ...", No 165) is at the start for FURNITURE.
     rest = [re.sub(r"(?i)^\s*Clues\b|\b(?:Instructions|RULES AND REQUESTS|Preamble)\b:?", "", x) for x in rest]
+    rest = [FURNITURE.sub("", x) for x in rest]
     sentences = re.split(r"(?<=[.?!])\s+", " ".join(x.strip() for x in rest if x.strip()))
     # Small print run on from an instruction with no full stop between keeps
     # the instruction ("... first letter Competition closes ...").
