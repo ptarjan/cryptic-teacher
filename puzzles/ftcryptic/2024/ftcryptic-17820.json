@@ -24,6 +24,9 @@
   "date": "2024-08-21",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,56 @@
     "text": "Even characters occupying harbour in Hamburg agreed capital",
     "enumeration": "5"
    },
-   "solution": "ABUJA"
+   "solution": "ABUJA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ABUJA",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Even characters occupying",
+      "for": "letter_selection",
+      "note": "even characters are those in the second, fourth and sixth places, so only those letters of the next word are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "harbour",
+      "gives": "ABU",
+      "select": "alternate",
+      "note": "letters two, four and six of the word"
+     },
+     {
+      "clueFragment": "in Hamburg agreed",
+      "gives": "JA",
+      "note": "German for yes, as said in Hamburg"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABU",
+      "JA"
+     ]
+    },
+    "explanation": {
+     "surface": "A trade deal struck in the port of Hamburg, agreed by everyone present.",
+     "walkthrough": "'Even characters' could mean uniform people, but it picks the even-numbered letters.",
+     "definitionFit": "Abuja replaced Lagos as Nigeria's capital city in 1991."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 2,
@@ -57,7 +109,42 @@
      }
     ]
    },
-   "solution": "BTREE"
+   "solution": "BTREE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "B-TREE",
+    "definitions": [
+     {
+      "text": "storage structure",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "the answer sits in the run of letters across the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "debt re-establishing",
+      "gives": "BTREE",
+      "note": "spanning the end of debt and the start of the next word"
+     }
+    ],
+    "explanation": {
+     "surface": "Restructuring a debt by rebuilding how something is stored or financed.",
+     "definitionFit": "A B-tree is a balanced tree data structure used by databases and file systems to store sorted data."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "debt"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +164,79 @@
      }
     ]
    },
-   "solution": "JACKDAWKINS"
+   "solution": "JACKDAWKINS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "JACK DAWKINS",
+    "definitions": [
+     {
+      "text": "Pickpocket",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, picked up means the letters are read from bottom to top"
+     },
+     {
+      "text": "having picked",
+      "for": "container",
+      "note": "to have picked something up is to be holding it, so the next letters sit inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "£1,000",
+      "gives": "K",
+      "note": "K, a thousand, as in a grand"
+     },
+     {
+      "clueFragment": "bundle",
+      "gives": "WAD",
+      "note": "a wad is a bundle of notes"
+     },
+     {
+      "clueFragment": "quit",
+      "gives": "JACKIN",
+      "note": "to jack in a job is to quit it"
+     },
+     {
+      "clueFragment": "square",
+      "gives": "S",
+      "note": "S is a common abbreviation for square"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JACK",
+      "DAWK",
+      "IN",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "KWAD",
+       "to": "DAWK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thief walks off the town square having pocketed a thousand pounds in banknotes.",
+     "walkthrough": "The reversed pair lands inside the quit phrase, splitting it after its first word. Jack in is British slang for giving something up.",
+     "definitionFit": "Jack Dawkins is the real name of the Artful Dodger, the young pickpocket in Dickens's Oliver Twist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "square"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +250,51 @@
     "text": "Fungi, say, set in brew",
     "enumeration": "6"
    },
-   "solution": "YEASTS"
+   "solution": "YEASTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "YEASTS",
+    "definitions": [
+     {
+      "text": "Fungi",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in brew",
+      "for": "anagram",
+      "note": "a brew is a mixture stirred together, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "say, set",
+      "gives": "SAYSET",
+      "note": "the six letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SAYSET",
+       "gives": "YEASTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A note that fungi can be found in a brewing vat, which is where yeast does its work.",
+     "walkthrough": "'say' looks like an example marker after Fungi, but it is part of the letters.",
+     "definitionFit": "Yeasts are single-celled organisms belonging to the fungus kingdom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +308,44 @@
     "text": "Projected date for delivering letter",
     "enumeration": "3"
    },
-   "solution": "ETA"
+   "solution": "ETA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ETA",
+    "definitions": [
+     {
+      "text": "Projected date for delivering",
+      "at": 0
+     },
+     {
+      "text": "letter",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Projected date for delivering",
+      "note": "first meaning: estimated time of arrival"
+     },
+     {
+      "clueFragment": "letter",
+      "note": "second meaning: a letter of the Greek alphabet"
+     }
+    ],
+    "explanation": {
+     "surface": "When the post will bring a letter.",
+     "walkthrough": "It reads as one postal question, but splits into two separate senses.",
+     "definitionFit": "The abbreviation stands for estimated time of arrival, and it is also the seventh letter of the Greek alphabet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "letter"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +359,62 @@
     "text": "That keeps a Bible class rolling",
     "enumeration": "9"
    },
-   "solution": "SUPERRICH"
+   "solution": "SUPERRICH",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SUPER-RICH",
+    "definitions": [
+     {
+      "text": "rolling",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeps",
+      "for": "container",
+      "note": "what keeps something holds it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "That",
+      "gives": "SUCH",
+      "note": "such, as in 'such a thing'"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "PER",
+      "note": "per, as in so much a day"
+     },
+     {
+      "clueFragment": "Bible class",
+      "gives": "RI",
+      "note": "Religious Instruction, a school subject"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "PER",
+      "RI",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "Something that keeps a Sunday Bible study group going.",
+     "walkthrough": "'rolling' looks like keeping things going, but it means wealthy, as in rolling in money.",
+     "definitionFit": "Someone rolling in it has a huge fortune, which is what super-rich describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "rolling"
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +428,48 @@
     "text": "Malicious gossip quickly read Hello!?",
     "enumeration": "7"
    },
-   "solution": "SCANMAG"
+   "solution": "SCANMAG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCAN MAG",
+    "definitions": [
+     {
+      "text": "Malicious gossip",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quickly read",
+      "gives": "SCAN",
+      "note": "to scan is to read quickly"
+     },
+     {
+      "clueFragment": "Hello!?",
+      "gives": "MAG",
+      "note": "Hello! is a celebrity magazine, a mag"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCAN",
+      "MAG"
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity magazine skimmed for its spiteful tittle-tattle.",
+     "walkthrough": "Hello! is a British celebrity magazine; the exclamation mark is part of its title.",
+     "definitionFit": "Scan mag is an old word for slander, short for the legal term scandalum magnatum."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Hello!?"
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +483,48 @@
     "text": "Lifted not unlawful cases of wood",
     "enumeration": "6"
    },
-   "solution": "WALNUT"
+   "solution": "WALNUT",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "WALNUT",
+    "definitions": [
+     {
+      "text": "wood",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cases",
+      "for": "hidden_word",
+      "note": "the phrase encases the answer within its letters"
+     },
+     {
+      "text": "Lifted",
+      "for": "reversal",
+      "note": "in a down clue, lifted means read from the bottom upward"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not unlawful",
+      "gives": "TUNLAW",
+      "note": "the last letter of not and the start of the next word"
+     }
+    ],
+    "explanation": {
+     "surface": "A legal case about something stolen that wasn't unlawful after all.",
+     "definitionFit": "Walnut is a hardwood timber prized by furniture makers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lifted"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +548,54 @@
      }
     ]
    },
-   "solution": "STONETHECROWS"
+   "solution": "STONETHECROWS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STONE THE CROWS",
+    "definitions": [
+     {
+      "text": "holy cow!",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Murder",
+      "gives": "STONE",
+      "note": "to stone someone is to kill them"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "same",
+      "gives": "CROWS",
+      "note": "a murder again: a murder is the collective noun for crows"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STONE",
+      "THE",
+      "CROWS"
+     ]
+    },
+    "explanation": {
+     "surface": "An exclamation of shock at a killing that mirrors another.",
+     "walkthrough": "'same' repeats Murder in its other sense: a murder of crows.",
+     "definitionFit": "Stone the crows is a British exclamation of surprise, just like holy cow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "same"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +609,60 @@
     "text": "It may transport baby moggy around Weatherfield, so Spooner says",
     "enumeration": "8"
    },
-   "solution": "CARRYCOT"
+   "solution": "CARRYCOT",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "CARRYCOT",
+    "definitions": [
+     {
+      "text": "It may transport baby",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "so Spooner says",
+      "for": "spoonerism",
+      "note": "Spooner was famed for swapping the sounds of words, so the sounds here are exchanged"
+     }
+    ],
+    "linkWords": [
+     "around"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "moggy",
+      "gives": "COT",
+      "soundsLike": "CAT",
+      "note": "moggy is British slang for a cat"
+     },
+     {
+      "clueFragment": "Weatherfield",
+      "gives": "CARRY",
+      "soundsLike": "CORRIE",
+      "note": "Corrie is the nickname of Coronation Street, the soap set in Weatherfield"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARRY",
+      "COT"
+     ]
+    },
+    "explanation": {
+     "surface": "A soap-opera cat prowls around its fictional northern town.",
+     "walkthrough": "Corrie cat, with its vowel sounds swapped, comes out as carry cot. Coronation Street is Britain's longest-running TV soap.",
+     "definitionFit": "A carrycot is a portable bed with handles in which a baby is carried."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Weatherfield"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +676,46 @@
     "text": "Prominent part of range gets excellent grades",
     "enumeration": "6"
    },
-   "solution": "ALPHAS"
+   "solution": "ALPHAS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALPHAS",
+    "definitions": [
+     {
+      "text": "excellent grades",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prominent part of range",
+      "gives": "ALP",
+      "note": "an alp is a high peak in a mountain range"
+     },
+     {
+      "clueFragment": "gets",
+      "gives": "HAS",
+      "note": "to get something is to have it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALP",
+      "HAS"
+     ]
+    },
+    "explanation": {
+     "surface": "The best bits of a product range earn top marks.",
+     "definitionFit": "Alpha is the top grade on some marking scales, the Greek equivalent of an A."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "range"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +729,61 @@
     "text": "Really I want to retain director",
     "enumeration": "6"
    },
-   "solution": "INDEED"
+   "solution": "INDEED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INDEED",
+    "definitions": [
+     {
+      "text": "Really",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to retain",
+      "for": "container",
+      "note": "retaining something means keeping it held inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "want",
+      "gives": "NEED",
+      "note": "to want is to need"
+     },
+     {
+      "clueFragment": "director",
+      "gives": "D",
+      "note": "D is an abbreviation for director"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "N",
+      "D",
+      "EED"
+     ]
+    },
+    "explanation": {
+     "surface": "An actor's plea: they really do want to keep their director.",
+     "definitionFit": "Indeed is an adverb of emphasis, used just as really is to confirm something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "want"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +797,54 @@
     "text": "Alloy gypsy brought into market place",
     "enumeration": "8"
    },
-   "solution": "NICHROME"
+   "solution": "NICHROME",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NICHROME",
+    "definitions": [
+     {
+      "text": "Alloy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought into",
+      "for": "container",
+      "note": "what is brought into a thing ends up within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gypsy",
+      "gives": "ROM",
+      "note": "a Rom is a Romani man"
+     },
+     {
+      "clueFragment": "market place",
+      "gives": "NICHE",
+      "note": "a niche is a specialised place in a market"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NICH",
+      "ROM",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller trader brings metal goods to a marketplace.",
+     "definitionFit": "Nichrome is a nickel-chromium alloy used for heating elements."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "place"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +858,75 @@
     "text": "Castle one should initially bear in mind",
     "enumeration": "11"
    },
-   "solution": "CARISBROOKE"
+   "solution": "CARISBROOKE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "CARISBROOKE",
+    "definitions": [
+     {
+      "text": "Castle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means only the opening letter of the word before is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing is placed in another, inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mind",
+      "gives": "CARE",
+      "note": "to mind is to care"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "should",
+      "gives": "S",
+      "select": "first",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "bear",
+      "gives": "BROOK",
+      "note": "to bear something is to brook it, put up with it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "I",
+      "S",
+      "BROOK",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice that a person ought to keep something firmly in mind.",
+     "walkthrough": "'bear in mind' reads as one phrase, but bear and mind are separate pieces. Carisbrooke Castle is on the Isle of Wight, off England's south coast.",
+     "definitionFit": "Carisbrooke is a medieval castle where King Charles I was imprisoned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bear"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +940,46 @@
     "text": "Doing work above",
     "enumeration": "4"
    },
-   "solution": "ATOP"
+   "solution": "ATOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ATOP",
+    "definitions": [
+     {
+      "text": "above",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doing",
+      "gives": "AT",
+      "note": "at, as in 'what are you at?', meaning doing"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op is short for opus, a work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "OP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone busy at a job higher up.",
+     "definitionFit": "Atop is a preposition meaning on top of, so it can replace above."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Doing"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +993,77 @@
     "text": "East European eats pastries I go on about filling",
     "enumeration": "9"
    },
-   "solution": "PIEROGIES"
+   "solution": "PIEROGIES",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "PIEROGIES",
+    "definitions": [
+     {
+      "text": "East European eats",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turning about means facing the other way, so those letters run backwards"
+     },
+     {
+      "text": "filling",
+      "for": "container",
+      "note": "a filling sits inside its case"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pastries",
+      "gives": "PIES",
+      "note": "pies are pastry dishes"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "go",
+      "gives": "GO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "EROGI",
+      "ES"
+     ],
+     "reversals": [
+      {
+       "from": "IGORE",
+       "to": "EROGI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe note: Eastern European food made of pastries with something about the filling.",
+     "definitionFit": "Pierogies are filled dumplings from Poland and neighbouring countries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "filling"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1083,61 @@
      }
     ]
    },
-   "solution": "WATERWINGS"
+   "solution": "WATERWINGS",
+   "annotation": {
+    "type": [
+     "cycling",
+     "container"
+    ],
+    "answer": "WATER WINGS",
+    "definitions": [
+     {
+      "text": "Aid in pool",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cycling",
+      "for": "cycling",
+      "note": "cycling moves letters from the front round to the back, like a wheel turning"
+     },
+     {
+      "text": "to close",
+      "for": "container",
+      "note": "to close round something is to shut it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "moves",
+      "gives": "WAGS",
+      "note": "to wag is to move to and fro"
+     },
+     {
+      "clueFragment": "season",
+      "gives": "WINTER",
+      "note": "winter is a season"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WA",
+      "TERWIN",
+      "GS"
+     ]
+    },
+    "explanation": {
+     "surface": "Swimming baths make changes ahead of shutting for the bike-riding season.",
+     "walkthrough": "'cycling season' suggests a time for bikes; cycling instead moves the first three letters of the season to its end.",
+     "definitionFit": "Water wings are inflatable armbands that help a child stay afloat while learning to swim."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1151,67 @@
     "text": "On board, hearties having vintner's stock to share with whimsy",
     "enumeration": "10"
    },
-   "solution": "SCREWINESS"
+   "solution": "SCREWINESS",
+   "annotation": {
+    "type": [
+     "container",
+     "deletion"
+    ],
+    "answer": "SCREWINESS",
+    "definitions": [
+     {
+      "text": "whimsy",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to share",
+      "for": "deletion",
+      "note": "when two words share a letter, it is written once and the spare copy is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "On board",
+      "gives": "SS",
+      "note": "on board a steamship, inside SS"
+     },
+     {
+      "clueFragment": "hearties",
+      "gives": "CREW",
+      "note": "hearties are sailors, a crew"
+     },
+     {
+      "clueFragment": "vintner's stock",
+      "gives": "WINES",
+      "note": "what a wine merchant stocks"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is an abbreviation for with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CREW",
+      "INES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Jolly sailors share the wine merchant's cargo, in a playful mood.",
+     "walkthrough": "The sailors and the stock end and begin with the same letter, the one for with, so they overlap on it rather than repeat it.",
+     "definitionFit": "Screwiness is oddness or eccentricity, the same quirky quality as whimsy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1225,48 @@
     "text": "Biscuit to go with cheeses not all off one's trolley",
     "enumeration": "7"
    },
-   "solution": "CRACKER"
+   "solution": "CRACKER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CRACKER",
+    "definitions": [
+     {
+      "text": "Biscuit to go with cheeses",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not all",
+      "for": "deletion",
+      "note": "not all of the word is used: its last letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "off one's trolley",
+      "gives": "CRACKERS",
+      "note": "crackers means mad"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRACKER"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheese board offering plenty of choices, served by someone slightly mad.",
+     "walkthrough": "Off one's trolley is British slang for mad.",
+     "definitionFit": "A cracker is a thin dry savoury biscuit typically eaten with cheese."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trolley"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1280,42 @@
     "text": "Stunt that may deceive drug addict",
     "enumeration": "4"
    },
-   "solution": "HYPE"
+   "solution": "HYPE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HYPE",
+    "definitions": [
+     {
+      "text": "Stunt that may deceive",
+      "at": 0
+     },
+     {
+      "text": "drug addict",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stunt that may deceive",
+      "note": "first meaning: a publicity trick or deception"
+     },
+     {
+      "clueFragment": "drug addict",
+      "note": "second meaning: slang for someone who injects drugs, from hypodermic"
+     }
+    ],
+    "explanation": {
+     "surface": "A trick that might fool someone hooked on drugs.",
+     "definitionFit": "Hype is overblown promotion meant to mislead, and in slang a hype is a needle user."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stunt"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1329,61 @@
     "text": "Capital games during which I exhibit human behaviour",
     "enumeration": "6"
    },
-   "solution": "PIERRE"
+   "solution": "PIERRE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PIERRE",
+    "definitions": [
+     {
+      "text": "Capital",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during which",
+      "for": "container",
+      "note": "what happens during something falls within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "games",
+      "gives": "PE",
+      "note": "physical education, school games"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "exhibit human behaviour",
+      "gives": "ERR",
+      "note": "to err is human, as the saying goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "I",
+      "ERR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at a major sporting event shows their human side.",
+     "definitionFit": "Pierre is the state capital of South Dakota in the United States."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "human"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1397,54 @@
     "text": "Maybe cabby collects old party animal?",
     "enumeration": "8"
    },
-   "solution": "CAROUSER"
+   "solution": "CAROUSER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CAROUSER",
+    "definitions": [
+     {
+      "text": "party animal?",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collects",
+      "for": "container",
+      "note": "to collect something is to take it in"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maybe cabby",
+      "gives": "CARUSER",
+      "note": "a cab driver is one example of someone using a car"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is an abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "O",
+      "USER"
+     ]
+    },
+    "explanation": {
+     "surface": "A taxi driver picks up an old reveller after a night out.",
+     "definitionFit": "A carouser drinks and makes merry noisily, which is a party animal's habit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "collects"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1458,63 @@
     "text": "Diamond geezer perhaps reading primer for heroic verse",
     "enumeration": "6"
    },
-   "solution": "RHODES"
+   "solution": "RHODES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RHODES",
+    "definitions": [
+     {
+      "text": "Diamond geezer perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primer for",
+      "for": "letter_selection",
+      "note": "a primer comes first, so only the opening letter of the next word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reading",
+      "gives": "R",
+      "note": "reading is one of the three Rs"
+     },
+     {
+      "clueFragment": "heroic",
+      "gives": "H",
+      "select": "first",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "verse",
+      "gives": "ODES",
+      "note": "odes are poems"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "H",
+      "ODES"
+     ]
+    },
+    "explanation": {
+     "surface": "A beginner's reader introducing epic poetry.",
+     "walkthrough": "A diamond geezer is London slang for a thoroughly good man, but here it means a man in diamonds.",
+     "definitionFit": "Cecil Rhodes founded the De Beers diamond company, making him a diamond man in a literal sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "primer"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1528,52 @@
     "text": "Went into battle? No female should",
     "enumeration": "5"
    },
-   "solution": "OUGHT"
+   "solution": "OUGHT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OUGHT",
+    "definitions": [
+     {
+      "text": "should",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "No female",
+      "for": "deletion",
+      "note": "no means without, so the abbreviation for female is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Went into battle",
+      "gives": "FOUGHT",
+      "note": "past tense of fight"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Should a woman go to war? Some say no.",
+     "definitionFit": "Ought and should are both modal verbs of obligation, interchangeable in 'you ___ to go'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "battle"
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1587,76 @@
     "text": "In which man is about to mask his face?",
     "enumeration": "6"
    },
-   "solution": "SKIING"
+   "solution": "SKIING",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "and_lit",
+     "letter_selection"
+    ],
+    "answer": "SKIING",
+    "definitions": [
+     {
+      "text": "In which man is about to mask his face?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turning about means facing the other way, so the little word runs backwards"
+     },
+     {
+      "text": "to mask",
+      "for": "container",
+      "note": "a mask covers something, so those letters wrap around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "KING",
+      "note": "a king is a chess man"
+     },
+     {
+      "clueFragment": "his face",
+      "gives": "K",
+      "select": "first",
+      "note": "the face of the chess piece is its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "K",
+      "I",
+      "ING"
+     ],
+     "reversals": [
+      {
+       "from": "IS",
+       "to": "SI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sport in which a person covers up their face before setting off.",
+     "walkthrough": "Only the man's face, his first letter, is masked; the rest of him follows. The whole clue also describes the answer.",
+     "definitionFit": "Skiers wear goggles and face masks against cold and glare, so this sport is one where people cover their faces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "man"
+    }
+   }
   },
   {
    "number": 26,
@@ -415,7 +1670,42 @@
     "text": "Lining a river to catch fish",
     "enumeration": "3"
    },
-   "solution": "GAR"
+   "solution": "GAR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GAR",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to catch",
+      "for": "hidden_word",
+      "note": "the words catch the answer, holding it within their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lining a river",
+      "gives": "GAR",
+      "note": "across the end of the first word and the start of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "Anglers line a riverbank hoping to land a fish.",
+     "definitionFit": "The gar is a long-snouted freshwater fish of North America."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lining"
+    }
+   }
   },
   {
    "number": 27,
@@ -429,7 +1719,66 @@
     "text": "Dishonourable folk suspect songwriter's lost it",
     "enumeration": "8"
    },
-   "solution": "WRONGERS"
+   "solution": "WRONGERS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "WRONGERS",
+    "definitions": [
+     {
+      "text": "Dishonourable folk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost it",
+      "for": "deletion",
+      "note": "lost it says the two letters of it go missing"
+     },
+     {
+      "text": "suspect",
+      "for": "anagram",
+      "note": "something suspect is dodgy, not in its proper order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "songwriter's",
+      "gives": "SONGWRITER",
+      "note": "the word itself, which has lost it"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "the letters taken out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WRONGERS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SONGWRER",
+       "gives": "WRONGERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Untrustworthy people suspect that a songwriter has gone mad.",
+     "walkthrough": "'lost it' reads as losing one's temper, but it removes IT from songwriter.",
+     "definitionFit": "Wrongers are those who wrong others, behaving without honour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lost"
+    }
+   }
   },
   {
    "number": 28,
@@ -443,7 +1792,60 @@
     "text": "Retro music, poetry etc — or where performers stand?",
     "enumeration": "6"
    },
-   "solution": "ROSTRA"
+   "solution": "ROSTRA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ROSTRA",
+    "definitions": [
+     {
+      "text": "where performers stand?",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Retro",
+      "for": "reversal",
+      "note": "retro means backward-looking, so the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "music, poetry etc",
+      "gives": "ARTS",
+      "note": "music and poetry are arts"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "STRA"
+     ],
+     "reversals": [
+      {
+       "from": "ARTSOR",
+       "to": "ROSTRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A list of old-fashioned arts, ending in a stage question.",
+     "definitionFit": "Rostra are raised platforms, the plural of rostrum, from which speakers or performers address an audience."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Retro"
+    }
+   }
   },
   {
    "number": 29,
@@ -457,7 +1859,50 @@
     "text": "Issues over naturism at prime sites",
     "enumeration": "5"
    },
-   "solution": "VENTS"
+   "solution": "VENTS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "VENTS",
+    "definitions": [
+     {
+      "text": "Issues",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at prime sites",
+      "for": "letter_selection",
+      "note": "prime sites are the prime-numbered positions, second, third, fifth, seventh and eleventh"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "over naturism",
+      "gives": "VENTS",
+      "select": "prime",
+      "note": "letters 2, 3, 5, 7 and 11"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VENTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Concerns raised about nudists taking over the best locations.",
+     "walkthrough": "'prime sites' sounds like estate-agent talk for good locations; here it means prime-numbered letter positions.",
+     "definitionFit": "Vents are outlets, and issues as a noun can mean outflows or openings that let something out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "prime"
+    }
+   }
   }
  ]
 }
