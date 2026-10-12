@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,85 @@
     "text": "Judge taking part in overtime ruse loses employment",
     "enumeration": "7"
    },
-   "solution": "ARBITER"
+   "solution": "ARBITER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "deletion",
+     "charade"
+    ],
+    "answer": "ARBITER",
+    "definitions": [
+     {
+      "text": "Judge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "over means turned over, so the word for the time period that follows is read backwards"
+     },
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking a thing in means holding it inside, so one piece swallows another"
+     },
+     {
+      "text": "loses",
+      "for": "deletion",
+      "note": "something that loses a part has those letters struck out of it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "overtime",
+      "gives": "ERA",
+      "note": "the time part is an era, a period of time; over sends it backwards"
+     },
+     {
+      "clueFragment": "part",
+      "gives": "BIT",
+      "note": "a bit is a small part"
+     },
+     {
+      "clueFragment": "ruse",
+      "gives": "RUSE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "employment",
+      "gives": "USE",
+      "note": "use means employment, as in the employment of a tool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "BIT",
+      "E",
+      "R"
+     ],
+     "reversals": [
+      {
+       "from": "ERA",
+       "to": "ARE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A judge gets involved in some overtime scam and is sacked for it.",
+     "walkthrough": "'Overtime' reads as one word about extra working hours, but it must be split in two: an indicator followed by a word for a period.",
+     "definitionFit": "An arbiter is a person appointed to settle a dispute, so a synonym for a judge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "overtime"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +128,51 @@
     "text": "Has made doctor sorry",
     "enumeration": "7"
    },
-   "solution": "ASHAMED"
+   "solution": "ASHAMED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASHAMED",
+    "definitions": [
+     {
+      "text": "sorry",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so the letters before it are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Has made",
+      "gives": "HASMADE",
+      "note": "the fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HASMADE",
+       "gives": "ASHAMED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has made the doctor feel sorry, perhaps by a complaint.",
+     "walkthrough": "'Doctor' looks like a noun, the person who is sorry, but here it is a verb telling you to fiddle with the letters.",
+     "definitionFit": "Sorry in the sense of feeling regret or shame for something done is a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +186,73 @@
     "text": "Spotted student in a mess at start of year",
     "enumeration": "7"
    },
-   "solution": "BLOTCHY"
+   "solution": "BLOTCHY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BLOTCHY",
+    "definitions": [
+     {
+      "text": "Spotted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other, so the learner sits within the mess"
+     },
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "'start of' keeps only the first letter of 'year'"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a mess",
+      "gives": "BOTCH",
+      "note": "a botch is a mess, a job badly done"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L for learner, as on a learner driver's plate"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "select": "first",
+      "note": "the first letter of year"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "L",
+      "OTCH",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A student was seen in a muddle at the start of the academic year.",
+     "walkthrough": "L stands for learner, from the L-plates on British learner drivers' cars.",
+     "definitionFit": "Spotted as an adjective means marked with patches, which is what blotchy skin looks like."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Spotted"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +266,68 @@
     "text": "Assault not as possible in American city",
     "enumeration": "5"
    },
-   "solution": "TULSA"
+   "solution": "TULSA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "TULSA",
+    "definitions": [
+     {
+      "text": "American city",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not here means without, so the following two letters are removed"
+     },
+     {
+      "text": "possible",
+      "for": "anagram",
+      "note": "possible suggests a possible arrangement, so the remaining letters can be reordered"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Assault",
+      "gives": "ASSAULT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written, then struck out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TULSA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SAULT",
+       "gives": "TULSA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An assault is not as likely to happen in a certain American city.",
+     "walkthrough": "Remove A and S from the word assault and rearrange what is left.",
+     "definitionFit": "Tulsa is a city in Oklahoma, so an example of an American city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "possible"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +341,65 @@
     "text": "Hint to the Queen about a rest",
     "enumeration": "9"
    },
-   "solution": "REMAINDER"
+   "solution": "REMAINDER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "REMAINDER",
+    "definitions": [
+     {
+      "text": "rest",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the pieces before it wrap around the final letter"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hint",
+      "gives": "REMIND",
+      "note": "to hint is to jog a memory, to remind"
+     },
+     {
+      "clueFragment": "the Queen",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, the Queen's cipher"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REM",
+      "A",
+      "IND",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone drops a hint to the Queen about taking a rest.",
+     "walkthrough": "ER stands for Elizabeth Regina; 'about' here means going round the single letter, not concerning.",
+     "definitionFit": "The rest of something is what is left over, which is the remainder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rest"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +413,43 @@
     "text": "Salvage bike again?",
     "enumeration": "7"
    },
-   "solution": "RECYCLE"
+   "solution": "RECYCLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RECYCLE",
+    "definitions": [
+     {
+      "text": "Salvage",
+      "at": 0
+     },
+     {
+      "text": "bike again",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Salvage",
+      "note": "first meaning: reclaim waste for reuse"
+     },
+     {
+      "clueFragment": "bike again",
+      "note": "second meaning, read literally: cycle once more"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the playful second reading, splitting the word into a prefix meaning again plus a word for riding a bike.",
+     "definitionFit": "To recycle waste is to salvage it for further use, and to cycle again is the punning literal sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bike"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +463,52 @@
     "text": "Perils of topless sports!",
     "enumeration": "5"
    },
-   "solution": "RISKS"
+   "solution": "RISKS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RISKS",
+    "definitions": [
+     {
+      "text": "Perils",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topless",
+      "for": "deletion",
+      "note": "topless means with the top removed; in a down answer the top is the first letter"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sports",
+      "gives": "FRISKS",
+      "note": "frisks means frolics or sports about playfully"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RISKS"
+     ]
+    },
+    "explanation": {
+     "surface": "An exclamation about the dangers of playing sport without a shirt.",
+     "walkthrough": "Sports is a verb here, as in lambs sporting in a field; drop the first letter of its synonym.",
+     "definitionFit": "Perils and risks are both dangers, so the two plural nouns are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sports"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +522,51 @@
     "text": "Romance at the bar's cool",
     "enumeration": "9"
    },
-   "solution": "COURTSHIP"
+   "solution": "COURTSHIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COURTSHIP",
+    "definitions": [
+     {
+      "text": "Romance",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the bar's",
+      "gives": "COURTS",
+      "note": "the bar means the legal profession, so the bar's place is a court, with the possessive kept"
+     },
+     {
+      "clueFragment": "cool",
+      "gives": "HIP",
+      "note": "hip is slang for cool, fashionable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COURTS",
+      "HIP"
+     ]
+    },
+    "explanation": {
+     "surface": "Romance at the pub is a relaxed affair.",
+     "walkthrough": "'The bar' suggests a pub, but here it is the legal profession, whose home is the court.",
+     "definitionFit": "Courtship is the period of wooing before marriage, so a romance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bar's"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +580,53 @@
     "text": "Get 150 with \"resin\" at Scrabble",
     "enumeration": "7"
    },
-   "solution": "CLAMBER"
+   "solution": "CLAMBER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLAMBER",
+    "definitions": [
+     {
+      "text": "Scrabble",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "Get",
+     "with",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "150",
+      "gives": "CL",
+      "note": "CL is 150 in Roman numerals"
+     },
+     {
+      "clueFragment": "resin",
+      "gives": "AMBER",
+      "note": "amber is fossilised tree resin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CL",
+      "AMBER"
+     ]
+    },
+    "explanation": {
+     "surface": "A player hopes to score 150 points by playing the word resin in the board game Scrabble.",
+     "walkthrough": "The capital letter dresses the verb scrabble, to scramble with hands and feet, as the board game.",
+     "definitionFit": "To scrabble up a slope is to climb awkwardly using hands and feet, which is to clamber."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Scrabble"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +640,47 @@
     "text": "Setter observed report of ugly thing",
     "enumeration": "7"
    },
-   "solution": "EYESORE"
+   "solution": "EYESORE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EYESORE",
+    "definitions": [
+     {
+      "text": "ugly thing",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "report",
+      "for": "homophone",
+      "note": "a report is something heard, so the words before are taken by their sound"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Setter observed",
+      "gives": "EYESORE",
+      "soundsLike": "I SAW",
+      "note": "the setter refers to himself as I; observed is saw"
+     }
+    ],
+    "explanation": {
+     "surface": "The crossword setter reports having seen something ugly.",
+     "walkthrough": "In crosswords the setter is I or ME, the person writing the clue.",
+     "definitionFit": "An eyesore is something unpleasant to look at, such as an ugly building."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "report"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +694,76 @@
     "text": "Playing ludo with money after call from a mobster",
     "enumeration": "7"
    },
-   "solution": "HOODLUM"
+   "solution": "HOODLUM",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "HOODLUM",
+    "definitions": [
+     {
+      "text": "a mobster",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Playing",
+      "for": "anagram",
+      "note": "playing a board game moves its pieces around, so these letters are moved into a new order"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the jumbled piece second, behind the word that comes later in the clue"
+     }
+    ],
+    "linkWords": [
+     "from",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "call",
+      "gives": "HO",
+      "note": "ho is a call to attract attention, as in land ho"
+     },
+     {
+      "clueFragment": "ludo",
+      "gives": "LUDO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "M",
+      "note": "M is the abbreviation for money, as in M1 and M2 money supply"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "ODLUM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LUDOM",
+       "gives": "ODLUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gangster has been playing ludo for cash after a phone call.",
+     "walkthrough": "Ludo is a simple British board game with counters and a die; 'call' is a shout, not a phone call.",
+     "definitionFit": "A hoodlum is a thug or gangster, so a mobster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "call"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +777,71 @@
     "text": "Susan shortly going out to get old banger",
     "enumeration": "7"
    },
-   "solution": "SAUSAGE"
+   "solution": "SAUSAGE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "SAUSAGE",
+    "definitions": [
+     {
+      "text": "banger",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortly",
+      "for": "deletion",
+      "note": "shortly means cut short, so the name loses its last letter"
+     },
+     {
+      "text": "going out",
+      "for": "anagram",
+      "note": "going out suggests letters straying out of place, so they are rearranged"
+     }
+    ],
+    "linkWords": [
+     "old"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Susan",
+      "gives": "SUSAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "to get",
+      "gives": "AGE",
+      "note": "to age is to get old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAUS",
+      "AGE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SUSA",
+       "gives": "SAUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Susan, briefly going out, gets herself a clapped-out old car.",
+     "walkthrough": "An old banger is British slang for a battered car; but a banger is also a sausage, the answer. 'To get old' gives AGE.",
+     "definitionFit": "Banger is British informal slang for a sausage, from the way they burst when fried."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "banger"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +855,66 @@
     "text": "Woman, seizing opportunity, throws out old shoes",
     "enumeration": "9"
    },
-   "solution": "MOCCASINS"
+   "solution": "MOCCASINS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "MOCCASINS",
+    "definitions": [
+     {
+      "text": "shoes",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "throws out",
+      "for": "deletion",
+      "note": "throws out means discards, so a letter is removed from the inner word"
+     },
+     {
+      "text": "seizing",
+      "for": "container",
+      "note": "seizing means grabbing hold of, so the first piece wraps around the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Woman",
+      "gives": "MS",
+      "note": "Ms is the title for a woman"
+     },
+     {
+      "clueFragment": "opportunity",
+      "gives": "OCCASION",
+      "note": "an occasion is an opportunity, as in rising to the occasion"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "OCCASIN",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "An opportunistic woman clears out her old shoes.",
+     "walkthrough": "'Throws out old' reads as discarding old shoes, but old is just the letter to be dropped from the opportunity.",
+     "definitionFit": "Moccasins are soft leather slip-on shoes, originally made by Native Americans."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +928,65 @@
     "text": "A short book on Troy is banned",
     "enumeration": "5"
    },
-   "solution": "TABOO"
+   "solution": "TABOO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TABOO",
+    "definitions": [
+     {
+      "text": "banned",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means lacking its end, so the last letter is cut off"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Troy",
+      "gives": "T",
+      "note": "t is the abbreviation for troy, the system of weights for precious metals"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "BOOK",
+      "note": "taken as written, then shortened"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "A",
+      "BOO"
+     ]
+    },
+    "explanation": {
+     "surface": "A brief book about the Trojan War has been banned.",
+     "walkthrough": "Troy here is the weight system, not the city; in an across clue 'on' simply means placed after.",
+     "definitionFit": "Something taboo is forbidden by social custom, so it is banned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Troy"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +1000,64 @@
     "text": "Nymph, lacking water and first aid, died",
     "enumeration": "5"
    },
-   "solution": "DRYAD"
+   "solution": "DRYAD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DRYAD",
+    "definitions": [
+     {
+      "text": "Nymph",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first points to the opening letter of the word after it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lacking water",
+      "gives": "DRY",
+      "note": "dry means without water"
+     },
+     {
+      "clueFragment": "aid",
+      "gives": "A",
+      "select": "first",
+      "note": "the opening letter of aid"
+     },
+     {
+      "clueFragment": "died",
+      "gives": "D",
+      "note": "d is the abbreviation for died, as in genealogies"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRY",
+      "A",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A nymph, without water or first aid, perished.",
+     "definitionFit": "A dryad is a tree nymph in Greek mythology."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +1071,61 @@
     "text": "Intended to protect underwater expedition round eastern marshes",
     "enumeration": "9"
    },
-   "solution": "DEFENSIVE"
+   "solution": "DEFENSIVE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEFENSIVE",
+    "definitions": [
+     {
+      "text": "Intended to protect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means encircling, so the expedition wraps around what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "underwater expedition",
+      "gives": "DIVE",
+      "note": "a dive is a trip under water"
+     },
+     {
+      "clueFragment": "eastern",
+      "gives": "E",
+      "note": "E is the abbreviation for eastern"
+     },
+     {
+      "clueFragment": "marshes",
+      "gives": "FENS",
+      "note": "fens are marshes, as in the Fens of eastern England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "E",
+      "FENS",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Plans to protect an underwater mission around wetlands in the east.",
+     "walkthrough": "The Fens are the low marshy region of eastern England, which suits the surface nicely.",
+     "definitionFit": "Defensive describes something designed to guard against attack, so meant to protect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "underwater"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1145,77 @@
      }
     ]
    },
-   "solution": "DARKHORSE"
+   "solution": "DARKHORSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "DARK HORSE",
+    "definitions": [
+     {
+      "text": "Not much known about this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre",
+      "for": "letter_selection",
+      "note": "centre picks out the middle letter of the abbreviation before it"
+     },
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "new signals a fresh arrangement of the word that follows"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "obscure",
+      "gives": "DARK",
+      "note": "dark means obscure, hard to make out"
+     },
+     {
+      "clueFragment": "RHS",
+      "gives": "H",
+      "select": "middle",
+      "note": "the middle letter of RHS"
+     },
+     {
+      "clueFragment": "rose",
+      "gives": "ROSE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DARK",
+      "H",
+      "ORSE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROSE",
+       "gives": "ORSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mysterious new rose has appeared at a Royal Horticultural Society centre, and little is known about it.",
+     "walkthrough": "The RHS is the Royal Horticultural Society, Britain's gardening charity, which fits the rose but here only supplies a letter.",
+     "definitionFit": "A dark horse is a person or competitor about whom little is known, idiomatically from racing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "centre"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1235,65 @@
      }
     ]
    },
-   "solution": "REEDUCATE"
+   "solution": "REEDUCATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "RE-EDUCATE",
+    "definitions": [
+     {
+      "text": "Change ideas",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "distress",
+      "for": "anagram",
+      "note": "distress suggests letters in turmoil, so the word before it is jumbled"
+     }
+    ],
+    "linkWords": [
+     "when taking",
+     "is followed by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grass",
+      "gives": "REED",
+      "note": "a reed is a tall grass"
+     },
+     {
+      "clueFragment": "acute",
+      "gives": "ACUTE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REED",
+      "UCATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACUTE",
+       "gives": "UCATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Taking cannabis followed by acute anxiety changes how one thinks.",
+     "walkthrough": "Grass suggests the drug, but it is just a plant here.",
+     "definitionFit": "To re-educate is to teach someone afresh so their thinking shifts, which is changing ideas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grass"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1307,47 @@
     "text": "Staff employed by church?",
     "enumeration": "9"
    },
-   "solution": "WORKFORCE"
+   "solution": "WORKFORCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WORKFORCE",
+    "definitions": [
+     {
+      "text": "Staff",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "employed by",
+      "gives": "WORKFOR",
+      "note": "if you are employed by someone you work for them"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WORKFOR",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about the people on a church's payroll.",
+     "walkthrough": "The whole clue looks like a cryptic definition, but it splits neatly: CE is the usual abbreviation for the Church of England.",
+     "definitionFit": "A workforce is the body of people employed by an organisation, its staff."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "church"
+    }
+   }
   },
   {
    "number": 17,
@@ -311,7 +1361,54 @@
     "text": "Soldier fighting earlier doesn't start",
     "enumeration": "7"
    },
-   "solution": "WARRIOR"
+   "solution": "WARRIOR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "WARRIOR",
+    "definitions": [
+     {
+      "text": "Soldier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doesn't start",
+      "for": "deletion",
+      "note": "doesn't start means the opening letter is missing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fighting",
+      "gives": "WAR",
+      "note": "war is fighting"
+     },
+     {
+      "clueFragment": "earlier",
+      "gives": "PRIOR",
+      "note": "prior means earlier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAR",
+      "RIOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier who fought earlier fails to begin a battle.",
+     "definitionFit": "A warrior is a fighter, a soldier especially of an earlier age."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "start"
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1422,50 @@
     "text": "Blame rope for breaking",
     "enumeration": "7"
    },
-   "solution": "REPROOF"
+   "solution": "REPROOF",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REPROOF",
+    "definitions": [
+     {
+      "text": "Blame",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking",
+      "for": "anagram",
+      "note": "breaking smashes the words apart, and their letters are rebuilt in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rope for",
+      "gives": "ROPEFOR",
+      "note": "the fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROPEFOR",
+       "gives": "REPROOF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone blames the rope for snapping.",
+     "definitionFit": "A reproof is an expression of disapproval, so a noun synonym for blame."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "breaking"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1479,60 @@
     "text": "Repair chap has time to mend hole",
     "enumeration": "5"
    },
-   "solution": "PATCH"
+   "solution": "PATCH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PATCH",
+    "definitions": [
+     {
+      "text": "mend hole",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Repair",
+      "for": "anagram",
+      "note": "to repair is to fix, so the letters are put back together a new way"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chap",
+      "gives": "CHAP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHAPT",
+       "gives": "PATCH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A repair man has time to fix a hole.",
+     "walkthrough": "'Repair' seems to be the definition, but it is the anagram signal; the definition is at the other end.",
+     "definitionFit": "To patch is to cover a hole or tear with a piece of material, mending it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Repair"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1546,56 @@
     "text": "Little turtle loses quiet piece of land",
     "enumeration": "7"
    },
-   "solution": "TERRAIN"
+   "solution": "TERRAIN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TERRAIN",
+    "definitions": [
+     {
+      "text": "piece of land",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loses",
+      "for": "deletion",
+      "note": "loses means a letter is taken away from the creature"
+     }
+    ],
+    "linkWords": [
+     "Little"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "turtle",
+      "gives": "TERRAPIN",
+      "note": "a terrapin is a small freshwater turtle"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "p is piano, musical notation for quiet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TERRAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A small turtle loses its quiet patch of ground.",
+     "walkthrough": "'Little turtle' hints at a small kind of turtle; P for quiet comes from music.",
+     "definitionFit": "Terrain is a stretch of land considered for its physical features, so a piece of land."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "quiet"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1609,50 @@
     "text": "Unfortunate pals she led astray",
     "enumeration": "7"
    },
-   "solution": "HAPLESS"
+   "solution": "HAPLESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HAPLESS",
+    "definitions": [
+     {
+      "text": "Unfortunate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "led astray",
+      "for": "anagram",
+      "note": "led astray means taken off the proper path, so the letters wander into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pals she",
+      "gives": "PALSSHE",
+      "note": "the fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PALSSHE",
+       "gives": "HAPLESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Her poor friends were led into trouble by her.",
+     "definitionFit": "Hapless means unlucky, so it is a synonym of unfortunate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "astray"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1666,56 @@
     "text": "Mature female swan found on river island",
     "enumeration": "5"
    },
-   "solution": "RIPEN"
+   "solution": "RIPEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RIPEN",
+    "definitions": [
+     {
+      "text": "Mature",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "found on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     },
+     {
+      "clueFragment": "female swan",
+      "gives": "PEN",
+      "note": "a pen is a female swan; the male is a cob"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "I",
+      "PEN"
+     ]
+    },
+    "explanation": {
+     "surface": "An adult female swan is spotted on an island in a river.",
+     "walkthrough": "'Mature' looks like an adjective describing the swan, but it is the verb definition.",
+     "definitionFit": "To ripen is to become ready or fully developed, so to mature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mature"
+    }
+   }
   },
   {
    "number": 23,
@@ -401,7 +1735,81 @@
      }
     ]
    },
-   "solution": "COUGHDROP"
+   "solution": "COUGHDROP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "COUGH DROP",
+    "definitions": [
+     {
+      "text": "Lozenge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "misguided",
+      "for": "anagram",
+      "note": "misguided means steered wrongly, so the letters go astray into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in tells you the drug is placed inside the jumble"
+     }
+    ],
+    "linkWords": [
+     "discovers"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "Co is the abbreviation for company"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "DRUG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "heroin",
+      "gives": "H",
+      "note": "H is slang for heroin"
+     },
+     {
+      "clueFragment": "operation",
+      "gives": "OP",
+      "note": "op is short for operation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "UGHDR",
+      "OP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DRUG",
+       "gives": "UGDR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A firm uncovers heroin during a botched drugs raid.",
+     "walkthrough": "H goes inside the rearranged DRUG, between the G and the D.",
+     "definitionFit": "A cough drop is a medicated sweet for soothing the throat, a kind of lozenge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "operation"
+    }
+   }
   },
   {
    "number": 23,
@@ -415,7 +1823,47 @@
     "text": "Do roach eat some algae?",
     "enumeration": "5"
    },
-   "solution": "CHEAT"
+   "solution": "CHEAT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CHEAT",
+    "definitions": [
+     {
+      "text": "Do",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means a portion, so the answer is part of the letters that run across two words"
+     }
+    ],
+    "linkWords": [
+     "algae"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "roach eat",
+      "gives": "CHEAT",
+      "note": "the letters run across the end of one word and the whole of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about whether a roach, a freshwater fish, eats algae.",
+     "walkthrough": "'Do' looks like the start of a question, but it is the definition, in its slang sense of swindle.",
+     "definitionFit": "To do someone is informal British for to swindle them, which is to cheat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Do"
+    }
+   }
   },
   {
    "number": 24,
@@ -435,7 +1883,51 @@
      }
     ]
    },
-   "solution": "HOPIT"
+   "solution": "HOPIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOP IT",
+    "definitions": [
+     {
+      "text": "Scram!",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "The"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "house's",
+      "gives": "HO",
+      "note": "ho is the abbreviation for house"
+     },
+     {
+      "clueFragment": "mine",
+      "gives": "PIT",
+      "note": "a pit is a coal mine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "PIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A possessive owner shouts at an intruder to get out of their house.",
+     "walkthrough": "The 's stands for has, so house has mine, HO followed by PIT. Hop it is British slang for go away.",
+     "definitionFit": "Hop it is an informal command to leave immediately, the same as scram."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mine"
+    }
+   }
   },
   {
    "number": 25,
@@ -449,7 +1941,53 @@
     "text": "I lied so appallingly to get put on a pedestal",
     "enumeration": "7"
    },
-   "solution": "IDOLISE"
+   "solution": "IDOLISE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IDOLISE",
+    "definitions": [
+     {
+      "text": "put on a pedestal",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "appallingly",
+      "for": "anagram",
+      "note": "appallingly means very badly, so the letters are badly scrambled"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I lied so",
+      "gives": "ILIEDSO",
+      "note": "the fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ILIEDSO",
+       "gives": "IDOLISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone confesses to lying shamelessly in order to be admired.",
+     "definitionFit": "To put someone on a pedestal is an idiom for admiring them excessively, as you would an idol."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "appallingly"
+    }
+   }
   },
   {
    "number": 26,
@@ -463,7 +2001,56 @@
     "text": "Pacify monkey eating vegetables",
     "enumeration": "7"
    },
-   "solution": "APPEASE"
+   "solution": "APPEASE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "APPEASE",
+    "definitions": [
+     {
+      "text": "Pacify",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "eating takes something inside, so the animal surrounds the food"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "monkey",
+      "gives": "APE",
+      "note": "an ape is a primate, loosely a monkey"
+     },
+     {
+      "clueFragment": "vegetables",
+      "gives": "PEAS",
+      "note": "peas are vegetables"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AP",
+      "PEAS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Calm a monkey down by feeding it vegetables.",
+     "walkthrough": "Strictly an ape is not a monkey, but crosswords treat the two loosely.",
+     "definitionFit": "To appease is to calm someone by giving in to their demands, so to pacify."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "monkey"
+    }
+   }
   },
   {
    "number": 27,
@@ -477,7 +2064,45 @@
     "text": "Muse on exhibit",
     "enumeration": "7"
    },
-   "solution": "REFLECT"
+   "solution": "REFLECT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REFLECT",
+    "definitions": [
+     {
+      "text": "Muse",
+      "at": 0
+     },
+     {
+      "text": "exhibit",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Muse",
+      "note": "first meaning: think deeply, ponder"
+     },
+     {
+      "clueFragment": "exhibit",
+      "note": "second meaning: show or display, as a mirror does"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as pondering a museum piece; muse on is in fact the phrasal verb reflect on.",
+     "definitionFit": "Reflect means both to think carefully and to show or embody, as results reflect effort."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exhibit"
+    }
+   }
   },
   {
    "number": 28,
@@ -491,7 +2116,46 @@
     "text": "Old lover looks after grants",
     "enumeration": "7"
    },
-   "solution": "EXTENDS"
+   "solution": "EXTENDS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXTENDS",
+    "definitions": [
+     {
+      "text": "grants",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old lover",
+      "gives": "EX",
+      "note": "an ex is a former partner"
+     },
+     {
+      "clueFragment": "looks after",
+      "gives": "TENDS",
+      "note": "to tend is to look after"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "TENDS"
+     ]
+    },
+    "explanation": {
+     "surface": "A former partner provides care in exchange for gifts.",
+     "definitionFit": "To extend credit or thanks is to offer or give it, the sense of grants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lover"
+    }
+   }
   }
  ]
 }
