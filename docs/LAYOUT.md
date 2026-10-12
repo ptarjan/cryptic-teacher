@@ -2284,5 +2284,9 @@ tools/test_shared_leader.sh                   can one light start two linked ans
                                               209's IVOR)? the entry's alsoLeads through the
                                               schema, groups.py, the shape checks, the annotate
                                               run and the Genius parser
+tools/jigsaw_fit.py                           fit a jigsaw's answers into the one blocked grid
+                                              they interlock in
+tools/test_jigsaw_fit.sh                      does a jigsaw held as its clues alone become a
+                                              filed puzzle once answered?
 ```
 <!-- LAYOUT-END -->

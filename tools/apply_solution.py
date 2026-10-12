@@ -344,6 +344,8 @@ def promote_clues_only(record, fill):
     """(puzzle, fill by entry id, problems) for a clues-only puzzle's fill,
     {"across": [...], "down": [...]} with one answer per light in clue order,
     each an answer or {"answer", "definition"} as elsewhere."""
+    if record.get("cluesUnplaced"):
+        return promote_jigsaw(record, fill)
     if set(fill) != set(clues_only.DIRECTIONS) or not all(
             isinstance(v, list) for v in fill.values()):
         return None, None, [(f"{record['id']} is held clues-only: the fill is "
@@ -359,6 +361,36 @@ def promote_clues_only(record, fill):
         lights = sorted((e for e in puzzle["entries"] if e["direction"] == direction),
                         key=lambda e: e["number"])
         by_id.update({entry_id(e): v for e, v in zip(lights, fill[direction])})
+    return puzzle, by_id, []
+
+
+def promote_jigsaw(record, fill):
+    """promote_clues_only for a jigsaw (`cluesUnplaced`): the fill is
+    {"unplaced": [...]}, one answer per clue in the printed order; the answers
+    are fitted into the grid (clues_only.fit_jigsaw), and each light gets its
+    clue's answer, a linked answer's continuation its share of the letters and
+    no definition (its leader carries it)."""
+    if set(fill) != {"unplaced"} or not isinstance(fill["unplaced"], list):
+        return None, None, [(f"{record['id']} is a jigsaw held clues-only: the fill is "
+                             '{"unplaced": [...]}, one answer per clue in the order '
+                             "the file lists them")]
+    given = fill["unplaced"]
+    answers = {"unplaced": [normalise(v.get("answer") if isinstance(v, dict) else v)
+                            for v in given]}
+    puzzle, problems = clues_only.promote(record, answers)
+    if problems:
+        return None, None, problems
+    by_id = {}
+    for eid, (n, letters) in puzzle.pop("_parts").items():
+        value = given[n]
+        whole = answers["unplaced"][n]
+        if letters == whole:
+            by_id[eid] = value
+        elif whole.startswith(letters):
+            by_id[eid] = ({**value, "answer": letters} if isinstance(value, dict)
+                          else letters)
+        else:
+            by_id[eid] = {"answer": letters}
     return puzzle, by_id, []
 
 

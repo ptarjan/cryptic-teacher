@@ -140,7 +140,7 @@ with tempfile.TemporaryDirectory() as scratch:
 
 # A book jigsaw: one clue list under "Method:", no numbers, no across or
 # down. The parser keeps the instruction as its preamble, acquire_book holds
-# it clues-only as `unplaced` with `cluesUnplaced`, and no queue takes it.
+# it clues-only as `unplaced` with `cluesUnplaced`, and the solve queue takes it.
 import acquire_book
 import parse_penguin_book
 import puzzle_schema
@@ -168,9 +168,11 @@ with tempfile.TemporaryDirectory() as scratch:
               and rec["clues"]["unplaced"][0] == {"clue": {"text": "Clue number one for the jigsaw here",
                                                             "enumeration": "5"}, "length": 5}):
         fails.append(f"the held jigsaw is shaped {json.dumps(rec)[:300]}")
-    if rec and (puzzle_schema.validate_clues_only(rec) or clues_only.builder(rec)
-                or clues_only.solvable(root)):
-        fails.append("a held jigsaw breaks the schema, or a builder or queue takes it")
+    if rec and (puzzle_schema.validate_clues_only(rec)
+                or clues_only.builder(rec) is not clues_only._jigsaw_build
+                or [r["id"] for r in clues_only.solvable(root)] != [rec["id"]]):
+        fails.append("a held jigsaw breaks the schema, or the jigsaw builder or queue "
+                     "does not take it (tools/test_jigsaw.sh files one)")
     bad = {**jig, "clues": jig["clues"][:-1] + [{"number": None, "clue": "Wqxzt brlk", "enumeration": "5"}]}
     row = acquire_book.file_jigsaw(bad, "isbn_9780140277500", Path(scratch) / "other")
     if row.get("status") != "rejected-before-search" or clues_only.files(Path(scratch) / "other"):

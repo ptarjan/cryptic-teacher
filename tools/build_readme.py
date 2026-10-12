@@ -635,6 +635,8 @@ LAYOUT = [
     ("fetching", "tools/test_genius_puzzles.sh", "does tools/genius_puzzles.py read an old Guardian article page's text without markup, keep the Genius's printed pair of counts, and does the write gate refuse a tag's remnant in any string?"),
     ("fetching", "tools/test_linked_group_sums.sh", "does the grid search use a linked answer's printed total?"),
     ("fetching", "tools/test_shared_leader.sh", "can one light start two linked answers (Genius 209's IVOR)? the entry's alsoLeads through the schema, groups.py, the shape checks, the annotate run and the Genius parser"),
+    ("fetching", "tools/jigsaw_fit.py", "fit a jigsaw's answers into the one blocked grid they interlock in"),
+    ("fetching", "tools/test_jigsaw_fit.sh", "does a jigsaw held as its clues alone become a filed puzzle once answered?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

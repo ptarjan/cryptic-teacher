@@ -89,6 +89,8 @@ def main():
 def clues_only_packet(record):
     """The packet for a puzzle held as its clues alone (tools/clues_only.py):
     the clues in order and the fill shape, since there is no grid to cross."""
+    if record.get("cluesUnplaced"):
+        return jigsaw_packet(record)
     lines = [(f"{record['id']} is held as its clues alone: no grid yet, so no "
               f"numbers and no crossing map. Fill shape, one answer per clue in "
               f"the order below:"),
@@ -104,6 +106,29 @@ def clues_only_packet(record):
             count = f" ({clue['enumeration']})" if clue.get("enumeration") else ""
             length = f" [{light['length']} cells]" if light.get("length") else ""
             lines.append(f"  {i}. {clue.get('text', '')}{count}{length}")
+    return "\n".join(lines)
+
+
+def jigsaw_packet(record):
+    """The packet for a jigsaw held clues-only: its preamble, its one flat
+    list of clues, and the fill shape. Placing the answers is not the solve's
+    job: tools/apply_solution.py fits them into the grid."""
+    lines = [(f"{record['id']} is a JIGSAW: the book printed its clues as one list, "
+              f"with no numbers and no across or down, under this instruction:"),
+             f"    {record.get('preamble') or '(no instruction printed)'}",
+             ("Answer each clue; do not place them. Fill shape, one answer per clue "
+              "in the order below:"),
+             '    {"unplaced": [{"answer": ..., "definition": ...}, ...]}',
+             ("--check-only fits your answers into the one grid they interlock in "
+              "(tools/jigsaw_fit.py); it passes only when exactly one grid holds them "
+              "all, so a wrong answer shows as no grid. An answer longer than the grid "
+              "is linked across two lights: give it whole."),
+             "\nCLUES"]
+    for i, light in enumerate(record["clues"]["unplaced"], 1):
+        clue = light["clue"]
+        count = f" ({clue['enumeration']})" if clue.get("enumeration") else ""
+        length = f" [{light['length']} letters]" if light.get("length") else ""
+        lines.append(f"  {i}. {clue.get('text', '')}{count}{length}")
     return "\n".join(lines)
 
 
