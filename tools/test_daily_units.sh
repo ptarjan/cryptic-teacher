@@ -33,8 +33,17 @@ check("plan() emits annotate, miss and every phase", {k.split(":")[0] for k in k
 for k in keys:
     check(f"{k} has a kind in GENERATED", k.split(":", 1)[0] in du.GENERATED, True)
 
+# Every live series is fetched: the slow ones on their own cadence, each a
+# tools/<tool>.py whose --latest daily_update.sh's unit_fetch runs.
+for f in du.SLOW_FETCHERS:
+    check(f"fetch:{f} is planned", f"fetch:{f}" in keys, True)
+    check(f"tools/{f}.py exists", os.path.exists(f"tools/{f}.py"), True)
+    check(f"tools/{f}.py takes --latest", os.path.exists(f"tools/{f}.py") and "--latest" in open(f"tools/{f}.py").read(), True)
+check("fetch:tls_puzzles looks every 6h", [p[1] for p in du.PHASES if p[0] == "fetch:tls_puzzles"], [6 * du.HOUR])
+check("slow fetchers stay out of after_tick's FETCHERS", set(du.SLOW_FETCHERS) & set(du.FETCHERS), set())
+
 # The choice, read off what each unit runs before its own build step.
-for k in [f"fetch:{f}" for f in du.FETCHERS] + ["solutions", "blog:times", "blog:telegraph", "bucket:telegraph",
+for k in [f"fetch:{f}" for f in du.FETCHERS + du.SLOW_FETCHERS] + ["solutions", "blog:times", "blog:telegraph", "bucket:telegraph",
           "xval:globe", "ft", "azed", "blog-facts", "ratings", "minute", "reports"]:
     check(f"{k} skips the start rebuild", du.reads_generated(k), False)
 for k in ["checks", "annotate:p1", "miss:p1:3a"]:

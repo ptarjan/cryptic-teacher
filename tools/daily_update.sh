@@ -18,7 +18,10 @@
 #   fetch:<fetcher>    the newest puzzle of each series we follow — the
 #                      Guardian daily cryptic, the Monday Quiptic, the Sunday
 #                      Everyman, the Independent's daily, Cyclops, the Globe
-#                      and Mail, Metro — if we don't have it yet.
+#                      and Mail, Metro — if we don't have it yet; and,
+#                      every six hours, the fortnightly TLS
+#                      (fetch:tls_puzzles). daily_units.py SLOW_FETCHERS says
+#                      why the Listener and the Nation are not fetched.
 #   blog:times, blog:telegraph, bucket:telegraph, xval:globe
 #                      the Times and the Telegraph, rebuilt from the blogs
 #                      that solve them, the Telegraph's own bucket, and the
@@ -257,7 +260,8 @@ annotate_alert() {  # $1 = puzzle, $2 = what happened, $3 = session id
 # --- the units: each runs from origin/master in a tree of its own ---------
 
 unit_fetch() {  # fetcher: the newest puzzle of its series (exit 3 = nothing new, fine)
-  # Every fetcher with a --latest belongs in tools/daily_units.py FETCHERS. A
+  # Every fetcher with a --latest belongs in tools/daily_units.py FETCHERS (or
+  # SLOW_FETCHERS, for a fortnightly series). A
   # series backfilled but left out of it stops at the day it was backfilled
   # and rots from there. Cyclops is fortnightly, so fetch_privateeye normally
   # returns 3 here; that is "nothing new", not a fault. One fetcher down is

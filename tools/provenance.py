@@ -275,6 +275,10 @@ ACQUIRED_BY = {
         "channel": "publisher",
         "what": "the Guardian's printable Genius PDF on uploads.guim.co.uk, its "
                 "clues and grid read from it, the answers fifteensquared's"},
+    "tools/tls_puzzles.py": {
+        "channel": "publisher",
+        "what": "the TLS's own page image of its crossword on www.the-tls.com, "
+                "the grid read from its pixels and the clues by OCR, filed unsolved"},
     "tools/ft_pdf_puzzles.py": {
         "channel": "publisher",
         "what": "the FT's printable crossword PDF on media.ft.com, its grid read "
@@ -347,6 +351,7 @@ ACQUISITION_BY_SOURCE = {
     ("azed", "static.guim.co.uk"): ("tools/andlit_azed.py",),
     ("azed", "uploads.guim.co.uk"): ("tools/andlit_azed.py",),
     ("genius", "www.theguardian.com"): ("tools/genius_puzzles.py",),
+    ("tls", "www.the-tls.com"): ("tools/tls_puzzles.py",),
     ("nation", "www.thenation.com"): ("tools/fetch_nation.py",),
     ("listener", "www.listenercrossword.com"): ("tools/listener_puzzles.py",),
     ("listener", "www.thetimes.com"): ("tools/listener_puzzles.py --wayback",),
