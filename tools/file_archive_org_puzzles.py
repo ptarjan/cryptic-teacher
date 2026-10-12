@@ -1885,16 +1885,34 @@ def printed_lines(words):
     """djvu-style lines of OCR words, (x0, y0, x1, y1, text) each: words
     each of whose middles lies within the other's height share a row (a
     column rule read as one tall word joins none), left to right, a row
-    split where a gap wider than three heights parts two columns."""
+    split where a gap wider than three heights parts two columns. A word
+    no row's first word takes joins a row whose other words are all under
+    half its tallest word's height (a title the grid's clue numbers beside
+    it opened) when it and that tallest word share a row so and it is no
+    more than a tenth taller (a number's digits stand a little over a
+    title's capitals): the title's number joins the title; a title beside a
+    shorter body line, or a body line's run of words, does not."""
     def mid(w):
         return (w[1] + w[3]) / 2
-    rows = []
+
+    def height(w):
+        return w[3] - w[1]
+
+    def alike(a, b):
+        return a[1] <= mid(b) <= a[3] and b[1] <= mid(a) <= b[3]
+    rows, tallest = [], []
     for w in sorted(words, key=mid):
-        row = next((r for r in rows if r[0][1] <= mid(w) <= r[0][3] and w[1] <= mid(r[0]) <= w[3]), None)
-        if row:
-            row.append(w)
-        else:
+        k = next((k for k, r in enumerate(rows) if alike(r[0], w)), None)
+        if k is None:
+            k = next((k for k, (r, t) in enumerate(zip(rows, tallest))
+                      if 10 * height(w) <= 11 * height(t) and alike(t, w)
+                      and all(2 * height(x) < height(t) for x in r if x is not t)), None)
+        if k is None:
             rows.append([w])
+            tallest.append(w)
+        else:
+            rows[k].append(w)
+            tallest[k] = max(tallest[k], w, key=height)
     lines = []
     for row in rows:
         row.sort()

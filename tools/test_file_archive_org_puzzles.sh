@@ -138,6 +138,7 @@ check("a paper's scan key is its own: no two papers share one; scan_key() is the
       (len(keys), keys["TIMES"], keys["GALE_TELEGRAPH"]),
       (len(set(keys.values())), f.scan_key(), f.scan_key(f.GALE_TELEGRAPH)))
 old_key = next(iter(f.CORPUS_KEYS))
+f.CORPUS_KEYS[old_key] = {**f.CORPUS_KEYS[old_key], "times": f.scan_key()}  # the Times code as it stands
 rk = Path(os.environ["TMP"]) / "rekey.jsonl"
 rk.write_text("".join(json.dumps(r) + "\n" for r in (
     {"edition": "NewsUK1990UKEnglish/1990-01-01_1", "scanKey": old_key, "filesHash": "h", "scan": {}},
@@ -334,6 +335,19 @@ got = [" ".join(w[4] for w in l) for l in f.printed_lines(words)]
 check("OCR words make printed lines: a column apart is its own line, a column rule read as a word "
       "(FT 1992-06-10) does not join the title to its number line",
       (True, True, True), ("CROSSWORD" in got, "No.7,869 Set by CINEPHILE" in got, "Rea Brothers" in got))
+# Gale 2006-11-09 (ch): the grid's clue numbers open the title's row, and the
+# title's number, its middle under theirs, still joins the title.
+words = [(411, 4151, 447, 4191, "2"), (1616, 4154, 1650, 4191, "8"),
+         (1774, 4140, 3030, 4236, "The TImES CROSSWOrD"), (3069, 4157, 3340, 4236, "23,442"),
+         (3792, 4182, 4360, 4230, "Solution toCrossword 23,44l")]
+check("a title's number joins the title's row a grid's clue numbers opened (Gale 2006-11-09)", [23442],
+      [n for n, _, _ in f.TIMES.headings(f.printed_lines(words))[0]])
+# (mirror) Gale 2008-05-21 (ch): a title beside a body line a fragment opened,
+# the title a fifth taller, is no part of that line.
+words = [(208, 1235, 251, 1247, "alou"), (518, 1231, 865, 1261, "and'theresilience thatwas on display"),
+         (892, 1229, 1287, 1266, "Times Crossword 23,919")]
+check("(mirror) a title does not join a body line's row a fragment opened (Gale 2008-05-21)", [23919],
+      [n for n, _, _ in f.TIMES.headings(f.printed_lines(words))[0]])
 check("the Sunday Times's title is not the daily's", [], f.headings([line("The Sunday Times Crossword No 2,345")], f.TITLE))
 check("the cryptic's solution heading read", [18179],
       [n for n, _ in f.headings([line("Solution to Puzzle No 18,179"), line("SOLUTION TO NO 2064")], f.SOLUTION)])
