@@ -95,6 +95,21 @@ rec = {"id": "book-1", "clues": {"across": [{"clue": {"text": "'7 It is unsuitab
 check("clues-only mended", "It is unsuitable", lq.normalise_clues_only(rec)["clues"]["across"][0]["clue"]["text"])
 check("clues-only unclean", 1, len(lq.unclean_clues_only(rec)))
 
+# The write gate's LEAD names a numberless light by list and place
+# (clues_only.py check crashed on groups.entry_id: no "number" key).
+def lead_flags(record):
+    try:
+        puzzle_integrity.refuse_bad_clues_only(record)
+    except puzzle_integrity.RefusedWrite as e:
+        return [w.split(":")[0] for k, _, w in e.flags if k == "LEAD"]
+    return []
+rec = {"id": "book-1", "clues": {"across": [{"clue": {"text": "Fine"}}, {"clue": {"text": "‘Start to put a lock round leper"}}],
+                                 "down": []}}
+check("clues-only LEAD names across light 2", ["across light 2"], lead_flags(rec))
+jig = {"id": "book-1", "cluesUnplaced": True,
+       "clues": {"unplaced": [{"clue": {"text": "Fine"}}, {"clue": {"text": "'7 It is unsuitable"}}]}}
+check("jigsaw LEAD names unplaced clue 2", ["unplaced clue 2"], lead_flags(jig))
+
 print("FAILS", fails)
 raise SystemExit(1 if fails else 0)
 PY

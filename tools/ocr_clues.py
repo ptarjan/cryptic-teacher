@@ -2993,6 +2993,13 @@ PAGE_TEXT = re.compile(r"\bcr\w{4,8}d\W{1,3}(?:page|p)\W{0,2}\d"
 HEADING_IN = re.compile(r"(?<![\w'])(?:ACROSS|DOWN)(?![\w'])"
                         r"|^\W*(?i:across|down)\W*\s+(?:\d{1,2}|[iIl|!])\W?\s+(?=[A-Z\"'])")
 
+#: The next puzzle's heading read onto a clue, with that puzzle's preamble
+#: and clues after it: a book prints "Alphabetical Jigsaw" (Araucaria book
+#: 2, read onto the last Down light of No 15, 20, 34, 50 and 66). Only as
+#: a heading sets it, in capitals: a clue may say "alphabetical jigsaw"
+#: (cryptic-28672).
+PUZZLE_HEADING = re.compile(r"(?<![\w'])(?:Alphabetical|ALPHABETICAL)\W{1,3}(?:Jigsaw|JIGSAW)(?![\w'])")
+
 #: The brackets a clue pairs.
 PAIRS = {")": "(", "]": "["}
 
@@ -3029,6 +3036,9 @@ def bled(text, printed=()):
     m = HEADING_IN.search(text)
     if m:
         return f"holds a list's heading: {text[max(0, m.start() - 12):m.end() + 12].strip()!r}"
+    m = PUZZLE_HEADING.search(text)
+    if m:
+        return f"holds another puzzle's heading: {text[max(0, m.start() - 12):m.end() + 12].strip()!r}"
     k = unpaired(text)
     if k is not None and holding(text, k) not in printed:
         return f"holds a bracket it never pairs: {text[max(0, k - 12):k + 12].strip()!r}"
@@ -3065,6 +3075,10 @@ def trimmed(text, lid, voted=True):
         holds a number or a count ("... Puzzle No 18,178 will appear next
         Saturday 26 The point is ..." in 26 across);
       - its list's heading read onto 1 across or 1 down ("Down Poet's way");
+      - the next puzzle's heading and all after it (PUZZLE_HEADING:
+        "Alphabetical Jigsaw A, dyer can display enthusiasm"), and the
+        clue's count before it; that may leave nothing: the light's own
+        clue was lost;
       - a lone small "i" between two words ("system i uniting"), a speck:
         the pronoun is "I", and the newspaper i is quoted or ends a clue;
       - a line end's hyphen with specks between the halves ("buy- 4 ing",
@@ -3082,6 +3096,8 @@ def trimmed(text, lid, voted=True):
     number OCR lost ("-across") has none to find run in."""
     if not text:
         return text
+    if m := PUZZLE_HEADING.search(text):
+        text = re.sub(rf"\s*{COUNT_IN}\W*$", "", text[:m.start()].rstrip())
     own = lid.split("-")[0].split(",")[0]
     runs = [m for m in re.finditer(rf"\s{own}\.?\s+(?=[A-Z\"'])", text)] if own.isdigit() else []
     if runs and re.search(r"\d", text[:runs[-1].start()]):
