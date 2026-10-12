@@ -23,6 +23,9 @@
   "date": "2022-11-12",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,62 @@
     "text": "Metal pick uncovered a turnip, possibly",
     "enumeration": "8"
    },
-   "solution": "BRASSICA"
+   "solution": "BRASSICA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BRASSICA",
+    "definitions": [
+     {
+      "text": "turnip, possibly",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncovered",
+      "for": "letter_selection",
+      "note": "to uncover a word is to strip off its outer covering, its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Metal",
+      "gives": "BRASS",
+      "note": "brass is an alloy of copper and zinc"
+     },
+     {
+      "clueFragment": "pick",
+      "gives": "IC",
+      "select": "middle",
+      "note": "the word with its outside letters removed"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRASS",
+      "IC",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone digs up a turnip with a metal pick.",
+     "walkthrough": "'possibly' marks the turnip as just one example of the plant group.",
+     "definitionFit": "Brassica is the cabbage genus, and the turnip is one of its members, so it is a definition by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pick"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +108,43 @@
     "text": "Condemn show again",
     "enumeration": "7"
    },
-   "solution": "REPROVE"
+   "solution": "REPROVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REPROVE",
+    "definitions": [
+     {
+      "text": "Condemn",
+      "at": 0
+     },
+     {
+      "text": "show again",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Condemn",
+      "note": "first meaning: to rebuke or censure"
+     },
+     {
+      "clueFragment": "show again",
+      "note": "second meaning: ..., demonstrate a second time"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second meaning splits the word as RE (again) plus PROVE (show).",
+     "definitionFit": "To reprove is to scold or censure someone, a milder sense of condemning their conduct."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "show"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +158,69 @@
     "text": "A thousand in disheartened crew perished at sea thus?",
     "enumeration": "11"
    },
-   "solution": "SHIPWRECKED"
+   "solution": "SHIPWRECKED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "SHIPWRECKED",
+    "definitions": [
+     {
+      "text": "A thousand in disheartened crew perished at sea thus?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disheartened",
+      "for": "letter_selection",
+      "note": "losing heart means losing the middle, so only the outer letters of the word remain"
+     },
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "being at sea is being confused and all over the place, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A thousand",
+      "gives": "K",
+      "note": "K is short for kilo, a thousand"
+     },
+     {
+      "clueFragment": "crew",
+      "gives": "CW",
+      "select": "outer",
+      "note": "the middle RE removed from the word"
+     },
+     {
+      "clueFragment": "perished",
+      "gives": "PERISHED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "KCWPERISHED",
+       "gives": "SHIPWRECKED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thousand sailors from a dispirited crew were lost at sea in a disaster.",
+     "walkthrough": "The whole clue is the definition: a crew perishing at sea is what happens when they are shipwrecked.",
+     "definitionFit": "Being shipwrecked means suffering the destruction of one's vessel at sea, the fate the clue describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "disheartened"
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +234,59 @@
     "text": "Sluggish Italian team's time to go down?",
     "enumeration": "5"
    },
-   "solution": "INERT"
+   "solution": "INERT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "INERT",
+    "definitions": [
+     {
+      "text": "Sluggish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go down",
+      "for": "deletion",
+      "note": "in a down entry, going down means moving to the bottom, so the letter leaves its place and reappears at the end"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Italian team",
+      "gives": "INTER",
+      "note": "Inter Milan, the Italian football club"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INER",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian football side looks sluggish and seems about to be relegated.",
+     "walkthrough": "The T in INTER is taken out and moved to the bottom of the word.",
+     "definitionFit": "Inert means lacking the energy or ability to move, a synonym of sluggish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "down"
+    }
+   }
   },
   {
    "number": 5,
@@ -92,7 +300,42 @@
     "text": "Durable bearing",
     "enumeration": "7"
    },
-   "solution": "ABIDING"
+   "solution": "ABIDING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ABIDING",
+    "definitions": [
+     {
+      "text": "Durable",
+      "at": 0
+     },
+     {
+      "text": "bearing",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Durable",
+      "note": "first meaning: lasting, enduring"
+     },
+     {
+      "clueFragment": "bearing",
+      "note": "second meaning: putting up with, tolerating, as in 'can't abide'"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'bearing' looks like a noun (direction or a machine part) but is the participle of bear, to tolerate.",
+     "definitionFit": "Abiding describes something enduring, like an abiding love, and is also the participle of abide, to tolerate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bearing"
+    }
+   }
   },
   {
    "number": 6,
@@ -106,7 +349,55 @@
     "text": "Standard set by a large predatory animal",
     "enumeration": "6"
    },
-   "solution": "JACKAL"
+   "solution": "JACKAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JACKAL",
+    "definitions": [
+     {
+      "text": "predatory animal",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "set by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Standard",
+      "gives": "JACK",
+      "note": "a jack is a flag, as in Union Jack"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JACK",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A benchmark is laid down by a big hunting beast.",
+     "definitionFit": "The jackal is a wild dog of Africa and Asia that hunts and scavenges, so it is a predatory animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Standard"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +411,74 @@
     "text": "Judge worries about proposal to limit Republican internees",
     "enumeration": "9"
    },
-   "solution": "JAILBIRDS"
+   "solution": "JAILBIRDS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "JAILBIRDS",
+    "definitions": [
+     {
+      "text": "internees",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to limit",
+      "for": "container",
+      "note": "limiting something means fencing it in, so one word holds the letter inside it"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so this word is wrapped round the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Judge",
+      "gives": "J",
+      "note": "J is the abbreviation for judge"
+     },
+     {
+      "clueFragment": "worries",
+      "gives": "AILS",
+      "note": "what ails you is what troubles you"
+     },
+     {
+      "clueFragment": "proposal",
+      "gives": "BID",
+      "note": "a bid is an offer or proposal"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "AIL",
+      "BI",
+      "R",
+      "D",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A judge frets over a plan to lock up Republican detainees.",
+     "walkthrough": "There are two containers, one inside the other: the Republican is held inside the proposal, and the worries wrap round the result.",
+     "definitionFit": "Jailbirds is slang for prisoners, people who are confined or interned."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worries"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +492,57 @@
     "text": "Firm base for infant?",
     "enumeration": "3"
    },
-   "solution": "COT"
+   "solution": "COT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "and_lit"
+    ],
+    "answer": "COT",
+    "definitions": [
+     {
+      "text": "Firm base for infant?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "base for",
+      "for": "letter_selection",
+      "note": "in a down entry the base of a word is its bottom, its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Firm",
+      "gives": "CO",
+      "note": "Co is short for company, a firm"
+     },
+     {
+      "clueFragment": "infant",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A sturdy foundation for a baby.",
+     "walkthrough": "The whole clue is also the definition: a baby's bed is a firm base for it.",
+     "definitionFit": "A cot is a baby's bed with high sides, a solid place for an infant to lie."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Firm"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +556,61 @@
     "text": "Material one found in wonderland, abruptly stifling yell",
     "enumeration": "7"
    },
-   "solution": "ACRYLIC"
+   "solution": "ACRYLIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ACRYLIC",
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abruptly",
+      "for": "deletion",
+      "note": "abruptly means cut off short, so the name loses its final letter"
+     },
+     {
+      "text": "stifling",
+      "for": "container",
+      "note": "stifling smothers something by closing round it, so the shortened name wraps the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one found in wonderland",
+      "gives": "ALICE",
+      "note": "Alice is the heroine of Alice's Adventures in Wonderland"
+     },
+     {
+      "clueFragment": "yell",
+      "gives": "CRY",
+      "note": "a cry is a shout"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CRY",
+      "LIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in a fairy-tale land is suddenly muffled mid-scream.",
+     "walkthrough": "Lewis Carroll's heroine is cut short by one letter before she takes in the yell.",
+     "definitionFit": "Acrylic is a synthetic fibre and fabric, so it is a type of material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Material"
+    }
+   }
   },
   {
    "number": 9,
@@ -168,7 +630,65 @@
      }
     ]
    },
-   "solution": "PRIMEMINISTER"
+   "solution": "PRIMEMINISTER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PRIME MINISTER",
+    "definitions": [
+     {
+      "text": "leading statesman",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to inter",
+      "for": "container",
+      "note": "interring something is burying it, so one letter is buried inside the other word"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prepare",
+      "gives": "PRIME",
+      "note": "to prime is to get ready"
+     },
+     {
+      "clueFragment": "cathedral",
+      "gives": "MINSTER",
+      "note": "a minster is a large church, as at York"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRIME",
+      "MIN",
+      "I",
+      "STER"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for a burial at a cathedral for an island's head of government.",
+     "walkthrough": "'island's leading' reads as one phrase, but the 's joins wordplay to the definition, which is 'leading statesman'.",
+     "definitionFit": "The prime minister is the head of government, the most senior politician in a parliamentary state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inter"
+    }
+   }
   },
   {
    "number": 10,
@@ -182,7 +702,65 @@
     "text": "Bird's shrewdness on turning tail",
     "enumeration": "6"
    },
-   "solution": "GODWIT"
+   "solution": "GODWIT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "GODWIT",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning round means facing the other way, so the word is read from end to start"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tail",
+      "gives": "DOG",
+      "note": "to dog or tail someone is to follow them"
+     },
+     {
+      "clueFragment": "shrewdness",
+      "gives": "WIT",
+      "note": "wit is sharp intelligence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOD",
+      "WIT"
+     ],
+     "reversals": [
+      {
+       "from": "DOG",
+       "to": "GOD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird's cleverness in twisting its tail feathers.",
+     "walkthrough": "'tail' looks like a noun but is the verb meaning to follow, like dog.",
+     "definitionFit": "The godwit is a long-billed wading bird of shores and marshes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tail"
+    }
+   }
   },
   {
    "number": 11,
@@ -196,7 +774,76 @@
     "text": "The speaker's rancour about church rejected as foolish",
     "enumeration": "8"
    },
-   "solution": "IMBECILE"
+   "solution": "IMBECILE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "IMBECILE",
+    "definitions": [
+     {
+      "text": "foolish",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the letters for church run the other way"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the word for rancour encloses the church letters"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The speaker's",
+      "gives": "IM",
+      "note": "the speaker says 'I'm'"
+     },
+     {
+      "clueFragment": "rancour",
+      "gives": "BILE",
+      "note": "bile is bitterness or bad temper"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "B",
+      "EC",
+      "ILE"
+     ],
+     "reversals": [
+      {
+       "from": "CE",
+       "to": "EC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A speaker says his bitterness about a church was dismissed as silly.",
+     "definitionFit": "Imbecile as an adjective means stupid or idiotic, matching foolish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rejected"
+    }
+   }
   },
   {
    "number": 12,
@@ -220,7 +867,46 @@
      }
     ]
    },
-   "solution": "CARRYTHECAN"
+   "solution": "CARRYTHECAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CARRY THE CAN",
+    "definitions": [
+     {
+      "text": "Take responsibility",
+      "at": 0
+     },
+     {
+      "text": "Jack & Jill failed to do?",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Take responsibility",
+      "note": "first meaning: to accept the blame"
+     },
+     {
+      "clueFragment": "Jack & Jill failed to do?",
+      "note": "second meaning, taken literally: in the nursery rhyme the pair went to fetch a pail of water but fell down the hill"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In the rhyme Jack and Jill fell before bringing the pail home, so they failed to carry the can in the literal sense; the question mark flags the joke.",
+     "definitionFit": "To carry the can is a British idiom for taking the blame or responsibility for something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Jack"
+    }
+   }
   },
   {
    "number": 13,
@@ -234,7 +920,76 @@
     "text": "Retired cleric eating energy food, such as cake",
     "enumeration": "10"
    },
-   "solution": "VEGEBURGER"
+   "solution": "VEGEBURGER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "reversal"
+    ],
+    "answer": "VEGEBURGER",
+    "definitions": [
+     {
+      "text": "cake",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "eating means taking something inside, so the cleric word holds the next pieces"
+     },
+     {
+      "text": "Retired",
+      "for": "reversal",
+      "note": "retiring means withdrawing or going back, so the whole construction runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cleric",
+      "gives": "REV",
+      "note": "Rev is short for reverend, a clergyman"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     },
+     {
+      "clueFragment": "food",
+      "gives": "GRUB",
+      "note": "grub is slang for food"
+     },
+     {
+      "clueFragment": "such as",
+      "gives": "EG",
+      "note": "e.g. means for example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VEGEBURGER"
+     ],
+     "reversals": [
+      {
+       "from": "REGRUBEGEV",
+       "to": "VEGEBURGER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A retired vicar tucks into energy food such as cake.",
+     "walkthrough": "'Retired' reverses the whole construction, not just the cleric. 'food' looks like the definition, but it is the last word: a burger is a flat cake of minced ingredients.",
+     "definitionFit": "A vegeburger is a patty of vegetables or pulses, a cake shaped like a hamburger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cake"
+    }
+   }
   },
   {
    "number": 14,
@@ -254,7 +1009,54 @@
      }
     ]
    },
-   "solution": "UPPERCASE"
+   "solution": "UPPERCASE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPPER CASE",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Concluded",
+      "gives": "UP",
+      "note": "time is up when it has ended"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "PER",
+      "note": "a, as in 'once a week', means per"
+     },
+     {
+      "clueFragment": "lawsuit",
+      "gives": "CASE",
+      "note": "a case is a legal action"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "PER",
+      "CASE"
+     ]
+    },
+    "explanation": {
+     "surface": "A legal action was settled in the capital city.",
+     "walkthrough": "'capital' looks like a city but means capital letters.",
+     "definitionFit": "Upper case is the printing term for capital letters, from the type case where they were kept."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 15,
@@ -268,7 +1070,42 @@
     "text": "Sizeable stone jar",
     "enumeration": "4"
    },
-   "solution": "ROCK"
+   "solution": "ROCK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROCK",
+    "definitions": [
+     {
+      "text": "Sizeable stone",
+      "at": 0
+     },
+     {
+      "text": "jar",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sizeable stone",
+      "note": "first meaning: a large boulder"
+     },
+     {
+      "clueFragment": "jar",
+      "note": "second meaning: to shake or jolt"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'jar' reads as a stone pot, but it is the verb meaning to shake.",
+     "definitionFit": "A rock is a big piece of stone, and to rock is to shake or jolt someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "jar"
+    }
+   }
   },
   {
    "number": 16,
@@ -282,7 +1119,48 @@
     "text": "Deferential Frenchman that startled me",
     "enumeration": "4"
    },
-   "solution": "MEEK"
+   "solution": "MEEK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MEEK",
+    "definitions": [
+     {
+      "text": "Deferential",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frenchman",
+      "gives": "M",
+      "note": "M is short for Monsieur"
+     },
+     {
+      "clueFragment": "that startled me",
+      "gives": "EEK",
+      "note": "eek is the cry of someone startled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "EEK"
+     ]
+    },
+    "explanation": {
+     "surface": "A polite Frenchman gave me a fright.",
+     "walkthrough": "'that startled me' stands for the exclamation a startled person makes.",
+     "definitionFit": "Meek means humble and submissive, readily yielding to others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "startled"
+    }
+   }
   },
   {
    "number": 17,
@@ -296,7 +1174,69 @@
     "text": "Placid bishop collared by peer at end of debate",
     "enumeration": "7"
    },
-   "solution": "EQUABLE"
+   "solution": "EQUABLE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EQUABLE",
+    "definitions": [
+     {
+      "text": "Placid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collared by",
+      "for": "container",
+      "note": "a collar goes round a neck, so the peer word encloses the bishop"
+     },
+     {
+      "text": "at end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, the only one kept here"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peer",
+      "gives": "EQUAL",
+      "note": "a peer is an equal"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     },
+     {
+      "clueFragment": "debate",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EQUA",
+      "B",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A calm bishop is buttonholed by a lord when a debate finishes.",
+     "walkthrough": "'peer' suggests a lord of the realm, but it means an equal.",
+     "definitionFit": "Equable describes an even, calm temperament that is not easily disturbed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "peer"
+    }
+   }
   },
   {
    "number": 18,
@@ -310,7 +1250,73 @@
     "text": "Fearful priest facing Ely's crumbling stonework",
     "enumeration": "10"
    },
-   "solution": "PERISTYLES"
+   "solution": "PERISTYLES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PERISTYLES",
+    "definitions": [
+     {
+      "text": "stonework",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fearful",
+      "for": "anagram",
+      "note": "someone fearful is shaken and in a state, so these letters are jumbled"
+     },
+     {
+      "text": "crumbling",
+      "for": "anagram",
+      "note": "something crumbling falls apart, so these letters are broken up and rebuilt"
+     }
+    ],
+    "linkWords": [
+     "facing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "priest",
+      "gives": "PERIST",
+      "note": "the word rearranged"
+     },
+     {
+      "clueFragment": "Ely's",
+      "gives": "YLES",
+      "note": "the letters of Ely and its s rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PERIST",
+      "YLES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PRIEST",
+       "gives": "PERIST"
+      },
+      {
+       "fodder": "ELYS",
+       "gives": "YLES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous cleric faces the decaying masonry of Ely Cathedral.",
+     "walkthrough": "There are two separate anagrams, each with its own indicator. Ely is a cathedral city in Cambridgeshire.",
+     "definitionFit": "A peristyle is a row of columns around a building or courtyard, a piece of classical stonework."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fearful"
+    }
+   }
   },
   {
    "number": 19,
@@ -324,7 +1330,66 @@
     "text": "Engineer orders enamel primarily for decorative screen",
     "enumeration": "7"
    },
-   "solution": "REREDOS"
+   "solution": "REREDOS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "REREDOS",
+    "definitions": [
+     {
+      "text": "decorative screen",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Engineer",
+      "for": "anagram",
+      "note": "to engineer is to construct or contrive, so the letters are built into a new order"
+     },
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily points to the first part, the opening letter of the word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "orders",
+      "gives": "ORDERS",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "enamel",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ORDERSE",
+       "gives": "REREDOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An engineer orders enamel paint, chiefly for an ornamental screen.",
+     "walkthrough": "'Engineer' looks like a person, but it is a verb telling you to rebuild the letters.",
+     "definitionFit": "A reredos is an ornamental screen or panel behind a church altar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Engineer"
+    }
+   }
   },
   {
    "number": 20,
@@ -344,7 +1409,69 @@
      }
     ]
    },
-   "solution": "ENMASSE"
+   "solution": "ENMASSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "EN MASSE",
+    "definitions": [
+     {
+      "text": "together",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "termini",
+      "for": "letter_selection",
+      "note": "termini are end points, so only the first and last letters are kept"
+     },
+     {
+      "text": "linking",
+      "for": "container",
+      "note": "the end letters link up by sitting either side of the middle pieces, enclosing them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Europe",
+      "gives": "EE",
+      "select": "outer",
+      "note": "the two end letters of the word"
+     },
+     {
+      "clueFragment": "New",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "service",
+      "gives": "MASS",
+      "note": "Mass is a church service"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "N",
+      "MASS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A new rail service connecting stations across Europe.",
+     "walkthrough": "'termini' suggests railway stations, but here it means the end letters of Europe.",
+     "definitionFit": "En masse is a French borrowing meaning all together, as a group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "termini"
+    }
+   }
   },
   {
    "number": 21,
@@ -358,7 +1485,65 @@
     "text": "National hero backing King Edward's assassin",
     "enumeration": "8"
    },
-   "solution": "MURDERER"
+   "solution": "MURDERER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "MURDERER",
+    "definitions": [
+     {
+      "text": "assassin",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means going backwards, so the horse's name is read in reverse"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "National hero",
+      "gives": "REDRUM",
+      "note": "Red Rum was the racehorse that won the Grand National, Britain's great steeplechase, three times"
+     },
+     {
+      "clueFragment": "King Edward",
+      "gives": "ER",
+      "note": "ER stands for Edwardus Rex, King Edward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MURDER",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "REDRUM",
+       "to": "MURDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Supporting a national hero is the killer of King Edward.",
+     "walkthrough": "'National' looks like 'of the nation' but points to the Grand National horse race. The reversed horse name is a famous one from The Shining.",
+     "definitionFit": "An assassin is someone who kills, especially a prominent person, so a murderer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "National"
+    }
+   }
   },
   {
    "number": 22,
@@ -372,7 +1557,71 @@
     "text": "Plan from first of spies about to cross border",
     "enumeration": "6"
    },
-   "solution": "SCHEMA"
+   "solution": "SCHEMA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "SCHEMA",
+    "definitions": [
+     {
+      "text": "Plan",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter alone"
+     },
+     {
+      "text": "to cross",
+      "for": "container",
+      "note": "to cross something here is to straddle it, so one word sits astride the other"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spies",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "CA",
+      "note": "ca is short for circa, about"
+     },
+     {
+      "clueFragment": "border",
+      "gives": "HEM",
+      "note": "a hem is the edge of a cloth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "HEM",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "An intelligence chief's plan to send agents across a frontier.",
+     "definitionFit": "A schema is an outline or diagrammatic plan of a system or idea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "border"
+    }
+   }
   },
   {
    "number": 22,
@@ -386,7 +1635,53 @@
     "text": "Sportsman's captain rendered quite powerless",
     "enumeration": "5"
    },
-   "solution": "SKIER"
+   "solution": "SKIER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SKIER",
+    "definitions": [
+     {
+      "text": "Sportsman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rendered quite powerless",
+      "for": "deletion",
+      "note": "made completely without power means every power letter is taken out, here a doubled one"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "captain",
+      "gives": "SKIPPER",
+      "note": "a skipper is a captain of a ship or team"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKI",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "An athlete's team captain has been left completely powerless.",
+     "walkthrough": "P is the abbreviation for power; SKIPPER has two of them, and removing both leaves it 'quite' powerless.",
+     "definitionFit": "A skier is someone who takes part in the sport of skiing, so a sportsman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "quite"
+    }
+   }
   },
   {
    "number": 23,
@@ -410,7 +1705,55 @@
      }
     ]
    },
-   "solution": "BITSANDPIECES"
+   "solution": "BITSANDPIECES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BITS AND PIECES",
+    "definitions": [
+     {
+      "text": "Little remains",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reforms",
+      "for": "anagram",
+      "note": "to reform is to form again in a new shape, so the letters are reconstructed"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ban pesticides",
+      "gives": "BANPESTICIDES",
+      "note": "the thirteen letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BANPESTICIDES",
+       "gives": "BITSANDPIECES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "What is left of environmental reforms that were meant to outlaw pesticides.",
+     "walkthrough": "'reforms' looks like a noun in the surface but works as a verb telling you to rebuild the letters.",
+     "definitionFit": "Bits and pieces are small odds and ends, the leftovers or scraps that remain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reforms"
+    }
+   }
   },
   {
    "number": 24,
@@ -424,7 +1767,56 @@
     "text": "Small flap with stick raised",
     "enumeration": "3"
    },
-   "solution": "TAB"
+   "solution": "TAB",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TAB",
+    "definitions": [
+     {
+      "text": "Small flap",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down entry, raising a word lifts it upward, so it reads from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stick",
+      "gives": "BAT",
+      "note": "a bat is a stick for hitting a ball"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAB"
+     ],
+     "reversals": [
+      {
+       "from": "BAT",
+       "to": "TAB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A little flap held up on a raised stick.",
+     "definitionFit": "A tab is a small projecting piece of material, such as a flap on a garment or packet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stick"
+    }
+   }
   },
   {
    "number": 25,
@@ -438,7 +1830,55 @@
     "text": "Paltry charge regularly billed",
     "enumeration": "6"
    },
-   "solution": "FEEBLE"
+   "solution": "FEEBLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FEEBLE",
+    "definitions": [
+     {
+      "text": "Paltry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "charge",
+      "gives": "FEE",
+      "note": "a fee is a payment charged"
+     },
+     {
+      "clueFragment": "billed",
+      "gives": "BLE",
+      "select": "alternate",
+      "note": "the first, third and fifth letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FEE",
+      "BLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A trivial fee was invoiced at fixed intervals.",
+     "definitionFit": "Feeble means weak or inadequate, as does paltry in the sense of meagre and contemptibly small."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "billed"
+    }
+   }
   },
   {
    "number": 26,
@@ -452,7 +1892,71 @@
     "text": "Originally roped in to avoid knowledge getting wasted",
     "enumeration": "8"
    },
-   "solution": "SHRUNKEN"
+   "solution": "SHRUNKEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "SHRUNKEN",
+    "definitions": [
+     {
+      "text": "wasted",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Originally",
+      "for": "letter_selection",
+      "note": "originally points to the origin of a word, its very first letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places that letter inside the word meaning avoid"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "avoid",
+      "gives": "SHUN",
+      "note": "to shun is to keep away from"
+     },
+     {
+      "clueFragment": "roped",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "knowledge",
+      "gives": "KEN",
+      "note": "ken means range of knowledge, as in 'beyond my ken'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "R",
+      "UN",
+      "KEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone first roped in to dodge learning ends up the worse for it.",
+     "definitionFit": "Shrunken describes something withered or reduced in size, as is a wasted limb or body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "roped"
+    }
+   }
   }
  ]
 }
