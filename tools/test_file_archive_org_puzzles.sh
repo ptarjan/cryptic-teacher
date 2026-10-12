@@ -2784,6 +2784,8 @@ check("a pub_times issue is the 1930 Times, read 4x smaller, filed as times",
       ("times1930", 4, "times"), (f.paper_of(d1930).key, f.paper_of(d1930).shrink, f.paper_of(d1930).series))
 check("a run of the Times reads the 1930 issues too; the Telegraph and FT runs their Gale pages", (True, True, True),
       (f.TIMES_1930 in f.run_papers(f.TIMES), f.GALE_TELEGRAPH in f.run_papers(f.TELEGRAPH), f.GALE_FT in f.run_papers(f.FT)))
+check("every paper's .also (archive_coverage and edition_queue read it) is its run's other papers", [],
+      [p.key for p in (*f.FILERS.values(), f.TIMES_1930, f.GALE_TELEGRAPH) if f.run_papers(p) != (p, *p.also)])
 import datetime as _dt
 check("1930 numbers run six a week from No 1 on 1 Feb, none on Good Friday",
       [1, 27, 54, 94, 129, 209],
