@@ -712,6 +712,7 @@ check("an opening quote glued to the word before opens the next (No 9 14A)",
       "Milton called this 'enamelled'.", oc.clean("Milton called this‘enamelled'."))
 check("a name's quote after one capital stays put (mirror)", "O'Brien", oc.clean("O‘Brien"))
 check("a ligature is its two letters (No 9 6D \"mediæval\")", "A mediaeval weapon.", oc.clean("A mediæval weapon."))
+check("a Unicode fi/fl/ffi ligature is its letters", "A first offer, flag, effigy", oc.clean("A \ufb01rst o\ufb00er, \ufb02ag, e\ufb03gy"))
 check("a ligature read apart still votes (No 9 6D)", ({"6-down": ("A medieval weapon.", None, None)}, {}),
       oc.reconcile({"6-down": ("A medieval weapon.", None, None)},
                    ["5. His first. 6. A mediæval weapon. 8. Peaty soil."], {}, uncounted=True))

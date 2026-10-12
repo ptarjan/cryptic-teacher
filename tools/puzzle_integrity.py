@@ -1272,11 +1272,12 @@ def check_annotation_quotes(puzzle, flags):
 
 
 def check_curly_quotes(puzzle, flags):
-    """CURLY: clue text holding a curly quote or a backtick. It is stored with
+    """CURLY: clue text holding a curly quote, a backtick or a Unicode ligature
+    (fi, fl, ff, ffi, ffl codepoints). It is stored with
     ' and " (tools/quotes.py) and curled on display (quotes.js)."""
     for e, key, text in quotes.curly(puzzle):
         flags.append(("CURLY", puzzle.get("id"), f"{entry_id(e)}: {key} {text!r} holds a curly "
-                      "quote or backtick; clue text is stored straight (quotes.straight)"))
+                      "quote, backtick or ligature; clue text is stored straight (quotes.straight)"))
 
 
 def check_dashes(puzzle, flags):

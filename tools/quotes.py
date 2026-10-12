@@ -9,7 +9,7 @@ back into ‘ ’ “ ” when it shows a clue (quotes.js). The static pages and
 social cards curl with curl() here, which has quotes.js's rules; test_quotes.js
 runs both over tools/quotes_cases.json, so they cannot drift.
 
-Each mapping is one character for one, so every offset into a clue (a
+Each quote mapping is one character for one, so every offset into a clue (a
 definition's `at`, italics, a mark) means the same before and after.
 
     python3 tools/quotes.py            # straighten every held puzzle file
@@ -22,8 +22,11 @@ import sys
 from pathlib import Path
 
 
-STRAIGHT = str.maketrans({"‘": "'", "’": "'", "“": '"', "”": '"', "`": "'"})
-CURLY = frozenset("\u2018\u2019\u201c\u201d`")
+# A Unicode ligature (a PDF's or OCR's "\ufb01") is its letters: "fi", "ffl".
+LIGATURES = {"\ufb00": "ff", "\ufb01": "fi", "\ufb02": "fl", "\ufb03": "ffi", "\ufb04": "ffl",
+             "\ufb05": "st", "\ufb06": "st"}
+STRAIGHT = str.maketrans({"‘": "'", "’": "'", "“": '"', "”": '"', "`": "'", **LIGATURES})
+CURLY = frozenset("\u2018\u2019\u201c\u201d`" + "".join(LIGATURES))
 
 
 # quotes.js's rules, character for character. \s is spelled out because JS and
@@ -60,7 +63,8 @@ def curl(text):
 
 
 def straight(text):
-    """`text` with every curly quote and backtick made ' or "."""
+    """`text` with every curly quote and backtick made ' or ", and every
+    Unicode ligature spelt as its letters."""
     return text.translate(STRAIGHT) if isinstance(text, str) else text
 
 
