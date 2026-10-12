@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,44 @@
     "text": "Singer might need this immediately before November",
     "enumeration": "4"
    },
-   "solution": "MIKE"
+   "solution": "MIKE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MIKE",
+    "definitions": [
+     {
+      "text": "Singer might need this",
+      "at": 0
+     },
+     {
+      "text": "immediately before November",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Singer might need this",
+      "note": "first meaning: a microphone, informally"
+     },
+     {
+      "clueFragment": "immediately before November",
+      "note": "second meaning: the code word that comes just ahead of November in the NATO phonetic alphabet"
+     }
+    ],
+    "explanation": {
+     "surface": "A performer gets something ready just ahead of a gig in November.",
+     "walkthrough": "The radio alphabet runs ... Lima, Mike, November, Oscar ..., so the letter word just before November is the answer.",
+     "definitionFit": "A singer uses a microphone, informally shortened, and the same word is the NATO alphabet code for the letter M."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "November"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +87,50 @@
     "text": "A tramp is chewing smoked beef",
     "enumeration": "8"
    },
-   "solution": "PASTRAMI"
+   "solution": "PASTRAMI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PASTRAMI",
+    "definitions": [
+     {
+      "text": "smoked beef",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chewing",
+      "for": "anagram",
+      "note": "chewing mashes things up, so the preceding letters get mangled into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A tramp is",
+      "gives": "ATRAMPIS",
+      "note": "the letters used as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATRAMPIS",
+       "gives": "PASTRAMI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vagrant munches on a deli sandwich filling.",
+     "definitionFit": "Pastrami is seasoned, cured and smoked beef, served sliced in delicatessens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chewing"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +144,53 @@
     "text": "Bullet — I replaced a charge",
     "enumeration": "4"
    },
-   "solution": "BILL"
+   "solution": "BILL",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "BILL",
+    "definitions": [
+     {
+      "text": "a charge",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "I replaced",
+      "for": "substitution",
+      "note": "the letter I is put in where another vowel stood, swapping one letter for another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bullet",
+      "gives": "BULL",
+      "note": "the wordplay needs the animal word, the first four letters of this word"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the letter itself, taking the place of U"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BILL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notes that a round of ammunition was swapped out at some cost.",
+     "walkthrough": "The wordplay works only on BULL with its U changed to I; the printed 'Bullet' carries two letters the parse cannot use, apparently a slip in the clue.",
+     "definitionFit": "A bill is an invoice or statement of money owed, so it is a charge to be paid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bullet"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +204,55 @@
     "text": "Ancestor responsible for golfer's warning to Rupert, perhaps",
     "enumeration": "8"
    },
-   "solution": "FOREBEAR"
+   "solution": "FOREBEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FOREBEAR",
+    "definitions": [
+     {
+      "text": "Ancestor",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "responsible for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "golfer's warning",
+      "gives": "FORE",
+      "note": "the cry a golfer shouts to warn of an incoming ball"
+     },
+     {
+      "clueFragment": "to",
+      "note": "joins the warning to the one receiving it"
+     },
+     {
+      "clueFragment": "Rupert, perhaps",
+      "gives": "BEAR",
+      "note": "Rupert Bear is a long-running British children's comic-strip character, so he is an example of a bear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FORE",
+      "BEAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A forebear is blamed for a golfer yelling a warning at someone called Rupert.",
+     "walkthrough": "Rupert Bear is a famous British cartoon bear in checked trousers, hence 'perhaps' marking him as one example.",
+     "definitionFit": "A forebear is a person from whom one is descended, the same relation as an ancestor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Rupert"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +266,67 @@
     "text": "Badger caught other bats outside",
     "enumeration": "6"
    },
-   "solution": "HECTOR"
+   "solution": "HECTOR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "HECTOR",
+    "definitions": [
+     {
+      "text": "Badger",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bats",
+      "for": "anagram",
+      "note": "bats means crazy, so the word before it is jumbled up"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "the jumbled word sits outside, wrapping around the cricket abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "other",
+      "gives": "OTHER",
+      "note": "used as written before being jumbled"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "C",
+      "TOR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OTHER",
+       "gives": "HETOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A badger is snared while some other animals flutter round about it.",
+     "walkthrough": "'Badger' looks like the animal but is the verb meaning to pester; 'bats' is not the animal either.",
+     "definitionFit": "To hector is to bully or harass someone insistently, the same as to badger them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Badger"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +340,39 @@
     "text": "A word to be reckoned with?",
     "enumeration": "10"
    },
-   "solution": "CALCULABLE"
+   "solution": "CALCULABLE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CALCULABLE",
+    "definitions": [
+     {
+      "text": "A word to be reckoned with?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A word to be reckoned with?",
+      "note": "surface reading: an influential word, as in a force to be reckoned with"
+     },
+     {
+      "clueFragment": "to be reckoned with",
+      "note": "setter's reading: a word that means able to be reckoned, that is, computed"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The idiom 'a force to be reckoned with' suggests something formidable; read literally, the word wanted simply means 'able to be reckoned' in the counting sense.",
+     "definitionFit": "To reckon is to compute, so something that can be reckoned is something that can be worked out numerically."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "reckoned"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +386,42 @@
     "text": "Old French inhabitant of London or Manchester",
     "enumeration": "6"
    },
-   "solution": "NORMAN"
+   "solution": "NORMAN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NORMAN",
+    "definitions": [
+     {
+      "text": "Old French",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inhabitant of",
+      "for": "hidden_word",
+      "note": "something that inhabits the following words lives inside them, spanning their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "London or Manchester",
+      "gives": "NORMAN",
+      "note": "running from the last letter of London across or into Manchester"
+     }
+    ],
+    "explanation": {
+     "surface": "A historic Frenchman is said to live in one of two big English cities.",
+     "definitionFit": "The Normans were medieval French people from Normandy, and their dialect is a form of Old French."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inhabitant"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +435,55 @@
     "text": "Try to get attention of rider on the way",
     "enumeration": "4"
    },
-   "solution": "PSST"
+   "solution": "PSST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PSST",
+    "definitions": [
+     {
+      "text": "Try to get attention",
+      "at": 0,
+      "note": "an interjection used to do this, not a verb"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rider",
+      "gives": "PS",
+      "note": "a postscript is a rider added to a letter, abbreviated PS"
+     },
+     {
+      "clueFragment": "on",
+      "note": "in a down answer, 'on' puts the first piece above the second"
+     },
+     {
+      "clueFragment": "the way",
+      "gives": "ST",
+      "note": "St is the abbreviation for street, a way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PS",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries to catch a horse rider's eye as they pass along the road.",
+     "walkthrough": "'Rider' suggests a horse or bike, but it is an addition to a document, the postscript.",
+     "definitionFit": "Psst is the hissing sound people make to attract someone's attention discreetly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rider"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +497,69 @@
     "text": "Following air crash, question one foreign national",
     "enumeration": "5"
    },
-   "solution": "IRAQI"
+   "solution": "IRAQI",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "IRAQI",
+    "definitions": [
+     {
+      "text": "foreign national",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crash",
+      "for": "anagram",
+      "note": "a crash smashes things to pieces, so the word before it is rearranged"
+     }
+    ],
+    "linkWords": [
+     "Following"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "air",
+      "gives": "AIR",
+      "note": "used as written before rearranging"
+     },
+     {
+      "clueFragment": "question",
+      "gives": "Q",
+      "note": "Q is the standard abbreviation for question"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRA",
+      "Q",
+      "I"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AIR",
+       "gives": "IRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After a plane crash, investigators interview a passenger from abroad.",
+     "definitionFit": "An Iraqi is a citizen of Iraq, a national of a country other than Britain from the setter's view."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crash"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +573,50 @@
     "text": "Directors taking musical high ground",
     "enumeration": "9"
    },
-   "solution": "OPERATORS"
+   "solution": "OPERATORS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPERATORS",
+    "definitions": [
+     {
+      "text": "Directors",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "musical",
+      "gives": "OPERA",
+      "note": "an opera is a musical drama"
+     },
+     {
+      "clueFragment": "high ground",
+      "gives": "TORS",
+      "note": "tors are rocky hills, as on Dartmoor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPERA",
+      "TORS"
+     ]
+    },
+    "explanation": {
+     "surface": "Film or stage directors stake out the moral high ground over a musical.",
+     "walkthrough": "A tor is a rocky hilltop, common in south-west England.",
+     "definitionFit": "Operators are people who run or manage something, just as directors control a business or machine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Directors"
+    }
+   }
   },
   {
    "number": 11,
@@ -173,7 +630,54 @@
     "text": "Text \"lemon squash\" for commendation",
     "enumeration": "9"
    },
-   "solution": "EXTOLMENT"
+   "solution": "EXTOLMENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EXTOLMENT",
+    "definitions": [
+     {
+      "text": "commendation",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "squash",
+      "for": "anagram",
+      "note": "squashing something crushes it out of shape, so the letters in front get reshaped"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Text \"lemon",
+      "gives": "TEXTLEMON",
+      "note": "the letters used as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEXTLEMON",
+       "gives": "EXTOLMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone praises a drink by sending a message naming it lemon squash.",
+     "walkthrough": "Lemon squash is a British fruit cordial diluted with water, so 'squash' reads as part of a drink's name.",
+     "definitionFit": "Extolment is the act of extolling, praising highly, which is what commendation means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "squash"
+    }
+   }
   },
   {
    "number": 12,
@@ -187,7 +691,53 @@
     "text": "Space traveller to arrive on time",
     "enumeration": "5"
    },
-   "solution": "COMET"
+   "solution": "COMET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COMET",
+    "definitions": [
+     {
+      "text": "Space traveller",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arrive",
+      "gives": "COME",
+      "note": "to come is to arrive"
+     },
+     {
+      "clueFragment": "on",
+      "note": "in an across answer, the next piece follows"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COME",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An astronaut is expected to land punctually.",
+     "definitionFit": "A comet is an icy body orbiting the sun, so it literally travels through space."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "traveller"
+    }
+   }
   },
   {
    "number": 13,
@@ -201,7 +751,48 @@
     "text": "Drug fish (a whopper)",
     "enumeration": "7"
    },
-   "solution": "CHARLIE"
+   "solution": "CHARLIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHARLIE",
+    "definitions": [
+     {
+      "text": "Drug",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "CHAR",
+      "note": "char is a fish of the trout family"
+     },
+     {
+      "clueFragment": "(a whopper)",
+      "gives": "LIE",
+      "note": "a whopper is a huge lie"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAR",
+      "LIE"
+     ]
+    },
+    "explanation": {
+     "surface": "An angler's tale of an enormous fish, perhaps fuelled by narcotics.",
+     "walkthrough": "'Whopper' tempts a big-fish reading; it is the fib an angler tells.",
+     "definitionFit": "Charlie is British slang for cocaine, from the C of its initial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "whopper"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +806,53 @@
     "text": "Ex-President working away from rock outcrop",
     "enumeration": "5"
    },
-   "solution": "CLINT"
+   "solution": "CLINT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CLINT",
+    "definitions": [
+     {
+      "text": "rock outcrop",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "away from",
+      "for": "deletion",
+      "note": "when something goes away from a word, those letters leave it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ex-President",
+      "gives": "CLINTON",
+      "note": "Bill Clinton, former US President"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is working is on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLINT"
+     ]
+    },
+    "explanation": {
+     "surface": "A retired leader is out walking somewhere away from a rocky crag.",
+     "walkthrough": "Removing the 'working' word from the end of the President's surname leaves the answer.",
+     "definitionFit": "A clint is a flat block of exposed limestone between fissures in limestone pavement, a geological term for a rock outcrop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +866,55 @@
     "text": "Trade lies, though result is large shiner!",
     "enumeration": "10"
    },
-   "solution": "LIGHTHOUSE"
+   "solution": "LIGHTHOUSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LIGHTHOUSE",
+    "definitions": [
+     {
+      "text": "large shiner",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Trade",
+      "for": "anagram",
+      "note": "to trade is to exchange, so the letters swap places with each other"
+     }
+    ],
+    "linkWords": [
+     "result is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lies, though",
+      "gives": "LIESTHOUGH",
+      "note": "the letters used as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LIESTHOUGH",
+       "gives": "LIGHTHOUSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Swapping fibs leads to someone getting a big black eye.",
+     "walkthrough": "A shiner is slang for a black eye, which the surface wants; here it is anything that shines.",
+     "definitionFit": "A lighthouse is a tower with a powerful lamp, so it is a very big thing that shines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shiner"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +928,71 @@
     "text": "Decrees that runners hold nothing back",
     "enumeration": "7"
    },
-   "solution": "RULINGS"
+   "solution": "RULINGS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "RULINGS",
+    "definitions": [
+     {
+      "text": "Decrees",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the word for nothing is read in the opposite direction"
+     },
+     {
+      "text": "hold",
+      "for": "container",
+      "note": "to hold something is to have it inside, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "runners",
+      "gives": "RUGS",
+      "note": "a runner is a long narrow rug laid in a hall or on stairs"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "NIL",
+      "note": "nil means nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "LIN",
+      "GS"
+     ],
+     "reversals": [
+      {
+       "from": "NIL",
+       "to": "LIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Official orders say that athletes must not hold back in a race.",
+     "walkthrough": "'Runners' suggests athletes, but these are long strips of carpet; the reversed nought sits between their second and third letters.",
+     "definitionFit": "Rulings are official decisions issued by an authority, which is what decrees are."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "runners"
+    }
+   }
   },
   {
    "number": 16,
@@ -257,7 +1006,62 @@
     "text": "Rent left in small pit",
     "enumeration": "5"
    },
-   "solution": "SPLIT"
+   "solution": "SPLIT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SPLIT",
+    "definitions": [
+     {
+      "text": "Rent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it, so the letter goes into the hole word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as on clothing labels"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "pit",
+      "gives": "PIT",
+      "note": "used as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "L",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "Rent money has been left behind in a little hole.",
+     "walkthrough": "'Rent' reads as a payment, but it is the past tense of rend: torn.",
+     "definitionFit": "A rent is a tear or rip in fabric, and a split is the same kind of break."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rent"
+    }
+   }
   },
   {
    "number": 17,
@@ -271,7 +1075,50 @@
     "text": "Chemical company no good at producing sugar coating",
     "enumeration": "5"
    },
-   "solution": "ICING"
+   "solution": "ICING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ICING",
+    "definitions": [
+     {
+      "text": "sugar coating",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "at producing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chemical company",
+      "gives": "ICI",
+      "note": "Imperial Chemical Industries, a former British chemicals giant"
+     },
+     {
+      "clueFragment": "no good",
+      "gives": "NG",
+      "note": "NG is the abbreviation for no good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICI",
+      "NG"
+     ]
+    },
+    "explanation": {
+     "surface": "A chemicals firm turns out to be poor at making a sugary glaze.",
+     "walkthrough": "ICI was Britain's big chemicals company for most of the twentieth century.",
+     "definitionFit": "Icing is the sweet glaze of sugar spread over cakes, a sugar coating."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Chemical"
+    }
+   }
   },
   {
    "number": 18,
@@ -285,7 +1132,50 @@
     "text": "Push leader away from shaft",
     "enumeration": "3"
    },
-   "solution": "ROD"
+   "solution": "ROD",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ROD",
+    "definitions": [
+     {
+      "text": "shaft",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader away",
+      "for": "deletion",
+      "note": "with the leader away, the word loses its opening letter"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Push",
+      "gives": "PROD",
+      "note": "to prod is to push or poke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shoves a boss away from a mineshaft.",
+     "definitionFit": "A rod is a long thin bar, which is one meaning of shaft, as in the shaft of a spear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 19,
@@ -299,7 +1189,65 @@
     "text": "Wrong direction? I lost belief",
     "enumeration": "8"
    },
-   "solution": "DOCTRINE"
+   "solution": "DOCTRINE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "DOCTRINE",
+    "definitions": [
+     {
+      "text": "belief",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost",
+      "for": "deletion",
+      "note": "the letter that is lost drops out of the word"
+     },
+     {
+      "text": "Wrong",
+      "for": "anagram",
+      "note": "something wrong is out of order, so the letters are rearranged correctly"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "direction",
+      "gives": "DIRECTION",
+      "note": "used as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the letter to be removed once"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOCTRINE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DRECTION",
+       "gives": "DOCTRINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Having taken a wrong turn, someone loses their faith.",
+     "walkthrough": "Take one I out of the nine-letter word, then shuffle the remaining eight.",
+     "definitionFit": "A doctrine is a set of teachings held to be true, a body of belief."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "direction"
+    }
+   }
   },
   {
    "number": 20,
@@ -313,7 +1261,68 @@
     "text": "3 almost filled with a second second plant",
     "enumeration": "5"
    },
-   "solution": "BASIL"
+   "solution": "BASIL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "BASIL",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the referenced answer loses its last letter"
+     },
+     {
+      "text": "filled with",
+      "for": "container",
+      "note": "being filled with something means holding it inside, so letters go in"
+     }
+    ],
+    "linkWords": [
+     "second"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "3",
+      "gives": "BILL",
+      "note": "the answer to 3 down"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "AS",
+      "IL"
+     ]
+    },
+    "explanation": {
+     "surface": "A cross-reference teases with a doubled word before naming a plant.",
+     "walkthrough": "BILL shortened to BIL holds A and S; the clue prints 'second' twice, and only one is needed by the wordplay, so the other is surplus.",
+     "definitionFit": "Basil is an aromatic herb, a plant grown for cooking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -327,7 +1336,42 @@
     "text": "Precise remedy",
     "enumeration": "8"
    },
-   "solution": "SPECIFIC"
+   "solution": "SPECIFIC",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPECIFIC",
+    "definitions": [
+     {
+      "text": "Precise",
+      "at": 0
+     },
+     {
+      "text": "remedy",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Precise",
+      "note": "first meaning: exact, particular"
+     },
+     {
+      "clueFragment": "remedy",
+      "note": "second meaning: a medicine aimed at one particular disease"
+     }
+    ],
+    "explanation": {
+     "surface": "An exact cure is being sought.",
+     "definitionFit": "Specific as an adjective means exact; as a noun it is a medicine targeting a particular ailment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "remedy"
+    }
+   }
   },
   {
    "number": 22,
@@ -341,7 +1385,55 @@
     "text": "Note insect on unknown sort of grass",
     "enumeration": "7"
    },
-   "solution": "TIMOTHY"
+   "solution": "TIMOTHY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TIMOTHY",
+    "definitions": [
+     {
+      "text": "sort of grass",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "TI",
+      "note": "ti (or te) is the seventh note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "insect",
+      "gives": "MOTH",
+      "note": "a moth is an insect"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "Y is a mathematical unknown"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "MOTH",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A musical note about an insect sitting on an unidentified kind of grass.",
+     "definitionFit": "Timothy is a perennial meadow grass grown widely for hay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Note"
+    }
+   }
   },
   {
    "number": 23,
@@ -355,7 +1447,49 @@
     "text": "Island flower growing with this",
     "enumeration": "6"
    },
-   "solution": "MANURE"
+   "solution": "MANURE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MANURE",
+    "definitions": [
+     {
+      "text": "growing with this",
+      "at": 14,
+      "note": "describes the stuff something grows with, a noun"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Island",
+      "gives": "MAN",
+      "note": "the Isle of Man, in the Irish Sea"
+     },
+     {
+      "clueFragment": "flower",
+      "gives": "URE",
+      "note": "a flower is something that flows, a river; the Ure is a Yorkshire river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "URE"
+     ]
+    },
+    "explanation": {
+     "surface": "An island bloom thrives when fed with this.",
+     "walkthrough": "'Flower' means a river here, the thing that flows; the Ure runs through North Yorkshire. The whole clue also describes the answer's use.",
+     "definitionFit": "Manure is animal dung spread as fertiliser, what plants are grown with."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flower"
+    }
+   }
   },
   {
    "number": 24,
@@ -369,7 +1503,52 @@
     "text": "Young climber says yes to pudding",
     "enumeration": "6"
    },
-   "solution": "YUPPIE"
+   "solution": "YUPPIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "YUPPIE",
+    "definitions": [
+     {
+      "text": "Young climber",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "says",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "yes",
+      "gives": "YUP",
+      "note": "an informal form of yes"
+     },
+     {
+      "clueFragment": "pudding",
+      "gives": "PIE",
+      "note": "a pie is a kind of pudding or dessert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YUP",
+      "PIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A young mountaineer agrees to dessert.",
+     "walkthrough": "'Climber' suggests a mountaineer; it is a social climber, someone ambitious.",
+     "definitionFit": "A yuppie is a young urban professional, an ambitious young social and career climber."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "climber"
+    }
+   }
   },
   {
    "number": 25,
@@ -383,7 +1562,58 @@
     "text": "Kind of long stick found outside",
     "enumeration": "7"
    },
-   "solution": "CLEMENT"
+   "solution": "CLEMENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLEMENT",
+    "definitions": [
+     {
+      "text": "Kind",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found outside",
+      "for": "container",
+      "note": "a word found outside surrounds the other piece, wrapping around it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stick",
+      "gives": "CEMENT",
+      "note": "to cement is to stick together"
+     },
+     {
+      "clueFragment": "long",
+      "gives": "L",
+      "note": "L is the abbreviation for long"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "L",
+      "EMENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A sort of lengthy rod is discovered out of doors.",
+     "walkthrough": "'Kind of' reads as 'sort of', but 'Kind' is the definition (gentle, merciful) and 'of' just joins it.",
+     "definitionFit": "Clement means merciful or lenient, a sense close to kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Kind"
+    }
+   }
   },
   {
    "number": 26,
@@ -397,7 +1627,50 @@
     "text": "North American bird finds company after a month",
     "enumeration": "5"
    },
-   "solution": "JUNCO"
+   "solution": "JUNCO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JUNCO",
+    "definitions": [
+     {
+      "text": "North American bird",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "finds"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a month",
+      "gives": "JUN",
+      "note": "Jun is the abbreviation for June"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "Co is the abbreviation for company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JUN",
+      "CO"
+     ]
+    },
+    "explanation": {
+     "surface": "A birdwatcher sees a flock of a New World bird one month later.",
+     "walkthrough": "'After' places the company piece behind the month.",
+     "definitionFit": "A junco is a small grey sparrow-like finch found across North America."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "company"
+    }
+   }
   },
   {
    "number": 26,
@@ -411,7 +1684,43 @@
     "text": "Raise part of hand, perhaps",
     "enumeration": "4"
    },
-   "solution": "JACK"
+   "solution": "JACK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JACK",
+    "definitions": [
+     {
+      "text": "Raise",
+      "at": 0
+     },
+     {
+      "text": "part of hand, perhaps",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Raise",
+      "note": "first meaning: to lift, as with a car tool"
+     },
+     {
+      "clueFragment": "part of hand, perhaps",
+      "note": "second meaning: a playing card that might be among those held in a card hand"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Part of hand' suggests a finger; the hand is the set of cards a player holds.",
+     "definitionFit": "To jack up is to lift with a jack, and the jack or knave is a court card that might be dealt to a player."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hand"
+    }
+   }
   },
   {
    "number": 27,
@@ -425,7 +1734,55 @@
     "text": "Bird wants ripe green nuts",
     "enumeration": "9"
    },
-   "solution": "PEREGRINE"
+   "solution": "PEREGRINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PEREGRINE",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nuts",
+      "for": "anagram",
+      "note": "nuts means crazy, so the preceding letters go wildly out of order"
+     }
+    ],
+    "linkWords": [
+     "wants"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ripe green",
+      "gives": "RIPEGREEN",
+      "note": "the letters used as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RIPEGREEN",
+       "gives": "PEREGRINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird craves nuts that are ready to eat yet still unripe in colour.",
+     "walkthrough": "'Nuts' looks like the bird's food but is the signal to rearrange.",
+     "definitionFit": "The peregrine is a falcon, the fastest-diving bird of prey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "nuts"
+    }
+   }
   },
   {
    "number": 28,
@@ -439,7 +1796,55 @@
     "text": "Produce less tax — it's character building",
     "enumeration": "4"
    },
-   "solution": "GENE"
+   "solution": "GENE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GENE",
+    "definitions": [
+     {
+      "text": "it's character building",
+      "at": 19,
+      "note": "a descriptive phrase for the answer, a noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "less",
+      "for": "deletion",
+      "note": "less means minus, so the following word is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Produce",
+      "gives": "GENERATE",
+      "note": "to generate is to produce"
+     },
+     {
+      "clueFragment": "tax",
+      "gives": "RATE",
+      "note": "a rate is a local tax"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GENE"
+     ]
+    },
+    "explanation": {
+     "surface": "Paying less tax is said to build moral fibre.",
+     "walkthrough": "'Character building' sounds like improving someone's personality; in genetics a character is an inherited trait.",
+     "definitionFit": "A gene is a unit of heredity that determines inherited traits, which biologists call characters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 29,
@@ -453,7 +1858,51 @@
     "text": "Stained second half first, creating disturbance",
     "enumeration": "4"
    },
-   "solution": "EDDY"
+   "solution": "EDDY",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "EDDY",
+    "definitions": [
+     {
+      "text": "disturbance",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "second half first",
+      "for": "cycling",
+      "note": "putting the back half at the front rotates the word around its midpoint"
+     }
+    ],
+    "linkWords": [
+     "creating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stained",
+      "gives": "DYED",
+      "note": "stained with colour means dyed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ED",
+      "DY"
+     ]
+    },
+    "explanation": {
+     "surface": "A stained second-half shirt causes trouble in a match.",
+     "definitionFit": "An eddy is a swirling counter-current in water or air, a disturbance in the flow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stained"
+    }
+   }
   },
   {
    "number": 30,
@@ -467,7 +1916,53 @@
     "text": "Chair isn't repaired for believer",
     "enumeration": "9"
    },
-   "solution": "CHRISTIAN"
+   "solution": "CHRISTIAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHRISTIAN",
+    "definitions": [
+     {
+      "text": "believer",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "repaired",
+      "for": "anagram",
+      "note": "a repaired item has been put back together, here with its letters in a fresh arrangement"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chair isn't",
+      "gives": "CHAIRISNT",
+      "note": "the letters used as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHAIRISNT",
+       "gives": "CHRISTIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A broken chair has not been fixed for a churchgoer.",
+     "definitionFit": "A Christian is a follower of the faith of Christ, a religious believer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "repaired"
+    }
+   }
   },
   {
    "number": 31,
@@ -481,7 +1976,65 @@
     "text": "New Aida production for maiden in spring",
     "enumeration": "5"
    },
-   "solution": "NAIAD"
+   "solution": "NAIAD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "NAIAD",
+    "definitions": [
+     {
+      "text": "maiden in spring",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "production",
+      "for": "anagram",
+      "note": "a new production of a work restages it, so the letters are re-staged in another order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "Aida",
+      "gives": "AIDA",
+      "note": "the Verdi opera's name, used as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "AIAD"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AIDA",
+       "gives": "AIAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fresh staging of Verdi's opera calls for a young woman to appear in springtime.",
+     "walkthrough": "'Spring' reads as the season but means a water source.",
+     "definitionFit": "In Greek myth a naiad is a nymph living in a spring, river or fountain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spring"
+    }
+   }
   }
  ]
 }
