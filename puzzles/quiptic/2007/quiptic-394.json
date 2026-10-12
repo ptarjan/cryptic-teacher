@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,49 @@
     "text": "Notice to prepare domicile",
     "enumeration": "7"
    },
-   "solution": "ADDRESS"
+   "solution": "ADDRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADDRESS",
+    "definitions": [
+     {
+      "text": "domicile",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Notice",
+      "gives": "AD",
+      "note": "an ad is a notice, short for advertisement"
+     },
+     {
+      "clueFragment": "prepare",
+      "gives": "DRESS",
+      "note": "to dress food or a wound is to prepare it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "DRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to get their home ready for visitors.",
+     "definitionFit": "A domicile is where someone lives, and an address names that place of residence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Notice"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +92,48 @@
     "text": "Envoy failed to complete certificate",
     "enumeration": "7"
    },
-   "solution": "DIPLOMA"
+   "solution": "DIPLOMA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DIPLOMA",
+    "definitions": [
+     {
+      "text": "certificate",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "failed to complete",
+      "for": "deletion",
+      "note": "not completing a word means its final letter never arrives"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Envoy",
+      "gives": "DIPLOMAT",
+      "note": "an envoy is a diplomat sent abroad"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIPLOMA"
+     ]
+    },
+    "explanation": {
+     "surface": "An ambassador did not finish the course and so got no qualification.",
+     "walkthrough": "DIPLOMAT loses its last letter to leave DIPLOMA.",
+     "definitionFit": "A diploma is a document awarded on completing a course of study, a kind of certificate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "failed"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +147,56 @@
     "text": "Beginners to read about small southeastern civet",
     "enumeration": "5"
    },
-   "solution": "RASSE"
+   "solution": "RASSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RASSE",
+    "definitions": [
+     {
+      "text": "civet",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Beginners to",
+      "for": "letter_selection",
+      "note": "the beginners of the following words are their opening letters only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "read about small",
+      "gives": "RAS",
+      "select": "first",
+      "note": "opening letters of these three words"
+     },
+     {
+      "clueFragment": "southeastern",
+      "gives": "SE",
+      "note": "SE is the compass abbreviation for southeastern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAS",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "Novices are told to look up a small civet from the southeast.",
+     "walkthrough": "'Small' looks like part of the definition but supplies only its first letter.",
+     "definitionFit": "The rasse is a small Asian civet, a cat-like mammal of southern China and Southeast Asia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +210,60 @@
     "text": "Foolish parson gains nothing in giving voice",
     "enumeration": "7"
    },
-   "solution": "SOPRANO"
+   "solution": "SOPRANO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOPRANO",
+    "definitions": [
+     {
+      "text": "voice",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Foolish",
+      "for": "anagram",
+      "note": "something foolish is muddled, so the letters are jumbled into new order"
+     }
+    ],
+    "linkWords": [
+     "gains",
+     "in giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parson",
+      "gives": "PARSON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "nothing is zero, shaped like O"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PARSONO",
+       "gives": "SOPRANO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A silly clergyman gains nothing by singing out.",
+     "walkthrough": "'Gains' simply adds O to the parson's letters before they are mixed.",
+     "definitionFit": "A soprano is the highest singing voice, and the word names the voice type itself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "voice"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +277,64 @@
     "text": "Animal barrier at rocky bay",
     "enumeration": "7"
    },
-   "solution": "WALLABY"
+   "solution": "WALLABY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "WALLABY",
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rocky",
+      "for": "anagram",
+      "note": "rocky suggests something unsteady and shaken up, so the letters move"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "barrier",
+      "gives": "WALL",
+      "note": "a wall is a barrier"
+     },
+     {
+      "clueFragment": "bay",
+      "gives": "BAY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WALL",
+      "ABY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BAY",
+       "gives": "ABY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fence stands by a rocky inlet to keep animals in.",
+     "walkthrough": "'Rocky' reads as describing the bay's shore, but it scrambles the word.",
+     "definitionFit": "A wallaby is an Australian marsupial, a smaller relative of the kangaroo, so an animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rocky"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +348,45 @@
     "text": "One battle site away from home",
     "enumeration": "6"
    },
-   "solution": "AFIELD"
+   "solution": "AFIELD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AFIELD",
+    "definitions": [
+     {
+      "text": "away from home",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "battle site",
+      "gives": "FIELD",
+      "note": "a field of battle is where fighting happens"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "FIELD"
+     ]
+    },
+    "explanation": {
+     "surface": "A single battleground lies far from where the soldiers live.",
+     "definitionFit": "Afield means at a distance, especially away from one's usual place, as in 'far afield'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +400,56 @@
     "text": "Restrict Mr Dennis — son remains unrestricted",
     "enumeration": "9"
    },
-   "solution": "LIMITLESS"
+   "solution": "LIMITLESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIMITLESS",
+    "definitions": [
+     {
+      "text": "unrestricted",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "remains"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Restrict",
+      "gives": "LIMIT",
+      "note": "to restrict is to limit"
+     },
+     {
+      "clueFragment": "Mr Dennis",
+      "gives": "LES",
+      "note": "Les Dennis is a British TV presenter and comedian"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIMIT",
+      "LES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to rein in a TV host, while his son stays free.",
+     "walkthrough": "Les Dennis presented the British game show Family Fortunes.",
+     "definitionFit": "Limitless means without any bound, the same as having no restriction placed on it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "remains"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +469,79 @@
      }
     ]
    },
-   "solution": "BONEDRY"
+   "solution": "BONEDRY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BONE-DRY",
+    "definitions": [
+     {
+      "text": "parched",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "a drunk is unsteady, so the letters stagger into new places"
+     },
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first asks for only the opening letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good French",
+      "gives": "BON",
+      "note": "bon is French for good"
+     },
+     {
+      "clueFragment": "red",
+      "gives": "RED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "Y",
+      "select": "first",
+      "note": "opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BON",
+      "EDR",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RED",
+       "gives": "EDR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fine French red, drunk by you before anyone else when thirsty.",
+     "walkthrough": "'Drunk' looks like drinking the wine, but it jumbles the word red.",
+     "definitionFit": "Bone-dry means completely without moisture, an intensified way of saying parched."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +561,51 @@
      }
     ]
    },
-   "solution": "PRAYINGMANTIS"
+   "solution": "PRAYINGMANTIS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PRAYING MANTIS",
+    "definitions": [
+     {
+      "text": "insect",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so the letters get rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "animating spry",
+      "gives": "ANIMATINGSPRY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANIMATINGSPRY",
+       "gives": "PRAYINGMANTIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A medic livens up a nimble bug.",
+     "walkthrough": "'Doctor' reads as a noun, a physician, but it works as the verb meaning tamper with.",
+     "definitionFit": "The praying mantis is a predatory insect named for the way it holds its forelegs together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +619,63 @@
     "text": "Post Office retrospective of American work",
     "enumeration": "4"
    },
-   "solution": "OPUS"
+   "solution": "OPUS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "OPUS",
+    "definitions": [
+     {
+      "text": "work",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retrospective",
+      "for": "reversal",
+      "note": "retrospective means looking back, so the letters are read backwards"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Post Office",
+      "gives": "PO",
+      "note": "PO is the abbreviation for Post Office"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is the abbreviation for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OP",
+      "US"
+     ],
+     "reversals": [
+      {
+       "from": "PO",
+       "to": "OP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A postal exhibition looks back on an American's work.",
+     "definitionFit": "An opus is a musical or artistic composition, a creative work, as in magnum opus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retrospective"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +689,62 @@
     "text": "Westminster average: I delve into complaint",
     "enumeration": "10"
    },
-   "solution": "PARLIAMENT"
+   "solution": "PARLIAMENT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PARLIAMENT",
+    "definitions": [
+     {
+      "text": "Westminster",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "delve into",
+      "for": "container",
+      "note": "to delve into is to dig inside, so one letter goes inside another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "average",
+      "gives": "PAR",
+      "note": "par is the standard or average level"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "complaint",
+      "gives": "LAMENT",
+      "note": "a lament is an expression of grief or complaint"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "L",
+      "I",
+      "AMENT"
+     ]
+    },
+    "explanation": {
+     "surface": "An ordinary politician digs into a grievance at Westminster.",
+     "walkthrough": "'Westminster' looks like a place, but here it stands for the institution that sits there; par is golf's standard score.",
+     "definitionFit": "Westminster is used as a metonym for the British Parliament, which sits in the Palace of Westminster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "average"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +758,59 @@
     "text": "Drink store's plastic badge with ring",
     "enumeration": "6"
    },
-   "solution": "BODEGA"
+   "solution": "BODEGA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BODEGA",
+    "definitions": [
+     {
+      "text": "Drink store",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "plastic",
+      "for": "anagram",
+      "note": "plastic material can be moulded into any shape, so the letters are remoulded"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "badge",
+      "gives": "BADGE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "a ring is shaped like O"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BADGEO",
+       "gives": "BODEGA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An off-licence's cheap plastic badge comes with a ring attached.",
+     "definitionFit": "A bodega is a Spanish wine shop or cellar, so a store selling drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plastic"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +824,54 @@
     "text": "They say you'll have time for this holiday",
     "enumeration": "8"
    },
-   "solution": "YULETIDE"
+   "solution": "YULETIDE",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "YULETIDE",
+    "definitions": [
+     {
+      "text": "holiday",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "They say",
+      "for": "homophone",
+      "note": "what people say is heard, so a word is taken by its sound"
+     }
+    ],
+    "linkWords": [
+     "have",
+     "for this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "you'll",
+      "gives": "YULE",
+      "soundsLike": "YOU'LL",
+      "note": "the contraction is pronounced the same as the old word for Christmas"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "TIDE",
+      "note": "tide is an old word for time or season, as in eventide"
+     }
+    ],
+    "explanation": {
+     "surface": "People promise you will get time off for this festive break.",
+     "definitionFit": "Yuletide is the Christmas season, the main winter holiday period."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 14,
@@ -227,7 +885,64 @@
     "text": "Lover loses right to acquire books that are most important",
     "enumeration": "9"
    },
-   "solution": "PARAMOUNT"
+   "solution": "PARAMOUNT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "PARAMOUNT",
+    "definitions": [
+     {
+      "text": "most important",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loses",
+      "for": "deletion",
+      "note": "losing something means a letter drops out of the word"
+     }
+    ],
+    "linkWords": [
+     "to acquire",
+     "that are"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lover",
+      "gives": "PARAMOUR",
+      "note": "a paramour is an illicit lover"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "NT is the New Testament, the books of the later Bible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARAMOU",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A jilted lover gains books that matter most to them.",
+     "walkthrough": "PARAMOUR drops its final R and then adds NT.",
+     "definitionFit": "Paramount means supreme, above all others in rank or importance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "books"
+    }
+   }
   },
   {
    "number": 15,
@@ -241,7 +956,77 @@
     "text": "A trapper first promises to snare fabulous bird? That's abominable!",
     "enumeration": "9"
    },
-   "solution": "ATROCIOUS"
+   "solution": "ATROCIOUS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "ATROCIOUS",
+    "definitions": [
+     {
+      "text": "abominable",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first asks for only the opening letter of the word before it"
+     },
+     {
+      "text": "to snare",
+      "for": "container",
+      "note": "a snare traps something inside it, so one part goes within another"
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "trapper",
+      "gives": "T",
+      "select": "first",
+      "note": "opening letter of the word"
+     },
+     {
+      "clueFragment": "fabulous bird",
+      "gives": "ROC",
+      "note": "the roc is a giant bird from Arabian legend"
+     },
+     {
+      "clueFragment": "promises",
+      "gives": "IOUS",
+      "note": "IOUs are written promises to pay"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "T",
+      "ROC",
+      "IOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A hunter vows to catch a mythical bird, which is outrageous.",
+     "walkthrough": "'Fabulous' means from fable here, not wonderful; the roc carried Sinbad in the Arabian Nights.",
+     "definitionFit": "Atrocious means appallingly bad, a close synonym of abominable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "promises"
+    }
+   }
   },
   {
    "number": 16,
@@ -255,7 +1040,46 @@
     "text": "Woman of stone",
     "enumeration": "5"
    },
-   "solution": "BERYL"
+   "solution": "BERYL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BERYL",
+    "definitions": [
+     {
+      "text": "Woman",
+      "at": 0
+     },
+     {
+      "text": "stone",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Woman",
+      "note": "first meaning: a female first name"
+     },
+     {
+      "clueFragment": "stone",
+      "note": "second meaning: a gemstone, of which emerald and aquamarine are varieties"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a hard-hearted woman; it is a girl's name that is also a precious mineral.",
+     "definitionFit": "Beryl is both a woman's name and a mineral prized as a gem, so a precious stone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stone"
+    }
+   }
   },
   {
    "number": 17,
@@ -269,7 +1093,56 @@
     "text": "Ward off with prayer at right time",
     "enumeration": "5"
    },
-   "solution": "AVERT"
+   "solution": "AVERT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AVERT",
+    "definitions": [
+     {
+      "text": "Ward off",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prayer",
+      "gives": "AVE",
+      "note": "an Ave is a Hail Mary prayer"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVE",
+      "R",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Keep evil away by praying at the proper moment.",
+     "definitionFit": "To avert a danger is to prevent it or turn it aside, the sense of fending it off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 18,
@@ -283,7 +1156,53 @@
     "text": "Plant carried in beer van",
     "enumeration": "7"
    },
-   "solution": "VERBENA"
+   "solution": "VERBENA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "VERBENA",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carried",
+      "for": "anagram",
+      "note": "things that are carried get moved about, so these letters shift position"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beer van",
+      "gives": "BEERVAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BEERVAN",
+       "gives": "VERBENA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A potted plant is transported in a brewery's delivery lorry.",
+     "definitionFit": "Verbena is a flowering garden plant, also called vervain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "carried"
+    }
+   }
   },
   {
    "number": 19,
@@ -297,7 +1216,71 @@
     "text": "Read man's first paper, put straight and sign",
     "enumeration": "9"
    },
-   "solution": "AMPERSAND"
+   "solution": "AMPERSAND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "AMPERSAND",
+    "definitions": [
+     {
+      "text": "sign",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first asks for only the opening letter of the word after it"
+     },
+     {
+      "text": "put straight",
+      "for": "anagram",
+      "note": "to put something straight is to sort out a muddle, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Read",
+      "gives": "READ",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "man's",
+      "gives": "MANS",
+      "note": "taken as written, apostrophe dropped"
+     },
+     {
+      "clueFragment": "paper",
+      "gives": "P",
+      "select": "first",
+      "note": "opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "READMANSP",
+       "gives": "AMPERSAND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to read a man's first document, tidy it, and sign it.",
+     "walkthrough": "'Man's first' looks like the selection, but the first letter taken is the one from paper.",
+     "definitionFit": "The ampersand is the & sign, a symbol standing for the word and."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sign"
+    }
+   }
   },
   {
    "number": 20,
@@ -311,7 +1294,62 @@
     "text": "Five deleted from otherwise relevant constant",
     "enumeration": "7"
    },
-   "solution": "ETERNAL"
+   "solution": "ETERNAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ETERNAL",
+    "definitions": [
+     {
+      "text": "constant",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "deleted from",
+      "for": "deletion",
+      "note": "something deleted is struck out, so a letter is removed"
+     },
+     {
+      "text": "otherwise",
+      "for": "anagram",
+      "note": "otherwise means in a different way, so the letters take a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Five",
+      "gives": "V",
+      "note": "V is the Roman numeral for five"
+     },
+     {
+      "clueFragment": "relevant",
+      "gives": "RELEVANT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RELEANT",
+       "gives": "ETERNAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone edits a document, cutting five items that would otherwise be pertinent.",
+     "walkthrough": "Removing V from RELEVANT leaves seven letters that are then rearranged.",
+     "definitionFit": "Eternal means unchanging and everlasting, so constant in the sense of never ending."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Five"
+    }
+   }
   },
   {
    "number": 21,
@@ -325,7 +1363,71 @@
     "text": "Ran up to traitor at one point to tell tales",
     "enumeration": "7"
    },
-   "solution": "NARRATE"
+   "solution": "NARRATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NARRATE",
+    "definitions": [
+     {
+      "text": "tell tales",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means the word reads backwards"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ran",
+      "gives": "RAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "traitor",
+      "gives": "RAT",
+      "note": "a rat is someone who betrays or deserts"
+     },
+     {
+      "clueFragment": "at one point",
+      "gives": "E",
+      "note": "E, East, is one point of the compass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAR",
+      "RAT",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "RAN",
+       "to": "NAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hurried to a betrayer at one stage to inform on others.",
+     "walkthrough": "'Tell tales' sounds like snitching, but here it simply means to recount stories.",
+     "definitionFit": "To narrate is to recount a story, so to tell tales in the literal sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tales"
+    }
+   }
   },
   {
    "number": 22,
@@ -339,7 +1441,65 @@
     "text": "Tear up two articles about dangerous fish",
     "enumeration": "6"
    },
-   "solution": "PIRANA"
+   "solution": "PIRANA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PIRANA",
+    "definitions": [
+     {
+      "text": "dangerous fish",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means the word reads backwards"
+     }
+    ],
+    "linkWords": [
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tear",
+      "gives": "RIP",
+      "note": "to rip is to tear"
+     },
+     {
+      "clueFragment": "two articles",
+      "gives": "ANA",
+      "note": "the indefinite articles an and a"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIR",
+      "ANA"
+     ],
+     "reversals": [
+      {
+       "from": "RIP",
+       "to": "PIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shreds a couple of newspaper pieces on predatory fish.",
+     "walkthrough": "PIRANA is an older spelling of piranha. 'About' links the pieces in the sense of 'concerning'.",
+     "definitionFit": "The piranha is a South American freshwater fish with razor teeth, notorious for being dangerous."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "articles"
+    }
+   }
   },
   {
    "number": 23,
@@ -353,7 +1513,57 @@
     "text": "King in fiction creates discord",
     "enumeration": "8"
    },
-   "solution": "FRICTION"
+   "solution": "FRICTION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FRICTION",
+    "definitions": [
+     {
+      "text": "discord",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one element inside another word"
+     }
+    ],
+    "linkWords": [
+     "creates"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R stands for rex, Latin for king"
+     },
+     {
+      "clueFragment": "fiction",
+      "gives": "FICTION",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "R",
+      "ICTION"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch written into a novel stirs up trouble.",
+     "definitionFit": "Friction is conflict or disagreement between people, the same as discord."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "King"
+    }
+   }
   },
   {
    "number": 24,
@@ -367,7 +1577,58 @@
     "text": "Half of them cough when they board",
     "enumeration": "6"
    },
-   "solution": "EMBARK"
+   "solution": "EMBARK",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "EMBARK",
+    "definitions": [
+     {
+      "text": "board",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Half of",
+      "for": "deletion",
+      "note": "half of a word means only part of its letters survive"
+     }
+    ],
+    "linkWords": [
+     "when they"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "them",
+      "gives": "THEM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cough",
+      "gives": "BARK",
+      "note": "a bark is a harsh cough"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "BARK"
+     ]
+    },
+    "explanation": {
+     "surface": "Passengers half of whom splutter as they get on a ship.",
+     "walkthrough": "The second half of THEM is kept.",
+     "definitionFit": "To embark is to go aboard a ship or aircraft, so to board it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 25,
@@ -381,7 +1642,52 @@
     "text": "Runner, for example, getting round to party",
     "enumeration": "5"
    },
-   "solution": "BEANO"
+   "solution": "BEANO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEANO",
+    "definitions": [
+     {
+      "text": "party",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "getting",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Runner, for example",
+      "gives": "BEAN",
+      "note": "a runner bean is a type of bean"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "O is round in shape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEAN",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An athlete makes a lap before heading to a celebration.",
+     "walkthrough": "'Runner' wants to be an athlete; it is the runner bean, a common British climbing bean. Beano is British slang for a party.",
+     "definitionFit": "A beano is an informal British word for a noisy celebration or party."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Runner"
+    }
+   }
   },
   {
    "number": 26,
@@ -395,7 +1701,53 @@
     "text": "Cleverly coordinate the trimming",
     "enumeration": "10"
    },
-   "solution": "DECORATION"
+   "solution": "DECORATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DECORATION",
+    "definitions": [
+     {
+      "text": "trimming",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cleverly",
+      "for": "anagram",
+      "note": "done cleverly suggests skilful rearranging of the letters"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coordinate",
+      "gives": "COORDINATE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COORDINATE",
+       "gives": "DECORATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to match the edging neatly on a dress.",
+     "definitionFit": "A trimming is ornamental edging added to clothes or a cake, a kind of decoration."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cleverly"
+    }
+   }
   },
   {
    "number": 27,
@@ -409,7 +1761,45 @@
     "text": "One route abroad",
     "enumeration": "4"
    },
-   "solution": "AWAY"
+   "solution": "AWAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AWAY",
+    "definitions": [
+     {
+      "text": "abroad",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "route",
+      "gives": "WAY",
+      "note": "a way is a route"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A single road leads to foreign parts.",
+     "definitionFit": "Being away means absent from home, which is the sense of being abroad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -429,7 +1819,46 @@
      }
     ]
    },
-   "solution": "CATSPAW"
+   "solution": "CATSPAW",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CAT'S-PAW",
+    "definitions": [
+     {
+      "text": "Pussyfoot",
+      "at": 0
+     },
+     {
+      "text": "creep",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pussyfoot",
+      "note": "first meaning: literally a cat's foot, read whimsically"
+     },
+     {
+      "clueFragment": "creep",
+      "note": "second meaning: a toady used by another for their own ends"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Pussyfoot and creep both suggest moving stealthily, but one is read literally and the other means a fawning dupe.",
+     "definitionFit": "A cat's-paw is a person used as a tool by another, like the cat in the fable who pulled chestnuts from the fire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pussyfoot"
+    }
+   }
   },
   {
    "number": 29,
@@ -443,7 +1872,56 @@
     "text": "Let everyone find love and marry!",
     "enumeration": "7"
    },
-   "solution": "ALLOWED"
+   "solution": "ALLOWED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALLOWED",
+    "definitions": [
+     {
+      "text": "Let",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "find",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "all means everyone"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, written O"
+     },
+     {
+      "clueFragment": "marry",
+      "gives": "WED",
+      "note": "to wed is to marry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "O",
+      "WED"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheerful call for everybody to fall in love and get married.",
+     "definitionFit": "Let, as a past participle, means permitted, which is what allowed means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Let"
+    }
+   }
   }
  ]
 }
