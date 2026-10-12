@@ -314,7 +314,8 @@ if _snapshot is not None:
 #: their own (TROVE_WORKERS) beside the editions', and "listener" the
 #: Listener pages Paul saves from Gale (tools/gale_listener.py), read one at
 #: a time (LISTENER_WORKERS: this host's Tesseract) within LISTENER_SECONDS.
-PAPERS = ["gale", "listener", "times", "telegraph", "guardian", "ft", "trove"]
+PAPERS = ["gale", "listener", "times", "telegraph", "guardian", "ft",
+          "galeindependent", "galesundaytimes", "trove"]
 #: Reads at once: mostly waits on the desktop (mem_gate and desktop_room
 #: hold the rest back when either host is short of memory).
 WORKERS = 25
