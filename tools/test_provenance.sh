@@ -78,6 +78,21 @@ same "no ACQUIRED_BY key names a missing script" "$(field MISSING "$out")" "0"
 same "every tool's channel is a declared RETRIEVAL_CHANNEL" "$(field BAD_CHANNEL "$out")" "0"
 same "every enum value says what it means" "$(field UNDOCUMENTED "$out")" "0"
 
+echo "every Gale paper has a provenance row for its link.gale.com permalink"
+outg=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
+import file_archive_org_puzzles as f
+import provenance as p
+
+gale = [x for k, x in f.FILERS.items() if k.startswith("gale") and x.series != "times"]
+gale += [x for v in f.ALSO.values() for x in v if x.key.startswith("gale")]
+gone = sorted({x.series for x in gale if ("%s" % x.series, "link.gale.com") not in p.ACQUISITION_BY_SOURCE})
+print("GALE", len(gale))
+print("NOROW", len(gone), *gone)
+PY
+)
+same "some Gale papers were checked" "$([ "$(field GALE "$outg")" -ge 4 ] && echo yes)" "yes"
+same "no Gale paper lacks a link.gale.com row" "$(field NOROW "$outg")" "0"
+
 echo "the sample: every puzzle carries provenance the validator accepts"
 out2=$(PYTHONPATH="$REPO/tools" python3 - $SAMPLE <<'PY'
 import sys

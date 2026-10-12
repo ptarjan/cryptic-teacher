@@ -371,6 +371,13 @@ ACQUISITION_BY_SOURCE = {
     # document's page there, or the library portal where none is named.
     ("times", "go.gale.com"): ("tools/file_archive_org_puzzles.py",),
     ("times", "abresearchportal.ca"): ("tools/file_archive_org_puzzles.py",),
+    # The other papers' Gale pages (gale_inbox.OTHERS, tools/gale_fetch.py), whose
+    # url is the document's link.gale.com permalink (gale_docs.PERMALINK); every
+    # paper file_archive_org_puzzles.py's Gale Papers file needs its row.
+    ("telegraph", "link.gale.com"): ("tools/file_archive_org_puzzles.py",),
+    ("ftcryptic", "link.gale.com"): ("tools/file_archive_org_puzzles.py",),
+    ("independent", "link.gale.com"): ("tools/file_archive_org_puzzles.py",),
+    ("sundaytimes", "link.gale.com"): ("tools/file_archive_org_puzzles.py",),
     ("ftcryptic", "archive.org"): ("tools/file_archive_org_puzzles.py",),
     ("cryptic", "archive.org"): ("tools/file_archive_org_puzzles.py",),
     ("telegraph", "archive.org"): ("tools/file_archive_org_puzzles.py",),
