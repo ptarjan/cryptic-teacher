@@ -61,10 +61,11 @@ import provenance
 from groups import entry_id
 
 
-def normalise(answer):
+def normalise(answer, numeric=False):
     """"POPULAR FRONT" -> "POPULARFRONT". Solutions are stored as bare letters;
-    the word breaks live in the clue's separators, which come from the paper."""
-    return re.sub(r"[^A-Z]", "", str(answer).upper())
+    the word breaks live in the clue's separators, which come from the paper.
+    A numerical puzzle's (`numeric: true`) are bare digits instead."""
+    return re.sub(r"[^0-9]" if numeric else r"[^A-Z]", "", str(answer).upper())
 
 
 def off_board(entry, cols, rows):
@@ -196,7 +197,7 @@ def check_fill(puzzle, fill):
         if raw is None or not str(raw).strip():
             problems.append(f"{entry_id(entry)}: no answer given")
             continue
-        answer = normalise(raw)
+        answer = normalise(raw, puzzle.get("numeric") is True)
         if not answer:
             problems.append(f"{entry_id(entry)}: {raw!r} has no letters in it")
             continue
