@@ -207,6 +207,17 @@ trap 'rm -f "$LOCK/pid"; rmdir "$LOCK" 2>/dev/null; sleep 1; alert_run_failures 
 if [ -z "$REEXEC_STATE" ]; then
 rm -f /tmp/ct-prereset-*.resume
 
+# The burn's lane in its room's status, for as long as this process lives. The
+# hourly plugin launch is not a track-job.sh --run, so it registers itself here,
+# past the lock: a fire that found a burn running never gets this far. A
+# re-exec is the same pid, already registered.
+TRACK_JOB="${TRACK_JOB:-/Users/pt/github/household/tools/track-job.sh}"
+if [ -n "$HOUSEHOLD_ROOM" ] && [ -x "$TRACK_JOB" ]; then
+  "$TRACK_JOB" ${PRERESET_LOG:+--log "$PRERESET_LOG"} "$HOUSEHOLD_ROOM" "$$" "Hint burn" \
+    "grep -E '^(committed|rejected|--- pool)' '$RUN_LOG' | tail -1" >/dev/null 2>&1 \
+    || echo "track-job.sh failed (rc=$?); the burn runs without a status lane"
+fi
+
 # The run is bounded by the weekly reset, which is a timestamp the usage API
 # hands over on request — never a time of day guessed at. Exit 3 (a reset rolled
 # forward from the last one seen, because the API has not re-stamped it yet) is
