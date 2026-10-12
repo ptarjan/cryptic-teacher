@@ -19,6 +19,7 @@ readers' and the VLM's readings voted on, the Canberra reprint's beside them.
     python3 tools/gale_inbox.py stage --inbox DIR # stage a local folder of pages (no Mac)
     python3 tools/gale_inbox.py checklist [--out FILE]
     python3 tools/gale_inbox.py match FILE...     # which edition each file is, and how that was read
+    python3 tools/gale_inbox.py shrink            # lay out smaller every staged leaf over MAX_PAGE_PIXELS
 
 For a hand download, every minute (the cryptic-gale-inbox
 plugin) sync sweeps each Gale file out of the Windows desktop's and the Mac's
@@ -354,13 +355,70 @@ def scaled(img):
     widest box that is no lattice gives way to one that is (page_grids)."""
     from PIL import Image
     grids = page_grids(img)
-    if grids:
-        k = GRID_WIDTH / max(b[2] - b[0] for b in grids)
-        if abs(k - 1) >= 0.05:
-            img = img.resize((round(img.width * k), round(img.height * k)), Image.LANCZOS)
+    k = GRID_WIDTH / max(b[2] - b[0] for b in grids) if grids else 1
+    limit = capped_scale(img.width, img.height)
+    if k > limit or abs(k - 1) >= 0.05:  # a page past the cap is always shrunk to it
+        k, size = min(k, limit), (round if k < limit else int)  # at the cap, rounded down
+        img = img.resize((size(img.width * k), size(img.height * k)), Image.LANCZOS)
     page = Image.new("RGB", (max(fa.SCAN_WIDTH, img.width + 2 * MARGIN), img.height + 2 * MARGIN), "white")
     page.paste(img, (MARGIN, MARGIN))
     return page, bool(grids)
+
+
+#: The most pixels a laid-out page (leaf) may hold. An archive.org page is
+#: ~3296x4500 (15 MP); a crossword-centenary article (2013-12-04, -17) whose
+#: small printed grid passed for the puzzle's was scaled up to 196 and 363
+#: MP, which tesseract refuses (pixCreateHeader: requested bytes >= 2^31)
+#: and whose scan unit reached 11.8 GB. A page past it is laid out smaller.
+MAX_PAGE_PIXELS = 36_000_000
+
+
+def capped_scale(width, height, cap=None):
+    """The largest scale a width x height page may be laid out at, its
+    margins in and at least fa.SCAN_WIDTH wide (scaled()), and stay within
+    `cap` pixels: the root of (width k + 2 MARGIN)(height k + 2 MARGIN) =
+    cap, or of SCAN_WIDTH (height k + 2 MARGIN) = cap when that is narrower."""
+    cap = cap or MAX_PAGE_PIXELS
+    a, b, c = width * height, 2 * MARGIN * (width + height), 4 * MARGIN * MARGIN - cap
+    k = (-b + (b * b - 4 * a * c) ** 0.5) / (2 * a)
+    if width * k + 2 * MARGIN < fa.SCAN_WIDTH:
+        k = (cap / fa.SCAN_WIDTH - 2 * MARGIN) / height
+    return max(0.0, k)
+
+
+def shrink_oversized(cache=CACHE, cap=None, out=sys.stdout):
+    """Lay out again, smaller, every staged leaf over `cap` pixels (laid out
+    before scaled() was capped): the leaf is scaled to fit and pages.json
+    holds its new size. A leaf's size is the edition's input
+    (file_archive_org_puzzles.input_hash), so its scan and read come due.
+    Idempotent: a leaf within `cap` is left alone. [edition dir] shrunk."""
+    cap = cap or MAX_PAGE_PIXELS
+    from PIL import Image
+    Image.MAX_IMAGE_PIXELS = None
+    done = []
+    for pj in sorted(Path(cache).glob(ITEM.format("[0-9]" * 4) + "/*/pages.json")):
+        pages = json.loads(pj.read_text())
+        moved = False
+        for p in pages.get("crossword_pages", ()):
+            if p.get("width", 0) * p.get("height", 0) <= cap:
+                continue
+            path = pj.parent / f"leaf_{p['leaf']:04d}.jpg"
+            img = Image.open(path)
+            k = min(1.0, (cap / (img.width * img.height)) ** 0.5)
+            size = (int(img.width * k), int(img.height * k))
+            img.draft(img.mode, size)  # decoded at a fraction of its size, not whole
+            img = img.convert("RGB").resize(size, Image.LANCZOS)
+            tmp = path.with_suffix(".tmp.jpg")
+            img.save(tmp, quality=92)
+            tmp.replace(path)
+            print(f"shrank {pj.parent.parent.name}/{pj.parent.name} leaf {p['leaf']}: "
+                  f"{p['width']}x{p['height']} -> {img.width}x{img.height}", file=out)
+            p.update(width=img.width, height=img.height)
+            moved = True
+        if moved:
+            pj.write_text(json.dumps(pages, indent=1))
+            done.append(pj.parent)
+    return done
 
 
 #: Only breaks a tie between readers who read different title numbers, on
@@ -1755,7 +1813,11 @@ def main(argv=None):
     cl.add_argument("--out", type=Path, default=CHECKLIST)
     mt = sub.add_parser("match", help="which edition each file is")
     mt.add_argument("files", nargs="+", type=Path)
+    sub.add_parser("shrink", help="lay out smaller every staged leaf over MAX_PAGE_PIXELS (its edition comes due)")
     a = ap.parse_args(argv)
+    if a.cmd == "shrink":
+        print(f"{len(shrink_oversized())} edition(s) shrunk")
+        return 0
     if a.cmd == "match":
         by_number = held()
         for f in a.files:

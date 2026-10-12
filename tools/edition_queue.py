@@ -116,6 +116,32 @@ def unit_title(unit):
     return f"edition_queue.py unit {unit['kind']} {unit['paper']} {unit['rel']}"
 
 
+#: The address space (MB) each unit may hold (RLIMIT_AS, inherited by its
+#: tesseract and other children): a unit at ~360 MB, a runaway one (the
+#: 363 MP Gale page of 2013-12-17, 11.8 GB) fails itself with a MemoryError
+#: (unit_status: a failure naming the ceiling) instead of starving the host.
+UNIT_MEMORY_MB = int(os.environ.get("CT_UNIT_MEMORY_MB") or 6144)
+
+
+def cap_memory(mb=None):
+    """In the unit's own process: hold it to `mb` (UNIT_MEMORY_MB) MB of
+    address space, hard, so it cannot raise it again."""
+    import resource
+    n = (mb or UNIT_MEMORY_MB) << 20
+    _, hard = resource.getrlimit(resource.RLIMIT_AS)
+    n = n if hard == resource.RLIM_INFINITY else min(n, hard)
+    resource.setrlimit(resource.RLIMIT_AS, (n, n))
+
+
+def memory_failure(unit, e):
+    """The failure a unit's MemoryError is logged as: the ceiling named."""
+    import scan_queue
+    why = MemoryError(f"{unit['kind']} {unit['rel']} hit its memory ceiling "
+                      f"({UNIT_MEMORY_MB} MB address space, RLIMIT_AS): {e}")
+    why.__cause__ = e
+    return scan_queue.failure((unit["rel"],), why)
+
+
 def titled():
     """Whether units can name themselves (setproctitle is installed)."""
     return importlib.util.find_spec("setproctitle") is not None
@@ -140,6 +166,9 @@ def unit_status(unit, run):
     except ocr_remote.DesktopBusy as e:
         print(f"{unit['kind']} {unit['rel']}: deferred, the desktop is busy ({e})", file=sys.stderr, flush=True)
         return edition_commit.EXITS["deferred"]
+    except MemoryError as e:  # past UNIT_MEMORY_MB: a failure, its cause named
+        memory_failure(unit, e)
+        return 1
     except Exception as e:  # any raise: the unit's end is its exit status, logged
         scan_queue.failure((unit["rel"],), e)
         return 1
@@ -222,6 +251,8 @@ def load_unit(paper):
 
 _snapshot = snapshot() if __name__ == "__main__" else None
 _spec = json.loads(os.environ.get("CT_EDITION_UNIT") or "{}") if sys.argv[1:2] == ["unit"] else {}
+if _spec.get("unit"):
+    cap_memory()
 if _spec.get("unit", {}).get("kind") == "fetch":
     _fetcher = load_fetcher(_spec["unit"]["paper"])
     if _snapshot is not None:
@@ -244,6 +275,9 @@ if _snapshot is not None and _spec.get("brief"):
         sys.exit(edition_commit.EXITS["lost"])
     except ocr_remote.DesktopBusy:
         sys.exit(edition_commit.EXITS["deferred"])
+    except MemoryError as e:
+        memory_failure(_spec["unit"], e)
+        sys.exit(1)
     except Exception as e:  # any raise: the unit's end is its exit status, logged
         import scan_queue
         scan_queue.failure((_spec["unit"]["rel"],), e)
@@ -739,7 +773,10 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             first.append({"kind": "scan", "paper": unit["paper"], "rel": unit["rel"], "rank": unit["rank"],
                           "reason": "its read's own scan is stale or missing"})
             return False
-        env = {**os.environ, "CT_EDITION_UNIT": json.dumps({**spec, "unit": unit, **({"brief": made} if made else {})})}
+        env = {**os.environ, "CT_EDITION_UNIT": json.dumps({**spec, "unit": unit, **({"brief": made} if made else {})}),
+               # setproctitle then keeps /proc/<pid>/environ (the title fits
+               # in its argv), so the room tag the bridge's watchdog reads stays.
+               "SPT_NOENV": "1"}
         if alone:
             env["OCR_REMOTE"] = ""
         elif unit["kind"] != "fetch":
