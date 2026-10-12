@@ -29,7 +29,11 @@ that fetches nothing leaves the next start to the hourly tick.
 One corpus job at a time. Another one is running when the pid in
 ~/.cache/corpus_queue/running.json is alive and started when it says (so a
 recycled pid is not mistaken for it), or when a scan filer holds a ledger
-lock (tools/scan_queue.py lock(): any filer run by hand). A tick that finds
+lock (tools/scan_queue.py lock(): any filer run by hand). A live pass that
+running.json lost still holds its tree lease (lease_holder()): the tick
+adopts it rather than start passes that find the lease taken and end at
+once, and launch() never writes over the record of a pass its own pass's
+`begin` stood down for. A tick that finds
 either does nothing but check the pass's log: no new line for STALL_MINUTES
 wakes the room once per stall. A pass that ends, not finished, without a
 ledger row read or a scan fetched (FETCHED) is a dead launch; DEAD_LAUNCHES in a row hold the pass and
@@ -98,6 +102,9 @@ CHAIN_WAIT = 60
 #: How long stop gives the pass, after SIGTERM, to end its filer and commit
 #: what it filed (tools/durable.sh: DURABLE_STOP_GRACE plus a commit and push).
 STOP_GRACE = 240
+#: The full pass's tree lease (tools/nightly_worktree.sh: the lock file beside
+#: the main checkout that the running pass holds on fd 9); None: found from git.
+LEASE = None
 
 
 def load_state():
@@ -196,6 +203,75 @@ def running():
     except (OSError, ValueError):
         return None
     return r if proc_start(r["pid"]) == r["start"] else None
+
+
+def tree_lease():
+    """LEASE, or the lease nightly_worktree.sh takes for FULL_PASS:
+    .<script>.tree.lock in the main checkout (the parent of git's common dir)."""
+    if LEASE:
+        return Path(LEASE)
+    try:
+        common = subprocess.run(["git", "-C", str(ROOT), "rev-parse", "--path-format=absolute", "--git-common-dir"],
+                                capture_output=True, text=True, timeout=30).stdout.strip()
+    except (OSError, subprocess.SubprocessError):
+        return None
+    return Path(common).parent / f".{FULL_PASS.stem}.tree.lock" if common else None
+
+
+def lease_holder():
+    """The session of a full pass that holds its tree lease, when one does
+    (the oldest such session whose leader lives), else None. running.json can
+    lose a live pass (a launch() racing a bridge relaunch wrote over its
+    record); every pass started beside it then finds the lease taken and ends
+    at once, so the queue must find the pass this way and adopt it."""
+    import fcntl  # not at the top: see ledger_held
+    lease = tree_lease()
+    if not lease or not lease.exists():
+        return None
+    with open(lease, "a") as f:
+        try:
+            fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            pass
+        else:
+            fcntl.flock(f, fcntl.LOCK_UN)
+            return None
+    try:
+        st = lease.stat()
+    except OSError:
+        return None
+    key, own, sessions = (st.st_dev, st.st_ino), os.getsid(0), set()
+    for p in Path("/proc").iterdir():
+        if not p.name.isdigit():
+            continue
+        try:
+            fds = list((p / "fd").iterdir())
+        except OSError:
+            continue
+        for fd in fds:
+            try:
+                fst = fd.stat()
+            except OSError:
+                continue
+            if (fst.st_dev, fst.st_ino) == key:
+                sid = session_of(p.name)
+                if sid and sid != own and proc_start(sid):
+                    sessions.add(sid)
+                break
+    return min(sessions, key=lambda sid: int(proc_start(sid) or 0)) if sessions else None
+
+
+def adopt(pid):
+    """Record live `pid` (a session leader) as the running pass; False if it is gone."""
+    start = proc_start(pid)
+    if not start:
+        return False
+    STATE_DIR.mkdir(parents=True, exist_ok=True)
+    EXIT.unlink(missing_ok=True)
+    RUNNING.write_text(json.dumps({"name": NAME, "pid": pid, "start": start, "adopted": True,
+                                   "ledgers": ledger_marks(),
+                                   "launched": datetime.datetime.now().astimezone().isoformat(timespec="seconds")}))
+    return True
 
 
 def lock_of(ledger):
@@ -366,6 +442,12 @@ def launch(dry):
         if start:
             break
         time.sleep(0.1)
+    other = running()
+    if other and other["pid"] != pid:
+        # The pass's `begin` found another live pass (a bridge relaunch in the
+        # gap) and stood down: its record is the one to keep.
+        print(f"another full pass is running (pid {other['pid']}); the one started (pid {pid}) leaves it alone")
+        return True
     RUNNING.write_text(json.dumps({"name": NAME, "pid": pid, "start": start, "ledgers": marks,
                                    "launched": datetime.datetime.now().astimezone().isoformat(timespec="seconds")}))
     print(f"started the full pass (pid {pid}); log {LOG}")
@@ -449,12 +531,21 @@ def tick(dry, chained=False):
     if RUNNING.exists():
         reap(state, dry)
         state = load_state()
+    holder = lease_holder()
+    if holder:
+        if dry:
+            print(f"[dry run] session {holder} holds the full pass's tree unrecorded; would adopt it")
+        elif adopt(holder):
+            print(f"the full pass runs unrecorded (session {holder} holds its tree); adopted it")
+        return "running"
     if state.get("held"):
         print("the full pass is held; corpus_queue.py release lets it start again")
         return "held"
     last = state.get("lastExit") or {}
     if chained and not (last.get("rc") == 0 and last.get("fetched")):
-        print("the last pass fetched nothing or did not finish; the hourly tick starts the next")
+        print(("the last pass finished having fetched nothing new" if last.get("rc") == 0 else
+               f"the last pass ended unfinished (exit {'killed' if last.get('rc') is None else last['rc']})")
+              + "; the hourly tick starts the next")
         return "idle"
     held = ledger_held()
     if held:
@@ -502,14 +593,8 @@ def main(argv=None):
     elif args.cmd == "finish":
         finish(args.rc)
     elif args.cmd == "adopt":
-        start = proc_start(args.pid)
-        if not start:
+        if not adopt(args.pid):
             sys.exit(f"pid {args.pid} is not running")
-        STATE_DIR.mkdir(parents=True, exist_ok=True)
-        EXIT.unlink(missing_ok=True)
-        RUNNING.write_text(json.dumps({"name": NAME, "pid": args.pid, "start": start, "adopted": True,
-                                       "ledgers": ledger_marks(),
-                                       "launched": datetime.datetime.now().astimezone().isoformat(timespec="seconds")}))
         print(f"the full pass is pid {args.pid}")
     elif args.cmd == "release":
         state = load_state()
