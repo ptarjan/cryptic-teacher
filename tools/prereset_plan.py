@@ -24,7 +24,9 @@ puzzle held as its clues alone (tools/clues_only.py), whose solve derives its
 grid in tools/apply_solution.py as the nightly's does. Those rank by the same
 rules as an index row: clues_only_rows() gives them one. Its order
 is head_of_queue()'s: the puzzles a lockout cut off first,
-then the puzzles /showcase/ would pick once annotated (showcase.wanted), then
+then the small series' puzzles, nearest to fully hinted first (small_series:
+under SMALL_SERIES known, then filed), then the puzzles /showcase/ would pick
+once annotated (showcase.wanted), then
 each series' first puzzle (series.is_first_issue), then each series'
 OLDEST_PER_SERIES oldest puzzles, oldest first, then the puzzles with a notable
 tag (tools/puzzle_tags.py), then the indicator cover (tools/indicator_cover.py),
@@ -534,10 +536,10 @@ def self_test():
         (["r", "a", "b"], {"b": {A}}, {A: 5}, ("r", "gone"), ["r", "b", "a"]),
     ]
     bad = (cover_self_test(covers) + width_self_test() + tag_self_test()
-           + first_self_test() + backlog_self_test())
+           + first_self_test() + backlog_self_test() + small_self_test())
     n = (len(covers) + len(WIDTH_CASES) + len(NEED_CASES) + len(MODE_CASES) + len(MEM_CASES)
          + len(CPU_CASES) + len(METER_CASES) + len(RATIO_CASES) + 21 + len(TAG_CASES) + 2 + len(FIRST_CASES) + 3 + 4
-         + len(BACKLOG_CASES) + 4)
+         + len(BACKLOG_CASES) + 4 + 3)
     print(f"prereset plan self-test FAILED: {bad} of {n}" if bad
           else f"prereset plan self-test: {n} cases pass")
     return 1 if bad else 0
@@ -859,6 +861,45 @@ def head_self_test():
     got = newest_first(["zz-1", "cryptic-22640", "cryptic-22641", "cryptic-22640"], _HEAD_ROWS)
     if got != ["cryptic-22641", "cryptic-22640", "cryptic-22640", "zz-1"]:
         print(f"FAIL newest_first = {got}", file=sys.stderr)
+        bad += 1
+    return bad
+
+
+# known, acquired, filed, solved, hinted; an older day that must not be read
+_SMALL_DAYS = {
+    "2026-10-10": {"times": [10, 10, 10, 10, 0]},
+    "2026-10-11": {"genius": [279, 40, 40, 40, 40],        # nothing left to hint
+                   "timesclub": [280, 98, 131, 126, 130],  # known under 500: first
+                   "tls": [1183, 48, 48, 40, 45],
+                   "book": [4181, 2737, 1100, 225, 215],
+                   "everyman": [4173, 1207, 1207, 1206, 1065],
+                   "metro": [None, None, 76, 76, 70],      # no ledger: filed decides
+                   "canberra": [4454, 458, 458, 213, 204],  # LAST stays last
+                   "toughie": [3772, 3606, 3606, 3567, 651],
+                   "times": [29893, 8760, 9714, 4463, 2261]},
+}
+
+
+def small_self_test():
+    bad = 0
+    want = ["timesclub", "tls", "metro", "everyman", "book"]
+    if small_series(_SMALL_DAYS) != want:
+        print(f"FAIL small_series = {small_series(_SMALL_DAYS)} (want {want})", file=sys.stderr)
+        bad += 1
+    if small_series({}) != []:
+        print("FAIL small_series with no history is not empty", file=sys.stderr)
+        bad += 1
+    # the small series go right behind the cut-offs, ahead of showcase and the
+    # 10 oldest, series by series, newest first inside each
+    rows = [_dated("cryptic-1", "2026-01-01"), _dated("cryptic-2", "2026-01-02"),
+            _dated("tls-5", "2020-01-01"), _dated("tls-6", "2021-01-01"),
+            _dated("book-7", "1990-01-01")]
+    _, pinned, stages = head_of_queue(["cryptic-1", "cryptic-2", "tls-5", "tls-6", "book-7"], ["r"], rows,
+                                      {"cryptic-2"}, small=["tls", "book"])
+    want = ["r", "tls-6", "tls-5", "book-7", "cryptic-2", "cryptic-1"]
+    if pinned != want or stages[0] != 4:
+        print(f"FAIL head_of_queue with small series pins {pinned} at {stages} (want {want})",
+              file=sys.stderr)
         bad += 1
     return bad
 
@@ -1254,16 +1295,54 @@ def newest_first(queue, rows):
             + [i for i in queue if i not in by_id])
 
 
-def head_of_queue(queue, pinned, rows, wanted=(), tagged=()):
+# A series is small, and hinting finishes it before the big dailies, when the
+# coverage ledger knows of fewer than "known" of its puzzles, or failing that
+# when fewer than "filed" of them are on file (Paul 10-12: "Finishing some of
+# the smaller puzzles fully might be more useful than getting all the times").
+SMALL_SERIES = {"known": 500, "filed": 1500}
+
+
+def small_series(days=None):
+    """The small series with puzzles left to hint, in the order hinting
+    finishes them: those under SMALL_SERIES["known"] first, then those under
+    SMALL_SERIES["filed"], each by fewest unhinted (filed - hinted) first.
+    Counted off the newest day of tools/data/progress.json (days, else read).
+    LAST's lanes stay last: their reasons hold whatever a series' size."""
+    import progress
+    days = progress.load() if days is None else days
+    row = days[max(days)] if days else {}
+    ranked = []
+    for name, counts in row.items():
+        known, filed, left = counts[progress.KNOWN], counts[progress.FILED], \
+            counts[progress.FILED] - counts[progress.HINTED]
+        tier = (0 if known is not None and known < SMALL_SERIES["known"]
+                else 1 if filed < SMALL_SERIES["filed"] else None)
+        if tier is not None and left > 0 and name not in LAST:
+            ranked.append((tier, left, name))
+    return [name for *_, name in sorted(ranked)]
+
+
+def small_first(queue, pinned, rows, small):
+    """pinned, then the queue's puzzles in the series of small (small_series),
+    series by series in that order, queue order inside each."""
+    series_of = {r["id"]: r["series"] for r in rows}
+    taken = set(pinned)
+    return pinned + [pid for name in small for pid in queue
+                     if series_of.get(pid) == name and pid not in taken]
+
+
+def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=()):
     """(the queue newest first, the ids that go ahead of it in order): pinned
-    (cut off by a lockout), then /showcase/'s wanted, then each series' No 1,
+    (cut off by a lockout), then the small series' puzzles (small_first), then
+    /showcase/'s wanted, then each series' No 1,
     then each series' oldest few, then the notable-tagged; each set in queue
     order but the oldest, which go oldest first. The whole queue is re-sorted,
     so ids the caller appended (puzzles made eligible mid-run) take their
     date's place rather than the back."""
     queue = newest_first(queue, rows)
+    pinned = small_first(queue, list(pinned), rows, small)
     stages = [len(pinned)]
-    pinned = promote(queue, list(pinned), wanted)
+    pinned = promote(queue, pinned, wanted)
     stages.append(len(pinned))
     pinned = first_issues(queue, pinned)
     pinned = oldest_per_series(queue, pinned, rows)
@@ -1277,8 +1356,11 @@ def cover_first(pinned):
     """The ids on stdin, in head_of_queue()'s order with the indicator cover
     behind its pins. The summary goes to stderr, which is the burn's log."""
     import indicator_cover
+    small, cut = small_series(), len(pinned)
     queue, pinned, n = head_of_queue(sys.stdin.read().split(), pinned, index_rows() + clues_only_rows(),
-                                     showcase_wanted(), tagged_puzzles())
+                                     showcase_wanted(), tagged_puzzles(), small)
+    print(f"small series: {n[0] - cut} queued puzzles of {', '.join(small) or 'none'} go first",
+          file=sys.stderr)
     print(f"showcase: {n[1] - n[0]} queued puzzles /showcase/ wants go first",
           file=sys.stderr)
     print(f"tagged: {n[3] - n[2]} queued puzzles with a notable tag go first",
