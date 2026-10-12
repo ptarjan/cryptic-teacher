@@ -23,9 +23,10 @@ A Listener whose answers go into the grid altered (reversed, jumbled, a letter
 moved, dropped or swapped) files what is entered as each `solution`, and the
 clue's own word with the steps that turn it into the entry as `alteration`:
 the alteration is one more step of the solve. The archive PDFs' clues say it
-themselves ("(rev.)"); ARCHIVE_ALTERED holds those words. Multi-letter cells,
-numerical entries and a grid changed after the fill are out of scope: 3975 files
-its fill before the final moves, and 111 is skipped. A puzzle already filed from
+themselves ("(rev.)"); ARCHIVE_ALTERED holds those words. Multi-letter cells
+and a grid changed after the fill are out of scope: 3975 files its fill before
+the final moves. A numerical (No 111, every light a number) files its digits
+with `numeric: true`, and its note above the clues as the preamble. A puzzle already filed from
 the paper (No 3, from Gale's scan) is not overwritten by the archive's re-set;
 the archive's solution grades its answers (graded_by_key). A run the clue list does not
 clue is barred shut (close_unclued), a numbered one it leaves out filed with a
@@ -61,11 +62,10 @@ UA = {"User-Agent": "Mozilla/5.0 (cryptic-teacher; github.com/ptarjan/cryptic-te
 #: (gale_listener.index()), the one table every Listener filer dates by.
 PDFS = (1, 3, 29, 93, 111)
 
-#: Puzzles read and deliberately not filed, and why.
-SKIP = {
-    111: "numerical: every light is a number, and the site's player types "
-         "only A-Z (app.js), so a grid of digits could not be solved there",
-}
+#: Puzzles read and deliberately not filed, and why. None: No 111, a
+#: numerical (every light a number), files with `numeric: true`, and the
+#: player types digits into it.
+SKIP = {}
 
 #: Archive-PDF entries whose own clue alters the answer before entry ("(rev.)",
 #: "(anag.)"; these puzzles print no preamble): light -> (the clue's word, op).
@@ -209,28 +209,38 @@ def text_runs(data):
             return (len(runs) - 1, end, y)
         return last
 
-    for page_no, page in enumerate(reader.pages):
-        contents = page.get_contents()
-        if contents is None:
-            continue
-        fonts = (page.get("/Resources") or {}).get("/Font") or {}
+    def mul(m, ctm):
+        return [m[0] * ctm[0] + m[1] * ctm[2], m[0] * ctm[1] + m[1] * ctm[3],
+                m[2] * ctm[0] + m[3] * ctm[2], m[2] * ctm[1] + m[3] * ctm[3],
+                m[4] * ctm[0] + m[5] * ctm[2] + ctm[4], m[4] * ctm[1] + m[5] * ctm[3] + ctm[5]]
+
+    def walk(page_no, stream, resources, ctm, depth=0):
+        """Read `stream`'s strings into runs; a Form XObject it draws (No 111's
+        solution grid is one) is read in place, under its own matrix and fonts."""
+        resources = resources.get_object() if hasattr(resources, "get_object") else (resources or {})
+        fonts = resources.get("/Font") or {}
         fonts = fonts.get_object() if hasattr(fonts, "get_object") else fonts
+        xobjects = resources.get("/XObject") or {}
+        xobjects = xobjects.get_object() if hasattr(xobjects, "get_object") else xobjects
         tables = {}
-        ctm, stack = [1, 0, 0, 1, 0, 0], []
+        stack = []
         tm = lm = [1, 0, 0, 1, 0, 0]
         size, leading, tc, tw, tz = 12.0, 0.0, 0.0, 0.0, 1.0
         chars, widths = {}, {}
         last = None     # (index in runs, end x, y) of the run a string may continue
-        for operands, op in ContentStream(contents, reader).operations:
+        for operands, op in ContentStream(stream, reader).operations:
+            if op == b"Do" and depth < 3 and operands and operands[0] in xobjects:
+                xo = xobjects[operands[0]].get_object()
+                if xo.get("/Subtype") == "/Form":
+                    m = [float(v) for v in xo.get("/Matrix", [1, 0, 0, 1, 0, 0])]
+                    walk(page_no, xo, xo.get("/Resources") or resources, mul(m, ctm), depth + 1)
+                continue
             if op == b"q":
                 stack.append(ctm)
             elif op == b"Q" and stack:
                 ctm = stack.pop()
             elif op == b"cm":
-                m = [float(v) for v in operands]
-                ctm = [m[0] * ctm[0] + m[1] * ctm[2], m[0] * ctm[1] + m[1] * ctm[3],
-                       m[2] * ctm[0] + m[3] * ctm[2], m[2] * ctm[1] + m[3] * ctm[3],
-                       m[4] * ctm[0] + m[5] * ctm[2] + ctm[4], m[4] * ctm[1] + m[5] * ctm[3] + ctm[5]]
+                ctm = mul([float(v) for v in operands], ctm)
             elif op == b"BT":
                 tm = lm = [1, 0, 0, 1, 0, 0]
             elif op == b"Tf":
@@ -278,6 +288,11 @@ def text_runs(data):
             last = emit(last, page_no, size, tm, ctm, piece, start, tx)
             # A string leaves the text matrix where it ended.
             tm = [tm[0], tm[1], tm[2], tm[3], tm[4] + tx * tm[0], tm[5] + tx * tm[1]]
+
+    for page_no, page in enumerate(reader.pages):
+        contents = page.get_contents()
+        if contents is not None:
+            walk(page_no, contents, page.get("/Resources"), [1, 0, 0, 1, 0, 0])
     return runs
 
 
@@ -334,7 +349,7 @@ def read_solution(data):
     letters, numbers = {}, {}
     for _page, x, y, size, text in runs:
         t = text.strip()
-        if size > small and re.fullmatch(r"[A-Z]", t):
+        if size > small and re.fullmatch(r"[A-Z0-9]", t):
             c = cell(x + 2, y + 3)
             if c:
                 letters[c] = t
@@ -440,6 +455,12 @@ def column_lines(runs, mid):
     line opens with a word is moved across to open it."""
     top = max((y for page, _x, y, _s, t in runs if page == 0 and t.strip().startswith("ACROSS")),
               default=None)
+    # The right column starts at its DOWN heading when that sits left of the
+    # page's middle (No 111's columns split at x=278 on a 595pt page).
+    down = [x for page, x, y, _s, t in runs if page == 0 and top is not None
+            and abs(y - top) < 2 and t.strip().startswith("DOWN")]
+    if down and min(down) < mid:
+        mid = min(down) - 2
     by_line = defaultdict(list)
     for page, x, y, size, text in runs:
         # Small type is the grid's cell numbers, never a clue.
@@ -598,12 +619,31 @@ def assemble(number, puzzle_pdf, solution_pdf, date):
     puzzle["source"] = {"url": url}
     puzzle["solutions"] = {"origin": "published"}
     puzzle["entries"] = with_alterations(number, entries)
+    if all(re.fullmatch(r"[0-9]+", e["solution"]) for e in entries):
+        puzzle["numeric"] = True
+    note = preamble_lines(text_runs(puzzle_pdf))
+    if note:
+        puzzle["preamble"] = note
     return puzzle, None
+
+
+def preamble_lines(runs):
+    """The note printed between the title and the ACROSS heading, or "": whole
+    lines at clue size (No 111's "No number can begin with 0."), not the
+    letters No 93's blank grid prints."""
+    top = max((y for page, _x, y, _s, t in runs if page == 0 and t.strip().startswith("ACROSS")),
+              default=None)
+    if top is None:
+        return ""
+    title = runs[0][2] if runs else None
+    lines = [re.sub(r"\s+", " ", t).strip() for page, _x, y, size, t in runs
+             if page == 0 and size >= 9 and top + 2 < y < title - 2 and len(t.strip()) > 3]
+    return " ".join(lines)
 
 
 def clue_of(printed):
     """The entry's `clue`: the text, and the counts in brackets at its end apart."""
-    text, enum = enumeration.split(printed)
+    text, enum = enumeration.split(re.sub(r"\(\s+", "(", printed))
     return {"text": text or printed, **({"enumeration": enum} if enum else {})}
 
 

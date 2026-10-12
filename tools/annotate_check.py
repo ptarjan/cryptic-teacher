@@ -186,7 +186,9 @@ def grid_rows(puzzle):
         x, y = pos.get("x"), pos.get("y")
         if x is None or y is None:
             continue
-        letters = re.sub(r"[^A-Z]", "", (e.get("solution") or "").upper())
+        # A numerical puzzle's squares hold digits (puzzle["numeric"]).
+        letters = re.sub(r"[^A-Z0-9]" if puzzle.get("numeric") is True else r"[^A-Z]", "",
+                         (e.get("solution") or "").upper())
         for i in range(e.get("length") or len(letters)):
             cx, cy = (x + i, y) if e.get("direction") == "across" else (x, y + i)
             if cy < rows and cx < cols:

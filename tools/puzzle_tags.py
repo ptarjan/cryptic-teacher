@@ -107,6 +107,11 @@ TAGS = {
         "label": "letters given",
         "blurb": "Some letters are printed in the grid before you start.",
     },
+    "numerical": {
+        "label": "numbers, not words",
+        "blurb": "Every answer is a number, one digit to a square, and the clues "
+                 "are arithmetic, not wordplay: type digits into the grid.",
+    },
     "special-rules": {
         "label": "special rules",
         "blurb": "The note above the clues changes how the puzzle works: some "
@@ -309,6 +314,7 @@ def tags(puzzle):
         "barred": "bars" in puzzle,
         "asymmetric": is_asymmetric(puzzle),
         "letters-given": "printed" in puzzle,
+        "numerical": puzzle.get("numeric") is True,
     }
     jigsaw = jigsaw_tag(puzzle)
     if jigsaw:
