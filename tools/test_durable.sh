@@ -27,7 +27,7 @@ git init -q --bare "$tmp/origin.git"
 git clone -q "$tmp/origin.git" "$tmp/main" 2>/dev/null
 M="$tmp/main"
 mkdir -p "$M/tools" "$M/puzzles/a"
-cp tools/durable.sh tools/nightly_worktree.sh tools/unstage_unparsable.sh tools/push_puzzle_commit.sh tools/commit_subject.py tools/renamed_ids.py "$M/tools/"
+cp tools/durable.sh tools/nightly_worktree.sh tools/unstage_unparsable.sh tools/commit_puzzles.sh tools/push_puzzle_commit.sh tools/commit_subject.py tools/renamed_ids.py "$M/tools/"
 cat >"$M/tools/alert.sh" <<'EOF'
 alert() { echo "$*" >>"$HOME/alerts"; }
 EOF
@@ -146,6 +146,38 @@ on_origin puzzles/b/1.json >/dev/null || fail "a job sourcing only durable.sh di
 on_origin puzzles/b/2.json >/dev/null && fail "a checkpoint committed a puzzle the pre-push refuses"
 [ -e "$tmp/solo/puzzles/b/2.json" ] || fail "the refused puzzle was dropped from the tree"
 case "$out" in *"held out of the commit"*"puzzles/b/2.json"*) ;; *) fail "the held puzzle was not named: $out" ;; esac
+
+# 4a. One puzzle per commit (Paul 10-12: "one commit instead of one per
+#     puzzle"), clues-only files included, for a checkpoint and for
+#     acquire_books.sh's publish; the ledger and the series file ride in the
+#     closing commit, and each commit's subject names its file.
+git clone -q "$tmp/origin.git" "$tmp/multi" 2>/dev/null
+cat >"$tmp/multi.sh" <<'EOF'
+cd "$1" || exit 1
+DURABLE_PATHS=(puzzles clues_only tools/data/book_reads.json)
+. tools/durable.sh
+mkdir -p puzzles/m clues_only tools/data
+for i in 1 2; do echo "{\"n\": $i}" >puzzles/m/times-$i.json; echo "{\"c\": $i}" >clues_only/book-$i.json; done
+echo '{"read": 1}' >tools/data/book_reads.json
+durable_checkpoint "multi pass"
+# publish() exactly as acquire_books.sh has it.
+eval "$(sed -n '/^publish() {/,/^}/p' "$2/tools/acquire_books.sh")"
+echo '{"n": 3}' >puzzles/m/times-3.json; echo '{"c": 3}' >clues_only/book-3.json
+echo '{"read": 2}' >tools/data/book_reads.json
+publish "Read a book"
+EOF
+out=$(bash "$tmp/multi.sh" "$tmp/multi" "$REAL" 2>&1) || fail "multi-puzzle checkpoint failed: $out"
+git -C "$tmp/multi" fetch -q origin master
+# The 8 newest: 3 puzzles, 3 clues-only files, 2 ledger commits - never two files in one.
+for c in $(git -C "$tmp/multi" log --format=%H origin/master -n 8); do
+  n=$(git -C "$tmp/multi" show --format= --name-only "$c" | grep -c '^\(puzzles\|clues_only\)/' || true)
+  [ "$n" -le 1 ] || fail "a commit holds $n puzzle files: $(git -C "$tmp/multi" log -1 --format=%s "$c")"
+done
+subjects=$(git -C "$tmp/multi" log --format=%s origin/master -n 8 | sort | tr '\n' '|')
+for want in "File times-1" "File times-2" "File times-3" "File book-1" "File book-2" "File book-3" "multi pass" "Read a book"; do
+  case "$subjects" in *"$want|"*) ;; *) fail "no commit with subject '$want': $subjects" ;; esac
+done
+case "$(git -C "$tmp/multi" log -1 --format=%s origin/master)" in "Read a book") ;; *) fail "the ledger is not the closing commit" ;; esac
 
 # 4b. A commit that conflicts with origin/master (another job filed the same
 #     puzzle meanwhile) is set aside, never blocking the commits after it:

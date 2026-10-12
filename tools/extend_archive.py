@@ -40,6 +40,7 @@ import json
 import subprocess
 import sys
 import time
+from pathlib import Path
 
 from backlog_burndown import events
 
@@ -99,12 +100,12 @@ def commit(name):
     A walk to the floor runs for hours and writes thousands of files. Left
     uncommitted they are swept into whatever the nightly job commits next, all
     at once, under a message about something else. Not pushed: one push per
-    round would be one CI build per round.
+    round would be one CI build per round. One commit per puzzle
+    (tools/commit_puzzles.sh).
     """
     subprocess.run(["git", "add", "-A", "puzzles"], check=True)
-    if subprocess.run(["git", "diff", "--cached", "--quiet", "--", "puzzles"]).returncode:
-        subprocess.run(["git", "commit", "-q", "-m", f"archive: extend {name}",
-                        "--", "puzzles"], check=True)
+    subprocess.run([str(Path(__file__).with_name("commit_puzzles.sh")),
+                    f"archive: extend {name}"], check=True)
 
 
 def capacity(done):

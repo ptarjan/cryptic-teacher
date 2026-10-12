@@ -38,6 +38,7 @@ DURABLE_EVERY="${DURABLE_EVERY:-300}"
 DURABLE_STOP_GRACE="${DURABLE_STOP_GRACE:-60}"
 _durable_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 . "$_durable_dir/unstage_unparsable.sh"
+. "$_durable_dir/commit_puzzles.sh"
 _durable_child=""
 _durable_what=""
 _durable_pushed=""
@@ -55,38 +56,11 @@ durable_checkpoint() {  # durable_checkpoint <what>: commit what is filed, push 
   ct_unstage_unparsable .
   ct_unstage_refused .
   if ! git diff --cached --quiet; then
-    # One commit per puzzle (a rename's two paths together), then one for
-    # whatever else is staged (ledgers, series files).
-    local trailer line subj
-    trailer="$(python3 "$_durable_dir/provenance.py" trailer 2>/dev/null)"
-    while IFS= read -r line; do
-      [[ "$line" == *.json ]] || continue
-      IFS=$'\t' read -r -a p <<<"$line"
-      subj="$(printf '%s\n' "$line" | python3 "$_durable_dir/commit_subject.py" "$what")"
-      # A rename carries its row of tools/data/renamed_ids.json, the old id's redirect.
-      if [[ "$line" == R* ]]; then
-        python3 "$_durable_dir/renamed_ids.py" --stage || return 1
-        p+=(tools/data/renamed_ids.json)
-      fi
-      # A deletion or rename takes its per-puzzle table rows (tools/puzzle_rows.py:
-      # carried to the new id, else discarded), and a superseded book its
-      # redirect row (fetch_puzzle.supersede_book), in this commit; otherwise
-      # the rows name no puzzle and CI fails (book-12076, 10-11). These lines
-      # come last, so the whole tables they carry follow every puzzle file
-      # their other rows describe.
-      if [[ "$line" == [DR]* ]] && [ -f "$_durable_dir/puzzle_rows.py" ]; then
-        local t gone="${p[1]##*/}" now=""
-        [[ "$line" == R* ]] && now="${p[2]##*/}" && now="${now%.json}"
-        python3 "$_durable_dir/puzzle_rows.py" retire "${gone%.json}" $now >/dev/null || return 1
-        for t in source_clue_wrong source_answer_wrong setter_error ninas blind_misses diagnosed_misses renamed_ids; do
-          [ -f "tools/data/$t.json" ] && p+=("tools/data/$t.json")
-        done
-      fi
-      git commit -q -m "$(printf '%s\n\n%s' "$subj" "$trailer")" -- "${p[@]:1}" || return 1
-    done < <(git diff --cached --name-status -M -- puzzles | grep -v '^[DR]'
-             git diff --cached --name-status -M -- puzzles | grep '^[DR]')
+    # One commit per puzzle or clues-only file (a rename's two paths
+    # together), then one for whatever else is staged (ledgers, series files).
+    ct_commit_puzzles "$what" || return 1
     if ! git diff --cached --quiet; then
-      git commit -q -m "$(printf '%s\n\n%s' "$what" "$trailer")" || return 1
+      git commit -q -m "$(printf '%s\n\n%s' "$what" "$(python3 "$_durable_dir/provenance.py" trailer 2>/dev/null)")" || return 1
     fi
   fi
   # Oldest first, from the last one settled (pushed or set aside; else

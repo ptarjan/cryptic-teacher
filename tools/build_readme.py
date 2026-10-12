@@ -330,6 +330,7 @@ LAYOUT = [
     ("scheduling", "tools/nightly_worktree.sh", "sourced first: re-execs a scheduled job in its own worktree, never the editor’s"),
     ("scheduling", "tools/durable.sh", "sourced by a long job that files into git: commits and pushes what it filed every few minutes, and on SIGTERM ends the job and commits first; nightly_worktree.sh's CT_SALVAGE_PATHS pushes what a SIGKILL left"),
     ("scheduling", "tools/unstage_unparsable.sh", "sourced by durable.sh and nightly_worktree.sh: unstages a .json a kill cut off, and a puzzle the pre-push would refuse (puzzle_integrity.py --refused), held in the tree and named, so no commit carries one and one bad puzzle strands no checkpoint"),
+    ("scheduling", "tools/commit_puzzles.sh", "commits each staged puzzle or clues-only file on its own (`File <id>`, a rename's two paths together), so no writer batches a run's puzzles into one commit; sourced by durable.sh and nightly_worktree.sh, run by the daily update, the pre-reset backfill, extend_archive.py and sweep_series.py"),
     ("scheduling", "tools/json_merge.py", "git merge driver: the keyed JSON data files several writers append to merge per key, so a rebase never stops on a ledger row"),
     ("scheduling", "tools/claude_path.sh", "sourced: finds the `claude` CLI wherever this machine keeps it, SDK-bundled copy included"),
     ("scheduling", "tools/alert.sh", "posts a run’s failures to Discord instead of burying them in a log"),

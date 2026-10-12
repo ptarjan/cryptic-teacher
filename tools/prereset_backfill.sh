@@ -1112,6 +1112,11 @@ if [ -n "$(git status --porcelain)" ]; then
   # is a worktree of the job's own, and a named list is both incomplete and
   # fatal — git add aborts on a path that matches nothing, staging none of it.
   git add -A
+  # Each puzzle it changed in a commit of its own (tools/commit_puzzles.sh), the
+  # regenerated pages and tables in the one after.
+  tools/commit_puzzles.sh "Republish after pre-reset backfill" ||
+    alert "the pre-reset backfill could not commit its puzzles one by one; they ride in the republish commit"
+  git diff --cached --quiet ||
   git commit -q -m "$(printf 'Republish after pre-reset backfill\n\n%s' "$(python3 tools/provenance.py trailer)")"
   left=$(git status --porcelain | cut -c4- | tr '\n' ' ')
   [ -n "$left" ] && alert "the pre-reset backfill committed, and left these behind in its own worktree: $left"

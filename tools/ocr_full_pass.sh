@@ -136,7 +136,7 @@ trap 'stop_handed_over; _durable_stop' TERM INT HUP
 # script or what it sources, the pass re-execs itself between slices: the same
 # pid (corpus_queue's), the tree's lease on fd 9 and the units the last slice
 # handed over all stay, and the next slice adopts those as before.
-SHELL_FILES=(tools/ocr_full_pass.sh tools/durable.sh tools/unstage_unparsable.sh)
+SHELL_FILES=(tools/ocr_full_pass.sh tools/durable.sh tools/unstage_unparsable.sh tools/commit_puzzles.sh)
 shell_sum() {
   cat "${SHELL_FILES[@]}" 2>/dev/null </dev/null | cksum
 }
