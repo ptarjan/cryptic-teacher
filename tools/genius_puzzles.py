@@ -1488,6 +1488,14 @@ ALTERABLE = {"preamble alters entries (needs an alteration per answer)",
              "answers cross wrongly (entries altered)", "enumeration is not the entry's length",
              "a light's answer not read off the post", "lights left unclued",
              "grid numbering differs from clue list"}
+#: The classes left after the grid matched the clue list, when only the
+#: post's answers fail to go in (an early post printing them in a layout the
+#: reader misses, or entries the preamble alters some way code cannot check).
+#: Only the clues are mandatory, so such a puzzle files unsolved, as one with
+#: no post does, and the nightly backfill solves it.
+UNSOLVED_FALLBACK = {"a light's answer not read off the post",
+                     "answers cross wrongly (entries altered)",
+                     "preamble alters entries (needs an alteration per answer)"}
 
 
 def hold(number, pdf, date, url, write):
@@ -1537,6 +1545,12 @@ def file(write=True, numbers=None, log=print):
             if why and why[0] in ALTERABLE:
                 alt, also = assemble_altered(n, pdf, posts.get(n), date, idx[str(n)]["url"])
                 puzzle, why = (alt, None) if alt else (None, (why[0], f"{why[1]}; altered: {also}"))
+            if why and why[0] in UNSOLVED_FALLBACK:
+                # Read afresh: the tries above share leaders and stand in counts.
+                fresh = read_pdf(pdf_path(n)) if pdf_path(n).exists() else read_article(n)
+                fresh["setter"] = fresh["setter"] or post_setter(posts.get(n))
+                bare, also = unsolved(n, fresh, date, idx[str(n)]["url"])
+                puzzle, why = (bare, None) if bare else (None, (why[0], f"{why[1]}; unsolved: {also[0]}"))
         except Exception as e:  # any raise: a malformed PDF is one puzzle
             puzzle, why = None, ("unreadable", f"{type(e).__name__}: {e}"[:160])
         if puzzle is not None:

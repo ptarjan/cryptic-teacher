@@ -181,6 +181,14 @@ f = glob.glob("puzzles/genius/*/genius-7.json")
 if f:
     z = json.load(open(f[0]))
     print("unsolved-nosetter", z["solutions"]["origin"], z.get("setter"))
+# A post whose answers do not go in files unsolved only once the grid matched
+# the clue list: no grid-mismatch class falls back.
+print("fallback-classes", sorted(G.UNSOLVED_FALLBACK - G.ALTERABLE),
+      any(k in G.UNSOLVED_FALLBACK for k in ("enumeration is not the entry's length", "lights left unclued",
+                                             "grid numbering differs from clue list", "grid unread")))
+f = glob.glob("puzzles/genius/*/genius-44.json")
+if f:
+    print("filed-44", json.load(open(f[0]))["solutions"]["origin"])
 
 # Every clue printed unnumbered (280): the list and its instruction read apart,
 # held clues-only, then placed on the printed grid once answered.
@@ -279,6 +287,8 @@ check "a jigsaw clue's answer and entry come off the post row printing it (250)"
 [ -z "$(get filed-108)" ] || check "genius-108's six marked lights file unclued off the article page" "30 6" "$(get filed-108)"
 [ -z "$(get setter-84)" ] || check "genius-84 files with no setter (series.py unbylined)" "None" "$(get setter-84)"
 [ -z "$(get unsolved-nosetter)" ] || check "an early Genius with no post and no setter named files unsolved with no setter (7)" "unsolved None" "$(get unsolved-nosetter)"
+check "only a grid matching its clues falls back to unsolved when the post's answers fail" "[] False" "$(get fallback-classes)"
+[ -z "$(get filed-44)" ] || check "genius-44, whose post prints answers the reader misses, files unsolved" "unsolved" "$(get filed-44)"
 [ -z "$(get filed-165)" ] || check "genius-165 files its eight See-preamble lights unclued" "32 8" "$(get filed-165)"
 check "an unnumbered list reads clue by clue, the instruction between two clues cut out (280)" "[('A board devoid of soft fruit (4)', '4'), ('Hard back (5)', '5'), ('Workforce keeping mum (3-4)', '3-4'), ('Run dry (4)', '4')]" "$(get unplaced-clues)"
 check "the instruction among the unnumbered clues is the preamble (280)" "Clues are listed in alphabetical order of their answers, to be entered jigsaw-fashion where they will fit." "$(get unplaced-preamble)"
