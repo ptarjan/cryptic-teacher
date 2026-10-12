@@ -47,6 +47,24 @@ assert days["2026-10-07"]["times"] == [None, None, 3, 2, 2, 110, 30]
 P.save(days, path)
 assert P.load(path) == days
 
+# The queue's backfill: a scan counts from the day it landed, leaves queued
+# the day it was first read, and a recorded count is never replaced.
+import edition_backlog as E
+scans = [("times", 1, "2026-10-02", "2026-10-03"), ("times", 1, "2026-10-03", None),
+         ("canberra", 0.5, "2026-10-03", None), ("canberra", 0.5, "2026-10-03", None)]
+hist = E.history(scans, ["2026-10-01", "2026-10-02", "2026-10-03", "2026-10-05"])
+assert hist["2026-10-01"] == {} and hist["2026-10-02"] == {"times": [1, 1]}, hist
+assert hist["2026-10-03"] == {"times": [2, 1], "canberra": [1, 1]}, hist
+q = {d: {s: list(c) for s, c in r.items()} for d, r in days.items()}
+q["2026-10-04"]["times"][5:] = [0, 0]   # a bogus zero is replaced
+hist["2026-10-04"] = hist["2026-10-03"]
+assert R.fill_queue(q, hist) == ["2026-10-02", "2026-10-03", "2026-10-04"]
+assert q["2026-10-04"]["times"][5:] == [2, 1] and "canberra" not in q["2026-10-04"], q["2026-10-04"]
+assert q["2026-10-03"]["times"] == [10, 3, 3, 2, 1, 2, 1] and q["2026-10-03"]["canberra"] == [None, None, 0, 0, 0, 1, 1], q
+assert q["2026-10-05"]["times"][5:] == [100, 40], "a recorded night is kept"
+assert "canberra" not in q["2026-10-05"], "a counted night's missing series stays missing"
+assert all(a >= b for r in q.values() for c in r.values() for a, b in zip(P.nested(c), P.nested(c)[1:]))
+
 live = P.with_today(days, {"times": [5, 4, 3], "azed": [1, 1, 1]}, "2026-10-08")
 assert live["2026-10-08"] == {"azed": [None, None, 1, 1, 1, None, None], "times": [10, 3, 5, 4, 3, 110, 30]}, live["2026-10-08"]
 assert P.totals(live["2026-10-08"]) == [10, 3, 6, 5, 4, 110, 30]
