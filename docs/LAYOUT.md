@@ -2177,7 +2177,9 @@ tools/test_blocks_link_word.sh                when a clue's blocks are short by 
 tools/test_link_word_untangle.sh              does annotate_check take a link word out of the
                                               block it sits in only when exactly one edit (drop
                                               it from linkWords, trim the fragment, drop the
-                                              block) clears it cleanly, and does the error name
+                                              block) clears it cleanly, does it take a link
+                                              word off the definition or indicator it lands on
+                                              (an &lit's connectives), and does the error name
                                               the edit when none does?
 tools/test_blocks_surplus.sh                  when a clue's blocks give too many letters and
                                               none too few, the warning names the single-block

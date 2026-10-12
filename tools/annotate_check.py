@@ -899,6 +899,107 @@ def untangle_link_words(path, pending):
     return changed
 
 
+def clear_link_list(a, clue):
+    """`a`'s linkWords with every one that lands on a definition or indicator
+    taken off it, or None when nothing lands on one.
+
+    Placed as app.js places them (validate_annotations.place_fragments). A link
+    word wholly inside the other mark goes: almost always an &lit, whose whole
+    clue is its definition, filed with its connectives ("and", "with") as links.
+    One that overlaps an indicator at an edge keeps the words clear of it when
+    they are still link vocabulary ("in which" beside the indicator "in" becomes
+    "which"), and goes otherwise; one touching a definition goes ("a cooking"
+    across "cooking utensil" is not trimmed to "a"). Repeated, because taking one link off moves
+    where the next lands."""
+    links = [t for t in a.get("linkWords") or [] if isinstance(t, str) and t]
+    if not links:
+        return None
+    vocab = validate_annotations.link_vocabulary()
+    words_of = validate_annotations.words_of
+    out, changed = list(links), False
+    for _ in range(len(links) + 1):
+        placed = validate_annotations.place_fragments({**a, "linkWords": out}, clue)
+        marks = [(j, j + len(t)) for k, t, j in placed if k in ("def", "ind")]
+        defs = [(j, j + len(t)) for k, t, j in placed if k == "def"]
+        hit = next(((lw, i) for k, lw, i in placed if k == "link"
+                    and any(i < e and s < i + len(lw) for s, e in marks)), None)
+        if hit is None:
+            return out if changed else None
+        lw, i = hit
+        free = [c for c in range(i, i + len(lw)) if not any(s <= c < e for s, e in marks)]
+        on_def = any(i < e and s < i + len(lw) for s, e in defs)
+        rest = None
+        if free and not on_def and free == list(range(free[0], free[-1] + 1)) and (
+                free[0] == i or free[-1] == i + len(lw) - 1):
+            rest = clue[free[0]:free[-1] + 1].strip(LINK_EDGE)
+            if not rest or not all(w in vocab for w in words_of(rest)):
+                rest = None
+        k = out.index(lw)
+        out = out[:k] + ([rest] if rest and rest not in out else []) + out[k + 1:]
+        changed = True
+    return None
+
+
+def clear_link_words(path, pending):
+    """Take each link word off the definition or indicator it lands on, where
+    clear_link_list can do it and the validator agrees; [(entry id, what changed)].
+
+    check_link_word_is_clear_of_other_marks failed the first check in 115 of
+    2842 runs (2026-10-12 audit). 166 of the ~190 logged lines were an &lit
+    whose definition is the whole clue, with connectives also filed as links,
+    and every run fixed it by emptying linkWords. The edit is written only if
+    the entry's findings lose that check and gain no other (error or warning)."""
+    try:
+        ann = json.loads(pending.read_text(encoding="utf-8"))
+        puzzle = read_puzzle_file(path)
+    except (ValueError, OSError, KeyError):
+        return []
+    if not isinstance(ann, dict):
+        return []
+    by_id = {entry_id(e): e for e in puzzle["entries"]}
+    templates = None
+    rule = "check_link_word_is_clear_of_other_marks"
+    changed = []
+    for eid, a in list(ann.items()):
+        e = by_id.get(eid)
+        if not isinstance(a, dict) or not e or not isinstance(e.get("clue"), dict):
+            continue
+        clue = e["clue"].get("text") or ""
+        if not a.get("linkWords"):
+            continue
+        base = _entry_report(path, ann, eid)
+        if not base:
+            continue
+        templates = templates or load_templates(
+            Path(validate_annotations.__file__).read_text(encoding="utf-8"))
+        base_checks = _checks_of(base, templates)
+        if not base_checks[rule]:
+            continue
+        placed_ann = normalize(a, e, puzzle["entries"])
+        new = clear_link_list(placed_ann, clue)
+        if new is None:
+            continue
+        cand = {**a, "linkWords": new}
+        if not new:
+            cand.pop("linkWords")
+        got = _entry_report(path, {**ann, eid: cand}, eid)
+        if got is None:
+            continue
+        checks = _checks_of(got, templates)
+        if checks[rule] or checks - base_checks:
+            continue
+        ann[eid] = cand
+        gone = [t for t in a.get("linkWords") or [] if t not in new]
+        added = [t for t in new if t not in (a.get("linkWords") or [])]
+        what = ", ".join(repr(t) for t in gone) + " out of linkWords"
+        if added:
+            what += f" ({', '.join(repr(t) for t in added)} kept, clear of the other mark)"
+        changed.append((eid, what))
+    if changed:
+        write_pending(pending, ann)
+    return changed
+
+
 def _describe_untangle(old, new):
     """What untangle_link_words did to one entry, in a few words."""
     gone = [t for t in old.get("linkWords") or [] if t not in (new.get("linkWords") or [])]
@@ -1074,6 +1175,13 @@ def main(argv):
             print(f"link words that sat inside a block, taken out in {pending.name}: "
                   + "; ".join(f"{eid} {what}" for eid, what in untangled)
                   + ". Make the walkthrough agree\n")
+        cleared = clear_link_words(path, pending)
+        if cleared:
+            print(f"link words that landed on a definition or indicator, taken off in "
+                  f"{pending.name}: "
+                  + "; ".join(f"{eid} {what}" for eid, what in cleared)
+                  + " (an &lit's whole clue is its definition, so it has no link words)."
+                  " Make the walkthrough agree\n")
         recut_done = recut_pieces(path, pending)
         if recut_done:
             print("assembly.pieces that did not join to the answer, recut from its "

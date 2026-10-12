@@ -75,6 +75,40 @@ check("letters only the link supplies: it is fodder",
 check("a gives not drawn from the fragment: no claim either way",
       not V.link_adds_nothing("Carpet is", "is", "RUG"))
 
+# A link word landing on a definition or indicator (check_link_word_is_clear_of_other_marks):
+# committed annotations with the link words a real first check rejected put back.
+def committed(stem, eid):
+    d = json.loads(resolve_puzzle(stem).read_text(encoding="utf-8"))
+    e = next(e for e in d["entries"] if f"{e['number']}-{e['direction']}" == eid)
+    return json.loads(json.dumps(e["annotation"]))
+
+def clear(stem, eid, ann):
+    pending = pathlib.Path(tempfile.mkdtemp()) / f"_ann_{stem}.json"
+    pending.write_text(json.dumps({eid: ann}), encoding="utf-8")
+    changed = C.clear_link_words(resolve_puzzle(stem), pending)
+    return changed, json.loads(pending.read_text(encoding="utf-8"))[eid]
+
+# An &lit: the whole clue is the definition, so "and" is no link.
+ann = {**committed("everyman-3294", "13-down"), "linkWords": ["and"]}
+changed, out = clear("everyman-3294", "13-down", ann)
+check("an &lit's link word is dropped", changed and not out.get("linkWords"), (changed, out))
+
+# "in which" across the indicator "in": the clear part, "which", stays.
+ann = {**committed("quiptic-660", "6-down"), "linkWords": ["in which"]}
+changed, out = clear("quiptic-660", "6-down", ann)
+check("a link overlapping an indicator is trimmed to its clear words",
+      changed and out.get("linkWords") == ["which"], (changed, out))
+
+# "a cooking" across the definition "cooking utensil" goes; it is not trimmed to "a".
+ann = {**committed("quiptic-551", "10-across"), "linkWords": ["with", "a cooking"]}
+changed, out = clear("quiptic-551", "10-across", ann)
+check("a link touching a definition is dropped, not trimmed",
+      changed and out.get("linkWords") == ["with"], (changed, out))
+
+ann = committed("quiptic-551", "10-across")
+changed, out = clear("quiptic-551", "10-across", ann)
+check("a link word clear of every mark is left alone", not changed and out == ann, (changed, out))
+
 def msg(links, blocks):
     errs = []
     V.check_link_word_is_not_inside_a_block("1A", {"linkWords": links, "blocks": blocks},
