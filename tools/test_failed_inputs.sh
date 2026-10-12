@@ -156,6 +156,17 @@ check "old-1 jumps the cap" "$(fresh_q)" "old-1"
 check "and the backlog is the rest" "$(queue)" "old-2 old-3"
 rm -rf "$sand/.git"
 
+echo "a failure recorded with a run's edits still on disk holds the puzzle as committed"
+git -C "$sand" init -q
+puzzle hd-1 ""
+git -C "$sand" add puzzles/hd/undated/hd-1.json
+git -C "$sand" -c user.name=t -c user.email=t@t commit -qm keyless
+puzzle hd-1 CAT   # the cold solve's answer, written in by the run
+ledger record annotate hd-1 --judged --reason "ERROR: 1A: no annotation" >/dev/null
+git -C "$sand" checkout -q -- puzzles/hd/undated/hd-1.json   # the run's edits discarded
+check "hd-1 is skipped once its edits are gone" "$(ledger skipped annotate | grep -c '^hd-1$')" "1"
+rm -rf "$sand/.git"
+
 echo "the working tree is untouched"
 check "git status unchanged" "$(git status --porcelain)" "$tree_before"
 

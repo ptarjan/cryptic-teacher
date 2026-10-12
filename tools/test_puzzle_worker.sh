@@ -96,11 +96,11 @@ echo "done"
 STUB
 chmod +x "$stub/claude"
 # shellcheck disable=SC2329  # its stubs are called by the sourced worker
-flow() (   # mode: accepted | refused | nofill | nohints | badhints
+flow() (   # mode: accepted | refused | nofill | nohints | badhints | mend-nofill | mend-nodef | mend-twice
   PATH="$stub:$PATH" CALLS="$stub/calls" EVENTS="$stub/events"
   export CALLS
   : >"$CALLS"; : >"$EVENTS"
-  [ "$1" = nofill ] || export WRITE_FILL=1
+  case "$1" in nofill|mend-nofill) ;; *) export WRITE_FILL=1 ;; esac
   # shellcheck disable=SC2034  # read by the sourced worker
   CLAUDE_HEADLESS=() WORKER_MODEL=opus WORKER_EFFORT=medium WORKER_WRAP="" WORKER_JOB=test
   . tools/puzzle_worker.sh
@@ -114,6 +114,7 @@ flow() (   # mode: accepted | refused | nofill | nohints | badhints
     case "$1" in
       tools/apply_solution.py)
         [ "$MODE" = refused ] && { echo "REJECTED — 1 problem(s), nothing written:"; echo "  1-across: crossing disagrees"; return 1; }
+        case "$MODE" in mend-nodef|mend-twice) echo "REJECTED — 1 problem(s), nothing written:"; echo "  1-across: no definition given"; return 1 ;; esac
         echo "wrote 1 solutions" ;;
       tools/annotate_check.py)
         echo "session $CLAUDE_CODE_SESSION_ID" >>"$EVENTS"
@@ -130,8 +131,12 @@ flow() (   # mode: accepted | refused | nofill | nohints | badhints
   echo "rc=$?"
   echo "calls=$(wc -l <"$CALLS" | tr -d ' ')"
   echo "sid=$(cat "$sidfile")"
-  worker_apply "$id" "$fill" "$stub/log" "$stub/verdict" "$sidfile"
+  note=""
+  case "$MODE" in mend-*) session_exists() { true; }; note="$stub/note"; rm -f "$note" ;; esac
+  [ "$MODE" = mend-twice ] && touch "$sidfile.mended"
+  worker_apply "$id" "$fill" "$stub/log" "$stub/verdict" "$sidfile" "$note"
   echo "applied=$?"
+  echo "note=$(head -1 "$stub/note" 2>/dev/null | cut -c1-40)"
   echo "ann=$([ -e "tools/_ann_$id.json" ] && echo kept || echo gone)"
 )
 got() { sed -n "s/^$1=//p" <<<"$out"; }
@@ -181,6 +186,55 @@ check "a run that wrote no fill is rejected" "$(got applied)" "1"
 check "recorded unjudged, for the ledger to tell a lockout from a verdict" \
   "$(grep -c 'failed_inputs.py record solve pw-test-[0-9]* --reason done' <<<"$events")" "1"
 check "without asking the applier" "$(grep -c 'apply_solution' <<<"$events")" "0"
+
+echo "a mendable refusal resumes the conversation once instead of discarding it"
+out=$(flow mend-nofill)
+events=$(cat "$stub/events")
+check "a run that wrote no fill is sent back to write one" "$(got applied)" "3"
+check "with a note saying so" "$(got note)" "You stopped without writing your fill to"
+check "nothing recorded" "$(grep -c 'failed_inputs' <<<"$events")" "0"
+check "its annotation file kept for the resume" "$(got ann)" "kept"
+out=$(flow mend-nodef)
+events=$(cat "$stub/events")
+check "a fill short only of definitions is sent back" "$(got applied)" "3"
+check "with a note naming them" "$(grep -c '^  1-across: no definition given$' "$stub/note")" "1"
+check "nothing recorded against it" "$(grep -c 'failed_inputs' <<<"$events")" "0"
+out=$(flow mend-twice)
+events=$(cat "$stub/events")
+check "a second refusal of the same conversation is recorded as before" "$(got applied)" "1"
+check "in the solve ledger, judged" "$(grep -c 'failed_inputs.py record solve pw-test-[0-9]* --judged --reason   1-across: no definition given' <<<"$events")" "1"
+check "with no new note" "$(got note)" ""
+
+echo "a clue list no grid can hold is recorded, not solved"
+# shellcheck disable=SC2329  # its stubs are called by the sourced worker
+imp() (   # bad | ok
+  # shellcheck disable=SC2034  # read by the sourced worker
+  WORKER_JOB="test"
+  . tools/puzzle_worker.sh
+  : >"$stub/events"
+  python3() {
+    echo "python3 $*" >>"$stub/events"
+    [ "$1 $MODE" = "tools/clues_only.py bad" ] && { echo "pw-imp: no grid can hold this clue list: its down lengths do not pair off"; return 1; }
+    return 0
+  }
+  MODE="$1"
+  worker_implausible pw-imp >/dev/null
+  echo "rc=$?"
+)
+out=$(imp bad)
+check "an implausible list is not launched" "$(got rc)" "0"
+check "and is recorded in the solve ledger, judged" \
+  "$(grep -c 'failed_inputs.py record solve pw-imp --judged --reason pw-imp: no grid can hold' "$stub/events")" "1"
+out=$(imp ok)
+check "a plausible one is launched" "$(got rc)" "1"
+check "with nothing recorded" "$(grep -c 'failed_inputs' "$stub/events")" "0"
+
+echo "a run stops the moment its check is clean"
+check "the clean report tells it to stop" "$(grep -c '^        print(STOP_NOW)$' tools/annotate_check.py)" "1"
+check "and both prompts say no summary after a clean check" \
+  "$(grep -l 'no summary' tools/annotate_prompt.md tools/solve_prompt.md | wc -l | tr -d ' ')" "2"
+check "the solve prompt keeps the fill on disk, guesses flagged" \
+  "$(grep -c '"guess": true' tools/solve_prompt.md)" "1"
 
 echo "every run sends the same cached prefix; only the task differs"
 # The system prompt, tool definitions and skill/agent listings come from these

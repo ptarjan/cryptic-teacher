@@ -51,7 +51,7 @@ worker_runs() {   # job -> its record directory, made if missing
 }
 worker_forget() {   # sidfile
   local rec="${1%.sid}"
-  rm -rf "$rec.sid" "$rec.tree" "$rec.fill" "$rec.aside"
+  rm -rf "$rec.sid" "$rec.tree" "$rec.fill" "$rec.aside" "$rec.mended"
 }
 worker_stale() { [ -n "$(find "$1" -mmin +1440 2>/dev/null)" ]; }
 
@@ -134,6 +134,21 @@ worker_put_back() {   # id what notefile sidfile
   return 0
 }
 
+# Before a cold solve of id $1 is paid for: a clues-only puzzle whose clue list
+# no grid can hold (tools/clues_only.py implausible: an OCR'd light lost or
+# doubled) can only end "no single grid holds these answers", after the whole
+# solve (10-08..12: grid-search failures were 4.5% of the burn's spend). So it
+# is recorded against its inputs instead of run. 0 when it was recorded and
+# must not be launched.
+worker_implausible() {   # id
+  local why
+  why=$(python3 tools/clues_only.py implausible "$1") && return 1
+  [ -n "$why" ] || return 1
+  echo "  [$1] not solving: $why"
+  python3 tools/failed_inputs.py record solve "$1" --judged --reason "$why" >/dev/null || true
+  return 0
+}
+
 # Annotate $1, transcript to $2, in the conversation sid file $3 names.
 #   $4 the task, worded for a fresh run
 #   $5 a note to resume with instead (a retry after a cut-off), or empty
@@ -198,8 +213,13 @@ worker_annotate() {   # id log sidfile task [note] [fill]
 # (tools/failed_inputs.py) records the rejection so the puzzle is not tried
 # again on the same inputs, and the return is 1 — or 2 when the ledger refused
 # the entry as transient (a lockout, the network).
-worker_apply() {   # id fill log verdict sidfile
-  local id="$1" fill="$2" log="$3" verdict="$4" sidfile="$5" judged="" said="$3" rc error
+#
+# With $6, a resume-note path, two refusals are mended rather than thrown away,
+# once per conversation (worker_mendable): returns 3 with the note written and
+# the conversation, its fill and its annotations kept, for the caller to
+# resume it.
+worker_apply() {   # id fill log verdict sidfile [notefile]
+  local id="$1" fill="$2" log="$3" verdict="$4" sidfile="$5" notefile="${6:-}" judged="" said="$3" rc error
   restore_puzzle "$id"
   if [ -s "$fill" ]; then
     # --no-reindex: the index is the caller's to rebuild when its run ends.
@@ -229,6 +249,10 @@ worker_apply() {   # id fill log verdict sidfile
   else
     echo "the run finished without writing a fill to $fill at all" >"$verdict"
   fi
+  if worker_mendable "$id" "$fill" "$verdict" "$sidfile" "$notefile"; then
+    discard_puzzle "$id"
+    return 3
+  fi
   discard_puzzle "$id"
   rm -f "tools/_ann_$id.json" "tools/_puzzle_$id.json"
   # A fill the applier refused is its verdict on the puzzle. No fill at all
@@ -237,6 +261,34 @@ worker_apply() {   # id fill log verdict sidfile
   python3 tools/failed_inputs.py record solve "$id" $judged \
     --reason "$(grep -v '^[[:space:]]*$' "$said" | tail -1 | cut -c1-200)" || return 2
   return 1
+}
+
+# Whether a refused cold solve (verdict $3) is worth resuming instead of
+# discarding, and if so the note to resume it with, written to $5. Two
+# refusals waste a whole solve over a few minutes' work (10-08..12):
+#   - no fill at all (2.2% of the burn's spend): the run stopped without
+#     writing one, so the next solve started from nothing;
+#   - a fill refused only for definitions it left out (1.7%): every answer
+#     placed, one field short.
+# Once per conversation (the .mended mark beside its sid file), and only for a
+# conversation that still exists to resume: a second refusal is recorded as
+# before. 0 when the note was written.
+worker_mendable() {   # id fill verdict sidfile notefile
+  local id="$1" fill="$2" verdict="$3" sidfile="$4" notefile="$5" mark="${4%.sid}.mended" probs defs note
+  [ -n "$notefile" ] && [ ! -e "$mark" ] || return 1
+  declare -F session_exists >/dev/null && session_exists "$(worker_sid "$sidfile")" || return 1
+  if [ ! -s "$fill" ]; then
+    note="You stopped without writing your fill to $fill, so everything you worked out would be thrown away. Write it now with the Write tool: your best answer and definition for every entry, adding \"guess\": true to any entry you are unsure of. Then run python3 tools/apply_solution.py $id --fill $fill --check-only, fix what it reports, and carry on as tools/solve_prompt.md says. If the check still cannot pass, leave the fill written and stop. Do not commit."
+  else
+    probs=$(grep -E '^  [0-9]+-(across|down): ' "$verdict")
+    defs=$(grep -E '^  [0-9]+-(across|down): no definition given$' <<<"$probs")
+    [ -n "$defs" ] && [ "$defs" = "$probs" ] || return 1
+    note="The check refused your fill in $fill only for definitions it leaves out:"$'\n'"$defs"$'\n'"Every answer is placed; add each named entry's definition, copied verbatim from its clue, and run python3 tools/apply_solution.py $id --fill $fill --check-only until it passes. Then carry on as tools/solve_prompt.md says: apply the fill, make the copy you annotate, finish the annotation, and run python3 tools/annotate_check.py $id until it reports clean. Do not commit."
+  fi
+  touch "$mark"
+  printf '%s\n' "$note" >"$notefile"
+  echo "  [$id] $(grep -v '^[[:space:]]*$' "$verdict" | tail -1 | cut -c1-120) — resuming its conversation once to mend it"
+  return 0
 }
 
 # --- after the model: validate, commit and push one puzzle ---------------------

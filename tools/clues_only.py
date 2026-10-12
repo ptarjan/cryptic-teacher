@@ -4,6 +4,7 @@
     python3 tools/clues_only.py list           # every held id, one per line
     python3 tools/clues_only.py path ID         # the file holding ID
     python3 tools/clues_only.py check           # every file against the schema
+    python3 tools/clues_only.py implausible ID  # 1, saying why, when no grid can hold ID
 
 Only the clues are mandatory; the grid is derived. A filer that has a clue list
 but cannot place it (the search found no grid, several, or ran out of budget;
@@ -341,7 +342,55 @@ def promote(record, answers):
     return puzzle, []
 
 
+def implausible(record):
+    """Why no grid can hold this clue list, or None when one may: checked
+    before a cold solve is paid for, since only its answers place the grid.
+
+    The full search from lengths alone takes minutes, so this asks something
+    cheaper. A blocked grid with half-turn symmetry prints its across lengths
+    as a palindrome, and its down lengths pair off, but for at most one
+    odd-length light through the centre. Every one of the 1,559 book and
+    canberra grids filed on 10-12 passes. Of the 72 solves the ledger held for
+    "no single grid holds these answers" in that run, 23 fail it (an OCR'd clue
+    lost or doubled), and 409 untried clues-only puzzles did too. A light of
+    unknown length may be anything, so it only loosens the test.
+    """
+    clues = record["clues"]
+    if "across" not in clues or "down" not in clues:
+        return None   # a jigsaw (cluesUnplaced): no grid to argue from
+    across = [light.get("length") for light in clues["across"]]
+    down = [light.get("length") for light in clues["down"]]
+    for i in range(len(across) // 2):
+        a, b = across[i], across[-1 - i]
+        if a is not None and b is not None and a != b:
+            return (f"its across lengths are not symmetric (light {i + 1} is {a}, "
+                    f"light {len(across) - i} is {b}), so the clue list misses or "
+                    f"repeats a light")
+    counts = {}
+    for length in down:
+        if length is not None:
+            counts[length] = counts.get(length, 0) + 1
+    unpaired = sorted(n for n, c in counts.items() if c % 2)
+    # One odd-length light may run through the centre; unknown lengths can
+    # partner the rest.
+    odd = [n for n in unpaired if n % 2]
+    if odd:
+        unpaired.remove(odd[0])
+    if len(unpaired) > down.count(None):
+        return (f"its down lengths do not pair off as a symmetric grid's do "
+                f"(unpaired: {', '.join(map(str, unpaired))}), so the clue list "
+                f"misses or repeats a light")
+    return None
+
+
 def main(argv):
+    if argv[:1] == ["implausible"] and len(argv) == 2:
+        record = read(argv[1])
+        why = implausible(record) if record else None
+        if why:
+            print(f"{argv[1]}: no grid can hold this clue list: {why}")
+            return 1
+        return 0
     if argv[:1] == ["list"]:
         for path in files():
             print(path.stem)

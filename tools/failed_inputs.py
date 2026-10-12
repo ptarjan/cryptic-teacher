@@ -37,6 +37,7 @@ import hashlib
 import json
 import os
 import re
+import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -69,21 +70,66 @@ TRANSIENT = re.compile(
 ENTRY_INPUTS = ("clue", "solution", "length", "position", "direction")
 
 
-def puzzle_inputs(pid):
+def _git(cwd, *args):
+    """git's stdout in `cwd`, or None when it fails or there is no git."""
+    try:
+        r = subprocess.run(["git", "-C", str(cwd), *args], capture_output=True, text=True)
+    except OSError:
+        return None
+    return r.stdout if r.returncode == 0 else None
+
+
+def committed(pid):
+    """Puzzle <pid> as HEAD holds it: ("puzzle", dict) for its file,
+    ("clues", dict) for a clues-only file, or None when it is not in a git
+    tree (the tree's copy is then the only one) or HEAD has no copy.
+
+    A run's failure can be recorded while its edits are still on disk: a cold
+    solve's answers written into the file, a clues-only file it promoted. Those
+    edits are thrown away, so a hash of them never matched the puzzle again and
+    the record blocked nothing (10-09..12: book-26052 and canberra-861019 were
+    solved again after a recorded failure; repeats of unshipped solves were
+    ~3-4% of the burn's spend). So a record hashes what is committed.
+    """
+    path = puzzle_paths.find(pid)
+    top = _git(path.parent if path else ROOT, "rev-parse", "--show-toplevel")
+    if top is None:
+        return None
+    top = Path(top.strip())
+    names = _git(top, "ls-files", "--", f"puzzles/*/*/{pid}.json", f"clues_only/*/{pid}.json")
+    for name in (names or "").split():
+        text = _git(top, "show", f"HEAD:{name}")
+        if text is None:
+            continue   # staged, never committed
+        try:
+            data = json.loads(text)
+        except ValueError:
+            return None
+        return ("clues" if name.startswith("clues_only/") else "puzzle", data)
+    return None
+
+
+def puzzle_inputs(pid, held=None):
     """The clues, answers and grid of puzzle <pid>'s file, or None if missing.
+    `held` is committed(pid)'s answer, read in place of the tree's copy.
 
     During a blind run the answers sit in .blind/<pid>.json and the file holds
     blanks. The stash is read in their place, so a failure recorded mid-run
     hashes the same key the next night will.
     """
-    path = puzzle_paths.find(pid)
-    if path is None:
-        # Held as its clues alone: those are its inputs (tools/clues_only.py).
-        return clues_only.read(pid) if "-" in str(pid) else None
-    try:
-        puzzle = json.loads(path.read_text(encoding="utf-8"))
-    except (FileNotFoundError, ValueError):
-        return None
+    if held is not None and held[0] == "clues":
+        return held[1]
+    if held is not None:
+        puzzle = held[1]
+    else:
+        path = puzzle_paths.find(pid)
+        if path is None:
+            # Held as its clues alone: those are its inputs (tools/clues_only.py).
+            return clues_only.read(pid) if "-" in str(pid) else None
+        try:
+            puzzle = json.loads(path.read_text(encoding="utf-8"))
+        except (FileNotFoundError, ValueError):
+            return None
     key = {}
     stash = BLIND_STASH / f"{pid}.json"
     if stash.exists():
@@ -106,8 +152,8 @@ def puzzle_inputs(pid):
     return inputs
 
 
-def input_hash(pid):
-    return hashlib.sha256(json.dumps(puzzle_inputs(pid), sort_keys=True).encode()).hexdigest()[:16]
+def input_hash(pid, held=None):
+    return hashlib.sha256(json.dumps(puzzle_inputs(pid, held), sort_keys=True).encode()).hexdigest()[:16]
 
 
 def load():
@@ -152,7 +198,7 @@ def cmd_record(args):
         sys.exit(3)   # a caller that alerts on a real failure tests for this
     data = load()
     data[args.kind][args.id] = {
-        "puzzle": input_hash(args.id),
+        "puzzle": input_hash(args.id, committed(args.id)),
         "date": datetime.now(timezone.utc).date().isoformat(),
         "reason": (args.reason or "")[:300],
     }
