@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "Have a discussion about introduction of invasive plant",
     "enumeration": "7"
    },
-   "solution": "CONIFER"
+   "solution": "CONIFER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CONIFER",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one thing about another goes round it, so the discussion word wraps the selected letter"
+     },
+     {
+      "text": "introduction of",
+      "for": "letter_selection",
+      "note": "the introduction of a word is its opening, so only its first letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Have a discussion",
+      "gives": "CONFER",
+      "note": "to confer is to talk things over"
+     },
+     {
+      "clueFragment": "invasive",
+      "gives": "I",
+      "select": "first",
+      "note": "the opening letter of invasive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "I",
+      "FER"
+     ]
+    },
+    "explanation": {
+     "surface": "A group debates what to do about an invasive weed that has turned up.",
+     "definitionFit": "A conifer is a cone-bearing tree such as a pine or fir, an example of a plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "invasive"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +104,55 @@
     "text": "Apt to forget half of list in manifest",
     "enumeration": "9"
    },
-   "solution": "OBLIVIOUS"
+   "solution": "OBLIVIOUS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OBLIVIOUS",
+    "definitions": [
+     {
+      "text": "Apt to forget",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another sits inside it, so the shortened list goes inside the word for manifest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "manifest",
+      "gives": "OBVIOUS",
+      "note": "manifest means plain to see"
+     },
+     {
+      "clueFragment": "half of list",
+      "gives": "LI",
+      "note": "the first two of the four letters of list"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "LI",
+      "VIOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone forgetful mislays half the items on their shopping list.",
+     "walkthrough": "'Manifest' looks like a cargo list to go with 'list', but here it is the adjective meaning evident.",
+     "definitionFit": "Someone oblivious is unaware or heedless of things, so likely to forget them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "manifest"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +166,51 @@
     "text": "Counteract the effect of secret agent's return somewhat",
     "enumeration": "6"
    },
-   "solution": "NEGATE"
+   "solution": "NEGATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "hidden_word"
+    ],
+    "answer": "NEGATE",
+    "definitions": [
+     {
+      "text": "Counteract the effect of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "return",
+      "for": "reversal",
+      "note": "a return goes back the way it came, so the letters are read from right to left"
+     },
+     {
+      "text": "somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means only part of something, so the answer is a stretch of letters inside the phrase"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secret agent",
+      "gives": "NEGATE",
+      "note": "read backwards, secret agent runs t-n-e-g-a-t-e-r-c-e-s, and six consecutive letters of that give the entry"
+     }
+    ],
+    "explanation": {
+     "surface": "Undoing the damage done by a spy coming home, at least in part.",
+     "definitionFit": "To negate something is to nullify it, cancelling out its effect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "return"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +224,66 @@
     "text": "Scene is mistakenly introducing 100 subjects",
     "enumeration": "8"
    },
-   "solution": "SCIENCES"
+   "solution": "SCIENCES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SCIENCES",
+    "definitions": [
+     {
+      "text": "subjects",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mistakenly",
+      "for": "anagram",
+      "note": "letters set down mistakenly are in the wrong order and must be rearranged"
+     },
+     {
+      "text": "introducing",
+      "for": "container",
+      "note": "introducing something means bringing it inside, so the number goes into the rearranged letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scene is",
+      "gives": "SCENEIS",
+      "note": "the two words used as letters to rearrange"
+     },
+     {
+      "clueFragment": "100",
+      "gives": "C",
+      "note": "C is the Roman numeral for a hundred"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCIEN",
+      "C",
+      "ES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SCENEIS",
+       "gives": "SCIENES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A film scene shot with a hundred extras goes wrong.",
+     "definitionFit": "Sciences such as physics or biology are fields of study, the subjects of a school or university."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Scene"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +303,40 @@
      }
     ]
    },
-   "solution": "SILENTTREATMENT"
+   "solution": "SILENTTREATMENT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SILENT TREATMENT",
+    "definitions": [
+     {
+      "text": "Withdrawal of speech that could escalate conflict",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Withdrawal of speech",
+      "note": "surface reading: a speech being retracted, perhaps by a politician"
+     },
+     {
+      "clueFragment": "that could escalate conflict",
+      "note": "setter's reading: refusing to speak to someone, a sulk that tends to make a quarrel worse"
+     }
+    ],
+    "explanation": {
+     "surface": "A politician retracting an inflammatory speech that might widen a war.",
+     "walkthrough": "Withdrawal sounds like retracting what was said, but it is the act of withholding talk altogether.",
+     "definitionFit": "The phrase names the habit of deliberately ignoring someone and refusing to talk to them after a disagreement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Withdrawal"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +350,55 @@
     "text": "Hotel near Cambridge with no vacancies, naturally",
     "enumeration": "8"
    },
-   "solution": "INNATELY"
+   "solution": "INNATELY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INNATELY",
+    "definitions": [
+     {
+      "text": "naturally",
+      "at": 40
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hotel",
+      "gives": "INN",
+      "note": "an inn is a small hotel"
+     },
+     {
+      "clueFragment": "near Cambridge",
+      "gives": "ATELY",
+      "note": "AT ELY: the cathedral city of Ely lies a few miles from Cambridge"
+     },
+     {
+      "clueFragment": "with no vacancies",
+      "note": "the words run together with no spaces between them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INN",
+      "ATELY"
+     ]
+    },
+    "explanation": {
+     "surface": "A fully booked hotel close to Cambridge, as you would expect.",
+     "walkthrough": "'No vacancies' pretends to be about full rooms; it tells you to close the gaps in INN AT ELY. Ely is a small cathedral city in Cambridgeshire.",
+     "definitionFit": "Something innate is inborn, so doing a thing innately means doing it by nature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "vacancies"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +412,51 @@
     "text": "This score explicitly excludes choir",
     "enumeration": "5"
    },
-   "solution": "NOTCH"
+   "solution": "NOTCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOTCH",
+    "definitions": [
+     {
+      "text": "score",
+      "at": 5
+     }
+    ],
+    "linkWords": [
+     "This"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "explicitly excludes",
+      "gives": "NOT",
+      "note": "the plainest way of excluding something is to say not"
+     },
+     {
+      "clueFragment": "choir",
+      "gives": "CH",
+      "note": "CH is a standard abbreviation for choir, as on organ stops"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOT",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A musical score that pointedly leaves out the choir part.",
+     "walkthrough": "'Score' looks like music, but it is a cut or mark.",
+     "definitionFit": "To score a surface is to cut a line in it, and a notch is such a small cut or mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "score"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +470,53 @@
     "text": "Monarch once did career officer's commissions",
     "enumeration": "7"
    },
-   "solution": "ERRANDS"
+   "solution": "ERRANDS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ERRANDS",
+    "definitions": [
+     {
+      "text": "commissions",
+      "at": 34
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Monarch once",
+      "gives": "ER",
+      "note": "Elizabeth Regina, the late Queen"
+     },
+     {
+      "clueFragment": "did career",
+      "gives": "RAN",
+      "note": "to career is to rush along, so did career is ran"
+     },
+     {
+      "clueFragment": "officer's",
+      "gives": "DS",
+      "note": "a Detective Sergeant, a police officer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "RAN",
+      "DS"
+     ]
+    },
+    "explanation": {
+     "surface": "A former monarch who ran a career officer's business for them.",
+     "walkthrough": "'Career officer' reads as a single job title; career is really a verb.",
+     "definitionFit": "A commission is a task one is asked to do for another, which is exactly what an errand is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "career"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +530,58 @@
     "text": "Boil lanced by doctor is serious",
     "enumeration": "6"
    },
-   "solution": "SOMBRE"
+   "solution": "SOMBRE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SOMBRE",
+    "definitions": [
+     {
+      "text": "serious",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lanced by",
+      "for": "container",
+      "note": "a lanced boil has something pushed into it, so the doctor goes inside"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boil",
+      "gives": "SORE",
+      "note": "a boil is a painful sore"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MB",
+      "note": "Bachelor of Medicine, a doctor's degree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "MB",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "A GP lancing a boil is no laughing matter.",
+     "walkthrough": "MB, Bachelor of Medicine, is the usual crossword doctor alongside DR and MO.",
+     "definitionFit": "A sombre person or mood is grave and gloomy, which is to say serious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lanced"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +601,43 @@
      }
     ]
    },
-   "solution": "LONGTERM"
+   "solution": "LONGTERM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LONG-TERM",
+    "definitions": [
+     {
+      "text": "Enduring",
+      "at": 0
+     },
+     {
+      "text": "word for hunger?",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Enduring",
+      "note": "first meaning: lasting a long time"
+     },
+     {
+      "clueFragment": "word for hunger?",
+      "note": "second meaning read cryptically: a term for yearning is long"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the playful reading: to long for something is to hunger for it, so the word long is a term for hunger.",
+     "definitionFit": "Long-term means lasting or extending over a great stretch of time, so it describes something durable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hunger"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +651,66 @@
     "text": "Put the finishing touches to Evita's representation on flyer",
     "enumeration": "8"
    },
-   "solution": "TITIVATE"
+   "solution": "TITIVATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TITIVATE",
+    "definitions": [
+     {
+      "text": "Put the finishing touches to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "representation",
+      "for": "anagram",
+      "note": "a representation of a name is a new rendering of it, so its letters are rearranged"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue one piece written on another follows it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flyer",
+      "gives": "TIT",
+      "note": "a tit is a small bird"
+     },
+     {
+      "clueFragment": "Evita's",
+      "gives": "IVATE",
+      "note": "the five letters of Evita rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIT",
+      "IVATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EVITA",
+       "gives": "IVATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Adding final touches to a poster of Evita for the musical.",
+     "walkthrough": "'Flyer' suggests a leaflet but is the bird. Evita is the Lloyd Webber musical about Eva Perón.",
+     "definitionFit": "To titivate is to smarten something up with small finishing improvements."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flyer"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +724,72 @@
     "text": "Haitian cooking doesn't use one bit of anchovy paste",
     "enumeration": "6"
    },
-   "solution": "TAHINI"
+   "solution": "TAHINI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "TAHINI",
+    "definitions": [
+     {
+      "text": "paste",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooking",
+      "for": "anagram",
+      "note": "cooking mixes ingredients, so these letters are stirred into a new order"
+     },
+     {
+      "text": "doesn't use",
+      "for": "deletion",
+      "note": "what a recipe doesn't use is left out, so a letter is removed"
+     },
+     {
+      "text": "one bit of",
+      "for": "letter_selection",
+      "note": "one bit of a word, here its first, is a single letter taken from it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Haitian",
+      "gives": "HAITIAN",
+      "note": "the word used as letters"
+     },
+     {
+      "clueFragment": "anchovy",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of anchovy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAHINI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HITIAN",
+       "gives": "TAHINI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Caribbean recipe for fish paste that leaves out the anchovy.",
+     "walkthrough": "One A comes out of HAITIAN, and the remaining six letters are rearranged.",
+     "definitionFit": "Tahini is a smooth paste made from ground sesame seeds, used in hummus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "paste"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +803,67 @@
     "text": "Reluctant to talk about appeal returning money",
     "enumeration": "8"
    },
-   "solution": "RETICENT"
+   "solution": "RETICENT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "RETICENT",
+    "definitions": [
+     {
+      "text": "Reluctant to talk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "something returning travels back, so the word for appeal is read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning"
+     },
+     {
+      "clueFragment": "appeal",
+      "gives": "IT",
+      "note": "it means sex appeal"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "CENT",
+      "note": "a cent is a coin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "TI",
+      "CENT"
+     ],
+     "reversals": [
+      {
+       "from": "IT",
+       "to": "TI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shy fundraiser hesitates to speak about an appeal bringing cash back.",
+     "walkthrough": "'It' for sex appeal is an old crossword favourite.",
+     "definitionFit": "A reticent person keeps their thoughts to themselves and is disinclined to speak."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "appeal"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +877,69 @@
     "text": "Transmission time chosen to accommodate constraints of audiences",
     "enumeration": "8"
    },
-   "solution": "TELECAST"
+   "solution": "TELECAST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "TELECAST",
+    "definitions": [
+     {
+      "text": "Transmission",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to accommodate",
+      "for": "container",
+      "note": "to accommodate something is to make room for it inside"
+     },
+     {
+      "text": "constraints of",
+      "for": "letter_selection",
+      "note": "constraints are the bounds or limits, so only the outer letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "chosen",
+      "gives": "ELECT",
+      "note": "elect as an adjective means chosen"
+     },
+     {
+      "clueFragment": "audiences",
+      "gives": "AS",
+      "select": "outer",
+      "note": "the first and last letters of audiences"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ELEC",
+      "AS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A broadcast slot picked to suit the limits of its viewers.",
+     "walkthrough": "Constraints are the edges that hem something in, which is why they point to a word's first and last letters.",
+     "definitionFit": "A telecast is a programme sent out by television, a broadcast transmission."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "constraints"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +953,54 @@
     "text": "Intriguing woman supported by old Spanish gentleman",
     "enumeration": "9"
    },
-   "solution": "CABALLERO"
+   "solution": "CABALLERO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CABALLERO",
+    "definitions": [
+     {
+      "text": "Spanish gentleman",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supported by",
+      "for": "charade",
+      "note": "in a down clue a piece supported by another stands above it, so the second comes after"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Intriguing woman",
+      "gives": "CABALLER",
+      "note": "a caballer is an intriguer, one who plots as part of a cabal"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CABALLER",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A scheming woman propped up by an elderly Spanish gent.",
+     "walkthrough": "CABALLER is an old word, in Chambers, for a member of a cabal; the woman is that plotter.",
+     "definitionFit": "Caballero is the Spanish for a gentleman or knight, literally a horseman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Intriguing"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1014,64 @@
     "text": "Ladies' man from California briefly dated star",
     "enumeration": "8"
    },
-   "solution": "CASANOVA"
+   "solution": "CASANOVA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CASANOVA",
+    "definitions": [
+     {
+      "text": "Ladies' man",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the word loses its tail"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "California",
+      "gives": "CA",
+      "note": "the state's postal abbreviation"
+     },
+     {
+      "clueFragment": "dated",
+      "gives": "SAW",
+      "note": "dated means saw, as in went out with"
+     },
+     {
+      "clueFragment": "star",
+      "gives": "NOVA",
+      "note": "a nova is a star that suddenly flares"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "SA",
+      "NOVA"
+     ]
+    },
+    "explanation": {
+     "surface": "A Hollywood womaniser who had a brief fling with a film star.",
+     "walkthrough": "'Star' looks like a celebrity but is the astronomical kind.",
+     "definitionFit": "Casanova, the 18th-century Venetian seducer, gave his name to any man who chases women."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "star"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1085,47 @@
     "text": "Boldly face challenging aspect of departing flight's announcement?",
     "enumeration": "8"
    },
-   "solution": "OUTSTARE"
+   "solution": "OUTSTARE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "OUTSTARE",
+    "definitions": [
+     {
+      "text": "Boldly face",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "challenging aspect of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "departing",
+      "gives": "OUT",
+      "note": "someone departing is going out"
+     },
+     {
+      "clueFragment": "flight's announcement",
+      "gives": "STARE",
+      "soundsLike": "STAIR",
+      "note": "a flight of stairs; spoken, one stair sounds like a fixed look"
+     }
+    ],
+    "explanation": {
+     "surface": "An airport announcement about a departing flight that seems to be challenging you.",
+     "walkthrough": "'Flight' is a set of steps, not a plane. 'Challenging aspect' backs up the second half: a stare is a challenging look.",
+     "definitionFit": "To outstare someone is to hold their gaze until they look away, facing them down boldly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flight's"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1139,64 @@
     "text": "Idealistic individual, up to a point, surprisingly ignores \"opt out\"",
     "enumeration": "7"
    },
-   "solution": "UTOPIAN"
+   "solution": "UTOPIAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "UTOPIAN",
+    "definitions": [
+     {
+      "text": "Idealistic individual",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surprisingly",
+      "for": "anagram",
+      "note": "a surprising result is not in the expected order, so the letters are reshuffled"
+     },
+     {
+      "text": "ignores",
+      "for": "deletion",
+      "note": "what is ignored is left out, so these letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "up to a point",
+      "gives": "UPTOAPOINT",
+      "note": "the phrase used as letters"
+     },
+     {
+      "clueFragment": "opt out",
+      "gives": "OPT",
+      "note": "the three letters to drop; out signals they go"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UTOPIAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UAPOINT",
+       "gives": "UTOPIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An idealist who, only partly, refuses to opt out of something.",
+     "definitionFit": "A utopian is a visionary who believes in a perfect society, an idealist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "surprisingly"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1210,67 @@
     "text": "Banishes changes omitting book's coarse material",
     "enumeration": "7"
    },
-   "solution": "HESSIAN"
+   "solution": "HESSIAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "HESSIAN",
+    "definitions": [
+     {
+      "text": "coarse material",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changes",
+      "for": "anagram",
+      "note": "whatever changes takes a new form, so its letters are rearranged"
+     },
+     {
+      "text": "omitting",
+      "for": "deletion",
+      "note": "omitting means leaving out, so a letter is removed"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Banishes",
+      "gives": "BANISHES",
+      "note": "the word used as letters"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HESSIAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANISHES",
+       "gives": "HESSIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rule banishing all changes except those in a book's rough draft.",
+     "definitionFit": "Hessian is a rough woven fabric of jute or hemp, known in America as burlap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Banishes"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1284,40 @@
     "text": "Stock characters appearing in every novel?",
     "enumeration": "8"
    },
-   "solution": "ALPHABET"
+   "solution": "ALPHABET",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ALPHABET",
+    "definitions": [
+     {
+      "text": "Stock characters appearing in every novel?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stock characters",
+      "note": "surface reading: clichéd figures, such as the brooding hero, that crop up in fiction"
+     },
+     {
+      "clueFragment": "appearing in every novel?",
+      "note": "setter's reading: the standard set of letters that every book is written with"
+     }
+    ],
+    "explanation": {
+     "surface": "A critic sighing that the same tired stereotypes turn up in every novel.",
+     "walkthrough": "Characters means letters of writing here, not people in a story.",
+     "definitionFit": "The full set of letters used to write a language is its stock of written symbols, found in any book."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1331,70 @@
     "text": "I try and rush back for Polish food",
     "enumeration": "6"
    },
-   "solution": "PIROGI"
+   "solution": "PIROGI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PIROGI",
+    "definitions": [
+     {
+      "text": "Polish food",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling the other way, so the whole string is read upwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "try",
+      "gives": "GO",
+      "note": "to have a go is to try"
+     },
+     {
+      "clueFragment": "rush",
+      "gives": "RIP",
+      "note": "to rip along is to rush"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIR",
+      "OG",
+      "I"
+     ],
+     "reversals": [
+      {
+       "from": "IGORIP",
+       "to": "PIROGI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sampling a Polish dish and then dashing off.",
+     "walkthrough": "'Polish' at the start of the definition hides its capital: it is the nationality, not shine.",
+     "definitionFit": "Pirogi are Polish dumplings stuffed with fillings such as potato, cheese or meat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 21,
@@ -339,7 +1408,56 @@
     "text": "Part of range found in North American prayers",
     "enumeration": "6"
    },
-   "solution": "NOVENA"
+   "solution": "NOVENA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NOVENA",
+    "definitions": [
+     {
+      "text": "prayers",
+      "at": 38,
+      "note": "plural, whereas the answer is one series of them"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in another is located inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "North American",
+      "gives": "NA",
+      "note": "the standard abbreviation"
+     },
+     {
+      "clueFragment": "Part of range",
+      "gives": "OVEN",
+      "note": "a range is a kitchen stove, and the oven is part of it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "OVEN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Mountain-range churches in North America where people say prayers.",
+     "walkthrough": "'Range' suggests mountains; it is a cooking range, a large old-style kitchen stove.",
+     "definitionFit": "A novena is a Catholic devotion of prayers said over nine consecutive days."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "range"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1471,55 @@
     "text": "Remove backing for subsistence level",
     "enumeration": "5"
    },
-   "solution": "ERASE"
+   "solution": "ERASE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ERASE",
+    "definitions": [
+     {
+      "text": "Remove",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing for",
+      "for": "letter_selection",
+      "note": "the backing of a word is its rear end, so only its final letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "subsistence",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of subsistence"
+     },
+     {
+      "clueFragment": "level",
+      "gives": "RASE",
+      "note": "to rase, an old spelling of raze, is to level a building to the ground"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "RASE"
+     ]
+    },
+    "explanation": {
+     "surface": "Taking away financial support set at subsistence level.",
+     "definitionFit": "To erase something is to wipe it out or remove it entirely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "level"
+    }
+   }
   },
   {
    "number": 23,
@@ -367,7 +1533,55 @@
     "text": "Lecture on ethics is inspired by state of mind",
     "enumeration": "8"
    },
-   "solution": "MORALISE"
+   "solution": "MORALISE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MORALISE",
+    "definitions": [
+     {
+      "text": "Lecture on ethics",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inspired by",
+      "for": "container",
+      "note": "what is inspired is breathed in, so these letters go inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "state of mind",
+      "gives": "MORALE",
+      "note": "morale is the spirits or mood of a person or group"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MORAL",
+      "IS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A philosophy talk whose content is shaped by the speaker's mood.",
+     "walkthrough": "'Lecture on ethics' reads as a noun phrase, but it is a verb: to lecture about ethics.",
+     "definitionFit": "To moralise is to preach about right and wrong, delivering a sermon on ethical behaviour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "inspired"
+    }
+   }
   },
   {
    "number": 24,
@@ -381,7 +1595,69 @@
     "text": "Revolutionary means of extracting oil with a single stone",
     "enumeration": "8"
    },
-   "solution": "GIRASOLE"
+   "solution": "GIRASOLE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "GIRASOLE",
+    "definitions": [
+     {
+      "text": "stone",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Revolutionary",
+      "for": "reversal",
+      "note": "a revolutionary thing turns over, so the first piece is written backwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "means of extracting oil",
+      "gives": "RIG",
+      "note": "an oil rig drills for oil"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "single",
+      "gives": "SOLE",
+      "note": "sole means only or single"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GIR",
+      "A",
+      "SOLE"
+     ],
+     "reversals": [
+      {
+       "from": "RIG",
+       "to": "GIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A groundbreaking oil extraction method that needs only one stone.",
+     "definitionFit": "A girasol, also spelt girasole, is a fire opal, a gemstone that shows a glow when turned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Revolutionary"
+    }
+   }
   },
   {
    "number": 25,
@@ -395,7 +1671,55 @@
     "text": "Manager repeatedly uses such language!",
     "enumeration": "6"
    },
-   "solution": "GERMAN"
+   "solution": "GERMAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "GERMAN",
+    "definitions": [
+     {
+      "text": "such language",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "repeatedly",
+      "for": "charade",
+      "note": "repeatedly means the word is written out twice in a row, one copy after the other"
+     },
+     {
+      "text": "uses",
+      "for": "deletion",
+      "note": "a string that uses something holds it within, so only an inner stretch is kept and its ends are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Manager repeatedly",
+      "gives": "MANAGERMANAGER",
+      "note": "the word written twice; cut mana from the front and ager from the back"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GERMAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A football boss with a famously foul mouth swears at the team again and again.",
+     "walkthrough": "The exclamation mark hints at swearing; the language is a national one.",
+     "definitionFit": "German is the language of Germany, Austria and much of Switzerland, the language the doubled word contains."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "language"
+    }
+   }
   },
   {
    "number": 26,
@@ -409,7 +1733,64 @@
     "text": "Lay to rest start of appeal by court and work together?",
     "enumeration": "8"
    },
-   "solution": "INTERACT"
+   "solution": "INTERACT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "INTERACT",
+    "definitions": [
+     {
+      "text": "work together",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter, the only one kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lay to rest",
+      "gives": "INTER",
+      "note": "to inter is to bury"
+     },
+     {
+      "clueFragment": "appeal",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of appeal"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTER",
+      "A",
+      "CT"
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer ending an appeal by the court so the parties cooperate.",
+     "definitionFit": "To interact is to act upon one another, communicating or working jointly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rest"
+    }
+   }
   }
  ]
 }
