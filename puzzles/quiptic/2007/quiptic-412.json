@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "Waste pay after sure-fire tips",
     "enumeration": "6"
    },
-   "solution": "SEWAGE"
+   "solution": "SEWAGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SEWAGE",
+    "definitions": [
+     {
+      "text": "Waste",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tips",
+      "for": "letter_selection",
+      "note": "the tips of a phrase are its two ends, so only the very first and very last letters are kept"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after sends the piece named before it to the second position, behind the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sure-fire",
+      "gives": "SE",
+      "select": "outer",
+      "note": "the two end letters of sure-fire"
+     },
+     {
+      "clueFragment": "pay",
+      "gives": "WAGE",
+      "note": "a wage is pay for work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "WAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that money is thrown away on supposedly certain bets.",
+     "walkthrough": "'After' sets the pay behind the tips, so the tips lead.",
+     "definitionFit": "Sewage is the waste matter carried off in drains and sewers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tips"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +104,59 @@
     "text": "Bread is hot when left inside",
     "enumeration": "7"
    },
-   "solution": "STOLLEN"
+   "solution": "STOLLEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STOLLEN",
+    "definitions": [
+     {
+      "text": "Bread",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "something put inside sits within the other word, splitting it"
+     }
+    ],
+    "linkWords": [
+     "is",
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hot",
+      "gives": "STOLEN",
+      "note": "hot is slang for stolen goods"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOL",
+      "L",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A baker's note that the loaf is still warm when the remainder is kept indoors.",
+     "walkthrough": "STOLEN takes L into its middle: STOL-L-EN.",
+     "definitionFit": "Stollen is a German fruit loaf eaten at Christmas, a kind of sweet bread."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hot"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +170,59 @@
     "text": "Country and western's first lady",
     "enumeration": "5"
    },
-   "solution": "WOMAN"
+   "solution": "WOMAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "WOMAN",
+    "definitions": [
+     {
+      "text": "lady",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first picks out the opening letter of the word before it, and also puts it at the front"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "western's",
+      "gives": "W",
+      "select": "first",
+      "note": "the first letter of western"
+     },
+     {
+      "clueFragment": "Country",
+      "gives": "OMAN",
+      "note": "Oman is a country on the Arabian peninsula"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "OMAN"
+     ]
+    },
+    "explanation": {
+     "surface": "The leading female star of country and western music, its first lady.",
+     "walkthrough": "'First' does double work: it takes the opening letter of western and sets it at the front, before the country.",
+     "definitionFit": "A lady is a polite word for a woman, an adult female."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Country"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +236,50 @@
     "text": "Old timer visiting hotel every year",
     "enumeration": "7"
    },
-   "solution": "GRANDPA"
+   "solution": "GRANDPA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRANDPA",
+    "definitions": [
+     {
+      "text": "Old timer",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "visiting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hotel",
+      "gives": "GRAND",
+      "note": "a Grand is a common name for a large hotel, as in the Grand Hotel"
+     },
+     {
+      "clueFragment": "every year",
+      "gives": "PA",
+      "note": "PA is per annum, Latin for each year"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRAND",
+      "PA"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly regular who stays at the same hotel annually.",
+     "walkthrough": "PA, per annum, is a common abbreviation on price lists and salaries.",
+     "definitionFit": "A grandfather is a fond example of an old-timer, an elderly man."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "visiting"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +293,42 @@
     "text": "Condemns building materials",
     "enumeration": "6"
    },
-   "solution": "SLATES"
+   "solution": "SLATES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SLATES",
+    "definitions": [
+     {
+      "text": "Condemns",
+      "at": 0
+     },
+     {
+      "text": "building materials",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Condemns",
+      "note": "first meaning: criticises harshly, as a reviewer does"
+     },
+     {
+      "clueFragment": "building materials",
+      "note": "second meaning: flat grey stones used for roofing"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests an inspector rejecting shoddy materials; the two halves are separate senses.",
+     "definitionFit": "To slate is British for to criticise severely, and slates are thin rock tiles laid on roofs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Condemns"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +342,44 @@
     "text": "Conductor broadcast songs",
     "enumeration": "6"
    },
-   "solution": "LIEDER"
+   "solution": "LIEDER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LIEDER",
+    "definitions": [
+     {
+      "text": "songs",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "homophone",
+      "note": "something broadcast is heard rather than seen, so a word is judged by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conductor",
+      "gives": "LIEDER",
+      "soundsLike": "LEADER",
+      "note": "a leader directs a band or orchestra"
+     }
+    ],
+    "explanation": {
+     "surface": "A conductor's concert is aired on the radio, featuring songs.",
+     "walkthrough": "In Britain the leader is the principal violinist, but a band leader conducts.",
+     "definitionFit": "Lieder are German art songs for voice and piano, as by Schubert."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Conductor"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +393,51 @@
     "text": "Rearrange ones parts",
     "enumeration": "9"
    },
-   "solution": "TRANSPOSE"
+   "solution": "TRANSPOSE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "TRANSPOSE",
+    "definitions": [
+     {
+      "text": "Rearrange ones parts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rearrange",
+      "for": "anagram",
+      "note": "to rearrange is to put things in a new order, so the following letters are shuffled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ones parts",
+      "gives": "ONESPARTS",
+      "note": "taken as written, nine letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONESPARTS",
+       "gives": "TRANSPOSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to swap one's components into a new order.",
+     "walkthrough": "The whole clue is both the definition and the instruction: shuffle the letters of the two words and they are rearranged.",
+     "definitionFit": "To transpose is to change the order or position of things, swapping them around."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +451,51 @@
     "text": "GP rules out extravagant display",
     "enumeration": "7"
    },
-   "solution": "SPLURGE"
+   "solution": "SPLURGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPLURGE",
+    "definitions": [
+     {
+      "text": "extravagant display",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out can mean disordered or wrong, so the letters before it are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "GP rules",
+      "gives": "GPRULES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GPRULES",
+       "gives": "SPLURGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A family doctor forbids a showy, lavish event.",
+     "walkthrough": "A GP is a general practitioner, a family doctor in Britain.",
+     "definitionFit": "A splurge is a lavish bout of spending or a showy effort meant to impress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rules"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +515,39 @@
      }
     ]
    },
-   "solution": "SHIPPINGLANES"
+   "solution": "SHIPPINGLANES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SHIPPING LANES",
+    "definitions": [
+     {
+      "text": "Popular main courses",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular main courses",
+      "note": "surface reading: the best-selling dishes on a restaurant menu"
+     },
+     {
+      "clueFragment": "Popular main courses",
+      "note": "setter's reading: busy routes across the main, the old word for the open sea"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Main courses' sounds like dinner, but the main is the ocean and courses are routes steered across it.",
+     "definitionFit": "These are the regular sea routes followed by merchant vessels, well used and so popular."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "courses"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +561,64 @@
     "text": "Threaten student getting low return",
     "enumeration": "4"
    },
-   "solution": "LOOM"
+   "solution": "LOOM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LOOM",
+    "definitions": [
+     {
+      "text": "Threaten",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "return",
+      "for": "reversal",
+      "note": "a return goes back the way it came, so the word is read from end to start"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L for learner, as on a British learner driver's plate"
+     },
+     {
+      "clueFragment": "low",
+      "gives": "MOO",
+      "note": "a low is the sound a cow makes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "OOM"
+     ],
+     "reversals": [
+      {
+       "from": "MOO",
+       "to": "OOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pupil is threatened with a poor mark coming back.",
+     "walkthrough": "'Low' looks like a poor grade but is the verb for a cow's call.",
+     "definitionFit": "To loom is to appear in a menacing way, as trouble or a deadline threatens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "low"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +632,54 @@
     "text": "It can be realised with each viable alternative",
     "enumeration": "10"
    },
-   "solution": "ACHIEVABLE"
+   "solution": "ACHIEVABLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ACHIEVABLE",
+    "definitions": [
+     {
+      "text": "It can be realised",
+      "at": 0,
+      "note": "a phrase for something that is possible; the answer is the adjective describing it"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "alternative",
+      "for": "anagram",
+      "note": "an alternative is another version, so the letters are put in a different order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "each viable",
+      "gives": "EACHVIABLE",
+      "note": "taken as written, ten letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EACHVIABLE",
+       "gives": "ACHIEVABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plan becomes possible when every workable option is considered.",
+     "definitionFit": "Something achievable is within reach, able to be accomplished or brought about."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "alternative"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +693,65 @@
     "text": "Shaved man first wins back a record",
     "enumeration": "6"
    },
-   "solution": "PLANED"
+   "solution": "PLANED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PLANED",
+    "definitions": [
+     {
+      "text": "Shaved",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means running in the opposite direction, so the letters are read from right to left"
+     }
+    ],
+    "linkWords": [
+     "first",
+     "wins"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a record",
+      "gives": "ALP",
+      "note": "a, plus LP, a long-playing record"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "NED",
+      "note": "Ned is a man's name, short for Edward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLA",
+      "NED"
+     ],
+     "reversals": [
+      {
+       "from": "ALP",
+       "to": "PLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clean-shaven athlete is the first to reclaim a record.",
+     "walkthrough": "The reversed A LP leads and the man's name ends the word; the clue's 'man first' order is loose, as the record comes back to the front.",
+     "definitionFit": "To plane wood is to shave thin layers off its surface with a blade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +765,49 @@
     "text": "Prayer bound to produce happiness",
     "enumeration": "8"
    },
-   "solution": "PLEASURE"
+   "solution": "PLEASURE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLEASURE",
+    "definitions": [
+     {
+      "text": "happiness",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "to produce"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prayer",
+      "gives": "PLEA",
+      "note": "a plea is an earnest request, like a prayer"
+     },
+     {
+      "clueFragment": "bound",
+      "gives": "SURE",
+      "note": "bound as in certain: it is bound to happen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLEA",
+      "SURE"
+     ]
+    },
+    "explanation": {
+     "surface": "Prayer is certain to bring joy.",
+     "definitionFit": "Pleasure is a feeling of enjoyment and contentment, a near synonym for happiness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bound"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +821,64 @@
     "text": "Satan destroyed a whole continent for her",
     "enumeration": "9"
    },
-   "solution": "ANASTASIA"
+   "solution": "ANASTASIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ANASTASIA",
+    "definitions": [
+     {
+      "text": "her",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "destroyed",
+      "for": "anagram",
+      "note": "something destroyed is broken apart, so the letters before it fall into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Satan",
+      "gives": "SATAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a whole continent",
+      "gives": "ASIA",
+      "note": "Asia is the largest continent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANAST",
+      "ASIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SATAN",
+       "gives": "ANAST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The devil laid waste to an entire continent on a woman's account.",
+     "walkthrough": "'Her' is a deliberately vague definition: any woman's name fits, and the wordplay picks which.",
+     "definitionFit": "Anastasia is a female first name, borne by the youngest daughter of the last Russian tsar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "her"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +892,39 @@
     "text": "A western Italian?",
     "enumeration": "9"
    },
-   "solution": "SPAGHETTI"
+   "solution": "SPAGHETTI",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SPAGHETTI",
+    "definitions": [
+     {
+      "text": "A western Italian?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A western Italian?",
+      "note": "surface reading: a person from the west of Italy"
+     },
+     {
+      "clueFragment": "A western Italian?",
+      "note": "setter's reading: the word that makes a cowboy film an Italian-made western, which is itself Italian food"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Cowboy films made in Italy in the 1960s were nicknamed after a pasta, so the pasta is the Italian a western can be.",
+     "definitionFit": "Spaghetti is an Italian pasta, and it names the Italian-made cowboy film genre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "western"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +938,54 @@
     "text": "Solid figure working in church",
     "enumeration": "4"
    },
-   "solution": "CONE"
+   "solution": "CONE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CONE",
+    "definitions": [
+     {
+      "text": "Solid figure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one item within the other, so one word sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ON",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A geometric shape found operating inside a church.",
+     "definitionFit": "A cone is a three-dimensional shape tapering from a circular base to a point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +999,57 @@
     "text": "Bloodsucker requires kickback",
     "enumeration": "4"
    },
-   "solution": "GNAT"
+   "solution": "GNAT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "GNAT",
+    "definitions": [
+     {
+      "text": "Bloodsucker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back signals the word should be taken in the opposite direction, read right to left"
+     }
+    ],
+    "linkWords": [
+     "requires"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kickback",
+      "gives": "TANG",
+      "note": "the first half of this word, kick, is a sharp flavour; its second half is the signal to turn it round"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GNAT"
+     ],
+     "reversals": [
+      {
+       "from": "TANG",
+       "to": "GNAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A parasite needs a payoff, a bribe.",
+     "walkthrough": "'Kickback' looks like one word meaning a bribe, but it splits into kick and the reversal signal.",
+     "definitionFit": "A gnat is a small biting fly; some females feed on blood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "requires"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1063,55 @@
     "text": "Stick lettuce in sugar",
     "enumeration": "7"
    },
-   "solution": "GLUCOSE"
+   "solution": "GLUCOSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GLUCOSE",
+    "definitions": [
+     {
+      "text": "sugar",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one item within another, so one word goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stick",
+      "gives": "GLUE",
+      "note": "to stick is to glue"
+     },
+     {
+      "clueFragment": "lettuce",
+      "gives": "COS",
+      "note": "cos is a type of long-leaved lettuce"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GLU",
+      "COS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A kitchen instruction to put salad leaves into sugar.",
+     "walkthrough": "Cos is what Americans call romaine.",
+     "definitionFit": "Glucose is a simple sugar and the body's main fuel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stick"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1125,39 @@
     "text": "Clutch baby carriers",
     "enumeration": "9"
    },
-   "solution": "EGGSHELLS"
+   "solution": "EGGSHELLS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EGGSHELLS",
+    "definitions": [
+     {
+      "text": "Clutch baby carriers",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clutch baby carriers",
+      "note": "surface reading: grip the slings or prams used to carry infants"
+     },
+     {
+      "clueFragment": "Clutch baby carriers",
+      "note": "setter's reading: a clutch is a set of laid eggs, and their casings carry chicks before hatching"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Clutch' reads as a verb, to grip, but is the noun for a nest of eggs.",
+     "definitionFit": "The shells of a clutch of eggs hold the unborn chicks, so they carry the babies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Clutch"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1171,42 @@
     "text": "Most art lectures include surprise",
     "enumeration": "7"
    },
-   "solution": "STARTLE"
+   "solution": "STARTLE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "STARTLE",
+    "definitions": [
+     {
+      "text": "surprise",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "include",
+      "for": "hidden_word",
+      "note": "to include is to contain, so the answer is held within the run of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Most art lectures",
+      "gives": "STARTLE",
+      "note": "found running across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Most lectures on art contain a surprise.",
+     "definitionFit": "To startle someone is to give them a sudden shock, to surprise them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "include"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1220,42 @@
     "text": "Permit debauchery",
     "enumeration": "7"
    },
-   "solution": "LICENCE"
+   "solution": "LICENCE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LICENCE",
+    "definitions": [
+     {
+      "text": "Permit",
+      "at": 0
+     },
+     {
+      "text": "debauchery",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Permit",
+      "note": "first meaning: an official document giving permission"
+     },
+     {
+      "clueFragment": "debauchery",
+      "note": "second meaning: excessive freedom, disregard of moral restraint"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read as a verb phrase, 'Permit debauchery' sounds like allowing an orgy; both words are nouns here. British spelling uses -ence for the noun.",
+     "definitionFit": "A licence is an official permit, and licence also means unrestrained, immoral behaviour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Permit"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1269,39 @@
     "text": "Stand up to go here?",
     "enumeration": "6"
    },
-   "solution": "URINAL"
+   "solution": "URINAL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "URINAL",
+    "definitions": [
+     {
+      "text": "Stand up to go here?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stand up to go here?",
+      "note": "surface reading: a place where you rise to set off, or to confront someone"
+     },
+     {
+      "clueFragment": "Stand up to go here?",
+      "note": "setter's reading: a fixture where men stand to relieve themselves, 'go' being the euphemism"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Go' is the polite word for using the toilet, and the fixture is the one used standing.",
+     "definitionFit": "This is a wall-mounted toilet fixture used by men while standing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "go"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1315,79 @@
     "text": "Europeans hop off westbound air transport",
     "enumeration": "8"
    },
-   "solution": "EUPHORIA"
+   "solution": "EUPHORIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "reversal"
+    ],
+    "answer": "EUPHORIA",
+    "definitions": [
+     {
+      "text": "transport",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone wrong or out of order, so the letters are jumbled"
+     },
+     {
+      "text": "westbound",
+      "for": "reversal",
+      "note": "in an across entry west is leftward, so travelling west means reading right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Europeans",
+      "gives": "EU",
+      "note": "the European Union"
+     },
+     {
+      "clueFragment": "hop",
+      "gives": "HOP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "air",
+      "gives": "AIR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EU",
+      "PHO",
+      "RIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HOP",
+       "gives": "PHO"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "AIR",
+       "to": "RIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Continental travellers fly west by plane.",
+     "walkthrough": "'Air transport' reads as one phrase, but transport is the definition, in the sense of being carried away by emotion.",
+     "definitionFit": "A transport of joy is an overwhelming feeling of delight, which is euphoria."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "transport"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1401,51 @@
     "text": "Heckle when head removed from drink",
     "enumeration": "6"
    },
-   "solution": "ARRACK"
+   "solution": "ARRACK",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARRACK",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head removed",
+      "for": "deletion",
+      "note": "removing the head takes away the front, so the opening letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "when",
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Heckle",
+      "gives": "BARRACK",
+      "note": "to barrack is to jeer at a speaker or player"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARRACK"
+     ]
+    },
+    "explanation": {
+     "surface": "Jeering at someone after a head was knocked off a pint.",
+     "definitionFit": "Arrack is a strong spirit distilled in South and Southeast Asia from palm sap or rice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 23,
@@ -375,7 +1459,54 @@
     "text": "Destroy tug, it's said, with part of leaf",
     "enumeration": "5"
    },
-   "solution": "RECTO"
+   "solution": "RECTO",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "RECTO",
+    "definitions": [
+     {
+      "text": "part of leaf",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "it's said",
+      "for": "homophone",
+      "note": "something said is spoken, so the words count by how they are pronounced"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Destroy",
+      "gives": "REC",
+      "soundsLike": "WRECK",
+      "note": "to wreck is to destroy"
+     },
+     {
+      "clueFragment": "tug",
+      "gives": "TO",
+      "soundsLike": "TOW",
+      "note": "to tow is to pull, to tug"
+     }
+    ],
+    "explanation": {
+     "surface": "Sabotaging a tugboat along with some foliage.",
+     "walkthrough": "A leaf here is a page of a book, not foliage.",
+     "definitionFit": "The recto is the right-hand page, the front side of a leaf in a book."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "leaf"
+    }
+   }
   },
   {
    "number": 24,
@@ -389,7 +1520,42 @@
     "text": "Accidental soldiers?",
     "enumeration": "10"
    },
-   "solution": "CONTINGENT"
+   "solution": "CONTINGENT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CONTINGENT",
+    "definitions": [
+     {
+      "text": "Accidental",
+      "at": 0
+     },
+     {
+      "text": "soldiers",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Accidental",
+      "note": "first meaning: happening by chance, dependent on something uncertain"
+     },
+     {
+      "clueFragment": "soldiers",
+      "note": "second meaning: a group of troops sent to join a larger force"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface hints at friendly fire; the two words are separate meanings.",
+     "definitionFit": "Contingent as an adjective means occurring by chance; as a noun it is a detachment of troops."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Accidental"
+    }
+   }
   },
   {
    "number": 25,
@@ -403,7 +1569,47 @@
     "text": "Key workers' jargon",
     "enumeration": "4"
    },
-   "solution": "CANT"
+   "solution": "CANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CANT",
+    "definitions": [
+     {
+      "text": "jargon",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Key",
+      "gives": "C",
+      "note": "C is a musical key"
+     },
+     {
+      "clueFragment": "workers",
+      "gives": "ANT",
+      "note": "the worker ant is the crossword's stock worker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "The specialist language of essential workers.",
+     "walkthrough": "'Key workers' reads as a set phrase for essential staff, but splits into a musical key and the insects.",
+     "definitionFit": "Cant is the special vocabulary of a particular group, a kind of jargon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Key"
+    }
+   }
   },
   {
    "number": 26,
@@ -417,7 +1623,59 @@
     "text": "Harmless drug given to short French vicar",
     "enumeration": "6"
    },
-   "solution": "EDIBLE"
+   "solution": "EDIBLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "EDIBLE",
+    "definitions": [
+     {
+      "text": "Harmless",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut off before the end, so the last letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "given to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     },
+     {
+      "clueFragment": "French vicar",
+      "gives": "DIBLEY",
+      "note": "Dawn French played the Vicar of Dibley in the BBC sitcom"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "DIBLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A mild narcotic is handed to a French clergyman who is short.",
+     "walkthrough": "'French' is not the nationality: The Vicar of Dibley is a British TV comedy starring Dawn French as the village vicar.",
+     "definitionFit": "Something edible is safe to eat, so harmless when eaten."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 27,
@@ -431,7 +1689,42 @@
     "text": "Change into suit",
     "enumeration": "6"
    },
-   "solution": "BECOME"
+   "solution": "BECOME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BECOME",
+    "definitions": [
+     {
+      "text": "Change into",
+      "at": 0
+     },
+     {
+      "text": "suit",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Change into",
+      "note": "first meaning: turn into, grow to be"
+     },
+     {
+      "clueFragment": "suit",
+      "note": "second meaning: look good on, flatter"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests getting dressed in a suit; 'suit' is a verb here, as in 'that colour suits you'.",
+     "definitionFit": "To become is to turn into something, and a garment that becomes you flatters you."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "suit"
+    }
+   }
   }
  ]
 }
