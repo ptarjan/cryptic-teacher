@@ -64,6 +64,7 @@ from datetime import date
 from pathlib import Path
 import enumeration
 import json_merge
+import post_index
 import provenance
 import downloads
 import series as series_meta
@@ -80,7 +81,6 @@ GEORGEHO_URL = "https://cryptics.georgeho.org/data.db"
 GEORGEHO_INDEX_VERSION = 2
 GEORGEHO_INDEX = DATA / "georgeho" / f"ours-v{GEORGEHO_INDEX_VERSION}.db"
 FIFTEENSQUARED_POSTS = DATA / "fifteensquared" / "posts"
-FIFTEENSQUARED_INDEX = DATA / "fifteensquared" / "by_puzzle.json"
 LEDGER = TOOLS / "data" / "corroboration_ledger.json"
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/128.0 Safari/537.36")
@@ -440,27 +440,28 @@ def blog_rows(content):
 
 
 def _fifteensquared_index():
-    """{puzzle id: [post id]} over the post cache, rebuilt when it grows."""
-    if not FIFTEENSQUARED_POSTS.is_dir():
-        return {}
-    stamp = FIFTEENSQUARED_POSTS.stat().st_mtime
-    if FIFTEENSQUARED_INDEX.exists():
-        held = json.loads(FIFTEENSQUARED_INDEX.read_text())
-        if held.get("stamp") == stamp:
-            return held["ids"]
+    """{puzzle id: [post id]} over the post cache, off tools/post_index.py's
+    local index of the posts' titles: topped up with only the posts it lacks,
+    so a single write never reads the 20k+ posts on the share. Post ids run in
+    file-name order, the order a listing of the share gives."""
     ids = defaultdict(list)
-    for path in FIFTEENSQUARED_POSTS.glob("*.json"):
-        post = json.loads(path.read_text())
-        pid = blog_puzzle_id(post["title"]["rendered"])
+    for stem, (title, _link, _slug) in sorted(post_index.entries(FIFTEENSQUARED_POSTS).items()):
+        pid = blog_puzzle_id(title)
         if pid:
-            ids[pid].append(int(path.stem))
-    FIFTEENSQUARED_INDEX.write_text(json.dumps({"stamp": stamp, "ids": ids}))
+            ids[pid].append(int(stem))
     return ids
+
+
+#: The series a fifteensquared title can name (BLOG_SERIES): a puzzle of any
+#: other (Genius, Azed, the FT) has no post here, and needs no index read.
+BLOG_SERIES_NAMED = {series for _pattern, series in BLOG_SERIES if series}
 
 
 @same_grid_only
 def fifteensquared(puzzle):
     """fifteensquared.net's posts, from tools/fetch_fifteensquared.py's cache."""
+    if puzzle.get("series") not in BLOG_SERIES_NAMED:
+        return []
     if "ids" not in _posts:
         _posts["ids"] = _fifteensquared_index()
     sizes = light_sizes(puzzle)

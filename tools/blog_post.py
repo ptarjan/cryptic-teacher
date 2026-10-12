@@ -11,6 +11,7 @@ import html.parser
 import json
 import sys
 
+import post_index
 from blog_facts import BLOGS, OUT, rendered
 
 BREAKS = {"p", "br", "div", "li", "tr", "h1", "h2", "h3", "h4", "table", "blockquote"}
@@ -55,10 +56,10 @@ def source(pid):
 def cached(pid, blog, url):
     """(post, comments) for the cached post at `url`, which writes up `pid`, or None."""
     root = BLOGS[blog][0]
-    index = root / "by_puzzle.json"  # fifteensquared's post ids per puzzle
-    ids = json.loads(index.read_text(encoding="utf-8"))["ids"] if index.exists() else {}
-    known = [root / "posts" / f"{i}.json" for i in ids.get(pid, ())]
-    for path in [*known, *(root / "posts").glob("*.json")]:
+    # The posts whose link is `url`, off tools/post_index.py's local index of
+    # the cache: only those are opened, not the 20k+ posts on the share.
+    known = [root / "posts" / f"{stem}.json" for stem in sorted(post_index.by_link(root / "posts", url))]
+    for path in known:
         if not path.exists():
             continue
         raw = path.read_text(encoding="utf-8")
