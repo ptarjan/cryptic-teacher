@@ -1422,6 +1422,27 @@ mark.link {
 .chart.strip { margin: 6px 0 8px; max-width: 420px; }
 .chart.strip text { font-size: 10px; }
 .chart .median { stroke: var(--fg); stroke-width: 2; }
+/* /progress/: one colour per phase, for its bars, lines and table key. */
+.ph-known { color: #8a8478; }
+.ph-acquired { color: #7b5ea7; }
+.ph-filed { color: #a3541b; }
+.ph-solved { color: #14608a; }
+.ph-hinted { color: #2f7d52; }
+@media (prefers-color-scheme: dark) {
+  .ph-known { color: #9c968a; }
+  .ph-acquired { color: #b49ae0; }
+  .ph-filed { color: #e39055; }
+  .ph-solved { color: #6cb6e0; }
+  .ph-hinted { color: #6fc48f; }
+}
+.chart rect[class^="ph-"] { fill: currentColor; }
+.chart .track { fill: var(--line); opacity: .6; }
+.chart .grid { stroke: var(--line); stroke-width: 1; opacity: .6; }
+.chart .line { fill: none; stroke: currentColor; stroke-width: 2.2; }
+.chart text.key { fill: currentColor; font-weight: 700; }
+.chart .pace { stroke: var(--fg); stroke-width: 1.2; stroke-dasharray: 4 3; opacity: .7; }
+.key-dot { display: inline-block; width: .7em; height: .7em; border-radius: 50%;
+  background: currentColor; margin-right: .4em; }
 .tutorial-static code { font-family: ui-monospace, Menlo, monospace; font-size: .85em; }
 
 /* The glossary is long on purpose — it is a lookup table, not a lesson, and a

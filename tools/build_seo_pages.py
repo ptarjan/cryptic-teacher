@@ -34,6 +34,10 @@ So this writes real HTML files alongside the app:
                            from tools/difficulty_page.html with every number
                            filled in from tools/difficulty.py and
                            tools/data/difficulty_check.json.
+  progress/index.html      how many puzzles are known to exist, acquired, solved
+                           and hinted, per series and over time, from
+                           tools/data/progress.json (tools/progress.py) with
+                           this build's index as today.
   showcase/index.html      puzzles with something unusual about them: a message
                            hidden in the grid, a jigsaw, a record. Picked by
                            tools/showcase.py from facts every puzzle page's
@@ -75,6 +79,7 @@ import build_abbreviations  # one glossary, rendered into every page that shows 
 import clue_types  # the one list of clue types, their labels and blurbs
 import difficulty  # the weights, bands and constants /difficulty/ quotes
 import difficulty_check  # the held-out scorecard /difficulty/ quotes
+import progress  # the phase history /progress/ draws
 import provenance  # solution_detail(), source_url()
 import renamed_ids  # the ids commits renamed, for their redirect pages
 import quotes  # curl(): clue text is stored straight, shown curled
@@ -361,6 +366,7 @@ FOOTER = f"""<footer>
   <a href="{BASE}/indicators/">Crossword indicators</a> &middot;
   <a href="{BASE}/difficulty/">How difficulty is rated</a> &middot;
   <a href="{BASE}/showcase/">Unusual puzzles</a> &middot;
+  <a href="{BASE}/progress/">Progress</a> &middot;
   <a href="https://github.com/ptarjan/cryptic-teacher">Source code</a>.</p>
 </footer>
 </body>
@@ -1443,6 +1449,214 @@ def difficulty_page(idx):
         + "\n".join(body) + "\n" + FOOTER
 
 
+# -------------------------------------------------------------- progress page
+
+RATE_DAYS = 60   # days of per-day bars /progress/ draws
+SHOWN = (progress.ACQUIRED, progress.FILED, progress.SOLVED, progress.HINTED)
+PHASE_LABEL = {progress.KNOWN: "known to exist", progress.ACQUIRED: "acquired",
+               progress.FILED: "filed", progress.SOLVED: "solved", progress.HINTED: "hinted"}
+
+
+def short_day(iso):
+    return datetime.fromisoformat(iso).strftime("%-d %b")
+
+
+def nice_step(top, ticks=4):
+    """A 1, 2 or 5 times a power of ten that cuts 0..top into about `ticks`."""
+    raw = max(top, 1) / ticks
+    mag = 10 ** (len(str(int(raw))) - 1)
+    return next(m * mag for m in (1, 2, 5, 10) if m * mag >= raw)
+
+
+def at_pace(remaining, per_day):
+    """How long `remaining` takes at `per_day`, in words."""
+    if remaining <= 0:
+        return "done"
+    if not per_day or per_day <= 0:
+        return "not moving"
+    days = remaining / per_day
+    if days < 60:
+        return f"{max(1, round(days))} days"
+    if days < 730:
+        return f"{round(days / 30.4)} months"
+    return f"{days / 365.25:.0f} years"
+
+
+def funnel_chart(tot):
+    """One bar per phase, as a share of the puzzles known to exist."""
+    known = tot[progress.KNOWN]
+    row, left, width = 30, 110, 400
+    body = []
+    for i, ph in enumerate((progress.KNOWN, progress.ACQUIRED, progress.SOLVED, progress.HINTED)):
+        n, y = tot[ph] or 0, i * row
+        w = width * min(n / known, 1)
+        body.append(f'<text x="{left - 8}" y="{y + 18}" text-anchor="end">{PHASE_LABEL[ph]}</text>'
+                    f'<rect class="track" x="{left}" y="{y + 5}" width="{width}" height="18"/>'
+                    f'<rect class="ph-{progress.PHASES[ph]}" x="{left}" y="{y + 5}" width="{w:.1f}" height="18"/>'
+                    f'<text x="{left + width + 6}" y="{y + 18}">{n:,} · {100 * n / known:.0f}%</text>')
+    return svg(left + width + 110, 4 * row + 4, "".join(body),
+               f"Every phase as a share of the {known:,} puzzles known to exist")
+
+
+def cumulative_chart(days):
+    """Each phase's running total, one line a phase, over every day held."""
+    lines = {ph: progress.series_of(days, ph) for ph in SHOWN}
+    first = datetime.fromisoformat(next(iter(days)))
+    span = max((datetime.fromisoformat(next(reversed(days))) - first).days, 1)
+    top = max(n for pts in lines.values() for _, n in pts)
+    step = nice_step(top)
+    ymax = step * -(-top // step)
+    W, H, L, R, T, B = 640, 260, 52, 96, 10, 24
+    def px(d):
+        return L + (datetime.fromisoformat(d) - first).days / span * (W - L - R)
+    def py(n):
+        return T + (1 - n / ymax) * (H - T - B)
+    body = []
+    for v in range(0, ymax + 1, step):
+        body.append(f'<line class="grid" x1="{L}" y1="{py(v):.1f}" x2="{W - R}" y2="{py(v):.1f}"/>'
+                    f'<text x="{L - 6}" y="{py(v) + 4:.1f}" text-anchor="end">{v:,}</text>')
+    ticks = list(days)[::max(1, len(days) // 6)]
+    body += [f'<text x="{px(d):.1f}" y="{H - 6}" text-anchor="middle">{short_day(d)}</text>' for d in ticks]
+    ends = []
+    for ph, pts in lines.items():
+        name = progress.PHASES[ph]
+        xy = " ".join(f"{px(d):.1f},{py(n):.1f}" for d, n in pts)
+        body.append(f'<polyline class="line ph-{name}" points="{xy}"/>')
+        ends.append([py(pts[-1][1]), name, pts[-1][1]])
+    # End labels pushed apart so two close lines do not print over each other.
+    ends.sort()
+    for a, b in zip(ends, ends[1:]):
+        b[0] = max(b[0], a[0] + 13)
+    body += [f'<text class="ph-{name} key" x="{W - R + 6}" y="{y + 4:.1f}">{name} {n:,}</text>'
+             for y, name, n in ends]
+    return svg(W, H, "".join(body), "Running totals by day: acquired counts the coverage ledger's "
+               "units and starts with the first saved ledger; filed, solved and hinted count puzzle files")
+
+
+def rate_chart(days, ph):
+    """The phase's gain each day over the last RATE_DAYS, with its 7-day pace
+    as a line. A day taller than the chart is cut off and its number printed."""
+    name = progress.PHASES[ph]
+    pts = progress.series_of(days, ph)
+    gains = progress.daily(pts)[-RATE_DAYS:]
+    if not gains:
+        return ""
+    per7 = progress.rate(pts, 7) or 0
+    vals = sorted(max(g, 0) for _, g in gains)
+    cap = max(vals[int(len(vals) * .9)] * 1.5, per7 * 1.5, 1)
+    W, H, L, T, B = 640, 140, 52, 26, 20
+    slot = (W - L) / RATE_DAYS
+    def py(n):
+        return T + (1 - min(n, cap) / cap) * (H - T - B)
+    body = [f'<line class="axis" x1="{L}" y1="{H - B}" x2="{W}" y2="{H - B}"/>',
+            f'<text x="{L - 6}" y="{py(cap) + 4:.1f}" text-anchor="end">{cap:,.0f}</text>',
+            f'<text x="{L - 6}" y="{H - B + 4}" text-anchor="end">0</text>']
+    x0 = L + (RATE_DAYS - len(gains)) * slot
+    last_cut, y = -2, T - 3
+    for i, (d, g) in enumerate(gains):
+        x = x0 + i * slot
+        g = max(g, 0)
+        body.append(f'<rect class="ph-{name}" x="{x + 1:.1f}" y="{py(g):.1f}" '
+                    f'width="{max(slot - 2, 1):.1f}" height="{H - B - py(g):.1f}"><title>'
+                    f'{short_day(d)}: {g:,}</title></rect>')
+        if g > cap:
+            # Two cut days in a row print on two rows, so their numbers stay apart.
+            y = T - 15 if i - last_cut == 1 and y == T - 3 else T - 3
+            last_cut = i
+            body.append(f'<text x="{x + slot / 2:.1f}" y="{y}" text-anchor="middle">'
+                        f'{g / 1000:.1f}k</text>' if g >= 1000 else
+                        f'<text x="{x + slot / 2:.1f}" y="{y}" text-anchor="middle">{g}</text>')
+    for i, anchor in ((0, "start"), (len(gains) // 2, "middle"), (len(gains) - 1, "end")):
+        x = x0 + {"start": 0, "middle": .5, "end": 1}[anchor] * slot + i * slot
+        body.append(f'<text x="{x:.1f}" y="{H - 5}" text-anchor="{anchor}">'
+                    f'{short_day(gains[i][0])}</text>')
+    body.append(f'<line class="pace" x1="{L}" y1="{py(per7):.1f}" x2="{W}" y2="{py(per7):.1f}"/>')
+    return svg(W, H, "".join(body), f"Puzzles {PHASE_LABEL[ph]} a day, last {len(gains)} days"
+               f" · dashed: {per7:,.0f} a day over the last week")
+
+
+def series_chart(row):
+    """One bar a series, its known puzzles split into hinted, solved, acquired
+    and not yet acquired; a series the ledger does not count is split by its
+    files."""
+    order = sorted(row, key=lambda s: -(row[s][progress.KNOWN] or row[s][progress.FILED]))
+    rowh, left, width = 24, 220, 330
+    body = []
+    for i, s in enumerate(order):
+        known, acquired, filed, solved, hinted = row[s]
+        whole = known or filed
+        if not whole:
+            continue
+        got = acquired if known else filed
+        y, x = i * rowh, float(left)
+        body.append(f'<text x="{left - 8}" y="{y + 16}" text-anchor="end">{esc(series_name(s))}</text>'
+                    f'<rect class="track" x="{left}" y="{y + 4}" width="{width}" height="16"/>')
+        done = 0
+        for n, name in ((hinted, "hinted"), (solved, "solved"), (got, "acquired")):
+            n = min(max(n, done), whole)
+            w = width * (n - done) / whole
+            if w > 0:
+                body.append(f'<rect class="ph-{name}" x="{x:.1f}" y="{y + 4}" width="{w:.1f}" height="16"/>')
+            x += w
+            done = n
+        of = f"{got:,} of {known:,}" if known else f"{filed:,} filed"
+        body.append(f'<text x="{left + width + 6}" y="{y + 16}">{of} · {100 * hinted / whole:.0f}% hinted</text>')
+    return svg(left + width + 170, len(order) * rowh + 4, "".join(body),
+               "Each series: hinted, then solved, then acquired, out of the puzzles known to exist "
+               "(the grey is still to find)")
+
+
+def progress_page(idx, today=None):
+    """/progress/: tools/progress.py's history with today's index as its last
+    day, as totals, paces and charts."""
+    today = (today or london_today()).isoformat()
+    files = progress.file_counts((p["series"], p.get("hasSolutions"), p.get("annotated"))
+                                 for p in idx["puzzles"])
+    days = progress.with_today(progress.load(), files, today)
+    tot = progress.totals(days[today])
+    known = tot[progress.KNOWN]
+    rows = []
+    for ph in SHOWN:
+        pts = progress.series_of(days, ph)
+        n, per7, per30 = tot[ph], progress.rate(pts, 7), progress.rate(pts, 30)
+        held = (datetime.fromisoformat(today) - datetime.fromisoformat(pts[0][0])).days
+        share = "" if ph == progress.FILED else f"{100 * n / known:.0f}%"
+        pace = "" if ph == progress.FILED else at_pace(known - n, per7)
+        rows.append(f'<tr><td><span class="key-dot ph-{progress.PHASES[ph]}"></span>{PHASE_LABEL[ph]}</td>'
+                    f"<td>{n:,}</td><td>{share}</td><td>{per7 or 0:,.0f}</td>"
+                    f"<td>{per30 or 0:,.0f}{'' if held >= 30 else f' ({held} days)'}</td>"
+                    f"<td>{pace}</td></tr>")
+    table = ("<table><tr><th>Phase</th><th>Puzzles</th><th>Of known</th><th>A day, last 7 days</th>"
+             "<th>A day, last 30 days</th><th>All known at the 7-day pace</th></tr>"
+             + "".join(rows) + "</table>")
+    title = "Progress: every puzzle, acquired, solved and hinted"
+    desc = (f"How far Cryptic Teacher has got: {tot[progress.ACQUIRED]:,} of the {known:,} cryptic "
+            f"crosswords known to exist acquired, {tot[progress.SOLVED]:,} solved and "
+            f"{tot[progress.HINTED]:,} with full hints, and how fast each is moving.")
+    canonical = f"{BASE}/progress/"
+    crumbs = [("Cryptic Teacher", "/"), ("Progress", "")]
+    page_ld = {"@context": "https://schema.org", "@type": "Article", "headline": title,
+               "url": canonical, "description": desc, "isAccessibleForFree": True}
+    body = [masthead(crumbs), '<main class="static-main tutorial-static">', f"<h1>{title}</h1>",
+            f"<p>The goal is every cryptic puzzle each series has printed, with every answer and a "
+            f"hint for every clue. As of {short_day(today)}: {known:,} are known to exist, "
+            f"{tot[progress.ACQUIRED]:,} are acquired, {tot[progress.SOLVED]:,} are solved and "
+            f"{tot[progress.HINTED]:,} are hinted.</p>",
+            funnel_chart(tot), table,
+            '<p class="muted small-note"><strong>Known</strong> and <strong>acquired</strong> are '
+            "the coverage ledger's counts, one per print date or number, so a reprint counts once. "
+            "<strong>Filed</strong> counts puzzle files, <strong>solved</strong> the files with every "
+            "answer, <strong>hinted</strong> the files with every clue explained.</p>",
+            "<h2>Running totals</h2>", cumulative_chart(days),
+            "<h2>A day at a time</h2>",
+            *(rate_chart(days, ph) for ph in (progress.FILED, progress.SOLVED, progress.HINTED)),
+            "<h2>By series</h2>", series_chart(days[today]),
+            f'<p class="s-cta"><a class="cta" href="{BASE}/">Pick a puzzle &rarr;</a></p>',
+            "</main>"]
+    return head(title, desc, canonical, ld(page_ld) + ld(breadcrumb_ld(crumbs))) \
+        + "\n".join(body) + "\n" + FOOTER
+
+
 # -------------------------------------------------------------- showcase page
 
 def showcase_page(secs, meta):
@@ -1820,7 +2034,8 @@ def sitemap_urls(idx, pages=()):
               (f"{BASE}/abbreviations/", "weekly", "0.8", None),
               (f"{BASE}/indicators/", "weekly", "0.8", None),
               (f"{BASE}/difficulty/", "weekly", "0.6", None),
-              (f"{BASE}/showcase/", "weekly", "0.7", None)]
+              (f"{BASE}/showcase/", "weekly", "0.7", None),
+              (f"{BASE}/progress/", "daily", "0.5", None)]
     recent += [(u, "weekly", "0.6", None) for u in pages]
     for s, years in listings(idx).items():
         newest = next(iter(years.values()))[0]
@@ -2203,6 +2418,7 @@ def outputs(check=False):
         # Relative, like the puzzle pages: thousands of example links.
         yield ROOT / "indicators" / "index.html", relative_links(indicators_page(found), "../")
         yield ROOT / "difficulty" / "index.html", difficulty_page(idx)
+        yield ROOT / "progress" / "index.html", progress_page(idx)
         secs = showcase.sections(f for f in facts if f["id"] in meta)
         yield ROOT / "showcase" / "index.html", showcase_page(secs, meta)
         yield from showcase_list_pages(secs, meta)
