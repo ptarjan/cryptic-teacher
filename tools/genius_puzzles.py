@@ -768,6 +768,14 @@ def assemble(number, pdf, post, date, url):
         return None, ("clue list unnumbered (jigsaw)", "clues printed with no number, in the preamble's place")
     if pdf["grid"] is None:
         return None, ("grid unread", "")
+    # Clues that print no count and are no "See N" stub (No 233's across
+    # clues, whose answers move in the grid) take their light's length for
+    # the numbering check and keep no enumeration when filed.
+    lights = rg.light_cells(pdf["grid"])
+    withheld = [c for c in pdf["clues"] if c["enumeration"] is None and len(c["lights"]) == 1
+                and not fpp.SEE.match(c["clue"]) and c["lights"][0] in lights]
+    for c in withheld:
+        c["enumeration"] = str(len(lights[c["lights"][0]]))
     why = fpp.grid_matches(pdf["grid"], pdf["clues"])
     if why:
         if "no enumeration" in why:
@@ -784,6 +792,13 @@ def assemble(number, pdf, post, date, url):
     # clues and grid are read all the same, and it files with no preamble.
     if not pdf["preamble"] and not pdf.get("article"):
         return None, ("preamble unread", "")
+    # Only the clues are mandatory: with no post the puzzle files unsolved,
+    # its grid and clues as printed, and the nightly backfill solves it
+    # (whatever the preamble does to the entries).
+    if post is None:
+        return unsolved(number, pdf, date, url, withheld)
+    if withheld:
+        return None, ("enumerations withheld", "answers read by count, and these clues print none")
     if pdf["preamble"] and ALTERED.search(pdf["preamble"]):
         return None, ("preamble alters entries (needs an alteration per answer)", "")
     if post is None:
@@ -809,6 +824,26 @@ def assemble(number, pdf, post, date, url):
     puzzle["solutions"]["check"] = (
         f"grid and clues read from {pdf['origin']}, its numbering matching "
         "the clue list; every fifteensquared answer written into it with each crossing agreeing")
+    return puzzle, None
+
+
+def unsolved(number, pdf, date, url, withheld=()):
+    """(puzzle, None) or (None, why not): the grid and clues with no answers."""
+    entries = fpp.entries_of(pdf, None, pdf["grid"])
+    rec = {"post_id": None, "link": url, "date": None, "series": CATEGORY, "number": number,
+           "setter": pdf["setter"], "entries": entries}
+    row = {"grid": pdf["grid"], "number": number, "how": pdf["origin"]}
+    puzzle, why = file_blog_puzzles.build(rec, row, SERIES, date, pdf["setter"])
+    if why:
+        return None, (why, "unsolved")
+    # The stand-in counts of clues that print none come off again.
+    held = {c["lights"][0] for c in withheld}
+    for e in puzzle["entries"]:
+        if (e["number"], e["direction"]) in held:
+            e["clue"].pop("enumeration", None)
+    if pdf["preamble"]:
+        puzzle["preamble"] = pdf["preamble"]
+    puzzle["source"] = {"url": url, "gridOrigin": "published"}
     return puzzle, None
 
 
