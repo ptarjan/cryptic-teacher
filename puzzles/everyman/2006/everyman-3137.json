@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Tramp in hospital — old boy needs oxygen",
     "enumeration": "4"
    },
-   "solution": "HOBO"
+   "solution": "HOBO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOBO",
+    "definitions": [
+     {
+      "text": "Tramp",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in hospital",
+      "gives": "H",
+      "note": "H is the map and sign abbreviation for hospital"
+     },
+     {
+      "clueFragment": "old boy",
+      "gives": "OB",
+      "note": "OB is the standard abbreviation for an old boy, a former pupil"
+     },
+     {
+      "clueFragment": "oxygen",
+      "gives": "O",
+      "note": "O is the chemical symbol for oxygen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "OB",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A down-and-out lies in a hospital bed while an elderly man gasps for oxygen.",
+     "walkthrough": "'in hospital' looks like where the tramp is, but it simply supplies the first letter.",
+     "definitionFit": "A hobo is an American word for a homeless wanderer, a synonym of tramp."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "needs"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +99,72 @@
     "text": "With gardening aid, weed round end of beds and whistle",
     "enumeration": "8"
    },
-   "solution": "HOSEPIPE"
+   "solution": "HOSEPIPE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "HOSEPIPE",
+    "definitions": [
+     {
+      "text": "gardening aid",
+      "at": 5
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "going round something means wrapping around it, so one word encloses the other"
+     },
+     {
+      "text": "end of",
+      "for": "container",
+      "note": "the end of a word is its final letter, so only that last letter is used here"
+     }
+    ],
+    "linkWords": [
+     "With"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weed",
+      "gives": "HOE",
+      "note": "to hoe is to weed with a garden tool"
+     },
+     {
+      "clueFragment": "beds",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of beds"
+     },
+     {
+      "clueFragment": "whistle",
+      "gives": "PIPE",
+      "note": "to pipe is to whistle or play a high note"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "S",
+      "E",
+      "PIPE"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener tidies the flower beds, whistling while they weed.",
+     "walkthrough": "'With' only links; 'round' puts the single letter from beds inside the weeding word.",
+     "definitionFit": "A hosepipe is a flexible tube used for watering plants, a common piece of garden equipment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "whistle"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +178,67 @@
     "text": "Boy hasn't finished a long fried sausage",
     "enumeration": "7"
    },
-   "solution": "BOLOGNA"
+   "solution": "BOLOGNA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "BOLOGNA",
+    "definitions": [
+     {
+      "text": "sausage",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hasn't finished",
+      "for": "deletion",
+      "note": "something not finished is missing its ending, so the last letter is cut off"
+     },
+     {
+      "text": "fried",
+      "for": "anagram",
+      "note": "frying scrambles and cooks things up, signalling the letters are mixed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boy",
+      "gives": "BOY",
+      "note": "taken as written, before trimming"
+     },
+     {
+      "clueFragment": "a long",
+      "gives": "ALONG",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "LOGNA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALONG",
+       "gives": "LOGNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lad who has not finished eating a long fried sausage at breakfast.",
+     "walkthrough": "'fried' reads as cooking the sausage, but it is the signal to rearrange the two words before it.",
+     "definitionFit": "Bologna is a large smoked sausage named after the Italian city, the origin of baloney."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fried"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +262,67 @@
      }
     ]
    },
-   "solution": "HUGMETIGHT"
+   "solution": "HUGMETIGHT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HUG-ME-TIGHT",
+    "definitions": [
+     {
+      "text": "garment",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "a word wearing another has it on, so it is enclosed by the outer word"
+     },
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "by means beside, so one piece is placed next to the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very large",
+      "gives": "HUGE",
+      "note": "huge is a synonym of very large"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     },
+     {
+      "clueFragment": "Drunk",
+      "gives": "TIGHT",
+      "note": "tight is informal for drunk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HUG",
+      "M",
+      "E",
+      "TIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A man the worse for drink sports an enormous item of clothing.",
+     "walkthrough": "A hug-me-tight is a short, close-fitting knitted jacket or shawl, an old-fashioned word many solvers will not know.",
+     "definitionFit": "A hug-me-tight is a snug woollen wrap or bolero, so it is an item of clothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Drunk"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +336,60 @@
     "text": "Join group on top of Everest",
     "enumeration": "5"
    },
-   "solution": "UNITE"
+   "solution": "UNITE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "UNITE",
+    "definitions": [
+     {
+      "text": "Join",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "in a down clue the top of a word is its first letter, so only that is kept"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down entry, one piece on another sits above it, so it comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "group",
+      "gives": "UNIT",
+      "note": "a unit is a group, such as a military unit"
+     },
+     {
+      "clueFragment": "Everest",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of Everest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNIT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An invitation to join a climbing team at the summit of Everest.",
+     "definitionFit": "To unite is to join together into one, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +403,57 @@
     "text": "Essay from Dr No, with diagram",
     "enumeration": "9"
    },
-   "solution": "MONOGRAPH"
+   "solution": "MONOGRAPH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MONOGRAPH",
+    "definitions": [
+     {
+      "text": "Essay",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dr",
+      "gives": "MO",
+      "note": "MO is a Medical Officer, a doctor"
+     },
+     {
+      "clueFragment": "No",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "with diagram",
+      "gives": "GRAPH",
+      "note": "a graph is a kind of diagram; with just joins it on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "NO",
+      "GRAPH"
+     ]
+    },
+    "explanation": {
+     "surface": "An essay on the Bond film Dr No, illustrated with a diagram.",
+     "walkthrough": "'Dr No' reads as the Bond villain, but the two words split: Dr is a doctor, MO, and No stays as it is.",
+     "definitionFit": "A monograph is a detailed scholarly treatise on a single subject, a kind of essay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dr"
+    }
+   }
   },
   {
    "number": 6,
@@ -141,7 +481,51 @@
      }
     ]
    },
-   "solution": "TOADINTHEHOLE"
+   "solution": "TOADINTHEHOLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOAD-IN-THE-HOLE",
+    "definitions": [
+     {
+      "text": "food?",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Amphibian",
+      "gives": "TOAD",
+      "note": "a toad is an amphibian"
+     },
+     {
+      "clueFragment": "that's burrowed down",
+      "gives": "INTHEHOLE",
+      "note": "something burrowed down is in the hole"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOAD",
+      "INTHEHOLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A frog-like creature digs itself into the ground in search of something to eat.",
+     "walkthrough": "The question mark flags that the 'food' is not what a toad eats but a dish: toad-in-the-hole is a British meal of sausages baked in batter.",
+     "definitionFit": "Toad-in-the-hole is a traditional British dish of sausages cooked in Yorkshire pudding batter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "food"
+    }
+   }
   },
   {
    "number": 7,
@@ -155,7 +539,65 @@
     "text": "Idle talk about it, King Edward's spats",
     "enumeration": "7"
    },
-   "solution": "GAITERS"
+   "solution": "GAITERS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GAITERS",
+    "definitions": [
+     {
+      "text": "spats",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one word goes round the others"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Idle talk",
+      "gives": "GAS",
+      "note": "gas is informal for idle chatter"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "King Edward",
+      "gives": "ER",
+      "note": "ER stands for Edwardus Rex, King Edward's royal cipher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GA",
+      "IT",
+      "ER",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Gossip about a king's quarrels, as if King Edward were having spats.",
+     "walkthrough": "'spats' looks like quarrels, but it means ankle coverings worn over shoes.",
+     "definitionFit": "Spats are short cloth coverings for the ankle and shoe, which are a kind of gaiter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spats"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +611,59 @@
     "text": "'Game in mist spoiled' — that's a self-evident statement",
     "enumeration": "6"
    },
-   "solution": "TRUISM"
+   "solution": "TRUISM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRUISM",
+    "definitions": [
+     {
+      "text": "self-evident statement",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spoiled",
+      "for": "anagram",
+      "note": "something spoiled is ruined and messed up, so the letters lose their order"
+     }
+    ],
+    "linkWords": [
+     "that's a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Game",
+      "gives": "RU",
+      "note": "RU is rugby union, the game"
+     },
+     {
+      "clueFragment": "mist",
+      "gives": "MIST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RUMIST",
+       "gives": "TRUISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rugby match ruined by fog is, obviously, a statement of the obvious.",
+     "walkthrough": "RU goes into MIST, and the whole lot is rearranged.",
+     "definitionFit": "A truism is a statement so obviously true it hardly needs saying."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Game"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +677,48 @@
     "text": "Choice made by son voting",
     "enumeration": "9"
    },
-   "solution": "SELECTION"
+   "solution": "SELECTION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SELECTION",
+    "definitions": [
+     {
+      "text": "Choice",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "made by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "voting",
+      "gives": "ELECTION",
+      "note": "an election is a vote"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ELECTION"
+     ]
+    },
+    "explanation": {
+     "surface": "A young man casts his first ballot and makes his choice.",
+     "definitionFit": "A selection is a choice, the act of picking from options."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +738,46 @@
      }
     ]
    },
-   "solution": "CARRIAGETRADE"
+   "solution": "CARRIAGETRADE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CARRIAGE TRADE",
+    "definitions": [
+     {
+      "text": "Weathy clientele",
+      "at": 0
+     },
+     {
+      "text": "freight business",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Weathy clientele",
+      "note": "first meaning: rich customers, originally those who arrived by private coach"
+     },
+     {
+      "clueFragment": "freight business",
+      "note": "second meaning, literally: the trade of conveying goods"
+     }
+    ],
+    "explanation": {
+     "surface": "Rich customers work in haulage.",
+     "walkthrough": "'Weathy' is a typo in the source for wealthy. The phrase once meant shoppers rich enough to keep their own carriages.",
+     "definitionFit": "Carriage trade is the idiom for upmarket patrons, while carriage is also the conveying of goods for payment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +791,39 @@
     "text": "Farewel to the Parisian about to depart",
     "enumeration": "5"
    },
-   "solution": "ADIEU"
+   "solution": "ADIEU",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ADIEU",
+    "definitions": [
+     {
+      "text": "Farewel to the Parisian about to depart",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Farewel to the Parisian",
+      "note": "surface reading: saying goodbye to a person from Paris"
+     },
+     {
+      "clueFragment": "about to depart",
+      "note": "setter's reading: the word a French speaker says on leaving"
+     }
+    ],
+    "explanation": {
+     "surface": "Saying goodbye to a Parisian friend just before setting off.",
+     "walkthrough": "'Farewel' is a typo in the source. The clue reads as bidding goodbye to someone, but means the word a Parisian says when leaving.",
+     "definitionFit": "Adieu is the French goodbye, literally 'to God', used in English too for a final parting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "to"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +837,66 @@
     "text": "Salesman returned holding silver bleeper",
     "enumeration": "5"
    },
-   "solution": "PAGER"
+   "solution": "PAGER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "PAGER",
+    "definitions": [
+     {
+      "text": "bleeper",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so the word is read backwards"
+     },
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding something means having it inside, so one word encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Salesman",
+      "gives": "REP",
+      "note": "a rep is a sales representative"
+     },
+     {
+      "clueFragment": "silver",
+      "gives": "AG",
+      "note": "Ag is the chemical symbol for silver"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "AG",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "REP",
+       "to": "PER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A travelling salesman comes back carrying a silver beeping gadget.",
+     "definitionFit": "A pager is a small device that bleeps to alert its wearer, so it is a bleeper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returned"
+    }
+   }
   },
   {
    "number": 13,
@@ -251,7 +916,53 @@
      }
     ]
    },
-   "solution": "EGGTIMERS"
+   "solution": "EGGTIMERS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EGG TIMERS",
+    "definitions": [
+     {
+      "text": "kitchen devices",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shifted",
+      "for": "anagram",
+      "note": "shifted means moved about, so the letters are moved into a new order"
+     }
+    ],
+    "linkWords": [
+     "with these"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gets grime",
+      "gives": "GETSGRIME",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GETSGRIME",
+       "gives": "EGGTIMERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone scrubs dirt off the gadgets in the kitchen.",
+     "definitionFit": "Egg timers are small sand-glasses or dials used in kitchens to time boiling eggs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shifted"
+    }
+   }
   },
   {
    "number": 14,
@@ -271,7 +982,73 @@
      }
     ]
    },
-   "solution": "PRAYINGMANTIS"
+   "solution": "PRAYINGMANTIS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "PRAYING MANTIS",
+    "definitions": [
+     {
+      "text": "Insect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needs help to get out",
+      "for": "deletion",
+      "note": "getting something out means removing it, so those letters are taken away"
+     },
+     {
+      "text": "fancy",
+      "for": "anagram",
+      "note": "fancy suggests something elaborate or imagined, so the letters are reworked freely"
+     }
+    ],
+    "linkWords": [
+     "coming from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Granny Smith apple",
+      "gives": "GRANNYSMITHAPPLE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "help",
+      "gives": "HELP",
+      "note": "these letters are the ones removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRAYINGMANTIS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GRANNYSMITAPI",
+       "gives": "PRAYINGMANTIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bug crawls out of an apple and the speaker needs help removing it.",
+     "walkthrough": "Take H, E, L and P out of GRANNY SMITH APPLE I, then rearrange the thirteen letters left.",
+     "definitionFit": "The praying mantis is a predatory insect named for the way it holds its forelegs as if in prayer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "help"
+    }
+   }
   },
   {
    "number": 15,
@@ -291,7 +1068,41 @@
      }
     ]
    },
-   "solution": "GUINEAPIG"
+   "solution": "GUINEAPIG",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GUINEA PIG",
+    "definitions": [
+     {
+      "text": "Pet",
+      "at": 0
+     },
+     {
+      "text": "one used for experimentation",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pet",
+      "note": "first meaning: a small rodent kept at home"
+     },
+     {
+      "clueFragment": "one used for experimentation",
+      "note": "second meaning: a person or thing tested on"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a lab animal, which is exactly how the two meanings meet.",
+     "definitionFit": "The cavy is a popular household rodent, and its use in labs gave the idiom for any test subject."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -311,7 +1122,47 @@
      }
     ]
    },
-   "solution": "TRUEBLUE"
+   "solution": "TRUEBLUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRUE BLUE",
+    "definitions": [
+     {
+      "text": "Staunch Conservative",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rightly",
+      "gives": "TRUE",
+      "note": "true means correctly, rightly"
+     },
+     {
+      "clueFragment": "depressed",
+      "gives": "BLUE",
+      "note": "blue means sad, depressed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRUE",
+      "BLUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A loyal Tory is understandably downcast.",
+     "walkthrough": "Blue is the colour of Britain's Conservative Party, so a true blue is a loyal Tory.",
+     "definitionFit": "True blue is the idiom for an utterly loyal supporter, especially of the British Conservative Party."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "depressed"
+    }
+   }
   },
   {
    "number": 17,
@@ -331,7 +1182,52 @@
      }
     ]
    },
-   "solution": "ENGLISHSETTER"
+   "solution": "ENGLISHSETTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENGLISH SETTER",
+    "definitions": [
+     {
+      "text": "dog?",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "used by",
+     "to summon"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Language",
+      "gives": "ENGLISH",
+      "note": "English is a language"
+     },
+     {
+      "clueFragment": "Everyman",
+      "gives": "SETTER",
+      "note": "Everyman is the setter of this crossword"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENGLISH",
+      "SETTER"
+     ]
+    },
+    "explanation": {
+     "surface": "The puzzle's compiler calls a dog in his own tongue.",
+     "walkthrough": "Everyman is the pen name of this puzzle's compiler, so it stands for SETTER.",
+     "definitionFit": "The English setter is a gundog breed, used to find and point at game birds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Everyman"
+    }
+   }
   },
   {
    "number": 17,
@@ -345,7 +1241,60 @@
     "text": "Conduct inciting rebellion? Head of state ignored issue",
     "enumeration": "7"
    },
-   "solution": "EDITION"
+   "solution": "EDITION",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "EDITION",
+    "definitions": [
+     {
+      "text": "issue",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter, so only that one is meant"
+     },
+     {
+      "text": "ignored",
+      "for": "deletion",
+      "note": "something ignored is left out, so that letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conduct inciting rebellion?",
+      "gives": "SEDITION",
+      "note": "sedition is speech or conduct stirring up rebellion against the state"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of state"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDITION"
+     ]
+    },
+    "explanation": {
+     "surface": "Seditious behaviour is overlooked by the leader of a country.",
+     "walkthrough": "The S of SEDITION happens to be the first letter of state, so dropping it leaves the answer.",
+     "definitionFit": "An issue of a newspaper or magazine is one edition of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "issue"
+    }
+   }
   },
   {
    "number": 18,
@@ -359,7 +1308,55 @@
     "text": "Hybrid fruit — tons delivered to Dundee?",
     "enumeration": "7"
    },
-   "solution": "TANGELO"
+   "solution": "TANGELO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TANGELO",
+    "definitions": [
+     {
+      "text": "Hybrid fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "delivered to",
+      "for": "charade",
+      "note": "something delivered to another is placed with it, so one piece is set next to the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tons",
+      "gives": "T",
+      "note": "T is the abbreviation for tons"
+     },
+     {
+      "clueFragment": "Dundee?",
+      "gives": "ANGELO",
+      "note": "Angelo Dundee was the famous trainer of Muhammad Ali, so Dundee hints at his first name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ANGELO"
+     ]
+    },
+    "explanation": {
+     "surface": "A huge load of fruit is shipped to the Scottish city of Dundee.",
+     "walkthrough": "Dundee looks like the Scottish city, but the question mark points to boxing trainer Angelo Dundee.",
+     "definitionFit": "A tangelo is a cross between a tangerine and a pomelo or grapefruit, so a hybrid citrus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dundee"
+    }
+   }
   },
   {
    "number": 19,
@@ -373,7 +1370,45 @@
     "text": "Deficiency in desert",
     "enumeration": "6"
    },
-   "solution": "DEFECT"
+   "solution": "DEFECT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DEFECT",
+    "definitions": [
+     {
+      "text": "Deficiency",
+      "at": 0
+     },
+     {
+      "text": "desert",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deficiency",
+      "note": "first meaning, a noun: a fault or flaw"
+     },
+     {
+      "clueFragment": "desert",
+      "note": "second meaning, a verb: to abandon one's side for another"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'desert' looks like a noun of sand, but it is the verb to abandon.",
+     "definitionFit": "A defect is a flaw, and to defect is to abandon one's country or cause for an opposing one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "desert"
+    }
+   }
   },
   {
    "number": 20,
@@ -393,7 +1428,64 @@
      }
     ]
    },
-   "solution": "ELIOTNESS"
+   "solution": "ELIOTNESS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ELIOT NESS",
+    "definitions": [
+     {
+      "text": "law enforcer",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought back",
+      "for": "reversal",
+      "note": "bringing something back returns it the other way, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Material",
+      "gives": "TOILE",
+      "note": "toile is a linen or cotton fabric"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "NESS",
+      "note": "a ness is a headland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELIOT",
+      "NESS"
+     ],
+     "reversals": [
+      {
+       "from": "TOILE",
+       "to": "ELIOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Evidence is returned by the chief of police.",
+     "walkthrough": "'head law enforcer' looks like one phrase, but head belongs to the wordplay as NESS, a headland as in Loch Ness place names.",
+     "definitionFit": "Eliot Ness was the US Prohibition agent who led the Untouchables against Al Capone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 21,
@@ -407,7 +1499,42 @@
     "text": "Irish novelist reportedly having a forbidding appearance",
     "enumeration": "5"
    },
-   "solution": "STERN"
+   "solution": "STERN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "STERN",
+    "definitions": [
+     {
+      "text": "having a forbidding appearance",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means according to what is said, so the word is heard rather than read"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Irish novelist",
+      "gives": "STERN",
+      "soundsLike": "STERNE",
+      "note": "Laurence Sterne, born in Ireland, wrote Tristram Shandy"
+     }
+    ],
+    "explanation": {
+     "surface": "An Irish author is said to look severe.",
+     "definitionFit": "Stern means strict and severe in manner, so forbidding in look."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -421,7 +1548,46 @@
     "text": "A wild cat's light weight",
     "enumeration": "5"
    },
-   "solution": "OUNCE"
+   "solution": "OUNCE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OUNCE",
+    "definitions": [
+     {
+      "text": "A wild cat",
+      "at": 0
+     },
+     {
+      "text": "light weight",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A wild cat",
+      "note": "first meaning: the snow leopard"
+     },
+     {
+      "clueFragment": "light weight",
+      "note": "second meaning: a small unit of weight"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface pictures a scrawny cat; the two halves are separate meanings.",
+     "definitionFit": "The ounce is another name for the snow leopard, and also a small imperial unit of about 28 grams."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 23,
@@ -435,7 +1601,53 @@
     "text": "Girl taking in Italian musical",
     "enumeration": "5"
    },
-   "solution": "EVITA"
+   "solution": "EVITA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EVITA",
+    "definitions": [
+     {
+      "text": "musical",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking in",
+      "for": "container",
+      "note": "taking something in means absorbing it inside, so one word encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "EVA",
+      "note": "Eva is a girl's name"
+     },
+     {
+      "clueFragment": "Italian",
+      "gives": "IT",
+      "note": "IT is the abbreviation for Italian"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EV",
+      "IT",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman goes to see an Italian show.",
+     "definitionFit": "Evita is the Lloyd Webber and Rice musical about Eva Perón."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -449,7 +1661,47 @@
     "text": "Gradually sample tea, perhaps",
     "enumeration": "9"
    },
-   "solution": "PIECEMEAL"
+   "solution": "PIECEMEAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PIECEMEAL",
+    "definitions": [
+     {
+      "text": "Gradually",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sample",
+      "gives": "PIECE",
+      "note": "a piece is a sample or portion"
+     },
+     {
+      "clueFragment": "tea, perhaps",
+      "gives": "MEAL",
+      "note": "tea is an example of a meal; perhaps flags the example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIECE",
+      "MEAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone slowly tastes their tea a bit at a time.",
+     "walkthrough": "In Britain tea can mean the evening meal, so it is an example of a MEAL.",
+     "definitionFit": "Piecemeal means bit by bit, a little at a time, so gradually."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tea"
+    }
+   }
   },
   {
    "number": 25,
@@ -469,7 +1721,57 @@
      }
     ]
    },
-   "solution": "TANKENGINE"
+   "solution": "TANKENGINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TANK ENGINE",
+    "definitions": [
+     {
+      "text": "Thomas, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "one thing on another is placed beside it, so the pieces are joined in sequence"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reservoir",
+      "gives": "TANK",
+      "note": "a tank is a reservoir for liquid"
+     },
+     {
+      "clueFragment": "military machine",
+      "gives": "ENGINE",
+      "note": "an engine of war, such as a siege engine, is a military machine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TANK",
+      "ENGINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Thomas ends up in a reservoir on top of an army vehicle.",
+     "walkthrough": "'Thomas' looks like a person, but it is Thomas the Tank Engine from the children's books and TV series.",
+     "definitionFit": "Thomas the Tank Engine is the most famous example of a tank engine, a locomotive carrying its water on board."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Thomas"
+    }
+   }
   },
   {
    "number": 26,
@@ -483,7 +1785,59 @@
     "text": "Agreed to put on Cymbeline, ultimately",
     "enumeration": "4"
    },
-   "solution": "DONE"
+   "solution": "DONE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DONE",
+    "definitions": [
+     {
+      "text": "Agreed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter is wanted"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "put on",
+      "gives": "DON",
+      "note": "to don is to put on clothing"
+     },
+     {
+      "clueFragment": "Cymbeline",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of Cymbeline"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DON",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A theatre company agrees to stage Shakespeare's Cymbeline in the end.",
+     "walkthrough": "'put on' looks like staging a play, but it means wearing.",
+     "definitionFit": "Done! is said to seal a bargain, meaning it is agreed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "put"
+    }
+   }
   }
  ]
 }
