@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,42 @@
     "text": "Strongly recommend some beefburgers",
     "enumeration": "4"
    },
-   "solution": "URGE"
+   "solution": "URGE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "URGE",
+    "definitions": [
+     {
+      "text": "Strongly recommend",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "'some' says only part of the following word is wanted, a run of letters inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beefburgers",
+      "gives": "URGE",
+      "note": "the run of letters sitting in the middle of this word"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone enthusiastically recommending a few hamburgers.",
+     "definitionFit": "To press someone strongly to do something is a direct synonym of advising them forcefully."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "some"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +91,63 @@
      }
     ]
    },
-   "solution": "UNCLESAM"
+   "solution": "UNCLESAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNCLE SAM",
+    "definitions": [
+     {
+      "text": "the United States",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down clue a supporting piece sits underneath, so the following words come after the relatives"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "relatives",
+      "gives": "UNCLES",
+      "note": "uncles are relatives"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Frenchman",
+      "gives": "M",
+      "note": "M is the abbreviation for Monsieur, a Frenchman's title"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNCLES",
+      "A",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A Frenchman providing for his family members who live in America.",
+     "walkthrough": "In a down answer, 'supporting' puts A and M beneath UNCLES.",
+     "definitionFit": "Uncle Sam is the traditional personification of the American nation and government."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "supporting"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +161,56 @@
     "text": "With soft steps, Miss Rogers left with unknown character",
     "enumeration": "8"
    },
-   "solution": "GINGERLY"
+   "solution": "GINGERLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GINGERLY",
+    "definitions": [
+     {
+      "text": "With soft steps",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Miss Rogers",
+      "gives": "GINGER",
+      "note": "Ginger Rogers, the dancer who partnered Fred Astaire"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "standard abbreviation for left"
+     },
+     {
+      "clueFragment": "unknown character",
+      "gives": "Y",
+      "note": "in algebra x, y and z stand for unknowns"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GINGER",
+      "L",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Ginger Rogers dancing lightly off with a stranger.",
+     "walkthrough": "The surface suggests the dancer's light footwork; the 'unknown character' is a mathematical unknown, a letter.",
+     "definitionFit": "Moving gingerly means moving cautiously and delicately, treading softly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 3,
@@ -87,7 +230,64 @@
      }
     ]
    },
-   "solution": "BOARDGAMES"
+   "solution": "BOARDGAMES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "BOARD GAMES",
+    "definitions": [
+     {
+      "text": "chess and draughts?",
+      "at": 44,
+      "note": "definition by example, hence the question mark"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "'initially' asks for only the opening letter of the word before it"
+     },
+     {
+      "text": "involved",
+      "for": "anagram",
+      "note": "something involved is tangled up, so these letters are mixed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dumbfounded",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of this word"
+     },
+     {
+      "clueFragment": "as embargo",
+      "gives": "ASEMBARGO",
+      "note": "letters used as raw material"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DASEMBARGO",
+       "gives": "BOARDGAMES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "People stunned when a ban is imposed on chess and checkers.",
+     "walkthrough": "Draughts is the British name for checkers.",
+     "definitionFit": "Chess and draughts are both examples of games played on a board."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "embargo"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +301,56 @@
     "text": "Hunter addicted to drinking port",
     "enumeration": "5"
    },
-   "solution": "ORION"
+   "solution": "ORION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ORION",
+    "definitions": [
+     {
+      "text": "Hunter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drinking",
+      "for": "container",
+      "note": "something drinking takes another thing inside it, so one piece swallows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "addicted to",
+      "gives": "ON",
+      "note": "to be 'on' drugs is to be addicted to them"
+     },
+     {
+      "clueFragment": "port",
+      "gives": "RIO",
+      "note": "Rio de Janeiro is a port"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "RIO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A huntsman with a fondness for fortified wine.",
+     "walkthrough": "'Port' looks like the drink, which suits 'drinking', but it is a harbour city.",
+     "definitionFit": "Orion is the hunter of Greek myth, also the constellation named after him."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +364,69 @@
     "text": "The German knocked over on flyover in London borough",
     "enumeration": "9"
    },
-   "solution": "REDBRIDGE"
+   "solution": "REDBRIDGE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "REDBRIDGE",
+    "definitions": [
+     {
+      "text": "London borough",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocked over",
+      "for": "reversal",
+      "note": "a thing knocked over in a down clue is upended, so the word reads from bottom to top"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue one piece on another sits above it, so the first piece comes first"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The German",
+      "gives": "DER",
+      "note": "der is the German masculine 'the'"
+     },
+     {
+      "clueFragment": "flyover",
+      "gives": "BRIDGE",
+      "note": "a flyover is a road bridge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "BRIDGE"
+     ],
+     "reversals": [
+      {
+       "from": "DER",
+       "to": "RED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A German knocked down on a motorway flyover somewhere in London.",
+     "walkthrough": "A flyover is a British term for an overpass.",
+     "definitionFit": "Redbridge is one of the boroughs of outer north-east London, around Ilford."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "knocked"
+    }
+   }
   },
   {
    "number": 6,
@@ -147,7 +458,45 @@
    "group": [
     "6-down",
     "7-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GET AWAY WITH MURDER",
+    "definitions": [
+     {
+      "text": "Do as one pleases",
+      "at": 0
+     },
+     {
+      "text": "escape punishment (like Jack the Ripper?)",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Do as one pleases",
+      "note": "first meaning: to behave however one likes without consequences"
+     },
+     {
+      "clueFragment": "escape punishment (like Jack the Ripper?)",
+      "note": "second meaning, taken literally: a killer never caught for his crimes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The idiom is read literally for the second meaning: the Victorian London killer Jack the Ripper was never identified.",
+     "definitionFit": "The idiom means doing wrong unpunished, which in its literal sense describes an uncaught murderer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 7,
@@ -174,7 +523,40 @@
     "text": "Detective film",
     "enumeration": "6"
    },
-   "solution": "SLEUTH"
+   "solution": "SLEUTH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SLEUTH",
+    "definitions": [
+     {
+      "text": "Detective",
+      "at": 0
+     },
+     {
+      "text": "film",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Detective",
+      "note": "first meaning: an investigator"
+     },
+     {
+      "clueFragment": "film",
+      "note": "second meaning: the 1972 thriller starring Laurence Olivier and Michael Caine"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A sleuth is an informal word for an investigator, and Sleuth is the title of a well-known mystery film."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -188,7 +570,46 @@
     "text": "Hypocrisy about part of the Bible",
     "enumeration": "4"
    },
-   "solution": "CANT"
+   "solution": "CANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CANT",
+    "definitions": [
+     {
+      "text": "Hypocrisy",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "CA",
+      "note": "ca, short for circa, means about"
+     },
+     {
+      "clueFragment": "part of the Bible",
+      "gives": "NT",
+      "note": "the New Testament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "Accusing someone of insincerity over a scriptural passage.",
+     "definitionFit": "Cant is pious, insincere talk, the language of hypocrisy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 10,
@@ -212,7 +633,66 @@
      }
     ]
    },
-   "solution": "PIEDATERRE"
+   "solution": "PIEDATERRE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PIED-A-TERRE",
+    "definitions": [
+     {
+      "text": "flat",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in retirement",
+      "for": "reversal",
+      "note": "retiring means withdrawing or going back, so these letters are read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spotted",
+      "gives": "PIED",
+      "note": "pied means patchy or spotted, as in the pied wagtail"
+     },
+     {
+      "clueFragment": "blunder",
+      "gives": "ERR",
+      "note": "to err is to make a mistake"
+     },
+     {
+      "clueFragment": "Greek character",
+      "gives": "ETA",
+      "note": "the seventh letter of the Greek alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIED",
+      "ATERRE"
+     ],
+     "reversals": [
+      {
+       "from": "ERRETA",
+       "to": "ATERRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone noticed making a gaffe beside a Greek in a retirement apartment.",
+     "walkthrough": "Only the blunder and Greek letter are turned round; 'Spotted' stays as it is.",
+     "definitionFit": "A pied-à-terre is a small flat or second home kept for occasional use."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retirement"
+    }
+   }
   },
   {
    "number": 11,
@@ -232,7 +712,47 @@
      }
     ]
    },
-   "solution": "EYEOPENER"
+   "solution": "EYEOPENER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EYE-OPENER",
+    "definitions": [
+     {
+      "text": "piece of information that¿s surprising",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Look at",
+      "gives": "EYE",
+      "note": "to eye something is to look at it"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "OPENER",
+      "note": "a key is something that opens"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EYE",
+      "OPENER"
+     ]
+    },
+    "explanation": {
+     "surface": "Examining a crucial fact that turns out to be astonishing.",
+     "walkthrough": "'Key piece of information' reads as one phrase; 'key' belongs to the wordplay.",
+     "definitionFit": "An eye-opener is a revelation, something that startles and enlightens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 12,
@@ -246,7 +766,64 @@
     "text": "Head of person on Irish lake cut with blade",
     "enumeration": "11"
    },
-   "solution": "PLOUGHSHARE"
+   "solution": "PLOUGHSHARE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PLOUGHSHARE",
+    "definitions": [
+     {
+      "text": "blade",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter, so only the opening letter is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "person",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter"
+     },
+     {
+      "clueFragment": "on Irish lake",
+      "gives": "LOUGH",
+      "note": "lough is the Irish word for a lake; 'on' just joins"
+     },
+     {
+      "clueFragment": "cut",
+      "gives": "SHARE",
+      "note": "one's cut is one's share of the proceeds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LOUGH",
+      "SHARE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at the front of a boat on an Irish lake, slashed by a knife.",
+     "definitionFit": "A ploughshare is the cutting blade of a plough."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 13,
@@ -260,7 +837,49 @@
     "text": "Field crop in West requiring hot weather",
     "enumeration": "5"
    },
-   "solution": "WHEAT"
+   "solution": "WHEAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WHEAT",
+    "definitions": [
+     {
+      "text": "Field crop",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in",
+     "requiring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "West",
+      "gives": "W",
+      "note": "standard abbreviation for west"
+     },
+     {
+      "clueFragment": "hot weather",
+      "gives": "HEAT",
+      "note": "a spell of heat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HEAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A grain grown in western regions needs warm sunshine.",
+     "definitionFit": "Wheat is a cereal grown in fields, a staple arable crop."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -284,7 +903,51 @@
      }
     ]
    },
-   "solution": "ALLSOULSDAY"
+   "solution": "ALLSOULSDAY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALL SOULS DAY",
+    "definitions": [
+     {
+      "text": "November 2nd",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "'possibly' offers one possible arrangement among many, so the letters are recombined"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "say, dull also",
+      "gives": "SAYDULLALSO",
+      "note": "letters used as raw material"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SAYDULLALSO",
+       "gives": "ALLSOULSDAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone remarking that the second of November is a dreary day too.",
+     "walkthrough": "'Say' looks like a phrase-filler introducing an example, but it is part of the letters to rearrange.",
+     "definitionFit": "All Souls' Day is the Christian feast commemorating the departed, kept on the second of November."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 15,
@@ -304,7 +967,68 @@
      }
     ]
    },
-   "solution": "LOANSHARK"
+   "solution": "LOANSHARK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LOAN SHARK",
+    "definitions": [
+     {
+      "text": "Usurer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fans",
+      "for": "anagram",
+      "note": "to fan things is to spread them out, scattering the letters into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the rearranged letters inside the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "has no",
+      "gives": "HASNO",
+      "note": "letters used as raw material"
+     },
+     {
+      "clueFragment": "play",
+      "gives": "LARK",
+      "note": "to lark is to play about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "OANSH",
+      "ARK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HASNO",
+       "gives": "OANSH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A moneylender is so disliked that nobody admires him.",
+     "walkthrough": "'Fans' looks like a noun meaning admirers; here it is a verb, spreading the letters out.",
+     "definitionFit": "A usurer lends money at extortionate interest, which is exactly what a loan shark does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fans"
+    }
+   }
   },
   {
    "number": 16,
@@ -318,7 +1042,48 @@
     "text": "Game that make the Parisienne angry, we hear",
     "enumeration": "8"
    },
-   "solution": "LACROSSE"
+   "solution": "LACROSSE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LACROSSE",
+    "definitions": [
+     {
+      "text": "Game",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "'we hear' means the phrase is judged by its sound when spoken"
+     }
+    ],
+    "linkWords": [
+     "that make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Parisienne angry",
+      "gives": "LACROSSE",
+      "soundsLike": "LA CROSS",
+      "note": "la is the French feminine 'the', and cross means angry"
+     }
+    ],
+    "explanation": {
+     "surface": "A sport that infuriates a woman from Paris.",
+     "walkthrough": "The grammar of 'that make' is loose; read it as 'that makes', joining definition to wordplay.",
+     "definitionFit": "Lacrosse is a team sport played with netted sticks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "angry"
+    }
+   }
   },
   {
    "number": 17,
@@ -332,7 +1097,43 @@
     "text": "Faulty connection, a problem for the editor?",
     "enumeration": "8"
    },
-   "solution": "DEADLINE"
+   "solution": "DEADLINE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DEADLINE",
+    "definitions": [
+     {
+      "text": "Faulty connection",
+      "at": 0
+     },
+     {
+      "text": "a problem for the editor?",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Faulty connection",
+      "note": "first meaning: a telephone line with no signal"
+     },
+     {
+      "clueFragment": "a problem for the editor?",
+      "note": "second meaning: the time limit for submitting copy, a constant worry for newspaper editors"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split into two words, the answer is a broken phone line; as one word it is a time limit for submission.",
+     "definitionFit": "A deadline is the cutoff time for finishing work; a dead line is a telephone connection that has failed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "connection"
+    }
+   }
   },
   {
    "number": 18,
@@ -352,7 +1153,70 @@
      }
     ]
    },
-   "solution": "GRAVENIMAGE"
+   "solution": "GRAVENIMAGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "GRAVEN IMAGE",
+    "definitions": [
+     {
+      "text": "sculpted idol",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "something holding another thing has it inside, so one piece wraps around the next"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Solemn",
+      "gives": "GRAVE",
+      "note": "grave means serious, solemn"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "N",
+      "note": "N is the chess notation for knight"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e., Latin id est, that is"
+     },
+     {
+      "clueFragment": "magazine",
+      "gives": "MAG",
+      "note": "a common short form of magazine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRAVE",
+      "N",
+      "I",
+      "MAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A serious knight clutching a periodical featuring a carved statue.",
+     "definitionFit": "A graven image is a carved idol, the phrase used in the Ten Commandments."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "magazine"
+    }
+   }
   },
   {
    "number": 19,
@@ -366,7 +1230,50 @@
     "text": "Tackle school producing tasteless art",
     "enumeration": "6"
    },
-   "solution": "KITSCH"
+   "solution": "KITSCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KITSCH",
+    "definitions": [
+     {
+      "text": "tasteless art",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "producing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tackle",
+      "gives": "KIT",
+      "note": "tackle is gear or equipment, kit"
+     },
+     {
+      "clueFragment": "school",
+      "gives": "SCH",
+      "note": "standard abbreviation for school"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KIT",
+      "SCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A school taking on the job of making poor-quality artwork.",
+     "walkthrough": "'Tackle' looks like a verb meaning take on; here it is a noun, fishing or sports gear.",
+     "definitionFit": "Kitsch is art or decoration considered garish, sentimental or in poor taste."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tackle"
+    }
+   }
   },
   {
    "number": 20,
@@ -380,7 +1287,49 @@
     "text": "What sounds like a standard piece of artillery?",
     "enumeration": "6"
    },
-   "solution": "CANNON"
+   "solution": "CANNON",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CANNON",
+    "definitions": [
+     {
+      "text": "piece of artillery",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sounds like",
+      "for": "homophone",
+      "note": "'sounds like' means the word wanted is judged by how it is spoken, not spelt"
+     }
+    ],
+    "linkWords": [
+     "What",
+     "a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "standard",
+      "gives": "CANNON",
+      "soundsLike": "CANON",
+      "note": "a canon is a general rule or standard"
+     }
+    ],
+    "explanation": {
+     "surface": "A riddle asking what weapon resembles a regular gun.",
+     "walkthrough": "'Standard piece of artillery' reads as one phrase meaning ordinary gun; split it after 'standard'.",
+     "definitionFit": "A cannon is a large mounted gun, a classic piece of artillery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "standard"
+    }
+   }
   },
   {
    "number": 21,
@@ -394,7 +1343,50 @@
     "text": "Criminal maims prayer-leaders",
     "enumeration": "5"
    },
-   "solution": "IMAMS"
+   "solution": "IMAMS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IMAMS",
+    "definitions": [
+     {
+      "text": "prayer-leaders",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Criminal",
+      "for": "anagram",
+      "note": "something criminal is crooked, so the letters are bent into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "maims",
+      "gives": "MAIMS",
+      "note": "letters used as raw material"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MAIMS",
+       "gives": "IMAMS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lawbreaker injures religious leaders.",
+     "definitionFit": "An imam is the person who leads prayers in a mosque."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Criminal"
+    }
+   }
   },
   {
    "number": 22,
@@ -408,7 +1400,49 @@
     "text": "Son, fussed over and cocooned?",
     "enumeration": "9"
    },
-   "solution": "SMOTHERED"
+   "solution": "SMOTHERED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SMOTHERED",
+    "definitions": [
+     {
+      "text": "cocooned?",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "standard abbreviation for son"
+     },
+     {
+      "clueFragment": "fussed over",
+      "gives": "MOTHERED",
+      "note": "to mother a child is to fuss over and coddle it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "MOTHERED"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy so fussed over that he is wrapped in cotton wool.",
+     "walkthrough": "The question mark flags that cocooned is used loosely, for being overwhelmed with protective affection.",
+     "definitionFit": "A child smothered with love is kept enveloped and overprotected, as if in a cocoon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 23,
@@ -422,7 +1456,42 @@
     "text": "Vegetable fed to Antonio, nightly",
     "enumeration": "5"
    },
-   "solution": "ONION"
+   "solution": "ONION",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ONION",
+    "definitions": [
+     {
+      "text": "Vegetable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fed to",
+      "for": "hidden_word",
+      "note": "food fed to someone goes inside them, so the wanted letters lie inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Antonio, nightly",
+      "gives": "ONION",
+      "note": "the run of letters straddling the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone called Antonio eating a vegetable every night.",
+     "definitionFit": "An onion is a pungent bulb vegetable used widely in cooking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fed"
+    }
+   }
   },
   {
    "number": 24,
@@ -442,7 +1511,51 @@
      }
     ]
    },
-   "solution": "SANTAMARIA"
+   "solution": "SANTAMARIA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SANTA MARIA",
+    "definitions": [
+     {
+      "text": "Brazilian city",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "visits",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Father Christmas",
+      "gives": "SANTA",
+      "note": "Santa Claus"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "MARIA",
+      "note": "a girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SANTA",
+      "MARIA"
+     ]
+    },
+    "explanation": {
+     "surface": "Santa calls on a young woman living in Brazil.",
+     "walkthrough": "'Visits' simply places the girl after Santa.",
+     "definitionFit": "Santa Maria is a city in the state of Rio Grande do Sul in southern Brazil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "girl"
+    }
+   }
   },
   {
    "number": 25,
@@ -456,7 +1569,55 @@
     "text": "A saint, one from a town in Italy",
     "enumeration": "4"
    },
-   "solution": "ASTI"
+   "solution": "ASTI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASTI",
+    "definitions": [
+     {
+      "text": "a town in Italy",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "saint",
+      "gives": "ST",
+      "note": "standard abbreviation for saint"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "ST",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A holy person who comes from an Italian town.",
+     "definitionFit": "Asti is a town in Piedmont, famous for its sparkling wine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 26,
@@ -470,7 +1631,67 @@
     "text": "Nagging male — quiet during kissing and cuddling later!",
     "enumeration": "10"
    },
-   "solution": "HENPECKING"
+   "solution": "HENPECKING",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HENPECKING",
+    "definitions": [
+     {
+      "text": "Nagging",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something happening during another thing falls within it, so one piece goes inside"
+     },
+     {
+      "text": "later",
+      "for": "charade",
+      "note": "'later' says the kissing piece comes after the male in the sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "male",
+      "gives": "HE",
+      "note": "he is the male pronoun"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "p, piano, is the musical direction for quiet"
+     },
+     {
+      "clueFragment": "kissing and cuddling",
+      "gives": "NECKING",
+      "note": "necking is kissing and cuddling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "N",
+      "P",
+      "ECKING"
+     ]
+    },
+    "explanation": {
+     "surface": "A man tells off his partner for silence during a snog, promising affection later.",
+     "walkthrough": "P goes after the first letter of NECKING.",
+     "definitionFit": "Henpecking is persistent nagging, typically of a husband by his wife."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quiet"
+    }
+   }
   },
   {
    "number": 27,
@@ -484,7 +1705,45 @@
     "text": "Sounds like the top dog",
     "enumeration": "4"
    },
-   "solution": "PEKE"
+   "solution": "PEKE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PEKE",
+    "definitions": [
+     {
+      "text": "dog",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sounds like",
+      "for": "homophone",
+      "note": "'sounds like' means the wanted word matches another when spoken aloud"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the top",
+      "gives": "PEKE",
+      "soundsLike": "PEAK",
+      "note": "the peak is the top of something"
+     }
+    ],
+    "explanation": {
+     "surface": "A phrase suggesting the leading or champion dog.",
+     "walkthrough": "'Top dog' looks like one idiom meaning the boss; split it.",
+     "definitionFit": "Peke is the short name for a Pekingese, a small toy dog breed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "top"
+    }
+   }
   }
  ]
 }
