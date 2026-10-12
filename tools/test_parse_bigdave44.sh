@@ -270,4 +270,14 @@ e = [{"number": n, "direction": "across"} for n in range(19)]
 g = [{"lights": [[30 + 2 * i, "across"], [31 + 2 * i, "down"]]} for i in range(3)]
 print(pb.plausible({"entries": e}), pb.plausible({"entries": e, "unsplit": g}))' 2>&1 | tail -1)"
 
+check "one linked group clued twice from either end is one group, not a second running backwards (toughie-172)" \
+  "10a FAIR | 7d GAME | 8d EYOT" "$(PYTHONPATH="$REPO/tools" python3 -c '
+import parse_timesforthetimes as T
+lines = ["Across", "10a & 7d Legitimate target at coconut shy, say (4,4)", "{FAIR GAME} a double definition",
+         "Down", "7d & 10a County show - one with mega-RAF involvement (4,4)", "{FAIR GAME} the other half",
+         "8 Island in Hackney, otherwise in Chiswick (4)", "{EYOT} hidden"]
+lines = [l.replace("{", "").replace("}", " -") for l in lines]
+es, _ = T.read_entries(lines)
+print(" | ".join("%d%s %s" % (e["number"], e["direction"][0], e["answer"]) for e in es))' 2>&1 | tail -1)"
+
 [ $fails -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }
