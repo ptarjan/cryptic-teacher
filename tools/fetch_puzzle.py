@@ -3103,10 +3103,15 @@ def supersede_book(book_id, original_id):
     # address, and its book still lists it (renamed_ids.reprinted_in). Its
     # per-puzzle table rows described the book's own reading, now a reprint
     # text, so they go (puzzle_rows; book-12076 kept one and CI failed).
+    # Both tables are the checkout's that holds the puzzles, so a test that
+    # points PUZZLE_DIR at a temp dir leaves the real ones alone.
     import puzzle_rows
     import renamed_ids
-    renamed_ids.write({**renamed_ids.read(), book_id: original_id})
-    puzzle_rows.retire(book_id)
+    root = puzzle_paths.PUZZLE_DIR.parent
+    table = root / renamed_ids.MAP.relative_to(renamed_ids.ROOT)
+    if table.exists():
+        renamed_ids.write({**renamed_ids.read(table), book_id: original_id}, table)
+    puzzle_rows.retire(book_id, root=root)
     print(f"{book_id} reprints {original_id}: removed, its clues kept as a "
           f"reading at {saved}", file=sys.stderr)
 

@@ -110,9 +110,9 @@ F.puzzle_paths.shim_path = lambda p: tmp / "none.js"
 F.read_puzzle_file = lambda p: {"id": "book-1", "entries": [], "source": {}}
 F.clue_index = lambda: type("I", (), {"discard": lambda self, pid: None})()
 book_queue.save_reprint = lambda *a, **k: tmp / "reading.txt"
-renamed_ids.read = lambda: {"old-1": "new-1"}
-renamed_ids.write = lambda rows: calls.append(("write", rows))
-puzzle_rows.retire = lambda old, new=None: calls.append(("retire", old, new))
+renamed_ids.read = lambda path=None: {"old-1": "new-1"}
+renamed_ids.write = lambda rows, path=None: calls.append(("write", rows))
+puzzle_rows.retire = lambda old, new=None, root=None: calls.append(("retire", old, new))
 F.supersede_book("book-1", "times-9")
 print(not book.exists(), calls)
 PY

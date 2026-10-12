@@ -81,7 +81,8 @@ def retire(old, new=None, root=ROOT):
         if changed:
             path.write_text(dump(name, out), encoding="utf-8")
             written.append(path)
-    if old in light_ids((Path(root) / LIGHT_TABLE).read_text(encoding="utf-8")):
+    light = Path(root) / LIGHT_TABLE
+    if light.exists() and old in light_ids(light.read_text(encoding="utf-8")):
         print(f"puzzle_rows: SOURCE_LIGHT_WRONG in {LIGHT_TABLE} keys {old}; "
               f"{'rekey it to ' + new if new else 'delete it'} by hand", file=sys.stderr)
     return written
