@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,58 @@
     "text": "Italian heiress left to confront heartless idea",
     "enumeration": "6"
    },
-   "solution": "PORTIA"
+   "solution": "PORTIA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "PORTIA",
+    "definitions": [
+     {
+      "text": "Italian heiress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartless",
+      "for": "deletion",
+      "note": "a thing without its heart has lost its central letters"
+     }
+    ],
+    "linkWords": [
+     "to confront"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "PORT",
+      "note": "port is the left side of a ship"
+     },
+     {
+      "clueFragment": "idea",
+      "gives": "IDEA",
+      "note": "taken as written, before its middle goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PORT",
+      "IA"
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy Italian woman abandoned so she can face down a thoughtless notion.",
+     "walkthrough": "'Heartless' removes the two central letters of the word, leaving its first and last.",
+     "definitionFit": "Portia is the rich heiress of Belmont in Shakespeare's The Merchant of Venice, set in Italy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +101,54 @@
     "text": "What's done to criminal, I fancy, not following a particular line",
     "enumeration": "15"
    },
-   "solution": "OMNIDIRECTIONAL"
+   "solution": "OMNIDIRECTIONAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OMNIDIRECTIONAL",
+    "definitions": [
+     {
+      "text": "not following a particular line",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "I fancy",
+      "for": "anagram",
+      "note": "a fancy is a whim, so the letters are twisted on a whim"
+     }
+    ],
+    "linkWords": [
+     "What's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "done to criminal, I",
+      "gives": "DONETOCRIMINALI",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DONETOCRIMINALI",
+       "gives": "OMNIDIRECTIONAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone muses on a criminal's punishment, which follows no clear course.",
+     "walkthrough": "'I fancy' reads as 'I think', but the I belongs to the fodder and 'fancy' rearranges.",
+     "definitionFit": "Omnidirectional means acting in all directions, not along any single line."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fancy"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +162,43 @@
     "text": "Follows one side turning up on cricket field before match?",
     "enumeration": "5"
    },
-   "solution": "TAILS"
+   "solution": "TAILS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TAILS",
+    "definitions": [
+     {
+      "text": "Follows",
+      "at": 0
+     },
+     {
+      "text": "one side turning up on cricket field before match?",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Follows",
+      "note": "first meaning: shadows someone"
+     },
+     {
+      "clueFragment": "one side turning up on cricket field before match?",
+      "note": "second meaning: the face of the coin showing at the toss before play"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Cricket captains toss a coin before a match; the side landing face up decides who bats.",
+     "definitionFit": "To tail someone is to follow them, and tails is the reverse face of a tossed coin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "side"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +212,52 @@
     "text": "I invent an unusual solution to a snake bite?",
     "enumeration": "9"
    },
-   "solution": "ANTIVENIN"
+   "solution": "ANTIVENIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANTIVENIN",
+    "definitions": [
+     {
+      "text": "solution to a snake bite?",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusual",
+      "for": "anagram",
+      "note": "unusual means out of the normal order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I invent an",
+      "gives": "IINVENTAN",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IINVENTAN",
+       "gives": "ANTIVENIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An inventor claims a novel fix for being bitten by a serpent.",
+     "walkthrough": "'Solution' means both an answer and a liquid medicine.",
+     "definitionFit": "Antivenin is serum given to counteract venom, a liquid remedy for snakebite."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "solution"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +271,53 @@
     "text": "'Isms' tend somehow to determine outlooks",
     "enumeration": "8"
    },
-   "solution": "MINDSETS"
+   "solution": "MINDSETS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MINDSETS",
+    "definitions": [
+     {
+      "text": "outlooks",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow suggests the letters get there by some unspecified rearranging"
+     }
+    ],
+    "linkWords": [
+     "to determine"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "'Isms' tend",
+      "gives": "ISMSTEND",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISMSTEND",
+       "gives": "MINDSETS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ideologies tend in some way to shape how people view the world.",
+     "definitionFit": "A mindset is a fixed attitude or way of seeing things, an outlook."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "somehow"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +331,78 @@
     "text": "Fellow holding party has upset an iconic female",
     "enumeration": "7"
    },
-   "solution": "MADONNA"
+   "solution": "MADONNA",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal",
+     "charade"
+    ],
+    "answer": "MADONNA",
+    "definitions": [
+     {
+      "text": "iconic female",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means keeping something inside"
+     },
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset in a down clue means turned upside down, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "MAN",
+      "note": "a fellow is a man"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written, then turned round"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "DO",
+      "N",
+      "NA"
+     ],
+     "reversals": [
+      {
+       "from": "AN",
+       "to": "NA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man throwing a party has offended a famous woman.",
+     "walkthrough": "'Iconic' hints at religious icons depicting the Virgin as well as at the pop star.",
+     "definitionFit": "The Madonna is the Virgin Mary, the female figure painted on countless icons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +416,42 @@
     "text": "Measurement in a communications circuit one person has installed",
     "enumeration": "5"
    },
-   "solution": "NEPER"
+   "solution": "NEPER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NEPER",
+    "definitions": [
+     {
+      "text": "Measurement in a communications circuit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has installed",
+      "for": "hidden_word",
+      "note": "a thing installed is set inside, so the answer sits within these words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one person",
+      "gives": "NEPER",
+      "note": "found inside the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A reading taken from a telecoms circuit that someone has fitted.",
+     "definitionFit": "The neper is a logarithmic unit for signal attenuation, used for gain and loss in telecom circuits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "installed"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +465,68 @@
     "text": "Spotted copper nabbing group in outdoor building",
     "enumeration": "9"
    },
-   "solution": "SPLOTCHED"
+   "solution": "SPLOTCHED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPLOTCHED",
+    "definitions": [
+     {
+      "text": "Spotted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nabbing",
+      "for": "container",
+      "note": "nabbing means catching hold of, so these letters wrap round the next"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the combined letters inside the building word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outdoor building",
+      "gives": "SHED",
+      "note": "a shed is a simple garden building"
+     },
+     {
+      "clueFragment": "copper",
+      "gives": "PC",
+      "note": "a police constable"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "LOT",
+      "note": "a lot is a set or group"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "LOT",
+      "C",
+      "HED"
+     ]
+    },
+    "explanation": {
+     "surface": "A policeman was seen catching a gang in a garden shed.",
+     "walkthrough": "'Spotted' looks like 'seen' but means marked with blotches; 'copper' is a policeman, not the metal.",
+     "definitionFit": "Splotched means covered with irregular patches or spots."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Spotted"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +554,55 @@
      }
     ]
    },
-   "solution": "THINONTHEGROUND"
+   "solution": "THINONTHEGROUND",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THIN ON THE GROUND",
+    "definitions": [
+     {
+      "text": "crops being this?",
+      "at": 42,
+      "note": "the definition is a sentence frame; scarce crops would be thin on the ground"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "will be suffering",
+      "for": "anagram",
+      "note": "something suffering is in a bad state, knocked out of shape, so the letters are mixed"
+     }
+    ],
+    "linkWords": [
+     "—"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ninth drought and one",
+      "gives": "NINTHDROUGHTONE",
+      "note": "the letters to be rearranged, 'and' joining the two parts"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NINTHDROUGHTONE",
+       "gives": "THINONTHEGROUND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After nine dry spells, everyone will suffer, and the harvest will be sparse.",
+     "walkthrough": "The fodder is every letter of 'Ninth drought' and 'one'; 'and' just joins them.",
+     "definitionFit": "Thin on the ground is an idiom for scarce, which is what crops would be after a drought."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "suffering"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +616,55 @@
     "text": "Demanded to be at home with little girl and boy",
     "enumeration": "8"
    },
-   "solution": "INSISTED"
+   "solution": "INSISTED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INSISTED",
+    "definitions": [
+     {
+      "text": "Demanded",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     },
+     {
+      "clueFragment": "little girl",
+      "gives": "SIS",
+      "note": "short for sister"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "TED",
+      "note": "a common boy's name, short for Edward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SIS",
+      "TED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone required to stay in the house with a young girl and a boy.",
+     "definitionFit": "To insist on something is to demand it firmly; both verbs are past tense here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "little"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +678,49 @@
     "text": "Sick-looking friend needing cover",
     "enumeration": "6"
    },
-   "solution": "PALLID"
+   "solution": "PALLID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PALLID",
+    "definitions": [
+     {
+      "text": "Sick-looking",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "friend",
+      "gives": "PAL",
+      "note": "a pal is a friend"
+     },
+     {
+      "clueFragment": "cover",
+      "gives": "LID",
+      "note": "a lid covers a container"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAL",
+      "LID"
+     ]
+    },
+    "explanation": {
+     "surface": "A pale, ill friend who needs a blanket over them.",
+     "definitionFit": "Pallid means pale and wan, the complexion of someone unwell."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +734,51 @@
     "text": "Notice French art showing Hell to Milton",
     "enumeration": "4"
    },
-   "solution": "ADES"
+   "solution": "ADES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADES",
+    "definitions": [
+     {
+      "text": "Hell to Milton",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Notice",
+      "gives": "AD",
+      "note": "an ad is a public notice"
+     },
+     {
+      "clueFragment": "French art",
+      "gives": "ES",
+      "note": "French for 'thou art' is tu es"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "A sign pointing out French artwork that portrays the inferno as Milton saw it.",
+     "walkthrough": "'Art' is the old second-person form of 'are', not painting; its French equivalent is es.",
+     "definitionFit": "Milton spells the underworld Ades in Paradise Lost, an archaic form of Hades."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "art"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +792,58 @@
     "text": "Lack of vitality very little to the fore in worship",
     "enumeration": "10"
    },
-   "solution": "VENERATION"
+   "solution": "VENERATION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "VENERATION",
+    "definitions": [
+     {
+      "text": "worship",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to the fore",
+      "for": "charade",
+      "note": "to the fore says this small piece is placed at the front of the rest"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very little",
+      "gives": "V",
+      "note": "the abbreviation of very, a small bit of it"
+     },
+     {
+      "clueFragment": "Lack of vitality",
+      "gives": "ENERVATION",
+      "note": "enervation is a draining of energy; its V is the one that moves"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "ENERATION"
+     ]
+    },
+    "explanation": {
+     "surface": "Listless devotion, with little energy put into prayer.",
+     "walkthrough": "Take ENERVATION and move its V from the middle to the front.",
+     "definitionFit": "Veneration is deep reverence or worship, as of a saint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "little"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +857,55 @@
     "text": "City raised endless soldiers",
     "enumeration": "6"
    },
-   "solution": "BREMEN"
+   "solution": "BREMEN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BREMEN",
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without an end, so the final letter is cut off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "raised",
+      "gives": "BRED",
+      "note": "animals raised are bred"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "MEN",
+      "note": "ordinary soldiers are the men"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRE",
+      "MEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A town that mustered an unending supply of troops.",
+     "walkthrough": "'Endless' sits before 'soldiers' but applies to 'raised'.",
+     "definitionFit": "Bremen is a major port city in north-west Germany."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +925,51 @@
      }
     ]
    },
-   "solution": "MARCHHARE"
+   "solution": "MARCHHARE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MARCH HARE",
+    "definitions": [
+     {
+      "text": "Party member",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "demonstration",
+      "gives": "MARCH",
+      "note": "a protest march"
+     },
+     {
+      "clueFragment": "to make haste",
+      "gives": "HARE",
+      "note": "to hare is to run fast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARCH",
+      "HARE"
+     ]
+    },
+    "explanation": {
+     "surface": "A political activist on a protest needing to hurry.",
+     "walkthrough": "'Party member' suggests politics, but the party is the Mad Hatter's tea party in Alice in Wonderland.",
+     "definitionFit": "The March Hare is a guest at the Mad Hatter's tea party in Lewis Carroll's story."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Party"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +983,82 @@
     "text": "The fellow dressed in fancy state, ultimate in elegance?",
     "enumeration": "8"
    },
-   "solution": "AESTHETE"
+   "solution": "AESTHETE",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram",
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AESTHETE",
+    "definitions": [
+     {
+      "text": "The fellow dressed in fancy state, ultimate in elegance?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fancy",
+      "for": "anagram",
+      "note": "fancy as an adjective means elaborate or ornamented, so these letters are dressed up in a new order"
+     },
+     {
+      "text": "dressed in",
+      "for": "container",
+      "note": "one thing dressed in another is wrapped inside it"
+     },
+     {
+      "text": "ultimate in",
+      "for": "letter_selection",
+      "note": "the ultimate letter of a word is its last one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "state",
+      "gives": "AESTT",
+      "note": "the anagram fodder, rearranged"
+     },
+     {
+      "clueFragment": "The fellow",
+      "gives": "HE",
+      "note": "he refers to a man"
+     },
+     {
+      "clueFragment": "elegance",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AEST",
+      "HE",
+      "T",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STATE",
+       "gives": "AESTT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man got up in an extravagant manner, the last word in stylishness.",
+     "walkthrough": "The whole clue doubles as the definition: a man dressed up in style is a picture of the dandy.",
+     "definitionFit": "An aesthete is someone devoted to beauty and refinement, here pictured as a dandy dressed to impress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "fancy"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1072,51 @@
     "text": "Active males rest twice a year?",
     "enumeration": "9"
    },
-   "solution": "SEMESTRAL"
+   "solution": "SEMESTRAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEMESTRAL",
+    "definitions": [
+     {
+      "text": "twice a year?",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Active",
+      "for": "anagram",
+      "note": "active letters are lively and moving about, ending in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "males rest",
+      "gives": "MALESREST",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MALESREST",
+       "gives": "SEMESTRAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Busy men take a break only every six months?",
+     "walkthrough": "The question mark flags a loose definition: semestral strictly means half-yearly.",
+     "definitionFit": "Semestral means occurring every six months, hence happening twice yearly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Active"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1130,52 @@
     "text": "Instruments in a car so complicated",
     "enumeration": "8"
    },
-   "solution": "OCARINAS"
+   "solution": "OCARINAS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OCARINAS",
+    "definitions": [
+     {
+      "text": "Instruments",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "complicated",
+      "for": "anagram",
+      "note": "something complicated is tangled up, so the letters are mixed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in a car so",
+      "gives": "INACARSO",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INACARSO",
+       "gives": "OCARINAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The dashboard dials in a vehicle are so intricate.",
+     "walkthrough": "'Instruments' suggests car gauges, but these are musical.",
+     "definitionFit": "An ocarina is a small egg-shaped wind instrument with finger holes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Instruments"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1189,52 @@
     "text": "The firs chopped? One may get a dramatic change of scenery",
     "enumeration": "7"
    },
-   "solution": "SHIFTER"
+   "solution": "SHIFTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SHIFTER",
+    "definitions": [
+     {
+      "text": "One may get a dramatic change of scenery",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chopped",
+      "for": "anagram",
+      "note": "chopped means cut up, so the letters are broken and reassembled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The firs",
+      "gives": "THEFIRS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEFIRS",
+       "gives": "SHIFTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Felling the fir trees would certainly transform the view.",
+     "walkthrough": "'Dramatic' is literal: a scene shifter moves sets in a theatre.",
+     "definitionFit": "A scene shifter is a stagehand who changes the scenery between scenes of a play."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dramatic"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1248,48 @@
     "text": "Male snake gets angrier",
     "enumeration": "6"
    },
-   "solution": "MADDER"
+   "solution": "MADDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MADDER",
+    "definitions": [
+     {
+      "text": "angrier",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     },
+     {
+      "clueFragment": "snake",
+      "gives": "ADDER",
+      "note": "the adder is Britain's venomous snake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ADDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A male serpent becomes more furious.",
+     "definitionFit": "Mad is informal for angry, so madder means more angry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1303,68 @@
     "text": "Sees what's wrong — nothing right in illustrations",
     "enumeration": "10"
    },
-   "solution": "BISHOPRICS"
+   "solution": "BISHOPRICS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BISHOPRICS",
+    "definitions": [
+     {
+      "text": "Sees",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places these letters inside the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what's wrong",
+      "gives": "BISH",
+      "note": "bish is British slang for a mistake or blunder"
+     },
+     {
+      "clueFragment": "illustrations",
+      "gives": "PICS",
+      "note": "pics is short for pictures"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "nought, the letter O"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R abbreviates right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BISH",
+      "O",
+      "PR",
+      "ICS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spots errors, finding nothing correct in the pictures.",
+     "walkthrough": "'Sees' looks like a verb but is the plural noun for a bishop's area. OR goes after the P of PICS.",
+     "definitionFit": "A see is the diocese under a bishop's authority, also called a bishopric."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sees"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1378,60 @@
     "text": "Religious type is hit on the rebound",
     "enumeration": "5"
    },
-   "solution": "PARSI"
+   "solution": "PARSI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PARSI",
+    "definitions": [
+     {
+      "text": "Religious type",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the rebound",
+      "for": "reversal",
+      "note": "something on the rebound bounces back, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hit",
+      "gives": "RAP",
+      "note": "a rap is a sharp blow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "SI"
+     ],
+     "reversals": [
+      {
+       "from": "ISRAP",
+       "to": "PARSI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A devout person is struck by a ball bouncing back.",
+     "definitionFit": "A Parsi is a follower of Zoroastrianism descended from Persian refugees in India."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rebound"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1445,50 @@
     "text": "Frothy stuff provided by helpless pub server",
     "enumeration": "4"
    },
-   "solution": "BARM"
+   "solution": "BARM",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BARM",
+    "definitions": [
+     {
+      "text": "Frothy stuff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "helpless",
+      "for": "deletion",
+      "note": "without help, so a word meaning help is taken away"
+     }
+    ],
+    "linkWords": [
+     "provided by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub server",
+      "gives": "BARMAID",
+      "note": "a woman serving drinks at a pub; its AID (help) is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BARM"
+     ]
+    },
+    "explanation": {
+     "surface": "The foam on a pint comes from a barmaid who can't cope.",
+     "definitionFit": "Barm is the froth that forms on fermenting beer or malt liquor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "helpless"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1502,56 @@
     "text": "Hat left out in alcove",
     "enumeration": "5"
    },
-   "solution": "BOWER"
+   "solution": "BOWER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BOWER",
+    "definitions": [
+     {
+      "text": "alcove",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "out means removed, so this letter goes from the word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hat",
+      "gives": "BOWLER",
+      "note": "a bowler is a hard round hat"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L abbreviates left; this is the letter taken away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOWER"
+     ]
+    },
+    "explanation": {
+     "surface": "A hat abandoned in a nook.",
+     "walkthrough": "'Hat' could be any hat; it has to be one containing an L.",
+     "definitionFit": "A bower is a shady recess or leafy arbour, a kind of alcove."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1565,48 @@
     "text": "Not just a Parisian trade event",
     "enumeration": "6"
    },
-   "solution": "UNFAIR"
+   "solution": "UNFAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNFAIR",
+    "definitions": [
+     {
+      "text": "Not just",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a Parisian",
+      "gives": "UN",
+      "note": "un is French for a"
+     },
+     {
+      "clueFragment": "trade event",
+      "gives": "FAIR",
+      "note": "a trade fair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "FAIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A French exhibition that is more than a mere trade show.",
+     "walkthrough": "'Not just' reads as 'not only', but means not fair.",
+     "definitionFit": "Unfair means unjust, the opposite of just."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "just"
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1626,43 @@
      }
     ]
    },
-   "solution": "THREWOUT"
+   "solution": "THREWOUT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "THREW OUT",
+    "definitions": [
+     {
+      "text": "Rejected",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "we hear says the answer is spoken like the words before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "everywhere",
+      "gives": "THREWOUT",
+      "soundsLike": "THROUGHOUT",
+      "note": "throughout means everywhere"
+     }
+    ],
+    "explanation": {
+     "surface": "Something turned down all over the place, it is said.",
+     "definitionFit": "To throw out a proposal is to reject or discard it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 25,
@@ -423,7 +1676,63 @@
     "text": "Slippery types falling over support, being less alert",
     "enumeration": "8"
    },
-   "solution": "SLEEPIER"
+   "solution": "SLEEPIER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SLEEPIER",
+    "definitions": [
+     {
+      "text": "less alert",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "falling over",
+      "for": "reversal",
+      "note": "something falling over ends upside down, so the word runs the other way"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slippery types",
+      "gives": "EELS",
+      "note": "eels are proverbially slippery"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "PIER",
+      "note": "a pier is a supporting pillar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLEE",
+      "PIER"
+     ],
+     "reversals": [
+      {
+       "from": "EELS",
+       "to": "SLEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Slippery customers taking a tumble on a prop because they're drowsy.",
+     "definitionFit": "Sleepier means drowsier, so less wide awake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "types"
+    }
+   }
   },
   {
    "number": 26,
@@ -437,7 +1746,60 @@
     "text": "Look to imprison a revolutionary in Texas city",
     "enumeration": "6"
    },
-   "solution": "LAREDO"
+   "solution": "LAREDO",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "LAREDO",
+    "definitions": [
+     {
+      "text": "Texas city",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to imprison",
+      "for": "container",
+      "note": "to imprison is to hold inside, so the next letters go within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Look",
+      "gives": "LO",
+      "note": "lo means look!"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "revolutionary",
+      "gives": "RED",
+      "note": "a red is a revolutionary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "A",
+      "RED",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Look out for a rebel jailed in a Lone Star State town.",
+     "definitionFit": "Laredo is a city in southern Texas on the Rio Grande."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
