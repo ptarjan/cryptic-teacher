@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,59 @@
     "text": "Piece of sacking very small person gets to sew",
     "enumeration": "6"
    },
-   "solution": "STITCH"
+   "solution": "STITCH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STITCH",
+    "definitions": [
+     {
+      "text": "sew",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Piece of",
+      "for": "letter_selection",
+      "note": "a piece is only a small part, so just one letter of the next word is kept"
+     }
+    ],
+    "linkWords": [
+     "gets to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sacking",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of sacking"
+     },
+     {
+      "clueFragment": "very small person",
+      "gives": "TITCH",
+      "note": "a titch is British slang for a tiny person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TITCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny tailor is handed a scrap of sacking and told to get sewing.",
+     "walkthrough": "TITCH is informal British for a very small person.",
+     "definitionFit": "To stitch is to sew, joining fabric with a needle and thread."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Piece"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +102,80 @@
     "text": "Cabinet ministers ultimately chose a leader of wisdom, possibly",
     "enumeration": "8"
    },
-   "solution": "SHOWCASE"
+   "solution": "SHOWCASE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "SHOWCASE",
+    "definitions": [
+     {
+      "text": "Cabinet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the end, so only the closing letter of ministers is used"
+     },
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "a leader goes in front, so only the opening letter of wisdom is used"
+     },
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly suggests one arrangement among many, so the letters may be reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ministers",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of ministers"
+     },
+     {
+      "clueFragment": "chose a",
+      "gives": "CHOSEA",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "wisdom",
+      "gives": "W",
+      "select": "first",
+      "note": "the first letter of wisdom"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HOWCASE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHOSEAW",
+       "gives": "HOWCASE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cabinet ministers end up picking a wise figure as their leader, perhaps.",
+     "walkthrough": "'Cabinet' reads as the government body, but it is the piece of furniture.",
+     "definitionFit": "A showcase is a glass-fronted display cabinet for exhibiting objects."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cabinet"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +189,53 @@
     "text": "Crime fighters in Nile port, all over the place",
     "enumeration": "8"
    },
-   "solution": "INTERPOL"
+   "solution": "INTERPOL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INTERPOL",
+    "definitions": [
+     {
+      "text": "Crime fighters",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all over the place",
+      "for": "anagram",
+      "note": "things all over the place are scattered and disordered, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nile port",
+      "gives": "NILEPORT",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NILEPORT",
+       "gives": "INTERPOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Police are chasing criminals in chaotic scenes at an Egyptian river port.",
+     "definitionFit": "Interpol is the international police organisation that coordinates efforts against crime across borders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +249,43 @@
     "text": "Musical, presumably in black and white!",
     "enumeration": "5"
    },
-   "solution": "CHESS"
+   "solution": "CHESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHESS",
+    "definitions": [
+     {
+      "text": "Musical",
+      "at": 0
+     },
+     {
+      "text": "presumably in black and white",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Musical",
+      "note": "first meaning: a stage show by Tim Rice with Benny and Björn of ABBA"
+     },
+     {
+      "clueFragment": "presumably in black and white",
+      "note": "second meaning: a board game played with black and white pieces on black and white squares"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests an old monochrome film musical; 'presumably' flags the playful second reading of the board game.",
+     "definitionFit": "Chess is both a 1980s stage musical and a game whose board and pieces come in two colours."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "black"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +299,63 @@
     "text": "US artist left with monarch after game",
     "enumeration": "8"
    },
-   "solution": "WHISTLER"
+   "solution": "WHISTLER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WHISTLER",
+    "definitions": [
+     {
+      "text": "US artist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the first pieces behind the game word, which therefore leads"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game",
+      "gives": "WHIST",
+      "note": "whist is a card game"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "standard abbreviation for left"
+     },
+     {
+      "clueFragment": "monarch",
+      "gives": "ER",
+      "note": "Elizabeth Regina, the Queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHIST",
+      "L",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "An American painter departs, accompanied by a king or queen, once the match is over.",
+     "walkthrough": "ER, for Elizabeth Regina, is the usual crossword monarch.",
+     "definitionFit": "James McNeill Whistler was an American-born painter, famous for the portrait of his mother."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +375,50 @@
      }
     ]
    },
-   "solution": "HANKWILLIAMS"
+   "solution": "HANKWILLIAMS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HANK WILLIAMS",
+    "definitions": [
+     {
+      "text": "Country singer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing suggests the letters are being toyed with and moved around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kim, was in hall",
+      "gives": "KIMWASINHALL",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "KIMWASINHALL",
+       "gives": "HANKWILLIAMS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A country singer called Kim was performing in a concert hall.",
+     "definitionFit": "Hank Williams was a hugely influential American country music singer-songwriter of the 1940s and 50s."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +432,53 @@
     "text": "Fabric in his cot, all frilly",
     "enumeration": "9"
    },
-   "solution": "SAILCLOTH"
+   "solution": "SAILCLOTH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SAILCLOTH",
+    "definitions": [
+     {
+      "text": "Fabric",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "frilly",
+      "for": "anagram",
+      "note": "frilly means ruffled and gathered, so the letters are ruffled into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "his cot, all",
+      "gives": "HISCOTALL",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HISCOTALL",
+       "gives": "SAILCLOTH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The material in the baby's cot is all frills.",
+     "definitionFit": "Sailcloth is a strong canvas fabric used for making sails and sometimes clothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "frilly"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +492,57 @@
     "text": "Convict with nothing on in small lake",
     "enumeration": "6"
    },
-   "solution": "LAGOON"
+   "solution": "LAGOON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAGOON",
+    "definitions": [
+     {
+      "text": "small lake",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Convict",
+      "gives": "LAG",
+      "note": "an old lag is a seasoned convict"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "zero, the letter O"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAG",
+      "O",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A naked prisoner is spotted bathing in a pond.",
+     "walkthrough": "LAG, as in 'old lag', is British slang for a prisoner; 'with nothing on' suggests nudity but is just O and ON.",
+     "definitionFit": "A lagoon is a stretch of shallow water, often cut off from the sea, effectively a small lake."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "nothing"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +556,45 @@
     "text": "Night flight for cheap whisky",
     "enumeration": "6"
    },
-   "solution": "REDEYE"
+   "solution": "REDEYE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REDEYE",
+    "definitions": [
+     {
+      "text": "Night flight",
+      "at": 0
+     },
+     {
+      "text": "cheap whisky",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Night flight",
+      "note": "first meaning: an overnight plane journey that leaves passengers bleary"
+     },
+     {
+      "clueFragment": "cheap whisky",
+      "note": "second meaning: American slang for rough, inferior whiskey"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone takes an overnight flight, attracted by duty-free bargain spirits.",
+     "definitionFit": "A red-eye is both an overnight flight arriving early morning and US slang for raw, low-grade whiskey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +608,49 @@
     "text": "Unfashionable group coming from launch",
     "enumeration": "6"
    },
-   "solution": "OUTSET"
+   "solution": "OUTSET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTSET",
+    "definitions": [
+     {
+      "text": "launch",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "coming from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unfashionable",
+      "gives": "OUT",
+      "note": "out of fashion"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "SET",
+      "note": "a set is a group or clique"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "SET"
+     ]
+    },
+    "explanation": {
+     "surface": "A dowdy band of people emerges from a product launch.",
+     "definitionFit": "The outset is the start of something, as is its launch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "launch"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +664,65 @@
     "text": "Crazy to remove a door, say, with bit of draught ensuing",
     "enumeration": "8"
    },
-   "solution": "UNHINGED"
+   "solution": "UNHINGED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "UNHINGED",
+    "definitions": [
+     {
+      "text": "Crazy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ensuing",
+      "for": "charade",
+      "note": "ensuing means following on, so this piece comes after the first"
+     },
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "a bit is only a small part, so a single letter is taken from the next word"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "remove a door, say",
+      "gives": "UNHINGE",
+      "note": "taking a door off its hinges; 'say' marks the door as one example"
+     },
+     {
+      "clueFragment": "draught",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of draught"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNHINGE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "It is mad to take a door off its hinges and let a cold draught in.",
+     "definitionFit": "Unhinged is an idiom for mentally unbalanced, as if the mind had come off its hinges."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "draught"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +742,49 @@
      }
     ]
    },
-   "solution": "CROSSSECTION"
+   "solution": "CROSSSECTION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CROSS SECTION",
+    "definitions": [
+     {
+      "text": "random sample",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "obtaining"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Annoyed",
+      "gives": "CROSS",
+      "note": "cross means angry"
+     },
+     {
+      "clueFragment": "department",
+      "gives": "SECTION",
+      "note": "a section of an organisation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CROSS",
+      "SECTION"
+     ]
+    },
+    "explanation": {
+     "surface": "An irritated office department carries out a random survey.",
+     "definitionFit": "A cross-section is a sample taken to represent the whole of a population."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Annoyed"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +798,67 @@
     "text": "Treacherous rocks ahead of rowers? This might help one who gets in the drink",
     "enumeration": "9"
    },
-   "solution": "CORKSCREW"
+   "solution": "CORKSCREW",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "CORKSCREW",
+    "definitions": [
+     {
+      "text": "This might help one who gets in the drink",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Treacherous",
+      "for": "anagram",
+      "note": "treacherous suggests something twisted and unreliable, so its letters are reordered"
+     },
+     {
+      "text": "ahead of",
+      "for": "charade",
+      "note": "ahead of puts the first piece in front of the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rocks",
+      "gives": "ROCKS",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "rowers",
+      "gives": "CREW",
+      "note": "a rowing crew"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CORKS",
+      "CREW"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROCKS",
+       "gives": "CORKS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rowers face dangerous rocks; something might rescue a person who falls into the water.",
+     "walkthrough": "'In the drink' suggests falling overboard, but it means getting into a bottle of wine.",
+     "definitionFit": "A corkscrew is the tool that pulls a cork, letting a drinker get at the wine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +872,66 @@
     "text": "Friend — shed tears about one out East",
     "enumeration": "5"
    },
-   "solution": "CRONY"
+   "solution": "CRONY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CRONY",
+    "definitions": [
+     {
+      "text": "Friend",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "out means removed, so the compass point that follows is dropped from the number word"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the weeping word wraps round the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shed tears",
+      "gives": "CRY",
+      "note": "to cry is to weep"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "East",
+      "gives": "E",
+      "note": "compass abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CR",
+      "ON",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A pal weeps over someone who has gone away to the East.",
+     "walkthrough": "'One out East' reads as a person travelling, but it means the number word losing its compass letter.",
+     "definitionFit": "A crony is a close friend or companion, often with a hint of cliquishness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +951,50 @@
      }
     ]
    },
-   "solution": "SMOKEDSALMON"
+   "solution": "SMOKEDSALMON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SMOKED SALMON",
+    "definitions": [
+     {
+      "text": "a fish dish",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "prepared as in cooked up, so the letters are worked into a new form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A monk's seldom",
+      "gives": "AMONKSSELDOM",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AMONKSSELDOM",
+       "gives": "SMOKEDSALMON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monk rarely cooks a fish course for himself.",
+     "definitionFit": "Smoked salmon is cured fish served as a dish, typically a starter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prepared"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1008,67 @@
     "text": "Put out the Spanish one, at home in match",
     "enumeration": "9"
    },
-   "solution": "ELIMINATE"
+   "solution": "ELIMINATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ELIMINATE",
+    "definitions": [
+     {
+      "text": "Put out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the word for a contest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Spanish",
+      "gives": "EL",
+      "note": "Spanish for the"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "being in means being at home"
+     },
+     {
+      "clueFragment": "match",
+      "gives": "MATE",
+      "note": "to match is to pair or mate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EL",
+      "I",
+      "M",
+      "IN",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Spanish player, playing at home, is knocked out in a match.",
+     "definitionFit": "To eliminate a competitor is to put them out of a contest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "match"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1082,55 @@
     "text": "Refuse to entertain ICI executive",
     "enumeration": "8"
    },
-   "solution": "OFFICIAL"
+   "solution": "OFFICIAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OFFICIAL",
+    "definitions": [
+     {
+      "text": "executive",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to entertain",
+      "for": "container",
+      "note": "to entertain a guest is to take them in, so one word holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Refuse",
+      "gives": "OFFAL",
+      "note": "offal is waste or rubbish"
+     },
+     {
+      "clueFragment": "ICI",
+      "gives": "ICI",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFF",
+      "ICI",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A boss turns down an invitation to wine and dine the chemicals company ICI.",
+     "walkthrough": "'Refuse' looks like a verb but is the noun, rubbish. ICI was Imperial Chemical Industries, a big British company.",
+     "definitionFit": "An official is a person holding an executive position in an organisation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Refuse"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1150,57 @@
      }
     ]
    },
-   "solution": "BYGEORGE"
+   "solution": "BYGEORGE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BY GEORGE",
+    "definitions": [
+     {
+      "text": "Exclamation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropping",
+      "for": "deletion",
+      "note": "dropping means letting fall, so a letter is taken away"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular singer",
+      "gives": "BOYGEORGE",
+      "note": "the 1980s Culture Club pop star"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "a ring is round like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BY",
+      "GEORGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pop star cries out when a ring slips from his finger.",
+     "walkthrough": "Boy George was the lead singer of Culture Club.",
+     "definitionFit": "'By George!' is an old-fashioned exclamation of surprise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1224,52 @@
      }
     ]
    },
-   "solution": "PIGSMIGHTFLY"
+   "solution": "PIGSMIGHTFLY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PIGS MIGHT FLY",
+    "definitions": [
+     {
+      "text": "That's highly unlikely",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of control",
+      "for": "anagram",
+      "note": "something out of control tumbles in disorder, so the letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spy MiG flight",
+      "gives": "SPYMIGFLIGHT",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SPYMIGFLIGHT",
+       "gives": "PIGSMIGHTFLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spy plane spirals out of control; surely that could never happen.",
+     "walkthrough": "A MiG is a Russian fighter jet.",
+     "definitionFit": "The idiom is a sarcastic retort meaning something will never happen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Spy"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1283,51 @@
     "text": "NW town featured in first half of book",
     "enumeration": "6"
    },
-   "solution": "ECCLES"
+   "solution": "ECCLES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ECCLES",
+    "definitions": [
+     {
+      "text": "NW town",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first half of",
+      "for": "deletion",
+      "note": "only the first half survives, so the back half of the word is cut away"
+     }
+    ],
+    "linkWords": [
+     "featured in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "book",
+      "gives": "ECCLESIASTES",
+      "note": "a book of the Old Testament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ECCLES"
+     ]
+    },
+    "explanation": {
+     "surface": "A northern town gets a mention early in a book.",
+     "walkthrough": "The book is the Bible's Ecclesiastes, twelve letters, so its first six are kept. Eccles is a town near Manchester, famous for Eccles cakes.",
+     "definitionFit": "Eccles is a town in Greater Manchester, in north-west England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "book"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1341,64 @@
     "text": "Ceremony in outskirts of Windsor for author",
     "enumeration": "6"
    },
-   "solution": "WRITER"
+   "solution": "WRITER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "WRITER",
+    "definitions": [
+     {
+      "text": "author",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outskirts of",
+      "for": "letter_selection",
+      "note": "outskirts are the edges, so only the outer letters of the place name are taken"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the ceremony inside the edge letters"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Windsor",
+      "gives": "WR",
+      "select": "outer",
+      "note": "the first and last letters of Windsor"
+     },
+     {
+      "clueFragment": "Ceremony",
+      "gives": "RITE",
+      "note": "a rite is a ceremony"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "RITE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A ceremony on the edge of Windsor is held in honour of an author.",
+     "definitionFit": "A writer is an author of books or articles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Windsor"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1412,43 @@
     "text": "Dog found in cul-de-sac or ginnel",
     "enumeration": "5"
    },
-   "solution": "CORGI"
+   "solution": "CORGI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CORGI",
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "hidden_word",
+      "note": "found in says the letters are sitting inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cul-de-sac or ginnel",
+      "gives": "CORGI",
+      "note": "spans the end of sac, all of or, and the start of ginnel"
+     }
+    ],
+    "explanation": {
+     "surface": "A dog turns up in a dead-end street or narrow alley.",
+     "walkthrough": "A ginnel is a northern English word for a narrow passage between houses.",
+     "definitionFit": "A corgi is a short-legged Welsh breed of dog, famously kept by the Queen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ginnel"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1462,56 @@
     "text": "Bell tower seen from tents pitched by a river",
     "enumeration": "9"
    },
-   "solution": "CAMPANILE"
+   "solution": "CAMPANILE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAMPANILE",
+    "definitions": [
+     {
+      "text": "Bell tower",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "seen from",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tents pitched",
+      "gives": "CAMP",
+      "note": "a camp is where tents are pitched"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "NILE",
+      "note": "the African river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAMP",
+      "A",
+      "NILE"
+     ]
+    },
+    "explanation": {
+     "surface": "Campers by a river can see a bell tower.",
+     "definitionFit": "A campanile is a freestanding bell tower, especially an Italian one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pitched"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1525,46 @@
     "text": "Collect a large amount",
     "enumeration": "5"
    },
-   "solution": "AMASS"
+   "solution": "AMASS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMASS",
+    "definitions": [
+     {
+      "text": "Collect",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "large amount",
+      "gives": "MASS",
+      "note": "a mass of something is a lot of it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MASS"
+     ]
+    },
+    "explanation": {
+     "surface": "Gather a great deal.",
+     "walkthrough": "The surface reads as one instruction, but 'Collect' is the definition and the rest builds the answer.",
+     "definitionFit": "To amass is to gather or accumulate a large quantity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1578,56 @@
     "text": "Gay seducer unwilling to visit a Brazilian port",
     "enumeration": "8"
    },
-   "solution": "LOTHARIO"
+   "solution": "LOTHARIO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOTHARIO",
+    "definitions": [
+     {
+      "text": "Gay seducer",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to visit"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unwilling",
+      "gives": "LOTH",
+      "note": "loth means reluctant"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Brazilian port",
+      "gives": "RIO",
+      "note": "Rio de Janeiro"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOTH",
+      "A",
+      "RIO"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheerful womaniser is reluctant to travel to a Brazilian harbour city.",
+     "walkthrough": "'Gay' is used in its old sense of carefree and light-hearted.",
+     "definitionFit": "A Lothario is a rakish man who seduces women, from a character in Rowe's play The Fair Penitent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Gay"
+    }
+   }
   },
   {
    "number": 25,
@@ -417,7 +1641,51 @@
     "text": "Artist on platform showing off sword",
     "enumeration": "6"
    },
-   "solution": "RAPIER"
+   "solution": "RAPIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAPIER",
+    "definitions": [
+     {
+      "text": "sword",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "on",
+     "showing off"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Artist",
+      "gives": "RA",
+      "note": "Royal Academician"
+     },
+     {
+      "clueFragment": "platform",
+      "gives": "PIER",
+      "note": "a pier is a platform jutting into water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "PIER"
+     ]
+    },
+    "explanation": {
+     "surface": "A performer on stage shows off with a sword.",
+     "walkthrough": "RA, Royal Academician, is the usual crossword artist.",
+     "definitionFit": "A rapier is a slender, sharp-pointed sword used for thrusting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Artist"
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +1699,51 @@
     "text": "Rank of Frenchman, social worker?",
     "enumeration": "8"
    },
-   "solution": "SERGEANT"
+   "solution": "SERGEANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SERGEANT",
+    "definitions": [
+     {
+      "text": "Rank",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frenchman",
+      "gives": "SERGE",
+      "note": "a common French man's name"
+     },
+     {
+      "clueFragment": "social worker",
+      "gives": "ANT",
+      "note": "ants are social insects that work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SERGE",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks the job title of a Frenchman employed in social services.",
+     "walkthrough": "'Social worker' sounds like a care professional, but it is an ant, a social insect famous for toil.",
+     "definitionFit": "Sergeant is a non-commissioned military or police rank."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "social"
+    }
+   }
   },
   {
    "number": 27,
@@ -445,7 +1757,61 @@
     "text": "Legendary lover is elderly head of empire",
     "enumeration": "6"
    },
-   "solution": "ISOLDE"
+   "solution": "ISOLDE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ISOLDE",
+    "definitions": [
+     {
+      "text": "Legendary lover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head is the top, so just the opening letter of the following word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "elderly",
+      "gives": "OLD",
+      "note": "elderly means old"
+     },
+     {
+      "clueFragment": "empire",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of empire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "OLD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A storied romantic is now an aged ruler of an empire.",
+     "definitionFit": "Isolde is the Irish princess in the medieval legend of Tristan and Isolde, a tale of doomed love."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   }
  ]
 }
