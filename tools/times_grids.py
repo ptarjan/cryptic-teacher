@@ -765,17 +765,21 @@ def solve_linked(rec, limit, max_nodes, budget):
         return [], "rejected: too many ways to split its linked answers"
     found = []
     for choice in tries:
-        grids, why = solve(with_split(rec, choice), limit=limit, max_nodes=max_nodes,
+        # solve() writes what it settled -- directions as headed, a freed
+        # number -- into the split it was handed, so that split, not a fresh
+        # with_split(), is what goes back into rec (toughie 714's 28d-30d).
+        split = with_split(rec, choice)
+        grids, why = solve(split, limit=limit, max_nodes=max_nodes,
                            thorough=False, budget=budget)
         if budget.spent():
             return [], f"truncated: puzzle budget spent at {budget.spent_at or 'a split'}"
         if grids:
-            found.append((choice, grids, why))
+            found.append((split, grids, why))
     if len(found) != 1 or len(found[0][1]) != 1:
         return [], ("no grid fits any split of its linked answers" if not found
                     else f"shortlist: {len(found)} splits of its linked answers fit")
-    choice, grids, why = found[0]
-    rec["entries"] = with_split(rec, choice)["entries"]
+    split, grids, why = found[0]
+    rec["entries"] = split["entries"]
     return grids, why + ", linked answer split by the grid"
 
 

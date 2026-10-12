@@ -132,6 +132,15 @@ typed = {"series": "Test", "entries": [
     for e in rec["entries"]]}
 grids, how = T.solve(typed)
 print("HEADED", grids == [TINY], how, T.headed_by(dict(typed), TINY)["entries"][-1].get("heading"))
+# The same typo in a post that also holds a linked answer (toughie-714: 28d-30d
+# in the Across list, 11/20 printed whole): the split the grid settles keeps
+# the headed directions, which is what settle() and the filer then read.
+typed_linked = dict(linked, entries=[
+    dict(e, direction="down", heading="across") if (e["number"], e["direction"]) == last else e
+    for e in linked["entries"]])
+grids, how = T.solve(typed_linked)
+print("HEADED_LINKED", grids == [TINY], last in {(e["number"], e["direction"]) for e in typed_linked["entries"]},
+      T.settle(TINY, typed_linked, {}) == ([], None) if grids else None)
 
 # Answers that refute EVERY candidate are the opposite of an ambiguous grid:
 # the right grid is not in the list, so the light list or an answer is wrong,
@@ -462,6 +471,8 @@ check "a pointer names its direction where the number has both; the leader keeps
   "[('Ill (4,2,1,3)', 'SICK AS A DOG'), ('See 1 down', None)]" "$(field LINKED_POINTER)"
 check "a suffix against its heading: the grid takes the heading's direction" \
       "True unique, directions as headed None" "$(field HEADED)"
+check "a suffix against its heading beside a linked answer: the settled split keeps the heading's direction" \
+      "True True True" "$(field HEADED_LINKED)"
 check "answers refuting every candidate does not read as an unsettled tie" \
       "answers fit none of 2" "$(field REFUTED)"
 check "the search itself refuses a grid its answers clash in" "[] 1" "$(field WORDS_PRUNE)"
