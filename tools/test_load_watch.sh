@@ -51,7 +51,7 @@ def fresh(name, load5, avg60=2.25):
 
 # key(): script name, flag, edition_queue unit kind, the claude burn, plain binary.
 check("python script", "fetch_puzzle.py --reindex", lw.key(["python3", "/x/tools/fetch_puzzle.py", "--reindex"]))
-check("shell script", "gale_read.sh", lw.key(["bash", "/x/gale_read.sh", "arg"]))
+check("shell script", "ocr_full_pass.sh", lw.key(["bash", "/x/ocr_full_pass.sh", "arg"]))
 check("edition_queue unit", "edition_queue.py unit ocr", lw.key(["python3", "edition_queue.py", "unit", "ocr", "times"]))
 check("claude -p is the burn", "claude -p (burn)", lw.key(["/usr/bin/claude", "-p", "hello"]))
 check("claude without -p is not", "claude", lw.key(["claude", "--resume"]))
@@ -60,12 +60,12 @@ check("plain binary", "node", lw.key(["/usr/bin/node", "-e", "1"]))
 
 # charge(): live process delta, plus the reaped-children delta of its parent.
 a = {
-    10: dict(start=1, state="S", ppid=1, own=100, kids=500, argv=["bash", "gale_read.sh"]),
+    10: dict(start=1, state="S", ppid=1, own=100, kids=500, argv=["bash", "ocr_full_pass.sh"]),
     11: dict(start=1, state="R", ppid=10, own=300, kids=0, argv=["python3", "fetch_puzzle.py", "--reindex"]),
     12: dict(start=1, state="R", ppid=11, own=50, kids=20, argv=["python3", "pool_worker.py"]),  # exits in window
 }
 b = {
-    10: dict(start=1, state="S", ppid=1, own=100, kids=500, argv=["bash", "gale_read.sh"]),
+    10: dict(start=1, state="S", ppid=1, own=100, kids=500, argv=["bash", "ocr_full_pass.sh"]),
     # live child: +200 own; its reaped pool children: the vanished 12 (pre 70) plus 400 new ticks
     11: dict(start=1, state="R", ppid=10, own=500, kids=470 + 0, argv=["python3", "fetch_puzzle.py", "--reindex"]),
 }
@@ -73,8 +73,8 @@ cores, parent = lw.charge(a, b, 10, 100)
 check("live delta + reaped children charged to the parent job, pre-window ticks removed",
       0.6, round(cores["fetch_puzzle.py --reindex"], 6))
 check("the vanished child is not a row of its own", False, "pool_worker.py" in cores)
-check("parent job is named", "gale_read.sh", parent["fetch_puzzle.py --reindex"])
-check("an idle parent is not charged", False, "gale_read.sh" in cores)
+check("parent job is named", "ocr_full_pass.sh", parent["fetch_puzzle.py --reindex"])
+check("an idle parent is not charged", False, "ocr_full_pass.sh" in cores)
 
 # A child whose parent died is reaped by a subreaper ancestor (claude) or pid 1; its
 # pre-window ticks come off that reaper, not off the dead parent.
@@ -86,14 +86,14 @@ cores, _ = lw.charge(r1, r2, 10, 100)
 check("orphan's lifetime is not charged to its subreaper", {"claude": 0.1}, cores)
 
 # The parent label climbs past bash/flock wrappers, and names none when only wrappers remain.
-w1 = {60: dict(start=1, state="S", ppid=1, own=0, kids=0, argv=["bash", "gale_read.sh"]),
+w1 = {60: dict(start=1, state="S", ppid=1, own=0, kids=0, argv=["bash", "ocr_full_pass.sh"]),
       61: dict(start=1, state="S", ppid=60, own=0, kids=0, argv=["flock", "-n", "l", "x"]),
       62: dict(start=1, state="R", ppid=61, own=0, kids=0, argv=["python3", "w.py"]),
       70: dict(start=1, state="S", ppid=1, own=0, kids=0, argv=["bash", "-c", "cmd"]),
       71: dict(start=1, state="R", ppid=70, own=0, kids=0, argv=["python3", "v.py"])}
 w2 = {pid: dict(p, own=100) for pid, p in w1.items() if pid in (62, 71)} | {k: v for k, v in w1.items() if k in (60, 61, 70)}
 _, parent = lw.charge(w1, w2, 10, 100)
-check("parent past a flock wrapper", "gale_read.sh", parent["w.py"])
+check("parent past a flock wrapper", "ocr_full_pass.sh", parent["w.py"])
 check("only wrappers above means no parent label", False, "v.py" in parent)
 
 # A recycled pid with another command line is a new process, not a negative delta.
@@ -137,7 +137,7 @@ def run(proc, state, **kw):
 state = tmp / "state"
 proc = fresh("p1", 3.0, avg60=30.5)
 put(proc, 30, ["python3", "/x/fetch_puzzle.py", "--reindex"], ppid=29, state="R", u=0)
-put(proc, 29, ["bash", "/x/gale_read.sh"], ppid=1)
+put(proc, 29, ["bash", "/x/ocr_full_pass.sh"], ppid=1)
 put(proc, 31, ["sleep", "9"], state="D")
 
 def burn(ticks_by_pid):
@@ -157,7 +157,7 @@ check("second high run wakes", "woke", rec["action"])
 check("top consumer", "fetch_puzzle.py --reindex", rec["top"])
 check("message is ranked and carries the work", True,
       woke[0].startswith("load 15 on 6 cores: tasks stalled waiting for CPU 30.5% of the last minute")
-      and "Top consumers: 1.3 cores fetch_puzzle.py --reindex (parent gale_read.sh)" in woke[0]
+      and "Top consumers: 1.3 cores fetch_puzzle.py --reindex (parent ocr_full_pass.sh)" in woke[0]
       and "desktop CPU" in woke[0] and "1 in D-state" in woke[0])
 check("running count excludes the sampler itself", 0, rec["R"])
 (Path(proc) / "stat").write_text("cpu  100 0 50 800 50 0 0 0 0 0\ncpu0 1 1 1 1\nprocs_running 9\n")

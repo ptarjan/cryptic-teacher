@@ -138,18 +138,30 @@ class FakePopen:
     pid = 1
     def __init__(self, cmd, **kw):
         launched.append((cmd, kw))
+import corpus_queue
 saved_popen, saved_fresh = g.subprocess.Popen, g.fresh_unread
+saved_cq = corpus_queue.running, corpus_queue.load_state
 g.subprocess.Popen, g.fresh_unread = FakePopen, lambda: [rel]
+corpus_queue.running, corpus_queue.load_state = lambda: None, lambda: {}
 import os as _os
 _os.environ["CT_IN_WORKTREE"], _os.environ["CT_MAIN_CHECKOUT"] = "1", "/tick/tree"
-g.start_reads(io.StringIO(), job=Path("/x/gale_read.sh"), log=Path(sys.argv[1]) / "read.log")
-check("start_reads starts the read job detached, out of this tick's worktree (its own lease and tree)",
-      (["bash", "/x/gale_read.sh"], True, False, False),
+g.kick(io.StringIO(), tick=Path("/x/corpus_queue.sh"), log=Path(sys.argv[1]) / "kick.log")
+check("kick: a fresh edition and no pass running starts the corpus tick detached, out of this tick's worktree",
+      (["bash", "/x/corpus_queue.sh", "tick"], True, False, False),
       (launched[0][0], launched[0][1]["start_new_session"], "CT_IN_WORKTREE" in launched[0][1]["env"],
        "CT_MAIN_CHECKOUT" in launched[0][1]["env"]))
+corpus_queue.running = lambda: {"pid": 1}
+check("not while the pass runs: its queue reads the fresh edition first itself", None, g.kick(io.StringIO()))
+corpus_queue.running, corpus_queue.load_state = lambda: None, lambda: {"held": True}
+said = io.StringIO()
+check("nor while it is held, and says so", (None, True), (g.kick(said), "held" in said.getvalue()))
+corpus_queue.load_state = lambda: {}
 g.fresh_unread = lambda: []
-check("and nothing when no fresh edition waits", None, g.start_reads(io.StringIO()))
+check("and nothing when no fresh edition waits", None, g.kick(io.StringIO()))
+check("one launch in all", 1, len(launched))
+check("no second OCR runner: tools/gale_read.sh is gone", False, (Path(g.TOOLS) / "gale_read.sh").exists())
 g.subprocess.Popen, g.fresh_unread = saved_popen, saved_fresh
+corpus_queue.running, corpus_queue.load_state = saved_cq
 del _os.environ["CT_IN_WORKTREE"], _os.environ["CT_MAIN_CHECKOUT"]
 first = fa.input_hash(d)
 g.stage(inbox, cache, io.StringIO(), un, g.MATCHES)
@@ -581,11 +593,11 @@ def fake_resolve(prod, rows, out=None, **kw):
     if prod == "TTDA":
         clock[0] += g.GALE_SECONDS
 real = (_time.monotonic, g.collect, g.mirror, g.gale_due, g.held, g.number_on, g.next_up, g.wanted, g.staged_files,
-        g.last_render, g.publish_status, g.start_reads, g.install_watcher, g.gale_docs.resolve, gl2.tick, g.LOCK)
+        g.last_render, g.publish_status, g.kick, g.install_watcher, g.gale_docs.resolve, gl2.tick, g.LOCK)
 _time.monotonic = lambda: clock[0]
 g.collect = g.mirror = lambda *a, **k: False
 g.gale_due, g.held, g.number_on, g.next_up = (lambda: True), (lambda: {}), (lambda d, b: (None,)), (lambda *a: [])
-g.wanted, g.staged_files, g.last_render, g.publish_status, g.start_reads = (lambda: {}), (lambda: []), (lambda: _time.time() + 10**9), (lambda *a: published.append((a[0].name, clock[0]))), (lambda *a: None)
+g.wanted, g.staged_files, g.last_render, g.publish_status, g.kick = (lambda: {}), (lambda: []), (lambda: _time.time() + 10**9), (lambda *a: published.append((a[0].name, clock[0]))), (lambda *a: None)
 g.gale_docs.resolve, g.install_watcher = fake_resolve, (lambda *a: None)
 gl2.tick = lambda out, force, ask, until, changed: asked.update(LSNR=until - clock[0])
 g.LOCK = Path(sys.argv[1]) / "sync2.lock"
@@ -605,7 +617,7 @@ check("a tick whose inbox holds an unread file stages it", 1, len(staged_by))
 g.stage, g.tidy, g.checklist, g.CHECKLIST = real_stage
 g.publish = real_publish
 (_time.monotonic, g.collect, g.mirror, g.gale_due, g.held, g.number_on, g.next_up, g.wanted, g.staged_files,
- g.last_render, g.publish_status, g.start_reads, g.install_watcher, g.gale_docs.resolve, gl2.tick, g.LOCK) = real
+ g.last_render, g.publish_status, g.kick, g.install_watcher, g.gale_docs.resolve, gl2.tick, g.LOCK) = real
 check("no Times lookup in a tick; the Listener gets its full allowance", (False, g.GALE_SECONDS),
       ("TTDA" in asked, asked["LSNR"]))
 check("no Times status file (its page does not poll); the Listener's is published before its lookups",

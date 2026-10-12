@@ -1719,7 +1719,10 @@ tools/ocr_full_pass.sh                        the one standing corpus job: read 
                                               through tools/edition_queue.py's per-edition
                                               units, the Trove articles' and Gale Listener
                                               pages' reads and the archive.org and Trove
-                                              fetches units of that queue too, then stop
+                                              fetches units of that queue too, then stop; the
+                                              only OCR runner, its queue starting the editions
+                                              just laid out (a fetch, a Gale page) ahead of
+                                              everything planned, within a minute or two
 tools/edition_queue.py                        the archive.org and Gale editions as a queue of
                                               small units: one edition's scan or read each, in
                                               its own forked process with its own time limit
@@ -1787,11 +1790,12 @@ tools/test_canberra_london_numbers.sh         does canberra_london_numbers.py nu
                                               days agree?
 tools/corpus_queue.py                         keeps the full pass running: one corpus job at a
                                               time (pid file, ledger locks), starts
-                                              ocr_full_pass.sh whenever none runs and straight
-                                              after a pass that fetched, wakes the room on a
-                                              stall, holds it and tells the room after
-                                              DEAD_LAUNCHES (2) in a row end unfinished having
-                                              read and fetched nothing
+                                              ocr_full_pass.sh whenever none runs (hourly, and
+                                              from gale_inbox.py sync when a fresh page waits)
+                                              and straight after a pass that fetched, wakes the
+                                              room on a stall, holds it and tells the room
+                                              after DEAD_LAUNCHES (2) in a row end unfinished
+                                              having read and fetched nothing
 tools/corpus_queue.sh                         the scheduled entry point for corpus_queue.py
                                               tick, from a worktree
 tools/coverage.py                             the coverage ledger: every series' puzzles that
@@ -1885,15 +1889,10 @@ tools/gale_inbox.py                           every 1930-2019 Times edition with
                                               out of the desktop's and Mac's Downloads into its
                                               paper's inbox on the Media share, mirrors the
                                               Times one over the ssh hatch, matches and stages
-                                              it
+                                              it, and starts the full pass when a page is laid
+                                              out while none runs (kick)
 tools/gale_inbox.sh                           the scheduled entry point for gale_inbox.py sync,
                                               every minute, from a worktree
-tools/gale_read.sh                            reads the Gale Times pages laid out in the last
-                                              hour (edition_queue.py --paper gale --newer-than,
-                                              its own ledger, one unit an edition) minutes
-                                              after each download, beside the full pass's
-                                              queue, started by gale_inbox.py sync; commits
-                                              what it files as it goes
 tools/gale_listener.py                        the Listener crosswords of 1930-91, read from the
                                               pages Paul saves by hand from Gale's Listener
                                               Historical Archive: a checklist of every puzzle
