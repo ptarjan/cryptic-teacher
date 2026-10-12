@@ -59,6 +59,23 @@ assert P.daily(pts)[-1] == ("2026-10-08", 1), P.daily(pts)
 assert abs(P.rate(pts, 7) - 3 / 7) < 1e-9, P.rate(pts, 7)
 assert P.rate(P.series_of(live, P.KNOWN), 7) == 0
 
+# Every stage nests in the one above, per series and in total: downloaded is
+# filed plus the unread, capped at known-but-unfiled; hinted needs solved.
+assert P.file_counts([("a", True, True), ("a", False, True), ("a", True, False)]) == {"a": [3, 2, 1]}
+cases = [[100, 90, 40, 30, 20, 500, 400],   # unread capped at known - filed = 60
+         [100, 90, 40, 30, 20, 50, 10],
+         [None, None, 76, 76, 76, None, None],   # no ledger: known follows downloaded
+         [10, 10, 12, 12, 12, 3, 3],            # more filed than known
+         [50, 5, 30, 40, 45, None, None]]       # stale solved/hinted above filed
+for c in cases:
+    n = P.nested(c)
+    assert all(a >= b for a, b in zip(n, n[1:])), (c, n)
+assert P.nested(cases[0]) == [100, 100, 40, 30, 20] and P.nested(cases[1]) == [100, 50, 40, 30, 20]
+assert P.nested(cases[2]) == [76, 76, 76, 76, 76]
+tot = P.nested_totals(dict(enumerate(cases)))
+assert all(a >= b for a, b in zip(tot, tot[1:])), tot
+assert tot == [sum(P.nested(c)[i] for c in cases) for i in range(5)]
+
 assert B.at_pace(0, 5) == "done" and B.at_pace(10, 0) == "not moving"
 assert B.at_pace(100, 10) == "10 days" and B.at_pace(3650, 1) == "10 years"
 
@@ -67,7 +84,7 @@ idx = {"puzzles": [{"series": "times", "hasSolutions": True, "annotated": True}]
                   + [{"series": "times", "hasSolutions": False, "annotated": False}]}
 html = B.progress_page(idx, today=date(2026, 10, 8))
 assert html.count("<svg") == 5, html.count("<svg")
-assert "downloaded, not read" in html and "+5 in, &minus;10 read" in html and "read in 6 days" in html, html
+assert "5 not read yet" in html and "+5 in, &minus;10 read" in html and "read in 6 days" in html, html
 assert "solved</td>" not in html, "solved has no pace of its own"
 assert "<polyline" in html and "10 are known to exist" in html, html[:2000]
 assert "{" not in html.split("<main", 1)[1].split("</main>")[0], "an unfilled placeholder"

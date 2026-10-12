@@ -1447,11 +1447,18 @@ mark.link {
   .ph-queued { color: #e0c060; }
 }
 .chart rect[class^="ph-"] { fill: currentColor; }
+.chart rect.unread { fill-opacity: .45; }
 .chart .track { fill: var(--line); opacity: .6; }
 .chart .grid { stroke: var(--line); stroke-width: 1; opacity: .6; }
 .chart .line { fill: none; stroke: currentColor; stroke-width: 2.2; }
 .chart text.key { fill: currentColor; font-weight: 700; }
 .chart .pace { stroke: var(--fg); stroke-width: 1.2; stroke-dasharray: 4 3; opacity: .7; }
+.progress-table th, .progress-table td { padding: 3px 6px; }
+@media (max-width: 520px) {
+  .progress-table { font-size: .78rem; width: 100%; }
+  .progress-table th, .progress-table td { padding: 3px 4px; }
+  .progress-table .wide { display: none; }
+}
 .key-dot { display: inline-block; width: .7em; height: .7em; border-radius: 50%;
   background: currentColor; margin-right: .4em; }
 .tutorial-static code { font-family: ui-monospace, Menlo, monospace; font-size: .85em; }

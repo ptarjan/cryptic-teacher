@@ -19,6 +19,12 @@ The phases, each a count of one series' puzzles on one day:
             pages, Trove articles
   queued    of those, the ones never read (no ledger row holding a read)
 
+A file counts as hinted only when it is also solved, so hinted <= solved <=
+filed. nested() puts every series in one chain, known >= downloaded >= filed
+>= solved >= hinted, where downloaded is filed plus queued: the scans on disk
+include editions already read and filed, so the raw downloaded is not a layer
+above filed. The funnel and the by-series bars draw that chain.
+
 downloaded and queued count puzzles: one per newspaper edition or Listener
 page (each prints one cryptic), and a Trove article times the share of read
 articles that filed a puzzle (tools/edition_backlog.py). The queue's daily
@@ -80,7 +86,7 @@ def file_counts(rows):
         c = out[series]
         c[0] += 1
         c[1] += bool(solved)
-        c[2] += bool(hinted)
+        c[2] += bool(solved and hinted)
     return dict(out)
 
 
@@ -130,6 +136,30 @@ def with_today(days, files, today):
         row[s] = head + list(files.get(s, [0, 0, 0])) + tail
     days[today] = dict(sorted(row.items()))
     return dict(sorted(days.items()))
+
+
+FUNNEL = ("known", "downloaded", "filed", "solved", "hinted")
+
+
+def nested(c):
+    """[known, downloaded, filed, solved, hinted] for one series' row c, each
+    at most the one before. Downloaded is filed plus the unread scans, the
+    unread capped at what is known and not yet filed (a scan may hold a puzzle
+    already filed from another source). A series the ledger does not count has
+    no known, so its whole is its downloaded; known is never below it."""
+    known, _, filed, solved, hinted, _, queued = c
+    solved = min(solved, filed)
+    hinted = min(hinted, solved)
+    unread = queued or 0
+    if known is not None:
+        unread = min(unread, max(known - filed, 0))
+    downloaded = filed + unread
+    return [max(known or 0, downloaded), downloaded, filed, solved, hinted]
+
+
+def nested_totals(row):
+    """nested() summed over a day's series."""
+    return [sum(col) for col in zip(*(nested(c) for c in row.values()))]
 
 
 def series_of(days, phase):
