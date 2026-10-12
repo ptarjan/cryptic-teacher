@@ -7480,3 +7480,73 @@ global.realSetTimeout(() => {
   assert(cellEl(1, 0).querySelector(".letter").textContent === "B",
     "typing on the light fills its square: " + JSON.stringify(cellEl(1, 0).querySelector(".letter").textContent));
 }
+
+// --- an off-grid clue (offGrid) ---
+// Genius 280 enters some answers outside the grid. Such a clue owns no square:
+// it is listed in a section of its own with a box for its answer, typing there
+// moves no cursor, the box's letters are what solve it, picking it puts its
+// clue in the hint panel, and the save holds its letters under its entry id.
+{
+  const ID = "smoke-offgrid";
+  const E = (number, direction, x, y, solution, clue) =>
+    ({ number, direction, position: { x, y }, length: solution.length, solution, clue });
+  const puz = {
+    id: ID, number: 1, series: "quiptic", name: "Off-grid fixture", setter: "Smoke", date: "2026-01-01",
+    dimensions: { cols: 3, rows: 3 }, solutions: true,
+    entries: [
+      E(1, "across", 0, 0, "CAT", { text: "Pet", enumeration: "3" }),
+      E(1, "down", 0, 0, "COW", { text: "Cattle", enumeration: "3" }),
+    ],
+    offGrid: [{
+      clue: { text: "Divine beings in dog's disarray", enumeration: "4" }, solution: "GODS",
+      annotation: { type: ["anagram"], answer: "GODS", definitions: [{ text: "Divine beings", at: 0 }],
+                    indicators: [{ text: "disarray", for: "anagram" }],
+                    blocks: [{ clueFragment: "dog's", gives: "DOGS", note: "letters to be rearranged" }] },
+    }],
+  };
+  const bootIt = (storage) => require("./fake_dom.js").boot({
+    query: "?p=" + ID,
+    storage: Object.assign({ "ct:seen": JSON.stringify({ last: "2000-01-01", days: 5 }) }, storage),
+    index: (ix) => {
+      ix.puzzles.push({ id: ID, number: 1, series: "quiptic", name: puz.name, setter: puz.setter,
+                        date: puz.date, file: ID + ".js", hasSolutions: true, annotated: true });
+      global.window.CRYPTIC_PUZZLES = Object.assign(global.window.CRYPTIC_PUZZLES || {}, { [ID]: puz });
+    },
+  });
+  const d = bootIt({});
+  const reg = d.registry;
+  const row = reg["clue-1-offgrid"];
+  const listed = (reg["clues-offgrid"].children || []).map((li) => li.id);
+  assert(String(listed) === "clue-1-offgrid" && !reg["offgrid-section"].classList.contains("hidden"),
+    "an off-grid clue is listed in its own section: " + listed);
+  const box = row && row.querySelector(".offgrid-answer");
+  assert(box && box.tagName === "INPUT" && box.maxLength === 4, "its row carries an answer box of its length");
+
+  row.listeners.click[0]();
+  assert(/Off the grid.*Divine beings/.test(reg["hint-clue"].innerHTML.replace(/<[^>]*>/g, "")),
+    "picking it makes it the hint panel's clue: " + reg["hint-clue"].innerHTML);
+  const sel = () => reg["grid"].children.findIndex((el) => el.classList.contains("sel"));
+  const before = sel();
+
+  box.value = "dogx";
+  box.listeners.input[0]();
+  assert(box.value === "DOGX", "the box keeps letters only, uppercased: " + box.value);
+  assert(!row.classList.contains("solved"), "a wrong answer leaves it unsolved");
+  assert(sel() === before && reg["grid"].children.every((el) => !el.querySelector(".letter").textContent),
+    "typing in the box neither moves the cursor nor fills the grid");
+
+  box.value = "gods";
+  box.listeners.input[0]();
+  assert(row.classList.contains("solved"), "the right answer marks it solved");
+  assert(/Solved <strong>1\/3<\/strong>/.test(reg["scorebar"].innerHTML),
+    "it counts as a clue: " + reg["scorebar"].innerHTML);
+
+  global.flushTimers(200);
+  const saved = JSON.parse(d.storage["ct:" + ID]);
+  assert(saved.letters["1-offgrid"] === "GODS" && saved.letterAt["1-offgrid"] > 0,
+    "the save holds its letters under its entry id: " + JSON.stringify(saved.letters));
+  const again = bootIt({ ["ct:" + ID]: JSON.stringify(saved) }).registry;
+  const box2 = again["clue-1-offgrid"] && again["clue-1-offgrid"].querySelector(".offgrid-answer");
+  assert(box2 && box2.value === "GODS" && again["clue-1-offgrid"].classList.contains("solved"),
+    "and a reload puts them back in the box: " + (box2 && box2.value));
+}

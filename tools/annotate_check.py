@@ -126,6 +126,9 @@ def unsolved(puzzle):
     also = [groups.as_leader(puzzle, i, k)["entries"][i]
             for cid, i, k, item in groups.also_clues(puzzle["entries"])
             if not item.get("annotation") and cid not in misses]
+    # A clue entered off the grid (offGrid) is a clue like any other.
+    also += [groups.as_entry(puzzle, cid) for cid, item in groups.off_grid(puzzle)
+             if not item.get("annotation") and cid not in misses]
     return [e for e in puzzle["entries"]
             if not e.get("annotation") and entry_id(e) not in misses
             and entry_id(e) not in continuations
@@ -166,6 +169,8 @@ def to_write(puzzle, before):
     only = [entry_id(e) for e in clues if entry_id(e) in (before or ())
             or (not e.get("annotation") and entry_id(e) in readable)]
     only += [cid for cid, _, _, item in groups.also_clues(puzzle["entries"])
+             if cid in (before or ()) or not item.get("annotation")]
+    only += [cid for cid, item in groups.off_grid(puzzle)
              if cid in (before or ()) or not item.get("annotation")]
     if before is None and (not only or not any(e.get("annotation") for e in clues)):
         return None
@@ -271,6 +276,8 @@ def write_view(path):
         line = view_line(groups.as_leader(puzzle, i, k)["entries"][i], leaders, model)
         view["entries"].insert(view["entries"].index(view_line(puzzle["entries"][i], leaders, model)) + 1 + k,
                                cid + line[len(entry_id(puzzle["entries"][i])):])
+    # Each clue entered off the grid (offGrid) is its own line, "1-offgrid".
+    view["entries"] += [view_line(groups.as_entry(puzzle, cid), leaders) for cid, _ in groups.off_grid(puzzle)]
     # A (MODEL) answer may be corrected only to one its crossings agree with.
     if model:
         grid = grid_rows(puzzle)
@@ -279,6 +286,8 @@ def write_view(path):
     kept = {entry_id(e): e["annotation"] for e in puzzle["entries"]
             if e.get("annotation") and only is not None and entry_id(e) not in only}
     kept.update({cid: item["annotation"] for cid, _, _, item in groups.also_clues(puzzle["entries"])
+                 if item.get("annotation") and only is not None and cid not in only})
+    kept.update({cid: item["annotation"] for cid, item in groups.off_grid(puzzle)
                  if item.get("annotation") and only is not None and cid not in only})
     if kept:
         view["existingAnnotations"] = kept
@@ -619,13 +628,16 @@ def fill_missing(path, pending):
         return []
     if not isinstance(ann, dict):
         return []
-    entries = read_puzzle_file(path)["entries"]
+    puzzle = read_puzzle_file(path)
+    entries = puzzle["entries"]
     continuations = groups.leader_of(entries)
     only = annotate_only(path)
     missing = [entry_id(e) for e in entries
                if entry_id(e) not in continuations and entry_id(e) not in ann
                and (only is None or entry_id(e) in only)]
     missing += [cid for cid, _, _, _ in groups.also_clues(entries)
+                if cid not in ann and (only is None or cid in only)]
+    missing += [cid for cid, _ in groups.off_grid(puzzle)
                 if cid not in ann and (only is None or cid in only)]
     if missing:
         ann.update(dict.fromkeys(missing))

@@ -123,7 +123,8 @@ def jigsaw_packet(record):
               "one the paper printed, or with none printed the one grid they interlock "
               "in. It passes only when they fill it exactly one way, so a wrong answer "
               "shows as no fit. An answer longer than the grid is linked across two "
-              "lights: give it whole."),
+              "lights: give it whole. An answer the instruction enters off the grid "
+              "takes no light: give it too, exactly its count long."),
              "\nCLUES"]
     for i, light in enumerate(record["clues"]["unplaced"], 1):
         clue = light["clue"]

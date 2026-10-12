@@ -58,6 +58,7 @@ import corroborate
 import puzzle_paths
 from definitions import LOOKALIKES
 import provenance
+import groups
 from groups import entry_id
 
 
@@ -187,8 +188,9 @@ def check_fill(puzzle, fill):
     problems = []
     by_id = {entry_id(e): e for e in puzzle["entries"]}
 
+    off = dict(groups.off_grid(puzzle))
     for key in fill:
-        if key not in by_id:
+        if key not in by_id and key not in off:
             problems.append(f"{key}: not an entry in this puzzle")
 
     cells = {}
@@ -219,6 +221,19 @@ def check_fill(puzzle, fill):
             detail = ", ".join(f"{k}={v}" for k, v in sorted(occupants.items()))
             problems.append(f"cell {cell}: crossing letters disagree — {detail}")
     return cells, crossings, problems
+
+
+def check_off_grid(puzzle, fill):
+    """Problems for each clue entered off the grid (offGrid) whose answer is
+    missing or not its enumeration's length: it crosses nothing, so its count
+    is all there is to check."""
+    problems = []
+    for cid, _ in groups.off_grid(puzzle):
+        answer = normalise(fill.get(cid) or "")
+        want = groups.as_entry(puzzle, cid)["length"]
+        if len(answer) != want:
+            problems.append(f"{cid}: {fill.get(cid)!r} is {len(answer)} letters, its clue counts {want}")
+    return problems
 
 
 def check_printed(puzzle, fill):
@@ -448,7 +463,7 @@ def main():
     cells, crossings, problems = check_fill(puzzle, fill)
     # The grid before the fill: a fill that agrees with an incoherent grid has
     # agreed with nothing, so nothing may be written into one.
-    problems = (check_writeup(puzzle) + check_geometry(puzzle) + problems
+    problems = (check_writeup(puzzle) + check_geometry(puzzle) + problems + check_off_grid(puzzle, fill)
                 + check_definitions(puzzle, defs) + check_printed(puzzle, fill))
     if not problems:
         problems = check_sources(puzzle, fill)
@@ -475,6 +490,8 @@ def main():
 
     for entry in puzzle["entries"]:
         entry["solution"] = normalise(fill[entry_id(entry)])
+    for cid, item in groups.off_grid(puzzle):
+        item["solution"] = normalise(fill[cid])
     detail = {
         "model": args.model,
         "date": datetime.date.today().isoformat(),

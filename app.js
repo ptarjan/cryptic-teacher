@@ -964,6 +964,18 @@
     if (l.annotation) v.annotation = l.annotation;
     return v;
   })]);
+  // An off-grid clue (`offGrid`) is an answer the preamble has entered
+  // somewhere other than a light. Item k (1-based) is the virtual entry
+  // "<k>-offgrid": it owns no square, its length is its solution's or else its
+  // enumeration's, and the letters typed for it are its own (`typed`).
+  const offGridEntries = (puz) => (puz.offGrid || []).map((o, k) => {
+    const v = { number: k + 1, direction: "offgrid", offGrid: true, clue: o.clue, typed: "", revealed: false,
+                length: o.solution ? o.solution.length
+                  : (String(o.clue.enumeration || "").match(/\d+/g) || []).reduce((n, d) => n + Number(d), 0) };
+    if (o.solution) v.solution = o.solution;
+    if (o.annotation) v.annotation = o.annotation;
+    return v;
+  });
   const buildLeaderOf = (list) => {
     const out = {};
     list.forEach((e) => (e.group || []).slice(1).forEach((id) => { if (id !== entryId(e) && !(id in out)) out[id] = entryId(e); }));
@@ -1036,7 +1048,8 @@
     return (back ? "hidden backwards in " : "hidden in ")
       + frag.slice(0, lo) + frag.slice(lo, hi).toUpperCase() + frag.slice(hi);
   }
-  const tag = (e) => e.number + (e.direction === "across" ? "A" : "D");
+  // An off-grid clue has no grid reference, so no tag.
+  const tag = (e) => (e.offGrid ? null : e.number + (e.direction === "across" ? "A" : "D"));
   // The key a save's `letters` and `letterAt` hold square i of an entry under.
   const squareOf = (e, i) => (e.position.x + (e.direction === "across" ? i : 0)) + ","
     + (e.position.y + (e.direction === "across" ? 0 : i));
@@ -1063,7 +1076,7 @@
     if (!save || typeof save !== "object") return true;
     if (save.grid) return save.grid === gridPrint(puz);
     const sq = lightSquares(puz);
-    return Object.keys(Object.assign({}, save.letters, save.letterAt)).every((k) => sq[k]);
+    return Object.keys(Object.assign({}, save.letters, save.letterAt)).every((k) => sq[k] || k.endsWith("-offgrid"));
   }
   const hasSolutions = () => entries.every((e) => e.solution);
 
@@ -1159,6 +1172,9 @@
     const was = prev.letters || {};
     const letters = {};
     forEachCell((c) => { if (c.letter && !c.printed) letters[c.x + "," + c.y] = c.letter + (c.revealed ? "!" : ""); });
+    // An off-grid clue's letters are held under its entry id, the whole answer in one value.
+    const offIds = entries.filter((e) => e.offGrid).map(entryId);
+    entries.forEach((e) => { if (e.offGrid && e.typed) letters[entryId(e)] = e.typed + (e.revealed ? "!" : ""); });
     // When each square last changed, carried forward from the previous save
     // and re-stamped only where something actually moved. Rubbing a letter
     // out leaves no letter behind, so without this the merge cannot tell a
@@ -1170,6 +1186,7 @@
       const k = c.x + "," + c.y;
       if (letters[k] !== was[k]) letterAt[k] = now;
     });
+    offIds.forEach((k) => { if (letters[k] !== was[k]) letterAt[k] = now; });
     // `updated` is what lets two machines be merged without asking which one
     // to believe (see sync/merge.js). It is written even with sync switched
     // off, so turning it on later does not treat today's work as undated.
@@ -1240,6 +1257,11 @@
         if (v) { c.letter = v[0]; c.revealed = v.length > 1; }
       });
     }
+    entries.forEach((e) => {
+      if (!e.offGrid) return;
+      const v = (s && s.letters && s.letters[entryId(e)]) || "";
+      e.typed = v.replace("!", ""); e.revealed = v.endsWith("!");
+    });
     applyPrinted();
   }
 
@@ -1853,13 +1875,14 @@
   function buildModel() {
     const { rows, cols } = P.dimensions;
     cells = Array.from({ length: rows }, () => Array(cols).fill(null));
-    entries = expandEntries(P.entries).sort((a, b) =>
-      (a.direction === b.direction) ? a.number - b.number : (a.direction === "across" ? -1 : 1));
+    const DIR_ORDER = { across: 0, down: 1, offgrid: 2 };
+    entries = expandEntries(P.entries).concat(offGridEntries(P)).sort((a, b) =>
+      DIR_ORDER[a.direction] - DIR_ORDER[b.direction] || a.number - b.number);
     byId = {};
     entries.forEach((e) => { byId[entryId(e)] = e; });
     leaderOf = buildLeaderOf(entries);
     entries.forEach((e) => {
-      if (e.vid) return;
+      if (e.vid || e.offGrid) return;
       for (let i = 0; i < e.length; i++) {
         const x = e.position.x + (e.direction === "across" ? i : 0);
         const y = e.position.y + (e.direction === "down" ? i : 0);
@@ -1972,7 +1995,7 @@
     // word-separator marks; a barred grid has none, as a thick line there
     // would read as a bar
     if (!P.bars) entries.forEach((e) => {
-      if (e.vid) return;   // a virtual lead's squares are its base's
+      if (e.vid || e.offGrid) return;   // a virtual lead's squares are its base's; an off-grid clue has none
       (e.clue.separators || []).forEach(({ at: pos, mark }) => {
         if (pos <= 0 || pos >= e.length) return;
         const x = e.position.x + (e.direction === "across" ? pos - 1 : 0);
@@ -2030,16 +2053,18 @@
   function renderClues() {
     $("clues-across-h").textContent = jigsaw ? "Clues" : "Across";
     $("clues-down-section").classList.toggle("hidden", jigsaw);
-    ["across", "down"].forEach((dir) => {
-      const ol = $(dir === "across" ? "clues-across" : "clues-down");
+    $("offgrid-section").classList.toggle("hidden", jigsaw || !entries.some((e) => e.offGrid));
+    ["across", "down", "offgrid"].forEach((dir) => {
+      const ol = $("clues-" + dir);
       ol.innerHTML = "";
       const list = jigsaw ? (dir === "across" ? jigsawOrder(entries) : [])
         : entries.filter((e) => e.direction === dir);
       list.forEach((e) => {
         const li = document.createElement("li");
         li.id = "clue-" + entryId(e);
-        li.innerHTML = (jigsaw ? "" : `<span class="clue-num">${e.number}</span>`) +
+        li.innerHTML = (jigsaw || e.offGrid ? "" : `<span class="clue-num">${e.number}</span>`) +
           `<span class="clue-text"></span><span class="checkers"></span>`;
+        if (e.offGrid) li.appendChild(offGridBox(e));
         // No focusKbd: picking a clue off the list is not a decision to type,
         // so it must not raise a keyboard over half the screen. See the
         // mousedown handler on these lists for the other half of that rule.
@@ -2060,6 +2085,30 @@
     });
     renderUncluedList();
     refreshClues();
+  }
+
+  // An off-grid clue's answer is typed into a box on its own row. The grid's
+  // key handler ignores inputs, so typing here moves no cursor; focusing the
+  // box picks the clue for the hint panel without scrolling to it.
+  function offGridBox(e) {
+    const box = document.createElement("input");
+    box.className = "offgrid-answer";
+    box.maxLength = e.length;
+    box.size = e.length;
+    box.autocomplete = "off";
+    box.spellcheck = false;
+    box.setAttribute("autocapitalize", "characters");
+    box.setAttribute("aria-label", "Answer (" + (e.clue.enumeration || e.length) + ")");
+    box.addEventListener("click", (ev) => ev.stopPropagation());
+    box.addEventListener("focus", () => { if (pick !== e) { hintFocus = null; pick = e; refreshAll(); } });
+    box.addEventListener("input", () => {
+      const v = box.value.toUpperCase().replace(/[^A-Z]/g, "").slice(0, e.length);
+      box.value = v;
+      e.typed = v; e.revealed = false;
+      checkSolvedEntries(true);
+      refreshAll(); saveState();
+    });
+    return box;
   }
 
   // Unclued lights have no clue to show, only what the puzzle says they are.
@@ -2297,6 +2346,11 @@
       // Nothing to tell you about a clue you have finished — the row greys out
       // and a full row of dots would just be noise on every solved line.
       li.querySelector(".checkers").innerHTML = (solved || jigsaw) ? "" : checkerDots(e);
+      const box = e.offGrid && li.querySelector(".offgrid-answer");
+      if (box) {
+        if (box.value !== e.typed) box.value = e.typed;
+        box.readOnly = solved;
+      }
       li.classList.toggle("active", !!curE && entryKey(curE) === entryKey(e));
       li.classList.toggle("solved", solved);
       // The gold star is a standing fact about how this clue was solved, not a
@@ -2353,8 +2407,8 @@
 
   // ---------- selection & movement ----------
   // The clue being worked on: in a jigsaw the one picked off the list, anywhere
-  // else the light under the cursor.
-  function currentEntry() { return jigsaw ? pick : gridEntry(); }
+  // else the light under the cursor unless an off-grid clue was picked.
+  function currentEntry() { return jigsaw || (pick && pick.offGrid) ? pick : gridEntry(); }
   // The light under the cursor, which typing, checking and clearing act on.
   function gridEntry() {
     const c = cells[cur.y] && cells[cur.y][cur.x];
@@ -2652,6 +2706,7 @@
   // one the same.
   function onCellClick(c) {
     leadPick = null;
+    if (!jigsaw) pick = null;
     if (cur.x === c.x && cur.y === c.y) {
       const other = cur.dir === "across" ? "down" : "across";
       if (c[other]) cur.dir = other;
@@ -2671,9 +2726,9 @@
     if (!jigsaw && currentEntry()) scrollToHintPanel();
   }
 
-  // Picking a clue off the list. A jigsaw's clue stays off the grid.
+  // Picking a clue off the list. A jigsaw's clue, and an off-grid one, stays off the grid.
   function selectEntry(e, jumpToStart) {
-    if (!jigsaw) { moveToEntry(e, jumpToStart); return; }
+    if (!jigsaw && !e.offGrid) { moveToEntry(e, jumpToStart); return; }
     hintFocus = null;
     pick = e;
     refreshAll();
@@ -2683,6 +2738,7 @@
   function moveToEntry(e, jumpToStart) {
     hintFocus = null;
     leadPick = e.vid || null;
+    if (!jigsaw) pick = null;
     cur.dir = e.direction;
     if (jumpToStart || !cellInEntry(cur.x, cur.y, e)) {
       // jump to first empty cell of the entry, else its start
@@ -2750,9 +2806,10 @@
 
   function stepEntry(delta) {
     const e = gridEntry();
-    let i = entries.indexOf(e);
-    i = (i + delta + entries.length) % entries.length;
-    moveToEntry(entries[i], true);
+    const lights = entries.filter((g) => !g.offGrid);
+    let i = lights.indexOf(e);
+    i = (i + delta + lights.length) % lights.length;
+    moveToEntry(lights[i], true);
   }
 
   // ---------- typing ----------
@@ -2809,6 +2866,8 @@
 
   function onKey(ev) {
     if ($("app").classList.contains("hidden")) return;
+    // A key on the grid hands the clue back from an off-grid one to the cursor's.
+    if (!jigsaw && pick) { pick = null; refreshAll(); }
     const k = ev.key;
     if (squareKey(k)) { typeLetter(k.toUpperCase()); ev.preventDefault(); }
     else if (k === "Backspace") { backspace(); ev.preventDefault(); }
@@ -3014,7 +3073,11 @@
     if (!isEntrySolved(e)) return false;
     return cleanSolve(hintsCharged(e), revealsUsed[entryKey(e)]);
   }
-  function entryCells(e) { const out = []; for (let i = 0; i < e.length; i++) out.push(cellAt(e, i)); return out; }
+  function entryCells(e) {
+    const out = [];
+    if (!e.offGrid) for (let i = 0; i < e.length; i++) out.push(cellAt(e, i));
+    return out;
+  }
 
   function revealCell(c) { c.letter = c.sol; c.wrong = false; c.revealed = true; }
 
@@ -3031,6 +3094,17 @@
       return;
     }
     if (!e || !canCheck()) return;
+    if (e.offGrid) {
+      // The first letter of the box that is missing or wrong.
+      const i = [...e.solution].findIndex((ch, j) => e.typed[j] !== ch);
+      if (i < 0) return;
+      e.typed = e.solution.slice(0, i + 1) + e.typed.slice(i + 1);
+      e.revealed = true;
+      const key = entryKey(e);
+      revealsUsed[key] = (revealsUsed[key] || 0) + 1;
+      checkSolvedEntries(); refreshAll(); saveState();
+      return;
+    }
     // prefer the selected cell if it's empty/wrong, else first empty/wrong cell
     const cs = entryCells(e);
     const cSel = cells[cur.y][cur.x];
@@ -3051,6 +3125,7 @@
     focusHint(ANSWER_RUNG);
     showHint(e, ANSWER_RUNG);
     entryCells(e).forEach(revealCell);
+    if (e.offGrid) { e.typed = e.solution; e.revealed = true; }
     checkSolvedEntries(); refreshAll(); saveState();
   }
 
@@ -3058,6 +3133,7 @@
   // paper, where nothing is solved until "I'm done" (see paper mode above).
   function lettersRight(e) {
     if (!e.solution) return false;
+    if (e.offGrid) return e.typed === e.solution;
     for (let i = 0; i < e.length; i++) if (cellAt(e, i).letter !== e.solution[i]) return false;
     return true;
   }
@@ -5557,7 +5633,7 @@
     // nothing bought gets the gold star, anything else the green check — the
     // same glyph and the same two tiers the clue list uses, so one mark means
     // one thing wherever it is drawn.
-    let clueLine = jigsaw ? "" : `<span class="entry-tag">${tag(e)}</span>`;
+    let clueLine = jigsaw ? "" : `<span class="entry-tag">${e.offGrid ? "Off the grid" : tag(e)}</span>`;
     if (solved) {
       const clean = noHintsSolve(e);
       clueLine += `<span class="clue-done${clean ? " clean" : ""}" title="${
@@ -5566,7 +5642,7 @@
     if (holder !== e && !jigsaw) clueLine += `<span class="muted">(one answer whose letters are divided between ${tag(e)} and ${tag(holder)}; its clue is printed at ${tag(holder)} and shown here) </span>`;
     // The strip shows the grid's letters in the clue's squares: in a jigsaw,
     // where the answer goes.
-    setHTML($("hint-pattern"), jigsaw ? "" : patternHTML(e));
+    setHTML($("hint-pattern"), jigsaw || e.offGrid ? "" : patternHTML(e));
     // On paper the panel is the clue and its letters, and nothing that could
     // say whether they are right: no meter, no ladder, no reveal, no vote.
     if (paperHides()) {
@@ -6101,7 +6177,7 @@
       const puz = window.CRYPTIC_PUZZLES[id];
       if (!puz || !puz.entries) return;
       const s = (fitsGrid(saves[id], puz) && saves[id]) || {}, letters = s.letters || {}, stamps = s.letterAt || {};
-      const all = expandEntries(puz.entries);
+      const all = expandEntries(puz.entries).concat(offGridEntries(puz));
       const lead = buildLeaderOf(all);
       const legs = {};
       all.forEach((e) => {
@@ -6115,6 +6191,12 @@
       Object.keys(legs).forEach((key) => {
         let at = 0, solved = true;
         legs[key].forEach((e) => {
+          if (e.offGrid) {
+            const id = entryId(e);
+            if (!e.solution || (letters[id] || "").replace("!", "") !== e.solution) solved = false;
+            at = Math.max(at, stamps[id] || 0);
+            return;
+          }
           for (let i = 0; i < e.length; i++) {
             const sq = squareOf(e, i);
             if (!e.solution || !letters[sq] || letters[sq][0] !== e.solution[i]) solved = false;
@@ -6125,7 +6207,7 @@
         const types = ((head.annotation || head.blog || {}).type || []).filter((t) => TYPES[t]);
         if (!solved) {
           // A practice link opens on its clue, which a jigsaw cannot do.
-          if (head.solution && types.length && !isJigsaw(BY_ID[id])) open.push({ id, ref: tag(head), types, started: !!saves[id] });
+          if (head.solution && types.length && !head.offGrid && !isJigsaw(BY_ID[id])) open.push({ id, ref: tag(head), types, started: !!saves[id] });
           return;
         }
         const hints = frozenCharge(s.solvedWith || {}, legs[key].map(entryId));
@@ -6834,7 +6916,7 @@
     const prog = savedProgress()[id];
     const puz = window.CRYPTIC_PUZZLES[id];
     const letters = (prog && (!puz || fitsGrid(prog, puz)) && prog.letters) || {};
-    const filled = Object.keys(letters).length;
+    const filled = Object.keys(letters).filter((k) => !k.endsWith("-offgrid")).length;
     if (!filled || !puz) return { filled, total: 0, done: false };
     const want = {};   // "x,y" -> the letter that belongs there
     puz.entries.forEach((e) => {
@@ -6852,7 +6934,9 @@
     // used the escape hatch; the scorebar inside the puzzle is where that costs
     // you something.
     const done = squares.length > 0 && !onPaper(id)
-      && squares.every((k) => want[k] && letters[k] && letters[k][0] === want[k]);
+      && squares.every((k) => want[k] && letters[k] && letters[k][0] === want[k])
+      // An off-grid clue's whole answer is one value, under its entry id.
+      && offGridEntries(puz).every((e) => e.solution && (letters[entryId(e)] || "").replace("!", "") === e.solution);
     return { filled, total: squares.length, done };
   }
   // The date and the day it fell on. A weekday is not decoration on a cryptic:
@@ -8027,6 +8111,7 @@
                               blocksAt: {}, revealsUsed: {}, solvedWith: {}, timing: {},
                               clearedAt: now, updated: now });
       forEachCell((c) => { c.letter = ""; c.wrong = false; c.revealed = false; });
+      entries.forEach((e) => { if (e.offGrid) { e.typed = ""; e.revealed = false; } });
       applyPrinted();
       hintsShown = {}; hintsEarned = {}; hintLevels = {}; revealsUsed = {}; blocksAt = {};
       solvedWith = {}; timing = {};
@@ -8119,13 +8204,13 @@
     // buttons away and rebuilds them on every render. The mousedown listener
     // runs before the default focus transfer, so activeElement still says
     // whether the keyboard was up when the finger landed.
-    ["grid", "clues-across", "clues-down", "clues-unclued", "hint-next", "hint-escape"].forEach((id) =>
+    ["grid", "clues-across", "clues-down", "clues-unclued", "clues-offgrid", "hint-next", "hint-escape"].forEach((id) =>
       $(id).addEventListener("mousedown", keepKbd));
 
     // Bound here for the same reason, and to the list rather than to a row: the
     // rows are rebuilt with every puzzle, and the second click of the double-tap
     // accident lands on a different row from the first — see clueTapIsAnAccident.
-    ["clues-across", "clues-down", "clues-unclued"].forEach((id) =>
+    ["clues-across", "clues-down", "clues-unclued", "clues-offgrid"].forEach((id) =>
       $(id).addEventListener("touchstart", () => { clueTouchAt = Date.now(); },
                              { passive: true }));
 
@@ -8145,7 +8230,7 @@
       const box = ev.target && ev.target.dataset ? ev.target : null;
       const idx = box ? Number(box.dataset.i) : NaN;
       const e = currentEntry();
-      if (!e || !Number.isInteger(idx)) return;
+      if (!e || e.offGrid || !Number.isInteger(idx)) return;
       const c = cellAt(e, Math.max(0, Math.min(e.length - 1, idx)));
       cur.x = c.x; cur.y = c.y;
       // Focus first: refreshAll() rebuilds this strip and removes the node the

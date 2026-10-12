@@ -878,6 +878,8 @@ def browser_puzzle(puzzle):
     out["entries"] = [
         {**holder(e), "alsoLeads": [holder(h) for h in e["alsoLeads"]]} if e.get("alsoLeads") else holder(e)
         for e in out["entries"]]
+    if out.get("offGrid"):
+        out["offGrid"] = [holder(h) for h in out["offGrid"]]
     return out
 
 
@@ -2672,16 +2674,18 @@ def puzzle_is_annotated(puzzle):
 
 
 def puzzle_is_solved(puzzle):
-    """Every light has its answer: the index's hasSolutions, and what
+    """Every light, and every clue entered off the grid, has its answer: the index's hasSolutions, and what
     /progress/ counts as solved (tools/progress_record.py reads it too)."""
-    return all(e.get("solution") for e in puzzle["entries"])
+    return (all(e.get("solution") for e in puzzle["entries"])
+            and all(item.get("solution") for _, item in groups.off_grid(puzzle)))
 
 
 def unannotated_clues(puzzle):
     """The clues puzzle_is_annotated is still waiting on."""
     continuations = groups.leader_of(puzzle["entries"])
     return [e for e in clued(puzzle["entries"])
-            if "annotation" not in e and entry_id(e) not in continuations]
+            if "annotation" not in e and entry_id(e) not in continuations] + [
+        groups.as_entry(puzzle, cid) for cid, item in groups.off_grid(puzzle) if "annotation" not in item]
 
 
 def clue_coverage(puzzle):

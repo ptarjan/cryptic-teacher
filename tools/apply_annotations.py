@@ -412,7 +412,8 @@ def mend_clues(puzzle):
 def apply_also(puzzle, annotations):
     """Write each alsoLeads answer's annotation, keyed by its clue id
     ("22-across/2", groups.clue_id), in place: normalized as its light
-    standing as that answer's leader (groups.as_leader). Others untouched."""
+    standing as that answer's leader (groups.as_leader); likewise each offGrid
+    clue's. Others untouched."""
     for cid, i, k, item in groups.also_clues(puzzle["entries"]):
         if cid not in annotations:
             continue
@@ -421,6 +422,16 @@ def apply_also(puzzle, annotations):
         else:
             view = groups.as_leader(puzzle, i, k)["entries"]
             item["annotation"] = normalize(annotations[cid], view[i], view)
+    # A clue entered off the grid (offGrid, "1-offgrid"): normalized on a
+    # light of its own (groups.alone).
+    for cid, item in groups.off_grid(puzzle):
+        if cid not in annotations:
+            continue
+        if annotations[cid] is None:
+            item.pop("annotation", None)
+        else:
+            view = groups.alone(puzzle, cid)["entries"]
+            item["annotation"] = normalize(annotations[cid], view[0], view)
 
 
 def apply(path, annotations, by=None):
@@ -433,11 +444,13 @@ def apply(path, annotations, by=None):
     ids = [entry_id(e) for e in puzzle["entries"] if entry_id(e) not in continuations]
     # A further answer a light starts (alsoLeads) is a clue of its own.
     also = [cid for cid, _, _, _ in groups.also_clues(puzzle["entries"])]
+    also += [cid for cid, _ in groups.off_grid(puzzle)]   # and each clue off the grid
     ids += also
     only = annotate_only(path)
     if only is not None:
         current = {entry_id(e): e.get("annotation") for e in puzzle["entries"]}
         current.update({cid: item.get("annotation") for cid, _, _, item in groups.also_clues(puzzle["entries"])})
+        current.update({cid: item.get("annotation") for cid, item in groups.off_grid(puzzle)})
         by_id = {entry_id(e): e for e in puzzle["entries"]}
         kept = [k for k in ids if k in annotations and k not in only and k not in also
                 and current[k] not in (annotations[k], normalize(
@@ -502,7 +515,8 @@ def apply(path, annotations, by=None):
     had_hints = provenance.has_hints(puzzle)
     def written():
         return [e.get("annotation") for e in puzzle["entries"]] + [
-            item.get("annotation") for _, _, _, item in groups.also_clues(puzzle["entries"])]
+            item.get("annotation") for _, _, _, item in groups.also_clues(puzzle["entries"])] + [
+            item.get("annotation") for _, item in groups.off_grid(puzzle)]
     before = written()
     for entry in puzzle["entries"]:
         if entry_id(entry) in continuations or entry_id(entry) not in annotations:

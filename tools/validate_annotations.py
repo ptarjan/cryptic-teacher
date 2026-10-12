@@ -3184,6 +3184,17 @@ def validate_puzzle(puzzle, corpus=False):
             annotated += 1
             errors += [f"{tag} alsoLeads[{k}]:{m.split(':', 1)[1]}" for m in errs if m.startswith(mine)]
             warnings += [f"{tag} alsoLeads[{k}]:{m.split(':', 1)[1]}" for m in warns if m.startswith(mine)]
+    # A clue entered off the grid (offGrid) is checked on a light of its own
+    # (groups.alone); its findings name it "<k>-offgrid".
+    for cid, item in groups.off_grid(puzzle):
+        if not item.get("annotation"):
+            continue
+        k = cid.split("-")[0]
+        n, errs, warns = _validate_puzzle(groups.alone(puzzle, cid), corpus, schema=False)
+        mine = (f"{k}A:", f"{k}-across:")
+        annotated += n
+        errors += [f"{cid}:{m.split(':', 1)[1]}" for m in errs if m.startswith(mine)]
+        warnings += [f"{cid}:{m.split(':', 1)[1]}" for m in warns if m.startswith(mine)]
     return annotated, errors, warnings
 
 
