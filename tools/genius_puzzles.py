@@ -1513,6 +1513,43 @@ def hold(number, pdf, date, url, write):
     return HELD_JIGSAW, "not written (--dry-run)"
 
 
+#: The classes left when the grid read does not take the clue list: its
+#: entries altered by a rule the preamble states (an article's preamble is on
+#: its grid picture, not read), a light left unclued, or no grid read at all.
+#: Only the clues are mandatory, so the list is held clues-only (hold_clues).
+GRID_MISFIT = {"enumeration is not the entry's length", "lights left unclued",
+               "grid numbering differs from clue list", "grid unread"}
+HELD_CLUES = "held clues-only (grid does not take the clue list)"
+
+
+def hold_clues(number, pdf, date, url, write):
+    """file()'s (class, why) for a numbered clue list no grid read takes: its
+    clues held in clues_only/, each direction in printed order with no length
+    (the grid's lights are what disagree). No builder promotes it yet, so it
+    waits as data rather than in the solve queue."""
+    import clues_only
+    meta = {"id": series_meta.puzzle_id(SERIES, number), "number": number, "series": SERIES,
+            "name": f"Guardian genius crossword No {number}", "setter": pdf["setter"],
+            "date": date.isoformat(), "source": {"url": url}}
+    spec = {"across": [], "down": []}
+    for c in pdf["clues"]:
+        light = c["lights"][0]
+        spec[light[1]].append([light[0], None, "genius", {"clue": c["clue"]}])
+    record, problems = clues_only.from_book(meta, spec["across"], spec["down"], GENERATOR)
+    if pdf["preamble"]:
+        record["preamble"] = pdf["preamble"]
+    if pdf["grid"]:
+        record["dimensions"] = {"cols": len(pdf["grid"][0]), "rows": len(pdf["grid"])}
+    if not problems and write:
+        try:
+            return HELD_CLUES, str(clues_only.write(record))
+        except puzzle_integrity.RefusedWrite as e:
+            problems = [str(e)]
+    if problems:
+        return None, "; ".join(problems)[:200]
+    return HELD_CLUES, "not written (--dry-run)"
+
+
 def file(write=True, numbers=None, log=print):
     """File every fetched PDF not yet in puzzles/, newest first.
     Returns (filed, {class: [numbers]}, counts)."""
@@ -1551,6 +1588,11 @@ def file(write=True, numbers=None, log=print):
                 fresh["setter"] = fresh["setter"] or post_setter(posts.get(n))
                 bare, also = unsolved(n, fresh, date, idx[str(n)]["url"])
                 puzzle, why = (bare, None) if bare else (None, (why[0], f"{why[1]}; unsolved: {also[0]}"))
+            if why and why[0] in GRID_MISFIT and pdf["clues"]:
+                fresh = read_pdf(pdf_path(n)) if pdf_path(n).exists() else read_article(n)
+                fresh["setter"] = fresh["setter"] or post_setter(posts.get(n))
+                held, also = hold_clues(n, fresh, date, idx[str(n)]["url"], write)
+                why = (held, also) if held else (why[0], f"{why[1]}; not held: {also}")
         except Exception as e:  # any raise: a malformed PDF is one puzzle
             puzzle, why = None, ("unreadable", f"{type(e).__name__}: {e}"[:160])
         if puzzle is not None:

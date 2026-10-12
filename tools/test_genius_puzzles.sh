@@ -186,6 +186,12 @@ if f:
 print("fallback-classes", sorted(G.UNSOLVED_FALLBACK - G.ALTERABLE),
       any(k in G.UNSOLVED_FALLBACK for k in ("enumeration is not the entry's length", "lights left unclued",
                                              "grid numbering differs from clue list", "grid unread")))
+import datetime
+hc = G.hold_clues(999, {"setter": None, "preamble": "", "grid": None,
+                        "clues": [{"lights": [(1, "across")], "enumeration": "7", "clue": "Water lily (7)"},
+                                  {"lights": [(2, "down")], "enumeration": "5", "clue": "Some tree (5)"}]},
+                  datetime.date(2007, 6, 4), "https://example.org/g999", write=False)
+print("hold-clues", hc[0] == G.HELD_CLUES, "grid unread" in G.GRID_MISFIT)
 f = glob.glob("puzzles/genius/*/genius-44.json")
 if f:
     print("filed-44", json.load(open(f[0]))["solutions"]["origin"])
@@ -287,6 +293,7 @@ check "a jigsaw clue's answer and entry come off the post row printing it (250)"
 [ -z "$(get filed-108)" ] || check "genius-108's six marked lights file unclued off the article page" "30 6" "$(get filed-108)"
 [ -z "$(get setter-84)" ] || check "genius-84 files with no setter (series.py unbylined)" "None" "$(get setter-84)"
 [ -z "$(get unsolved-nosetter)" ] || check "an early Genius with no post and no setter named files unsolved with no setter (7)" "unsolved None" "$(get unsolved-nosetter)"
+check "a numbered list no grid takes is held clues-only, by direction" "True True" "$(get hold-clues)"
 check "only a grid matching its clues falls back to unsolved when the post's answers fail" "[] False" "$(get fallback-classes)"
 [ -z "$(get filed-44)" ] || check "genius-44, whose post prints answers the reader misses, files unsolved" "unsolved" "$(get filed-44)"
 [ -z "$(get filed-165)" ] || check "genius-165 files its eight See-preamble lights unclued" "32 8" "$(get filed-165)"
