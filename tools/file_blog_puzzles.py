@@ -437,6 +437,14 @@ def build(rec, row, series, date, setter, typed=None, pairs=False, loose_counts=
         # "(4,3) (7)"), so both are kept, not the first cut as an echo.
         e["clue"] = enumeration.clue(e["clue"], separators=seps,
                                      pairedCount=pairs and enumeration.echoed(e["clue"]))
+        # A post can garble a clue (toughie-347's 27-across has another
+        # line spliced into it): SOURCE_CLUE_WRONG prints it, as for every
+        # other converter.
+        text = e["clue"].get("text", "")
+        if (printed := fetch_puzzle.source_clue(series_meta.puzzle_id(series, row["number"]),
+                                                entry_id(e), text)) != text:
+            e["clue"]["text"] = printed
+            e["clue"].pop("italics", None)
         if groups.get(entry_id(e), [None])[0] == entry_id(e):
             e["group"] = list(groups[entry_id(e)])
         solution = e.pop("solution")

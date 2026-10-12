@@ -85,6 +85,9 @@ FIRST_NUMBER = {"telegraph": 27738, "sundaytel": 2786, "toughie": 2486, "sundayt
 #: (the crawl missed the post), each with where it is printed.
 BYLINES = {
     ("toughie", 2489): ("Elgar", "https://bigdave44.com/2020/08/14/toughie-2489/"),
+    # A mystery setter: the title "13 6 27" is THAT'S ME IN THE CORNER, and the
+    # top-left corner reads ELGAR clockwise (column 1 up from row 4, then row 1).
+    ("toughie", 866): ("Elgar", "https://bigdave44.com/2012/10/26/toughie-866/"),
 }
 #: The bucket's variant -> the series on a weekday and on a Sunday.
 VARIANTS = {
