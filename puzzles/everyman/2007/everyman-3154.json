@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Quickly following vehicle, hardtop?",
     "enumeration": "8"
    },
-   "solution": "CARAPACE"
+   "solution": "CARAPACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CARAPACE",
+    "definitions": [
+     {
+      "text": "hardtop?",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "one word coming after another tells you the second piece is placed after the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vehicle",
+      "gives": "CAR",
+      "note": "a car is a common vehicle"
+     },
+     {
+      "clueFragment": "Quickly",
+      "gives": "APACE",
+      "note": "apace is an old-fashioned word for swiftly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "APACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A speeding car tailgating another, perhaps a convertible with a hard roof.",
+     "walkthrough": "The clue reads 'quickly' first, but 'following' puts it after the vehicle in the answer.",
+     "definitionFit": "A carapace is the hard upper shell of a turtle or crab, playfully described as a top that is hard, hence the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hardtop"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,45 @@
     "text": "Inferior race, it's said",
     "enumeration": "6"
    },
-   "solution": "COARSE"
+   "solution": "COARSE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "COARSE",
+    "definitions": [
+     {
+      "text": "Inferior",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "it's said",
+      "for": "homophone",
+      "note": "something said is spoken, so the word is judged by its sound rather than its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "race",
+      "gives": "COARSE",
+      "soundsLike": "COURSE",
+      "note": "a race is run over a course; the word sounds the same as a word meaning crude"
+     }
+    ],
+    "explanation": {
+     "surface": "A sneering remark that some group is reputedly lesser, which the clue distances itself from.",
+     "walkthrough": "The surface invites an ugly reading about people; 'race' here is simply a running course.",
+     "definitionFit": "Coarse goods or materials are rough and of low quality, so the adjective can mean poorer in grade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "race"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +150,55 @@
     "text": "Affair's misread in palm!",
     "enumeration": "6"
    },
-   "solution": "RAFFIA"
+   "solution": "RAFFIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RAFFIA",
+    "definitions": [
+     {
+      "text": "palm",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "misread",
+      "for": "anagram",
+      "note": "reading a word wrongly jumbles its letters into a different order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Affair",
+      "gives": "AFFAIR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AFFAIR",
+       "gives": "RAFFIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone misinterprets a love affair when reading a palm, like a fortune-teller getting it wrong.",
+     "walkthrough": "'Palm' suggests palmistry, but it is the plant: raffia is a palm tree whose fibre is used for weaving.",
+     "definitionFit": "Raffia is a genus of tropical palm trees whose leaf fibre is used for baskets and mats."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "palm"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +218,65 @@
      }
     ]
    },
-   "solution": "PLUSFOURS"
+   "solution": "PLUSFOURS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PLUS FOURS",
+    "definitions": [
+     {
+      "text": "Knickerbockers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the ultimate in",
+      "for": "letter_selection",
+      "note": "the ultimate letter of a word is its final one, so only the end of the next word is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as well as",
+      "gives": "PLUS",
+      "note": "plus means in addition to"
+     },
+     {
+      "clueFragment": "a number",
+      "gives": "FOUR",
+      "note": "four is a number"
+     },
+     {
+      "clueFragment": "shorts",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of shorts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLUS",
+      "FOUR",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A clothing list: breeches, plus some short trousers, ending with the latest in shorts.",
+     "walkthrough": "Plus fours are baggy trousers gathered below the knee, traditionally worn by golfers.",
+     "definitionFit": "Plus fours are a style of knickerbockers, so named for the four extra inches of cloth below the knee."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shorts"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +296,40 @@
      }
     ]
    },
-   "solution": "CENTRESPREAD"
+   "solution": "CENTRESPREAD",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CENTRE SPREAD",
+    "definitions": [
+     {
+      "text": "Part of a magazine that could be recent?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part of a magazine",
+      "note": "surface reading: a section of a periodical, perhaps its latest feature"
+     },
+     {
+      "clueFragment": "that could be recent?",
+      "note": "setter's reading: the letters of 'recent' are those of the middle word in the answer, laid out differently, so the word itself is spread around"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking whether a page in a magazine is up to date.",
+     "walkthrough": "The joke is that 'recent' is a scrambled version of the first word of the answer, i.e. that word spread about, while the whole phrase is the double middle page.",
+     "definitionFit": "A centre spread is the pair of facing pages in the middle of a magazine, often a feature or poster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "recent"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +343,59 @@
     "text": "A river running out of one US state into another",
     "enumeration": "6"
    },
-   "solution": "KANSAS"
+   "solution": "KANSAS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "KANSAS",
+    "definitions": [
+     {
+      "text": "another",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "running out of",
+      "for": "deletion",
+      "note": "running out of somewhere means leaving it, so these letters depart from the longer word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the standard abbreviation for river"
+     },
+     {
+      "clueFragment": "one US state",
+      "gives": "ARKANSAS",
+      "note": "Arkansas is a southern US state"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KANSAS"
+     ]
+    },
+    "explanation": {
+     "surface": "A river flows out of one American state across the border into the next.",
+     "walkthrough": "Remove the A and R from the front of Arkansas and what is left is a neighbouring state. The definition is just 'another' (US state).",
+     "definitionFit": "Kansas is a different US state from the one the wordplay starts with, so 'another' with the surface context defines it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "river"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +409,60 @@
     "text": "Vigilant, a king in dread",
     "enumeration": "5"
    },
-   "solution": "AWAKE"
+   "solution": "AWAKE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AWAKE",
+    "definitions": [
+     {
+      "text": "Vigilant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item sitting in another means it is placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     },
+     {
+      "clueFragment": "dread",
+      "gives": "AWE",
+      "note": "awe is fearful reverence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AW",
+      "AK",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A watchful monarch lives in fear.",
+     "definitionFit": "Someone awake is alert and conscious, the same as being watchful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dread"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +476,40 @@
     "text": "One running, out of gear?",
     "enumeration": "8"
    },
-   "solution": "STREAKER"
+   "solution": "STREAKER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "STREAKER",
+    "definitions": [
+     {
+      "text": "One running, out of gear?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One running, out of gear?",
+      "note": "surface reading: a runner, or a car or engine running in neutral"
+     },
+     {
+      "clueFragment": "out of gear",
+      "note": "setter's reading: gear means clothes, so this is a person running naked through a public place"
+     }
+    ],
+    "explanation": {
+     "surface": "An engine or vehicle running without being in gear.",
+     "walkthrough": "Gear is informal for clothing; the answer is someone who dashes naked across, say, a sports pitch.",
+     "definitionFit": "A streaker runs naked in public, so is a runner who has shed every item of clothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gear"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +523,50 @@
     "text": "Devil-worship a man sits out",
     "enumeration": "8"
    },
-   "solution": "SATANISM"
+   "solution": "SATANISM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SATANISM",
+    "definitions": [
+     {
+      "text": "Devil-worship",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out can mean disordered or wrong, so the letters are put into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a man sits",
+      "gives": "AMANSITS",
+      "note": "the letters of these three words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AMANSITS",
+       "gives": "SATANISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man refuses to take part in devil-worship by sitting it out.",
+     "definitionFit": "Satanism is the worship of Satan, the Devil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +580,55 @@
     "text": "A female, graceful and rich",
     "enumeration": "8"
    },
-   "solution": "AFFLUENT"
+   "solution": "AFFLUENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AFFLUENT",
+    "definitions": [
+     {
+      "text": "rich",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "graceful",
+      "gives": "FLUENT",
+      "note": "fluent movement is smooth and graceful"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "F",
+      "FLUENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Describing a woman as elegant and wealthy.",
+     "definitionFit": "Affluent means wealthy, having plenty of money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "graceful"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +642,64 @@
     "text": "Run out in buggy offers one an incentive",
     "enumeration": "6"
    },
-   "solution": "CARROT"
+   "solution": "CARROT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CARROT",
+    "definitions": [
+     {
+      "text": "an incentive",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is placed inside it"
+     }
+    ],
+    "linkWords": [
+     "offers one"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Run",
+      "gives": "R",
+      "note": "R is the cricket scoring abbreviation for run"
+     },
+     {
+      "clueFragment": "out",
+      "gives": "O",
+      "note": "O is the scorebook abbreviation for out"
+     },
+     {
+      "clueFragment": "buggy",
+      "gives": "CART",
+      "note": "a buggy is a small cart or carriage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "RO",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone running out of a pushchair is enticed by a reward.",
+     "walkthrough": "In a cricket scorecard R is a run and O is out; together they sit inside the buggy.",
+     "definitionFit": "A carrot is a reward dangled to encourage effort, from the carrot held before a donkey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Run"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +727,40 @@
      }
     ]
    },
-   "solution": "SIXOFTHEBEST"
+   "solution": "SIXOFTHEBEST",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SIX OF THE BEST",
+    "definitions": [
+     {
+      "text": "punishment",
+      "at": 36
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A very tidy over",
+      "note": "surface reading: a bowler's well-controlled over in cricket, nothing to punish"
+     },
+     {
+      "clueFragment": "shouldn't get such punishment",
+      "note": "setter's reading: an over has six balls, and a tidy one would be the finest six, while the phrase also names a caning of six strokes"
+     }
+    ],
+    "explanation": {
+     "surface": "A bowler who sends down a tight, economical over should not be punished for it.",
+     "walkthrough": "In cricket an over is six balls; the phrase for a school caning of six strokes also describes six excellent deliveries.",
+     "definitionFit": "Six of the best was the traditional school beating of six strokes of the cane."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +774,50 @@
     "text": "Difficult son wants pet",
     "enumeration": "5"
    },
-   "solution": "STIFF"
+   "solution": "STIFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STIFF",
+    "definitions": [
+     {
+      "text": "Difficult",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "wants"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "pet",
+      "gives": "TIFF",
+      "note": "a pet is a fit of sulking, as in 'in a pet', much like a tiff"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TIFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A troublesome boy demands an animal of his own.",
+     "walkthrough": "'Pet' looks like an animal, but in the old phrase 'in a pet' it means a huff or petty quarrel.",
+     "definitionFit": "A stiff test or climb is a hard one, so the adjective means demanding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pet"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +837,63 @@
      }
     ]
    },
-   "solution": "RAISECAIN"
+   "solution": "RAISECAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAISE CAIN",
+    "definitions": [
+     {
+      "text": "Create a commotion",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lift",
+      "gives": "RAISE",
+      "note": "to lift something is to raise it"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "CA",
+      "note": "ca is short for circa, meaning about"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "note": "N is short for noon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAISE",
+      "CA",
+      "I",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone causes a scene in an elevator around one person at midday.",
+     "walkthrough": "'Lift' is the British word for an elevator, which hides its role as a verb.",
+     "definitionFit": "To raise Cain is an idiom for making an uproar, after the biblical troublemaker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lift"
+    }
+   }
   },
   {
    "number": 14,
@@ -267,7 +913,46 @@
      }
     ]
    },
-   "solution": "RUBSHOULDERS"
+   "solution": "RUBSHOULDERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RUB SHOULDERS",
+    "definitions": [
+     {
+      "text": "Socialise",
+      "at": 0
+     },
+     {
+      "text": "what a masseuse may do",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Socialise",
+      "note": "first meaning: mix with people, especially important ones"
+     },
+     {
+      "clueFragment": "what a masseuse may do",
+      "note": "second meaning: literally knead the tops of a client's arms and back"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The idiom for mingling socially is taken literally as massage work on the upper body.",
+     "definitionFit": "To rub shoulders with people is an idiom for mixing with them socially, and a masseuse literally massages that part of the body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Socialise"
+    }
+   }
   },
   {
    "number": 15,
@@ -287,7 +972,46 @@
      }
     ]
    },
-   "solution": "LOOKSMART"
+   "solution": "LOOKSMART",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LOOK SMART",
+    "definitions": [
+     {
+      "text": "Be quick",
+      "at": 0
+     },
+     {
+      "text": "appear fashionable and upmarket",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Be quick",
+      "note": "first meaning: the command to hurry up"
+     },
+     {
+      "clueFragment": "appear fashionable and upmarket",
+      "note": "second meaning: seem stylish and well dressed"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Look smart!' is a British command meaning hurry up; taken literally it means to look stylish.",
+     "definitionFit": "The phrase is both an idiom urging haste and a plain description of looking well turned out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "quick"
+    }
+   }
   },
   {
    "number": 16,
@@ -307,7 +1031,57 @@
      }
     ]
    },
-   "solution": "FIRSTAID"
+   "solution": "FIRSTAID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FIRST AID",
+    "definitions": [
+     {
+      "text": "immediate treatment",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down answer, what lies under another word comes after it"
+     }
+    ],
+    "linkWords": [
+     "will get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tree",
+      "gives": "FIR",
+      "note": "a fir is a coniferous tree"
+     },
+     {
+      "clueFragment": "Grave",
+      "gives": "STAID",
+      "note": "grave means serious and sober, as does staid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIR",
+      "STAID"
+     ]
+    },
+    "explanation": {
+     "surface": "A grave beneath a tree, with the promise of urgent medical care.",
+     "walkthrough": "'Grave' looks like a burial place but is the adjective meaning solemn.",
+     "definitionFit": "First aid is the emergency help given at once to an injured person before full medical care."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Grave"
+    }
+   }
   },
   {
    "number": 17,
@@ -321,7 +1095,73 @@
     "text": "Civic dignitaries learned excitedly about inauguration of mayor",
     "enumeration": "8"
    },
-   "solution": "ALDERMEN"
+   "solution": "ALDERMEN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ALDERMEN",
+    "definitions": [
+     {
+      "text": "Civic dignitaries",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excitedly",
+      "for": "anagram",
+      "note": "something done excitedly is agitated and disordered, so these letters are rearranged"
+     },
+     {
+      "text": "inauguration of",
+      "for": "letter_selection",
+      "note": "an inauguration is a beginning, so only the first letter of the next word is used"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the rearranged letters surround the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "learned",
+      "gives": "LEARNED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mayor",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of mayor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALDER",
+      "M",
+      "EN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEARNED",
+       "gives": "ALDEREN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Town worthies, quite well informed, get worked up about a new mayor's installation.",
+     "definitionFit": "Aldermen are senior members of a town or city council, a civic rank just below the mayor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "learned"
+    }
+   }
   },
   {
    "number": 18,
@@ -335,7 +1175,42 @@
     "text": "Sample plate",
     "enumeration": "12"
    },
-   "solution": "ILLUSTRATION"
+   "solution": "ILLUSTRATION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ILLUSTRATION",
+    "definitions": [
+     {
+      "text": "Sample",
+      "at": 0
+     },
+     {
+      "text": "plate",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sample",
+      "note": "first meaning: an example that shows what something is like"
+     },
+     {
+      "clueFragment": "plate",
+      "note": "second meaning: a full-page picture in a book"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Both words look like everyday nouns; plate here is the printing term for a page-sized picture.",
+     "definitionFit": "An illustration can be an example used to make a point, or a picture in a book, also called a plate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plate"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1224,47 @@
     "text": "On the radio, start to speak about a decorative pin",
     "enumeration": "6"
    },
-   "solution": "BROOCH"
+   "solution": "BROOCH",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BROOCH",
+    "definitions": [
+     {
+      "text": "a decorative pin",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "On the radio",
+      "for": "homophone",
+      "note": "on the radio something is heard rather than seen, so the word goes by its sound"
+     }
+    ],
+    "linkWords": [
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "start to speak",
+      "gives": "BROOCH",
+      "soundsLike": "BROACH",
+      "note": "to broach a subject is to begin talking about it"
+     }
+    ],
+    "explanation": {
+     "surface": "A radio presenter opens a discussion on a piece of jewellery.",
+     "walkthrough": "'About' belongs with the phrase broach a topic, meaning start to speak about it, and also joins it to the definition.",
+     "definitionFit": "A brooch is an ornamental clasp or pin worn on clothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "start"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1278,51 @@
     "text": "Actress Peter's upset",
     "enumeration": "6"
    },
-   "solution": "STREEP"
+   "solution": "STREEP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STREEP",
+    "definitions": [
+     {
+      "text": "Actress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upset means overturned or disturbed, so the letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Peter's",
+      "gives": "PETERS",
+      "note": "the name with its possessive s"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PETERS",
+       "gives": "STREEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actress has distressed a man called Peter.",
+     "walkthrough": "The definition names a particular actress: Meryl Streep.",
+     "definitionFit": "Meryl Streep is a famous American film actress, so the surname is an example of one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 21,
@@ -383,7 +1342,50 @@
      }
     ]
    },
-   "solution": "SWEETGALE"
+   "solution": "SWEETGALE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SWEET GALE",
+    "definitions": [
+     {
+      "text": "an aromatic shrub",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "produces"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Delightful",
+      "gives": "SWEET",
+      "note": "sweet means charming or delightful"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "GALE",
+      "note": "Gale is a girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWEET",
+      "GALE"
+     ]
+    },
+    "explanation": {
+     "surface": "A charming young woman grows a fragrant bush.",
+     "walkthrough": "The girl is a name, Gale, rather than the slang GAL.",
+     "definitionFit": "Sweet gale, or bog myrtle, is a fragrant bush of wet heathland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "girl"
+    }
+   }
   },
   {
    "number": 22,
@@ -397,7 +1399,42 @@
     "text": "Brusque, certain characters in Battersea",
     "enumeration": "5"
    },
-   "solution": "TERSE"
+   "solution": "TERSE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TERSE",
+    "definitions": [
+     {
+      "text": "Brusque",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "certain characters in",
+      "for": "hidden_word",
+      "note": "only some of the letters of the following place are used, read straight through"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Battersea",
+      "gives": "TERSE",
+      "note": "the letters running from the third to the seventh"
+     }
+    ],
+    "explanation": {
+     "surface": "Some curt people living in Battersea, a district of south London.",
+     "definitionFit": "Terse speech is abrupt and short, much like brusque speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 23,
@@ -411,7 +1448,53 @@
     "text": "Fish in foreign parts",
     "enumeration": "5"
    },
-   "solution": "SPRAT"
+   "solution": "SPRAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPRAT",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "foreign",
+      "for": "anagram",
+      "note": "foreign means strange or alien, so the letters are made unfamiliar by rearranging"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parts",
+      "gives": "PARTS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PARTS",
+       "gives": "SPRAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fishing abroad, in distant regions.",
+     "definitionFit": "A sprat is a small sea fish of the herring family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "foreign"
+    }
+   }
   },
   {
    "number": 24,
@@ -425,7 +1508,66 @@
     "text": "Think highly of one appearing in weird dream",
     "enumeration": "6"
    },
-   "solution": "ADMIRE"
+   "solution": "ADMIRE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ADMIRE",
+    "definitions": [
+     {
+      "text": "Think highly of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "appearing in",
+      "for": "container",
+      "note": "showing up inside something means being placed within it"
+     },
+     {
+      "text": "weird",
+      "for": "anagram",
+      "note": "weird means strange or odd, so the letters take an unusual order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dream",
+      "gives": "DREAM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADM",
+      "I",
+      "RE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DREAM",
+       "gives": "ADMRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Respecting someone who turns up in an odd dream.",
+     "definitionFit": "To admire someone is to regard them with respect and approval."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "weird"
+    }
+   }
   },
   {
    "number": 25,
@@ -445,7 +1587,50 @@
      }
     ]
    },
-   "solution": "LETALONE"
+   "solution": "LETALONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LET ALONE",
+    "definitions": [
+     {
+      "text": "much less",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "To rent",
+      "gives": "LET",
+      "note": "to let a property is to rent it out"
+     },
+     {
+      "clueFragment": "by oneself",
+      "gives": "ALONE",
+      "note": "alone means on one's own"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LET",
+      "ALONE"
+     ]
+    },
+    "explanation": {
+     "surface": "Renting a place on your own costs far less.",
+     "walkthrough": "'Much less' sounds like a price comparison but is used as in 'I can't walk, much less run'.",
+     "definitionFit": "Let alone is an idiom introducing something even less likely, the same as 'much less'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "less"
+    }
+   }
   },
   {
    "number": 26,
@@ -459,7 +1644,50 @@
     "text": "University teacher has essential dope",
     "enumeration": "6"
    },
-   "solution": "DONKEY"
+   "solution": "DONKEY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DONKEY",
+    "definitions": [
+     {
+      "text": "dope",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "University teacher",
+      "gives": "DON",
+      "note": "a don is a lecturer at Oxford or Cambridge"
+     },
+     {
+      "clueFragment": "essential",
+      "gives": "KEY",
+      "note": "key means crucial or essential"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DON",
+      "KEY"
+     ]
+    },
+    "explanation": {
+     "surface": "A lecturer who has some vital drug.",
+     "walkthrough": "'Dope' suggests drugs, but here it means a fool.",
+     "definitionFit": "Donkey is an informal word for a stupid person, just like dope."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dope"
+    }
+   }
   },
   {
    "number": 27,
@@ -479,7 +1707,42 @@
      }
     ]
    },
-   "solution": "STITCHUP"
+   "solution": "STITCHUP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STITCH UP",
+    "definitions": [
+     {
+      "text": "Incriminate by informing on",
+      "at": 0
+     },
+     {
+      "text": "swindle",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Incriminate by informing on",
+      "note": "first meaning: frame someone, as by false information to the police"
+     },
+     {
+      "clueFragment": "swindle",
+      "note": "second meaning: a con or cheat, used as a noun"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The verb sense is to frame someone; the noun sense is a rip-off.",
+     "definitionFit": "The informal phrase means both to frame a person for something and, as a noun, a deal that cheats you."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "informing"
+    }
+   }
   }
  ]
 }
