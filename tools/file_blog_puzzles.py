@@ -514,21 +514,31 @@ def hold_clues(rec, series, date, setter, tool, n):
     `blogAnswer`, a cross-check on the solve (cross_check), never as truth:
     they are what fit no grid. `n` is the grid's side (times_grids.size).
 
-    Refused when a clue is missing: a number the post skips, a linked answer
-    it prints whole, a light with no clue text. The clue is the one thing
-    no grid or solve can derive."""
+    A linked answer the post prints whole (the parser's `unsplit`) is held
+    as its lights: the clue on the first, "See N" on the rest, none with a
+    length, since how its letters share out is the grid's to say.
+
+    Refused when a clue is missing: a number the post skips, a light with no
+    clue text. The clue is the one thing no grid or solve can derive."""
     import clues_only
     import parse_timesforthetimes as parser
     problems = []
-    if rec.get("unsplit"):
-        problems.append(CAUSES["unsplit-link"])
+    linked = []
+    for group in rec.get("unsplit") or ():
+        (lead, way), *rest = [tuple(k) for k in group["lights"]]
+        linked.append({"number": lead, "direction": way, "answer": "", "clue": group["clue"],
+                       "enumeration": None, "linked": True})
+        linked += [{"number": n, "direction": d, "answer": "", "enumeration": None,
+                    "clue": f"See {lead}" + (f" {way}" if d != way else "")} for n, d in rest]
+    rec = dict(rec, entries=rec["entries"] + linked)
     missing = tg.gaps(tg.triples(rec))
     if missing:
         problems.append("the post gives no clue numbered " + ", ".join(map(str, missing)))
     leaders = parser.leader_numbers(rec["entries"])
     clues = {"across": [], "down": []}
     for e in tg.printed(rec):
-        text = worded(clean(e.get("clue")), e.get("enumeration"))
+        text = (clean(e["clue"]) if e.get("linked") else
+                worded(clean(e.get("clue")), e.get("enumeration")))
         if not has_words(enumeration.split(text)[0]):
             problems.append(f"{e['number']} {e['direction']} has no clue text")
             continue
