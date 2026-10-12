@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Every London Times edition of 1930-2019 (YEARS, the run Gale's Times
+"""Every London Times edition of 1930-2014 (YEARS, the run Gale's Times
 Digital Archive holds) with no puzzle filed, read from the crossword pages
 Paul downloads BY HAND from Gale (through the Alberta Research Portal),
 whether or not archive.org holds a scan of it. next_up orders them (ORDER):
 Times No 1, then the 1974-99 editions archive.org has no scan of (the list
-before it was widened, which Paul was part way through), then 2014-19, then
+before it was widened, which Paul was part way through), then 2014, then
 2000-13, then the rest of 1930-99, each newest first.
 
 tools/gale_fetch.py downloads the Times rows itself (Paul 2026-10-11) and
@@ -133,8 +133,8 @@ ITEM = "GaleTimes{}UKEnglish"
 #: An edition dir's name under ITEM.
 ISO_DAY = re.compile(r"\d{4}-\d\d-\d\d")
 PAGES = gale_arrived.PAGES
-#: The years Gale's Times Digital Archive holds that the checklist asks for.
-YEARS = range(1930, 2020)
+#: The years Gale's Times Digital Archive holds that the checklist asks for; it ends with 2014.
+YEARS = range(1930, 2015)
 #: The classes of a 1974-99 edition the checklist asked for before it took
 #: every unfiled date (no archive.org scan): next_up keeps them first.
 WANTED = ("no-scan", "canberra-reprint")
@@ -1672,7 +1672,7 @@ def notes(staged, untitled, unmatched=UNMATCHED, log=SET_ASIDE, now=None):
 
 #: How next_up orders, said on the page.
 ORDER = ("Order: Times No 1 (1 Feb 1930) first; then the 1974-99 editions archive.org has no scan of, the"
-         " year missing the most first and oldest date first within a year; then 2014-19, then 2000-13, then the"
+         " year missing the most first and oldest date first within a year; then 2014, then 2000-13, then the"
          " rest of 1930-99, each newest first. An edition leaves the list once its puzzle is filed.")
 #: Times No 1's date: the first issue goes first (Paul, 2026-10-02).
 FIRST_ISSUE = datetime.date(1930, 2, 1)
