@@ -24,6 +24,9 @@
   "date": "2012-02-05",
   "check": "grid and clues read from the Guardian's article page and its grid picture, its numbering matching the clue list; every fifteensquared answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,76 @@
     "text": "Two players, live, involved in endless romping? It's seedy stuff!",
     "enumeration": "6"
    },
-   "solution": "SEESAM"
+   "solution": "SEESAM",
+   "alteration": {
+    "from": "SESAME",
+    "steps": [
+     {
+      "op": "move"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SEESAM",
+    "definitions": [
+     {
+      "text": "It's seedy stuff",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "with no end, the word loses its final letter"
+     },
+     {
+      "text": "involved in",
+      "for": "container",
+      "note": "things involved in something sit inside it, so the players and the living go into the middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "romping",
+      "gives": "SEX",
+      "note": "romping is slang for sexual frolics"
+     },
+     {
+      "clueFragment": "Two players",
+      "gives": "ES",
+      "note": "East and South, two of the four bridge players"
+     },
+     {
+      "clueFragment": "live",
+      "gives": "AM",
+      "note": "I am means I live, I exist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ES",
+      "AM",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A bawdy romp involving a pair of actors, dismissed as seedy stuff.",
+     "walkthrough": "The clue yields SESAME; as the down entries require, the name SAM is lifted out and dropped to the end, so the grid shows SEESAM.",
+     "definitionFit": "Sesame is a plant grown for its small oily seeds, so the stuff is literally seedy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "seedy"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +123,70 @@
     "text": "Old leader in Rome vouchsafed to speak like a priest?",
     "enumeration": "8"
    },
-   "solution": "ORNEDDAI"
+   "solution": "ORNEDDAI",
+   "alteration": {
+    "from": "ORDAINED",
+    "steps": [
+     {
+      "op": "move"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "homophone",
+     "charade"
+    ],
+    "answer": "ORNEDDAI",
+    "definitions": [
+     {
+      "text": "like a priest",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader in",
+      "for": "letter_selection",
+      "note": "the leader of a word is its first letter, so only the start of the city's name is kept"
+     },
+     {
+      "text": "to speak",
+      "for": "homophone",
+      "note": "what is spoken is heard, not read, so the word is replaced by a spelling that sounds the same"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "Rome",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of Rome"
+     },
+     {
+      "clueFragment": "vouchsafed",
+      "gives": "DAINED",
+      "soundsLike": "DEIGNED",
+      "note": "to vouchsafe is to deign to give; deigned said out loud matches this spelling"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about how an ancient Roman leader, condescending to talk, sounded like a priest.",
+     "walkthrough": "The clue gives ORDAINED; the name DAI is moved to the end for the grid entry ORNEDDAI.",
+     "definitionFit": "A priest has been ordained, formally admitted to holy orders, so ordained describes someone like a priest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +200,75 @@
     "text": "Players drink round theatre's back",
     "enumeration": "6"
    },
-   "solution": "ERSPIP"
+   "solution": "ERSPIP",
+   "alteration": {
+    "from": "PIPERS",
+    "steps": [
+     {
+      "op": "move"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "ERSPIP",
+    "definitions": [
+     {
+      "text": "Players",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "the drink goes round, enclosing the theatre"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the whole assembled string is read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "SIP",
+      "note": "a sip is a small drink"
+     },
+     {
+      "clueFragment": "theatre's",
+      "gives": "REP",
+      "note": "rep is short for repertory theatre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "PER",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SREPIP",
+       "to": "PIPERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Actors have a drink at the back of the theatre.",
+     "walkthrough": "'Players' suggests actors to go with the theatre, but these players make music. The grid entry has the name PIP dropped to the end, giving ERSPIP.",
+     "definitionFit": "Pipers play the pipes, so they are players of a musical sort, not the actors the surface suggests."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Players"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +282,71 @@
     "text": "Country lacking new accommodation in holiday resort",
     "enumeration": "8"
    },
-   "solution": "BORMENID"
+   "solution": "BORMENID",
+   "alteration": {
+    "from": "BENIDORM",
+    "steps": [
+     {
+      "op": "move"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BORMENID",
+    "definitions": [
+     {
+      "text": "holiday resort",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking something means doing without it, so a letter is dropped from the country"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Country",
+      "gives": "BENIN",
+      "note": "Benin is a country in West Africa"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new; this is the letter removed"
+     },
+     {
+      "clueFragment": "accommodation",
+      "gives": "DORM",
+      "note": "a dorm, short for dormitory, is shared sleeping accommodation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BENI",
+      "DORM"
+     ]
+    },
+    "explanation": {
+     "surface": "A country short of new places to stay in its holiday resorts.",
+     "walkthrough": "The clue gives BENIDORM; the name ENID is moved to the end, so the grid reads BORMENID.",
+     "definitionFit": "Benidorm is a Spanish seaside town famous for package holidays, a classic example of a holiday resort."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Country"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +360,60 @@
     "text": "In recitation, any teller of tales keeps it without digressions",
     "enumeration": "6"
    },
-   "solution": "LINEAR"
+   "solution": "LINEAR",
+   "annotation": {
+    "type": [
+     "homophone",
+     "container"
+    ],
+    "answer": "LINEAR",
+    "definitions": [
+     {
+      "text": "without digressions",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In recitation",
+      "for": "homophone",
+      "note": "recitation is speaking aloud, so a word is given by how it sounds when spoken"
+     },
+     {
+      "text": "keeps it",
+      "for": "container",
+      "note": "to keep something is to hold it inside, so the teller encloses the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teller of tales",
+      "gives": "LI",
+      "note": "first part of LIAR, one who tells tales"
+     },
+     {
+      "clueFragment": "any",
+      "gives": "NE",
+      "soundsLike": "ANY",
+      "note": "the letters N-E said one after another sound like any"
+     },
+     {
+      "clueFragment": "teller of tales",
+      "gives": "AR",
+      "note": "rest of LIAR"
+     }
+    ],
+    "explanation": {
+     "surface": "A storyteller who sticks to the plot when reciting, without going off on tangents.",
+     "walkthrough": "A liar tells tales; spoken letter by letter, NE sounds like any, and that sits inside LIAR.",
+     "definitionFit": "Linear means proceeding in a straight line, step by step, so a linear account has no digressions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "teller"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +427,72 @@
     "text": "Tip off Mark over speech that's imbecilic",
     "enumeration": "8"
    },
-   "solution": "IGNTNORA"
+   "solution": "IGNTNORA",
+   "alteration": {
+    "from": "IGNORANT",
+    "steps": [
+     {
+      "op": "move"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "IGNTNORA",
+    "definitions": [
+     {
+      "text": "imbecilic",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Tip off",
+      "for": "deletion",
+      "note": "with its tip taken off, the word loses its first letter"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mark",
+      "gives": "SIGN",
+      "note": "a sign is a mark; its first letter is removed"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scorer's abbreviation for an over"
+     },
+     {
+      "clueFragment": "speech",
+      "gives": "RANT",
+      "note": "a rant is a loud, impassioned speech"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IGN",
+      "O",
+      "RANT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells Mark that a speech is idiotic.",
+     "walkthrough": "The clue gives IGNORANT; the name NORA is moved to the end for the entry IGNTNORA. The setter conceded rant is loose for speech.",
+     "definitionFit": "Ignorant and imbecilic are loose synonyms, both describing someone lacking knowledge or sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tip"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +506,80 @@
     "text": "Goes camouflaged following killers around — they're near!",
     "enumeration": "8"
    },
-   "solution": "SCROOGES"
+   "solution": "SCROOGES",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "SCROOGES",
+    "definitions": [
+     {
+      "text": "they're near",
+      "at": 44,
+      "note": "near is British for stingy; the definition is a description of the plural noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "turned around, the killers' word reads from right to left"
+     },
+     {
+      "text": "camouflaged",
+      "for": "anagram",
+      "note": "camouflaged things are disguised, so the letters are rearranged"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "one piece follows another, so the disguised word comes after the turned killers"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "killers",
+      "gives": "ORCS",
+      "note": "orcs are the murderous creatures of Tolkien's fiction"
+     },
+     {
+      "clueFragment": "Goes",
+      "gives": "OGES",
+      "note": "the letters of goes, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCRO",
+      "OGES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GOES",
+       "gives": "OGES"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "ORCS",
+       "to": "SCRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone moves in disguise behind a gang of killers, warning that they are close by.",
+     "walkthrough": "'they're near' looks like the killers drawing close, but near here means mean with money.",
+     "definitionFit": "A scrooge, after Dickens's miser, is a stingy person, and near is an old British word for stingy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "near"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +593,72 @@
     "text": "Special girls spinning in dances",
     "enumeration": "6"
    },
-   "solution": "SPSTOM"
+   "solution": "SPSTOM",
+   "alteration": {
+    "from": "STOMPS",
+    "steps": [
+     {
+      "op": "move"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SPSTOM",
+    "definitions": [
+     {
+      "text": "dances",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spinning",
+      "for": "reversal",
+      "note": "something spinning turns round, so the pieces are read backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Special",
+      "gives": "SP",
+      "note": "SP is an abbreviation for special"
+     },
+     {
+      "clueFragment": "girls",
+      "gives": "MOTS",
+      "note": "mot is Irish and dialect slang for a girl or woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOM",
+      "PS"
+     ],
+     "reversals": [
+      {
+       "from": "SPMOTS",
+       "to": "STOMPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Girls twirling around in special dances.",
+     "walkthrough": "SP plus MOTS, reversed, gives STOMPS; the name TOM then goes to the end, so the entry reads SPSTOM.",
+     "definitionFit": "A stomp is a lively dance with heavy stamping steps, so stomps are dances."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spinning"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +672,51 @@
     "text": "Pace alongside this well?",
     "enumeration": "4"
    },
-   "solution": "EHAL"
+   "solution": "EHAL",
+   "alteration": {
+    "from": "HALE",
+    "steps": [
+     {
+      "op": "move"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EHAL",
+    "definitions": [
+     {
+      "text": "Pace alongside this",
+      "at": 0
+     },
+     {
+      "text": "well",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pace alongside this",
+      "note": "the partner of Pace in the British comedy double act Hale and Pace"
+     },
+     {
+      "clueFragment": "well",
+      "note": "healthy, as in hale and hearty"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Hale and Pace were a British TV comedy duo of the 1980s and 90s. The clue gives HALE; the name HAL moves to the end, giving the entry EHAL.",
+     "definitionFit": "Hale is an old word for healthy and robust, so it means well, as well as naming Pace's partner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pace"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +730,67 @@
     "text": "On reflection, celebrated capturing actor's facial features",
     "enumeration": "8"
    },
-   "solution": "GNASHERS"
+   "solution": "GNASHERS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "GNASHERS",
+    "definitions": [
+     {
+      "text": "facial features",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "On reflection",
+      "for": "reversal",
+      "note": "a reflection is a mirror image, so the word is read backwards"
+     },
+     {
+      "text": "capturing",
+      "for": "container",
+      "note": "to capture is to hold inside, so the actor sits within the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "celebrated",
+      "gives": "SANG",
+      "note": "to celebrate someone in song is to sing of them; reversed this becomes the outer piece"
+     },
+     {
+      "clueFragment": "actor's",
+      "gives": "SHER",
+      "note": "Antony Sher, the South African-born British actor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GNA",
+      "SHER",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SANG",
+       "to": "GNAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Looking back, someone praised the way an actor's face was captured.",
+     "walkthrough": "Antony Sher is a crossword regular among actors. Gnashers is British slang for teeth.",
+     "definitionFit": "Gnashers is British slang for teeth, which are features of the face, so the plural definition fits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "celebrated"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +804,47 @@
     "text": "Plain girl not for Norman",
     "enumeration": "6"
    },
-   "solution": "PAMPAS"
+   "solution": "PAMPAS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PAMPAS",
+    "definitions": [
+     {
+      "text": "Plain",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "PAM",
+      "note": "Pam is a girl's name"
+     },
+     {
+      "clueFragment": "not for Norman",
+      "gives": "PAS",
+      "note": "pas is French for not; Normandy is in France, so a Norman says it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAM",
+      "PAS"
+     ]
+    },
+    "explanation": {
+     "surface": "A plain girl is rejected as not right for a man called Norman.",
+     "walkthrough": "'Plain' looks like an adjective for the girl, but it is a noun for flat grassland.",
+     "definitionFit": "The pampas are vast grassy plains of South America, so the word names a plain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Plain"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +864,88 @@
      }
     ]
    },
-   "solution": "NAMEDROPPING"
+   "solution": "NAMEDROPPING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "charade"
+    ],
+    "answer": "NAME-DROPPING",
+    "definitions": [
+     {
+      "text": "Showing off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fancy",
+      "for": "anagram",
+      "note": "fancy means elaborate or ornamental, so the letters are dressed up in a new order"
+     },
+     {
+      "text": "twirling",
+      "for": "reversal",
+      "note": "a twirl turns something round, so the Spanish word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "dame",
+      "gives": "AMED",
+      "note": "the letters of dame, rearranged"
+     },
+     {
+      "clueFragment": "se√íorita's for",
+      "gives": "POR",
+      "note": "por is Spanish for for, as a señorita would say it"
+     },
+     {
+      "clueFragment": "a whistling",
+      "gives": "PING",
+      "note": "a ping is a high whistling sound, like a bullet's"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "AMED",
+      "ROP",
+      "PING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DAME",
+       "gives": "AMED"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "POR",
+       "to": "ROP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man shows off with a glamorous woman while a Spanish girl twirls and draws wolf whistles.",
+     "walkthrough": "The answer is also the puzzle's theme: in every down entry a name is dropped to the end.",
+     "definitionFit": "Name-dropping is mentioning famous acquaintances to impress, a familiar form of showing off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "whistling"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +959,67 @@
     "text": "Pitch in roughly with legislation that's trouble for \"The Spectator\"?",
     "enumeration": "8"
    },
-   "solution": "CACTTARA"
+   "solution": "CACTTARA",
+   "alteration": {
+    "from": "CATARACT",
+    "steps": [
+     {
+      "op": "move"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CACTTARA",
+    "definitions": [
+     {
+      "text": "trouble for \"The Spectator\"",
+      "at": 41
+     }
+    ],
+    "linkWords": [
+     "in",
+     "with",
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "roughly",
+      "gives": "CA",
+      "note": "ca, short for circa, means roughly"
+     },
+     {
+      "clueFragment": "Pitch",
+      "gives": "TAR",
+      "note": "pitch is a black tarry substance"
+     },
+     {
+      "clueFragment": "legislation",
+      "gives": "ACT",
+      "note": "an Act of Parliament is a piece of legislation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "TAR",
+      "ACT"
+     ]
+    },
+    "explanation": {
+     "surface": "A rough row over new legislation causes problems for The Spectator magazine.",
+     "walkthrough": "The Spectator is a British political weekly, but here the word just means someone who watches. The clue gives CATARACT; the name TARA moves to the end, giving the entry CACTTARA.",
+     "definitionFit": "A cataract clouds the lens of the eye, so it is a problem for anyone whose job is looking on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Spectator"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +1033,67 @@
     "text": "Orator's overcome, filled with tons of desire",
     "enumeration": "7"
    },
-   "solution": "ORECTIC"
+   "solution": "ORECTIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ORECTIC",
+    "definitions": [
+     {
+      "text": "of desire",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overcome",
+      "for": "reversal",
+      "note": "overcome suggests being turned over, so the speaker's name is read backwards"
+     },
+     {
+      "text": "filled with",
+      "for": "container",
+      "note": "something filled with another thing has it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Orator's",
+      "gives": "CICERO",
+      "note": "Cicero, the great orator of ancient Rome"
+     },
+     {
+      "clueFragment": "tons",
+      "gives": "T",
+      "note": "T is the abbreviation for tons"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OREC",
+      "T",
+      "IC"
+     ],
+     "reversals": [
+      {
+       "from": "CITCERO",
+       "to": "ORECTIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A public speaker is overwhelmed with enormous longing.",
+     "walkthrough": "CICERO backwards is ORECIC, and T goes inside to make the rare word ORECTIC.",
+     "definitionFit": "Orectic is a rare adjective meaning relating to appetite or longing, so it means of desire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "overcome"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +1107,73 @@
     "text": "Muscular quality's in fashion, very cool carrying appeal",
     "enumeration": "8"
    },
-   "solution": "CITYTONI"
+   "solution": "CITYTONI",
+   "alteration": {
+    "from": "TONICITY",
+    "steps": [
+     {
+      "op": "move"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CITYTONI",
+    "definitions": [
+     {
+      "text": "Muscular quality",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "carrying something means holding it, so the cool word wraps round the appeal"
+     }
+    ],
+    "linkWords": [
+     "'s in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fashion",
+      "gives": "TON",
+      "note": "ton means the prevailing fashion, as in the bon ton"
+     },
+     {
+      "clueFragment": "very cool",
+      "gives": "ICY",
+      "note": "icy means very cold"
+     },
+     {
+      "clueFragment": "appeal",
+      "gives": "IT",
+      "note": "it is old slang for sex appeal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TON",
+      "IC",
+      "IT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Muscle tone is in vogue, as is having a cool, attractive style.",
+     "walkthrough": "The clue gives TONICITY; the name TONI moves to the end, giving the entry CITYTONI.",
+     "definitionFit": "Tonicity is the normal firmness or tension of healthy muscles, a physical quality of muscle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cool"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +1187,57 @@
     "text": "Associating higher education and business is far from satisfactory",
     "enumeration": "7"
    },
-   "solution": "UNIDEAL"
+   "solution": "UNIDEAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNIDEAL",
+    "definitions": [
+     {
+      "text": "far from satisfactory",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Associating",
+      "for": "charade",
+      "note": "associating things puts them together, so the two pieces are joined end to end"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "higher education",
+      "gives": "UNI",
+      "note": "uni is short for university"
+     },
+     {
+      "clueFragment": "business",
+      "gives": "DEAL",
+      "note": "a deal is a business transaction"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNI",
+      "DEAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that tying universities to commerce is a poor idea.",
+     "definitionFit": "Unideal means not ideal, short of what is wanted, so it is far from satisfactory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "business"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +1251,82 @@
     "text": "Royal museum first in having outside gallery",
     "enumeration": "8"
    },
-   "solution": "NDAHVERA"
+   "solution": "NDAHVERA",
+   "alteration": {
+    "from": "VERANDAH",
+    "steps": [
+     {
+      "op": "move"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NDAHVERA",
+    "definitions": [
+     {
+      "text": "gallery",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first in",
+      "for": "letter_selection",
+      "note": "the first letter in the next word is the only one kept"
+     },
+     {
+      "text": "outside",
+      "for": "charade",
+      "note": "the setter used outside to place a letter on the outer side, after the royal piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "museum",
+      "gives": "V",
+      "note": "the V&A, London's Victoria and Albert Museum; its first letter"
+     },
+     {
+      "clueFragment": "Royal",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, the royal cipher of the Queen"
+     },
+     {
+      "clueFragment": "museum",
+      "gives": "ANDA",
+      "note": "the rest of V AND A"
+     },
+     {
+      "clueFragment": "having",
+      "gives": "H",
+      "select": "first",
+      "note": "the first letter of having"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "ER",
+      "ANDA",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "The royal museum is the first to have an outdoor gallery.",
+     "walkthrough": "Royal ER goes into the V&A (Victoria and Albert Museum), and H sits outside at the end; the setter admitted the wording is stilted. The clue gives VERANDAH; VERA moves to the end, giving NDAHVERA.",
+     "definitionFit": "A verandah is a roofed open gallery along the outside of a house, so gallery is a fair synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gallery"
+    }
+   }
   },
   {
    "number": 17,
@@ -281,7 +1340,55 @@
     "text": "God! A transatlantic tool chest",
     "enumeration": "6"
    },
-   "solution": "XTHORA"
+   "solution": "XTHORA",
+   "alteration": {
+    "from": "THORAX",
+    "steps": [
+     {
+      "op": "move"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "XTHORA",
+    "definitions": [
+     {
+      "text": "chest",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "God",
+      "gives": "THOR",
+      "note": "Thor is the Norse god of thunder"
+     },
+     {
+      "clueFragment": "A transatlantic tool",
+      "gives": "AX",
+      "note": "ax is the American spelling of axe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THOR",
+      "AX"
+     ]
+    },
+    "explanation": {
+     "surface": "An exclamation of surprise at an American toolbox.",
+     "walkthrough": "'tool chest' reads as one thing, a box of tools, but the tool ends the wordplay and chest alone is the definition. The clue gives THORAX; THORA moves to the end, giving XTHORA.",
+     "definitionFit": "The thorax is the anatomical name for the part of the body between neck and abdomen, the chest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chest"
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1402,90 @@
     "text": "Crazy attire restraining chap, in a way?",
     "enumeration": "12"
    },
-   "solution": "STRAITJACKET"
+   "solution": "STRAITJACKET",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "and_lit"
+    ],
+    "answer": "STRAITJACKET",
+    "definitions": [
+     {
+      "text": "Crazy attire restraining chap, in a way?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Crazy",
+      "for": "anagram",
+      "note": "crazy suggests something deranged, so the letters of the clothing word are jumbled"
+     },
+     {
+      "text": "restraining",
+      "for": "container",
+      "note": "restraining something holds it in, so the rearranged clothing surrounds the man"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "everything built so far goes inside the road abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a way",
+      "gives": "S",
+      "note": "ST, short for street, a way; its first letter starts the outer shell"
+     },
+     {
+      "clueFragment": "attire",
+      "gives": "TRAI",
+      "note": "the letters of attire, rearranged, first part"
+     },
+     {
+      "clueFragment": "chap",
+      "gives": "JACK",
+      "note": "Jack, a man's name, so any chap"
+     },
+     {
+      "clueFragment": "attire",
+      "gives": "E",
+      "note": "the last letter of the rearranged attire"
+     },
+     {
+      "clueFragment": "a way",
+      "gives": "T",
+      "note": "the T of ST closes the shell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRAI",
+      "TJACK",
+      "E",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ATTIRE",
+       "gives": "TRAITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A garment for the insane that holds a man in, in a manner of speaking.",
+     "walkthrough": "The whole clue defines: a straitjacket is clothing used on the crazy to restrain a person. ATTIRE rearranged as TRAITE holds JACK after TRAIT, and the lot sits inside ST.",
+     "definitionFit": "A straitjacket is a garment with long sleeves tied behind, once used to restrain violently disturbed people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Crazy"
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +1499,76 @@
     "text": "Having no zip, fly closes thus? There's a way to press on it",
     "enumeration": "6"
    },
-   "solution": "AHYPAT"
+   "solution": "AHYPAT",
+   "alteration": {
+    "from": "APATHY",
+    "steps": [
+     {
+      "op": "move"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AHYPAT",
+    "definitions": [
+     {
+      "text": "Having no zip",
+      "at": 0,
+      "note": "a gerund phrase standing for the noun, as the setter explained"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "closes",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its last letter is used"
+     },
+     {
+      "text": "press on it",
+      "for": "charade",
+      "note": "to press on something is to push up against it, so one piece is set right before the other"
+     }
+    ],
+    "linkWords": [
+     "thus?",
+     "There's",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a way",
+      "gives": "APATH",
+      "note": "a path is a way"
+     },
+     {
+      "clueFragment": "fly",
+      "gives": "Y",
+      "select": "last",
+      "note": "the last letter of fly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APATH",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A trouser fly with no zip shuts like this, with something pressed on it.",
+     "walkthrough": "'zip' and 'fly' suggest trousers, but zip means energy. The clue gives APATHY; PAT moves to the end, giving AHYPAT.",
+     "definitionFit": "Apathy is a lack of interest or energy, and zip is slang for vigour, so having no zip is apathy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "zip"
+    }
+   }
   },
   {
    "number": 20,
@@ -323,7 +1582,51 @@
     "text": "Crack in a sealed container for enzyme",
     "enumeration": "6"
    },
-   "solution": "KSEINA"
+   "solution": "KSEINA",
+   "alteration": {
+    "from": "KINASE",
+    "steps": [
+     {
+      "op": "move"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "KSEINA",
+    "definitions": [
+     {
+      "text": "enzyme",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "container for",
+      "for": "hidden_word",
+      "note": "the words act as a container that holds the answer inside their run of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crack in a sealed",
+      "gives": "KINASE",
+      "note": "the letters run across the words from the end of the first to the start of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "A split in a sealed vessel lets an enzyme out.",
+     "walkthrough": "The clue gives KINASE; INA moves to the end, giving the entry KSEINA.",
+     "definitionFit": "A kinase is an enzyme that adds phosphate groups to other molecules, one class among the body's enzymes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "container"
+    }
+   }
   },
   {
    "number": 21,
@@ -337,7 +1640,62 @@
     "text": "Travelled round to avoid display of stocktaking?",
     "enumeration": "4"
    },
-   "solution": "EROD"
+   "solution": "EROD",
+   "alteration": {
+    "from": "RODE",
+    "steps": [
+     {
+      "op": "move"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EROD",
+    "definitions": [
+     {
+      "text": "Travelled",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to avoid",
+      "for": "deletion",
+      "note": "avoiding something means leaving it out, so a letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "display of stocktaking",
+      "gives": "RODEO",
+      "note": "a rodeo was originally a cattle round-up, a taking stock of livestock, now a show"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "O is round in shape; this letter is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RODE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone took a detour to avoid seeing an exhibition about stock control.",
+     "walkthrough": "Stocktaking is a pun: a rodeo shows off skill with livestock. The clue gives RODE; the name ROD moves to the end, giving EROD.",
+     "definitionFit": "Rode is the past tense of ride, so it means travelled on horseback or in a vehicle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stocktaking"
+    }
+   }
   },
   {
    "number": 22,
@@ -351,7 +1709,55 @@
     "text": "Rather little is covering Queen",
     "enumeration": "6"
    },
-   "solution": "PRETTY"
+   "solution": "PRETTY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PRETTY",
+    "definitions": [
+     {
+      "text": "Rather",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is covering",
+      "for": "container",
+      "note": "covering something means wrapping round it, so the small word holds the monarch"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "little",
+      "gives": "PETTY",
+      "note": "petty means small or trivial"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "R",
+      "note": "R for Regina, Latin for queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "R",
+      "ETTY"
+     ]
+    },
+    "explanation": {
+     "surface": "Not much of the Queen is covered, a remark about her outfit.",
+     "walkthrough": "'Rather' looks like a qualifier for the rest, but it is the definition, an adverb as in pretty good.",
+     "definitionFit": "Pretty used as an adverb means fairly or moderately, the same sense as rather in rather good."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rather"
+    }
+   }
   },
   {
    "number": 23,
@@ -365,7 +1771,66 @@
     "text": "Native treated by alternative antidote",
     "enumeration": "8"
    },
-   "solution": "ORVIETAN"
+   "solution": "ORVIETAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ORVIETAN",
+    "definitions": [
+     {
+      "text": "antidote",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "treated",
+      "for": "anagram",
+      "note": "something treated has been processed or worked on, so the letters are reworked"
+     },
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "by means beside, so the two pieces stand next to each other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alternative",
+      "gives": "OR",
+      "note": "or introduces an alternative"
+     },
+     {
+      "clueFragment": "Native",
+      "gives": "VIETAN",
+      "note": "the letters of native, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "VIETAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NATIVE",
+       "gives": "VIETAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A local person is cured by alternative medicine.",
+     "walkthrough": "Orvietan is an obscure word, but the wordplay builds it letter by letter.",
+     "definitionFit": "Orvietan was a supposed cure-all treacle from Orvieto in Italy, sold as a remedy against poisons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "treated"
+    }
+   }
   },
   {
    "number": 24,
@@ -379,7 +1844,57 @@
     "text": "They lack 9 and so long to be by garden",
     "enumeration": "8"
    },
-   "solution": "EDENTATA"
+   "solution": "EDENTATA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EDENTATA",
+    "definitions": [
+     {
+      "text": "They lack 9",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be by",
+      "for": "charade",
+      "note": "being by something means standing next to it, so the pieces are placed side by side"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "garden",
+      "gives": "EDEN",
+      "note": "the Garden of Eden"
+     },
+     {
+      "clueFragment": "so long",
+      "gives": "TATA",
+      "note": "ta-ta is a British informal goodbye, like so long"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDEN",
+      "TATA"
+     ]
+    },
+    "explanation": {
+     "surface": "Toothless creatures, who long to sit beside a garden.",
+     "walkthrough": "The answer to 9 is GNASHERS, slang for teeth. 'so long' reads as yearning, but it is a farewell.",
+     "definitionFit": "Edentata is the old name for an order of mammals such as sloths and anteaters, literally the toothless ones."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "long"
+    }
+   }
   },
   {
    "number": 25,
@@ -393,7 +1908,64 @@
     "text": "Strip, being reckless, moving right to the front",
     "enumeration": "6"
    },
-   "solution": "RUNWAY"
+   "solution": "RUNWAY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RUNWAY",
+    "definitions": [
+     {
+      "text": "Strip",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving",
+      "for": "deletion",
+      "note": "moving a letter takes it out of its place in the word"
+     },
+     {
+      "text": "to the front",
+      "for": "charade",
+      "note": "the removed letter is put back at the very start"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "reckless",
+      "gives": "UNWARY",
+      "note": "unwary means careless, not on guard; its R is taken out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "UNWAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A wild striptease where someone keeps moving right to the front.",
+     "walkthrough": "'Strip' suggests undressing, but it is a noun for a long narrow area.",
+     "definitionFit": "A runway is the long strip of tarmac aircraft take off from and land on, an airstrip."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Strip"
+    }
+   }
   }
  ]
 }
