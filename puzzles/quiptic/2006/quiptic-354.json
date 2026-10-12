@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,67 @@
     "text": "Find business returning in the eleventh hour",
     "enumeration": "6"
    },
-   "solution": "LOCATE"
+   "solution": "LOCATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "LOCATE",
+    "definitions": [
+     {
+      "text": "Find",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "something returning comes back the way it went, so the word is read right to left"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another sits inside it, wrapped by the outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the eleventh hour",
+      "gives": "LATE",
+      "note": "at the eleventh hour means late, at the last moment"
+     },
+     {
+      "clueFragment": "business",
+      "gives": "CO",
+      "note": "Co. is the abbreviation for company, a business"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "OC",
+      "ATE"
+     ],
+     "reversals": [
+      {
+       "from": "CO",
+       "to": "OC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tracking down a firm that is coming back to them at the very last minute.",
+     "walkthrough": "The reversed business abbreviation goes inside LATE: L-OC-ATE.",
+     "definitionFit": "To locate something is to discover where it is, a straightforward synonym of find."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "returning"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +116,63 @@
      }
     ]
    },
-   "solution": "LAIDBACK"
+   "solution": "LAIDBACK",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "LAID-BACK",
+    "definitions": [
+     {
+      "text": "cool",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the word is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dial",
+      "gives": "LAID",
+      "note": "the word read backwards"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "BACK",
+      "note": "to back someone is to support them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAID",
+      "BACK"
+     ],
+     "reversals": [
+      {
+       "from": "DIAL",
+       "to": "LAID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Phone for help? A relaxed response.",
+     "definitionFit": "Laid-back describes someone relaxed and unflustered, which is the slang sense of cool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dial"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +186,49 @@
     "text": "Prisoner discovered in defeat",
     "enumeration": "8"
    },
-   "solution": "CONFOUND"
+   "solution": "CONFOUND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONFOUND",
+    "definitions": [
+     {
+      "text": "defeat",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prisoner",
+      "gives": "CON",
+      "note": "con is short for convict"
+     },
+     {
+      "clueFragment": "discovered",
+      "gives": "FOUND",
+      "note": "found means discovered"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "FOUND"
+     ]
+    },
+    "explanation": {
+     "surface": "A convict is caught after losing out.",
+     "definitionFit": "To confound an enemy or plan is to frustrate or overthrow it, an older sense of defeat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Prisoner"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +242,61 @@
     "text": "Weary of being fully dressed, but not at first",
     "enumeration": "5"
    },
-   "solution": "TIRED"
+   "solution": "TIRED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TIRED",
+    "definitions": [
+     {
+      "text": "Weary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but not",
+      "for": "deletion",
+      "note": "but not says a piece is to be left out"
+     },
+     {
+      "text": "first",
+      "for": "deletion",
+      "note": "first says where the excluded part sits, at the very start"
+     }
+    ],
+    "linkWords": [
+     "of being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fully dressed",
+      "gives": "ATTIRED",
+      "note": "attired means clothed"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "the word itself, removed from the front"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIRED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fed up with always being in formal clothes, though not originally.",
+     "walkthrough": "'at' is used literally: the two letters A and T come off the front of ATTIRED.",
+     "definitionFit": "Tired and weary are both adjectives for someone exhausted or lacking energy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "at"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +310,60 @@
     "text": "Doctored cocain's gained nothing in the event",
     "enumeration": "8"
    },
-   "solution": "OCCASION"
+   "solution": "OCCASION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OCCASION",
+    "definitions": [
+     {
+      "text": "event",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctored",
+      "for": "anagram",
+      "note": "a doctored substance has been tampered with, so these letters are mixed up"
+     }
+    ],
+    "linkWords": [
+     "gained",
+     "in the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cocain's",
+      "gives": "COCAINS",
+      "note": "the letters of the word as printed, apostrophe dropped"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "nothing is zero, the letter O"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COCAINSO",
+       "gives": "OCCASION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cut drugs turn out to be worthless at the party.",
+     "walkthrough": "The cocaine is deliberately misspelt as cocain's so its letters, plus O, rearrange exactly.",
+     "definitionFit": "An occasion is a particular happening or function, so it is a synonym of event."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctored"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +383,51 @@
      }
     ]
    },
-   "solution": "CAPITALLETTER"
+   "solution": "CAPITALLETTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAPITAL LETTER",
+    "definitions": [
+     {
+      "text": "initial",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "London",
+      "gives": "CAPITAL",
+      "note": "London is the capital city of England"
+     },
+     {
+      "clueFragment": "landlord",
+      "gives": "LETTER",
+      "note": "a landlord is one who lets property"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAPITAL",
+      "LETTER"
+     ]
+    },
+    "explanation": {
+     "surface": "The first name of a London pub owner.",
+     "walkthrough": "In Britain the landlord is also the keeper of a pub, so 'initial' suggests his first letter of name.",
+     "definitionFit": "An initial is the large first letter of a name or paragraph, written as an upper-case letter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "landlord"
+    }
+   }
   },
   {
    "number": 6,
@@ -139,7 +451,58 @@
      }
     ]
    },
-   "solution": "ABADPATCH"
+   "solution": "ABADPATCH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "A BAD PATCH",
+    "definitions": [
+     {
+      "text": "Difficult period",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "medley",
+      "for": "anagram",
+      "note": "a medley is a mixture of tunes, so these letters are jumbled together"
+     }
+    ],
+    "linkWords": [
+     "in which to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "adapt",
+      "gives": "ADAPT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Bach",
+      "gives": "BACH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ADAPTBACH",
+       "gives": "ABADPATCH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An arranger struggles to rework a selection of Bach pieces.",
+     "definitionFit": "Going through a bad patch is an idiom for a spell of trouble or poor form."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "medley"
+    }
+   }
   },
   {
    "number": 7,
@@ -153,7 +516,47 @@
     "text": "Surrounding pupils with flowers",
     "enumeration": "6"
    },
-   "solution": "IRISES"
+   "solution": "IRISES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IRISES",
+    "definitions": [
+     {
+      "text": "Surrounding pupils",
+      "at": 0
+     },
+     {
+      "text": "flowers",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Surrounding pupils",
+      "note": "first meaning: the coloured rings around the pupils of the eyes"
+     },
+     {
+      "clueFragment": "flowers",
+      "note": "second meaning: plants with sword-shaped leaves and showy blooms"
+     }
+    ],
+    "explanation": {
+     "surface": "A classroom decorated all round with blooms.",
+     "walkthrough": "'Pupils' suggests schoolchildren, but these are the dark centres of the eyes.",
+     "definitionFit": "The word names both the coloured parts of the eye ringing each pupil and a family of garden flowers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pupils"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +570,81 @@
     "text": "Dan got up to eat scrambled egg, but was scolded",
     "enumeration": "6"
    },
-   "solution": "NAGGED"
+   "solution": "NAGGED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "container"
+    ],
+    "answer": "NAGGED",
+    "definitions": [
+     {
+      "text": "scolded",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "got up",
+      "for": "reversal",
+      "note": "in a down clue, getting up means the name is read from the bottom upwards"
+     },
+     {
+      "text": "scrambled",
+      "for": "anagram",
+      "note": "scrambling mixes things up, so these letters are rearranged"
+     },
+     {
+      "text": "to eat",
+      "for": "container",
+      "note": "what eats something takes it inside"
+     }
+    ],
+    "linkWords": [
+     "but was"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dan",
+      "gives": "NAD",
+      "note": "the name read backwards"
+     },
+     {
+      "clueFragment": "egg",
+      "gives": "GGE",
+      "note": "the letters of egg rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NA",
+      "GGE",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EGG",
+       "gives": "GGE"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "DAN",
+       "to": "NAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dan rose late for scrambled eggs at breakfast and got told off.",
+     "definitionFit": "To nag is to criticise or complain at someone persistently, so nagged is a synonym of scolded."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scrambled"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +658,48 @@
     "text": "Core section of problems certain nervous patients exhibit",
     "enumeration": "5"
    },
-   "solution": "INNER"
+   "solution": "INNER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INNER",
+    "definitions": [
+     {
+      "text": "Core",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "section of",
+      "for": "hidden_word",
+      "note": "a section is a slice taken out of a longer run of text"
+     },
+     {
+      "text": "exhibit",
+      "for": "hidden_word",
+      "note": "the words exhibit, or show, what lies within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "problems certain nervous patients",
+      "gives": "INNER",
+      "note": "found across the end of certain and the start of nervous"
+     }
+    ],
+    "explanation": {
+     "surface": "A psychiatrist describing the central difficulty that anxious patients display.",
+     "walkthrough": "The letters run across certaIN NERvous.",
+     "definitionFit": "Core and inner both describe the central, innermost part of something, so they are adjective synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exhibit"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +713,56 @@
     "text": "Fetching from a very quiet London borough",
     "enumeration": "9"
    },
-   "solution": "APPEALING"
+   "solution": "APPEALING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APPEALING",
+    "definitions": [
+     {
+      "text": "Fetching",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "very quiet",
+      "gives": "PP",
+      "note": "pianissimo, the musical marking for very quiet"
+     },
+     {
+      "clueFragment": "London borough",
+      "gives": "EALING",
+      "note": "Ealing is a borough in west London"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PP",
+      "EALING"
+     ]
+    },
+    "explanation": {
+     "surface": "Something attractive comes from a peaceful corner of London.",
+     "walkthrough": "'Fetching' looks like a verb (collecting from somewhere) but is the adjective meaning attractive.",
+     "definitionFit": "Fetching and appealing are both adjectives meaning attractive or charming."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fetching"
+    }
+   }
   },
   {
    "number": 10,
@@ -223,7 +790,38 @@
      }
     ]
    },
-   "solution": "AMATTEROFTIME"
+   "solution": "AMATTEROFTIME",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "A MATTER OF TIME",
+    "definitions": [
+     {
+      "text": "You should not have to wait too long for only this",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You should not have to wait too long for only this",
+      "note": "surface reading: a vague complaint about how long something takes"
+     },
+     {
+      "clueFragment": "You should not have to wait too long for only this",
+      "note": "setter's reading: the phrase that, preceded by 'only', means something is bound to happen soon"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The word 'only' is the key: the answer completes the stock phrase meaning something inevitable will come before long.",
+     "definitionFit": "Saying something is only this means it is certain to happen eventually, so the wait will not be long."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "only"
+    }
+   }
   },
   {
    "number": 11,
@@ -237,7 +835,50 @@
     "text": "American woman obtains actors for programme",
     "enumeration": "9"
    },
-   "solution": "BROADCAST"
+   "solution": "BROADCAST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BROADCAST",
+    "definitions": [
+     {
+      "text": "programme",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "obtains",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American woman",
+      "gives": "BROAD",
+      "note": "broad is American slang for a woman"
+     },
+     {
+      "clueFragment": "actors",
+      "gives": "CAST",
+      "note": "the cast is the actors in a production"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BROAD",
+      "CAST"
+     ]
+    },
+    "explanation": {
+     "surface": "An American actress hires a company of performers for her show.",
+     "definitionFit": "A broadcast is a radio or television programme, so the noun is a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "obtains"
+    }
+   }
   },
   {
    "number": 12,
@@ -251,7 +892,68 @@
     "text": "Part of cooked recipe not right",
     "enumeration": "5"
    },
-   "solution": "PIECE"
+   "solution": "PIECE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "PIECE",
+    "definitions": [
+     {
+      "text": "Part",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not marks something that must be left out of the word"
+     },
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooking transforms ingredients, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "recipe",
+      "gives": "RECIPE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right, removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIECE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ECIPE",
+       "gives": "PIECE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook admits a section of the dish went wrong.",
+     "walkthrough": "Take R out of RECIPE and rearrange the remaining five letters.",
+     "definitionFit": "A piece is a portion or bit of something, a direct synonym of part."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 13,
@@ -265,7 +967,65 @@
     "text": "Go with a reluctant sort to offer good wishes",
     "enumeration": "12"
    },
-   "solution": "CONGRATULATE"
+   "solution": "CONGRATULATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CONGRATULATE",
+    "definitions": [
+     {
+      "text": "offer good wishes",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sort",
+      "for": "anagram",
+      "note": "to sort things is to arrange them in a new order"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go",
+      "gives": "GO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "reluctant",
+      "gives": "RELUCTANT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GOARELUCTANT",
+       "gives": "CONGRATULATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Accompanying an unwilling person so as to pass on best wishes.",
+     "walkthrough": "'Sort' reads as a noun (a reluctant sort of person) but is the verb signalling a rearrangement.",
+     "definitionFit": "To congratulate someone is to express pleasure at their success, a way of offering good wishes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sort"
+    }
+   }
   },
   {
    "number": 14,
@@ -279,7 +1039,50 @@
     "text": "Note: cover required for moving to a new home",
     "enumeration": "9"
    },
-   "solution": "REHOUSING"
+   "solution": "REHOUSING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REHOUSING",
+    "definitions": [
+     {
+      "text": "moving to a new home",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "required for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "RE",
+      "note": "re is the second note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "cover",
+      "gives": "HOUSING",
+      "note": "a housing is a protective casing or cover"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "HOUSING"
+     ]
+    },
+    "explanation": {
+     "surface": "A memo saying insurance is needed for a house move.",
+     "walkthrough": "The colon makes 'Note' look like a heading; it is the musical note.",
+     "definitionFit": "Rehousing is providing people with new accommodation, i.e. moving them somewhere new to live."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Note"
+    }
+   }
   },
   {
    "number": 15,
@@ -293,7 +1096,58 @@
     "text": "Greed shown by Roman love god with sex appeal! Why?",
     "enumeration": "8"
    },
-   "solution": "CUPIDITY"
+   "solution": "CUPIDITY",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "CUPIDITY",
+    "definitions": [
+     {
+      "text": "Greed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Why?",
+      "for": "homophone",
+      "note": "the question word, spoken, matches the name of a single letter"
+     }
+    ],
+    "linkWords": [
+     "shown by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roman love god",
+      "gives": "CUPID",
+      "note": "Cupid is the Roman god of love"
+     },
+     {
+      "clueFragment": "sex appeal",
+      "gives": "IT",
+      "note": "it is old slang for sex appeal"
+     },
+     {
+      "clueFragment": "Why",
+      "gives": "Y",
+      "soundsLike": "WHY",
+      "note": "the letter name is said the same as this question word"
+     }
+    ],
+    "explanation": {
+     "surface": "A puzzled query about why the god of love is so alluring.",
+     "walkthrough": "'It' for sex appeal comes from the 1927 film 'It' starring Clara Bow, the 'It girl'.",
+     "definitionFit": "Cupidity is a formal word for avarice, an excessive desire for wealth or possessions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Why"
+    }
+   }
   },
   {
    "number": 16,
@@ -307,7 +1161,66 @@
     "text": "Fish dish, a combination of French and Greek cooking for Edward",
     "enumeration": "8"
    },
-   "solution": "KEDGEREE"
+   "solution": "KEDGEREE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "KEDGEREE",
+    "definitions": [
+     {
+      "text": "Fish dish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooking",
+      "for": "anagram",
+      "note": "cooking transforms ingredients, so these letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "a combination of",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French and",
+      "gives": "E",
+      "note": "apparently read as a one-letter 'and', though French uses et"
+     },
+     {
+      "clueFragment": "Greek",
+      "gives": "GREEK",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Edward",
+      "gives": "ED",
+      "note": "Ed is short for Edward"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EGREEKED",
+       "gives": "KEDGEREE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rice dish blending French and Greek cuisine made for a man called Edward.",
+     "walkthrough": "GREEK and ED supply only seven of the eight letters, one E short; the extra E seems meant to come from 'French and', which is loose since French 'and' is et.",
+     "definitionFit": "Kedgeree is an Anglo-Indian dish of flaked smoked fish, rice and eggs, often eaten at breakfast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Greek"
+    }
+   }
   },
   {
    "number": 17,
@@ -321,7 +1234,50 @@
     "text": "Rent building for a monastery",
     "enumeration": "12"
    },
-   "solution": "CHARTERHOUSE"
+   "solution": "CHARTERHOUSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHARTERHOUSE",
+    "definitions": [
+     {
+      "text": "a monastery",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rent",
+      "gives": "CHARTER",
+      "note": "to charter is to hire or rent a vessel or vehicle"
+     },
+     {
+      "clueFragment": "building",
+      "gives": "HOUSE",
+      "note": "a house is a building"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHARTER",
+      "HOUSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Leasing premises to be used by monks.",
+     "walkthrough": "A Charterhouse is a Carthusian monastery; the London one later gave its name to a school.",
+     "definitionFit": "Charterhouse is the English name for a monastery of the Carthusian order."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rent"
+    }
+   }
   },
   {
    "number": 18,
@@ -335,7 +1291,56 @@
     "text": "Mother over time gets hurt",
     "enumeration": "6"
    },
-   "solution": "DAMAGE"
+   "solution": "DAMAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DAMAGE",
+    "definitions": [
+     {
+      "text": "hurt",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down clue, over places the first piece on top of, so before, the second"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mother",
+      "gives": "DAM",
+      "note": "a dam is the mother of an animal, especially a horse"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "AGE",
+      "note": "an age is a long period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAM",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Over the years a mother ends up injured.",
+     "definitionFit": "Damage and hurt are both nouns for harm done to someone or something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mother"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1354,68 @@
     "text": "Somehow slipped quietly off to drive away",
     "enumeration": "6"
    },
-   "solution": "DISPEL"
+   "solution": "DISPEL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "DISPEL",
+    "definitions": [
+     {
+      "text": "drive away",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "deletion",
+      "note": "taking something off removes it from the word"
+     },
+     {
+      "text": "Somehow",
+      "for": "anagram",
+      "note": "somehow says the letters end up arranged in some other way"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slipped",
+      "gives": "SLIPPED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p, piano, is the musical marking for quietly; one is dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISPEL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SLIPED",
+       "gives": "DISPEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sneaked away in silence in order to drive off.",
+     "walkthrough": "Remove one P from SLIPPED and rearrange the six letters left.",
+     "definitionFit": "To dispel doubts or a crowd is to scatter them or make them go away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quietly"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1429,39 @@
     "text": "A last word for the French",
     "enumeration": "5"
    },
-   "solution": "ADIEU"
+   "solution": "ADIEU",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ADIEU",
+    "definitions": [
+     {
+      "text": "A last word for the French",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A last word for the French",
+      "note": "surface reading: the French people get the final say in something"
+     },
+     {
+      "clueFragment": "A last word for the French",
+      "note": "setter's reading: what French speakers say on parting for good, their farewell"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Last word' suggests having the final say; here it is literally the final word said on leaving, in French.",
+     "definitionFit": "This French farewell, used when one does not expect to meet again, is literally a last word of goodbye."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "last"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1475,55 @@
     "text": "On the increase if tangent deflected",
     "enumeration": "9"
    },
-   "solution": "FATTENING"
+   "solution": "FATTENING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FATTENING",
+    "definitions": [
+     {
+      "text": "On the increase",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "deflected",
+      "for": "anagram",
+      "note": "something deflected is knocked off course, so the letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "if",
+      "gives": "IF",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tangent",
+      "gives": "TANGENT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IFTANGENT",
+       "gives": "FATTENING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A geometry line that grows when knocked aside.",
+     "definitionFit": "Fattening means growing larger or plumper, so it describes something on the increase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "tangent"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1537,56 @@
     "text": "Fairy-like or fish-like appendage the Spanish found first",
     "enumeration": "5"
    },
-   "solution": "ELFIN"
+   "solution": "ELFIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELFIN",
+    "definitions": [
+     {
+      "text": "Fairy-like",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found first",
+      "for": "charade",
+      "note": "being found first means coming at the front of the answer"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Spanish",
+      "gives": "EL",
+      "note": "el is Spanish for the"
+     },
+     {
+      "clueFragment": "fish-like appendage",
+      "gives": "FIN",
+      "note": "a fin is a limb-like part on a fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EL",
+      "FIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle over whether a creature's limb resembles a fairy's or a fish's, first spotted in Spain.",
+     "definitionFit": "Elfin means like an elf, small and delicate, and elves are fairy folk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "found"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1600,60 @@
     "text": "I impel RAF to produce an electronic device",
     "enumeration": "9"
    },
-   "solution": "AMPLIFIER"
+   "solution": "AMPLIFIER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AMPLIFIER",
+    "definitions": [
+     {
+      "text": "an electronic device",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to produce",
+      "for": "anagram",
+      "note": "the letters are made to produce something new by being rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "impel",
+      "gives": "IMPEL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "RAF",
+      "gives": "RAF",
+      "note": "the Royal Air Force abbreviation, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IIMPELRAF",
+       "gives": "AMPLIFIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pushes the air force into inventing a gadget.",
+     "definitionFit": "An amplifier is an electronic unit that boosts the strength of a signal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "impel"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1667,65 @@
     "text": "Monarch follows fair foreign monk",
     "enumeration": "5"
    },
-   "solution": "FRIAR"
+   "solution": "FRIAR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "FRIAR",
+    "definitions": [
+     {
+      "text": "monk",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "foreign",
+      "for": "anagram",
+      "note": "something foreign is strange and unfamiliar, so the letters take an altered form"
+     },
+     {
+      "text": "follows",
+      "for": "charade",
+      "note": "one piece follows, so it comes after the other in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fair",
+      "gives": "FRIA",
+      "note": "the letters of fair rearranged"
+     },
+     {
+      "clueFragment": "Monarch",
+      "gives": "R",
+      "note": "R stands for rex or regina, king or queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRIA",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FAIR",
+       "gives": "FRIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A king trails behind a light-skinned holy man from abroad.",
+     "definitionFit": "A friar is a member of a mendicant religious order, close enough to a monk for a crossword."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fair"
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1739,39 @@
     "text": "People are usually too late to hear these words of praise about them",
     "enumeration": "8"
    },
-   "solution": "EULOGIES"
+   "solution": "EULOGIES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EULOGIES",
+    "definitions": [
+     {
+      "text": "People are usually too late to hear these words of praise about them",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "People are usually too late to hear these words of praise about them",
+      "note": "surface reading: compliments that arrive after people have stopped listening"
+     },
+     {
+      "clueFragment": "People are usually too late to hear these words of praise about them",
+      "note": "setter's reading: tributes spoken at funerals, when the subject is dead, the late"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Too late' puns on 'the late', meaning deceased: such tributes are given at a funeral.",
+     "definitionFit": "These are speeches or writings praising someone, typically someone who has just died."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "late"
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +1785,65 @@
     "text": "Enemy organisation captures unknown catalyst",
     "enumeration": "6"
    },
-   "solution": "ENZYME"
+   "solution": "ENZYME",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ENZYME",
+    "definitions": [
+     {
+      "text": "catalyst",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "organisation",
+      "for": "anagram",
+      "note": "organising something puts it into a new arrangement"
+     },
+     {
+      "text": "captures",
+      "for": "container",
+      "note": "what captures something holds it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Enemy",
+      "gives": "ENEMY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Z",
+      "note": "x, y and z are the unknowns in algebra"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENZYME"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ENEMYZ",
+       "gives": "ENZYME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hostile group takes a mysterious figure prisoner, triggering events.",
+     "walkthrough": "Rearrange ENEMY with Z inside it.",
+     "definitionFit": "An enzyme is a protein that speeds up a chemical reaction in the body, a biological catalyst."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "organisation"
+    }
+   }
   }
  ]
 }
