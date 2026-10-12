@@ -162,6 +162,17 @@ def nested_totals(row):
     return [sum(col) for col in zip(*(nested(c) for c in row.values()))]
 
 
+def funnel_series(days, stage):
+    """[(day, nested_totals()[stage])] over the days that counted the stage:
+    known from the first ledger, downloaded from the first night the queue was
+    counted (before it, downloaded would read as just filed and its pace would
+    jump the night counting began), filed, solved and hinted every day. The
+    /progress/ bars and table both read this, so their numbers are one source."""
+    need = {0: KNOWN, 1: QUEUED}.get(stage)
+    return [(d, nested_totals(row)[stage]) for d, row in days.items()
+            if need is None or any(c[need] is not None for c in row.values())]
+
+
 def series_of(days, phase):
     """[(day, total)] for one phase over the days that have it."""
     return [(d, t) for d, row in days.items() if (t := totals(row)[phase]) is not None]
