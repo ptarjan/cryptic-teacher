@@ -33,7 +33,7 @@ A.TOOLS = tmp
 data = tmp / "data"
 data.mkdir()
 try:
-    for name in ("source_clue_wrong", "setter_error", "source_answer_wrong"):
+    for name in ("source_clue_wrong", "setter_error", "source_answer_wrong", "blog_disagree"):
         shutil.copy(AC.DATA / f"{name}.json", data / f"{name}.json")
     src = F.puzzle_paths.find("times-18749")
     path = tmp / src.name
@@ -152,6 +152,18 @@ try:
     # times-18749's grid is a model's solve: no answer in it is the paper's.
     path = tmp / "times-18749.json"
     pending = A.default_input(path)
+
+    # blogDisagree: ours checked against the blog and kept, filed and taken off.
+    pending.write_text(json.dumps({"1-down": {"blogDisagree": ["meaning", "x"]}}))
+    filed, err = AC.file_rows(path, pending, data)
+    check("a blogDisagree naming no field is refused", not filed and "definition" in err)
+    pending.write_text(json.dumps({"1-down": {"blogDisagree": ["definition, type", "the blog underlines wordplay"]}}))
+    filed, err = AC.file_rows(path, pending, data)
+    check("a blogDisagree is filed", err is None and filed == ["blogDisagree 1-down"]
+          and json.loads((data / "blog_disagree.json").read_text())["times-18749/1-down"][0] == "definition,type"
+          and "blogDisagree" not in json.loads(pending.read_text())["1-down"])
+    check("and the blog checks skip it", V.blog_kept({"id": "times-18749"}, {"number": 1, "direction": "down"}, "type"))
+
     pending.write_text(json.dumps({"1-down": {"answerTypo": ["FUMBLES", "test"]}}))
     filed, err = AC.file_rows(path, pending, data)
     check("an answerTypo on a model's fill is refused", not filed and "never printed" in err)

@@ -2257,8 +2257,8 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       assert(registry["puzzle-title"].innerHTML.includes("hints via " + blogName),
         `${target.id}'s title names the blog its hints come from: ${registry["puzzle-title"].innerHTML}`);
       registry["clue-" + entryId(e)].listeners.click[0]();
-      assert(registry["hint-meter"].innerHTML.includes("hints via " + blogName),
-        `${target.id} ${entryId(e)}: the meter badges blog-derived hints`);
+      assert(registry["hint-meter"].innerHTML.includes("hints via " + blogName + " · ours to come"),
+        `${target.id} ${entryId(e)}: the meter badges blog-derived hints as standing in for ours`);
       assert(registry["hint-escape"].innerHTML.includes(`href="${puz.blog.url}"`)
         && registry["hint-escape"].innerHTML.includes("Full explanation on " + blogName),
         `${target.id} ${entryId(e)}: links to the full write-up: ${registry["hint-escape"].innerHTML}`);
@@ -2637,6 +2637,8 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       // (DEVICE_RULES, FAMILY_RULES) are written once for every clue too:
       // "often flags the playful kind" is not a leak of FLAG.
       "rule", "More in the lesson",
+      // The blog badge's provisional note (blogHintsBadge in app.js).
+      "ours to come",
       ...[...appSrc.slice(appSrc.indexOf("const DEVICE_RULES = {"), appSrc.indexOf("const SELECT_OPS"))
         .matchAll(/"([^"]*)"/g)].map(m => m[1])]
       .map(t => (t || "").replace(/[^A-Za-z]/g, "").toUpperCase()).filter(Boolean);

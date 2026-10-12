@@ -390,6 +390,10 @@ unit_blog_facts() {
   # 75: put off while the desktop is busy (blog_facts.DEFERRED_RC), retried.
   [ $step_rc -eq 0 ] || [ $step_rc -eq 75 ] ||
     alert "tools/blog_facts.py failed (rc=$step_rc), so new puzzles get no blog hints:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$facts_out" | cut -c1-200)"$'\n'"\`\`\`"
+  # Our annotations against the facts just written: the rates, and the puzzles
+  # the burn re-checks (tools/data/blog_compare.json). A report, so a failure
+  # is logged, not alerted: the burn re-plans the list itself.
+  [ $step_rc -eq 0 ] && { python3 tools/blog_compare.py || echo "blog_compare: failed"; }
   rm -f "$facts_out"
   return $step_rc
 }

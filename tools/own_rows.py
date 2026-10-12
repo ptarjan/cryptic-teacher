@@ -38,7 +38,7 @@ TOOLS = Path(__file__).resolve().parent
 FETCHER = TOOLS / "fetch_puzzle.py"
 REL = "tools/fetch_puzzle.py"
 DATA_RELS = ("tools/data/setter_error.json", "tools/data/source_answer_wrong.json",
-             "tools/data/source_clue_wrong.json")
+             "tools/data/source_clue_wrong.json", "tools/data/blog_disagree.json")
 
 
 def tables(source):

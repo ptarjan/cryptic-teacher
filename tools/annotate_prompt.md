@@ -46,6 +46,11 @@ annotate the real word and give the entry
 `"answerTypo": ["<letters the wordplay builds>", "<evidence>"]`; the check puts it in
 the grid, and refuses it if a crossing answer disagrees.
 
+The check compares your definition, type and blocks with what the puzzle's blog
+marked. A disagreement is a prompt to look, not an order: bloggers slip too. Fix
+yours if the blog is right; if yours stands, give the entry
+`"blogDisagree": ["<definition|type|blocks>", "<one sentence: why yours is right>"]`.
+
 When your copy of the puzzle has a `scan`, that image is the printed page. Read it
 for any clue that looks cut short, garbled, blank or wrong for its answer, and give
 the entry `printedClue` as the page prints it, evidence `"Scan reads: <what the page shows>"`;

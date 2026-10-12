@@ -28,7 +28,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "tools" / "data"
 #: Keyed "<id>/<entry id>", one line per key (json_merge.dump_lines).
-ENTRY_TABLES = ("source_clue_wrong", "source_answer_wrong", "setter_error")
+ENTRY_TABLES = ("source_clue_wrong", "source_answer_wrong", "setter_error", "blog_disagree")
 #: Keyed "<id>", indented (json.dumps(indent=1)).
 PUZZLE_TABLES = ("ninas", "blind_misses", "diagnosed_misses")
 TABLES = ENTRY_TABLES + PUZZLE_TABLES

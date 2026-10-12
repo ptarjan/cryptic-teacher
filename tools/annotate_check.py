@@ -472,6 +472,9 @@ FILED = {
                     '["skis Elf oil", "KISSOFLIFE", "the page prints Elf oil: one F short, one L over"]'),
     "answerTypo": ("source_answer_wrong", '["<letters the wordplay builds>", "<evidence>"]',
                    '["MINUSCULE", "NUS + CU in MILE; the grid prints MINISCULE, which the wordplay cannot give"]'),
+    # Ours checked against a blog's reading and kept (validate_annotations.BLOG_DISAGREE).
+    "blogDisagree": ("blog_disagree", '["<definition|type|blocks, comma separated>", "<why ours stands>"]',
+                     '["definition", "the blog underlines Drink, which is the wordplay\'s DRAG; the definition is painter"]'),
 }
 # A key's misprint is a slipped letter or two; more is a different answer.
 TYPO_LETTERS = 2
@@ -542,7 +545,11 @@ def file_rows(path, pending, data=DATA):
     fixes = {eid: letters(v[0]) for field, eid, v in wants if field == "answerTypo"}
     served = {}
     for field, eid, v in wants:
-        if field == "setterError":
+        if field == "blogDisagree":
+            problems = [f"names {f!r}; the fields are {', '.join(validate_annotations.BLOG_FIELDS)}"
+                        for f in (x.strip() for x in v[0].split(","))
+                        if f not in validate_annotations.BLOG_FIELDS]
+        elif field == "setterError":
             problems = validate_annotations.setter_error_problems(puzzle, eid, v, ann[eid])
         elif field == "answerTypo":
             key = f"{puzzle['id']}/{eid}"
@@ -584,6 +591,9 @@ def file_rows(path, pending, data=DATA):
             row = [served[eid], fixes[eid], row[1]]
             fetch_puzzle.SOURCE_ANSWER_WRONG[(puzzle["id"], eid)] = tuple(row)
             by_id[eid]["solution"] = fixes[eid]
+        elif field == "blogDisagree":
+            row[0] = ",".join(x.strip() for x in row[0].split(","))
+            validate_annotations.BLOG_DISAGREE[(puzzle["id"], eid)] = tuple(row)
         else:
             validate_annotations.SETTER_ERROR[(puzzle["id"], eid)] = tuple(row)
         rows[key] = row
