@@ -6,6 +6,13 @@
  "setter": "Vlad",
  "date": "2015-03-02",
  "preamble": "In 11 clues the wordplay produces a letter surplus to the solution. In order, these 11 letters provide a cryptic definition for 10 other solutions, represented in their clues as ****.",
+ "messages": [
+  {
+   "text": "BAD LANGUAGE",
+   "kind": "extra",
+   "order": "clues"
+  }
+ ],
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -25,6 +32,9 @@
   "date": "2015-04-05",
   "check": "grid and clues read from the Guardian's article page and its grid picture, its numbering matching the clue list; every fifteensquared answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -38,7 +48,56 @@
     "text": "**** sibling's books online",
     "enumeration": "6"
    },
-   "solution": "BRONTE"
+   "solution": "BRONTE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRONTE",
+    "definitions": [
+     {
+      "text": "****",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sibling",
+      "gives": "BRO",
+      "note": "BRO is short for brother, a sibling"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "NT is the New Testament, the usual crossword books"
+     },
+     {
+      "clueFragment": "online",
+      "gives": "E",
+      "note": "E- is the prefix for anything electronic or online"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRO",
+      "NT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A Brontë sister's novels are now available to read on the internet.",
+     "walkthrough": "The surface invites the Brontë novels, and the answer is indeed BRONTE, but here it is defined as 'bad language': its letters rearranged spell BRETON.",
+     "definitionFit": "Muddle the letters and you get Breton, the Celtic tongue of Brittany, so the word is a garbled language."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "sibling"
+    }
+   }
   },
   {
    "number": 1,
@@ -52,7 +111,76 @@
     "text": "**** from Liège nearly beaten up in bar",
     "enumeration": "7"
    },
-   "solution": "BELGIAN"
+   "solution": "BELGIAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "BELGIAN",
+    "definitions": [
+     {
+      "text": "****",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nearly",
+      "for": "deletion",
+      "note": "nearly means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "beaten up",
+      "for": "anagram",
+      "note": "something beaten up is knocked about, so its letters are jumbled"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one part goes in the other, placed inside it"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bar",
+      "gives": "BAN",
+      "note": "to bar is to ban"
+     },
+     {
+      "clueFragment": "Liège",
+      "gives": "LIEGE",
+      "note": "taken as written, before the last letter goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ELGI",
+      "AN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LIEG",
+       "gives": "ELGI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone from Liège got roughed up in a bar.",
+     "walkthrough": "Liège is a Belgian city, so the surface points straight at the answer, but the definition is the jumbled language: the letters give BENGALI.",
+     "definitionFit": "Rearranged, the letters spell Bengali, the language of Bangladesh and West Bengal, so the word is a garbled language."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 2,
@@ -66,7 +194,51 @@
     "text": "Mineral oil? I've ten jars",
     "enumeration": "9"
    },
-   "solution": "OLIVENITE"
+   "solution": "OLIVENITE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OLIVENITE",
+    "definitions": [
+     {
+      "text": "Mineral",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "jars",
+      "for": "anagram",
+      "note": "something that jars is shaken, so the letters are jolted out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oil? I've ten",
+      "gives": "OILIVETEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OILIVETEN",
+       "gives": "OLIVENITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks if mineral oil is wanted, having ten jars of it.",
+     "walkthrough": "'Jars' looks like a plural noun for containers, but it is a verb.",
+     "definitionFit": "Olivenite is a green copper arsenate mineral, a specific example of a mineral."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jars"
+    }
+   }
   },
   {
    "number": 3,
@@ -80,7 +252,62 @@
     "text": "Drink? Household money's spent getting 18, perhaps",
     "enumeration": "7"
    },
-   "solution": "TEENAGE"
+   "solution": "TEENAGE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TEENAGE",
+    "definitions": [
+     {
+      "text": "18, perhaps",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spent",
+      "for": "deletion",
+      "note": "money that is spent is gone, so that letter leaves the word"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drink",
+      "gives": "TEA",
+      "note": "tea is a drink"
+     },
+     {
+      "clueFragment": "Household money",
+      "gives": "ENAGE",
+      "note": "a ménage is a household; M for money is the letter that goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "ENAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A teenager's housekeeping money has been spent on drink.",
+     "walkthrough": "Ménage is a French loan word for a household. The joined pieces carry one A too many, this clue's surplus letter; the question mark after 'Drink' is surface only.",
+     "definitionFit": "Eighteen falls in the teens, so it is an example of a teenage age; the question mark covers the example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Household"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "A"
+    }
+   }
   },
   {
    "number": 4,
@@ -94,7 +321,58 @@
     "text": "At Hove run across hard ****",
     "enumeration": "7"
    },
-   "solution": "SHINGLE"
+   "solution": "SHINGLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHINGLE",
+    "definitions": [
+     {
+      "text": "****",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "across",
+      "for": "container",
+      "note": "one word lies across the other, so it is wrapped around the second piece"
+     }
+    ],
+    "linkWords": [
+     "At Hove"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "run",
+      "gives": "SINGLE",
+      "note": "in cricket a single is one run"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil-grade abbreviation for hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "H",
+      "INGLE"
+     ]
+    },
+    "explanation": {
+     "surface": "On the beach at Hove someone runs over the hard pebbles.",
+     "walkthrough": "Hove is a seaside town in Sussex with a pebble beach, so shingle fits the scene; 'At Hove' merely sets the English location for the definition.",
+     "definitionFit": "Its letters scrambled make ENGLISH, the tongue spoken at Hove, so the word is a garbled language."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 5,
@@ -108,7 +386,68 @@
     "text": "Will the writer after much success essentially promote ****?",
     "enumeration": "7"
    },
-   "solution": "HIMSELF"
+   "solution": "HIMSELF",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HIMSELF",
+    "definitions": [
+     {
+      "text": "****",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word lies at its heart, so its middle letter is used"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places one piece behind the others in the line"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "much success",
+      "gives": "HI",
+      "note": "a big hit is much success; only its first two letters are used"
+     },
+     {
+      "clueFragment": "promote",
+      "gives": "M",
+      "select": "middle",
+      "note": "the central letter of promote"
+     },
+     {
+      "clueFragment": "Will the writer",
+      "gives": "SELF",
+      "note": "Will Self is an English novelist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HI",
+      "M",
+      "SELF"
+     ]
+    },
+    "explanation": {
+     "surface": "Will a successful author now go in for self-promotion?",
+     "walkthrough": "A tentative parse: Will Self is the novelist, placed after a curtailed hit and the heart of 'promote'. As defined, the answer is a scrambled FLEMISH, the Dutch spoken in Belgium.",
+     "definitionFit": "Rearranged, the letters give Flemish, the Dutch spoken in northern Belgium, so the word is a garbled language."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Will"
+    }
+   }
   },
   {
    "number": 6,
@@ -122,7 +461,59 @@
     "text": "Minutes forwarded in turn",
     "enumeration": "5"
    },
-   "solution": "NOTES"
+   "solution": "NOTES",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "NOTES",
+    "definitions": [
+     {
+      "text": "Minutes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in turn",
+      "for": "reversal",
+      "note": "taking a turn means facing the other way, so the word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "forwarded",
+      "gives": "SENTON",
+      "note": "mail forwarded is sent on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOT",
+      "ES"
+     ],
+     "reversals": [
+      {
+       "from": "SENTON",
+       "to": "NOTNES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The minutes of a meeting were passed along in turn.",
+     "walkthrough": "SENT ON read backwards is NOTNES; one N is this clue's surplus letter, and the rest is the answer.",
+     "definitionFit": "The minutes of a meeting are the written notes recording it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "forwarded"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "N"
+    }
+   }
   },
   {
    "number": 7,
@@ -142,7 +533,47 @@
      }
     ]
    },
-   "solution": "LIEDOWN"
+   "solution": "LIEDOWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIE DOWN",
+    "definitions": [
+     {
+      "text": "Go flat",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "romance",
+      "gives": "LIE",
+      "note": "to romance is to exaggerate or invent, that is, to lie"
+     },
+     {
+      "clueFragment": "not working",
+      "gives": "DOWN",
+      "note": "a computer system that is down is not working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIE",
+      "DOWN"
+     ]
+    },
+    "explanation": {
+     "surface": "A love affair has fallen flat and stopped working.",
+     "walkthrough": "'Romance' is a verb here, meaning to tell fanciful stories.",
+     "definitionFit": "To lie down is to stretch out horizontally, to go flat on a bed or the floor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "romance"
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +587,77 @@
     "text": "Hit man beginning to shake is a nervous wreck — not a good quality",
     "enumeration": "13"
    },
-   "solution": "UNSAVOURINESS"
+   "solution": "UNSAVOURINESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "UNSAVOURINESS",
+    "definitions": [
+     {
+      "text": "not a good quality",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, so only that is used"
+     },
+     {
+      "text": "wreck",
+      "for": "anagram",
+      "note": "a wreck is something smashed up, so its letters are scattered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hit man",
+      "gives": "GUN",
+      "note": "gun is slang for a gunman or hired killer"
+     },
+     {
+      "clueFragment": "shake",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening of shake"
+     },
+     {
+      "clueFragment": "is a nervous",
+      "gives": "ISANERVOUS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "SAVOURINESS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SISANERVOUS",
+       "gives": "SAVOURINESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A contract killer starts trembling and goes to pieces.",
+     "walkthrough": "GUN plus the jumble makes GUNSAVOURINESS; the G is this clue's surplus letter.",
+     "definitionFit": "Unsavouriness is unpleasantness or disreputability, the opposite of a pleasing or good quality."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hit"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "G"
+    }
+   }
   },
   {
    "number": 9,
@@ -170,7 +671,60 @@
     "text": "Eastern plain wrong for ****",
     "enumeration": "6"
    },
-   "solution": "ALPINE"
+   "solution": "ALPINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ALPINE",
+    "definitions": [
+     {
+      "text": "****",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrong",
+      "for": "anagram",
+      "note": "something wrong is out of order, so these letters must be rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eastern",
+      "gives": "E",
+      "note": "E is the abbreviation for eastern"
+     },
+     {
+      "clueFragment": "plain",
+      "gives": "PLAIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EPLAIN",
+       "gives": "ALPINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describing a mountain landscape mistakenly calls an eastern plain alpine.",
+     "walkthrough": "The answer is itself a jumble of NEPALI, the language of Nepal.",
+     "definitionFit": "Rearranged, the letters give Nepali, the national tongue of Nepal, so the word is a garbled language."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "plain"
+    }
+   }
   },
   {
    "number": 10,
@@ -184,7 +738,57 @@
     "text": "Centre politician joins idiots",
     "enumeration": "8"
    },
-   "solution": "NUMPTIES"
+   "solution": "NUMPTIES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NUMPTIES",
+    "definitions": [
+     {
+      "text": "idiots",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Centre",
+      "gives": "NUB",
+      "note": "the nub is the centre or crux of something"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "MP is a Member of Parliament"
+     },
+     {
+      "clueFragment": "joins",
+      "gives": "TIES",
+      "note": "ties is a verb meaning joins"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NU",
+      "MP",
+      "TIES"
+     ]
+    },
+    "explanation": {
+     "surface": "A centrist politician teams up with a bunch of fools.",
+     "walkthrough": "The wordplay builds NUBMPTIES; the B is this clue's surplus letter, and dropping it leaves the answer.",
+     "definitionFit": "Numpty is Scottish and British slang for a foolish person, so numpties are idiots."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Centre"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "B"
+    }
+   }
   },
   {
    "number": 11,
@@ -198,7 +802,51 @@
     "text": "American developed system of widescreen projection",
     "enumeration": "8"
    },
-   "solution": "CINERAMA"
+   "solution": "CINERAMA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CINERAMA",
+    "definitions": [
+     {
+      "text": "system of widescreen projection",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "developed",
+      "for": "anagram",
+      "note": "a film is developed, and here the word is processed into a new order of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "AMERICAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AMERICAN",
+       "gives": "CINERAMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A US company developed a method for projecting films on a wide screen.",
+     "walkthrough": "'Developed' reads as the history of the invention, which really was American, but it signals the rearrangement.",
+     "definitionFit": "Cinerama was a 1950s cinema process using three projectors to fill a huge curved screen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "developed"
+    }
+   }
   },
   {
    "number": 12,
@@ -212,7 +860,61 @@
     "text": "Refrain from pursuing case round station",
     "enumeration": "6"
    },
-   "solution": "EUSTON"
+   "solution": "EUSTON",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EUSTON",
+    "definitions": [
+     {
+      "text": "station",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "reversal",
+      "note": "turning something round makes it face the other way, so the phrase is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Refrain from",
+      "gives": "NOT",
+      "note": "to refrain from doing something is to not do it"
+     },
+     {
+      "clueFragment": "pursuing case",
+      "gives": "SUE",
+      "note": "to sue is to pursue a legal case"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EUS",
+      "TON"
+     ],
+     "reversals": [
+      {
+       "from": "NOTSUE",
+       "to": "EUSTON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to drop a lawsuit, somehow tied to a railway station.",
+     "walkthrough": "The whole phrase is turned round, not just one word. Euston is a London main-line railway terminus.",
+     "definitionFit": "Euston is one of London's major railway terminals, an example of a station."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 13,
@@ -232,7 +934,62 @@
      }
     ]
    },
-   "solution": "NOISESOFF"
+   "solution": "NOISESOFF",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "NOISES OFF",
+    "definitions": [
+     {
+      "text": "play",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one word goes in the other, so it is placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "votes against",
+      "gives": "NOES",
+      "note": "noes are votes against a motion"
+     },
+     {
+      "clueFragment": "Is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "leaving",
+      "gives": "OFF",
+      "note": "someone off is leaving or departing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "IS",
+      "ES",
+      "OFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A cryptic report that a play is being taken off after votes against it.",
+     "walkthrough": "The brackets make the clue look like a parliamentary aside. Noises Off is Michael Frayn's farce about a touring theatre company.",
+     "definitionFit": "Noises Off is a celebrated stage farce by Michael Frayn, an example of a play."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "votes"
+    }
+   }
   },
   {
    "number": 14,
@@ -246,7 +1003,45 @@
     "text": "Sound character, all agreed",
     "enumeration": "4"
    },
-   "solution": "TONE"
+   "solution": "TONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TONE",
+    "definitions": [
+     {
+      "text": "Sound character",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "all agreed",
+      "gives": "ATONE",
+      "note": "when all agree they are at one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TONE"
+     ]
+    },
+    "explanation": {
+     "surface": "Everyone agrees that someone is of sound character.",
+     "walkthrough": "'All agreed' gives AT ONE; its A is this clue's surplus letter, and the rest is the answer.",
+     "definitionFit": "Tone is the distinctive quality or timbre of a sound, the character of a note."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sound"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "A"
+    }
+   }
   },
   {
    "number": 14,
@@ -260,7 +1055,71 @@
     "text": "\"Fountain pens useless\": a child prince",
     "enumeration": "9"
    },
-   "solution": "TSAREVICH"
+   "solution": "TSAREVICH",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TSAREVICH",
+    "definitions": [
+     {
+      "text": "prince",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pens",
+      "for": "container",
+      "note": "to pen is to shut in, so the following pieces go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fountain",
+      "gives": "TREVI",
+      "note": "the Trevi Fountain is the famous fountain in Rome"
+     },
+     {
+      "clueFragment": "useless",
+      "gives": "US",
+      "note": "U/S is short for unserviceable, that is, useless"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "child",
+      "gives": "CH",
+      "note": "CH is the abbreviation for child"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "SA",
+      "REVI",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A child prince complains that fountain pens are no good.",
+     "walkthrough": "The quotation marks make 'Fountain pens' look like the stationery. TREVI holding US and A, then CH, makes TUSAREVICH; the U is this clue's surplus.",
+     "definitionFit": "A tsarevich was the son of a Russian tsar, so a prince by birth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fountain"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "U"
+    }
+   }
   },
   {
    "number": 15,
@@ -274,7 +1133,59 @@
     "text": "Originally succulent before becoming ****",
     "enumeration": "4"
    },
-   "solution": "SERE"
+   "solution": "SERE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SERE",
+    "definitions": [
+     {
+      "text": "****",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Originally",
+      "for": "letter_selection",
+      "note": "originally points at how a word starts, so only its opening letter is used"
+     }
+    ],
+    "linkWords": [
+     "becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "succulent",
+      "gives": "S",
+      "select": "first",
+      "note": "the start of succulent"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "ERE",
+      "note": "ere is an old word for before"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ERE"
+     ]
+    },
+    "explanation": {
+     "surface": "A juicy plant was once moist before drying out.",
+     "walkthrough": "The surface wants the word for withered, which the answer is, but here it is defined as a jumbled language: its letters give ERSE.",
+     "definitionFit": "Its letters reordered make Erse, the Gaelic tongue of Ireland or Scotland, so the word is a garbled language."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "succulent"
+    }
+   }
   },
   {
    "number": 16,
@@ -288,7 +1199,72 @@
     "text": "Attract by running Mae around unendingly",
     "enumeration": "7"
    },
-   "solution": "ENAMOUR"
+   "solution": "ENAMOUR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ENAMOUR",
+    "definitions": [
+     {
+      "text": "Attract",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unendingly",
+      "for": "deletion",
+      "note": "unendingly means with no ending, so the final letter goes"
+     },
+     {
+      "text": "running",
+      "for": "anagram",
+      "note": "things running are on the move, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mae",
+      "gives": "MAE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "around",
+      "gives": "AROUN",
+      "note": "the word without its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENAMOUR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MAEAROUN",
+       "gives": "AENAMOUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mae West wins admirers by running around without stopping.",
+     "walkthrough": "The jumble has one A too many; it is this clue's surplus letter. Mae West was a Hollywood star famed for her seductive wit.",
+     "definitionFit": "To enamour is to fill with love, to captivate or charm someone, so it means attract."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "running"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "A"
+    }
+   }
   },
   {
    "number": 17,
@@ -302,7 +1278,60 @@
     "text": "**** doctor — so a pretence, largely",
     "enumeration": "9"
    },
-   "solution": "PERSONATE"
+   "solution": "PERSONATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "PERSONATE",
+    "definitions": [
+     {
+      "text": "****",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "largely",
+      "for": "deletion",
+      "note": "largely means most but not all, so the tail of the phrase is cut off"
+     },
+     {
+      "text": "doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "so a pretence",
+      "gives": "SOAPRETENCE",
+      "note": "the words taken as written, before the end is trimmed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PERSONATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOAPRETEN",
+       "gives": "PERSONATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sham doctor is mostly putting on an act.",
+     "walkthrough": "The last two letters of 'so a pretence' go, and the rest is rearranged. The answer is a scrambled ESPERANTO, the invented international language.",
+     "definitionFit": "Shuffle it and you have Esperanto, the constructed world tongue, so the word is a garbled language."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 17,
@@ -316,7 +1345,69 @@
     "text": "Slam champion gets trophy number 5 in style",
     "enumeration": "7"
    },
-   "solution": "PANACHE"
+   "solution": "PANACHE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "PANACHE",
+    "definitions": [
+     {
+      "text": "style",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "number 5",
+      "for": "letter_selection",
+      "note": "number 5 picks out the letter in fifth position in the word"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slam",
+      "gives": "PAN",
+      "note": "to pan a show is to slam it"
+     },
+     {
+      "clueFragment": "champion",
+      "gives": "ACE",
+      "note": "an ace is a champion"
+     },
+     {
+      "clueFragment": "trophy",
+      "gives": "H",
+      "select": 5,
+      "note": "the fifth letter of trophy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAN",
+      "AC",
+      "H",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A Grand Slam champion wins a fifth trophy with style.",
+     "walkthrough": "'Slam champion' reads as a Grand Slam winner in tennis, but the two words are separate pieces.",
+     "definitionFit": "Panache is flamboyant confidence, a dashing style or flair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Slam"
+    }
+   }
   },
   {
    "number": 18,
@@ -330,7 +1421,69 @@
     "text": "It's blown over? About to rain, idiot!",
     "enumeration": "7"
    },
-   "solution": "OCARINA"
+   "solution": "OCARINA",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "OCARINA",
+    "definitions": [
+     {
+      "text": "It's blown",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "idiot",
+      "for": "anagram",
+      "note": "an idiot's thinking is muddled, so the word next to it is jumbled"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scorer's abbreviation for over"
+     },
+     {
+      "clueFragment": "About",
+      "gives": "CA",
+      "note": "CA is short for circa, about"
+     },
+     {
+      "clueFragment": "rain",
+      "gives": "RAIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "CA",
+      "RINA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAIN",
+       "gives": "RINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone grumbles that a storm has blown over, only to be told rain is coming.",
+     "definitionFit": "An ocarina is a small egg-shaped wind instrument, something a player blows into."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "blown"
+    }
+   }
   },
   {
    "number": 19,
@@ -344,7 +1497,59 @@
     "text": "Quits biting on teams",
     "enumeration": "7"
    },
-   "solution": "ELEVENS"
+   "solution": "ELEVENS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ELEVENS",
+    "definitions": [
+     {
+      "text": "teams",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "biting",
+      "for": "container",
+      "note": "biting means having its teeth around, so one piece holds the other inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quits",
+      "gives": "EVENS",
+      "note": "to be quits is to be evens, owing nothing"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "LEG",
+      "note": "in cricket the on side is also called the leg side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LE",
+      "VENS"
+     ]
+    },
+    "explanation": {
+     "surface": "Two teams decide to call it quits.",
+     "walkthrough": "Cricket's on side and leg side are the same half of the field. The joined letters carry one G too many, this clue's surplus letter.",
+     "definitionFit": "Football and cricket sides have eleven players, so teams are called elevens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "G"
+    }
+   }
   },
   {
    "number": 20,
@@ -358,7 +1563,48 @@
     "text": "**** uncovered scrap",
     "enumeration": "6"
    },
-   "solution": "RAGMEN"
+   "solution": "RAGMEN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RAGMEN",
+    "definitions": [
+     {
+      "text": "****",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncovered",
+      "for": "deletion",
+      "note": "uncovered means stripped of its outer layer, so the first and last letters go"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scrap",
+      "gives": "FRAGMENT",
+      "note": "a fragment is a scrap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAGMEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Rag-and-bone men collecting exposed scrap.",
+     "walkthrough": "Ragmen did deal in scrap, which suits the surface; as defined here the answer is a scrambled GERMAN.",
+     "definitionFit": "Rearranged, the letters make German, so the word counts as a garbled language."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "scrap"
+    }
+   }
   },
   {
    "number": 21,
@@ -372,7 +1618,58 @@
     "text": "Deliberate before accompanying setter",
     "enumeration": "5"
    },
-   "solution": "MEANT"
+   "solution": "MEANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MEANT",
+    "definitions": [
+     {
+      "text": "Deliberate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accompanying",
+      "for": "charade",
+      "note": "accompanying means going alongside, so the pieces sit side by side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "setter",
+      "gives": "ME",
+      "note": "the setter refers to themself as me"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "ANTE",
+      "note": "ante is Latin for before"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter thinks carefully before going ahead.",
+     "walkthrough": "ME with ANTE gives MEANTE; the final E is this clue's surplus letter.",
+     "definitionFit": "Something meant was intended, done on purpose, so it is deliberate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Deliberate"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "E"
+    }
+   }
   },
   {
    "number": 22,
@@ -386,7 +1683,73 @@
     "text": "Did groom want to keep appointment? Not at first",
     "enumeration": "8"
    },
-   "solution": "NEATENED"
+   "solution": "NEATENED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "NEATENED",
+    "definitions": [
+     {
+      "text": "Did groom",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to keep",
+      "for": "container",
+      "note": "to keep something is to hold it inside, so the other pieces go within"
+     },
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "'at first' keeps only the first letter of 'Not'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "want",
+      "gives": "NEED",
+      "note": "to want is to need"
+     },
+     {
+      "clueFragment": "appointment",
+      "gives": "DATE",
+      "note": "a date is an appointment"
+     },
+     {
+      "clueFragment": "Not",
+      "gives": "N",
+      "select": "first",
+      "note": "the opening of the word not"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "ATEN",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A bridegroom wonders whether he wants to turn up for the wedding.",
+     "walkthrough": "'Groom' is a verb here, not the bridegroom. The assembled letters carry one D too many, this clue's surplus letter.",
+     "definitionFit": "To groom someone or something is to tidy it, so neatened is the past tense of groomed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "groom"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "D"
+    }
+   }
   },
   {
    "number": 23,
@@ -400,7 +1763,63 @@
     "text": "Oh man! Heads of state really clueless — stupid ****!",
     "enumeration": "8"
    },
-   "solution": "MONARCHS"
+   "solution": "MONARCHS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "MONARCHS",
+    "definitions": [
+     {
+      "text": "****",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heads of",
+      "for": "letter_selection",
+      "note": "heads are the tops of things, so each following word gives its first letter"
+     },
+     {
+      "text": "stupid",
+      "for": "anagram",
+      "note": "stupid suggests muddled thinking, so the letters come out jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oh man",
+      "gives": "OHMAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "state really clueless",
+      "gives": "SRC",
+      "select": "first",
+      "note": "the first letters of the three words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OHMANSRC",
+       "gives": "MONARCHS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exasperated outburst at heads of state who haven't a clue.",
+     "walkthrough": "'Heads of state' looks like the definition; it only supplies a letter. The answer is a jumbled ROMANSCH, a language of Switzerland.",
+     "definitionFit": "Reordered, the letters spell Romansch, a minority tongue of Switzerland, so the word is a garbled language."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Heads"
+    }
+   }
   },
   {
    "number": 24,
@@ -414,7 +1833,53 @@
     "text": "Girl is essential feature in Van Gogh painting",
     "enumeration": "6"
    },
-   "solution": "IRISES"
+   "solution": "IRISES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "IRISES",
+    "definitions": [
+     {
+      "text": "Van Gogh painting",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "feature in",
+      "for": "deletion",
+      "note": "to feature in something is to appear within it, so the run sits inside the words and their outer letters are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl is essential",
+      "gives": "IRLISES",
+      "note": "the run of letters inside these words, with the outer letters dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IR",
+      "ISES"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl is a key element in one of Van Gogh's canvases.",
+     "walkthrough": "Iris looks like the girl, but the letters are concealed across the words, giving IRLISES; the L is this clue's surplus, leaving the answer.",
+     "definitionFit": "Irises is the 1889 painting of blue flowers Van Gogh made at the asylum in Saint-Rémy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Girl"
+    },
+    "hiddenLetter": {
+     "kind": "extra",
+     "letter": "L"
+    }
+   }
   },
   {
    "number": 25,
@@ -428,7 +1893,47 @@
     "text": "Blooming Democrat was an informer",
     "enumeration": "7"
    },
-   "solution": "DRATTED"
+   "solution": "DRATTED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRATTED",
+    "definitions": [
+     {
+      "text": "Blooming",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Democrat",
+      "gives": "D",
+      "note": "D is the abbreviation for Democrat"
+     },
+     {
+      "clueFragment": "was an informer",
+      "gives": "RATTED",
+      "note": "to rat is to inform on someone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RATTED"
+     ]
+    },
+    "explanation": {
+     "surface": "A wretched Democrat turned informer.",
+     "walkthrough": "'Blooming' looks like flowering, but it is the mild British curse word, as in 'blooming nuisance'.",
+     "definitionFit": "Both are mild euphemistic expletives used to show annoyance, so they are interchangeable intensifiers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Blooming"
+    }
+   }
   },
   {
    "number": 26,
@@ -442,7 +1947,59 @@
     "text": "Initially pitiful swordsman conveying ****",
     "enumeration": "6"
    },
-   "solution": "PATHOS"
+   "solution": "PATHOS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PATHOS",
+    "definitions": [
+     {
+      "text": "****",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the first letter is used"
+     }
+    ],
+    "linkWords": [
+     "conveying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pitiful",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening of pitiful"
+     },
+     {
+      "clueFragment": "swordsman",
+      "gives": "ATHOS",
+      "note": "Athos is one of Dumas's Three Musketeers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ATHOS"
+     ]
+    },
+    "explanation": {
+     "surface": "A sorry swordsman conveys a sense of sadness.",
+     "walkthrough": "The surface invites the word for what arouses pity, which the answer is, but it is defined as a scrambled PASHTO, a language of Afghanistan.",
+     "definitionFit": "Rearranged, the letters give Pashto, spoken in Afghanistan and Pakistan, so the word is a garbled language."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "pitiful"
+    }
+   }
   }
  ]
 }
