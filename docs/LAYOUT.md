@@ -1038,6 +1038,13 @@ tools/unstage_unparsable.sh                   sourced by durable.sh and nightly_
                                               --refused), held in the tree and named, so no
                                               commit carries one and one bad puzzle strands no
                                               checkpoint
+tools/commit_puzzles.sh                       commits each staged puzzle or clues-only file on
+                                              its own (`File <id>`, a rename's two paths
+                                              together), so no writer batches a run's puzzles
+                                              into one commit; sourced by durable.sh and
+                                              nightly_worktree.sh, run by the daily update, the
+                                              pre-reset backfill, extend_archive.py and
+                                              sweep_series.py
 tools/json_merge.py                           git merge driver: the keyed JSON data files
                                               several writers append to merge per key, so a
                                               rebase never stops on a ledger row

@@ -42,23 +42,17 @@ def served(series, n):
 
 def publish(message):
     subprocess.run(["git", "add", "-A", "puzzles"], cwd=ROOT, check=True)
-    if subprocess.run(
-        ["git", "diff", "--cached", "--quiet", "--", "puzzles"], cwd=ROOT, check=False
-    ).returncode:
-        subprocess.run(
-            [
-                "git",
-                "commit",
-                "-q",
-                "-m",
-                message + "\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
-                "--",
-                "puzzles",
-            ],
-            cwd=ROOT,
-            check=True,
-        )
-        subprocess.run(["tools/push_puzzle_commit.sh"], cwd=ROOT, check=True)
+    before = subprocess.run(
+        ["git", "rev-parse", "HEAD"], cwd=ROOT, check=True, capture_output=True, text=True
+    ).stdout.strip()
+    # One commit per puzzle (tools/commit_puzzles.sh), each pushed.
+    subprocess.run(["tools/commit_puzzles.sh", message], cwd=ROOT, check=True)
+    made = subprocess.run(
+        ["git", "rev-list", "--reverse", f"{before}..HEAD"],
+        cwd=ROOT, check=True, capture_output=True, text=True,
+    ).stdout.split()
+    for commit in made:
+        subprocess.run(["tools/push_puzzle_commit.sh", commit], cwd=ROOT, check=True)
 
 
 def main():

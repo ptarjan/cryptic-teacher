@@ -145,6 +145,7 @@ sys.stdout.buffer.write(s.unstamp(s.INDEX_HTML.read_text(encoding="utf-8")).enco
 }
 
 . "$(dirname "${BASH_SOURCE[0]}")/unstage_unparsable.sh"
+. "$(dirname "${BASH_SOURCE[0]}")/commit_puzzles.sh"
 
 # _ct_salvage <tree> <job>: commit what a dropped run left under
 # CT_SALVAGE_PATHS (a .json that does not parse, a write cut off, is left
@@ -168,6 +169,9 @@ _ct_salvage() {
   done
   ct_unstage_unparsable "$tree"
   ct_unstage_refused "$tree"
+  if ! git -C "$tree" diff --cached --quiet; then
+    (cd "$tree" && ct_commit_puzzles "$job: salvaged from a run that was dropped") || return 1
+  fi
   if ! git -C "$tree" diff --cached --quiet; then
     git -C "$tree" commit -q -m "$job: salvaged from a run that was dropped" || return 1
   fi
