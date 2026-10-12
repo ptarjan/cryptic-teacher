@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,64 @@
     "text": "Dry weather promised rough time with early and late crops",
     "enumeration": "7"
    },
-   "solution": "DROUGHT"
+   "solution": "DROUGHT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DROUGHT",
+    "definitions": [
+     {
+      "text": "Dry weather",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with early and late crops",
+      "for": "letter_selection",
+      "note": "cropping the early part of one word and the late part of another leaves just a single end letter of each"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "promised",
+      "gives": "D",
+      "select": "last",
+      "note": "the early letters are cropped, leaving only the final letter"
+     },
+     {
+      "clueFragment": "rough",
+      "gives": "ROUGH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "select": "first",
+      "note": "the late letters are cropped, leaving only the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ROUGH",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer recalls a season when the forecast dry spell hit hard, both early and late harvests suffering.",
+     "walkthrough": "The crops are cuts: 'promised' loses its early letters and 'time' its late ones, with 'rough' kept whole between them.",
+     "definitionFit": "A drought is a prolonged spell of dry weather with little or no rainfall."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "crops"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +107,44 @@
     "text": "Medic mentioned a plant to ease pain",
     "enumeration": "4"
    },
-   "solution": "DOCK"
+   "solution": "DOCK",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "DOCK",
+    "definitions": [
+     {
+      "text": "a plant to ease pain",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mentioned",
+      "for": "homophone",
+      "note": "something mentioned is spoken, so the word is judged by its sound rather than its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Medic",
+      "gives": "DOCK",
+      "soundsLike": "DOC",
+      "note": "doc is an informal word for a doctor"
+     }
+    ],
+    "explanation": {
+     "surface": "A doctor recommends a herbal remedy for soothing pain.",
+     "walkthrough": "Dock leaves are the traditional British remedy rubbed on nettle stings.",
+     "definitionFit": "Dock is a common weed whose leaves are folk medicine for soothing the sting of nettles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Medic"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +158,46 @@
     "text": "Old boys smoke out of sight",
     "enumeration": "7"
    },
-   "solution": "OBSCURE"
+   "solution": "OBSCURE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OBSCURE",
+    "definitions": [
+     {
+      "text": "out of sight",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old boys",
+      "gives": "OBS",
+      "note": "OB is the abbreviation for old boy, a former pupil"
+     },
+     {
+      "clueFragment": "smoke",
+      "gives": "CURE",
+      "note": "to cure fish or meat is to preserve it, for example by smoking"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OBS",
+      "CURE"
+     ]
+    },
+    "explanation": {
+     "surface": "Former schoolmates sneak off for a cigarette where nobody can see them.",
+     "definitionFit": "Something obscure is hidden or hard to see, so concealed from view."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "smoke"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +211,44 @@
     "text": "Two monkeys looking down on others",
     "enumeration": "5"
    },
-   "solution": "GRAND"
+   "solution": "GRAND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GRAND",
+    "definitions": [
+     {
+      "text": "Two monkeys",
+      "at": 0
+     },
+     {
+      "text": "looking down on others",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two monkeys",
+      "note": "first meaning: a monkey is British slang for £500, so two make £1000"
+     },
+     {
+      "clueFragment": "looking down on others",
+      "note": "second meaning: haughty, superior in manner"
+     }
+    ],
+    "explanation": {
+     "surface": "A pair of apes perched up high peer down at the rest of the troop.",
+     "walkthrough": "In British slang a monkey is £500 and a grand is £1000, so two monkeys make one.",
+     "definitionFit": "Grand is slang for a thousand pounds, and a grand manner is lofty and condescending."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "monkeys"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +262,54 @@
     "text": "Gold hoarded by person who believes speculator",
     "enumeration": "8"
    },
-   "solution": "THEORIST"
+   "solution": "THEORIST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THEORIST",
+    "definitions": [
+     {
+      "text": "speculator",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hoarded by",
+      "for": "container",
+      "note": "what is hoarded is stashed away inside something else, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "person who believes",
+      "gives": "THEIST",
+      "note": "a theist believes in God"
+     },
+     {
+      "clueFragment": "Gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "OR",
+      "IST"
+     ]
+    },
+    "explanation": {
+     "surface": "A believer in gold, stockpiling it, is presented as a market speculator.",
+     "definitionFit": "A theorist speculates, forming ideas and hypotheses rather than proving facts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "speculator"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +323,68 @@
     "text": "Breezy if one's collected by helicopter dropping over",
     "enumeration": "7"
    },
-   "solution": "CHIPPER"
+   "solution": "CHIPPER",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "CHIPPER",
+    "definitions": [
+     {
+      "text": "Breezy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collected by",
+      "for": "substitution",
+      "note": "being collected means being picked up and carried inside, so this letter comes aboard in place of the one that drops"
+     },
+     {
+      "text": "dropping",
+      "for": "substitution",
+      "note": "dropping means letting fall, so that letter leaves to make room for the newcomer"
+     }
+    ],
+    "linkWords": [
+     "if"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "helicopter",
+      "gives": "CHOPPER",
+      "note": "chopper is slang for a helicopter"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scoring abbreviation for over"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "I",
+      "PPER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stays cheerful about being winched aboard a helicopter that is dropping down.",
+     "walkthrough": "The O of the helicopter is dropped and the one (I) is picked up in its place.",
+     "definitionFit": "Chipper and breezy both describe someone lively and cheerful in manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +398,56 @@
     "text": "Century which means nothing for player's club",
     "enumeration": "6"
    },
-   "solution": "CASINO"
+   "solution": "CASINO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CASINO",
+    "definitions": [
+     {
+      "text": "player's club",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Century",
+      "gives": "C",
+      "note": "C is the abbreviation for century"
+     },
+     {
+      "clueFragment": "which means",
+      "gives": "ASIN",
+      "note": "as in, the phrase used to say what something means, as in 'C as in Charlie'"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ASIN",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricketer's hundred earns nothing towards the player's club.",
+     "walkthrough": "'Century' and 'player' suggest cricket, but the player here is a gambler.",
+     "definitionFit": "A casino is a gambling house, a club where players bet at cards, dice and roulette."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "player's"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +467,51 @@
      }
     ]
    },
-   "solution": "INPASSING"
+   "solution": "INPASSING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IN PASSING",
+    "definitions": [
+     {
+      "text": "while she was doing something else",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scattered",
+      "for": "anagram",
+      "note": "scattered things are strewn about in disorder, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nina's pigs",
+      "gives": "NINASPIGS",
+      "note": "the letters of both words, possessive s included"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NINASPIGS",
+       "gives": "INPASSING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nina's pigs got loose while she was busy with another job.",
+     "definitionFit": "In passing means incidentally, done briefly while attending to something else."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "pigs"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +525,56 @@
     "text": "Earth covered with vegetation, others probably not?",
     "enumeration": "7"
    },
-   "solution": "PLANETS"
+   "solution": "PLANETS",
+   "annotation": {
+    "type": [
+     "container",
+     "and_lit"
+    ],
+    "answer": "PLANETS",
+    "definitions": [
+     {
+      "text": "Earth covered with vegetation, others probably not?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covered with",
+      "for": "container",
+      "note": "something covered with a layer has that layer wrapped all around it, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vegetation",
+      "gives": "PLANTS",
+      "note": "plants are vegetation"
+     },
+     {
+      "clueFragment": "Earth",
+      "gives": "E",
+      "note": "E is the abbreviation for earth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLAN",
+      "E",
+      "TS"
+     ]
+    },
+    "explanation": {
+     "surface": "Our green world sits among its neighbours, which are probably bare.",
+     "walkthrough": "The whole clue also defines: Earth is the planet clothed in plants, and the others in the solar system probably are not; the question mark admits the doubt.",
+     "definitionFit": "Earth and its sister worlds orbiting the Sun are the planets, and only Earth is known to bear life."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Earth"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +594,52 @@
      }
     ]
    },
-   "solution": "RIGHTWHALE"
+   "solution": "RIGHTWHALE",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "RIGHT WHALE",
+    "definitions": [
+     {
+      "text": "Large diver",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner's",
+      "for": "spoonerism",
+      "note": "Rev. Spooner was famed for swapping the opening sounds of words, so the starts of the two words trade places"
+     }
+    ],
+    "linkWords": [
+     "wants"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Milky Bar",
+      "gives": "RIGHTWHALE",
+      "soundsLike": "WHITE RAIL",
+      "note": "milky is white and a bar is a rail; swapping their opening sounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIGHTWHALE"
+     ]
+    },
+    "explanation": {
+     "surface": "A big swimmer is craving a Milky Bar, the British white chocolate bar.",
+     "definitionFit": "The right whale is a large baleen whale, and whales dive deep for food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Bar"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +653,52 @@
     "text": "Shed American clears for some percussion",
     "enumeration": "9"
    },
-   "solution": "CASTANETS"
+   "solution": "CASTANETS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CASTANETS",
+    "definitions": [
+     {
+      "text": "some percussion",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shed",
+      "gives": "CAST",
+      "note": "to cast is to shed, as a snake does its skin"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "clears",
+      "gives": "NETS",
+      "note": "nets means clears as profit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAST",
+      "A",
+      "NETS"
+     ]
+    },
+    "explanation": {
+     "surface": "An American clearing out a garden shed finds some old drums.",
+     "definitionFit": "Castanets are hand-held clappers, a percussion instrument used in Spanish dance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shed"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +712,51 @@
     "text": "Jolt in car that's jumped without starting",
     "enumeration": "5"
    },
-   "solution": "PRANG"
+   "solution": "PRANG",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PRANG",
+    "definitions": [
+     {
+      "text": "Jolt in car",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without starting",
+      "for": "deletion",
+      "note": "going without its start means the word loses its opening letter"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jumped",
+      "gives": "SPRANG",
+      "note": "sprang is the past tense of spring, to jump"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRANG"
+     ]
+    },
+    "explanation": {
+     "surface": "A driver is jolted when the car lurches forward without starting properly.",
+     "walkthrough": "Prang is British slang for a minor crash in a car.",
+     "definitionFit": "A prang is a minor collision, the bump or knock felt when a car hits something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "jumped"
+    }
+   }
   },
   {
    "number": 11,
@@ -223,7 +780,61 @@
      }
     ]
    },
-   "solution": "UNDERONESBELT"
+   "solution": "UNDERONESBELT",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "UNDER ONES BELT",
+    "definitions": [
+     {
+      "text": "Experienced",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "engineer",
+      "for": "anagram",
+      "note": "to engineer is to contrive or rework, so the letters are rearranged"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around places the other letters about one, enclosing it before the rearranging"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bored tunnels",
+      "gives": "BOREDTUNNELS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "E is the international vehicle code for Spain"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BOREDTUNNELSE",
+       "gives": "UNDERONESBELT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A seasoned engineer has drilled tunnels in and around Spain.",
+     "definitionFit": "Having something under one's belt means having acquired it as experience."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "engineer"
+    }
+   }
   },
   {
    "number": 12,
@@ -237,7 +848,52 @@
     "text": "Tory Howard made silly sound for driving",
     "enumeration": "10"
    },
-   "solution": "ROADWORTHY"
+   "solution": "ROADWORTHY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROADWORTHY",
+    "definitions": [
+     {
+      "text": "sound for driving",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "made silly",
+      "for": "anagram",
+      "note": "made silly means turned foolish or muddled, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tory Howard",
+      "gives": "TORYHOWARD",
+      "note": "Michael Howard was a Conservative leader; the letters of both words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TORYHOWARD",
+       "gives": "ROADWORTHY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Conservative politician named Howard made a daft noise behind the wheel.",
+     "walkthrough": "'Sound' looks like noise but means in good condition.",
+     "definitionFit": "A roadworthy vehicle is in fit, safe condition to be driven on public roads."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 13,
@@ -251,7 +907,43 @@
     "text": "Bid too rarely in bridge?",
     "enumeration": "8"
    },
-   "solution": "OVERPASS"
+   "solution": "OVERPASS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OVERPASS",
+    "definitions": [
+     {
+      "text": "Bid too rarely in bridge",
+      "at": 0
+     },
+     {
+      "text": "bridge",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bid too rarely in bridge",
+      "note": "first meaning: in the card game, to say pass too often instead of bidding"
+     },
+     {
+      "clueFragment": "bridge",
+      "note": "second meaning: a road crossing over another"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The definitions overlap: the whole clue describes over-cautious card play, and its last word alone is the structure.",
+     "definitionFit": "An overpass is a road bridge over another road, and to over-pass is to pass more than is wise at cards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bridge"
+    }
+   }
   },
   {
    "number": 14,
@@ -271,7 +963,64 @@
      }
     ]
    },
-   "solution": "PEELTOWER"
+   "solution": "PEELTOWER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "PEEL TOWER",
+    "definitions": [
+     {
+      "text": "keep",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means most but not all, so the last letter is cut"
+     }
+    ],
+    "linkWords": [
+     "bagging"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rind",
+      "gives": "PEEL",
+      "note": "peel is the rind of fruit"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "we are",
+      "gives": "WERE",
+      "note": "the contraction we're"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEEL",
+      "TO",
+      "WER"
+     ]
+    },
+    "explanation": {
+     "surface": "Peelings are being bagged up and kept.",
+     "walkthrough": "'Bagging' is loose: the shortened we're simply takes 'to' on in front rather than around it. A peel tower is a fortified tower house of the Anglo-Scottish border.",
+     "definitionFit": "A peel tower is a small fortified tower, and a keep is a castle's stronghold tower."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "keep"
+    }
+   }
   },
   {
    "number": 15,
@@ -285,7 +1034,49 @@
     "text": "Tacky pictures, say of small furry animals and children",
     "enumeration": "6"
    },
-   "solution": "KITSCH"
+   "solution": "KITSCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KITSCH",
+    "definitions": [
+     {
+      "text": "Tacky pictures, say",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small furry animals",
+      "gives": "KITS",
+      "note": "kits are the young of foxes, rabbits and similar animals"
+     },
+     {
+      "clueFragment": "children",
+      "gives": "CH",
+      "note": "CH is the abbreviation for children"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KITS",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "Twee pictures of kittens and children are dismissed as tacky.",
+     "walkthrough": "The definition and wordplay share a theme: cute animals and children are classic kitsch subjects.",
+     "definitionFit": "Kitsch is art or decoration in sentimental, garish bad taste, such as twee paintings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 16,
@@ -299,7 +1090,68 @@
     "text": "Concern public transport's in mess, losing millions",
     "enumeration": "8"
    },
-   "solution": "BUSINESS"
+   "solution": "BUSINESS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BUSINESS",
+    "definitions": [
+     {
+      "text": "Concern",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing something means going without it, so a letter is removed"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "public transport",
+      "gives": "BUS",
+      "note": "a bus is public transport"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mess",
+      "gives": "MESS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "M is the abbreviation for million"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUS",
+      "IN",
+      "ESS"
+     ]
+    },
+    "explanation": {
+     "surface": "The bus service is in a mess and haemorrhaging millions.",
+     "definitionFit": "A concern is a firm or enterprise, the same as a business."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Concern"
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1165,48 @@
     "text": "Herdsman departs with dog",
     "enumeration": "6"
    },
-   "solution": "DROVER"
+   "solution": "DROVER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DROVER",
+    "definitions": [
+     {
+      "text": "Herdsman",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "departs",
+      "gives": "D",
+      "note": "D is the timetable abbreviation for departs"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "ROVER",
+      "note": "Rover is a stock name for a dog"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ROVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A herdsman sets off with his dog.",
+     "definitionFit": "A drover drives cattle or sheep to market, so is a kind of herdsman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -327,7 +1220,69 @@
     "text": "Old wobbly gut or weight to shed in maturity",
     "enumeration": "7"
    },
-   "solution": "OUTGROW"
+   "solution": "OUTGROW",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "OUTGROW",
+    "definitions": [
+     {
+      "text": "shed in maturity",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wobbly",
+      "for": "anagram",
+      "note": "wobbly means unsteady and shaken, so the letters are shifted about"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "gut or",
+      "gives": "GUTOR",
+      "note": "the letters of both words"
+     },
+     {
+      "clueFragment": "weight",
+      "gives": "W",
+      "note": "W is the abbreviation for weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "UTGRO",
+      "W"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GUTOR",
+       "gives": "UTGRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old wobbly belly or extra weight is something to lose as you get older.",
+     "definitionFit": "To outgrow something is to leave it behind as you mature, like a childhood habit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "shed"
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1296,60 @@
     "text": "Very precise girl with UCAS forms",
     "enumeration": "8"
    },
-   "solution": "SURGICAL"
+   "solution": "SURGICAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SURGICAL",
+    "definitions": [
+     {
+      "text": "Very precise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "forms",
+      "for": "anagram",
+      "note": "forms means makes or shapes, so the letters are moulded into something new"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "GIRL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "UCAS",
+      "gives": "UCAS",
+      "note": "UCAS is the UK university admissions service"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GIRLUCAS",
+       "gives": "SURGICAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A meticulous girl fills in her university application forms.",
+     "walkthrough": "'Forms' looks like the paperwork that goes with UCAS, but it is the verb signalling rearrangement.",
+     "definitionFit": "Surgical is used figuratively for something done with a surgeon's exactness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "forms"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1363,62 @@
     "text": "Shout \"Stop,\" dislodging a learner's nice glasses",
     "enumeration": "7"
    },
-   "solution": "CRYSTAL"
+   "solution": "CRYSTAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CRYSTAL",
+    "definitions": [
+     {
+      "text": "nice glasses",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dislodging",
+      "for": "deletion",
+      "note": "dislodging means knocking out of place, so one letter is removed"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shout",
+      "gives": "CRY",
+      "note": "to cry is to shout"
+     },
+     {
+      "clueFragment": "Stop",
+      "gives": "STALL",
+      "note": "to stall is to stop"
+     },
+     {
+      "clueFragment": "a learner",
+      "gives": "L",
+      "note": "L is for learner, as on L-plates"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRY",
+      "STAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone yells 'Stop!' as a novice knocks over the good glassware.",
+     "definitionFit": "Crystal is fine, high-quality glassware, the good glasses kept for best."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "learner's"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1432,53 @@
     "text": "Suit cut on the counter out of Crimplene is enormous",
     "enumeration": "6"
    },
-   "solution": "ONESIE"
+   "solution": "ONESIE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ONESIE",
+    "definitions": [
+     {
+      "text": "Suit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "hidden_word",
+      "note": "a cut is a portion sliced from something larger, so the letters are a section of the words"
+     },
+     {
+      "text": "out of",
+      "for": "hidden_word",
+      "note": "out of means taken from inside, so the letters come from within the phrase"
+     },
+     {
+      "text": "on the counter",
+      "for": "reversal",
+      "note": "counter means contrary or opposite, so the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crimplene is enormous",
+      "gives": "EISENO",
+      "note": "the letters straddling the ends of the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A suit made of Crimplene, a 1970s polyester, is laid on the shop counter and looks huge.",
+     "definitionFit": "A onesie is a one-piece all-in-one suit covering body, arms and legs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "counter"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1492,57 @@
     "text": "Not yet dealt with case of larceny? Very well",
     "enumeration": "13"
    },
-   "solution": "OUTSTANDINGLY"
+   "solution": "OUTSTANDINGLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OUTSTANDINGLY",
+    "definitions": [
+     {
+      "text": "Very well",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "case of",
+      "for": "letter_selection",
+      "note": "a case is the outer shell, so only the outside letters of the word are used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not yet dealt with",
+      "gives": "OUTSTANDING",
+      "note": "outstanding business is unresolved"
+     },
+     {
+      "clueFragment": "larceny",
+      "gives": "LY",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUTSTANDING",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A larceny case has not been dealt with yet, and that is fine.",
+     "walkthrough": "'Case' suggests a criminal case, but it means the shell of the word.",
+     "definitionFit": "Outstandingly means exceptionally, extremely well."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1562,46 @@
      }
     ]
    },
-   "solution": "GETGO"
+   "solution": "GETGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GET-GO",
+    "definitions": [
+     {
+      "text": "Beginning",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to understand",
+      "gives": "GET",
+      "note": "to get something is to understand it"
+     },
+     {
+      "clueFragment": "complicated game",
+      "gives": "GO",
+      "note": "Go is an East Asian board game famed for its depth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GET",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is starting to make sense of a tricky game.",
+     "definitionFit": "From the get-go is an American idiom meaning from the very start."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "complicated"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1615,47 @@
     "text": "Stones, 3 slowing down musically",
     "enumeration": "4"
    },
-   "solution": "GRIT"
+   "solution": "GRIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRIT",
+    "definitions": [
+     {
+      "text": "Stones",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "3",
+      "gives": "G",
+      "note": "the answer to 3-down is slang for a thousand pounds, abbreviated G"
+     },
+     {
+      "clueFragment": "slowing down musically",
+      "gives": "RIT",
+      "note": "rit. is the score abbreviation for ritardando, gradually slower"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RIT"
+     ]
+    },
+    "explanation": {
+     "surface": "Stones fall slowly in a piece of music.",
+     "walkthrough": "A cross-reference: '3' stands for the answer to 3-down, and that word is shortened to its usual one-letter form.",
+     "definitionFit": "Grit is small loose particles of stone or sand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "3"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1669,58 @@
     "text": "Intentionally lose the argument, saving energy",
     "enumeration": "5"
    },
-   "solution": "THROW"
+   "solution": "THROW",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "THROW",
+    "definitions": [
+     {
+      "text": "Intentionally lose",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "saving",
+      "for": "deletion",
+      "note": "saving here means except or keeping back, so that letter is left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "argument",
+      "gives": "ROW",
+      "note": "a row is an argument"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "ROW"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone deliberately loses an argument to save their energy.",
+     "definitionFit": "To throw a game or match is to lose it on purpose, often for a bribe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "saving"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1734,50 @@
     "text": "Witness cops treat badly",
     "enumeration": "9"
    },
-   "solution": "SPECTATOR"
+   "solution": "SPECTATOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPECTATOR",
+    "definitions": [
+     {
+      "text": "Witness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "badly means poorly or wrongly done, so the letters end up in the wrong order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cops treat",
+      "gives": "COPSTREAT",
+      "note": "the letters of both words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COPSTREAT",
+       "gives": "SPECTATOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A witness is mistreated by police officers.",
+     "definitionFit": "A spectator watches an event, so is a witness to it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Witness"
+    }
+   }
   },
   {
    "number": 27,
@@ -465,7 +1797,76 @@
      }
     ]
    },
-   "solution": "YEWTREE"
+   "solution": "YEWTREE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "YEW TREE",
+    "definitions": [
+     {
+      "text": "Poisonous plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cutting",
+      "for": "container",
+      "note": "cutting into something means slicing through its middle, so one piece sits within the other"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "still",
+      "gives": "YET",
+      "note": "yet means still, as in 'it may yet happen'"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on, concerning"
+     },
+     {
+      "clueFragment": "table",
+      "gives": "E",
+      "select": "last",
+      "note": "its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YE",
+      "W",
+      "T",
+      "RE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A toxic plant cutting is still sitting on the edge of a table.",
+     "walkthrough": "'Cutting' looks like a plant cutting, fitting the botanical surface, but it is the insertion signal.",
+     "definitionFit": "The yew is an evergreen tree whose foliage and seeds are highly poisonous."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cutting"
+    }
+   }
   },
   {
    "number": 28,
@@ -479,7 +1880,46 @@
     "text": "Notice drunk brightened up specially",
     "enumeration": "7"
    },
-   "solution": "SPOTLIT"
+   "solution": "SPOTLIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPOTLIT",
+    "definitions": [
+     {
+      "text": "brightened up specially",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Notice",
+      "gives": "SPOT",
+      "note": "to spot is to notice"
+     },
+     {
+      "clueFragment": "drunk",
+      "gives": "LIT",
+      "note": "lit is slang for drunk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPOT",
+      "LIT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notices that a drunk has unusually perked up.",
+     "definitionFit": "Spotlit means lit by a spotlight, a beam focused on one particular place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   }
  ]
 }
