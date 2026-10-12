@@ -481,7 +481,7 @@ def read_pdf(data):
     text, ops = fpp.ops_of(data)
     if not text.strip():
         return None     # a scan: the page is one image
-    runs = overprinted_once(lp.text_runs(data))
+    runs = overprinted_once(mac_punctuation(lp.text_runs(data)))
     # The heading is the largest "Azed No. n" on the page: the competition
     # rules' "to Azed No. n, PO Box ..." and the prizewinners are set small.
     # A run that opens with it comes first: 2482's text is all one size, and
@@ -512,6 +512,19 @@ def read_pdf(data):
     pre = "" if re.search(r"(?i)\bPlain\b", title) else pdf_preamble(runs, lines, size, xs, ys)
     return {"number": number, "preamble": pre, "title": title,
             "grid": grid, "printed": printed, "lines": sections(lines)}
+
+
+MAC_PUNCTUATION = str.maketrans("ÕÔÒÓÐÑ", "’‘“”–—")
+
+
+def mac_punctuation(runs):
+    """The runs with Mac Roman's punctuation put right: 2482 is set in that
+    encoding, so "Santa's helpers - seamen" reads "SantaÕs helpers Ð seamen"
+    through cp1252. Only a page that shows a Mac quote (Õ Ô Ò Ó, none of them
+    English) is turned, so a legitimate Ð or Ñ elsewhere stays."""
+    if not any(c in t for _p, _x, _y, _s, t in runs for c in "ÕÔÒÓ"):
+        return runs
+    return [(p, x, y, s, t.translate(MAC_PUNCTUATION)) for p, x, y, s, t in runs]
 
 
 def overprinted_once(runs):
