@@ -701,6 +701,86 @@ def choices(rec):
             yield choice
 
 
+def pruned_choices(rec):
+    """choices(rec), cut down before the product is taken, for a record whose
+    full product is over MAX_SPLITS (toughie-638: four 3-light groups, 3,000
+    splits; toughie-1420: five pairs, 630). Each group keeps only splits that
+    can sit in a blocked, half-turn symmetric grid, which is what the search
+    solve_linked() runs looks for:
+
+    - every piece is MIN_LIGHT to the grid's side long;
+    - the k-th across light by number is as long as the k-th from the end
+      (a half turn reverses the across lights' order exactly), and one that
+      is its own partner runs through the centre, so is odd. Its partner is
+      a fixed answer, a piece of the same split, or a piece some surviving
+      split of the partner's group gives that length; this repeats until no
+      group loses a split;
+    - over a whole choice, the down lights' lengths pair off but for at most
+      one odd one through the centre (down lights do not reverse by number:
+      a light's start row moves with its length).
+
+    None when the record cannot be read that way: a barred grid, a light
+    whose direction the post left unsaid, or an entry typed against its
+    heading (solve() may turn it to another direction)."""
+    if (rec["series"] in BARRED or any(e.get("heading") for e in rec["entries"])
+            or any(d is None for g in rec["unsplit"] for _n, d in g["lights"])):
+        return None
+    side = size(rec)
+    fixed = {(e["number"], e["direction"]): length(e) for e in rec["entries"]}
+    owner = {tuple(light): gi for gi, g in enumerate(rec["unsplit"])
+             for light in g["lights"]}
+    across = sorted(k for k in {*fixed, *owner} if k[1] == "across")
+    partner = dict(zip(across, reversed(across)))
+    doms = [[{light: len(p) for light, p in s} for s in splits(g)]
+            for g in rec["unsplit"]]
+    doms = [[s for s in dom if all(parser.MIN_LIGHT <= n <= side for n in s.values())]
+            for dom in doms]
+
+    def fits(lens):
+        for light, n in lens.items():
+            q = partner.get(light)
+            if q is None:
+                continue
+            if q == light:
+                want = {n} if n % 2 else set()
+            elif q in lens:
+                want = {lens[q]}
+            elif q in owner:
+                want = {s[q] for s in doms[owner[q]]}
+            else:
+                want = {fixed[q]} if fixed.get(q) else {n}
+            if n not in want:
+                return False
+        return True
+
+    changed = True
+    while changed:
+        changed = False
+        for gi, dom in enumerate(doms):
+            keep = [s for s in dom if fits(s)]
+            if len(keep) != len(dom):
+                doms[gi], changed = keep, True
+    survivors = [[s for s in splits(g) if {light: len(p) for light, p in s} in dom]
+                 for g, dom in zip(rec["unsplit"], doms)]
+    downs = [length(e) for e in rec["entries"] if e["direction"] == "down"]
+    if None in downs:
+        downs = None
+    have = set(fixed)
+    out = []
+    for choice in itertools.product(*survivors):
+        named = [light for pieces in choice for light, _ in pieces]
+        if len(set(named)) != len(named) or have & set(named):
+            continue
+        if downs is not None:
+            count = collections.Counter(
+                downs + [len(p) for pieces in choice for (_n, d), p in pieces if d == "down"])
+            odd = [n for n, k in count.items() if k % 2]
+            if len(odd) > 1 or any(n % 2 == 0 for n in odd):
+                continue
+        out.append(choice)
+    return out
+
+
 def with_split(rec, choice):
     """rec with one split of each linked answer the blog left unsplit, and
     no longer unsplit."""
@@ -765,7 +845,10 @@ def solve_linked(rec, limit, max_nodes, budget):
     which is what the grid row and the filer read."""
     tries = list(itertools.islice(choices(rec), MAX_SPLITS + 1))
     if len(tries) > MAX_SPLITS:
-        return [], "rejected: too many ways to split its linked answers"
+        tries = pruned_choices(rec)
+        if tries is None or len(tries) > MAX_SPLITS:
+            return [], "rejected: too many ways to split its linked answers"
+        budget.note(f"linked splits pruned by length and symmetry to {len(tries)}")
     found = []
     for choice in tries:
         # solve() writes what it settled -- directions as headed, a freed
