@@ -118,6 +118,12 @@ for n, want in ((161, None), (162, None), (165, 8), (84, 0), (101, 2), (108, 6),
         es = json.load(open(f[0]))["entries"]
         print(f"filed-{n}", len(es), sum(bool(e["clue"].get("missing")) for e in es))
         print(f"setter-{n}", json.load(open(f[0])).get("setter"))
+f = glob.glob("puzzles/genius/*/genius-233.json")
+if f:
+    z = json.load(open(f[0]))
+    print("filed-233", z["solutions"]["origin"],
+          sum("enumeration" not in e["clue"] for e in z["entries"] if e["direction"] == "across"),
+          sum("enumeration" in e["clue"] for e in z["entries"] if e["direction"] == "down"))
 PY
 )
 echo "$out" | sed 's/^/     /'
@@ -155,6 +161,7 @@ check "a run under no known heading is the other way's clues (157)" "[(1, 'd'), 
 check "stranded clues, spaced byline and grid numbers leave only the preamble (157)" "Half the solutions are entered in a 10 across manner." "$(get stranded-preamble)"
 check "a post opening 'X is a setter' names the setter; none otherwise (103, 84)" "Lavatch None" "$(get body-setter)"
 check "a stretched grid is squared before it is read (157)" "17.6" "$(get unstretched)"
+[ -z "$(get filed-233)" ] || check "genius-233 files unsolved with no post, its 14 across clues printed without counts" "unsolved 14 14" "$(get filed-233)"
 [ -z "$(get filed-112)" ] || check "genius-112's quotation lights file unclued, their letters the post's quotation (article marks, no preamble)" "28 5" "$(get filed-112)"
 [ -z "$(get filed-108)" ] || check "genius-108's six marked lights file unclued off the article page" "30 6" "$(get filed-108)"
 [ -z "$(get setter-84)" ] || check "genius-84 files with no setter (series.py unbylined)" "None" "$(get setter-84)"
