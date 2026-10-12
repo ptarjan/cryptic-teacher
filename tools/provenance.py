@@ -384,6 +384,7 @@ ACQUISITION_BY_SOURCE = {
     ("ftcryptic", "link.gale.com"): ("tools/file_archive_org_puzzles.py",),
     ("independent", "link.gale.com"): ("tools/file_archive_org_puzzles.py",),
     ("sundaytimes", "link.gale.com"): ("tools/file_archive_org_puzzles.py",),
+    ("tls", "link.gale.com"): ("tools/file_archive_org_puzzles.py",),
     ("ftcryptic", "archive.org"): ("tools/file_archive_org_puzzles.py",),
     ("cryptic", "archive.org"): ("tools/file_archive_org_puzzles.py",),
     ("telegraph", "archive.org"): ("tools/file_archive_org_puzzles.py",),
