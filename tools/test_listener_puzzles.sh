@@ -154,6 +154,16 @@ print("GRADE", why, g["solutions"], [(e["solution"], "annotation" in e) for e in
 off = dict(key, entries=key["entries"][:1])
 print("GRADEOFF", L.graded_by_key(held, off))
 print("HELD", sorted(L.SKIP), sorted(L.TIMES_SKIP))
+# No 111's page: the DOWN heading (x=278) sits left of the page's middle, so
+# the right column's numbers (x=292) split there; the note between the title
+# and ACROSS is the preamble.
+n111 = [(0, 158, 774, 14, "Listener Crossword No 111: Mathematical "),
+        (0, 70, 485, 12, "No number can begin with 0. "),
+        (0, 70, 443, 12, "ACROSS "), (0, 278, 443, 12, "DOWN "),
+        (0, 84, 430, 12, "1 "), (0, 101, 430, 12, "4th power"),
+        (0, 292, 430, 12, "1 "), (0, 309, 430, 12, "5th power ")]
+print("SPLIT111", L.column_lines(n111, 297.6))
+print("PRE111", repr(L.preamble_lines(n111)))
 PY
 )
 
@@ -190,6 +200,10 @@ check "the archive's key grades a paper-filed grid by square, dropping a changed
   "$(grep '^GRADE ' <<<"$out")"
 check "a light off the key's grid is not graded" \
   "GRADEOFF (None, \"2-down runs off the archive's grid\")" "$(grep '^GRADEOFF' <<<"$out")"
-check "No 3 is filed (from Gale), not held" "HELD [111] [3985]" "$(grep '^HELD' <<<"$out")"
+check "No 3 is filed (from Gale), No 111 (numerical) too: nothing held" "HELD [] [3985]" "$(grep '^HELD' <<<"$out")"
+check "No 111: the columns split at the DOWN heading, left of the middle" \
+  "SPLIT111 (['ACROSS', '1 4th power'], ['DOWN', '1 5th power'])" "$(grep '^SPLIT111' <<<"$out")"
+check "No 111: the note above ACROSS is the preamble" \
+  "PRE111 'No number can begin with 0.'" "$(grep '^PRE111' <<<"$out")"
 
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }

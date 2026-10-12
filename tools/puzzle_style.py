@@ -53,6 +53,11 @@ def is_plain(ann):
 
 
 def style(puzzle):
+    # A numerical puzzle (Listener No 111: every answer a number, every clue
+    # arithmetic) has no wordplay at all: the hint ladder is the definition, and
+    # the hint queue takes it last, as it does every straight puzzle.
+    if puzzle.get("numeric") is True:
+        return STRAIGHT
     texts = clue_texts(puzzle)
     if len(texts) < MIN_CLUES:
         return None

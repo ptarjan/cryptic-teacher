@@ -9,6 +9,12 @@
   // Words of a clue, as shown: stored straight, curled for the page (quotes.js).
   const escClue = (s) => esc(CTQuotes.curl(s));
   const letterOf = (s) => (s || "").toUpperCase().replace(/[^A-Z]/g, "");
+  // What a square of the open puzzle takes: A-Z, or 0-9 in a numerical puzzle
+  // (`numeric: true`, Listener No 111: every light is a number). Letters are
+  // refused there and digits elsewhere, so a stray key is never a wrong square.
+  const isNumeric = () => !!(P && P.numeric);
+  const squareKey = (k) => (isNumeric() ? /^[0-9]$/ : /^[a-zA-Z]$/).test(k);
+  const squareChars = (s) => (s || "").toUpperCase().replace(isNumeric() ? /[^0-9]/g : /[^A-Z]/g, "");
 
   const store = {
     get(key, fallback) {
@@ -2804,7 +2810,7 @@
   function onKey(ev) {
     if ($("app").classList.contains("hidden")) return;
     const k = ev.key;
-    if (/^[a-zA-Z]$/.test(k)) { typeLetter(k.toUpperCase()); ev.preventDefault(); }
+    if (squareKey(k)) { typeLetter(k.toUpperCase()); ev.preventDefault(); }
     else if (k === "Backspace") { backspace(); ev.preventDefault(); }
     else if (k === "Delete") { clearCell(cells[cur.y][cur.x]); refreshAll(); saveState(); ev.preventDefault(); }
     else if (k === "ArrowLeft") { moveSpatial(-1, 0); refreshAll(); ev.preventDefault(); }
@@ -7488,6 +7494,8 @@
       return;
     }
     P = puzzle;
+    // A phone raises its number pad for a numerical puzzle, its letters otherwise.
+    $("kbd").setAttribute("inputmode", P.numeric ? "numeric" : "text");
     meta = BY_ID[id] || { annotated: false };
     jigsaw = isJigsaw(meta);
     gridNumbers = !(meta.tags || []).includes("jigsaw");
@@ -8046,7 +8054,7 @@
     });
     // mobile soft keyboards often only fire `input`
     $("kbd").addEventListener("input", (ev) => {
-      const v = letterOf(ev.target.value);
+      const v = squareChars(ev.target.value);
       if (v) typeLetter(v[v.length - 1]);
       ev.target.value = "";
     });

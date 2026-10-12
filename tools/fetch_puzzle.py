@@ -1803,6 +1803,18 @@ def is_bare_letters(solution):
     return not NOT_A_LETTER.search(solution or "")
 
 
+NOT_A_DIGIT = re.compile(r"[^0-9]")
+
+
+def is_grid_answer(solution, puzzle=None):
+    """Is this string an answer as `puzzle`'s grid holds it: A-Z, or 0-9 and
+    nothing else in a numerical puzzle (`numeric: true`, Listener No 111,
+    whose every light is a number and which app.js types digits into)."""
+    if (puzzle or {}).get("numeric") is True:
+        return not NOT_A_DIGIT.search(solution or "")
+    return is_bare_letters(solution)
+
+
 def bare_letters(solution):
     """A solution as the grid holds it: one capital letter per cell, unaccented.
 

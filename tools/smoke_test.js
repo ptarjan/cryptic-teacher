@@ -6584,6 +6584,47 @@ global.realSetTimeout(() => {
   }
 }
 
+// --- a numerical puzzle takes digits ---
+// Listener No 111 (`numeric: true`): every light is a number. The grid takes
+// 0-9 from the keyboard and from a phone's soft keyboard (#kbd's input event),
+// refuses letters there, and raises the number pad (inputmode). Booted fresh,
+// like the block below.
+{
+  const id = "listener-111";
+  const d = require("./fake_dom.js").boot({ query: "?p=" + id });
+  const reg = d.registry;
+  const kd = d.docListeners["keydown"][0];
+  const key = (k) => kd({ key: k, preventDefault() {}, shiftKey: false, target: reg["kbd"] });
+  const puz = (global.window.CRYPTIC_PUZZLES || {})[id];
+  if (assert(puz && puz.numeric === true, `${id} loads as a numerical puzzle`)) {
+    assert(reg["kbd"].getAttribute("inputmode") === "numeric",
+      "a numerical puzzle raises the phone's number pad: " + reg["kbd"].getAttribute("inputmode"));
+    const cols = puz.dimensions.cols;
+    const cellsOf = (e) => Array.from({ length: e.length }, (_, i) => reg["grid"].children[
+      (e.direction === "across" ? e.position.y : e.position.y + i) * cols
+      + (e.direction === "across" ? e.position.x + i : e.position.x)]);
+    const [first, second] = puz.entries.filter((e) => /^[0-9]{2,}$/.test(e.solution || ""));
+    assert(first && second, "two digit answers to type");
+    reg["clue-" + entryId(first)].listeners.click[0]();
+    // Letters are not a numerical puzzle's: typed over the whole light, none lands.
+    first.solution.split("").forEach(() => key("A"));
+    assert(!cellsOf(first).some((c) => c.classList.contains("solved-flash")),
+      "letters typed into a numerical grid solve nothing");
+    reg["clue-" + entryId(first)].listeners.click[0]();
+    first.solution.split("").forEach((c) => key(c));
+    assert(cellsOf(first).every((c) => c.classList.contains("solved-flash")),
+      `typing ${first.solution} solves ${entryId(first)}: digits go into the grid`);
+    // A soft keyboard that only fires `input`: digits kept, a letter dropped.
+    reg["clue-" + entryId(second)].listeners.click[0]();
+    second.solution.split("").forEach((c) => {
+      reg["kbd"].value = "x" + c;
+      reg["kbd"].listeners.input[0]({ target: reg["kbd"] });
+    });
+    assert(cellsOf(second).every((c) => c.classList.contains("solved-flash")),
+      `the soft keyboard's digits solve ${entryId(second)}`);
+  }
+}
+
 // --- typing does not rewrite the hint panel ---
 // refreshAll() runs on every keystroke, and rebuilding the whole panel with it
 // would tear down a hint body, rung row and escape hatch in which nothing had

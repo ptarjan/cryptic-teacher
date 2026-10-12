@@ -219,6 +219,7 @@ from fetch_puzzle import (
     has_words,
     is_bare_letters,
     is_continuation,
+    is_grid_answer,
     prints_own_count,
     read_puzzle_file,
 )
@@ -731,8 +732,9 @@ def check_shape(puzzle, today, flags):
         # fails it — a page serving a masked answer ("T?S?R", Guardian cryptic
         # 28,691 3-down) — so what this catches came from a fetcher that does
         # not go through convert().
-        if not is_bare_letters(solution):
-            flags.append(("SHAPE", pid, f"{eid}: solution {solution!r} is not bare letters"))
+        if not is_grid_answer(solution, puzzle):
+            flags.append(("SHAPE", pid, f"{eid}: solution {solution!r} is not bare "
+                          + ("digits" if puzzle.get("numeric") is True else "letters")))
             continue
         checkable.append(e)
     return checkable

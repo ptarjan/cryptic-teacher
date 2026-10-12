@@ -110,6 +110,9 @@ check("a published grid a half turn does not map onto is asymmetric",
       "asymmetric" in tagged(real("independent-9010")))
 check("a symmetric grid is not asymmetric", "asymmetric" not in tagged(real("cryptic-30098")))
 check("printed letters are letters given", "letters-given" in tagged(real("listener-93")))
+check("a puzzle whose answers are numbers is numerical",
+      "numerical" in tagged({**real("listener-93"), "numeric": True})
+      and "numerical" not in tagged(real("listener-93")))
 
 # --- big grid: bigger than the series' usual size or the corpus's ---
 areas = [(f"d-{i}", "daily", 225) for i in range(60)] + [("d-big", "daily", 529)] \

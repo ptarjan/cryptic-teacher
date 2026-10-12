@@ -33,6 +33,10 @@ for pid, why in [("times-5", "1930, has charades"), ("canberra-670909", "1967 cr
                  ("listener-121", "1932 cryptic verse, unannotated")]:
     check(f"{pid} is a cryptic ({why})", not ps.is_straight(real(pid)), ps.style(real(pid)))
 
+# A numerical (numeric: true) is straight whatever its clues: it has no wordplay.
+digits = copy.deepcopy(real("listener-121"))
+digits["numeric"] = True
+check("(mirror) a numerical puzzle is straight", ps.is_straight(digits), ps.style(digits))
 # The clue text decides only before TEXT_BEFORE: the same clues dated 2021 are not enough.
 moved = copy.deepcopy(real("listener-9"))
 moved["date"] = "2021-01-01"
