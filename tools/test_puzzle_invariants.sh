@@ -84,6 +84,12 @@ p["setter"] = None
 write("genius-null-setter", p)
 p["id"], p["number"] = "genius-84", 84
 write("genius-unbylined-84", p)
+p = copy.deepcopy(real("genius-83"))
+p["setter"], p["id"], p["number"] = None, "genius-7", 7
+p["solutions"] = {"origin": "unsolved"}
+for e in p["entries"]:
+    e.pop("solution", None)
+write("genius-unsolved-nosetter", p)
 
 p = copy.deepcopy(indy)
 p["date"] = None
@@ -211,6 +217,7 @@ same "a syndication suffix on a setter is refused" "$(grep ' licensed-setter' <<
 same "a setter with stray whitespace is refused" "$(grep ' padded-setter' <<<"$out")" "REFUSED padded-setter SETTER"
 same "a bylined series with no setter is refused" "$(grep ' bylined-null-setter' <<<"$out")" "REFUSED bylined-null-setter SETTER"
 same "a Genius with no setter is refused" "$(grep ' genius-null-setter' <<<"$out")" "REFUSED genius-null-setter SETTER"
+same "an unsolved Genius with no setter writes (no source names one)" "$(grep ' genius-unsolved-nosetter' <<<"$out")" "WROTE genius-unsolved-nosetter"
 same "a Genius series.py lists as unbylined writes with no setter" "$(grep ' genius-unbylined-84' <<<"$out")" "WROTE genius-unbylined-84"
 same "a complete scanned puzzle with no byline and no answers writes" "$(grep ' scan-no-byline-no-answers' <<<"$out")" "WROTE scan-no-byline-no-answers"
 same "a feed puzzle with no date is refused" "$(grep ' feed-undated' <<<"$out")" "REFUSED feed-undated SHAPE"

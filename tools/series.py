@@ -38,6 +38,10 @@ import re
 # unbylined — {number: why} for the puzzles of a bylined series that no source
 #   names a setter for (page, picture and blog all checked): they file with no
 #   setter key instead of being held (Genius 84).
+# unbylinedUnsolved — a puzzle of a bylined series filed unsolved (no blog post
+#   to read answers or a setter from) whose article page names no setter files
+#   with none: "no source names one" is a recorded state for the class, not a
+#   parser miss. A puzzle some source does name a setter for still needs it.
 # renumberedBelow — the series started its numbering again: numbers below this
 #   are the newer run, and each run is its own sequence.
 # datedFromNeighbours — the source prints no date, so the filer derives each
@@ -288,6 +292,9 @@ SERIES = {
         # The article page's byline is "Guardian staff reporter", its grid
         # picture prints none, and fifteensquared's post names nobody.
         "unbylined": {84: "no byline on the article, its grid picture or fifteensquared's post"},
+        # The early puzzles with no post: the page names nobody, so they file
+        # unsolved with no setter (tools/genius_puzzles.py unsolved()).
+        "unbylinedUnsolved": True,
         "badge": "genius",
     },
     # The Listener: barred and thematic, its trick in a preamble, printed by

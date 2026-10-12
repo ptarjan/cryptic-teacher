@@ -137,6 +137,10 @@ if f:
     print("filed-233", z["solutions"]["origin"],
           sum("enumeration" not in e["clue"] for e in z["entries"] if e["direction"] == "across"),
           sum("enumeration" in e["clue"] for e in z["entries"] if e["direction"] == "down"))
+f = glob.glob("puzzles/genius/*/genius-7.json")
+if f:
+    z = json.load(open(f[0]))
+    print("unsolved-nosetter", z["solutions"]["origin"], z.get("setter"))
 PY
 )
 echo "$out" | sed 's/^/     /'
@@ -181,6 +185,7 @@ check "a jigsaw clue's answer and entry come off the post row printing it (250)"
 [ -z "$(get filed-112)" ] || check "genius-112's quotation lights file unclued, their letters the post's quotation (article marks, no preamble)" "28 5" "$(get filed-112)"
 [ -z "$(get filed-108)" ] || check "genius-108's six marked lights file unclued off the article page" "30 6" "$(get filed-108)"
 [ -z "$(get setter-84)" ] || check "genius-84 files with no setter (series.py unbylined)" "None" "$(get setter-84)"
+[ -z "$(get unsolved-nosetter)" ] || check "an early Genius with no post and no setter named files unsolved with no setter (7)" "unsolved None" "$(get unsolved-nosetter)"
 [ -z "$(get filed-165)" ] || check "genius-165 files its eight See-preamble lights unclued" "32 8" "$(get filed-165)"
 
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }
