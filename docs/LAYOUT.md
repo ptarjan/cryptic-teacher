@@ -1338,6 +1338,10 @@ tools/data/renamed_ids.json                   every puzzle id renamed, {old id: 
                                               (tools/renamed_ids.py); build_seo_pages.py writes
                                               a redirect page at each old id no live puzzle
                                               holds
+tools/data/book_twins.json                    {held book id: newspaper id}:
+                                              tools/book_twins.py's table, written by the write
+                                              path when it refuses a newspaper copy of a held
+                                              book file
 tools/data/reprints_pending.json              the reprint files held before tools/reprints.py's
                                               rule, still to fold into their originals;
                                               puzzle_integrity.py's REPRINT check forgives
