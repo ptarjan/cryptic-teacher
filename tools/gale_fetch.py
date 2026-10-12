@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
-"""Download the Gale Times pages the checklist wants, at a hand's pace, with
-no model in the loop (Paul 2026-10-11, "Mac script, at hand pace": it took
-over from a Claude-in-browser that clicked each Download row).
+"""Download the Gale Times pages the checklist wants, then the other
+papers' (gale_inbox.OTHERS), at a hand's pace, with no model in the loop
+(Paul 2026-10-11, "Mac script, at hand pace": it took over from a
+Claude-in-browser that clicked each Download row).
 
 Rows come in the checklist's own order (gale_inbox.next_up: Times No 1,
 then the rest as the page lists them), from row SKIP + 1 (--skip; deep by
 default, below wherever a person or browser agent clicks from the top).
-Each row's document is looked up here (gale_docs.lookup, kept in
-gale_docs.CACHE, which only this script writes for the Times). Each PDF is
+Once fewer than REPLAN Times rows are left, each other paper's unfiled
+dates follow (gale_inbox.other_wanted), paper by paper in OTHERS' order,
+newest first. Each row's document is looked up here (gale_docs.lookup, kept
+in gale_docs.CACHE, which only this script writes for these papers). Each PDF is
 Gale's own Download (gale_docs.download_url) fetched in an Alberta Research
 Portal session (geo-IP: this runs on the home connection, in the container
 or on the Mac, same address) and checked to be a PDF whose citation names
@@ -16,8 +19,11 @@ HTTP/2 and headers through curl_cffi when installed, each document's page
 opened before its Download, each request with the Referer of the page it
 was clicked on. The date is known, so nothing matches it: it is laid out
 straight away as that date's edition (gale_inbox.lay_out_fetched), which
-tools/gale_read.sh reads and files, and kept as FETCHED_DIR/GALE_<doc>.pdf
-on the Mac (out of the inbox, so no sweep, match or set-aside sees it).
+tools/gale_read.sh reads and files (the Times'; no filer reads the other
+papers' items yet), and kept as GALE_<doc>.pdf in its paper's Fetched
+folder on the Mac (fetched_dir: out of the inbox, so no sweep, match or
+set-aside sees it). Every paper's downloads count against the one LIMITS
+window: Gale's cap is per IP, not per archive.
 
 Pace (Pacer): GAP seconds between downloads, jittered, an occasional
 longer PAUSE, never more than WINDOW_MAX in WINDOW seconds.
@@ -277,20 +283,31 @@ def pdf_of(fetch, url, day, doc, text_of=None):
     return body
 
 
+def fetched_dir(prod):
+    """The Mac folder product `prod`'s downloaded PDFs are kept in."""
+    import gale_inbox
+    return FETCHED_DIR if prod == "TTDA" else f"{GALE_ROOT}/{gale_inbox.OTHERS[prod].folder}/Fetched"
+
+
+def prod_of(url):
+    """The Gale product a Download target is in (its p=)."""
+    return urllib.parse.parse_qs(urllib.parse.urlsplit(url).query)["p"][0]
+
+
 class Session:
-    """One Alberta Research Portal session on Gale's Times archive, browsed
-    as a person in Chrome does: the portal's collections page, its Times
-    link (which lands on Gale), then for each download the document's page
+    """One Alberta Research Portal session on Gale's archive `prod`, browsed
+    as a person in Chrome does: the portal's collections page, its link to
+    the archive (which lands on Gale), then for each download the document's page
     and its Download, each sent with the Referer of the page it was clicked
     on. `transport` (Chrome's call signature) stands in for the network in
     the test."""
 
-    def __init__(self, timeout=120, transport=None):
+    def __init__(self, timeout=120, transport=None, prod="TTDA"):
         self.get = transport or Chrome(timeout)
         self.referer = None
         _, page = self.open(f"{gale_docs.PORTAL}/collections")
         self.referer = page
-        _, url = self.open(f"{gale_docs.PORTAL}/actions/auth.php?db=ttda")
+        _, url = self.open(f"{gale_docs.PORTAL}/actions/auth.php?db={gale_docs.PRODUCTS[prod][0]}")
         # Gale's start page itself carries login forms (Okta), so only the
         # address it lands on is judged.
         if "gale.com/ps/" not in url or re.search(r"login|authenticat|password", url, re.IGNORECASE):
@@ -324,9 +341,11 @@ def ssh(command, **kw):
 
 def have_docs():
     """The documents already got: named in the inbox, its Set aside folder
-    or FETCHED_DIR, or in FETCHED."""
+    or a paper's Fetched folder, or in FETCHED."""
+    import gale_inbox
     q = shlex.quote
-    names = ssh(f"cd {q(INBOX)} && ls -1 . {q(ASIDE)} {q(FETCHED_DIR)} 2>/dev/null; exit 0", text=True).stdout
+    dirs = " ".join(q(fetched_dir(p)) for p in ("TTDA", *gale_inbox.OTHERS))
+    names = ssh(f"cd {q(INBOX)} && ls -1 . {q(ASIDE)} {dirs} 2>/dev/null; exit 0", text=True).stdout
     return {m.group(0).upper() for m in DOC.finditer(names)} | set(load(FETCHED))
 
 
@@ -337,9 +356,10 @@ def load(path):
         return {}
 
 
-def note(doc, day, name, path=FETCHED, at=None):
+def note(doc, day, name, path=FETCHED, at=None, prod="TTDA"):
     kept = load(path)
-    kept[doc] = {"date": day.isoformat(), "file": name, "at": iso(time.time() if at is None else at)}
+    kept[doc] = {"date": day.isoformat(), "file": name, "at": iso(time.time() if at is None else at),
+                 **({} if prod == "TTDA" else {"prod": prod})}
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(".tmp")
     tmp.write_text(json.dumps(kept, indent=0, sort_keys=True))
@@ -354,9 +374,11 @@ SKIP = int(os.environ.get("GALE_FETCH_SKIP", "0"))
 
 
 def plan(got, skip=SKIP):
-    """[(date, cache entry or None)] to fetch, in next_up order past its
-    first `skip` rows: wanted, not staged, set aside or gone from Gale, and
-    not a document in `got`. None: not looked up yet (run looks it up)."""
+    """[(product, date, cache entry or None)] to fetch: the Times' in
+    next_up order past its first `skip` rows (wanted, not staged, set aside
+    or gone from Gale), then, with fewer than REPLAN of those, each OTHERS
+    paper's other_wanted; none a document in `got`, none Gale has no
+    crossword for. None: not looked up yet (run looks it up)."""
     import dir_cache
     import gale_inbox
     dir_cache.load(gale_inbox.DIR_CACHE)
@@ -367,37 +389,46 @@ def plan(got, skip=SKIP):
     passed |= {d for d, _ in rows if gale_inbox.not_on_gale(d, docs, aside)}
     out = []
     for day, _ in gale_inbox.next_up(rows, passed, None)[skip:]:
-        e = docs.get(f"TTDA/{day.isoformat()}")
-        if e is None:
-            out.append((day, None))
-        elif "doc" in e and e["doc"].upper() not in got:
-            out.append((day, e))
+        out += want("TTDA", day, docs, got)
+    if len(out) < REPLAN:
+        for prod in gale_inbox.OTHERS:
+            for day in gale_inbox.other_wanted(prod):
+                out += want(prod, day, docs, got)
     return out
 
 
-def look_up(day, gale):
-    """The cache entry for `day` (gale_docs.lookup), kept in gale_docs.CACHE."""
-    e = gale_docs.lookup("TTDA", day, gale)
+def want(prod, day, docs, got):
+    """[(prod, day, its cache entry or None)], or [] when Gale has no
+    crossword that day or its document is in `got`."""
+    e = docs.get(f"{prod}/{day.isoformat()}")
+    if e is None:
+        return [(prod, day, None)]
+    return [(prod, day, e)] if "doc" in e and e["doc"].upper() not in got else []
+
+
+def look_up(prod, day, gale):
+    """The cache entry for `day` of `prod` (gale_docs.lookup), kept in gale_docs.CACHE."""
+    e = gale_docs.lookup(prod, day, gale)
     e["at"] = datetime.datetime.now().astimezone().isoformat(timespec="seconds")
     if "doc" not in e:
         e["matcher"] = gale_docs.MATCHER
-    gale_docs.keep(f"TTDA/{day.isoformat()}", e)
+    gale_docs.keep(f"{prod}/{day.isoformat()}", e)
     return e
 
 
-def put(body, name):
-    """Write `body` into FETCHED_DIR on the Mac as `name` (whole or not at all)."""
+def put(body, name, folder=FETCHED_DIR):
+    """Write `body` into `folder` on the Mac as `name` (whole or not at all)."""
     q = shlex.quote
-    tmp = f"{FETCHED_DIR}/.{name}.part"
-    ssh(f"mkdir -p {q(FETCHED_DIR)} && cat > {q(tmp)} && mv -f {q(tmp)} {q(FETCHED_DIR + '/' + name)}", input=body)
+    tmp = f"{folder}/.{name}.part"
+    ssh(f"mkdir -p {q(folder)} && cat > {q(tmp)} && mv -f {q(tmp)} {q(folder + '/' + name)}", input=body)
 
 
-def file_page(body, day, doc, e):
+def file_page(body, prod, day, doc, e):
     """Keep the PDF on the Mac and lay it out as `day`'s edition (no lock:
     a sync's stage never removes or re-lays a fetched edition)."""
     import gale_inbox
-    put(body, f"GALE_{doc}.pdf")
-    gale_inbox.lay_out_fetched(day, doc, body, e)
+    put(body, f"GALE_{doc}.pdf", fetched_dir(prod))
+    gale_inbox.lay_out_fetched(day, doc, body, e, prod=prod)
 
 
 def alert(text, quiet=False):
@@ -419,21 +450,20 @@ def alert(text, quiet=False):
 def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None, got_of=None, log=print,
         fetched=FETCHED, text_of=None, skip=SKIP, lookup_of=None, limits=LIMITS, tell=None):
     """Fetch until `limit` downloads, no row left, or a stop. The hooks
-    (`fetch(url) -> body`, `store(body, day, doc, entry)`, `plan_of(got)`,
-    `got_of()`, `lookup_of(day)`, `fetched`, `limits`, `tell(text)`) stand
+    (`fetch(url) -> body`, `store(body, prod, day, doc, entry)`, `plan_of(got)`,
+    `got_of()`, `lookup_of(prod, day)`, `fetched`, `limits`, `tell(text)`) stand
     in for Gale, the Mac, the logs and the room in the test. Returns
     (downloads, why it ended); raises Stop to stop."""
     pacer = pacer or Pacer()
-    session = None
+    sessions = {}  # one per product: a session on one archive 500s on another's
 
     def real_fetch(url):
-        nonlocal session
-        session = session or Session()
-        return session.download(url)
+        prod = prod_of(url)
+        sessions[prod] = sessions.get(prod) or Session(prod=prod)
+        return sessions[prod].download(url)
 
     def fresh_session():
-        nonlocal session
-        session = None
+        sessions.clear()
 
     fetch = fetch or real_fetch
     store = store or file_page
@@ -441,10 +471,10 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
     tell = tell or (lambda text: alert(text, quiet=True))
     gale = None
 
-    def real_lookup(day):
+    def real_lookup(prod, day):
         nonlocal gale
         gale = gale or gale_docs.Gale()
-        return look_up(day, gale)
+        return look_up(prod, day, gale)
 
     def hold():
         """At the window's cap, wait out the window, then start a new one;
@@ -529,15 +559,15 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
             pacer.sleep(IDLE)
             continue
         idle = 0
-        for day, e in todo:
+        for prod, day, e in todo:
             if limit is not None and n >= limit:
                 break
             if e is None:
                 if dry:
-                    log(f"would look up {day}, then fetch it")
+                    log(f"would look up {prod} {day}, then fetch it")
                     continue
                 try:
-                    e = lookup_of(day)
+                    e = lookup_of(prod, day)
                 except (urllib.error.URLError, http.client.HTTPException, OSError, ValueError, KeyError) as ex:
                     errors += 1
                     log(f"{day}: lookup {type(ex).__name__}: {ex} (error {errors}/{MAX_ERRORS})")
@@ -552,9 +582,9 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
             doc = e["doc"].upper()
             if doc in got:
                 continue
-            url = gale_docs.download_url("TTDA", day, e)
+            url = gale_docs.download_url(prod, day, e)
             if dry:
-                log(f"would fetch {day} {doc} {e.get('title', '')}")
+                log(f"would fetch {prod} {day} {doc} {e.get('title', '')}")
                 n += 1
                 continue
             hold()
@@ -566,7 +596,7 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
                     if not first.refused:
                         raise
                     body = refused(first, url, day, doc)
-                store(body, day, doc, e)
+                store(body, prod, day, doc, e)
             except Stop:
                 raise
             except (urllib.error.URLError, http.client.HTTPException, OSError,
@@ -580,9 +610,9 @@ def run(limit=None, dry=False, pacer=None, fetch=None, store=None, plan_of=None,
                 break  # plan again: the row is still wanted
             errors = 0
             got.add(doc)
-            note(doc, day, f"GALE_{doc}.pdf", fetched, pacer.clock())
+            note(doc, day, f"GALE_{doc}.pdf", fetched, pacer.clock(), prod)
             n += 1
-            log(f"{datetime.datetime.now():%H:%M:%S} got {day} {doc} ({len(body):,} bytes) [{n}]")
+            log(f"{datetime.datetime.now():%H:%M:%S} got {prod} {day} {doc} ({len(body):,} bytes) [{n}]")
             pacer.finished()
         if dry:
             return n, "dry run: one plan shown"

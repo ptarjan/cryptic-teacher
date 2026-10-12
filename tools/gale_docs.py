@@ -45,7 +45,11 @@ PORTAL = "https://abresearchportal.ca"
 GALE = "https://go.gale.com/ps"
 #: product: (the portal's db code, the citation's paper, the archive's name)
 PRODUCTS = {"TTDA": ("ttda", "Times", "The Times Digital Archive"),
-            "LSNR": ("lsnr", "The Listener", "The Listener Historical Archive")}
+            "LSNR": ("lsnr", "The Listener", "The Listener Historical Archive"),
+            "TGRH": ("tgrh", "Daily Telegraph", "The Telegraph Historical Archive"),
+            "FTHA": ("ftha", "Financial Times", "Financial Times Historical Archive"),
+            "INDA": ("inda", "Independent", "The Independent Digital Archive"),
+            "STHA": ("stha", "Sunday Times", "The Sunday Times Historical Archive")}
 MONTHS = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "June", "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."]
 DVI = re.compile(r"var dviResponse = (\{.*?\});\s*\n")
 
@@ -116,16 +120,22 @@ def crossword(prod, titles, number=None):
     """The index into `titles` of the day's crossword, or None: a title
     naming a crossword, not the Concise or a solution or winners' list;
     the one naming `number` first."""
-    # The 2000s also print the Saturday Jumbo and Times Two's quick crossword.
-    bad = re.compile(r"concise|solution|winners|report on|quick|jumbo|times ?two\b|\bt2\b", re.IGNORECASE)
-    # Gale's OCR'd titles: "Grossword", "Crossward", "Cross-number" too.
-    cands = [i for i, t in enumerate(titles) if KIND.search(t) and not bad.search(t)]
+    # The 2000s also print the Saturday Jumbo and Times Two's quick crossword;
+    # the Sunday papers their Mephisto, French, general knowledge and
+    # two-into-one puzzles.
+    bad = re.compile(r"concise|solution|winners|report on|quick|jumbo|times ?two\b|\bt2\b|mephisto|french"
+                     r"|general knowledge|two-into-one", re.IGNORECASE)
+    # Gale's OCR'd titles: "Grossword", "Crossward", "Cross-number" too; the
+    # Telegraph's to 1990 or so are its clue heading, "No. 12,212 across".
+    kind = re.compile(f"{KIND.pattern}|{ACROSS.pattern}", re.IGNORECASE) if prod == "TGRH" else KIND
+    cands = [i for i, t in enumerate(titles) if kind.search(t) and not bad.search(t)]
     if number is not None:
         cands.sort(key=lambda i: not named(number).search(titles[i]))
     return cands[0] if cands else None
 
 
 KIND = re.compile(r"[cg]ross-? ?(word|ward|number)", re.IGNORECASE)
+ACROSS = re.compile(r"^\W*no\.? ?\d{1,2},?\d{3} across\W*$", re.IGNORECASE)
 
 
 def named(number):

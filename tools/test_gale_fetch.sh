@@ -16,7 +16,7 @@ cd "$(dirname "$0")"
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT
 python3 - "$tmp" <<'PY'
-import bisect, datetime, json, random, sys, urllib.error
+import bisect, datetime, json, random, sys, urllib.error, urllib.parse
 from pathlib import Path
 import gale_fetch as gf
 
@@ -83,13 +83,13 @@ def harness(n_rows=2000, bodies=None, got=(), refusals=()):
             raise b
         return b
 
-    def store(body, day, doc, e):
+    def store(body, prod, day, doc, e):
         stored.append(f"GALE_{doc}.pdf")
         have.add(doc)
 
     told.clear()
     kw = dict(pacer=pacer(clock), fetch=fetch, store=store, got_of=lambda: set(have),
-              plan_of=lambda g: [(d, e) for d, e in all_rows if e["doc"] not in g], log=lambda *a: None,
+              plan_of=lambda g: [("TTDA", d, e) for d, e in all_rows if e["doc"] not in g], log=lambda *a: None,
               fetched=fetched, text_of=text_of, limits=limits, tell=told.append)
     return clock, starts, stored, kw
 
@@ -202,7 +202,7 @@ assert len(starts) == 1 + gf.MAX_ERRORS and len(stored) == 1, (starts, stored)
 #    log) is never fetched again.
 first = [e["doc"] for _, e in rows(5)]
 clock, starts, stored, kw = harness(n_rows=5, got=first[:3])
-kw["plan_of"] = lambda g: rows(5)  # even if the plan still lists them
+kw["plan_of"] = lambda g: [("TTDA", d, e) for d, e in rows(5)]  # even if the plan still lists them
 n, _ = gf.run(limit=2, **kw)
 assert stored == [f"GALE_{d}.pdf" for d in first[3:]], stored
 
@@ -215,8 +215,8 @@ assert n == 0 and clock.slept == [gf.IDLE] * gf.IDLE_MAX and "waits" in why, (n,
 #    for is passed over, never fetched.
 clock, starts, stored, kw = harness(n_rows=3)
 asked = []
-kw["plan_of"] = lambda g: [(d, None) for d, e in rows(3) if e["doc"] not in g]
-kw["lookup_of"] = lambda day: asked.append(day) or (
+kw["plan_of"] = lambda g: [("TTDA", d, None) for d, e in rows(3) if e["doc"] not in g]
+kw["lookup_of"] = lambda prod, day: asked.append(day) or (
     {"why": "no crossword in the issue's contents"} if day == rows(3)[1][0]
     else dict(next(e for d, e in rows(3) if d == day)))
 n, _ = gf.run(limit=2, **kw)
@@ -278,5 +278,50 @@ try:
     raise AssertionError("a login landing opened a session")
 except gf.Stop as stop:
     assert not stop.refused and "did not open" in str(stop)
+
+# 9. Another paper's rows: its session opens through its own portal link
+#    (a session on one archive 500s on another's), its Download names its
+#    product, store and the log are told the product, and its downloads
+#    count in the one window with the Times' (Gale's cap is per IP).
+sent.clear()
+gf.Session(prod="TGRH", transport=transport(lambda u: (200, b"<html>", u)))
+assert sent[1][0] == f"{gale_docs.PORTAL}/actions/auth.php?db=tgrh", sent
+tday, te = rows(1)[0]
+turl = gale_docs.download_url("TGRH", tday, te)
+assert gf.prod_of(turl) == "TGRH" and gf.prod_of(url) == "TTDA"
+assert "Daily Telegraph" in urllib.parse.unquote(urllib.parse.parse_qs(urllib.parse.urlsplit(turl).query)
+                                                 ["citationTextJson"][0])
+assert gf.fetched_dir("TGRH") == f"{gf.GALE_ROOT}/Telegraph/Fetched" and gf.fetched_dir("TTDA") == gf.FETCHED_DIR
+clock, starts, stored, kw = harness(n_rows=4)
+mixed = [("TTDA" if i < 2 else "TGRH", d, e) for i, (d, e) in enumerate(rows(4))]
+kw["plan_of"] = lambda g: [r for r in mixed if r[2]["doc"] not in g]
+got_prods = []
+kw["store"] = lambda body, prod, day, doc, e: got_prods.append(prod)
+n, _ = gf.run(limit=4, **kw)
+assert got_prods == ["TTDA", "TTDA", "TGRH", "TGRH"], got_prods
+log = json.loads(kw["fetched"].read_text())
+assert [log[e["doc"]].get("prod") for _, _, e in mixed] == [None, None, "TGRH", "TGRH"], log
+assert gf.in_window(kw["limits"], kw["fetched"], clock())[1] == 4
+
+# 10. The plan: the Times' rows first; the other papers' only once fewer
+#     than REPLAN Times rows are left, in OTHERS' order; a date Gale has
+#     no crossword for, or whose document is got, is left out.
+import dir_cache, gale_inbox
+D = datetime.date
+saved = {k: getattr(gale_inbox, k) for k in ("wanted", "aside_days", "staged_files", "other_wanted")}
+dir_cache.load = lambda *a: None
+gale_inbox.aside_days = lambda: {}
+gale_inbox.staged_files = lambda: {}
+gale_inbox.other_wanted = lambda prod: {"TGRH": [D(2000, 1, 4), D(2000, 1, 3)], "FTHA": [D(2010, 1, 4)]}.get(prod, [])
+docs = {"TGRH/2000-01-03": {"why": "no crossword in the issue's contents"}, "FTHA/2010-01-04": {"doc": "HS1"}}
+gale_docs.load = lambda *a: docs
+gale_inbox.wanted = lambda: [(D(2001, 1, 2), "no-scan")]
+assert gf.plan(set(), 0) == [("TTDA", D(2001, 1, 2), None), ("TGRH", D(2000, 1, 4), None),
+                             ("FTHA", D(2010, 1, 4), {"doc": "HS1"})], gf.plan(set(), 0)
+assert ("FTHA", D(2010, 1, 4), {"doc": "HS1"}) not in gf.plan({"HS1"}, 0)
+gale_inbox.wanted = lambda: [(D(2001, 1, 2) - datetime.timedelta(days=i), "no-scan") for i in range(gf.REPLAN)]
+assert {r[0] for r in gf.plan(set(), 0)} == {"TTDA"}, "other papers wait while the Times has a plan's worth"
+for k, v in saved.items():
+    setattr(gale_inbox, k, v)
 print("test_gale_fetch: ok")
 PY

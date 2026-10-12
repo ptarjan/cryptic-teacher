@@ -284,6 +284,18 @@ _sib.unlink()
 g.stage(inbox, cache, io.StringIO(), un, g.MATCHES)
 shutil.rmtree(fd)
 
+# Another paper's fetched page is laid out under its own item, its link
+# that archive's, and leaves that paper's wanted list.
+_e = {"doc": "IO0700000001", "title": "No. 12,212 across", "page": 14}
+check("an OTHERS paper's date is wanted until laid out", True, D(1965, 3, 2) in g.other_wanted("TGRH", cache))
+od = g.lay_out_fetched(D(1965, 3, 2), "IO0700000001", _pdf.getvalue(), _e, cache, prod="TGRH")
+check("laid out under the paper's own item, with its archive's link", (cache / "GaleTelegraph1965UKEnglish" / "1965-03-02",
+      "GaleTelegraph1965UKEnglish", True), (od, json.loads((od / "pages.json").read_text())["item"],
+                                           "/TGRH?" in json.loads((od / "pages.json").read_text())["url"]))
+check("and no longer wanted", False, D(1965, 3, 2) in g.other_wanted("TGRH", cache))
+check("no Times edition", False, D(1965, 3, 2) in g.staged_files(cache))
+shutil.rmtree(od.parent)
+
 # Sorting files out: each class set aside with its reason, nothing asked.
 M = lambda f, **k: {"file": f, "grid": True, "cited": None, **k}
 cryptic, concise = "The Times Crossword Puzzle No 17,275", "Concise Crossword No 1154"
