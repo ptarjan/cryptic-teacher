@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "Take back band found inside topless gown",
     "enumeration": "9"
    },
-   "solution": "REPOSSESS"
+   "solution": "REPOSSESS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "REPOSSESS",
+    "definitions": [
+     {
+      "text": "Take back",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found inside",
+      "for": "container",
+      "note": "something found inside another thing sits within it, so one word goes into the other"
+     },
+     {
+      "text": "topless",
+      "for": "deletion",
+      "note": "without a top means the first letter of the word that follows is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gown",
+      "gives": "DRESS",
+      "note": "a gown is a dress"
+     },
+     {
+      "clueFragment": "band",
+      "gives": "POSSE",
+      "note": "a posse is a band of people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "POSSE",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone retrieves a group of people discovered hiding in a revealing dress.",
+     "walkthrough": "'band' suggests a ring or strip to go round the gown; here it is a group of people, as in a sheriff's posse.",
+     "definitionFit": "To repossess is to reclaim goods, typically when payments on them have not been kept up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +104,68 @@
     "text": "Mike's confused over love for indigenous North American?",
     "enumeration": "6"
    },
-   "solution": "ESKIMO"
+   "solution": "ESKIMO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ESKIMO",
+    "definitions": [
+     {
+      "text": "indigenous North American",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "confused letters are jumbled, so the name's letters are put into a new order"
+     },
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down clue, one piece over another is written above it, so it comes first"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mike's",
+      "gives": "MIKES",
+      "note": "the name with its possessive S, used as letters"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESKIM",
+      "O"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MIKES",
+       "gives": "ESKIM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled Mike mixes up love with a word for a native Arctic people.",
+     "definitionFit": "Eskimo is a traditional, now often avoided, name for the Inuit and Yupik peoples of Arctic North America."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mike's"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +179,63 @@
     "text": "Carpet lifted by university teacher",
     "enumeration": "4"
    },
-   "solution": "GURU"
+   "solution": "GURU",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "GURU",
+    "definitions": [
+     {
+      "text": "teacher",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lifted",
+      "for": "reversal",
+      "note": "in a down clue, lifting a word makes it read from bottom to top, so backwards"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Carpet",
+      "gives": "RUG",
+      "note": "a rug is a small carpet"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the standard abbreviation for university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUR",
+      "U"
+     ],
+     "reversals": [
+      {
+       "from": "RUG",
+       "to": "GUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rug is picked up by a university lecturer.",
+     "definitionFit": "A guru is a spiritual teacher in Hinduism, and more loosely any respected mentor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lifted"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +249,74 @@
     "text": "No sure winner accepted after hollow Calypso performance",
     "enumeration": "8"
    },
-   "solution": "CONCERTO"
+   "solution": "CONCERTO",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CONCERTO",
+    "definitions": [
+     {
+      "text": "performance",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepted",
+      "for": "container",
+      "note": "a word that is accepted is taken in, so it sits inside the word before it"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "this piece comes after the following one, so the later clue words are written first"
+     },
+     {
+      "text": "hollow",
+      "for": "letter_selection",
+      "note": "a hollow word has had its insides scooped out, leaving only its outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Calypso",
+      "gives": "CO",
+      "select": "outer",
+      "note": "only the first and last letters of the name are kept"
+     },
+     {
+      "clueFragment": "No",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sure winner",
+      "gives": "CERT",
+      "note": "a cert is a racing certainty, a horse sure to win"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "N",
+      "CERT",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A calypso band, uncertain of winning, gives a lacklustre show.",
+     "walkthrough": "'No' is not a refusal but the word itself, which swallows the sure winner. Cert is British slang for a certainty, especially a racehorse that cannot lose.",
+     "definitionFit": "A concerto is a musical work for soloist and orchestra, so it is a kind of performance piece."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Calypso"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +330,64 @@
     "text": "Board aircraft, your Majesty, but don't carry drug!",
     "enumeration": "5"
    },
-   "solution": "PLANK"
+   "solution": "PLANK",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PLANK",
+    "definitions": [
+     {
+      "text": "Board",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "don't carry",
+      "for": "deletion",
+      "note": "not carrying something means leaving it out, so that letter is removed"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aircraft",
+      "gives": "PLANE",
+      "note": "a plane is an aircraft"
+     },
+     {
+      "clueFragment": "your Majesty",
+      "gives": "K",
+      "note": "a king is addressed as your Majesty, and K is the chess abbreviation for king"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLAN",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "A warning to a monarch boarding a flight: don't smuggle narcotics.",
+     "walkthrough": "'Board' looks like the verb from the aircraft scene, but it is the noun. The E is dropped from PLANE before K is added.",
+     "definitionFit": "A plank is a long flat piece of timber, which is a board."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Board"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +407,54 @@
      }
     ]
    },
-   "solution": "EMDASH"
+   "solution": "EMDASH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EM DASH",
+    "definitions": [
+     {
+      "text": "Mark",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "something done badly is botched, so the letters of the next word end up disordered"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shamed",
+      "gives": "SHAMED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SHAMED",
+       "gives": "EMDASH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A person's reputation is badly tarnished.",
+     "walkthrough": "'Mark' reads as a person's name or a stain; it is a punctuation mark.",
+     "definitionFit": "An em dash is a long dash used in punctuation, one of the typographical marks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mark"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +468,54 @@
     "text": "Key indicator rising",
     "enumeration": "3"
    },
-   "solution": "DEL"
+   "solution": "DEL",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "DEL",
+    "definitions": [
+     {
+      "text": "Key",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down clue, rising means reading upward, so the word runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "indicator",
+      "gives": "LED",
+      "note": "an LED is a light-emitting diode used as an indicator light"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEL"
+     ],
+     "reversals": [
+      {
+       "from": "LED",
+       "to": "DEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An important gauge is going up.",
+     "walkthrough": "'Key' looks like an adjective meaning important; it is a keyboard key.",
+     "definitionFit": "Del is the delete key on a computer keyboard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Key"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +529,64 @@
     "text": "Show disapproval at exam covering one lesson",
     "enumeration": "8"
    },
-   "solution": "TUTORIAL"
+   "solution": "TUTORIAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TUTORIAL",
+    "definitions": [
+     {
+      "text": "lesson",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "covering something means wrapping around it, so one letter sits inside the other word"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Show disapproval",
+      "gives": "TUT",
+      "note": "tut is the clicking sound of disapproval"
+     },
+     {
+      "clueFragment": "exam",
+      "gives": "ORAL",
+      "note": "an oral is a spoken examination"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUT",
+      "OR",
+      "I",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A teacher frowns at a spoken test that covers a single topic.",
+     "definitionFit": "A tutorial is a teaching session for a small group or a single student, a kind of lesson."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Show"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +600,62 @@
     "text": "One upset teacher means to cut pupil down to size!",
     "enumeration": "4"
    },
-   "solution": "IRIS"
+   "solution": "IRIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "IRIS",
+    "definitions": [
+     {
+      "text": "means to cut pupil down to size",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upset means turned upside down, so the word reads from the bottom up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "teacher",
+      "gives": "SIR",
+      "note": "pupils address a male teacher as Sir"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "RIS"
+     ],
+     "reversals": [
+      {
+       "from": "SIR",
+       "to": "RIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An irritated schoolmaster finds a way to put an arrogant student in their place.",
+     "walkthrough": "The pupil here is the one in the eye, not the classroom.",
+     "definitionFit": "The iris is the coloured ring of the eye whose muscles shrink or widen the pupil to control the light let in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pupil"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +675,67 @@
      }
     ]
    },
-   "solution": "OILRIG"
+   "solution": "OILRIG",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "OIL RIG",
+    "definitions": [
+     {
+      "text": "fossil fuel producer",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means now and then, so only every other letter of the word is taken"
+     },
+     {
+      "text": "backed",
+      "for": "reversal",
+      "note": "backed means moved backwards, so the joined letters are read in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Female",
+      "gives": "GIRL",
+      "note": "a girl is a female"
+     },
+     {
+      "clueFragment": "icon",
+      "gives": "IO",
+      "select": "alternate",
+      "note": "the first and third letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OI",
+      "LRIG"
+     ],
+     "reversals": [
+      {
+       "from": "GIRLIO",
+       "to": "OILRIG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman celebrated as a symbol supported the oil and gas industry.",
+     "definitionFit": "An oil rig is a platform that drills for oil, which is a fossil fuel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "icon"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +749,43 @@
     "text": "Sin party?",
     "enumeration": "8"
    },
-   "solution": "FUNCTION"
+   "solution": "FUNCTION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FUNCTION",
+    "definitions": [
+     {
+      "text": "Sin",
+      "at": 0
+     },
+     {
+      "text": "party",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sin",
+      "note": "first meaning: sin, short for sine"
+     },
+     {
+      "clueFragment": "party",
+      "note": "second meaning: a formal social gathering"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a question about whether a party is wicked; 'Sin' is the maths abbreviation for sine.",
+     "definitionFit": "In maths the sine is a function, and a function is also a formal reception or social event."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sin"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +799,65 @@
     "text": "Female elephant's heading north for watery place",
     "enumeration": "3"
    },
-   "solution": "FEN"
+   "solution": "FEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "FEN",
+    "definitions": [
+     {
+      "text": "watery place",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading",
+      "for": "letter_selection",
+      "note": "the heading of a word is its front, so just its first letter is taken"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "elephant's",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter of the animal"
+     },
+     {
+      "clueFragment": "north",
+      "gives": "N",
+      "note": "N is the compass abbreviation for north"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "E",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A cow elephant is making her way northwards in search of water.",
+     "walkthrough": "'heading north' looks like one phrase of travel; 'heading' belongs to the elephant and 'north' is a separate letter. The Fens are marshy lowlands in eastern England.",
+     "definitionFit": "A fen is low, marshy, waterlogged land."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +871,71 @@
     "text": "Horse-racing daughter dumping a mad scientist",
     "enumeration": "11"
    },
-   "solution": "SCHRODINGER"
+   "solution": "SCHRODINGER",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SCHRODINGER",
+    "definitions": [
+     {
+      "text": "scientist",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dumping",
+      "for": "deletion",
+      "note": "dumping something means getting rid of it, so that letter is removed"
+     },
+     {
+      "text": "mad",
+      "for": "anagram",
+      "note": "mad means crazed and disordered, so the remaining letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Horse-racing",
+      "gives": "HORSERACING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written, and thrown out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCHRODINGER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HORSERCINGD",
+       "gives": "SCHRODINGER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl obsessed with the turf rejects a crazed boffin.",
+     "walkthrough": "'mad scientist' looks like one phrase; 'mad' is the anagram signal and 'scientist' alone is the definition. One A goes from HORSERACING plus D before the shuffle.",
+     "definitionFit": "Erwin Schrödinger was an Austrian physicist, a founder of quantum mechanics."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mad"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +949,61 @@
     "text": "Drag prince wearing uniform? On the contrary",
     "enumeration": "4"
    },
-   "solution": "HAUL"
+   "solution": "HAUL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HAUL",
+    "definitions": [
+     {
+      "text": "Drag",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "something worn goes around the wearer, so one piece sits inside another"
+     },
+     {
+      "text": "On the contrary",
+      "for": "container",
+      "note": "this flips who wears whom, so the outer and inner pieces swap roles"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prince",
+      "gives": "HAL",
+      "note": "Prince Hal is Shakespeare's young Henry V"
+     },
+     {
+      "clueFragment": "uniform",
+      "gives": "U",
+      "note": "U is Uniform in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HA",
+      "U",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A royal is dressed in military kit, or perhaps in drag.",
+     "walkthrough": "'Drag' tempts as cross-dressing, fitting the prince in costume; it is the verb to pull.",
+     "definitionFit": "To haul is to pull something heavy with effort, which is to drag it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Drag"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +1017,43 @@
     "text": "State excerpt from Lenin diaries",
     "enumeration": "5"
    },
-   "solution": "INDIA"
+   "solution": "INDIA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INDIA",
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excerpt from",
+      "for": "hidden_word",
+      "note": "an excerpt is a short passage lifted from a longer text, so the letters run consecutively inside these words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lenin diaries",
+      "gives": "INDIA",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A passage quoted from the Soviet leader's private journals.",
+     "walkthrough": "'State' reads as a verb, to declare; it is the noun, a country.",
+     "definitionFit": "India is a nation, and state is a common word for a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "State"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1067,66 @@
     "text": "Gunpowder plotter to show the way: nothing substitutes for explosives at first",
     "enumeration": "5"
    },
-   "solution": "GUIDO"
+   "solution": "GUIDO",
+   "annotation": {
+    "type": [
+     "substitution",
+     "letter_selection"
+    ],
+    "answer": "GUIDO",
+    "definitions": [
+     {
+      "text": "Gunpowder plotter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "substitutes for",
+      "for": "substitution",
+      "note": "one thing substituting for another takes its place, so a letter is swapped out"
+     },
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "'at first' keeps only the first letter of 'explosives'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to show the way",
+      "gives": "GUIDE",
+      "note": "to guide is to show the way"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "nothing is zero, shaped like the letter O"
+     },
+     {
+      "clueFragment": "explosives",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter of explosives"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUID",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A conspirator against Parliament leads the way, with no gunpowder at the start.",
+     "walkthrough": "'at first' selects the first letter of explosives, which O replaces in GUIDE.",
+     "definitionFit": "Guy Fawkes, of the 1605 Gunpowder Plot, used the Italian form Guido while fighting in Spain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nothing"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1140,49 @@
     "text": "Meeting places for Oxford college intake — beginners",
     "enumeration": "4"
    },
-   "solution": "FOCI"
+   "solution": "FOCI",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "FOCI",
+    "definitions": [
+     {
+      "text": "Meeting places",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginners",
+      "for": "letter_selection",
+      "note": "beginners are the starting letters, so the opening letter of each word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for Oxford college intake",
+      "gives": "FOCI",
+      "select": "first",
+      "note": "the opening letter of each of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOCI"
+     ]
+    },
+    "explanation": {
+     "surface": "Venues where new undergraduates arriving at an Oxford college gather.",
+     "walkthrough": "'intake — beginners' suggests freshers; it is a hint to take the starting letters.",
+     "definitionFit": "Foci are focal points where lines or rays converge, so places where things meet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "beginners"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1196,70 @@
     "text": "As a rule, Yankee supports Confederate expelling English more than once",
     "enumeration": "9"
    },
-   "solution": "GENERALLY"
+   "solution": "GENERALLY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "GENERALLY",
+    "definitions": [
+     {
+      "text": "As a rule",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supports",
+      "for": "charade",
+      "note": "in a down clue, a supporting piece sits beneath the rest, so it goes at the end"
+     },
+     {
+      "text": "expelling",
+      "for": "deletion",
+      "note": "expelling something throws it out, so those letters are removed"
+     },
+     {
+      "text": "more than once",
+      "for": "deletion",
+      "note": "this says the removal happens repeatedly, so every matching letter in the surname goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Confederate",
+      "gives": "GENERALLEE",
+      "note": "General Lee, Robert E. Lee, led the Confederate army"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English, removed twice"
+     },
+     {
+      "clueFragment": "Yankee",
+      "gives": "Y",
+      "note": "Y is Yankee in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GENERALL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A Union soldier props up a Southern rebel who has thrown out the English several times.",
+     "walkthrough": "'Yankee' and 'Confederate' evoke the US Civil War; Yankee is just Y. 'more than once' removes both Es from LEE.",
+     "definitionFit": "Generally means usually or in most cases, which is what 'as a rule' means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Yankee"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1273,43 @@
     "text": "Settled by itself",
     "enumeration": "7"
    },
-   "solution": "SQUARED"
+   "solution": "SQUARED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SQUARED",
+    "definitions": [
+     {
+      "text": "Settled",
+      "at": 0
+     },
+     {
+      "text": "by itself",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Settled",
+      "note": "first meaning: paid off or put right, as an account"
+     },
+     {
+      "clueFragment": "by itself",
+      "note": "second meaning: multiplied by itself, in arithmetic"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like something resolved on its own; 'by itself' is the maths phrase for multiplying a number by itself.",
+     "definitionFit": "A debt that is squared has been paid off, and a number squared has been multiplied by itself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "itself"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1323,64 @@
     "text": "I dropped out of bus ride to ruined sections of fort",
     "enumeration": "8"
    },
-   "solution": "REDOUBTS"
+   "solution": "REDOUBTS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "REDOUBTS",
+    "definitions": [
+     {
+      "text": "sections of fort",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropped out of",
+      "for": "deletion",
+      "note": "dropping out of a group means leaving it, so that letter is taken away"
+     },
+     {
+      "text": "ruined",
+      "for": "anagram",
+      "note": "ruined things are wrecked, so the remaining letters are rebuilt in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written, and removed"
+     },
+     {
+      "clueFragment": "bus ride to",
+      "gives": "BUSRIDETO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REDOUBTS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BUSRDETO",
+       "gives": "REDOUBTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone quit a coach trip to some crumbling castle ramparts.",
+     "definitionFit": "Redoubts are small enclosed outworks or strongpoints forming part of a fortification."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ruined"
+    }
+   }
   },
   {
    "number": 20,
@@ -348,7 +1417,39 @@
      }
     ]
    },
-   "solution": "DEADORALIVE"
+   "solution": "DEADORALIVE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DEAD OR ALIVE",
+    "definitions": [
+     {
+      "text": "12's 29 maybe wanted thus?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "12's 29 maybe",
+      "note": "surface reading: a scientist's pet, sought by someone"
+     },
+     {
+      "clueFragment": "wanted thus",
+      "note": "setter's reading: the famous thought-experiment cat is in an undecided state, and the phrase completes a wanted poster's wording"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "12 is Schrödinger and 29 is CAT, so the clue points to Schrödinger's cat, which is both alive and dead until observed, and to the Wild West poster wording.",
+     "definitionFit": "Wild West posters offered rewards for outlaws captured in either condition, and the quantum thought experiment's cat sits in both states at once."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wanted"
+    }
+   }
   },
   {
    "number": 22,
@@ -362,7 +1463,51 @@
     "text": "You dingbat — covering up a 'pair'!",
     "enumeration": "3"
    },
-   "solution": "DUO"
+   "solution": "DUO",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "DUO",
+    "definitions": [
+     {
+      "text": "pair",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "hidden_word",
+      "note": "the words cover the answer, holding its letters consecutively inside them"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means reading from bottom to top, so backwards"
+     }
+    ],
+    "linkWords": [
+     "a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You dingbat",
+      "gives": "OUD",
+      "note": "the letters sit across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone scolds a fool for concealing a couple of things.",
+     "definitionFit": "A duo is a pair, especially two performers working together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dingbat"
+    }
+   }
   },
   {
    "number": 23,
@@ -382,7 +1527,49 @@
      }
     ]
    },
-   "solution": "AMONRA"
+   "solution": "AMONRA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "AMON-RA",
+    "definitions": [
+     {
+      "text": "God",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignore the odds",
+      "for": "letter_selection",
+      "note": "ignoring the odd-numbered letters keeps only the second, fourth, sixth and so on"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "calm down Brian",
+      "gives": "AMONRA",
+      "select": "alternate",
+      "note": "the even-placed letters of the phrase"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMONRA"
+     ]
+    },
+    "explanation": {
+     "surface": "An exasperated plea to an agitated Brian to settle down and stop worrying about the risks.",
+     "walkthrough": "'God' reads as an exclamation in the surface; it is the definition.",
+     "definitionFit": "Amon-Ra was the chief god of ancient Egypt, the fusion of Amun with the sun god Ra."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "God"
+    }
+   }
   },
   {
    "number": 24,
@@ -400,7 +1587,60 @@
    "group": [
     "24-down",
     "20-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "RADIOISOTOPE",
+    "definitions": [
+     {
+      "text": "Tritium, for instance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow means in some unspecified way, so the gathered letters are arranged anew"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "does it pair",
+      "gives": "DOESITPAIR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "two Oxygens",
+      "gives": "OO",
+      "note": "O is the chemical symbol for oxygen, taken twice"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DOESITPAIROO",
+       "gives": "RADIOISOTOPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chemistry question: does hydrogen's heavy form bond with two oxygen atoms?",
+     "walkthrough": "The surface invites chemistry, and tritium with oxygen does make heavy water, but the oxygens are just two Os added to the letters.",
+     "definitionFit": "Tritium is a radioactive form of hydrogen, so it is an example of an unstable, radiation-emitting isotope."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pair"
+    }
+   }
   },
   {
    "number": 25,
@@ -414,7 +1654,53 @@
     "text": "Snake — not Early European — could be Mexican?",
     "enumeration": "4"
    },
-   "solution": "WAVE"
+   "solution": "WAVE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "WAVE",
+    "definitions": [
+     {
+      "text": "could be Mexican",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not Early",
+      "for": "deletion",
+      "note": "not early means the first occurrence is taken out, leaving a later one in place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Snake",
+      "gives": "WEAVE",
+      "note": "to snake is to weave, moving in a winding course"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A snake that is not from early Europe might be from Mexico.",
+     "walkthrough": "Only the first E of WEAVE goes; the final one stays. A Mexican wave is the rippling crowd motion at stadiums.",
+     "definitionFit": "A Mexican wave is a kind of wave, so a wave could be a Mexican one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Snake"
+    }
+   }
   },
   {
    "number": 26,
@@ -428,7 +1714,68 @@
     "text": "A relative of Juliet gets company for movie in seaside resort",
     "enumeration": "8"
    },
-   "solution": "ACAPULCO"
+   "solution": "ACAPULCO",
+   "annotation": {
+    "type": [
+     "charade",
+     "substitution"
+    ],
+    "answer": "ACAPULCO",
+    "definitions": [
+     {
+      "text": "seaside resort",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gets company for",
+      "for": "substitution",
+      "note": "getting one thing in exchange for another means a swap, so one piece is replaced"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "relative of Juliet",
+      "gives": "CAPULET",
+      "note": "Juliet's family in Romeo and Juliet are the Capulets"
+     },
+     {
+      "clueFragment": "movie",
+      "gives": "ET",
+      "note": "E.T. is the Spielberg film"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "Co. is the abbreviation for company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CAPUL",
+      "CO"
+     ]
+    },
+    "explanation": {
+     "surface": "One of Juliet's kin brings friends to a film at a beach town.",
+     "definitionFit": "Acapulco is a famous Mexican resort city on the Pacific coast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "movie"
+    }
+   }
   },
   {
    "number": 27,
@@ -442,7 +1789,46 @@
     "text": "Crop my name!",
     "enumeration": "4"
    },
-   "solution": "CORN"
+   "solution": "CORN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CORN",
+    "definitions": [
+     {
+      "text": "Crop",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "my",
+      "gives": "COR",
+      "note": "cor and my are both exclamations of surprise"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COR",
+      "N"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Crop my name' looks like an instruction to shorten it; 'my!' is an exclamation, as is the British cor.",
+     "definitionFit": "Corn is a cereal crop, such as wheat in Britain or maize in America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "my"
+    }
+   }
   },
   {
    "number": 28,
@@ -456,7 +1842,65 @@
     "text": "Bash Companion in Reserves, resulting in controversial headline",
     "enumeration": "6"
    },
-   "solution": "GOTCHA"
+   "solution": "GOTCHA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "GOTCHA",
+    "definitions": [
+     {
+      "text": "controversial headline",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing being in another means it sits inside, so a piece goes within the next"
+     }
+    ],
+    "linkWords": [
+     "resulting in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bash",
+      "gives": "GO",
+      "note": "to have a bash is to have a go"
+     },
+     {
+      "clueFragment": "Reserves",
+      "gives": "TA",
+      "note": "the TA, Territorial Army, was Britain's volunteer military reserve"
+     },
+     {
+      "clueFragment": "Companion",
+      "gives": "CH",
+      "note": "CH is Companion of Honour, a British order"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "T",
+      "CH",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A party attack on a fellow reservist ends up making the front pages.",
+     "walkthrough": "GOTCHA was the Sun's notorious 1982 front page on the sinking of the Argentine cruiser General Belgrano.",
+     "definitionFit": "The tabloid's one-word front page on the Falklands War sinking was widely condemned, making it a notorious headline."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bash"
+    }
+   }
   },
   {
    "number": 29,
@@ -470,7 +1914,45 @@
     "text": "Scourge of outdated hospital equipment",
     "enumeration": "3"
    },
-   "solution": "CAT"
+   "solution": "CAT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CAT",
+    "definitions": [
+     {
+      "text": "Scourge",
+      "at": 0
+     },
+     {
+      "text": "outdated hospital equipment",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scourge",
+      "note": "first meaning: a whip"
+     },
+     {
+      "clueFragment": "outdated hospital equipment",
+      "note": "second meaning: the scanner formerly called ..., now usually CT"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a complaint about old kit in hospitals; the two halves are separate meanings.",
+     "definitionFit": "A cat is a multi-lashed whip for flogging, and the computerised axial tomography machine was once called a CAT scanner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Scourge"
+    }
+   }
   },
   {
    "number": 30,
@@ -490,7 +1972,50 @@
      }
     ]
    },
-   "solution": "ICESTORM"
+   "solution": "ICESTORM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ICE STORM",
+    "definitions": [
+     {
+      "text": "chill event",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dreadful",
+      "for": "anagram",
+      "note": "something dreadful is a mess, so the following letters are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crimes to",
+      "gives": "CRIMESTO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CRIMESTO",
+       "gives": "ICESTORM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Horrible offences that send a shiver down the spine.",
+     "definitionFit": "An ice storm is a weather event of freezing rain that coats everything in ice, a cold occurrence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "chill"
+    }
+   }
   },
   {
    "number": 31,
@@ -504,7 +2029,60 @@
     "text": "Savage endless dance includes mating display",
     "enumeration": "6"
    },
-   "solution": "BRUTAL"
+   "solution": "BRUTAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "BRUTAL",
+    "definitions": [
+     {
+      "text": "Savage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without an end, the word loses its last letter"
+     },
+     {
+      "text": "includes",
+      "for": "container",
+      "note": "including something means holding it within, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dance",
+      "gives": "BALL",
+      "note": "a ball is a formal dance"
+     },
+     {
+      "clueFragment": "mating display",
+      "gives": "RUT",
+      "note": "the rut is the mating season of deer, with its displays of rivalry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RUT",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A wild, never-ending dance features a courtship ritual.",
+     "definitionFit": "Savage and brutal both describe cruel, violent behaviour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dance"
+    }
+   }
   }
  ]
 }
