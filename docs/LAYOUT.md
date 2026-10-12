@@ -782,6 +782,24 @@ tools/puzzle_tags.py                          what is unusual about each puzzle 
                                               and test; reindex writes the tags into the index,
                                               the app badges them and filters the picker by
                                               them, and /showcase/ gives each a section
+tools/puzzle_style.py                         whether a puzzle is a cryptic at all: `style`
+                                              "straight" when its clues are definitions with no
+                                              wordplay (the 1930 Listeners and Times, a 1970
+                                              Guardian run), by its annotation, or for a
+                                              pre-1960 puzzle by its short clues; reindex
+                                              writes it, the app notes it and drops the
+                                              indicator, clue-type and blocks rungs, difficulty
+                                              and the family counts skip it, and the hinting
+                                              queues take it last
+tools/test_puzzle_style.sh                    is each real puzzle read by eye as straight
+                                              called straight, and its cryptic look-alike (an
+                                              Azed special, a terse 2021 Guardian, 1967 cryptic
+                                              definitions) not; is a straight puzzle unrated
+                                              and behind every cryptic in the hinting queue?
+tools/test_straight_ladder.js                 does Listener No 1, a straight puzzle, say so
+                                              above its clues and offer no indicator, clue-type
+                                              or blocks rung, while a 1930 Times puzzle with
+                                              wordplay keeps them?
 tools/test_puzzle_tags.sh                     is each tag on a real puzzle that has it and off
                                               the look-alike that does not (a feed that lost
                                               its clues is not unclued, an erratum is not

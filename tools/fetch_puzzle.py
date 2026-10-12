@@ -74,6 +74,7 @@ import punctuation  # the marks no print breaks; see tools/punctuation.py
 import dashes  # and one spelling of a dash and an ellipsis; see tools/dashes.py
 import leading_quote  # and no stray quote or leaked number at an OCR clue's start; see tools/leading_quote.py
 import puzzle_tags  # what is unusual about a puzzle; see tools/puzzle_tags.py
+import puzzle_style  # whether a puzzle is a cryptic at all
 from puzzle_paths import (  # re-exported for the tools that ask here
     puzzle_path, puzzle_files, resolve_puzzle as resolve_puzzle, shim_path)
 
@@ -2779,6 +2780,9 @@ def index_row(path):
         # needs the whole series, from `area`, and drops `area`.
         **({"tags": tags} if (tags := puzzle_tags.tags(p)) else {}),
         "area": puzzle_tags.grid_area(p),
+        # Written only for a puzzle whose clues have no wordplay
+        # (tools/puzzle_style.py): the app notes it and drops the cryptic rungs.
+        **({"style": style} if (style := puzzle_style.style(p)) else {}),
         # The papers that printed this puzzle again under their own numbers;
         # reindex() turns each into a `reprints` row and drops this.
         "reprintedIn": p.get("source", {}).get("reprintedIn", []),

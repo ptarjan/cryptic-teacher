@@ -1137,13 +1137,15 @@ fresh = [i for d, i in todo if d >= cutoff or i in keyed_tonight]
 # The small series lead the rest, nearest to fully hinted first
 # (prereset_plan.small_series, the burn's order too), then a series' first
 # puzzle, then a partly annotated one, which costs only its missing clues.
+# A puzzle that is not a cryptic (`style`, tools/puzzle_style.py) goes last.
 from prereset_plan import small_series
 small = small_series()
 series_of = {p["id"]: p.get("series") for p in idx["puzzles"]}
+straight = {p["id"] for p in idx["puzzles"] if p.get("style")}
 rank = lambda i: small.index(series_of[i]) if series_of[i] in small else len(small)
 partial = {p["id"]: p["unannotated"] for p in idx["puzzles"] if p.get("unannotated")}
 older = sorted((i for _, i in todo if i not in fresh),
-               key=lambda i: (rank(i), not is_first_issue(i), i not in partial, partial.get(i, 0)))
+               key=lambda i: (i in straight, rank(i), not is_first_issue(i), i not in partial, partial.get(i, 0)))
 print(" ".join(fresh))
 print(" ".join(older[:int(sys.argv[1])]))
 EOF
@@ -1224,8 +1226,10 @@ from pathlib import Path
 from prereset_plan import small_series
 small = small_series()
 cutoff = datetime.date.today() - datetime.timedelta(days=2)
+# A puzzle that is not a cryptic (`style`, tools/puzzle_style.py) goes last.
+straight = {p["id"] for p in idx["puzzles"] if p.get("style")}
 def key(series, day, pid):
-    return (day >= cutoff, -(small.index(series) if series in small else len(small)),
+    return (pid not in straight, day >= cutoff, -(small.index(series) if series in small else len(small)),
             is_first_issue(pid), day, pid)
 todo = sorted([key(p.get("series"), puzzle_day(p) or datetime.date.min, p["id"])
                for p in idx["puzzles"]

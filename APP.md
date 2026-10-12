@@ -24,6 +24,12 @@ Terms used below:
   information. No indicators means no indicator rung. No rung may restate an
   earlier one. See `ladderSteps()` in `app.js`. The ladder length varies by
   clue and shows as "x/N" in the meter.
+- **A puzzle that is not a cryptic has no cryptic rungs.** The index row's
+  `style: "straight"` (`tools/puzzle_style.py`: the 1930 Listeners and Times,
+  a 1970 Guardian run) drops the indicator, type and blocks rungs, leaving the
+  definition and the walkthrough, and `#puzzle-style` says above the clues why.
+  Difficulty, the family counts and the hinting queues leave these puzzles
+  out or take them last.
 - **The order has one source: the key order of `LABELS` in `app.js`.**
   `RUNG_ORDER` is `Object.keys(LABELS)`. `tools/build_readme.py` numbers the
   README's rung list from the same map. The smoke test parses it out of

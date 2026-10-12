@@ -217,6 +217,7 @@ from fetch_puzzle import (  # one glob, one reader for every tool
     blog_fact_hashes, puzzle_files, puzzle_is_annotated, read_puzzle_file)
 import definitions
 import parallel
+import puzzle_style
 import row_cache
 import series as series_meta
 from groups import entry_id
@@ -865,7 +866,11 @@ def with_history(parts, fam):
 
 
 def raw(puz, ctx):
-    """The measurements, in their natural units, before any scaling."""
+    """The measurements, in their natural units, before any scaling. A puzzle
+    that is not a cryptic (tools/puzzle_style.py) measures nothing: every
+    component is a cryptic's, so it is neither rated nor in the baseline."""
+    if puzzle_style.is_straight(puz):
+        return dict.fromkeys(RAW_KEYS)
     return with_history(clue_parts(puz, ctx.rank), ctx.history.get(puz["id"]))
 
 
@@ -936,9 +941,10 @@ def _load_clue_inputs():
 
 def clue_row(path):
     """(id, whether the grid is barred, clue_parts()) for one puzzle file:
-    what all_scores() needs of it besides the corpus-wide history."""
+    what all_scores() needs of it besides the corpus-wide history. None for
+    the parts of a puzzle that is not a cryptic, which raw() leaves unrated."""
     puz = read_puzzle_file(path)
-    return puz["id"], bool(puz.get("bars")), clue_parts(puz, _RANK)
+    return puz["id"], bool(puz.get("bars")), None if puzzle_style.is_straight(puz) else clue_parts(puz, _RANK)
 
 
 def clue_row_deps(path, row):
@@ -977,6 +983,8 @@ def all_scores(base=None):
     # caller would then get whichever was scored last.
     out = {}
     for pid, bars, parts in rows:
+        if parts is None:
+            continue
         s = rate(with_history(parts, fam.get(pid)), bars, base)
         if not s:
             continue

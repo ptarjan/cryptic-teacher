@@ -4353,6 +4353,9 @@
     // cryptic definitions, idioms) have none and show "The trick" alone.
     const joke = prose.surface
       ? `<p><b class="wt-part">What it seems to say</b>${esc(prose.surface)}</p>` : "";
+    // A puzzle that is not a cryptic (meta.style, tools/puzzle_style.py) has no
+    // wordplay to spot, name or build: its ladder is the definition and the walkthrough.
+    if (meta && meta.style === "straight") steps.splice(0, steps.length, ...steps.filter((s) => s.key === "definition"));
     // A blog-derived ladder stops at what the blogger marked; the rest of the
     // explanation is theirs, and the panel links to it (blogCreditHTML).
     if (!ann.fromBlog) steps.push({
@@ -7518,6 +7521,7 @@
     // paper prints them: some answers are defined by nothing else.
     $("puzzle-preamble").textContent = P.preamble || "";
     $("puzzle-preamble").classList.toggle("hidden", !P.preamble);
+    $("puzzle-style").classList.toggle("hidden", meta.style !== "straight");
     const reprinted = reprintNote(id);
     $("puzzle-reprint").textContent = reprinted;
     $("puzzle-reprint").classList.toggle("hidden", !reprinted);
