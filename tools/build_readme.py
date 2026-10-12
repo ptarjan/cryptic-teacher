@@ -640,6 +640,7 @@ LAYOUT = [
     ("fetching", "tools/test_shared_leader.sh", "can one light start two linked answers (Genius 209's IVOR)? the entry's alsoLeads through the schema, groups.py, the shape checks, the annotate run and the Genius parser"),
     ("fetching", "tools/jigsaw_fit.py", "fit a jigsaw's answers into the one blocked grid they interlock in"),
     ("fetching", "tools/test_jigsaw_fit.sh", "does a jigsaw held as its clues alone become a filed puzzle once answered?"),
+    ("fetching", "tools/unit_more.py", "a unit's backlog_left(): it stopped with work left, so tools/unit_queue.py starts it again next tick; its own module so a unit loads none of the queue runner"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

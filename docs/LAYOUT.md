@@ -2305,5 +2305,9 @@ tools/jigsaw_fit.py                           fit a jigsaw's answers into the on
                                               they interlock in
 tools/test_jigsaw_fit.sh                      does a jigsaw held as its clues alone become a
                                               filed puzzle once answered?
+tools/unit_more.py                            a unit's backlog_left(): it stopped with work
+                                              left, so tools/unit_queue.py starts it again next
+                                              tick; its own module so a unit loads none of the
+                                              queue runner
 ```
 <!-- LAYOUT-END -->

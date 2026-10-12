@@ -65,7 +65,7 @@ from fetch_puzzle import (
     source_clue,
     write_puzzle_file,
 )
-from unit_queue import backlog_left
+from unit_more import backlog_left
 
 TOOL = "tools/fetch_telegraph.py"
 BUCKET = "https://puzzlesdata.telegraph.co.uk"

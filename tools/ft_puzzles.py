@@ -45,7 +45,7 @@ from fetch_puzzle import (
     read_puzzle_file,
     write_puzzle_file,
 )
-from unit_queue import backlog_left
+from unit_more import backlog_left
 
 
 SERIES = "ftcryptic"
