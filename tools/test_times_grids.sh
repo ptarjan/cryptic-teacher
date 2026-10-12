@@ -147,6 +147,32 @@ raw = dict(linked, entries=[
     for e in linked["entries"]])
 filed = T.numbered_by(T.headed_by(T.split_by(raw, TINY), TINY), TINY)
 print("HEADED_LINKED_FILED", "unsplit" in filed, T.settle(TINY, filed, {}) == ([], None))
+# Several linked groups, each small, whose product of splits is over the cap
+# (toughie-638: four 3-light groups, 3,000; toughie-1420: five pairs, 630):
+# each group is pruned on its own first -- pieces MIN_LIGHT to the side long,
+# an across light as long as its half-turn partner, down lengths pairing off
+# -- and the survivors' product is searched. Here two 3-light groups printed
+# as nine 2-letter words each: 28 splits apiece, 784 together, one left.
+BIG = ("........#......", ".#.#.#.###.#.#.", "........#......", ".#.#.#.###.#.#.",
+       "........#......", ".#.#.#.#.#.#.#.", "#####..........", ".#.#.#.#.#.#.#.",
+       "..........#####", ".#.#.#.#.#.#.#.", "......#........", ".#.#.###.#.#.#.",
+       "......#........", ".#.#.###.#.#.#.", "......#........")
+T.SIZE["Test15"] = 15
+big_cells = rg.light_cells(BIG)
+big_word = {k: "".join(chr(ord("A") + (y * 15 + x) % 26) for y, x in cs)
+            for k, cs in big_cells.items()}
+groups = [[(5, "across"), (20, "down"), (1, "down")],
+          [(12, "across"), (19, "down"), (22, "across")]]
+multi = {"series": "Test15", "entries": [
+    {"number": n, "direction": d, "answer": big_word[(n, d)]} for (n, d) in big_cells
+    if all((n, d) not in g for g in groups)],
+    "unsplit": [{"lights": [list(k) for k in g], "answer": w, "clue": "Linked",
+                 "enumeration": ",".join(["2"] * 9),
+                 "answer_printed": " ".join(w[i:i + 2] for i in range(0, 18, 2))}
+                for g in groups for w in ["".join(big_word[k] for k in g)]]}
+grids, how = T.solve(dict(multi))
+print("LINKED_GROUPS", sum(1 for _ in T.choices(multi)), len(T.pruned_choices(multi)),
+      grids == [BIG], how)
 
 # Answers that refute EVERY candidate are the opposite of an ambiguous grid:
 # the right grid is not in the list, so the light list or an answer is wrong,
@@ -481,6 +507,8 @@ check "a suffix against its heading beside a linked answer: the settled split ke
       "True True True" "$(field HEADED_LINKED)"
 check "the filer's split_by/headed_by chain splits and turns it the same way" \
       "False True" "$(field HEADED_LINKED_FILED)"
+check "linked groups over the split cap are pruned one by one, then searched" \
+      "784 1 True unique, linked answer split by the grid" "$(field LINKED_GROUPS)"
 check "answers refuting every candidate does not read as an unsettled tie" \
       "answers fit none of 2" "$(field REFUTED)"
 check "the search itself refuses a grid its answers clash in" "[] 1" "$(field WORDS_PRUNE)"
