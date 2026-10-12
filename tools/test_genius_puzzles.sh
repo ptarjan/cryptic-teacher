@@ -97,6 +97,21 @@ print("unnumbered", G.unnumbered("Solutions to the remaining clues have their pl
 pre = G.parse_text("Clues ACross Instructions Eight solutions comprise the theme, supporter and World Cup winners. "
                    "Deadline for entries is 23:59 GMT. GENIUS 165 SET BY VLAD Down 1 Work for two (3,5) 2 Stop (3)")
 print("preamble-165", pre["preamble"])
+# Numbered clues stranded outside any heading the reader knows (157), a spaced byline and grid numbers
+# left in the preamble, a setter named in the post's first words (103), a stretched grid (157).
+sr = G.parse_text("across 8 Brown animal in city (8) 9 Novel about trouble (6) 10 Voyeur on trial (13) "
+                  "Down 1 French department (6) 2 Place to learn (8) 3 Follower of Attlee (9) "
+                  "rules anD requests Half the solutions are entered in a 10 across manner. "
+                  "Genius no. 157 s et by P iCAROO n 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16")
+print("stranded-run", [(c["lights"][0][0], c["lights"][0][1][0]) for c in sr["clues"]])
+print("stranded-preamble", sr["preamble"])
+print("body-setter", G.post_setter({"title": {"rendered": "Guardian Genius 103"},
+      "content": {"rendered": "<p> Lavatch  is a setter whose puzzles always change the word.</p>"}}),
+      G.post_setter({"title": {"rendered": "Guardian Genius 84: elastic despair"},
+      "content": {"rendered": "<p>This month&#8217;s theme involved removing words.</p>"}}))
+fr = ([(0, 0, 285.3, 1.2, False)] * 8) + ([(0, 0, 1.3, 252.2, False)] * 8)
+sq = G.unstretched(fr + [(0, 0, 17.6, 15.6, True)])
+print("unstretched", round(sq[-1][3] - sq[-1][1], 1))
 for n, want in ((161, None), (162, None), (165, 8)):
     f = glob.glob(f"puzzles/genius/*/genius-{n}.json")
     if f:
@@ -135,6 +150,10 @@ check "See special instructions with no count is a stub; with one, a clue (112, 
 check "See 12 across joins 12 across, not 12 down (162)" "[(12, 'across'), (2, 'down')] [(12, 'down')]" "$(get see-way)"
 check "unnumbered clues in the preamble are counted; numbered ones are not (76, 157)" "5 0" "$(get unnumbered)"
 check "a heading behind Clues, a header without No, and World Cup winners: preamble (165)" "Eight solutions comprise the theme, supporter and World Cup winners." "$(get preamble-165)"
+check "a run under no known heading is the other way's clues (157)" "[(1, 'd'), (2, 'd'), (3, 'd'), (8, 'a'), (9, 'a'), (10, 'a')]" "$(get stranded-run)"
+check "stranded clues, spaced byline and grid numbers leave only the preamble (157)" "Half the solutions are entered in a 10 across manner." "$(get stranded-preamble)"
+check "a post opening 'X is a setter' names the setter; none otherwise (103, 84)" "Lavatch None" "$(get body-setter)"
+check "a stretched grid is squared before it is read (157)" "17.6" "$(get unstretched)"
 [ -z "$(get filed-165)" ] || check "genius-165 files its eight See-preamble lights unclued" "32 8" "$(get filed-165)"
 
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }

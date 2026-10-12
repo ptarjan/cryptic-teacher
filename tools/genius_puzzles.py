@@ -251,6 +251,7 @@ HEADER = re.compile(r"Genius\W{0,4}(?:crossword\W{0,4})?No\s*\.?\s*(\d{1,3})(?:\
 #: What the entry form and page furniture leave in the preamble: a byline
 #: printed apart from the header, a form's "Traced letter: ___", a link.
 FURNITURE = re.compile(r"(?i)\bset by [A-Za-z]+\b|[A-Z][\w ]{0,30}:\s*_{2,}|click here to register\.?|"
+                       r"\bs\s+et\s+by\s+(?:[A-Za-z]\s?){3,12}|(?:\b\d{1,2}\s+){7,}\d{1,2}\b\s*$|"
                        r"^\s*across\b|\bG\s?E\s?N\s?I\s?U\s?S\s+(?:No\.?\s*)?\d+")
 #: A preamble that says answers change on their way into the grid: the
 #: write-up's answers are then the entries, and the clue's answer differs.
@@ -431,6 +432,22 @@ def parse_text(text):
                 clues += got
                 used.append((ends[other], end))
                 ends[direction] = end
+    # One heading found and the other's clues stranded elsewhere with no
+    # heading the readers know ("across 8 Extremely ..." in small capitals, No
+    # 157, or a run that fell into the preamble): the first run of three or
+    # more clues outside the spans taken, numbered as the other way, is it.
+    if len(ends) == 1:
+        missing = "down" if "across" in ends else "across"
+        taken = lambda i: any(a <= i < b for a, b in used)
+        for m in re.finditer(r"(?<![\d,])\d{1,2}(?:[,/]\d{1,2})* (?=[A-Z\u2018\u201c\"'])", text):
+            if taken(m.start()):
+                continue
+            got, end = section(text, m.start(), missing)
+            if len(got) >= 3:
+                clues += got
+                used.append((m.start(), end))
+                ends[missing] = end
+                break
     out["clues"] = clues
     rest, at = [], 0
     spans = sorted(used + [(h.start(), h.end()) for h in HEADER.finditer(text)])
@@ -514,6 +531,19 @@ def grid_of_images(images, clues=()):
     return first and first[1]
 
 
+def unstretched(rects):
+    """The rectangles with the page's height rescaled until the grid's ruled
+    frame is square: some PDFs print the grid stretched (No 157's 285 x 252
+    frame, cells 17.6 x 15.6), which read_grid takes for no grid."""
+    long = [r for r in rects if min(r[2] - r[0], r[3] - r[1]) < 2 and max(r[2] - r[0], r[3] - r[1]) >= 100]
+    wide = [r[2] - r[0] for r in long if r[2] - r[0] > r[3] - r[1]]
+    tall = [r[3] - r[1] for r in long if r[3] - r[1] > r[2] - r[0]]
+    if len(wide) < 6 or len(tall) < 6:
+        return rects
+    k = max(wide) / max(tall)
+    return [(x0, y0 * k, x1, y1 * k) + tuple(rest) for x0, y0, x1, y1, *rest in rects]
+
+
 def read_pdf(path):
     """{number, setter, preamble, clues, grid, kind, text} off a Genius PDF.
     `kind` says where the grid came from: "vector", "image" or None."""
@@ -530,7 +560,8 @@ def read_pdf(path):
     out["marked"] = {l for c in out["clues"] if UNCLUED_MARK.fullmatch(c["clue"]) for l in c["lights"]}
     out["clues"] = [c for c in out["clues"] if not UNCLUED_MARK.fullmatch(c["clue"])]
     see_links(out["clues"])
-    grid = fpp.read_grid(fpp.filled_rects(ops))
+    rects = fpp.filled_rects(ops)
+    grid = fpp.read_grid(rects) or fpp.read_grid(unstretched(rects))
     out["kind"] = "vector" if grid else None
     if grid is None:
         grid = image_grid(reader.pages, out["clues"])
@@ -651,10 +682,19 @@ POST_SETTER = re.compile(r"Genius\D{0,12}\d{1,3}\s*(?:by|/|–|-|:)\s*([A-Z][A-Z
 POST_SETTER_HEADED = re.compile(r"Genius\D{0,12}\d{1,3}\s*[/:]\s*([A-Z][a-z]+)\s+[–—-]\s|,\s+by\s+([A-Z][a-z]+)\s*$")
 
 
+#: The post's first words naming the setter: "Lavatch is a setter whose".
+POST_BODY_SETTER = re.compile(r"([A-Z][a-z]+)\s+is\s+a\s+setter\b")
+
+
 def post_setter(post):
     title = html.unescape(post.get("title", {}).get("rendered", "")) if post else ""
     m = POST_SETTER.search(title) or POST_SETTER_HEADED.search(title)
-    return next((g for g in m.groups() if g), None) if m else None
+    if m:
+        return next((g for g in m.groups() if g), None)
+    # An untitled-setter post that opens "Lavatch is a setter whose puzzles ...".
+    body = re.sub(r"<[^>]+>", " ", post.get("content", {}).get("rendered", "")) if post else ""
+    m = POST_BODY_SETTER.match(html.unescape(body).strip()[:200])
+    return m and m.group(1)
 
 
 #: The hyphens and dashes a post writes an answer's hyphen with.
