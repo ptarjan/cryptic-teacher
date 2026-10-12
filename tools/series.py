@@ -35,6 +35,9 @@ import re
 # bylined — the source names the setter on every puzzle, so a null setter is
 #   one the fetcher failed to read (tools/puzzle_integrity.py SETTER). Not
 #   claimed for a puzzle read off a newspaper scan, whose page may print none.
+# unbylined — {number: why} for the puzzles of a bylined series that no source
+#   names a setter for (page, picture and blog all checked): they file with no
+#   setter key instead of being held (Genius 84).
 # renumberedBelow — the series started its numbering again: numbers below this
 #   are the newer run, and each run is its own sequence.
 # datedFromNeighbours — the source prints no date, so the filer derives each
@@ -282,6 +285,9 @@ SERIES = {
         "kind": "Genius",
         "publisher": "Guardian",
         "bylined": True,
+        # The article page's byline is "Guardian staff reporter", its grid
+        # picture prints none, and fifteensquared's post names nobody.
+        "unbylined": {84: "no byline on the article, its grid picture or fifteensquared's post"},
         "badge": "genius",
     },
     # The Listener: barred and thematic, its trick in a preamble, printed by

@@ -112,11 +112,12 @@ print("body-setter", G.post_setter({"title": {"rendered": "Guardian Genius 103"}
 fr = ([(0, 0, 285.3, 1.2, False)] * 8) + ([(0, 0, 1.3, 252.2, False)] * 8)
 sq = G.unstretched(fr + [(0, 0, 17.6, 15.6, True)])
 print("unstretched", round(sq[-1][3] - sq[-1][1], 1))
-for n, want in ((161, None), (162, None), (165, 8)):
+for n, want in ((161, None), (162, None), (165, 8), (84, 0), (101, 2), (108, 6), (112, 5)):
     f = glob.glob(f"puzzles/genius/*/genius-{n}.json")
     if f:
         es = json.load(open(f[0]))["entries"]
         print(f"filed-{n}", len(es), sum(bool(e["clue"].get("missing")) for e in es))
+        print(f"setter-{n}", json.load(open(f[0])).get("setter"))
 PY
 )
 echo "$out" | sed 's/^/     /'
@@ -154,6 +155,9 @@ check "a run under no known heading is the other way's clues (157)" "[(1, 'd'), 
 check "stranded clues, spaced byline and grid numbers leave only the preamble (157)" "Half the solutions are entered in a 10 across manner." "$(get stranded-preamble)"
 check "a post opening 'X is a setter' names the setter; none otherwise (103, 84)" "Lavatch None" "$(get body-setter)"
 check "a stretched grid is squared before it is read (157)" "17.6" "$(get unstretched)"
+[ -z "$(get filed-112)" ] || check "genius-112's quotation lights file unclued, their letters the post's quotation (article marks, no preamble)" "28 5" "$(get filed-112)"
+[ -z "$(get filed-108)" ] || check "genius-108's six marked lights file unclued off the article page" "30 6" "$(get filed-108)"
+[ -z "$(get setter-84)" ] || check "genius-84 files with no setter (series.py unbylined)" "None" "$(get setter-84)"
 [ -z "$(get filed-165)" ] || check "genius-165 files its eight See-preamble lights unclued" "32 8" "$(get filed-165)"
 
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }
