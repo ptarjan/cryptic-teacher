@@ -724,6 +724,16 @@ SERIES_NAMES = {
 }
 
 
+def about(n):
+    """`n` to two significant figures ("8,700", "46,000"), or to the ten under
+    100: the README is committed, so an exact count would change it with every
+    puzzle filed."""
+    if n < 10:
+        return str(n)
+    step = 10 ** max(1, len(str(n)) - 2)
+    return f"{round(n / step) * step:,}"
+
+
 def build_corpus():
     # Rebuilt, not read: the manifest is generated and untracked, and these
     # counts go into a file that IS committed. Reading whatever the tree happened
@@ -751,18 +761,18 @@ def build_corpus():
     done = sum(r[4] for r in rows)
     annotated = sum(1 for r in rows if r[1])
     blogged = sum(1 for r in rows if r[2])
-    parts = ", ".join(f"{SERIES_NAMES[s]} {n}"
+    parts = ", ".join(f"{SERIES_NAMES[s]} {about(n)}"
                       for s, n in sorted(by_series.items(),
                                          key=lambda kv: -kv[1]))
-    pct = round(100 * done / clues) if clues else 0
+    pct = 5 * round(20 * done / clues) if clues else 0
     return (
-        f"**Corpus** — {len(rows):,} puzzles across {len(by_series)} series "
-        f"({parts}). {annotated:,} of them are annotated clue-for-clue, all six "
-        f"rungs, machine-validated: {done:,} of {clues:,} clues, or {pct}%. The "
-        f"rest are backlog the daily job is still draining. {blogged:,} of those "
+        f"**Corpus** — about {about(len(rows))} puzzles across {len(by_series)} series "
+        f"({parts}). About {about(annotated)} of them are annotated clue-for-clue, all six "
+        f"rungs, machine-validated: about {pct}% of {about(clues)} clues. The "
+        f"rest are backlog the daily job is still draining. About {about(blogged)} of those "
         f"carry hints marked up from a solving blog's write-up (definitions, clue "
         f"types, pieces) and are badged <em>hints via</em> that blog; the other "
-        f"{len(rows) - annotated - blogged:,} show an <em>answers only</em> badge "
+        f"{about(len(rows) - annotated - blogged)} show an <em>answers only</em> badge "
         f"and degrade gracefully (checking and letter reveals still work; the "
         f"teaching ladder appears once a puzzle is annotated)."
     )
