@@ -92,6 +92,25 @@ def lights_of(number, heading):
     return out
 
 
+#: A number cell the scrape ran the clue's first words into: glued, with the
+#: direction mark after them ("12aContainera", "21Lookd", "22dCaved"), or
+#: spaced ("20 A doctor tucking into mother's"), whose last letter is text.
+GLUED_CELL = re.compile(r"(\d{1,2})(?:[ad](?=[A-Z]))?([A-Z][A-Za-z'’]+)([ad])")
+SPACED_CELL = re.compile(r"(\d{1,2})\s+([A-Z].*\S)")
+
+
+def opened(cell, clue):
+    """(number cell, clue) with the clue's opening words taken back out of a
+    number cell the scrape ran them into; as they were otherwise."""
+    m = GLUED_CELL.fullmatch(cell.strip())
+    if m:
+        return m.group(1) + m.group(3), f"{m.group(2)} {clue or ''}"
+    m = SPACED_CELL.fullmatch(cell.strip())
+    if m and lights_of(cell, "a") is None:
+        return m.group(1), f"{m.group(2)} {clue or ''}"
+    return cell, clue
+
+
 def blog_answers(parsed=tg.PARSED):
     """{pid: {(number, direction): printed answer}} from our own parse of the
     timesforthetimes posts, the blog georgeho scraped the Times's from."""
@@ -152,7 +171,8 @@ def record(pid, rows, posted=None, fuller=None, previous=None):
     for _, _, name, cell, clue, answer in rows:
         if answer == corroborate.GEORGEHO_MISSING:
             continue                        # "See 4": its leader carries it
-        first = re.match(r"\s*(\d+)", cell)
+        cell, clue = opened(cell, clue)
+        first =re.match(r"\s*(\d+)", cell)
         if first and int(first.group(1)) < last and heading == "a":
             heading = "d"                   # the numbers start again: the downs
         lights = lights_of(cell, heading)

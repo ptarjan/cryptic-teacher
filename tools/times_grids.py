@@ -886,7 +886,9 @@ def splits(group):
     runs a word on from one light into the next ("18, 23" PUTRID): it is cut
     at every word break and between letters as many times more as it needs,
     no light shorter than parser.MIN_LIGHT. A light whose direction the post
-    left unsaid (None) is tried both ways."""
+    left unsaid (None), or a continuation the post numbered with no suffix
+    and no pointer of its own to place (the parser's `guessed`), is tried
+    both ways."""
     if group.get("answer_printed"):
         words = parser.answer_words(group["answer_printed"])
     else:
@@ -908,7 +910,9 @@ def splits(group):
         cuts_of = (sorted({*breaks, *more}) for more in
                    itertools.combinations(inside, len(lights) - len(words)))
     cuts_of = list(cuts_of)
-    ways = [[(n, d)] if d else [(n, "across"), (n, "down")] for n, d in lights]
+    loose = set(group.get("guessed") or ())
+    ways = [[(n, d)] if d and i not in loose else [(n, "across"), (n, "down")]
+            for i, (n, d) in enumerate(lights)]
     out = []
     for named in itertools.product(*ways):
         for cuts in cuts_of:
@@ -950,10 +954,11 @@ def pruned_choices(rec):
       a light's start row moves with its length).
 
     None when the record cannot be read that way: a barred grid, a light
-    whose direction the post left unsaid, or an entry typed against its
+    whose direction the post left unsaid or the parser guessed, or an entry typed against its
     heading (solve() may turn it to another direction)."""
     if (rec["series"] in BARRED or any(e.get("heading") for e in rec["entries"])
-            or any(d is None for g in rec["unsplit"] for _n, d in g["lights"])):
+            or any(d is None for g in rec["unsplit"] for _n, d in g["lights"])
+            or any(g.get("guessed") for g in rec["unsplit"])):
         return None
     side = size(rec)
     fixed = {(e["number"], e["direction"]): length(e) for e in rec["entries"]}

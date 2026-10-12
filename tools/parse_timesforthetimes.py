@@ -169,10 +169,10 @@ def glued_suffix(ln):
     or None for a line without one."""
     m = GLUED_SUFFIX.match(ln)
     return m and (ln[m.end():].strip(), DIRECTION_OF[(m.group(1) or m.group(2)).lower()])
-#: "See 15", "See 3 (9)", "See 12 across", "See 12a" — a light whose clue lives on another
-#: light. tools/normalise_linked_enumerations.py reads the same shape; this is
-#: how the whole corpus spells a continuation.
-CONTINUATION = re.compile(r"^\s*See\s+(\d+)(?:[ad]\b|\b)", re.IGNORECASE)
+#: "See 15", "See 3 (9)", "See 12 across", "See 12a", "(See 16 Across) (3)" — a
+#: light whose clue lives on another light. tools/normalise_linked_enumerations.py
+#: reads the same shape; this is how the whole corpus spells a continuation.
+CONTINUATION = re.compile(r"^\s*\(?\s*See\s+(\d+)(?:[ad]\b|\b)", re.IGNORECASE)
 #: "See 12a": a pointer with its direction glued on. "See 12 Down": one named.
 GLUED_POINTER = re.compile(r"^\s*See\s+(\d+)([ad])\s*$", re.IGNORECASE)
 NAMED_WAY = re.compile(r"^\s*See\s+\d+\s*(?:across|down|ac|dn|a|d)\b", re.IGNORECASE)
@@ -857,6 +857,42 @@ def link_lights(match, direction):
     return None if len(set(lights)) != len(lights) else lights
 
 
+def link_suffixes(match):
+    """The suffix each light of a linked head was printed with, "" for none,
+    in link_lights' order."""
+    return [match.group(2) or ""] + [s for _n, s in LINK_PART.findall(match.group(3))]
+
+
+def place_continuations(entries, unsplit, guessed, pointers):
+    """Turn a continuation a linked head numbered without a suffix to the
+    other direction when the post prints its "See N" pointer to the same
+    leader under that direction's heading: tls-1121's "16 & 6" in the Across
+    list is YOKO at 16 across and ONO at 6 down, "6 (See 16 Across)" under
+    Down; the pointer's own entry, blank or the same answer again, is the
+    repeat one_entry_per_light drops. A linked answer left unsplit marks each continuation still unplaced as `guessed`, an index
+    into its lights, for the grid to try both ways (times_grids.splits)."""
+    def other(light):
+        n, d = light
+        return (n, "down" if d == "across" else "across")
+
+    def turned(light, leader):
+        flip = other(light)
+        return light in guessed and light not in pointers and pointers.get(flip) == leader
+    for e in entries:
+        light = (e["number"], e["direction"])
+        if continuation_target(e.get("clue")) is not None and turned(
+                light, continuation_target(e["clue"])):
+            e["direction"] = other(light)[1]
+    for u in unsplit:
+        lead = u["lights"][0][0]
+        lights = [other(tuple(x)) if i and turned(tuple(x), lead) else tuple(x)
+                  for i, x in enumerate(u["lights"])]
+        u["lights"] = [list(x) for x in lights]
+        left = [i for i, x in enumerate(lights) if i and x in guessed and x not in pointers]
+        if left:
+            u["guessed"] = left
+
+
 def link_pieces(lights, printed, enum):
     """Which letters of a linked answer belong to which light, or None to refuse.
 
@@ -1055,6 +1091,11 @@ def read_entries(rendered):
     # A linked group's lights and letters, so a second head naming the same
     # lights for the same answer is known for what it is.
     linked = {}
+    # The lights a linked head named with no suffix, so took the heading's
+    # direction, and the "See N" lines the post prints under a heading of
+    # their own (tls-1121's "16 & 6" under Across, "6 (See 16 Across)" under
+    # Down): place_continuations turns the one by the other.
+    guessed, pointers = set(), {}
 
     def flush(printed):
         nonlocal last, clue, enum
@@ -1136,6 +1177,8 @@ def read_entries(rendered):
         this reader knows -- prose ("A hidden word IN Gha NA USE"), a name in
         mixed case -- is still a light: its count is its length, and the
         answer is left blank for the grid's crossings and the answer fill."""
+        if lights and len(lights) == 1 and continuation_target(clue) is not None:
+            pointers[lights[0]] = continuation_target(clue)
         if (lights and len(lights) == 1 and lights[0][0] != ORPHAN and clue and enum
                 and not CONTINUATION.match(clue) and lights[0] not in answered):
             entries.append({"number": lights[0][0], "direction": lights[0][1],
@@ -1175,6 +1218,8 @@ def read_entries(rendered):
                     u["lights"] = [[n, "across"] for n, _ in u["lights"]]
                 answered = {turned(k) for k in answered}
                 headed = {turned(k): v for k, v in headed.items() if v != "down"}
+                guessed = {turned(k) for k in guessed}
+                pointers = {turned(k): v for k, v in pointers.items()}
                 linked = {g: [turned(k) for k in ls] for g, ls in linked.items()}
             direction = heading
             last = 0
@@ -1194,6 +1239,9 @@ def read_entries(rendered):
         if m:
             these = link_lights(m, direction)
             rest = LINK_TAIL.sub("", ln[m.end():]).strip()
+            if these:
+                guessed.update(light for light, suffix in zip(these, link_suffixes(m))
+                               if not suffix)
             if these and len(these) == 1 and m.group(2) and these[0][1] != direction:
                 headed[these[0]] = direction
             # A line of prose can open with numbers too ("4, 11 & 15 were also
@@ -1292,6 +1340,7 @@ def read_entries(rendered):
 
     unanswered()
     number_orphans(entries)
+    place_continuations(entries, unsplit, guessed, pointers)
     one_entry_per_light(entries)
     trim_continuations(entries)
     leader_form(entries)
