@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""File the Guardian's Genius from its printable PDFs and fifteensquared's answers.
+"""File the Guardian's Genius from its printable PDFs or article pages and fifteensquared's answers.
 
     python3 tools/genius_puzzles.py index              # every Genius article and its PDF link
     python3 tools/genius_puzzles.py fetch              # download the PDFs
@@ -9,7 +9,9 @@ The Genius is the Guardian's monthly prize puzzle, and every one carries a
 trick its preamble states: answers entered altered, letters dropped from the
 clues, enumerations withheld. From No 147 or so (2016) each article page on
 theguardian.com/crosswords/series/genius links a printable PDF on
-uploads.guim.co.uk; earlier ones link none. The PDF is read with
+uploads.guim.co.uk. Earlier ones print the preamble and clues as the article's
+text, with the grid as a picture on static.guim.co.uk; those are read off the
+article (read_article). The PDF is read with
 tools/ft_pdf_puzzles.py's reader: the clue list and preamble by pypdf, the
 black squares from the page's rectangles, or from its largest image where the
 grid is a picture (image_grid).
@@ -26,7 +28,7 @@ the op the preamble allows. The rest are left, their class counted in the
 report.
 
 Three steps, each reading the one before off disk: index.json, then
-pdf/<number>.pdf, then puzzles/.
+pdf/<number>.pdf (or article/<number>.html and its images), then puzzles/.
 """
 import argparse
 import collections
@@ -53,6 +55,7 @@ CATEGORY = "Guardian Genius"
 CACHE = downloads.GENIUS
 INDEX = CACHE / "index.json"
 PDFS = CACHE / "pdf"
+ARTICLES = CACHE / "article"
 GENERATOR = "tools/genius_puzzles.py"
 UA = {"User-Agent": "Mozilla/5.0 (cryptic-teacher; github.com/ptarjan/cryptic-teacher)"}
 SITE = "https://www.theguardian.com"
@@ -60,6 +63,8 @@ LISTING = SITE + "/crosswords/series/genius?page={}"
 #: "/crosswords/2025/apr/07/genius-crossword-no-262", "/crosswords/2014/dec/01/genius-crossword-138"
 ARTICLE = re.compile(r'href="(?:https://www\.theguardian\.com)?'
                      r'(/crosswords/(\d{4})/([a-z]{3})/(\d{2})/genius-crossword-(?:no-)?(\d+))"')
+#: An article's picture, by the path its original keeps on static.guim.co.uk.
+STATIC_IMAGE = re.compile(r'https://i\.guim\.co\.uk/img/static/([^"\s?&]+?\.(?:jpe?g|png|gif))', re.IGNORECASE)
 PDF = re.compile(r'https?://(?:uploads|static)\.guim\.co\.uk/[^"\\\s<>&]+?\.pdf', re.IGNORECASE)
 MONTHS = {m: i for i, m in enumerate(
     ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"], 1)}
@@ -108,7 +113,8 @@ def index(log=print):
     for n, m in sorted(arts.items()):
         date = datetime.date(int(m.group(2)), MONTHS[m.group(3)], int(m.group(4))).isoformat()
         row = {"url": SITE + m.group(1), "date": date}
-        if str(n) in old and old[str(n)].get("url") == row["url"] and old[str(n)].get("pdf"):
+        if str(n) in old and old[str(n)].get("url") == row["url"] and (
+                old[str(n)].get("pdf") or article_path(n).exists()):
             out[str(n)] = old[str(n)]
             continue
         try:
@@ -143,19 +149,15 @@ def pdf_of(n, body, footer):
 
 
 def unlisted(rows):
-    """Numbers in the PDF era the listing pages skip."""
+    """Numbers the listing pages skip."""
     have = {int(k) for k in rows}
-    return [n for n in range(FIRST_PDF_ERA, max(have)) if n not in have]
-
-
-#: The first number whose article could link a PDF (No 150's links a grid).
-FIRST_PDF_ERA = 144
+    return [n for n in range(1, max(have)) if n not in have]
 
 
 def guess(n, rows, old, footer):
     """The row of a Genius the listing skips, from its URL: one a month, on
     a Monday early in the month its nearest listed neighbour puts it in."""
-    if str(n) in old and old[str(n)].get("pdf"):
+    if str(n) in old and (old[str(n)].get("pdf") or article_path(n).exists()):
         return old[str(n)]
     m = min((int(k) for k in rows), key=lambda k: abs(k - n))
     d = datetime.date.fromisoformat(rows[str(m)]["date"])
@@ -184,14 +186,46 @@ def pdf_path(number):
     return PDFS / f"{number}.pdf"
 
 
+def article_path(number):
+    return ARTICLES / f"{number}.html"
+
+
+def image_paths(number):
+    return sorted(ARTICLES.glob(f"{number}-*.img"))
+
+
+def fetch_article(n, row):
+    """article/<n>.html and each picture it shows, as n-<k>.img: the article
+    of a Genius with no PDF prints the clues, and its grid is one of these."""
+    ARTICLES.mkdir(parents=True, exist_ok=True)
+    body = get(row["url"])
+    time.sleep(PAUSE)
+    for k, path in enumerate(sorted(set(STATIC_IMAGE.findall(body.decode("utf-8", "replace"))))):
+        data = get("https://static.guim.co.uk/" + path)
+        (ARTICLES / f"{n}-{k}.img").write_bytes(data)
+        time.sleep(PAUSE)
+    tmp = article_path(n).with_suffix(".tmp")
+    tmp.write_bytes(body)
+    tmp.replace(article_path(n))
+
+
 def fetch(numbers=None, log=print):
     idx = json.loads(INDEX.read_text())["puzzles"]
     PDFS.mkdir(parents=True, exist_ok=True)
     got, failed = 0, []
     for n, row in sorted(idx.items(), key=lambda kv: int(kv[0])):
-        if not row.get("pdf") or pdf_path(n).exists():
-            continue
         if numbers and not numbers[0] <= int(n) <= numbers[1]:
+            continue
+        if not row.get("pdf"):
+            if row.get("error") or article_path(n).exists():
+                continue
+            try:
+                fetch_article(n, row)
+                got += 1
+            except urllib.error.HTTPError as e:
+                failed.append((n, e.code))
+            continue
+        if pdf_path(n).exists():
             continue
         try:
             data = get(row["pdf"])
@@ -322,7 +356,12 @@ def on_white(image):
 
 
 def image_grid(pages, clues=()):
-    """The grid ["..#..", ...] of the page's largest image, or None. The
+    """grid_of_images over every image on the pages."""
+    return grid_of_images([im.image for page in pages for im in page.images], clues)
+
+
+def grid_of_images(images, clues=()):
+    """The grid ["..#..", ...] of the largest square image, or None. The
     image is tried cropped to its ink (a margin or frame off the lattice
     shifts every cell) and whole, and the side is the fewest cells n (5 to 27) at which the
     lower-right of every cell, clear of its number, is either white or the
@@ -331,8 +370,8 @@ def image_grid(pages, clues=()):
     whose lights come nearest it."""
     import numpy as np
     best = None
-    for im in (im for page in pages for im in page.images):
-        a = np.asarray(on_white(im.image), dtype=np.float32) / 255
+    for im in images:
+        a = np.asarray(on_white(im), dtype=np.float32) / 255
         if a.shape[0] < 100 or abs(a.shape[0] - a.shape[1]) > 0.05 * a.shape[0]:
             continue
         if best is None or a.size > best.size:
@@ -389,6 +428,47 @@ def read_pdf(path):
         out["kind"] = "image" if grid else None
     out["grid"] = grid
     out["text"] = bool(raw.strip())
+    out["origin"] = "the Guardian's printable PDF"
+    if grid:
+        turn_links(out["clues"], set(rg.light_cells(grid)))
+    return out
+
+
+#: Where an article's own text runs: its standfirst, then its body up to
+#: the topic links that follow every article.
+ARTICLE_PARTS = re.compile(r'data-gu-name="(?:standfirst|body)"(.*?)(?=data-gu-name="|Explore more on these topics|</article>)', re.S)
+
+
+def article_text(body):
+    """The article's standfirst and body as one flat line."""
+    parts = ARTICLE_PARTS.findall(body)
+    t = " ".join(re.sub(r"<script.*?</script>|<style.*?</style>", " ", x, flags=re.S) for x in parts)
+    t = html.unescape(re.sub(r"<[^>]+>", " ", t))
+    t = re.sub(r"(?i)click here to access the print version|Photograph: \w+", " ", t)
+    return flat(t)
+
+
+def read_article(number):
+    """read_pdf's fields off an article page with no PDF: preamble and clues
+    from its text, the grid from the largest square picture it shows."""
+    from PIL import Image
+    body = article_path(number).read_text(encoding="utf-8", errors="replace")
+    text = article_text(body)
+    out = parse_text(text)
+    out["number"] = out["number"] if out["number"] == int(number) else None
+    by = re.search(r'"byline":"([^"]+)"', body)
+    out["setter"] = out["setter"] or (by and by.group(1))
+    out["clues"] = [c for c in out["clues"] if not UNCLUED_MARK.fullmatch(c["clue"])]
+    see_links(out["clues"])
+    images = []
+    for path in image_paths(number):
+        try:
+            images.append(Image.open(path))
+        except OSError:
+            continue
+    grid = grid_of_images(images, out["clues"])
+    out.update(grid=grid, kind="image" if grid else None, text=bool(text),
+               origin="the Guardian's article page and its grid picture")
     if grid:
         turn_links(out["clues"], set(rg.light_cells(grid)))
     return out
@@ -450,11 +530,15 @@ def blog_posts():
 
 #: "Guardian Genius 156 / Pasquale", "Genius 81 by Paul", "Guardian Genius 188 – Enigmatist".
 POST_SETTER = re.compile(r"Genius\D{0,12}\d{1,3}\s*(?:by|/|–|-|:)\s*([A-Z][A-Za-z]+)\s*$")
+#: Or the setter, then a dash and the post's own headline: "Guardian Genius
+#: 96 / Araucaria – A Masochist's Delight"; or a headline ending ", by Paul".
+POST_SETTER_HEADED = re.compile(r"Genius\D{0,12}\d{1,3}\s*[/:]\s*([A-Z][a-z]+)\s+[–—-]\s|,\s+by\s+([A-Z][a-z]+)\s*$")
 
 
 def post_setter(post):
-    m = post and POST_SETTER.search(html.unescape(post.get("title", {}).get("rendered", "")))
-    return m.group(1) if m else None
+    title = html.unescape(post.get("title", {}).get("rendered", "")) if post else ""
+    m = POST_SETTER.search(title) or POST_SETTER_HEADED.search(title)
+    return next((g for g in m.groups() if g), None) if m else None
 
 
 #: The hyphens and dashes a post writes an answer's hyphen with.
@@ -536,7 +620,7 @@ def assemble(number, pdf, post, date, url):
     rec = {"post_id": f"fifteensquared-{post['id']}", "link": post.get("link"),
            "date": post["date"][:10], "series": CATEGORY, "number": number,
            "setter": pdf["setter"], "entries": entries}
-    row = {"grid": pdf["grid"], "number": number, "how": "the Guardian's PDF"}
+    row = {"grid": pdf["grid"], "number": number, "how": pdf["origin"]}
     puzzle, why = file_blog_puzzles.build(rec, row, SERIES, date, pdf["setter"])
     if why:
         if why == "answers disagree with the grid":
@@ -546,7 +630,7 @@ def assemble(number, pdf, post, date, url):
         puzzle["preamble"] = pdf["preamble"]
     puzzle["source"] = {"url": url, "gridOrigin": "published"}
     puzzle["solutions"]["check"] = (
-        "grid and clues read from the Guardian's printable PDF, its numbering matching "
+        f"grid and clues read from {pdf['origin']}, its numbering matching "
         "the clue list; every fifteensquared answer written into it with each crossing agreeing")
     return puzzle, None
 
@@ -770,7 +854,7 @@ def assemble_altered(number, pdf, post, date, url):
     rec = {"post_id": f"fifteensquared-{post['id']}", "link": post.get("link"),
            "date": post["date"][:10], "series": CATEGORY, "number": number,
            "setter": pdf["setter"], "entries": entries}
-    row = {"grid": pdf["grid"], "number": number, "how": "the Guardian's PDF"}
+    row = {"grid": pdf["grid"], "number": number, "how": pdf["origin"]}
     puzzle, why = file_blog_puzzles.build(rec, row, SERIES, date, pdf["setter"])
     if why:
         return None, why
@@ -784,7 +868,7 @@ def assemble_altered(number, pdf, post, date, url):
     puzzle["preamble"] = pdf["preamble"]
     puzzle["source"] = {"url": url, "gridOrigin": "published"}
     puzzle["solutions"]["check"] = (
-        "grid and clues read from the Guardian's printable PDF, its numbering matching the "
+        f"grid and clues read from {pdf['origin']}, its numbering matching the "
         "clue list; each light's entry one fifteensquared prints for it"
         + (f" or the preamble's rule ({rule}) makes of its answer" if rule else "")
         + ", the only choice of them whose crossings all agree; an entry not its answer "
@@ -813,15 +897,15 @@ def file(write=True, numbers=None, log=print):
     for n in sorted((int(k) for k in idx), reverse=True):
         if numbers and not numbers[0] <= n <= numbers[1]:
             continue
-        if not pdf_path(n).exists():
-            blocked["no PDF"].append(n)
+        if not pdf_path(n).exists() and not article_path(n).exists():
+            blocked["no PDF or article"].append(n)
             continue
         counts["fetched"] += 1
         if puzzle_path(SERIES, n).exists():
             counts["already filed"] += 1
             continue
         try:
-            pdf = read_pdf(pdf_path(n))
+            pdf = read_pdf(pdf_path(n)) if pdf_path(n).exists() else read_article(n)
             if pdf["clues"] and pdf["number"] in (None, n):
                 counts["parsed"] += 1
             if pdf["grid"] and not fpp.grid_matches(pdf["grid"], pdf["clues"]):

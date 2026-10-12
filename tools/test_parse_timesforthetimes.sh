@@ -480,6 +480,16 @@ print(m.puzzle_number(post("times-28445", "Times 28443 – get your pads on")),
       m.puzzle_number(post("times-cryptic-no-28475-saturday", "Times Cryptic No 28476 – Saturday")),
       m.puzzle_number(post("times-28445", "Times 27,000 or so")))')"
 
+check "a month's year printed before the number is not the number" "20175 20193 20110" \
+  "$(REPO="$REPO" python3 -c '
+import os, importlib.util
+spec = importlib.util.spec_from_file_location("p", os.path.join(os.environ["REPO"], "tools", "parse_timesforthetimes.py"))
+m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+post = lambda slug, title: {"id": 1, "slug": slug, "title": {"rendered": title}}
+print(m.puzzle_number(post("april-2015-club-monthly-20175", "April 2015 Club Monthly 20175")),
+      m.puzzle_number(post("october-2016-club-monthly-special-20193", "October 2016 Club Monthly Special – 20193")),
+      m.puzzle_number(post("club-monthly-20110-november-2009", "Club Monthly 20110, November 2009")))')"
+
 # The TLS is blogged under Other Crosswords and sometimes Daily; a daily that
 # only mentions it stays a daily. A Times Jumbo filed as a Weekend post moves
 # back; the Sunday Times's own Jumbo, numbered with the weekly, does not.
