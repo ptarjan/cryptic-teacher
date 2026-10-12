@@ -152,6 +152,7 @@ STALE_AFTER_DAYS = {
     # nothing fetches it (daily_units.SLOW_FETCHERS): this alerts until Paul
     # chooses a source. Not "nation": its weekly cryptic ended 2020-04-13.
     "listener": 10,
+    "genius": 40,        # monthly; filed unsolved before its answers post
 }
 
 

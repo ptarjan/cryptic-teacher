@@ -260,9 +260,18 @@ def tidy(ln, link_words=True):
     return unstuck(SPACED_MARK.sub("", ln))
 
 
+# A paragraph between two cells of a row is invalid HTML, which a browser
+# hoists out of the table, so the reader never sees it in the row. Read in
+# place it is a line between a clue number and its clue: Sunday Times 5236's
+# `<td>24</td> <p>IECE</p> <td>Acknowledge trouble…` filed IECE as 24 down's
+# answer, the grid refused it, and no Sunday Times after 5235 arrived.
+STRAY_CELL_P = re.compile(r"(</td>)\s*<p\b[^>]*>[^<]*</p>\s*(?=<td\b)", re.I)
+
+
 def lines(rendered):
     """Flatten post HTML to the lines the era-independent reader walks."""
     text = DELETED.sub("", rendered)
+    text = STRAY_CELL_P.sub(r"\1", text)
     text = BREAKS.sub("\n", text)
     text = TAG.sub("", text)
     text = html.unescape(text)
