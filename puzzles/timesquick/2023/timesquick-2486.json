@@ -24,6 +24,9 @@
   "date": "2023-09-19",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,55 @@
     "text": "One may buy tea drunk by ship's officer",
     "enumeration": "9"
    },
-   "solution": "PURCHASER"
+   "solution": "PURCHASER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PURCHASER",
+    "definitions": [
+     {
+      "text": "One may buy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk by",
+      "for": "container",
+      "note": "a drink goes inside the drinker, so the tea ends up inside the officer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ship's officer",
+      "gives": "PURSER",
+      "note": "the officer in charge of a ship's accounts"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "CHA",
+      "note": "cha is an informal word for tea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUR",
+      "CHA",
+      "SER"
+     ]
+    },
+    "explanation": {
+     "surface": "A ship's officer sipping tea is pictured, and this person is apparently a shopper.",
+     "walkthrough": "'drunk' suggests intoxication or an anagram, but here it just means swallowed, putting the tea inside.",
+     "definitionFit": "Someone who buys something is by definition its purchaser, a buyer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +102,42 @@
     "text": "Quick reminder given to player",
     "enumeration": "6"
    },
-   "solution": "PROMPT"
+   "solution": "PROMPT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PROMPT",
+    "definitions": [
+     {
+      "text": "Quick",
+      "at": 0
+     },
+     {
+      "text": "reminder given to player",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quick",
+      "note": "first meaning: punctual, done without delay"
+     },
+     {
+      "clueFragment": "reminder given to player",
+      "note": "second meaning: a line whispered to an actor who has forgotten it"
+     }
+    ],
+    "explanation": {
+     "surface": "A quick reminder is given to a forgetful actor on stage.",
+     "definitionFit": "The word is an adjective for being on time and a noun for a cue fed to an actor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "player"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +151,42 @@
     "text": "Magistrate once involved in macabre events",
     "enumeration": "5"
    },
-   "solution": "REEVE"
+   "solution": "REEVE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "REEVE",
+    "definitions": [
+     {
+      "text": "Magistrate once",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved in",
+      "for": "hidden_word",
+      "note": "involved in means caught up inside, so the letters lie within the next words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "macabre events",
+      "gives": "REEVE",
+      "note": "spans the end of macabre and the start of events"
+     }
+    ],
+    "explanation": {
+     "surface": "An old-time magistrate caught up in some grisly goings-on.",
+     "definitionFit": "A reeve was a medieval English official, a local magistrate or steward."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "involved"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +200,71 @@
     "text": "Entertainer inspiring Greek character at a large infirmary",
     "enumeration": "8"
    },
-   "solution": "HOSPITAL"
+   "solution": "HOSPITAL",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HOSPITAL",
+    "definitions": [
+     {
+      "text": "infirmary",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inspiring",
+      "for": "container",
+      "note": "to inspire is literally to breathe in, so the entertainer takes the letters inside"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Entertainer",
+      "gives": "HOST",
+      "note": "a host entertains guests"
+     },
+     {
+      "clueFragment": "Greek character",
+      "gives": "PI",
+      "note": "a letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the standard abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOS",
+      "PI",
+      "T",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "An entertainer cheers up a Greek patient at a big infirmary.",
+     "walkthrough": "HOS(PI)T, then A and L.",
+     "definitionFit": "An infirmary is an older name for a hospital, a place caring for the sick."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inspiring"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +284,48 @@
      }
     ]
    },
-   "solution": "SQUAREBASHING"
+   "solution": "SQUAREBASHING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SQUARE-BASHING",
+    "definitions": [
+     {
+      "text": "Soldiers often do it",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old fogey",
+      "gives": "SQUARE",
+      "note": "a square is a conventional, old-fashioned person"
+     },
+     {
+      "clueFragment": "Viciously attacking",
+      "gives": "BASHING",
+      "note": "bashing is hitting hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SQUARE",
+      "BASHING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is laying into a stuffy old fogey, a thing soldiers apparently do a lot.",
+     "walkthrough": "The pieces appear in the answer in reverse of the clue's order: bashing a square.",
+     "definitionFit": "Square-bashing is British military slang for marching drill on a parade square, a routine part of training."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "attacking"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +339,43 @@
     "text": "Sound made by European river horse, perhaps",
     "enumeration": "4"
    },
-   "solution": "ROAN"
+   "solution": "ROAN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ROAN",
+    "definitions": [
+     {
+      "text": "horse, perhaps",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sound made by",
+      "for": "homophone",
+      "note": "a sound made is something heard, so the answer matches the river's spoken name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European river",
+      "gives": "ROAN",
+      "soundsLike": "RHONE",
+      "note": "the Rhône flows through Switzerland and France"
+     }
+    ],
+    "explanation": {
+     "surface": "A noise is heard from a horse beside a European river.",
+     "definitionFit": "A roan is a horse whose coat has white hairs mixed in; 'perhaps' marks it as one example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sound"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +389,58 @@
     "text": "Preserve article by Conservative leader",
     "enumeration": "3"
    },
-   "solution": "CAN"
+   "solution": "CAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CAN",
+    "definitions": [
+     {
+      "text": "Preserve",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader of a word is its front, so only the opening letter is kept"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of Conservative"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper article written by the Tory leader about preserving something.",
+     "definitionFit": "To can food is to preserve it in a sealed tin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 6,
@@ -141,7 +454,66 @@
     "text": "Something fishy about minute fellow's decree",
     "enumeration": "7"
    },
-   "solution": "COMMAND"
+   "solution": "COMMAND",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "COMMAND",
+    "definitions": [
+     {
+      "text": "decree",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so the fish surrounds the other letters"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Something fishy",
+      "gives": "COD",
+      "note": "a cod is a fish"
+     },
+     {
+      "clueFragment": "minute",
+      "gives": "M",
+      "note": "M is the abbreviation for minute"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "MAN",
+      "note": "a fellow is a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "M",
+      "MAN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A suspicious note about a tiny man's official order.",
+     "walkthrough": "CO(M MAN)D; 'Something fishy' looks like it means suspicious, but it is a literal fish.",
+     "definitionFit": "A command is an order or decree issued with authority."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fishy"
+    }
+   }
   },
   {
    "number": 7,
@@ -155,7 +527,40 @@
     "text": "One barely recognisable on certain beaches",
     "enumeration": "6"
    },
-   "solution": "NUDIST"
+   "solution": "NUDIST",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NUDIST",
+    "definitions": [
+     {
+      "text": "One barely recognisable on certain beaches",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One barely recognisable on certain beaches",
+      "note": "surface reading: someone hard to make out on the sand"
+     },
+     {
+      "clueFragment": "barely",
+      "note": "setter's reading: someone recognised by being bare, wearing nothing, on a beach set aside for it"
+     }
+    ],
+    "explanation": {
+     "surface": "A sunbather hard to identify on some beaches.",
+     "walkthrough": "'Barely' seems to mean hardly, but read literally it means in the bare.",
+     "definitionFit": "A naturist who goes unclothed is found on beaches designated for people who sunbathe naked."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "barely"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +574,50 @@
     "text": "Sweethearts heading off for cricketing periods",
     "enumeration": "5"
    },
-   "solution": "OVERS"
+   "solution": "OVERS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OVERS",
+    "definitions": [
+     {
+      "text": "cricketing periods",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading off",
+      "for": "deletion",
+      "note": "with the head taken off, the first letter of the word is dropped"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sweethearts",
+      "gives": "LOVERS",
+      "note": "sweethearts are lovers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Courting couples slip away to watch some cricket.",
+     "definitionFit": "In cricket an over is a set of six balls bowled from one end, a basic period of play."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +631,52 @@
     "text": "Weaponless, but suffering no hurt in East London?",
     "enumeration": "7"
    },
-   "solution": "UNARMED"
+   "solution": "UNARMED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UNARMED",
+    "definitions": [
+     {
+      "text": "Weaponless",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in East London",
+      "for": "deletion",
+      "note": "Cockney speech in East London famously drops the letter H at the start of words"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suffering no hurt",
+      "gives": "UNHARMED",
+      "note": "not hurt at all"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNARMED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone unarmed walking through the East End yet coming to no harm.",
+     "walkthrough": "A Cockney would say 'unharmed' without its H, giving the answer.",
+     "definitionFit": "Being unarmed means carrying no weapons, so weaponless is a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "East"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +690,65 @@
     "text": "First night showing King Edward in break-up of Empire",
     "enumeration": "8"
    },
-   "solution": "PREMIERE"
+   "solution": "PREMIERE",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "PREMIERE",
+    "definitions": [
+     {
+      "text": "First night showing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing placed in another is put inside it before the letters are mixed"
+     },
+     {
+      "text": "break-up",
+      "for": "anagram",
+      "note": "something broken up falls apart and its letters can be reassembled in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Empire",
+      "gives": "EMPIRE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "King Edward",
+      "gives": "ER",
+      "note": "Edwardus Rex, the royal cipher of King Edward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PREMIERE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EMPIERRE",
+       "gives": "PREMIERE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A historical film about the end of the British Empire under Edward gets its gala opening.",
+     "walkthrough": "ER is placed into EMPIRE and the combined letters are rearranged.",
+     "definitionFit": "A premiere is the first public performance or screening of a play or film."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Edward"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +762,56 @@
     "text": "Overtake Dad's Lotus at last!",
     "enumeration": "4"
    },
-   "solution": "PASS"
+   "solution": "PASS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PASS",
+    "definitions": [
+     {
+      "text": "Overtake",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the final letter of the word it follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dad's",
+      "gives": "PAS",
+      "note": "Pa is Dad, with the possessive S"
+     },
+     {
+      "clueFragment": "Lotus",
+      "gives": "S",
+      "select": "last",
+      "note": "last letter of Lotus"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAS",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A driver cheers as Dad's Lotus sports car finally gets past someone.",
+     "walkthrough": "Lotus is a British sports-car maker, which fits the overtaking picture.",
+     "definitionFit": "To pass another vehicle on the road is to overtake it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lotus"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +825,61 @@
     "text": "Storyteller climbing Scottish island peak",
     "enumeration": "8"
    },
-   "solution": "NARRATOR"
+   "solution": "NARRATOR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NARRATOR",
+    "definitions": [
+     {
+      "text": "Storyteller",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down entry, climbing means read from the bottom up, so the island is written backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scottish island",
+      "gives": "ARRAN",
+      "note": "Arran is an island in the Firth of Clyde"
+     },
+     {
+      "clueFragment": "peak",
+      "gives": "TOR",
+      "note": "a tor is a rocky hilltop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NARRA",
+      "TOR"
+     ],
+     "reversals": [
+      {
+       "from": "ARRAN",
+       "to": "NARRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A storyteller ascends a mountain on a Scottish island.",
+     "walkthrough": "Only the island is reversed; the peak follows it as written.",
+     "definitionFit": "A narrator is the one who tells a story."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "climbing"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +893,51 @@
     "text": "Embark with celebrity — it's a sailor's right",
     "enumeration": "9"
    },
-   "solution": "STARBOARD"
+   "solution": "STARBOARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STARBOARD",
+    "definitions": [
+     {
+      "text": "a sailor's right",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "with",
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "celebrity",
+      "gives": "STAR",
+      "note": "a famous person"
+     },
+     {
+      "clueFragment": "Embark",
+      "gives": "BOARD",
+      "note": "to board a ship is to embark"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR",
+      "BOARD"
+     ]
+    },
+    "explanation": {
+     "surface": "Going aboard with a famous passenger, and a nautical aside about which side is right.",
+     "walkthrough": "The pieces appear in the answer in the reverse of their clue order.",
+     "definitionFit": "Starboard is the right-hand side of a vessel looking forward, the term sailors use."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 13,
@@ -253,7 +951,59 @@
     "text": "Farm animal catching young salmon and singing bird",
     "enumeration": "7"
    },
-   "solution": "SPARROW"
+   "solution": "SPARROW",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPARROW",
+    "definitions": [
+     {
+      "text": "singing bird",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "catching",
+      "for": "container",
+      "note": "something that catches another holds it inside, so the fish sits within the animal"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Farm animal",
+      "gives": "SOW",
+      "note": "a female pig"
+     },
+     {
+      "clueFragment": "young salmon",
+      "gives": "PARR",
+      "note": "a parr is a young salmon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PARR",
+      "OW"
+     ]
+    },
+    "explanation": {
+     "surface": "A farmyard animal grabs a fish while a bird sings.",
+     "walkthrough": "S(PARR)OW.",
+     "definitionFit": "The sparrow is a small songbird, common in gardens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "catching"
+    }
+   }
   },
   {
    "number": 14,
@@ -267,7 +1017,46 @@
     "text": "Harebrained son of spiteful disposition",
     "enumeration": "6"
    },
-   "solution": "SCATTY"
+   "solution": "SCATTY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCATTY",
+    "definitions": [
+     {
+      "text": "Harebrained",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "of spiteful disposition",
+      "gives": "CATTY",
+      "note": "catty means spiteful"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CATTY"
+     ]
+    },
+    "explanation": {
+     "surface": "Describing a son who is both scatterbrained and spiteful.",
+     "definitionFit": "Scatty is informal British for disorganised and absent-minded, just as harebrained suggests."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Harebrained"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +1070,53 @@
     "text": "Casual about motorway direction being repeated",
     "enumeration": "6"
    },
-   "solution": "REMISS"
+   "solution": "REMISS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REMISS",
+    "definitions": [
+     {
+      "text": "Casual",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about, concerning"
+     },
+     {
+      "clueFragment": "motorway",
+      "gives": "MI",
+      "note": "the M1, Britain's main north-south motorway, written as MI"
+     },
+     {
+      "clueFragment": "direction being repeated",
+      "gives": "SS",
+      "note": "S for south, given twice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "MI",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "A casual remark about motorway directions being given again and again.",
+     "walkthrough": "MI is the M1 motorway from London to Leeds, the 1 read as the letter I.",
+     "definitionFit": "Remiss means careless or negligent in one's duty, which casual can also mean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "motorway"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1130,62 @@
     "text": "Fellow hotelier initially wearing close-fitting headgear",
     "enumeration": "4"
    },
-   "solution": "CHAP"
+   "solution": "CHAP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CHAP",
+    "definitions": [
+     {
+      "text": "Fellow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means taking only the opening letter of the word"
+     },
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "a person wears a hat on top, so the letter sits inside the headgear"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "close-fitting headgear",
+      "gives": "CAP",
+      "note": "a cap fits closely on the head"
+     },
+     {
+      "clueFragment": "hotelier",
+      "gives": "H",
+      "select": "first",
+      "note": "first letter of hotelier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "H",
+      "AP"
+     ]
+    },
+    "explanation": {
+     "surface": "A fellow hotel owner wearing a snug cap.",
+     "walkthrough": "C(H)AP: the H goes inside the cap.",
+     "definitionFit": "Chap is an informal British word for a man or fellow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fellow"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1199,59 @@
     "text": "To separate is odd after initiation of engagement",
     "enumeration": "8"
    },
-   "solution": "ESTRANGE"
+   "solution": "ESTRANGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ESTRANGE",
+    "definitions": [
+     {
+      "text": "To separate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initiation of",
+      "for": "letter_selection",
+      "note": "the initiation of something is its start, so only the first letter is kept"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "engagement",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter of engagement"
+     },
+     {
+      "clueFragment": "odd",
+      "gives": "STRANGE",
+      "note": "odd means strange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "STRANGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that splitting up right after getting engaged is peculiar.",
+     "walkthrough": "'after' places the odd word behind the letter from engagement.",
+     "definitionFit": "To estrange people is to drive them apart, alienating or separating them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "engagement"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1265,50 @@
     "text": "Old railwaymen given points to look after",
     "enumeration": "5"
    },
-   "solution": "NURSE"
+   "solution": "NURSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NURSE",
+    "definitions": [
+     {
+      "text": "look after",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "given",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old railwaymen",
+      "gives": "NUR",
+      "note": "the former National Union of Railwaymen"
+     },
+     {
+      "clueFragment": "points",
+      "gives": "SE",
+      "note": "two compass points, south and east"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUR",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "Retired railway workers are handed directions on whom to care for.",
+     "definitionFit": "To nurse someone is to tend and care for them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "points"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1322,56 @@
     "text": "Function popular in the Kent area",
     "enumeration": "4"
    },
-   "solution": "SINE"
+   "solution": "SINE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SINE",
+    "definitions": [
+     {
+      "text": "Function",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first element inside the region named after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Kent area",
+      "gives": "SE",
+      "note": "Kent is a county in the south-east of England"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "fashionable, in vogue"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A social event that is popular around Kent.",
+     "walkthrough": "S(IN)E. 'Function' looks like a party, but it is the mathematical sense.",
+     "definitionFit": "Sine is a trigonometric function, the ratio of opposite side to hypotenuse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Function"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1385,55 @@
     "text": "Word in India for transport hubs",
     "enumeration": "7"
    },
-   "solution": "TERMINI"
+   "solution": "TERMINI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TERMINI",
+    "definitions": [
+     {
+      "text": "transport hubs",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Word",
+      "gives": "TERM",
+      "note": "a term is a word"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "India",
+      "gives": "I",
+      "note": "India is I in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TERM",
+      "IN",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A query about the Indian word for railway stations and bus depots.",
+     "definitionFit": "Termini are the end stations of rail or bus routes, major hubs of transport."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "India"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1447,55 @@
     "text": "Bones sailors originally identified",
     "enumeration": "5"
    },
-   "solution": "TARSI"
+   "solution": "TARSI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TARSI",
+    "definitions": [
+     {
+      "text": "Bones",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally means at the origin or start, so only the first letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sailors",
+      "gives": "TARS",
+      "note": "tar is a traditional word for a sailor"
+     },
+     {
+      "clueFragment": "identified",
+      "gives": "I",
+      "select": "first",
+      "note": "first letter of identified"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TARS",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Skeletal remains were first identified by some seamen.",
+     "definitionFit": "The tarsi are the small bones of the ankle, plural of tarsus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sailors"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1509,45 @@
     "text": "Churchyard feature the present solver talked of",
     "enumeration": "3"
    },
-   "solution": "YEW"
+   "solution": "YEW",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "YEW",
+    "definitions": [
+     {
+      "text": "Churchyard feature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "talked of",
+      "for": "homophone",
+      "note": "talked of means spoken about, so the sound of the words matters rather than their spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the present solver",
+      "gives": "YEW",
+      "soundsLike": "YOU",
+      "note": "the person solving right now is you"
+     }
+    ],
+    "explanation": {
+     "surface": "A yew tree in a churchyard that the reader has mentioned.",
+     "walkthrough": "The solver is addressed as 'you', and the tree's name sounds just the same.",
+     "definitionFit": "Yew trees are traditionally planted in English churchyards, many of them centuries old."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "solver"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1561,70 @@
     "text": "Enthusiasm of sea eagles in various ages",
     "enumeration": "9"
    },
-   "solution": "EAGERNESS"
+   "solution": "EAGERNESS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EAGERNESS",
+    "definitions": [
+     {
+      "text": "Enthusiasm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "various",
+      "for": "anagram",
+      "note": "various suggests things in different forms, so the letters take a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the birds inside the other set of letters"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ages",
+      "gives": "AGES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sea eagles",
+      "gives": "ERNES",
+      "note": "the erne is the white-tailed sea eagle, a crossword favourite"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAG",
+      "ERNES",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AGES",
+       "gives": "EAGS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A naturalist notes how keen sea eagles of different ages are.",
+     "walkthrough": "'eagles' tempts the solver to treat it as anagram material; the two words together name a single bird, the erne.",
+     "definitionFit": "Eagerness is keen enthusiasm, the quality of being eager."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "eagles"
+    }
+   }
   }
  ]
 }
