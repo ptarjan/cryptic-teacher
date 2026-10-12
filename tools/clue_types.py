@@ -49,11 +49,17 @@ def valid_select(v):
 
 def recount():
     """Rewrite each family's `n` from the corpus: per annotated entry, one hit
-    for every family its types use (the share tools/smoke_test.js checks)."""
+    for every family its types use (the share tools/smoke_test.js checks).
+    A puzzle that is not a cryptic (tools/puzzle_style.py) is left out: its
+    definitions are not a cryptic's."""
+    import puzzle_style
     from puzzle_paths import puzzle_files
     seen = {f["name"]: 0 for f in FAMILIES}
     for path in puzzle_files():
-        for e in json.loads(path.read_text(encoding="utf-8")).get("entries") or ():
+        puzzle = json.loads(path.read_text(encoding="utf-8"))
+        if puzzle_style.is_straight(puzzle):
+            continue
+        for e in puzzle.get("entries") or ():
             types = (e.get("annotation") or {}).get("type")
             if isinstance(types, list):
                 for fam in {TYPES[t]["family"] for t in types if t in TYPES}:

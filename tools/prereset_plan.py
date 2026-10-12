@@ -1211,10 +1211,16 @@ def backlog(rows, annotate_blocked=(), solve_blocked=(), only=()):
 
 def round_robin(rows):
     """rows round-robin across their series, BY_DEMAND's first, newest first
-    inside each series; undated last in its lane; LAST's lanes after all of it."""
+    inside each series; undated last in its lane; LAST's lanes after all of it,
+    and after those the puzzles that are not cryptics (`style`,
+    tools/puzzle_style.py), newest first: the ladder has least to teach there."""
     from datetime import date
+    straight = sorted((p for p in rows if p.get("style")),
+                      key=lambda p: series.puzzle_day(p) or date.min, reverse=True)
     lanes = {}
     for p in rows:
+        if p.get("style"):
+            continue
         lanes.setdefault(p["series"], []).append(p)
     for lane in lanes.values():
         lane.sort(key=lambda p: series.puzzle_day(p) or date.min, reverse=True)
@@ -1222,7 +1228,7 @@ def round_robin(rows):
                    key=lambda s: (BY_DEMAND.index(s) if s in BY_DEMAND else len(BY_DEMAND), s))
     return [lanes[s][i]
             for i in range(max((len(lanes[s]) for s in cycle), default=0))
-            for s in cycle if i < len(lanes[s])] + [p for s in LAST for p in lanes.get(s, [])]
+            for s in cycle if i < len(lanes[s])] + [p for s in LAST for p in lanes.get(s, [])] + straight
 
 
 def held_dir():
@@ -1338,16 +1344,19 @@ def head_of_queue(queue, pinned, rows, wanted=(), tagged=(), small=()):
     then each series' oldest few, then the notable-tagged; each set in queue
     order but the oldest, which go oldest first. The whole queue is re-sorted,
     so ids the caller appended (puzzles made eligible mid-run) take their
-    date's place rather than the back."""
+    date's place rather than the back. A puzzle that is not a cryptic
+    (`style`) is pinned only by a lockout: round_robin keeps it last."""
     queue = newest_first(queue, rows)
-    pinned = small_first(queue, list(pinned), rows, small)
+    straight = {r["id"] for r in rows if r.get("style")}
+    cryptic = [pid for pid in queue if pid not in straight]
+    pinned = small_first(cryptic, list(pinned), rows, small)
     stages = [len(pinned)]
-    pinned = promote(queue, pinned, wanted)
+    pinned = promote(cryptic, pinned, wanted)
     stages.append(len(pinned))
-    pinned = first_issues(queue, pinned)
-    pinned = oldest_per_series(queue, pinned, rows)
+    pinned = first_issues(cryptic, pinned)
+    pinned = oldest_per_series(cryptic, pinned, rows)
     stages.append(len(pinned))
-    pinned = promote(queue, pinned, tagged)
+    pinned = promote(cryptic, pinned, tagged)
     stages.append(len(pinned))
     return queue, pinned, stages
 
