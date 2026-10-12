@@ -5,6 +5,8 @@ tools/progress.py for the phases and the backfill's dating).
     python3 tools/progress_record.py record     # today's row, nightly (the page build
                                                 # overlays live filed/solved/hinted)
     python3 tools/progress_record.py backfill   # every day before the first one held
+    python3 tools/progress_record.py backfill-queue   # downloaded/queued on days without them,
+                                                      # dated off the media disk (edition_backlog.dated)
 """
 import collections
 import datetime
@@ -116,11 +118,48 @@ def backfill():
     return len(made)
 
 
+def fill_queue(days, hist):
+    """days with downloaded/queued filled from hist (edition_backlog.history())
+    on a night that never counted them, and over a recorded downloaded of 0
+    while scans had landed; any other recorded count is kept (a series a
+    counted night left out had none). Returns the days it filled."""
+    filled = set()
+    for day, counts in hist.items():
+        row = days.get(day)
+        if row is None:
+            continue
+        counted = any(c[progress.QUEUED] is not None for c in row.values())
+        for s, (got, queued) in counts.items():
+            if not got or (counted and (s not in row or row[s][progress.DOWNLOADED] is None)):
+                continue
+            c = row.setdefault(s, [None, None, 0, 0, 0, None, None])
+            if c[progress.DOWNLOADED] is None or c[progress.DOWNLOADED] == 0:
+                c[progress.DOWNLOADED:] = [got, queued]
+                filled.add(day)
+    return sorted(filled)
+
+
+def backfill_queue():
+    """fill_queue() over the history from the media disk's scans; [] with no disk."""
+    import downloads
+    if not downloads.ROOT.is_dir():
+        return []
+    import edition_backlog
+    days = progress.load()
+    filled = fill_queue(days, edition_backlog.history(edition_backlog.dated(), list(days)))
+    progress.save(days)
+    return filled
+
+
 def main(argv):
     if argv[1:] == ["record"]:
         print(json.dumps(progress.totals(record())))
     elif argv[1:] == ["backfill"]:
         print(f"{backfill()} day(s) backfilled into {progress.HISTORY.relative_to(progress.ROOT)}")
+        print(f"downloaded/queued filled on {len(backfill_queue())} day(s)")
+    elif argv[1:] == ["backfill-queue"]:
+        filled = backfill_queue()
+        print(f"downloaded/queued filled on {len(filled)} day(s): {filled[:1]}..{filled[-1:]}")
     else:
         print(__doc__)
         return 2

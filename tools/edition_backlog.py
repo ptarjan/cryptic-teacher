@@ -17,7 +17,14 @@ Counted in puzzles: each edition or Listener page prints one cryptic; a
 Trove article counts the share of read articles that filed a puzzle.
 
     python3 tools/edition_backlog.py     # {series: [downloaded, queued]} and each source's raw counts
+
+dated() and history() give the same counts for past days, for
+progress_record.py backfill: a scan landed on the day of its file's mtime
+(pages.json, the Listener page, meta.json) and left the queue on the day of
+its first ledger read (readAt, the Listener's readOn).
 """
+import collections
+import datetime
 import json
 import os
 import sys
@@ -80,6 +87,75 @@ def counts():
     share = filed / read if read else 0
     add(ftp.SERIES, n * share, q * share)
     return out, raw
+
+
+def _day(path):
+    return datetime.date.fromtimestamp(os.stat(path).st_mtime).isoformat()
+
+
+def _first_reads(rows, key, stamp):
+    """{row[key]: the earliest day a row holding stamp gives}."""
+    out = {}
+    for r in rows:
+        if r.get(stamp) and r.get(key) is not None:
+            d = r[stamp][:10]
+            out[r[key]] = min(out.get(r[key], d), d)
+    return out
+
+
+def dated(cache=downloads.ARCHIVE_ORG, inbox=gale_listener.MIRROR, store=gale_listener.STORE,
+          trove=ftp.CACHE):
+    """[(series, puzzles, day landed, day first read or None)], one per scan
+    counts() counts. A read before the file's mtime (a scan fetched again)
+    dates its landing to the read."""
+    out = []
+
+    def add(series, n, landed, read):
+        out.append((series, n, min(landed, read) if read else landed, read))
+    reads = {}
+    for key in {fa.ledger_of(cache, p) for p in fa.FILERS.values()}:
+        for ed, d in _first_reads((r for r in scan_queue.jsonl_rows(key) if "inputs" in r),
+                                  "edition", "readAt").items():
+            reads[ed] = min(reads.get(ed, d), d)
+    for item in (os.listdir(cache) if cache.is_dir() else ()):
+        paper = fa.filer_of(item)
+        if paper is None or not (cache / item).is_dir():
+            continue
+        for ed in os.listdir(cache / item):
+            try:
+                landed = _day(cache / item / ed / "pages.json")
+            except (FileNotFoundError, NotADirectoryError):
+                continue
+            add(fa.FILERS[paper.key].series, 1, landed, reads.get(f"{item}/{ed}"))
+    read = _first_reads(gale_listener.load_ledger(store).values(), "file", "readOn")
+    for p in gale_listener.page_files(inbox):
+        add(gale_listener.lp.SERIES, 1, _day(p), read.get(p.name))
+    rows = scan_queue.jsonl_rows(trove / "filed.jsonl")
+    last = {r["article"]: r for r in rows if "article" in r}
+    share = sum(bool(r.get("id")) for r in last.values()) / len(last) if last else 0
+    read = _first_reads(rows, "article", "readAt")
+    for n in (os.listdir(trove) if trove.is_dir() else ()):
+        try:
+            landed = _day(trove / n / "meta.json")
+        except (FileNotFoundError, NotADirectoryError):
+            continue
+        # A row with no readAt (stamped later): read the day it landed.
+        add(ftp.SERIES, share, landed, read.get(n, landed if n in last else None))
+    return out
+
+
+def history(scans, days):
+    """{day: {series: [downloaded, queued]}} over days from dated()'s scans:
+    those landed by the day's end, and of them the ones not yet read."""
+    out = {}
+    for day in days:
+        c = collections.defaultdict(lambda: [0.0, 0.0])
+        for series, n, landed, read in scans:
+            if landed <= day:
+                c[series][0] += n
+                c[series][1] += n if read is None or read > day else 0
+        out[day] = {s: [round(a), round(q)] for s, (a, q) in c.items()}
+    return out
 
 
 if __name__ == "__main__":

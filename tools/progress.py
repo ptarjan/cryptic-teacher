@@ -28,8 +28,11 @@ above filed. The funnel and the by-series bars draw that chain.
 downloaded and queued count puzzles: one per newspaper edition or Listener
 page (each prints one cryptic), and a Trove article times the share of read
 articles that filed a puzzle (tools/edition_backlog.py). The queue's daily
-inflow is downloaded's gain, its outflow that gain less queued's. They are
-null before the first night progress_record.py counted them.
+inflow is downloaded's gain, its outflow that gain less queued's. Nights
+before progress_record.py first counted them are backfilled
+(`progress_record.py backfill-queue`): a scan dated by its file's mtime on
+the media disk, its read by its ledger row's first readAt; null before any
+scan landed.
 
 known and acquired are null on a day no ledger was saved, and for a series the
 ledger does not count. The site is built from a one-commit checkout, so the
