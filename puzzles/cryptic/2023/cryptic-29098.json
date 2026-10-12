@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -46,7 +49,64 @@
     "text": "Mattress up on rock, poor thing?",
     "enumeration": "6"
    },
-   "solution": "DEBTOR"
+   "solution": "DEBTOR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DEBTOR",
+    "definitions": [
+     {
+      "text": "poor thing?",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means the word is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mattress",
+      "gives": "BED",
+      "note": "a mattress is a bed"
+     },
+     {
+      "clueFragment": "rock",
+      "gives": "TOR",
+      "note": "a tor is a rocky peak"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEB",
+      "TOR"
+     ],
+     "reversals": [
+      {
+       "from": "BED",
+       "to": "DEB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mattress is propped up on a rock, a sorry state for whoever owns it.",
+     "walkthrough": "The question mark flags a loose definition: someone in debt is poor in the money sense.",
+     "definitionFit": "A person who owes money is, broadly, short of funds and so a poor creature in financial terms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Mattress"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +120,60 @@
     "text": "Olympian has dropped American underwear, plain lot in black and white",
     "enumeration": "6"
    },
-   "solution": "ZEBRAS"
+   "solution": "ZEBRAS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ZEBRAS",
+    "definitions": [
+     {
+      "text": "plain lot in black and white",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has dropped",
+      "for": "deletion",
+      "note": "something dropped is let fall away, so those letters leave the god's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Olympian",
+      "gives": "ZEUS",
+      "note": "Zeus is the chief of the Olympian gods"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is the abbreviation for American"
+     },
+     {
+      "clueFragment": "underwear",
+      "gives": "BRAS",
+      "note": "bras are items of underwear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ZE",
+      "BRAS"
+     ]
+    },
+    "explanation": {
+     "surface": "An Olympic athlete has abandoned American underwear while some people on the plain dress in monochrome.",
+     "walkthrough": "'Olympian' suggests a modern athlete; here it is a god of Mount Olympus. 'Plain' is the grassland, not the adjective.",
+     "definitionFit": "Zebras are striped animals living in herds on the African savanna, a striped group of grassland grazers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Olympian"
+    }
+   }
   },
   {
    "number": 3,
@@ -80,7 +193,73 @@
      }
     ]
    },
-   "solution": "LOYALTOAST"
+   "solution": "LOYALTOAST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "anagram"
+    ],
+    "answer": "LOYAL TOAST",
+    "definitions": [
+     {
+      "text": "One's drunk at a formal occasion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sozzled",
+      "for": "anagram",
+      "note": "someone sozzled is very drunk and all over the place, so these letters lose their order"
+     },
+     {
+      "text": "having quaffed",
+      "for": "container",
+      "note": "to quaff is to swallow, so the drunk letters take another inside them"
+     },
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the final letter of the word that follows is the only one kept"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "so totally",
+      "gives": "SOTOTALLY",
+      "note": "taken as written, to be jumbled"
+     },
+     {
+      "clueFragment": "tequila",
+      "gives": "A",
+      "select": "last",
+      "note": "the drink's final letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOTOTALLYA",
+       "gives": "LOYALTOAST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A guest at a formal dinner gets thoroughly drunk after downing tequila.",
+     "walkthrough": "'drunk' in the definition is the past participle of drink, describing the toast, not the guest.",
+     "definitionFit": "The loyal toast is the toast to the monarch drunk at British formal dinners, so it is something drunk on such occasions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 4,
@@ -94,7 +273,50 @@
     "text": "Playing field's to one side",
     "enumeration": "5"
    },
-   "solution": "RECTO"
+   "solution": "RECTO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RECTO",
+    "definitions": [
+     {
+      "text": "one side",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Playing field",
+      "gives": "REC",
+      "note": "a rec is short for recreation ground, a public playing field"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REC",
+      "TO"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports pitch is said to lie off to one side.",
+     "walkthrough": "In Britain a rec is the local recreation ground or park with pitches.",
+     "definitionFit": "Recto is the right-hand page of an open book, or the front of a leaf, as opposed to verso."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "side"
+    }
+   }
   },
   {
    "number": 5,
@@ -127,7 +349,62 @@
     "text": "Case of cryptic penned by syndicate of Guardian crossword setters arising",
     "enumeration": "9"
    },
-   "solution": "OCCURRING"
+   "solution": "OCCURRING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "OCCURRING",
+    "definitions": [
+     {
+      "text": "arising",
+      "at": 66
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Case of",
+      "for": "letter_selection",
+      "note": "a case is the outside, so only the outermost letters of the next word are kept"
+     },
+     {
+      "text": "penned by",
+      "for": "container",
+      "note": "something penned by another is enclosed by it, as in a pen"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cryptic",
+      "gives": "CC",
+      "select": "outer",
+      "note": "first and last letters of the word"
+     },
+     {
+      "clueFragment": "syndicate of Guardian crossword setters",
+      "gives": "OURRING",
+      "note": "from Paul's own point of view, the Guardian setters are our ring, a ring being a syndicate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "CC",
+      "URRING"
+     ]
+    },
+    "explanation": {
+     "surface": "A cryptic case is written by a group of Guardian setters, rising up.",
+     "walkthrough": "The setter speaks as one of the Guardian team, so their syndicate is 'our ring'.",
+     "definitionFit": "Things arising are coming about or happening, which is what occurring means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Case"
+    }
+   }
   },
   {
    "number": 6,
@@ -141,7 +418,47 @@
     "text": "Country lady wiping brow",
     "enumeration": "4"
    },
-   "solution": "OMAN"
+   "solution": "OMAN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OMAN",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wiping brow",
+      "for": "deletion",
+      "note": "the brow is the top, so in a down clue the topmost letter is wiped away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lady",
+      "gives": "WOMAN",
+      "note": "a lady is a woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OMAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman from the countryside mops her forehead.",
+     "definitionFit": "Oman is a sultanate on the south-eastern Arabian peninsula, a nation state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Country"
+    }
+   }
   },
   {
    "number": 7,
@@ -161,7 +478,63 @@
      }
     ]
    },
-   "solution": "DROPSHOT"
+   "solution": "DROPSHOT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DROP-SHOT",
+    "definitions": [
+     {
+      "text": "Tennis tactic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ingenious",
+      "for": "anagram",
+      "note": "ingenious suggests something cleverly reworked, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prods",
+      "gives": "PRODS",
+      "note": "letters to be rearranged"
+     },
+     {
+      "clueFragment": "desirable",
+      "gives": "HOT",
+      "note": "hot is slang for desirable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DROPS",
+      "HOT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PRODS",
+       "gives": "DROPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis plan is described where clever jabs are the thing to have.",
+     "definitionFit": "A drop shot is a softly struck ball that barely clears the net, a deliberate ploy in tennis play."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ingenious"
+    }
+   }
   },
   {
    "number": 8,
@@ -175,7 +548,63 @@
     "text": "Put it another way, agent needs free share",
     "enumeration": "8"
    },
-   "solution": "REPHRASE"
+   "solution": "REPHRASE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "REPHRASE",
+    "definitions": [
+     {
+      "text": "Put it another way",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "free",
+      "for": "anagram",
+      "note": "letters set free are released from their order and can be rearranged"
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agent",
+      "gives": "REP",
+      "note": "a rep, a representative, is an agent"
+     },
+     {
+      "clueFragment": "share",
+      "gives": "SHARE",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REP",
+      "HRASE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SHARE",
+       "gives": "HRASE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sales agent asks for a share at no cost.",
+     "definitionFit": "To express something in different words is to say it again in another form, which is the verb's sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "free"
+    }
+   }
   },
   {
    "number": 9,
@@ -199,7 +628,43 @@
    "group": [
     "9-across",
     "1-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOBBY-DAZZLER",
+    "definitions": [
+     {
+      "text": "Wonderful vision",
+      "at": 0
+     },
+     {
+      "text": "what might temporarily blind an officer?",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wonderful vision",
+      "note": "first meaning: a dialect phrase for a strikingly excellent or attractive person or thing"
+     },
+     {
+      "clueFragment": "what might temporarily blind an officer?",
+      "note": "second, playful meaning: a British police officer, so something dazzling one would blind him briefly"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half reads the phrase literally: a bobby is everyday British slang for a police officer, and a dazzler is anything that dazzles.",
+     "definitionFit": "The northern English expression describes someone or something remarkably impressive or good-looking, a sight worth seeing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "officer"
+    }
+   }
   },
   {
    "number": 10,
@@ -223,7 +688,45 @@
      }
     ]
    },
-   "solution": "COCKAHOOP"
+   "solution": "COCKAHOOP",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "COCK-A-HOOP",
+    "definitions": [
+     {
+      "text": "experiencing such fun?",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "what is reported is heard rather than read, so go by the sound of the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "something through which little dog jumps",
+      "gives": "COCKAHOOP",
+      "soundsLike": "COCKER HOOP",
+      "note": "a cocker spaniel is a small dog, and a performing dog leaps through a hoop; in non-rhotic British speech cocker ends like the a"
+     }
+    ],
+    "explanation": {
+     "surface": "A circus act in which a small dog jumps through a hoop, great fun for all.",
+     "walkthrough": "The question mark covers a loose definition: a dog having such fun would be delighted.",
+     "definitionFit": "Being cock-a-hoop means being jubilant and exultant, the state of someone having a great time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "little"
+    }
+   }
   },
   {
    "number": 11,
@@ -247,7 +750,51 @@
      }
     ]
    },
-   "solution": "ONALLFOURS"
+   "solution": "ONALLFOURS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ON ALL FOURS",
+    "definitions": [
+     {
+      "text": "Searching on the ground",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awful",
+      "for": "anagram",
+      "note": "the tail of the last word is the signal: something awful is a mess, so the letters before it are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "floor as unlawful",
+      "gives": "FLOORASUNL",
+      "note": "the letters up to the point where the last word splits, leaving its tail as the signal"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FLOORASUNL",
+       "gives": "ONALLFOURS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether searching the ground floor might be illegal.",
+     "walkthrough": "The trick is to split the final word as unl + awful; the question mark warns of that liberty.",
+     "definitionFit": "Someone hunting on the ground is crawling on hands and knees, the posture the phrase describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unlawful"
+    }
+   }
   },
   {
    "number": 12,
@@ -261,7 +808,51 @@
     "text": "Emperor is some leader as tyrannical, in retrospect",
     "enumeration": "4"
    },
-   "solution": "TSAR"
+   "solution": "TSAR",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "TSAR",
+    "definitions": [
+     {
+      "text": "Emperor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means only part of the words that follow, a run of letters inside them"
+     },
+     {
+      "text": "in retrospect",
+      "for": "reversal",
+      "note": "looking back means the letters are read from right to left"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leader as tyrannical",
+      "gives": "RAST",
+      "note": "letters spanning the end of the first word, the second word and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "An emperor is judged in hindsight to be a somewhat tyrannical leader.",
+     "definitionFit": "A tsar was the emperor of Russia before 1917."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "some"
+    }
+   }
   },
   {
    "number": 13,
@@ -281,7 +872,45 @@
      }
     ]
    },
-   "solution": "NOQUESTION"
+   "solution": "NOQUESTION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NO QUESTION",
+    "definitions": [
+     {
+      "text": "So unable to answer",
+      "at": 0,
+      "note": "a whimsical reason rather than a synonym: you cannot answer when nothing was asked"
+     },
+     {
+      "text": "with some certainty",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "So unable to answer",
+      "note": "first meaning, played for laughs: a reply is impossible when nothing has been asked"
+     },
+     {
+      "clueFragment": "with some certainty",
+      "note": "second meaning: an emphatic phrase saying something is beyond doubt"
+     }
+    ],
+    "explanation": {
+     "surface": "A candidate is stumped and cannot reply, though sure of something.",
+     "walkthrough": "The opening reads as being stumped by a hard question; the real reason is that there is nothing to answer.",
+     "definitionFit": "Saying there is no question about something means it is beyond doubt, certainly so."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "unable"
+    }
+   }
   },
   {
    "number": 14,
@@ -301,7 +930,70 @@
      }
     ]
    },
-   "solution": "NONPOISONOUS"
+   "solution": "NONPOISONOUS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NON-POISONOUS",
+    "definitions": [
+     {
+      "text": "good to eat?",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suspicious",
+      "for": "anagram",
+      "note": "something suspicious is fishy and not right, so these letters are rearranged"
+     },
+     {
+      "text": "dipping into",
+      "for": "container",
+      "note": "something dipping into another goes inside it"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "onion soup",
+      "gives": "ONIONSOUP",
+      "note": "letters to be rearranged"
+     },
+     {
+      "clueFragment": "Issue",
+      "gives": "SON",
+      "note": "a son is issue, offspring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NONPOI",
+      "SON",
+      "OUS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONIONSOUP",
+       "gives": "NONPOIOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child dips into a bowl of onion soup that looks dodgy and wonders whether it is safe to eat.",
+     "walkthrough": "The question mark admits the definition is loose: food that will not poison you is fit to eat.",
+     "definitionFit": "Food that is free of toxins can be safely eaten, so it is fine as a meal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Issue"
+    }
+   }
   },
   {
    "number": 15,
@@ -321,7 +1013,61 @@
      }
     ]
    },
-   "solution": "PEANUTOIL"
+   "solution": "PEANUTOIL",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PEANUT OIL",
+    "definitions": [
+     {
+      "text": "Frying liquid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means the first part is wrapped about the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reverberating sound",
+      "gives": "PEAL",
+      "note": "a peal of bells or thunder reverberates"
+     },
+     {
+      "clueFragment": "fan",
+      "gives": "NUT",
+      "note": "a nut is an enthusiast, as in fitness nut"
+     },
+     {
+      "clueFragment": "I say!",
+      "gives": "OI",
+      "note": "oi is a call for attention"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEA",
+      "NUT",
+      "OI",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A loud echoing noise surrounds a fan, prompting someone to shout.",
+     "definitionFit": "Groundnut oil is a common cooking oil used for deep-frying."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fan"
+    }
+   }
   },
   {
    "number": 16,
@@ -335,7 +1081,59 @@
     "text": "Dash marked with initial of engraver",
     "enumeration": "8"
    },
-   "solution": "STAMPEDE"
+   "solution": "STAMPEDE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "STAMPEDE",
+    "definitions": [
+     {
+      "text": "Dash",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initial of",
+      "for": "letter_selection",
+      "note": "an initial is the first letter, so only the opening letter of the next word is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "marked",
+      "gives": "STAMPED",
+      "note": "stamped means marked, as with a seal"
+     },
+     {
+      "clueFragment": "engraver",
+      "gives": "E",
+      "select": "first",
+      "note": "the word's opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAMPED",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An engraver's initial makes a mark on a dash of metal.",
+     "walkthrough": "'Dash' looks like the punctuation mark that would suit an engraver; it means a rush.",
+     "definitionFit": "A stampede is a sudden headlong rush of a crowd or herd, a mad dash."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dash"
+    }
+   }
   },
   {
    "number": 17,
@@ -349,7 +1147,49 @@
     "text": "Document in hand, left",
     "enumeration": "8"
    },
-   "solution": "PASSPORT"
+   "solution": "PASSPORT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PASSPORT",
+    "definitions": [
+     {
+      "text": "Document",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hand",
+      "gives": "PASS",
+      "note": "to hand something over is to pass it"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "PORT",
+      "note": "port is the left side of a ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PASS",
+      "PORT"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller has a document in hand and has departed.",
+     "definitionFit": "A passport is the official paper that identifies a traveller and permits international travel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hand"
+    }
+   }
   },
   {
    "number": 18,
@@ -381,7 +1221,40 @@
    "group": [
     "18-across",
     "5-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "THAT'S BANG OUT OF ORDER",
+    "definitions": [
+     {
+      "text": "It's totally unacceptable!",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What's Gabon without love?",
+      "note": "surface reading: a quiz question about the African country"
+     },
+     {
+      "clueFragment": "What's Gabon without love?",
+      "note": "setter's reading: take the O (love) out of the country's name and the four letters left are a familiar word jumbled"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone indignantly asks what a country would be without love, then condemns the very idea.",
+     "walkthrough": "GABON minus O leaves GABN, which is BANG with its letters out of order, so the answer to the question is the exclamation itself.",
+     "definitionFit": "The British idiom, meaning completely out of line, is an outraged verdict that something is beyond what can be tolerated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Gabon"
+    }
+   }
   },
   {
    "number": 19,
@@ -395,7 +1268,70 @@
     "text": "Bird has knocked figure on horse over",
     "enumeration": "6"
    },
-   "solution": "GANNET"
+   "solution": "GANNET",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "GANNET",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocked",
+      "for": "reversal",
+      "note": "knocked over, with the next word, means toppled, so in a down clue the letters are turned bottom to top"
+     },
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "over completes knocked over: something toppled ends up upside down"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "figure",
+      "gives": "TEN",
+      "note": "ten is a number, a figure"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "NAG",
+      "note": "a nag is a horse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAN",
+      "NET"
+     ],
+     "reversals": [
+      {
+       "from": "TENNAG",
+       "to": "GANNET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird has knocked down a statue of a rider on horseback.",
+     "walkthrough": "In a down clue 'figure on horse' puts the number above the horse before the whole is turned over.",
+     "definitionFit": "The gannet is a large white seabird known for diving into the sea for fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "figure"
+    }
+   }
   },
   {
    "number": 20,
@@ -409,7 +1345,60 @@
     "text": "Tired and old battered Guardian employee?",
     "enumeration": "6"
    },
-   "solution": "EDITOR"
+   "solution": "EDITOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EDITOR",
+    "definitions": [
+     {
+      "text": "Guardian employee?",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "battered",
+      "for": "anagram",
+      "note": "something battered is knocked out of shape, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tired",
+      "gives": "TIRED",
+      "note": "letters to be rearranged"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TIREDO",
+       "gives": "EDITOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worn-out, ageing newspaper staffer is a figure of self-deprecating fun.",
+     "walkthrough": "The question mark marks the definition as an example: one editor among many people a newspaper employs.",
+     "definitionFit": "An editor is a journalist who runs or checks content on a newspaper such as the Guardian."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "battered"
+    }
+   }
   },
   {
    "number": 21,
@@ -436,7 +1425,68 @@
     "text": "Reigning cats and dogs back in pluvial part of Australia",
     "enumeration": "10"
    },
-   "solution": "QUEENSLAND"
+   "solution": "QUEENSLAND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "QUEENSLAND",
+    "definitions": [
+     {
+      "text": "part of Australia",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dogs",
+      "for": "charade",
+      "note": "to dog is to follow closely, so the joining word comes after the next piece"
+     },
+     {
+      "text": "back in",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter, the only one kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reigning cats",
+      "gives": "QUEENS",
+      "note": "queens are female cats, punning on reigning queens"
+     },
+     {
+      "clueFragment": "pluvial",
+      "gives": "L",
+      "select": "last",
+      "note": "the word's last letter"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUEENS",
+      "L",
+      "AND"
+     ]
+    },
+    "explanation": {
+     "surface": "It is raining cats and dogs in a wet region of Australia.",
+     "walkthrough": "The surface borrows 'raining cats and dogs'; 'Reigning cats' are queens, and 'dogs' means follows.",
+     "definitionFit": "Queensland is the north-eastern state of Australia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dogs"
+    }
+   }
   },
   {
    "number": 23,
@@ -450,7 +1500,57 @@
     "text": "Classic location with English rider on order",
     "enumeration": "5"
    },
-   "solution": "EPSOM"
+   "solution": "EPSOM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EPSOM",
+    "definitions": [
+     {
+      "text": "Classic location",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "rider",
+      "gives": "PS",
+      "note": "a rider is something added, like a postscript"
+     },
+     {
+      "clueFragment": "order",
+      "gives": "OM",
+      "note": "the Order of Merit, a British honour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "PS",
+      "OM"
+     ]
+    },
+    "explanation": {
+     "surface": "An English jockey is placed in order at a famous race venue.",
+     "walkthrough": "'rider' suggests a jockey; it is an addendum. The Classics are Britain's five great flat horse races, two of which are run at Epsom.",
+     "definitionFit": "Epsom Downs racecourse in Surrey hosts the Derby and the Oaks, both Classic races."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rider"
+    }
+   }
   },
   {
    "number": 24,
@@ -464,7 +1564,47 @@
     "text": "Roman god, King Christian, say",
     "enumeration": "4"
    },
-   "solution": "DIOR"
+   "solution": "DIOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIOR",
+    "definitions": [
+     {
+      "text": "Christian, say",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roman god",
+      "gives": "DIO",
+      "note": "dio is Italian, the language of Rome, for god"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R for rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIO",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of religious figures: a god of Rome, a king, a Christian.",
+     "walkthrough": "'Christian' looks like a believer to go with the god and king; it is the first name of a couturier.",
+     "definitionFit": "Christian Dior was the French fashion designer, so his surname is an example of someone called Christian."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Christian"
+    }
+   }
   },
   {
    "number": 25,
@@ -478,7 +1618,53 @@
     "text": "A smile and a wink, say, from crooked economist",
     "enumeration": "9"
    },
-   "solution": "EMOTICONS"
+   "solution": "EMOTICONS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EMOTICONS",
+    "definitions": [
+     {
+      "text": "A smile and a wink, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crooked",
+      "for": "anagram",
+      "note": "something crooked is bent out of shape, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "economist",
+      "gives": "ECONOMIST",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ECONOMIST",
+       "gives": "EMOTICONS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dishonest economist flashes a grin and a wink.",
+     "definitionFit": "Emoticons are keyboard faces such as :-) and ;-), which stand for a grin and a wink, two examples."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "crooked"
+    }
+   }
   },
   {
    "number": 26,
@@ -492,7 +1678,46 @@
     "text": "Cool fool, don't ya agree?",
     "enumeration": "5"
    },
-   "solution": "INNIT"
+   "solution": "INNIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INNIT",
+    "definitions": [
+     {
+      "text": "don't ya agree?",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cool",
+      "gives": "IN",
+      "note": "in means fashionable, cool"
+     },
+     {
+      "clueFragment": "fool",
+      "gives": "NIT",
+      "note": "a nit, short for nitwit, is a fool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "NIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A teenager calls someone a cool fool and seeks agreement.",
+     "definitionFit": "Innit is British slang contracting isn't it, a tag used to invite agreement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Cool"
+    }
+   }
   },
   {
    "number": 27,
@@ -506,7 +1731,74 @@
     "text": "Cuckoo learnt to peck end off chocolate digestive",
     "enumeration": "7"
    },
-   "solution": "ENTERAL"
+   "solution": "ENTERAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ENTERAL",
+    "definitions": [
+     {
+      "text": "digestive",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cuckoo",
+      "for": "anagram",
+      "note": "cuckoo means crazy, so these letters go haywire and are rearranged"
+     },
+     {
+      "text": "end off",
+      "for": "letter_selection",
+      "note": "the end taken off a word is its last letter, the only one kept"
+     },
+     {
+      "text": "to peck",
+      "for": "container",
+      "note": "to peck is to take a small bite, so the jumbled letters take another inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "learnt",
+      "gives": "LEARNT",
+      "note": "letters to be rearranged"
+     },
+     {
+      "clueFragment": "chocolate",
+      "gives": "E",
+      "select": "last",
+      "note": "the word's final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENT",
+      "E",
+      "RAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEARNT",
+       "gives": "ENTRAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cuckoo has learnt to nibble a chocolate biscuit.",
+     "walkthrough": "'Chocolate digestive' is a British biscuit; here 'digestive' alone is the definition, an adjective.",
+     "definitionFit": "Enteral means relating to the intestines, the gut, so it belongs to the digestive tract."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "digestive"
+    }
+   }
   },
   {
    "number": 28,
@@ -530,7 +1822,63 @@
    "group": [
     "28-across",
     "21-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MONSTER MASH",
+    "definitions": [
+     {
+      "text": "a frightening number from the '6os",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "connected with",
+      "for": "charade",
+      "note": "connected with says the battle is joined on to the other pieces, here at the front"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "battle",
+      "gives": "MONS",
+      "note": "Mons in Belgium was the site of a First World War battle"
+     },
+     {
+      "clueFragment": "Period",
+      "gives": "TERM",
+      "note": "a term is a period, as of school or office"
+     },
+     {
+      "clueFragment": "remains",
+      "gives": "ASH",
+      "note": "ash is what remains after burning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MONS",
+      "TERM",
+      "ASH"
+     ]
+    },
+    "explanation": {
+     "surface": "A historian links a stretch of time and some relics to a famous battle.",
+     "walkthrough": "'connected with' tells you the battle joins the other pieces; the battle comes first in the answer even though it is clued last.",
+     "definitionFit": "The 1962 novelty hit by Bobby Pickett is a horror-themed dance song, so a spooky musical number of that decade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "number"
+    }
+   }
   }
  ]
 }
