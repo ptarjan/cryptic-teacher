@@ -431,7 +431,10 @@ def find(preamble):
               for m in p.finditer(text)]
     if CONFESSED.search(text):
         return found
-    found += [s for s in _sentences(text) if ITALIC.search(s) or CORRECTED.search(s)]
+    # An italics note names the clue it fixes (_italic acts on no other): a
+    # special's "eight clues in italics must be encoded" is an instruction.
+    found += [s for s in _sentences(text)
+              if ITALIC.search(s) and re.search(r"\d", s) or CORRECTED.search(s)]
     return found
 
 

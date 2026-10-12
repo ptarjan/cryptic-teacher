@@ -289,7 +289,7 @@ def from_answer(group, by_id, enumeration, spaced=None, typed=None):
     when the blog wrote no more words than that, since BLUE PETER typed
     (4,4) over 4+5 cells has its words but CONSOLE TABLE typed (7,6) over 12
     has lost one."""
-    letters = "".join(by_id[gid]["solution"] for gid in group)
+    letters = "".join(by_id[gid]["solution"] or "" for gid in group)
     ranked = (typed or {}).get(letters, collections.Counter()).most_common(2)
     if ranked and (len(ranked) == 1 or ranked[0][1] > ranked[1][1]):
         return ranked[0][0]
@@ -334,9 +334,12 @@ def worded(clue, enum):
     return with_enumeration(clue, enum)
 
 
-def build(rec, row, series, date, setter, typed=None, pairs=False):
+def build(rec, row, series, date, setter, typed=None, pairs=False, loose_counts=False):
     """(puzzle, None) or (None, reason it is not filed). `date` is the print
-    date, or None where nothing proves one; `typed` is typed_counts()."""
+    date, or None where nothing proves one; `typed` is typed_counts().
+    `loose_counts`: a special whose preamble makes a clue's count the full
+    answer's rather than its entry's (Letters Latent) keeps an unlinked
+    clue's count as printed, with no word breaks drawn."""
     # A linked answer the post prints whole (the parser's `unsplit`) is
     # shared out as the grid's lights have it, and a suffix against its
     # heading takes the direction the grid gives it. One no split fits is lights
@@ -395,7 +398,7 @@ def build(rec, row, series, date, setter, typed=None, pairs=False):
         enum = e.pop("enumeration")
         group = groups.get(entry_id(e), [entry_id(e)])
         if not enum:
-            if group[0] == entry_id(e):
+            if group[0] == entry_id(e) and not (loose_counts and len(group) == 1):
                 return None, CAUSES["no-enumeration"]
             continue
         count = sum(n for n, _ in enumeration_parts(enum))
@@ -411,6 +414,8 @@ def build(rec, row, series, date, setter, typed=None, pairs=False):
             recounted.append(f"{e['number']} {e['direction']}")
         elif count == e["length"]:
             group = [entry_id(e)]
+        elif loose_counts and len(group) == 1 and not e.get("solution"):
+            continue
         elif group[0] != entry_id(e):
             return None, CAUSES["enumeration-disagrees"]
         try:

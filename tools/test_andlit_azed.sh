@@ -106,6 +106,32 @@ voted = {"1-across": ["Feline found in the attic", "3"], "4-across": ["Bovine an
 stored = {"sha": "x", "version": A.SCAN_VERSION, "verdict": {}, "rows": grid, "exact": True, "clues": voted}
 p, cause, _ = A.assemble(1800, A.scan_copy(stored), "u", None, None, "Plain")
 print("scan-files", cause, p and [e["clue"]["text"] for e in sorted(p["entries"], key=lambda e: (e["direction"], e["number"]))][:3])
+# Clues are the only must-have: a special files with no post, carrying its
+# preamble, or awaitsPreamble when none was read; its count may be the full
+# answer's (Letters Latent) and a wordless "*5 (3)" light is "See preamble".
+# A plain puzzle's count that misses its light still holds (mirror).
+sp = A.scan_copy(stored)
+p, cause, _ = A.assemble(1800, dict(sp, preamble="Answers to clues in italics are encoded."), "u", None, None, "‘Playfair’")
+print("special-files", cause, p and p.get("preamble"), p and p.get("awaitsPreamble"))
+p, cause, _ = A.assemble(1800, sp, "u", None, None, "‘Playfair’")
+print("special-awaits", cause, p and p.get("awaitsPreamble"))
+long = A.scan_copy(dict(stored, clues=dict(voted, **{"2-down": ["Mineral in store", "4"], "5-across": ["", "3"]})))
+long["clues"][(5, "across")] = "(3)"
+p, cause, _ = A.assemble(1800, dict(long, preamble="Letters Latent: one letter omitted."), "u", None, None, "‘Letters Latent’")
+print("special-loose", cause, p and [e["clue"] for e in p["entries"] if e["number"] in (2, 5)])
+print("plain-loose", A.assemble(1800, dict(long, clues={**long["clues"], (5, "across"): "Exist (3)"}), "u", None, None, "Plain")[1])
+# The PDF's instructions: form labels dropped, a full-width line cut in two
+# by column_lines joined (an overprinted number kept once), Playfair rows
+# moved after the text, and the Chambers line taken out only when whole.
+runs = [(0, 40, 300, 7.0, "Name"), (0, 40, 290, 7.0, "In a Playfair square the code-"),
+        (0, 40, 280, 7.0, "word is first. A clue to 37"), (0, 150, 280, 7.0, "37 is wanted."),
+        (0, 40, 270, 7.0, "E S T I C"), (0, 40, 250, 9.0, "ACROSS")]
+print("pdf-preamble", repr(A.pdf_preamble(runs, [(0, 0, "ACROSS")], 9.0, [30, 200], [320, 310])))
+print("chambers", repr(A.CHAMBERS.sub("", "The Chambers Dictionary (2003) is recommended. Ten clues are odd.").strip()),
+      repr(A.CHAMBERS.sub("", "The Chambers Dictionary (2003) is recommended but lacks 30.")))
+print("lost-bracket", A.entry_of((1, "across"), "You can’t —— that! 6)", {})["enumeration"],
+      A.entry_of((1, "across"), "Alert and savvy (11, 3 words, apostrophe)", {})["clue"])
+print("overprint", [r[4] for r in A.overprinted_once([(0, 1, 2, 7, "2 Latent"), (0, 1, 2, 7, "2 Latent From the"), (0, 1, 2, 7, "x"), (0, 1, 2, 7, "x")])])
 blanked = dict(stored, clues=dict(voted, **{"2-down": ["", "3"]}))
 print("scan-blank", A.assemble(1800, A.scan_copy(blanked), "u", None, None, "Plain")[1])
 joined = dict(stored, clues=dict(voted, **{"2-down": ["Mineral instorexq", "3"]}))
@@ -172,6 +198,16 @@ check "a missing answer comes from its crossings" "['CAT', 'COW', 'ARE', 'TED', 
 check "ligature and digit glyphs" "['Th', 'ffl', 'fi', '–', 'f', '1']" "$(line glyphs)"
 check "a scan whose clues all agree files" \
   "None ['Feline found in the attic', 'Bovine animal', 'Exist, they say']" "$(line scan-files)"
+check "a special files with no post, carrying its preamble" "None Answers to clues in italics are encoded. None" "$(line special-files)"
+check "a special with no preamble read files awaiting one" "None True" "$(line special-awaits)"
+check "a special's count need not measure its entry; a wordless light is See preamble" \
+  "None [{'text': 'Mineral in store', 'enumeration': '4'}, {'text': 'See preamble', 'enumeration': '3'}]" "$(line special-loose)"
+check "a plain count that misses its light still holds (mirror)" "enumeration" "$(line plain-loose)"
+check "PDF preamble: labels out, full-width line joined, square after" \
+  "'In a Playfair square the codeword is first. A clue to 37 is wanted.\\nESTIC'" "$(line pdf-preamble)"
+check "the Chambers line goes only when it is a whole sentence" "'Ten clues are odd.' 'The Chambers Dictionary (2003) is recommended but lacks 30.'" "$(line chambers)"
+check "a count's lost bracket and an apostrophe count are read" "6 Alert and savvy (11, three words, apostrophe)" "$(line lost-bracket)"
+check "bold overprints are kept once" "['2 Latent From the', 'x']" "$(line overprint)"
 check "a scan with a clue unagreed is held" "ocr-blank" "$(line scan-blank)"
 check "a scan cut off above its clues is held as such" "scan-no-clues" "$(line scan-no-clues)"
 check "a scan clue OCR wrote is held" "ocr-blank" "$(line scan-suspect)"
