@@ -42,6 +42,9 @@
    "25-down": "DRIVE"
   }
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -55,7 +58,57 @@
     "text": "Falsifies triplet with note for one such",
     "enumeration": "12"
    },
-   "solution": "FIDDLESTRING"
+   "solution": "FIDDLESTRING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FIDDLESTRING",
+    "definitions": [
+     {
+      "text": "one such",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Falsifies",
+      "gives": "FIDDLES",
+      "note": "to fiddle accounts is to falsify them"
+     },
+     {
+      "clueFragment": "triplet",
+      "gives": "TRIN",
+      "note": "a trin is an old word for one of three children born at a birth"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "G",
+      "note": "a note of the musical scale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIDDLES",
+      "TRIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cooks the books in threes and adds a note to cover one of them.",
+     "walkthrough": "'One such' points back to the fiddles at the start: the answer, FIDDLESTRING, is one of the strings of a fiddle.",
+     "definitionFit": "Each of the strings stretched along a violin is a fiddlestring, so it is one such item belonging to a fiddle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Falsifies"
+    }
+   }
   },
   {
    "number": 1,
@@ -69,7 +122,74 @@
     "text": "Theatre critic often, one struggling to take in half of Strindberg's concoction?",
     "enumeration": "12"
    },
-   "solution": "FIRSTNIGHTER"
+   "solution": "FIRSTNIGHTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "FIRSTNIGHTER",
+    "definitions": [
+     {
+      "text": "Theatre critic often",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "concoction",
+      "for": "anagram",
+      "note": "a concoction is a mixture made up from ingredients, so the letters are jumbled"
+     },
+     {
+      "text": "to take in",
+      "for": "container",
+      "note": "taking something in means holding it inside, so one piece goes within the other"
+     },
+     {
+      "text": "half of",
+      "for": "letter_selection",
+      "note": "only the front half of the playwright's name is used, the rest discarded"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one struggling",
+      "gives": "FIGHTER",
+      "note": "someone who struggles or battles"
+     },
+     {
+      "clueFragment": "Strindberg's",
+      "gives": "STRIN",
+      "select": "first",
+      "note": "the first five of the ten letters of the Swedish playwright's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FI",
+      "RSTNI",
+      "GHTER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STRIN",
+       "gives": "RSTNI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drama critic, perhaps a struggling one, tries to digest half a Strindberg play.",
+     "walkthrough": "The jumbled half-name goes inside after the first two letters of the fighter. Critics traditionally attend opening nights, hence 'often'.",
+     "definitionFit": "A first-nighter is a habitual attender of opening performances, which reviewers of plays usually are."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "concoction"
+    }
+   }
   },
   {
    "number": 2,
@@ -83,7 +203,54 @@
     "text": "What may be used to calculate oil flow in damaged side-car",
     "enumeration": "7"
    },
-   "solution": "DARCIES"
+   "solution": "DARCIES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DARCIES",
+    "definitions": [
+     {
+      "text": "What may be used to calculate oil flow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "damaged",
+      "for": "anagram",
+      "note": "something damaged is knocked out of shape, so its letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "side-car",
+      "gives": "SIDECAR",
+      "note": "the hyphenated word supplies its seven letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SIDECAR",
+       "gives": "DARCIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Oil is leaking from a wrecked motorcycle side-car.",
+     "walkthrough": "'Oil flow' suggests the sidecar's leak, but it is the flow of oil through rock that petroleum engineers measure.",
+     "definitionFit": "The darcy is a unit of permeability, used to work out how readily oil moves through porous rock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "flow"
+    }
+   }
   },
   {
    "number": 3,
@@ -97,7 +264,59 @@
     "text": "Old shilling, not nearly new, fetching high price",
     "enumeration": "4"
    },
-   "solution": "DEAR"
+   "solution": "DEAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DEAR",
+    "definitions": [
+     {
+      "text": "fetching high price",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "'not' tells you to take the following letters out of the coin's name"
+     },
+     {
+      "text": "nearly",
+      "for": "deletion",
+      "note": "nearly means not quite all, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old shilling",
+      "gives": "DEANER",
+      "note": "deaner was old slang for a shilling"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "NE",
+      "note": "the word for new with its last letter dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "An old shilling, though far from new, sells for a high price to collectors.",
+     "walkthrough": "Take NE out of DEANER to leave DEAR. A shilling was a pre-decimal British coin worth twelve pence.",
+     "definitionFit": "Something dear is expensive, so it commands or fetches a high price."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "new"
+    }
+   }
   },
   {
    "number": 4,
@@ -111,7 +330,59 @@
     "text": "One game in Scotland in which there's very little between the two sides?",
     "enumeration": "7"
    },
-   "solution": "LAMITER"
+   "solution": "LAMITER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LAMITER",
+    "definitions": [
+     {
+      "text": "One game in Scotland",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "between",
+      "for": "container",
+      "note": "something lying between two others sits in the middle of them"
+     }
+    ],
+    "linkWords": [
+     "in which there's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the two sides",
+      "gives": "LR",
+      "note": "left and right, the two sides"
+     },
+     {
+      "clueFragment": "very little",
+      "gives": "AMITE",
+      "note": "'a mite' means a very little, as in 'a mite tired'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "AMITE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A Scottish game played so evenly that there is barely anything between the two teams.",
+     "walkthrough": "'Game' here is the old adjective for a lame leg, not a sport: a lamiter is a cripple in Scots.",
+     "definitionFit": "Lamiter is a Scottish word for a lame person, and game describes a crippled leg."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 5,
@@ -125,7 +396,46 @@
     "text": "E.g. sea bream special, very dry",
     "enumeration": "6"
    },
-   "solution": "SPARID"
+   "solution": "SPARID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPARID",
+    "definitions": [
+     {
+      "text": "E.g. sea bream",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "special",
+      "gives": "SP",
+      "note": "SP is an abbreviation of special"
+     },
+     {
+      "clueFragment": "very dry",
+      "gives": "ARID",
+      "note": "arid land is extremely dry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "ARID"
+     ]
+    },
+    "explanation": {
+     "surface": "A dried-out sea bream offered as the special on a menu.",
+     "definitionFit": "Sparids are the family of fishes to which the sea bream belongs, so the bream is an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "special"
+    }
+   }
   },
   {
    "number": 6,
@@ -138,6 +448,37 @@
    "clue": {
     "text": "A prank",
     "enumeration": "5"
+   },
+   "solution": "TRICK",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TRICK",
+    "definitions": [
+     {
+      "text": "prank",
+      "at": 2
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A prank",
+      "note": "surface reading: a practical joke played on someone"
+     },
+     {
+      "clueFragment": "A prank",
+      "note": "setter's reading: just the definition, since this is the word solvers write their own clues for"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "This was the Azed competition word: the puzzle gives only a definition, and entrants submit their own clues for it.",
+     "definitionFit": "A practical joke or hoax played on someone is a common synonym for this word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
    }
   },
   {
@@ -151,7 +492,66 @@
    "clue": {
     "text": "I produce something like cork and relock bottled end of jeroboam (7, two words)"
    },
-   "solution": "ROCKELM"
+   "solution": "ROCKELM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ROCK ELM",
+    "definitions": [
+     {
+      "text": "I produce something like cork",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter"
+     },
+     {
+      "text": "bottled",
+      "for": "anagram",
+      "note": "bottled is slang for drunk, and drunken letters stagger into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "relock",
+      "gives": "RELOCK",
+      "note": "taken as written, before mixing"
+     },
+     {
+      "clueFragment": "jeroboam",
+      "gives": "M",
+      "select": "last",
+      "note": "a jeroboam is a large wine bottle"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RELOCKM",
+       "gives": "ROCKELM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cork producer explains how to reseal a jeroboam of wine.",
+     "walkthrough": "'Bottled' looks like part of the wine picture, but it signals the mix; the surface 'cork' belongs to the definition, not the wordplay.",
+     "definitionFit": "The rock elm is an American elm whose twigs develop thick corky ridges of bark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cork"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +565,60 @@
     "text": "Cubic mineral not brought in by the tide? On the contrary",
     "enumeration": "6"
    },
-   "solution": "NOSEAN"
+   "solution": "NOSEAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NOSEAN",
+    "definitions": [
+     {
+      "text": "Cubic mineral",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought in by",
+      "for": "container",
+      "note": "being brought in by something means being taken inside it"
+     },
+     {
+      "text": "On the contrary",
+      "for": "container",
+      "note": "this swaps the roles just described, so the outer and inner pieces trade places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not",
+      "gives": "NON",
+      "note": "non is the Latin for not, familiar as a prefix"
+     },
+     {
+      "clueFragment": "the tide",
+      "gives": "SEA",
+      "note": "the tide stands for the sea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "SEA",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A cubic crystal that the tide has failed to wash up onto the shore.",
+     "walkthrough": "Read literally, 'not' would go inside 'tide'; 'On the contrary' reverses that, so the tide goes inside 'not'.",
+     "definitionFit": "Nosean is a mineral of the sodalite group that crystallises in the cubic system."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "contrary"
+    }
+   }
   },
   {
    "number": 9,
@@ -178,7 +631,73 @@
    "clue": {
     "text": "One's surely lying badly about 'tip of blue' in this scarlet flower (12, two words)"
    },
-   "solution": "GUERNSEYLILY"
+   "solution": "GUERNSEYLILY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "anagram"
+    ],
+    "answer": "GUERNSEY LILY",
+    "definitions": [
+     {
+      "text": "this scarlet flower",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "doing something badly gets it out of order, so the letters are rearranged"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the mixed letters go round the single one"
+     },
+     {
+      "text": "tip of",
+      "for": "letter_selection",
+      "note": "the tip of a word is one of its ends, here the final letter"
+     }
+    ],
+    "linkWords": [
+     "One's",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "surely lying",
+      "gives": "SURELYLYING",
+      "note": "the two words supply eleven letters to mix"
+     },
+     {
+      "clueFragment": "blue",
+      "gives": "E",
+      "select": "last",
+      "note": "the colour word's final letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SURELYLYINGE",
+       "gives": "GUERNSEYLILY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Anyone claiming this scarlet flower has a blue tip must be lying.",
+     "walkthrough": "The 'tip of blue' is its last letter, not its first. The Guernsey lily is named after the Channel Island where it was naturalised.",
+     "definitionFit": "The Guernsey lily, Nerine sarniensis, is a South African bulb bearing heads of brilliant red blooms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tip"
+    }
+   }
   },
   {
    "number": 10,
@@ -192,7 +711,69 @@
     "text": "Naiad upset about 'second' for Hera, re judgement of Paris?",
     "enumeration": "6"
    },
-   "solution": "IDAEAN"
+   "solution": "IDAEAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "anagram"
+    ],
+    "answer": "IDAEAN",
+    "definitions": [
+     {
+      "text": "re judgement of Paris?",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upsetting something throws it into disorder, so the letters are rearranged"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the mixed letters surround the chosen one"
+     },
+     {
+      "text": "'second' for",
+      "for": "letter_selection",
+      "note": "the second letter of the goddess's name is the one taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Naiad",
+      "gives": "NAIAD",
+      "note": "a water nymph, taken as written"
+     },
+     {
+      "clueFragment": "Hera",
+      "gives": "E",
+      "select": 2,
+      "note": "Hera is queen of the Greek gods"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NAIADE",
+       "gives": "IDAEAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A water nymph is upset at coming second in the beauty contest Paris judged, Hera's position.",
+     "walkthrough": "Paris judged Hera, Athena and Aphrodite on Mount Ida, so anything concerning that judgement relates to Ida.",
+     "definitionFit": "Idaean means of Mount Ida, the setting where the Trojan prince chose the fairest goddess."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 11,
@@ -206,7 +787,66 @@
     "text": "Best —— may be involved in turning breads out",
     "enumeration": "5"
    },
-   "solution": "DOURA"
+   "solution": "DOURA",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram",
+     "deletion"
+    ],
+    "answer": "DOURA",
+    "definitions": [
+     {
+      "text": "Best —— may be involved in turning breads out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning",
+      "for": "anagram",
+      "note": "turning things over mixes them, so the letters are rearranged"
+     },
+     {
+      "text": "may be involved in",
+      "for": "deletion",
+      "note": "the blank plus the first word make up the mix, so the first word's letters are taken away to leave the blank"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "breads out",
+      "gives": "BREADSOUT",
+      "note": "the two words supply nine letters"
+     },
+     {
+      "clueFragment": "Best",
+      "gives": "BEST",
+      "note": "taken as written, to be removed from the mix"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOURA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BREADSOUT",
+       "gives": "BESTDOURA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The finest grain of some kind may go into making breads.",
+     "walkthrough": "A composite anagram: the blank, filled with the answer and put beside 'Best', rearranges to 'breads out'. Read whole, the clue also says the grain goes into bread.",
+     "definitionFit": "Doura, also spelt durra, is a sorghum grown as a cereal crop and ground for flour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Best"
+    }
+   }
   },
   {
    "number": 12,
@@ -220,7 +860,47 @@
     "text": "Favouring very good food-grain",
     "enumeration": "5"
    },
-   "solution": "PROSO"
+   "solution": "PROSO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROSO",
+    "definitions": [
+     {
+      "text": "food-grain",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Favouring",
+      "gives": "PRO",
+      "note": "pro means in favour of"
+     },
+     {
+      "clueFragment": "very good",
+      "gives": "SO",
+      "note": "so, as an exclamation of approval, is a curt way of saying 'very good'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "SO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shows a preference for a cereal of excellent quality.",
+     "walkthrough": "'Very good' reads as praise of the grain, but it is a single word of approval.",
+     "definitionFit": "Proso is a millet, Panicum miliaceum, grown as a cereal crop for flour and fodder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "good"
+    }
+   }
   },
   {
    "number": 13,
@@ -234,7 +914,65 @@
     "text": "Running race is ideal? So open to non-professionals, dear",
     "enumeration": "7"
    },
-   "solution": "LAICISE"
+   "solution": "LAICISE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion"
+    ],
+    "answer": "LAICISE",
+    "definitions": [
+     {
+      "text": "So open to non-professionals",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Running",
+      "for": "anagram",
+      "note": "running things are in motion, so the letters move into a new order"
+     },
+     {
+      "text": "So",
+      "for": "deletion",
+      "note": "the answer and the last word together make up the mixed phrase, so that word's letters are subtracted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "race is ideal",
+      "gives": "RACEISIDEAL",
+      "note": "three words supplying eleven letters"
+     },
+     {
+      "clueFragment": "dear",
+      "gives": "DEAR",
+      "note": "taken as written, to be removed from the mix"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAICISE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RACEISIDEAL",
+       "gives": "LAICISEDEAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Amateurs could take part if the running race were made open, the question suggests.",
+     "walkthrough": "A composite anagram: the answer plus 'dear' together rearrange to 'race is ideal'. 'So open' asks for a verb meaning to open in that way.",
+     "definitionFit": "To laicise is to hand something over to lay people rather than clergy or professionals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Running"
+    }
+   }
   },
   {
    "number": 14,
@@ -248,7 +986,52 @@
     "text": "Mixed curries — one may have lumps in",
     "enumeration": "7"
    },
-   "solution": "SUCRIER"
+   "solution": "SUCRIER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SUCRIER",
+    "definitions": [
+     {
+      "text": "one may have lumps in",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mixed",
+      "for": "anagram",
+      "note": "mixed things are stirred together, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "curries",
+      "gives": "CURRIES",
+      "note": "taken as written, before mixing"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CURRIES",
+       "gives": "SUCRIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dish of mixed curries, one of them lumpy.",
+     "walkthrough": "'Lumps' suggests a badly made sauce, but they are lumps of sugar.",
+     "definitionFit": "A sucrier is a sugar bowl, a container that holds sugar lumps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lumps"
+    }
+   }
   },
   {
    "number": 15,
@@ -262,7 +1045,64 @@
     "text": "Cocktail with a bit of Enzian in vat",
     "enumeration": "4"
    },
-   "solution": "KIER"
+   "solution": "KIER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "KIER",
+    "definitions": [
+     {
+      "text": "vat",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a bit of",
+      "for": "letter_selection",
+      "note": "a bit of a word is a small part of it, here its opening letter"
+     },
+     {
+      "text": "with",
+      "for": "container",
+      "note": "the drink has the single letter with it, held inside, as the closing 'in' confirms"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cocktail",
+      "gives": "KIR",
+      "note": "kir is white wine with blackcurrant liqueur"
+     },
+     {
+      "clueFragment": "Enzian",
+      "gives": "E",
+      "select": "first",
+      "note": "Enzian is a German gentian spirit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KI",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A cocktail mixed in a vat with a dash of Enzian schnapps.",
+     "definitionFit": "A kier is a large vat in which cloth is boiled for bleaching."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cocktail"
+    }
+   }
   },
   {
    "number": 16,
@@ -276,7 +1116,53 @@
     "text": "Dreary old versifier? Not me",
     "enumeration": "5"
    },
-   "solution": "TRIST"
+   "solution": "TRIST",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TRIST",
+    "definitions": [
+     {
+      "text": "Dreary old",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not",
+      "for": "deletion",
+      "note": "'Not me' says that the two-letter pronoun is left out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "versifier",
+      "gives": "METRIST",
+      "note": "a metrist is a writer of verse, skilled in metre"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written, to be removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy poet of the past protests that the description does not fit him.",
+     "walkthrough": "'Old' belongs to the definition: trist is an archaic word, so the answer is a dreary word from old usage.",
+     "definitionFit": "Trist is an obsolete form of triste, meaning sad or sorrowful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "versifier"
+    }
+   }
   },
   {
    "number": 17,
@@ -290,7 +1176,64 @@
     "text": "Label bed to be brought back for old foot soldier",
     "enumeration": "7"
    },
-   "solution": "PIKEMAN"
+   "solution": "PIKEMAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PIKEMAN",
+    "definitions": [
+     {
+      "text": "old foot soldier",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be brought back",
+      "for": "reversal",
+      "note": "bringing something back sends it the other way, so the letters are read in reverse"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Label",
+      "gives": "NAME",
+      "note": "a name is a label"
+     },
+     {
+      "clueFragment": "bed",
+      "gives": "KIP",
+      "note": "kip is slang for a bed or sleep"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIK",
+      "EMAN"
+     ],
+     "reversals": [
+      {
+       "from": "NAMEKIP",
+       "to": "PIKEMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tag on a bed that has to be returned, labelled for an old soldier.",
+     "walkthrough": "NAME and KIP together are reversed as one string.",
+     "definitionFit": "A pikeman was an infantryman armed with a long pike, a soldier of earlier centuries."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Label"
+    }
+   }
   },
   {
    "number": 18,
@@ -304,7 +1247,61 @@
     "text": "Former skin spots? One among a number returning",
     "enumeration": "6"
    },
-   "solution": "NAEVES"
+   "solution": "NAEVES",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "NAEVES",
+    "definitions": [
+     {
+      "text": "Former skin spots",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "among",
+      "for": "container",
+      "note": "being among something means sitting inside it"
+     },
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back, so the letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a number",
+      "gives": "SEVEN",
+      "note": "any number will do; this one has the right letters"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "A",
+      "note": "a, the indefinite article, means one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "A",
+      "EVES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recalls old skin blemishes, one among several that keep coming back.",
+     "walkthrough": "A goes into the number and the whole is then reversed. 'Former' marks the obsolete spelling.",
+     "definitionFit": "Naeve is an old form of naevus, a birthmark or mole on the skin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 19,
@@ -318,7 +1315,70 @@
     "text": "Cry of distress from tug I spotted crashing into vessel",
     "enumeration": "7"
    },
-   "solution": "VAGITUS"
+   "solution": "VAGITUS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "VAGITUS",
+    "definitions": [
+     {
+      "text": "Cry of distress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crashing",
+      "for": "anagram",
+      "note": "a crash smashes things up, so the letters are rearranged"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into something puts it inside, so the mix sits in the vessel"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vessel",
+      "gives": "VAS",
+      "note": "vas is the anatomical term for a duct or vessel"
+     },
+     {
+      "clueFragment": "tug I spotted",
+      "gives": "TUGI",
+      "note": "the boat plus the letter I, which is spotted because it carries a dot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VA",
+      "GITU",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TUGI",
+       "gives": "GITU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A distress call goes up as a tug is seen ramming into a ship.",
+     "walkthrough": "'Vessel' looks nautical, but it is the anatomical vas. 'Spotted' describes the dotted letter i.",
+     "definitionFit": "Vagitus is the first cry of a newborn baby, a wail of distress at birth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 20,
@@ -332,7 +1392,84 @@
     "text": "Leaping catch — man out — I pocketed in covers",
     "enumeration": "7"
    },
-   "solution": "TEGMINA"
+   "solution": "TEGMINA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "TEGMINA",
+    "definitions": [
+     {
+      "text": "covers",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leaping",
+      "for": "anagram",
+      "note": "leaping letters jump out of their places, so they are rearranged"
+     },
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out can mean disordered, so these letters are rearranged too"
+     },
+     {
+      "text": "pocketed in",
+      "for": "container",
+      "note": "something pocketed is tucked inside, so the single letter goes within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "catch",
+      "gives": "GET",
+      "note": "to get is to catch"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "MAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEG",
+      "M",
+      "I",
+      "NA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GET",
+       "gives": "TEG"
+      },
+      {
+       "fodder": "MAN",
+       "gives": "MNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket report: a leaping catch, the batsman out, and I took the ball in the covers.",
+     "walkthrough": "The cricket words mislead: 'covers' is the fielding position in the surface but the definition here, wing cases of insects.",
+     "definitionFit": "Tegmina are the hardened forewings of grasshoppers and beetles that protect the hind wings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "covers"
+    }
+   }
   },
   {
    "number": 21,
@@ -346,7 +1483,57 @@
     "text": "For Jews it's symbolic, sticking flower in cap",
     "enumeration": "7"
    },
-   "solution": "HAROSET"
+   "solution": "HAROSET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HAROSET",
+    "definitions": [
+     {
+      "text": "For Jews it's symbolic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sticking",
+      "for": "container",
+      "note": "something stuck in a thing is fixed inside it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cap",
+      "gives": "HAT",
+      "note": "a cap is a kind of hat"
+     },
+     {
+      "clueFragment": "flower",
+      "gives": "ROSE",
+      "note": "a flower"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HA",
+      "ROSE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Pinning a flower to a cap carries symbolic meaning in Jewish custom.",
+     "definitionFit": "Haroset is the fruit and nut paste of the Passover meal, representing the mortar Hebrew slaves used in Egypt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "flower"
+    }
+   }
   },
   {
    "number": 22,
@@ -360,7 +1547,70 @@
     "text": "Ligaments? One not far from foot when raised",
     "enumeration": "6"
    },
-   "solution": "FRAENA"
+   "solution": "FRAENA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "FRAENA",
+    "definitions": [
+     {
+      "text": "Ligaments",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when raised",
+      "for": "reversal",
+      "note": "raising a down entry lifts it upwards, so it reads from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "not far",
+      "gives": "NEAR",
+      "note": "near is the opposite of far"
+     },
+     {
+      "clueFragment": "foot",
+      "gives": "F",
+      "note": "F is the abbreviation for foot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RAEN",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "ANEARF",
+       "to": "FRAENA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor asks whether the ligaments in question lie near the foot when it is lifted.",
+     "walkthrough": "The clue reads one, not far, foot; turned upwards it gives F, RAEN, A.",
+     "definitionFit": "Fraena are small folds of membrane, such as the one under the tongue, that restrain an organ."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "foot"
+    }
+   }
   },
   {
    "number": 23,
@@ -374,7 +1624,49 @@
     "text": "Anzac swapping units (front and rear) given equipment",
     "enumeration": "6"
    },
-   "solution": "RIGGED"
+   "solution": "RIGGED",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "RIGGED",
+    "definitions": [
+     {
+      "text": "given equipment",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swapping units (front and rear)",
+      "for": "substitution",
+      "note": "the single letters at the two ends change places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Anzac",
+      "gives": "DIGGER",
+      "note": "digger is the nickname for an Australian or New Zealand soldier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIGGED"
+     ]
+    },
+    "explanation": {
+     "surface": "An Anzac soldier swaps units and is issued with new kit.",
+     "walkthrough": "'Units' looks military but means single letters; an Anzac was a soldier of the Australian and New Zealand Army Corps.",
+     "definitionFit": "Rigged means fitted out, as a ship is supplied with its sails and gear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "units"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,6 +1679,82 @@
    "clue": {
     "text": "Blowing kiss king's mistress turned in after a change of sheets?",
     "enumeration": "6"
+   },
+   "solution": "REMADE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "container"
+    ],
+    "answer": "REMADE",
+    "definitions": [
+     {
+      "text": "after a change of sheets?",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Blowing",
+      "for": "deletion",
+      "note": "to blow something is to lose it, so the kiss letter is lost from the royal word"
+     },
+     {
+      "text": "turned",
+      "for": "reversal",
+      "note": "something turned is facing the other way, so it is read backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the reversed piece inside what is left of the royal word"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "king",
+      "gives": "REX",
+      "note": "rex is the Latin for king"
+     },
+     {
+      "clueFragment": "kiss",
+      "gives": "X",
+      "note": "a cross at the end of a letter stands for a kiss"
+     },
+     {
+      "clueFragment": "mistress",
+      "gives": "DAME",
+      "note": "dame is an old word for the mistress of a household"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EMAD",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "DAME",
+       "to": "EMAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A king blows a kiss to his mistress, and they go to bed once the sheets are changed.",
+     "walkthrough": "'Blowing kiss' looks like a romantic gesture, but it means dropping X from REX. 'Turned in' suggests going to bed; 'turned' and 'in' are two separate instructions.",
+     "definitionFit": "A bed with fresh linen put on it has been made up again, so it is newly made once more."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Blowing"
+    }
    }
   },
   {
@@ -400,6 +1768,51 @@
    "clue": {
     "text": "Granular CO ? Cried after receiving treatment",
     "enumeration": "5"
+   },
+   "solution": "DRICE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DRICE",
+    "definitions": [
+     {
+      "text": "Granular CO ?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after receiving treatment",
+      "for": "anagram",
+      "note": "treatment works something over, so the letters come out rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cried",
+      "gives": "CRIED",
+      "note": "taken as written, before mixing"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CRIED",
+       "gives": "DRICE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wept after medical treatment involving granular carbon dioxide.",
+     "walkthrough": "The '?' stands for the subscript 2 of CO2, lost from the clue text: the definition is granular carbon dioxide.",
+     "definitionFit": "Drice is a name for dry ice in granulated form, solid carbon dioxide used as a coolant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "treatment"
+    }
    }
   },
   {
@@ -414,7 +1827,55 @@
     "text": "Garb in grey no longer charms",
     "enumeration": "7"
    },
-   "solution": "GRIGRIS"
+   "solution": "GRIGRIS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GRIGRIS",
+    "definitions": [
+     {
+      "text": "charms",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grey no longer",
+      "gives": "GRIS",
+      "note": "gris is an obsolete word for grey"
+     },
+     {
+      "clueFragment": "Garb",
+      "gives": "RIG",
+      "note": "rig is an outfit of clothes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RIG",
+      "RIS"
+     ]
+    },
+    "explanation": {
+     "surface": "Grey clothing has lost its appeal.",
+     "walkthrough": "'Charms' reads as a verb in the surface but is a plural noun; 'no longer' marks the archaic word for grey.",
+     "definitionFit": "Grigris are African amulets or talismans worn to ward off evil."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "charms"
+    }
+   }
   },
   {
    "number": 27,
@@ -428,7 +1889,56 @@
     "text": "Old-style verse he objectively included in school subject",
     "enumeration": "5"
    },
-   "solution": "RHIME"
+   "solution": "RHIME",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RHIME",
+    "definitions": [
+     {
+      "text": "Old-style verse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "included in",
+      "for": "container",
+      "note": "something included in a thing is put inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school subject",
+      "gives": "RE",
+      "note": "RE is Religious Education, a British school subject"
+     },
+     {
+      "clueFragment": "he objectively",
+      "gives": "HIM",
+      "note": "the objective case of he"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "HIM",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A teacher brings old-fashioned poetry he admires into a school lesson.",
+     "walkthrough": "'Objectively' is grammatical: it asks for the object form of the pronoun.",
+     "definitionFit": "Rhime is an old spelling of rhyme, meaning verse or poetry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "objectively"
+    }
+   }
   },
   {
    "number": 28,
@@ -442,7 +1952,59 @@
     "text": "Roller dispersing fellow's waste on board whaler?",
     "enumeration": "5"
    },
-   "solution": "GURRY"
+   "solution": "GURRY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GURRY",
+    "definitions": [
+     {
+      "text": "waste on board whaler?",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dispersing",
+      "for": "container",
+      "note": "dispersing something parts it, so the other piece goes into the gap"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fellow",
+      "gives": "GUY",
+      "note": "a guy is a fellow"
+     },
+     {
+      "clueFragment": "Roller",
+      "gives": "RR",
+      "note": "a Roller is slang for a Rolls-Royce, abbreviated RR"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GU",
+      "RR",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A wave rolling across a whaling ship scatters a man's rubbish.",
+     "walkthrough": "'Roller' suggests a wave, but it is British slang for a Rolls-Royce car.",
+     "definitionFit": "Gurry is the offal and refuse left after cutting up a whale or fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Roller"
+    }
+   }
   },
   {
    "number": 29,
@@ -456,7 +2018,66 @@
     "text": "Pilgrim, one following god (not his) from the east",
     "enumeration": "4"
    },
-   "solution": "HAJI"
+   "solution": "HAJI",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "HAJI",
+    "definitions": [
+     {
+      "text": "Pilgrim",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from the east",
+      "for": "reversal",
+      "note": "reading from the east in an across entry means going right to left"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following puts the single letter second, after the god"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "god",
+      "gives": "JAH",
+      "note": "Jah is the Rastafarian name for God"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAJ",
+      "I"
+     ],
+     "reversals": [
+      {
+       "from": "JAH",
+       "to": "HAJ"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pilgrim follows a god from the east, though not the god of his own faith.",
+     "walkthrough": "'(not his)' is a surface aside: Jah is the Rastafarian deity, not the god of a Muslim pilgrim.",
+     "definitionFit": "A haji is a Muslim who has made the pilgrimage to Mecca."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "east"
+    }
+   }
   },
   {
    "number": 30,
@@ -470,7 +2091,55 @@
     "text": "Okra merging with what it's fried in? It's painful in the mouth",
     "enumeration": "7"
    },
-   "solution": "GUMBOIL"
+   "solution": "GUMBOIL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "GUMBOIL",
+    "definitions": [
+     {
+      "text": "It's painful in the mouth",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "merging with",
+      "for": "deletion",
+      "note": "merging makes two words share a letter where they meet, so one copy goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Okra",
+      "gives": "GUMBO",
+      "note": "gumbo is another name for okra"
+     },
+     {
+      "clueFragment": "what it's fried in?",
+      "gives": "OIL",
+      "note": "cooking fat used for frying"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUMB",
+      "OIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Okra soaking up its frying oil makes a sore mouthful.",
+     "walkthrough": "The two words overlap on their shared O.",
+     "definitionFit": "A gumboil is an abscess on the gum, a painful swelling inside the mouth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "merging"
+    }
+   }
   },
   {
    "number": 31,
@@ -484,7 +2153,46 @@
     "text": "What you'll see lags behind in short musical sections?",
     "enumeration": "4"
    },
-   "solution": "BARS"
+   "solution": "BARS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BARS",
+    "definitions": [
+     {
+      "text": "What you'll see lags behind",
+      "at": 0
+     },
+     {
+      "text": "short musical sections",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What you'll see lags behind",
+      "note": "first meaning: lags are convicts, who are kept behind the metal rods of a cell"
+     },
+     {
+      "clueFragment": "short musical sections",
+      "note": "second meaning: the measures of a piece of music"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Lags behind' reads as falling behind, but lag is British slang for a convict.",
+     "definitionFit": "Prisoners are said to be behind them, and a score divides music into these short units of time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lags"
+    }
+   }
   },
   {
    "number": 32,
@@ -498,7 +2206,56 @@
     "text": "Typical satyr's behaviour, after wine I bet",
     "enumeration": "7"
    },
-   "solution": "TENTIGO"
+   "solution": "TENTIGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TENTIGO",
+    "definitions": [
+     {
+      "text": "Typical satyr's behaviour",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wine",
+      "gives": "TENT",
+      "note": "tent is a deep red Spanish wine"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bet",
+      "gives": "GO",
+      "note": "a go is a turn or attempt, as in 'have a bet' on something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TENT",
+      "I",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "A satyr behaves true to type after drinking, the speaker wagers.",
+     "walkthrough": "Satyrs, the goat-legged followers of Bacchus, were proverbially lecherous.",
+     "definitionFit": "Tentigo is morbid lustfulness, the defining trait of the mythical satyr."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "bet"
+    }
+   }
   },
   {
    "number": 33,
@@ -512,7 +2269,66 @@
     "text": "Long par with this pitch mark could make a lump on green",
     "enumeration": "5"
    },
-   "solution": "NEUME"
+   "solution": "NEUME",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion"
+    ],
+    "answer": "NEUME",
+    "definitions": [
+     {
+      "text": "this pitch mark",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "could make",
+      "for": "anagram",
+      "note": "the words before could be rearranged to make the phrase that follows"
+     },
+     {
+      "text": "with",
+      "for": "deletion",
+      "note": "the answer goes with the opening words in the mix, so their letters are taken off to leave it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a lump on green",
+      "gives": "ALUMPONGREEN",
+      "note": "four words supplying twelve letters"
+     },
+     {
+      "clueFragment": "Long par",
+      "gives": "LONGPAR",
+      "note": "taken as written, to be removed from the mix"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEUME"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALUMPONGREEN",
+       "gives": "LONGPARNEUME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer's long par putt leaves a pitch mark that raises a lump on the green.",
+     "walkthrough": "A composite anagram: 'long par' plus the answer rearranges to 'a lump on green'. 'Pitch' is musical here, not the golfer's pitch shot.",
+     "definitionFit": "A neume is a sign in medieval plainsong notation showing the rise and fall in a melody."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pitch"
+    }
+   }
   },
   {
    "number": 34,
@@ -526,7 +2342,65 @@
     "text": "Pay out from urn excited Murray?",
     "enumeration": "6"
    },
-   "solution": "UNREEL"
+   "solution": "UNREEL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "UNREEL",
+    "definitions": [
+     {
+      "text": "Pay out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excited",
+      "for": "anagram",
+      "note": "something excited is stirred up, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "urn",
+      "gives": "UNR",
+      "note": "the three letters rearranged"
+     },
+     {
+      "clueFragment": "Murray?",
+      "gives": "EEL",
+      "note": "the question mark admits a pun: Murray is said like moray, a kind of eel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNR",
+      "EEL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "URN",
+       "gives": "UNR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cash is paid out of an urn to an excited Andy Murray, the tennis player.",
+     "walkthrough": "'Murray' looks like the tennis player, but the question mark lets it stand for the moray eel.",
+     "definitionFit": "To unreel a line or rope is to let it run out, as one pays out a cable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Murray"
+    }
+   }
   },
   {
    "number": 35,
@@ -539,7 +2413,62 @@
    "clue": {
     "text": "No support for this quiche? Nasty party asides about recipe (12, two words)"
    },
-   "solution": "RAISEDPASTRY"
+   "solution": "RAISEDPASTRY",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "RAISED PASTRY",
+    "definitions": [
+     {
+      "text": "No support for this quiche?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Nasty",
+      "for": "anagram",
+      "note": "something nasty is twisted out of its proper form, so the letters are rearranged"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the words surround the single letter before mixing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party asides",
+      "gives": "PARTYASIDES",
+      "note": "two words supplying eleven letters"
+     },
+     {
+      "clueFragment": "recipe",
+      "gives": "R",
+      "note": "R is the abbreviation for recipe, as on prescriptions"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PARTYASIDESR",
+       "gives": "RAISEDPASTRY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Snide remarks at a party about a quiche recipe that no one supports.",
+     "walkthrough": "A quiche bakes in a supporting dish, whereas this kind of crust stands up without one.",
+     "definitionFit": "Raised pastry, as for a pork pie, is moulded to stand by itself, needing no tin to hold it up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "support"
+    }
+   }
   }
  ]
 }
