@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,46 @@
     "text": "Don't forget about MP",
     "enumeration": "8"
    },
-   "solution": "REMEMBER"
+   "solution": "REMEMBER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REMEMBER",
+    "definitions": [
+     {
+      "text": "Don't forget",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re is Latin-derived for 'concerning, about'"
+     },
+     {
+      "clueFragment": "MP",
+      "gives": "MEMBER",
+      "note": "an MP is a Member of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "MEMBER"
+     ]
+    },
+    "explanation": {
+     "surface": "A reminder not to overlook your parliamentary representative.",
+     "definitionFit": "The imperative 'Don't forget' is a plain synonym of the command to keep something in mind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +89,54 @@
     "text": "Regret bringing in Liberal government",
     "enumeration": "4"
    },
-   "solution": "RULE"
+   "solution": "RULE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RULE",
+    "definitions": [
+     {
+      "text": "government",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bringing in",
+      "for": "container",
+      "note": "bringing something in means taking it inside, so the regret word wraps around the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Regret",
+      "gives": "RUE",
+      "note": "to rue is to regret"
+     },
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "L is the standard abbreviation for Liberal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lamenting the arrival of a Liberal administration.",
+     "definitionFit": "Rule is the exercise of authority over a country, which is a synonym for government."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "government"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +150,58 @@
     "text": "Play in match and be beaten",
     "enumeration": "7"
    },
-   "solution": "MACBETH"
+   "solution": "MACBETH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MACBETH",
+    "definitions": [
+     {
+      "text": "Play",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beaten",
+      "for": "anagram",
+      "note": "something beaten is knocked out of shape, so these letters are battered into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "match",
+      "gives": "MATCH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "be",
+      "gives": "BE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MATCHBE",
+       "gives": "MACBETH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sports report about a team losing a game.",
+     "definitionFit": "Shakespeare's tragedy about the Scottish king is an example of a play."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Play"
+    }
+   }
   },
   {
    "number": 3,
@@ -89,7 +229,43 @@
      }
     ]
    },
-   "solution": "MIDDLEOFTHEROAD"
+   "solution": "MIDDLEOFTHEROAD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MIDDLE-OF-THE-ROAD",
+    "definitions": [
+     {
+      "text": "Central",
+      "at": 0
+     },
+     {
+      "text": "square",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Central",
+      "note": "first meaning: politically in the centre, moderate"
+     },
+     {
+      "clueFragment": "square",
+      "note": "second meaning: conventional and unadventurous"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together the two words suggest a square in the middle of a town; separately they are two senses of one hyphenated phrase.",
+     "definitionFit": "The phrase describes both moderate politics, avoiding extremes, and bland conventional taste, which is what 'square' means as slang."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "square"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +279,42 @@
     "text": "More in next race",
     "enumeration": "5"
    },
-   "solution": "EXTRA"
+   "solution": "EXTRA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EXTRA",
+    "definitions": [
+     {
+      "text": "More",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "'in' tells us the answer sits inside the run of words that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "next race",
+      "gives": "EXTRA",
+      "note": "the letters run across the two words, inside them"
+     }
+    ],
+    "explanation": {
+     "surface": "Further excitement promised for the following race at a meeting.",
+     "definitionFit": "Extra means additional, so it works as a synonym for 'more'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "More"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +328,52 @@
     "text": "Computer circuit to power",
     "enumeration": "6"
    },
-   "solution": "LAPTOP"
+   "solution": "LAPTOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAPTOP",
+    "definitions": [
+     {
+      "text": "Computer",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "circuit",
+      "gives": "LAP",
+      "note": "a lap is one circuit of a track"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the symbol for power in physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAP",
+      "TO",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for wiring an electronic circuit up to the mains.",
+     "definitionFit": "A laptop is a portable personal machine, a kind of computer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "circuit"
+    }
+   }
   },
   {
    "number": 6,
@@ -141,7 +397,60 @@
      }
     ]
    },
-   "solution": "ATCLOSEQUARTERS"
+   "solution": "ATCLOSEQUARTERS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "AT CLOSE QUARTERS",
+    "definitions": [
+     {
+      "text": "very near",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "refurbished",
+      "for": "anagram",
+      "note": "refurbishing a thing remakes it, so these letters are reworked into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Locates",
+      "gives": "LOCATES",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "rooms",
+      "gives": "QUARTERS",
+      "note": "quarters are lodgings or rooms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATCLOSE",
+      "QUARTERS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOCATES",
+       "gives": "ATCLOSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An estate agent finds renovated rooms right next door.",
+     "definitionFit": "The idiom describes being in close proximity, so it means very near."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Locates"
+    }
+   }
   },
   {
    "number": 7,
@@ -155,7 +464,65 @@
     "text": "…Partick, let out after this?",
     "enumeration": "7"
    },
-   "solution": "THISTLE"
+   "solution": "THISTLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "THISTLE",
+    "definitions": [
+     {
+      "text": "Partick",
+      "at": 1,
+      "note": "the answer completes the name Partick Thistle"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "'out' suggests something put out of place, so the three letters before it are jumbled"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this",
+      "gives": "THIS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "let",
+      "gives": "LET",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THIS",
+      "TLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LET",
+       "gives": "TLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Following on from the previous clue, someone being released by a Glasgow football club.",
+     "walkthrough": "Partick Thistle is a Glasgow football club, so the answer is the word that follows 'Partick'. The scrambled word comes after 'this' in the answer.",
+     "definitionFit": "Partick Thistle is the full name of the Scottish football club, so the answer is the missing half of that name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "let"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +536,55 @@
     "text": "Large case of wine, fine mixture",
     "enumeration": "9"
    },
-   "solution": "PORTFOLIO"
+   "solution": "PORTFOLIO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PORTFOLIO",
+    "definitions": [
+     {
+      "text": "Large case",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wine",
+      "gives": "PORT",
+      "note": "port is a fortified wine"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the abbreviation for fine, as on pencils"
+     },
+     {
+      "clueFragment": "mixture",
+      "gives": "OLIO",
+      "note": "an olio is a medley or miscellany"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PORT",
+      "F",
+      "OLIO"
+     ]
+    },
+    "explanation": {
+     "surface": "A big box holding a blend of good wines.",
+     "definitionFit": "A portfolio is a large flat carrying case for papers or drawings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +598,54 @@
     "text": "Clear chance, virtually, I had",
     "enumeration": "5"
    },
-   "solution": "LUCID"
+   "solution": "LUCID",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "LUCID",
+    "definitions": [
+     {
+      "text": "Clear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "virtually",
+      "for": "deletion",
+      "note": "'virtually' means almost, so the word is taken all but its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chance",
+      "gives": "LUCK",
+      "note": "luck is chance, before trimming"
+     },
+     {
+      "clueFragment": "I had",
+      "gives": "ID",
+      "note": "I'd is the contraction of 'I had'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LUC",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer recalling an open goal-scoring opportunity he nearly had.",
+     "definitionFit": "Lucid means easy to understand, a synonym of clear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chance"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +665,54 @@
      }
     ]
    },
-   "solution": "TOWNCRIER"
+   "solution": "TOWNCRIER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TOWN CRIER",
+    "definitions": [
+     {
+      "text": "Bellman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "jostled",
+      "for": "anagram",
+      "note": "things jostled are pushed about, so these letters are pushed into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tricorn we",
+      "gives": "TRICORNWE",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRICORNWE",
+       "gives": "TOWNCRIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bell-ringer in a three-cornered hat being pushed about by a crowd.",
+     "walkthrough": "The tricorn hat is part of the traditional costume of the official, which makes the surface picture apt.",
+     "definitionFit": "A town crier rang a handbell before making public announcements, so he was known as a bellman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Bellman"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +726,49 @@
     "text": "We must get harmful insect",
     "enumeration": "6"
    },
-   "solution": "WEEVIL"
+   "solution": "WEEVIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WEEVIL",
+    "definitions": [
+     {
+      "text": "insect",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "must get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "We",
+      "gives": "WE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "harmful",
+      "gives": "EVIL",
+      "note": "evil means harmful or wicked"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WE",
+      "EVIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A call to obtain some damaging bug, perhaps for an experiment.",
+     "definitionFit": "A weevil is a small beetle, so it is a type of insect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "harmful"
+    }
+   }
   },
   {
    "number": 12,
@@ -253,7 +804,43 @@
    "group": [
     "12-across",
     "13-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TELL TALES OUT OF SCHOOL",
+    "definitions": [
+     {
+      "text": "Spill the beans",
+      "at": 0
+     },
+     {
+      "text": "as children are inclined to do?",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spill the beans",
+      "note": "first meaning: reveal secrets or gossip indiscreetly"
+     },
+     {
+      "clueFragment": "as children are inclined to do?",
+      "note": "second meaning, taken literally: pupils telling stories about classmates once away from the classroom"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that the second half reads the idiom literally, about children carrying stories home from class.",
+     "definitionFit": "The idiom means to give away confidential information, the same as spilling the beans."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "children"
+    }
+   }
   },
   {
    "number": 13,
@@ -280,7 +867,49 @@
     "text": "Assistant editor and writer contribute money",
     "enumeration": "9"
    },
-   "solution": "SUBSCRIBE"
+   "solution": "SUBSCRIBE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUBSCRIBE",
+    "definitions": [
+     {
+      "text": "contribute money",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Assistant editor",
+      "gives": "SUB",
+      "note": "a sub is a sub-editor, an assistant editor"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "SCRIBE",
+      "note": "a scribe is a writer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUB",
+      "SCRIBE"
+     ]
+    },
+    "explanation": {
+     "surface": "Newspaper staff chipping in for a collection.",
+     "definitionFit": "To subscribe is to pledge or pay a sum to a fund or cause, so it means contribute money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Assistant"
+    }
+   }
   },
   {
    "number": 14,
@@ -294,7 +923,53 @@
     "text": "Genuine, following team of stars",
     "enumeration": "8"
    },
-   "solution": "SIDEREAL"
+   "solution": "SIDEREAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SIDEREAL",
+    "definitions": [
+     {
+      "text": "of stars",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "'following' places the first word after the next one in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "team",
+      "gives": "SIDE",
+      "note": "a side is a team"
+     },
+     {
+      "clueFragment": "Genuine",
+      "gives": "REAL",
+      "note": "real means genuine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIDE",
+      "REAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports fan praising an authentic squad of star players.",
+     "definitionFit": "Sidereal is the astronomical adjective meaning relating to the stars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stars"
+    }
+   }
   },
   {
    "number": 15,
@@ -308,7 +983,64 @@
     "text": "Iron clubs hidden by little girl in grass",
     "enumeration": "6"
    },
-   "solution": "FESCUE"
+   "solution": "FESCUE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FESCUE",
+    "definitions": [
+     {
+      "text": "grass",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hidden by",
+      "for": "container",
+      "note": "something hidden by another is covered by it, so the second item wraps around the first"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Iron",
+      "gives": "FE",
+      "note": "Fe is the chemical symbol for iron"
+     },
+     {
+      "clueFragment": "little girl",
+      "gives": "SUE",
+      "note": "Sue is a short girl's name"
+     },
+     {
+      "clueFragment": "clubs",
+      "gives": "C",
+      "note": "C is the abbreviation for clubs in cards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FE",
+      "S",
+      "C",
+      "UE"
+     ]
+    },
+    "explanation": {
+     "surface": "A child has hidden golf clubs in the long grass.",
+     "definitionFit": "Fescue is a genus of tufted grasses widely used for lawns, so it is a kind of grass."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Iron"
+    }
+   }
   },
   {
    "number": 16,
@@ -322,7 +1054,64 @@
     "text": "Infatuated with OT in finest edition",
     "enumeration": "8"
    },
-   "solution": "BESOTTED"
+   "solution": "BESOTTED",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BESOTTED",
+    "definitions": [
+     {
+      "text": "Infatuated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' says the first item goes inside the word after it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "finest",
+      "gives": "BEST",
+      "note": "best means finest"
+     },
+     {
+      "clueFragment": "OT",
+      "gives": "OT",
+      "note": "OT, the Old Testament, taken as written"
+     },
+     {
+      "clueFragment": "edition",
+      "gives": "ED",
+      "note": "ed. is the abbreviation for edition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BES",
+      "OT",
+      "T",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A book lover smitten with a superb printing of the Old Testament.",
+     "definitionFit": "Besotted means strongly infatuated, a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "OT"
+    }
+   }
   },
   {
    "number": 17,
@@ -336,7 +1125,54 @@
     "text": "Arrange to go round a US city",
     "enumeration": "7"
    },
-   "solution": "SEATTLE"
+   "solution": "SEATTLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEATTLE",
+    "definitions": [
+     {
+      "text": "US city",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go round",
+      "for": "container",
+      "note": "going round something means surrounding it, so one word wraps the letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arrange",
+      "gives": "SETTLE",
+      "note": "to settle a matter is to arrange it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "A",
+      "TTLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Planning a tour around an American city.",
+     "definitionFit": "Seattle is the largest city in Washington state, in the United States."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Arrange"
+    }
+   }
   },
   {
    "number": 18,
@@ -350,7 +1186,53 @@
     "text": "Crazy chef reportedly needing two ducks",
     "enumeration": "6"
    },
-   "solution": "CUCKOO"
+   "solution": "CUCKOO",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "CUCKOO",
+    "definitions": [
+     {
+      "text": "Crazy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "'reportedly' means as heard, so we take the sound of the word rather than its spelling"
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chef",
+      "gives": "CUCK",
+      "soundsLike": "COOK",
+      "note": "a chef is a cook, said in the British way"
+     },
+     {
+      "clueFragment": "two ducks",
+      "gives": "OO",
+      "note": "a duck is a score of nothing in cricket, which looks like the letter O"
+     }
+    ],
+    "explanation": {
+     "surface": "A cook, so the story goes, demanding a pair of ducks for a dish.",
+     "walkthrough": "In British speech the first syllable of the answer rhymes with 'book'. A duck in cricket is a score of zero, hence O.",
+     "definitionFit": "Cuckoo is informal for mad or crazy, from the bird's repetitive call."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ducks"
+    }
+   }
   },
   {
    "number": 19,
@@ -370,7 +1252,67 @@
      }
     ]
    },
-   "solution": "KNOWALL"
+   "solution": "KNOWALL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "KNOW-ALL",
+    "definitions": [
+     {
+      "text": "Clever clogs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "corrected",
+      "for": "anagram",
+      "note": "something corrected is changed and put right, so these letters are rearranged"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' means surrounding, so the rearranged letters go around the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on walk",
+      "gives": "ONWALK",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "length",
+      "gives": "L",
+      "note": "L is the abbreviation for length"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KNOWA",
+      "L",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONWALK",
+       "gives": "KNOWAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A smart alec on a stroll being put right about some distance.",
+     "walkthrough": "'Clever clogs' is British slang for a show-off who thinks they know best.",
+     "definitionFit": "A know-all is someone who acts as if they know everything, which is what a clever clogs does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "corrected"
+    }
+   }
   },
   {
    "number": 20,
@@ -390,7 +1332,63 @@
      }
     ]
    },
-   "solution": "CLARENCEDARROW"
+   "solution": "CLARENCEDARROW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLARENCE DARROW",
+    "definitions": [
+     {
+      "text": "Famous lawyer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the back of",
+      "for": "charade",
+      "note": "'at the back of' places the first pieces after the last one in the answer"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carriage",
+      "gives": "CLARENCE",
+      "note": "a clarence is a closed four-wheeled horse-drawn carriage"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     },
+     {
+      "clueFragment": "quarrel",
+      "gives": "ARROW",
+      "note": "a quarrel is a crossbow bolt, a kind of arrow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLARENCE",
+      "D",
+      "ARROW"
+     ]
+    },
+    "explanation": {
+     "surface": "A barrister and his daughter rowing in the back of a car.",
+     "walkthrough": "'Quarrel' wants to mean a row, but here it is the short heavy arrow fired from a crossbow.",
+     "definitionFit": "Clarence Darrow was the celebrated American defence attorney of the Scopes trial, so he is a famous lawyer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "quarrel"
+    }
+   }
   },
   {
    "number": 21,
@@ -404,7 +1402,45 @@
     "text": "Dump in Channel",
     "enumeration": "5"
    },
-   "solution": "DITCH"
+   "solution": "DITCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DITCH",
+    "definitions": [
+     {
+      "text": "Dump",
+      "at": 0
+     },
+     {
+      "text": "Channel",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dump",
+      "note": "first meaning: get rid of, abandon"
+     },
+     {
+      "clueFragment": "Channel",
+      "note": "second meaning: a dug trench for water"
+     }
+    ],
+    "explanation": {
+     "surface": "Dumping waste in the English Channel.",
+     "definitionFit": "The word is both a verb for discarding something and a noun for a narrow drainage trench."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Channel"
+    }
+   }
   },
   {
    "number": 22,
@@ -418,7 +1454,49 @@
     "text": "Girl on river for a month in Israel?",
     "enumeration": "4"
    },
-   "solution": "ADAR"
+   "solution": "ADAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADAR",
+    "definitions": [
+     {
+      "text": "a month in Israel?",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "ADA",
+      "note": "Ada is a girl's name"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADA",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman spends a month on an Israeli river.",
+     "definitionFit": "Adar is the twelfth month of the Hebrew calendar, used in Israel; the question mark marks it as an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 23,
@@ -432,7 +1510,68 @@
     "text": "Reticent person in car going through the heart of Brittany",
     "enumeration": "9"
    },
-   "solution": "INTROVERT"
+   "solution": "INTROVERT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "INTROVERT",
+    "definitions": [
+     {
+      "text": "Reticent person",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the heart of",
+      "for": "letter_selection",
+      "note": "the heart of a word is its middle, so only its central letters are kept"
+     },
+     {
+      "text": "going through",
+      "for": "container",
+      "note": "going through something passes inside it, so the vehicle sits within the kept letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Brittany",
+      "gives": "TT",
+      "select": "middle",
+      "note": "the two central letters of the eight-letter name"
+     },
+     {
+      "clueFragment": "car",
+      "gives": "ROVER",
+      "note": "Rover is a British make of car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "T",
+      "ROVER",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A shy traveller driving through the middle of Brittany in France.",
+     "definitionFit": "An introvert is a reserved, inward-looking person, so a reticent person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "car"
+    }
+   }
   },
   {
    "number": 24,
@@ -446,7 +1585,58 @@
     "text": "Last in tribe to capture an antelope",
     "enumeration": "5"
    },
-   "solution": "ELAND"
+   "solution": "ELAND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ELAND",
+    "definitions": [
+     {
+      "text": "an antelope",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Last in",
+      "for": "letter_selection",
+      "note": "'last in' points to the final letter of the following word only"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tribe",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the word"
+     },
+     {
+      "clueFragment": "capture",
+      "gives": "LAND",
+      "note": "to land a fish or prize is to capture it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LAND"
+     ]
+    },
+    "explanation": {
+     "surface": "The final hunter of a tribe setting out to catch an antelope.",
+     "definitionFit": "The eland is a large African species, so it is an antelope."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capture"
+    }
+   }
   },
   {
    "number": 25,
@@ -460,7 +1650,57 @@
     "text": "Finishes checking me and makes corrections",
     "enumeration": "6"
    },
-   "solution": "EMENDS"
+   "solution": "EMENDS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EMENDS",
+    "definitions": [
+     {
+      "text": "makes corrections",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "checking",
+      "for": "container",
+      "note": "checking can mean holding back or restraining, so one word holds the other within it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finishes",
+      "gives": "ENDS",
+      "note": "ends are finishes"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "ME",
+      "NDS"
+     ]
+    },
+    "explanation": {
+     "surface": "An editor completes proofreading my work and fixes errors.",
+     "definitionFit": "To emend is to edit a text to remove errors, so emends means makes corrections."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "checking"
+    }
+   }
   },
   {
    "number": 26,
@@ -474,7 +1714,63 @@
     "text": "Painter in card game right next to the Parisian",
     "enumeration": "8"
    },
-   "solution": "WHISTLER"
+   "solution": "WHISTLER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WHISTLER",
+    "definitions": [
+     {
+      "text": "Painter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "next to",
+      "for": "charade",
+      "note": "'next to' places one piece directly beside another, so the pieces join side by side"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "card game",
+      "gives": "WHIST",
+      "note": "whist is a trick-taking card game"
+     },
+     {
+      "clueFragment": "the Parisian",
+      "gives": "LE",
+      "note": "le is French for 'the'"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHIST",
+      "LE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist sitting at a card table beside a Frenchman.",
+     "walkthrough": "The order is game, then the French word, then the letter it sits next to.",
+     "definitionFit": "James McNeill Whistler was an American-born painter, famous for 'Whistler's Mother'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Parisian"
+    }
+   }
   }
  ]
 }
