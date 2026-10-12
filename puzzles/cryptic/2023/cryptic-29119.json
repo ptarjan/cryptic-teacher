@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Artist beset by duke, one demanding women's rights",
     "enumeration": "8"
    },
-   "solution": "FEMINIST"
+   "solution": "FEMINIST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FEMINIST",
+    "definitions": [
+     {
+      "text": "one demanding women's rights",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beset by",
+      "for": "container",
+      "note": "to be beset by something is to be surrounded by it, so the artist sits inside the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "duke",
+      "gives": "FIST",
+      "note": "dukes is old slang for fists, so a duke is a fist"
+     },
+     {
+      "clueFragment": "Artist",
+      "gives": "EMIN",
+      "note": "Tracey Emin, the British artist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "EMIN",
+      "IST"
+     ]
+    },
+    "explanation": {
+     "surface": "A painter is cornered by an aristocrat while campaigning for women's rights.",
+     "walkthrough": "Duke looks like a nobleman, but 'put up your dukes' makes it a fist. Tracey Emin is a well-known British conceptual artist.",
+     "definitionFit": "A feminist is a person who campaigns for equal rights for women, which matches the description exactly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "duke"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +98,56 @@
     "text": "Drop wrong end of stick",
     "enumeration": "4"
    },
-   "solution": "SINK"
+   "solution": "SINK",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SINK",
+    "definitions": [
+     {
+      "text": "Drop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wrong",
+      "gives": "SIN",
+      "note": "a sin is a wrong, a moral offence"
+     },
+     {
+      "clueFragment": "stick",
+      "gives": "K",
+      "select": "last",
+      "note": "the final letter of stick"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIN",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to let go of a stick after grabbing it by the wrong end.",
+     "walkthrough": "'Wrong end of stick' suggests the idiom for misunderstanding, but wrong and end of stick are separate pieces.",
+     "definitionFit": "To sink is to fall or descend, so as a verb it is a synonym of drop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wrong"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +161,63 @@
     "text": "Imagines content being rewritten to create a mystery",
     "enumeration": "6"
    },
-   "solution": "ENIGMA"
+   "solution": "ENIGMA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ENIGMA",
+    "definitions": [
+     {
+      "text": "mystery",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "content",
+      "for": "letter_selection",
+      "note": "the content of a word is what lies inside it, so its first and last letters are discarded"
+     },
+     {
+      "text": "being rewritten",
+      "for": "anagram",
+      "note": "something rewritten is set down again in a new form, so the kept letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "to create a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Imagines",
+      "gives": "MAGINE",
+      "select": "middle",
+      "note": "the inner letters of imagines"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENIGMA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MAGINE",
+       "gives": "ENIGMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rewrites a text about imagination and produces something puzzling.",
+     "definitionFit": "An enigma is a puzzling thing or person, a near synonym of mystery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "content"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +231,44 @@
     "text": "Denied having applied more polish",
     "enumeration": "8"
    },
-   "solution": "REBUFFED"
+   "solution": "REBUFFED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REBUFFED",
+    "definitions": [
+     {
+      "text": "Denied",
+      "at": 0
+     },
+     {
+      "text": "having applied more polish",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Denied",
+      "note": "first meaning: turned away, refused"
+     },
+     {
+      "clueFragment": "having applied more polish",
+      "note": "second meaning: buffed again"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone was refused after giving something an extra shine.",
+     "walkthrough": "The second sense splits the word as RE (again) plus BUFFED (polished).",
+     "definitionFit": "To be rebuffed is to be snubbed or refused; re-buffed is polished a second time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "polish"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +292,65 @@
      }
     ]
    },
-   "solution": "THUMBALIFT"
+   "solution": "THUMBALIFT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion"
+    ],
+    "answer": "THUMB A LIFT",
+    "definitions": [
+     {
+      "text": "hitch",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Artificial",
+      "for": "anagram",
+      "note": "something artificial is made up rather than natural, so the letters are reconstructed"
+     },
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so the following letter is taken out of the fodder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ham built fat",
+      "gives": "HAMBUILTFAT",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "one A to be removed from the fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THUMBALIFT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HMBUILTFAT",
+       "gives": "THUMBALIFT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A description of processed fatty ham, apparently made without any problem.",
+     "walkthrough": "'Without a hitch' reads as an idiom meaning smoothly; in fact 'without a' removes one A and hitch alone is the definition.",
+     "definitionFit": "To hitch is to hitchhike, which means getting rides by thumbing a lift from passing drivers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "hitch"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +364,48 @@
     "text": "Crooked furniture used regularly",
     "enumeration": "6"
    },
-   "solution": "UNTRUE"
+   "solution": "UNTRUE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "UNTRUE",
+    "definitions": [
+     {
+      "text": "Crooked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every second letter is picked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "furniture used",
+      "gives": "UNTRUE",
+      "select": "alternate",
+      "note": "the second, fourth, sixth letters and so on of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNTRUE"
+     ]
+    },
+    "explanation": {
+     "surface": "Some wonky furniture is in regular use.",
+     "definitionFit": "Crooked in the sense of dishonest; something untrue is false or deceitful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Crooked"
+    }
+   }
   },
   {
    "number": 7,
@@ -127,7 +419,53 @@
     "text": "Redesigned green bin for starter",
     "enumeration": "8"
    },
-   "solution": "BEGINNER"
+   "solution": "BEGINNER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BEGINNER",
+    "definitions": [
+     {
+      "text": "starter",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Redesigned",
+      "for": "anagram",
+      "note": "a thing redesigned is put together in a new arrangement, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "green bin",
+      "gives": "GREENBIN",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GREENBIN",
+       "gives": "BEGINNER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newly designed recycling bin is handed out to someone just starting to recycle.",
+     "definitionFit": "A starter is a novice or newcomer, someone at the start of learning something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "starter"
+    }
+   }
   },
   {
    "number": 8,
@@ -141,7 +479,39 @@
     "text": "Sort of therapy necessitating major outlay?",
     "enumeration": "6"
    },
-   "solution": "RETAIL"
+   "solution": "RETAIL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "RETAIL",
+    "definitions": [
+     {
+      "text": "Sort of therapy necessitating major outlay?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sort of therapy necessitating major outlay?",
+      "note": "surface reading: an expensive medical or psychological treatment"
+     },
+     {
+      "clueFragment": "Sort of therapy",
+      "note": "setter's reading: the jokey name for cheering yourself up by going shopping, which costs money"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests costly private treatment; the answer completes the phrase for shopping as a mood-lifter, where the outlay is the point.",
+     "definitionFit": "Retail therapy is the informal term for buying things to make oneself feel better, inevitably spending money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "therapy"
+    }
+   }
   },
   {
    "number": 9,
@@ -155,7 +525,51 @@
     "text": "Scottish chieftain going after English — that's a gas!",
     "enumeration": "6"
    },
-   "solution": "ETHANE"
+   "solution": "ETHANE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ETHANE",
+    "definitions": [
+     {
+      "text": "that's a gas",
+      "at": 41
+     }
+    ],
+    "linkWords": [
+     "going after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "Scottish chieftain",
+      "gives": "THANE",
+      "note": "a thane was a Scottish clan chief or lord, as in Macbeth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "THANE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Highland chief following an Englishman provides great amusement.",
+     "walkthrough": "The chieftain comes first in the clue but 'going after' puts him second. 'That's a gas' sounds like 'what fun!', but is literal.",
+     "definitionFit": "Ethane is a colourless flammable hydrocarbon gas found in natural gas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gas"
+    }
+   }
   },
   {
    "number": 10,
@@ -169,7 +583,50 @@
     "text": "Quit strike force",
     "enumeration": "4"
    },
-   "solution": "KICK"
+   "solution": "KICK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KICK",
+    "definitions": [
+     {
+      "text": "Quit",
+      "at": 0
+     },
+     {
+      "text": "strike",
+      "at": 5
+     },
+     {
+      "text": "force",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quit",
+      "note": "first meaning: give up a habit"
+     },
+     {
+      "clueFragment": "strike",
+      "note": "second meaning: hit with the foot"
+     },
+     {
+      "clueFragment": "force",
+      "note": "third meaning: power or punch"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Strike force' reads as a military unit, but it is two separate meanings beside a third.",
+     "definitionFit": "The word means to give up a habit, to hit with the foot, and a strong effect or punch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "force"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +650,46 @@
      }
     ]
    },
-   "solution": "GETOUTMORE"
+   "solution": "GETOUTMORE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GET OUT MORE",
+    "definitions": [
+     {
+      "text": "guidance for those obsessed",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leave",
+      "gives": "GETOUT",
+      "note": "to get out is to leave"
+     },
+     {
+      "clueFragment": "additional",
+      "gives": "MORE",
+      "note": "more means additional, extra"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GETOUT",
+      "MORE"
+     ]
+    },
+    "explanation": {
+     "surface": "Extra advice left behind for people with fixations.",
+     "definitionFit": "'Get out more' is the stock advice given to someone too absorbed in a narrow hobby or interest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Leave"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +703,56 @@
     "text": "By means of gravity, artist creates something arousing",
     "enumeration": "6"
    },
-   "solution": "VIAGRA"
+   "solution": "VIAGRA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VIAGRA",
+    "definitions": [
+     {
+      "text": "something arousing",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "creates"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "By means of",
+      "gives": "VIA",
+      "note": "via means by way of"
+     },
+     {
+      "clueFragment": "gravity",
+      "gives": "G",
+      "note": "G is the symbol for gravity's acceleration"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician, an artist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIA",
+      "G",
+      "RA"
+     ]
+    },
+    "explanation": {
+     "surface": "A painter uses gravity to produce an exciting work.",
+     "definitionFit": "Viagra is the brand-name drug for erectile dysfunction, so it causes physical arousal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gravity"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +766,63 @@
     "text": "Cosy up and hang round with hired killer",
     "enumeration": "10"
    },
-   "solution": "GUNSLINGER"
+   "solution": "GUNSLINGER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "GUNSLINGER",
+    "definitions": [
+     {
+      "text": "hired killer",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the word is read from bottom to top, backwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cosy",
+      "gives": "SNUG",
+      "note": "snug means cosy"
+     },
+     {
+      "clueFragment": "hang round",
+      "gives": "LINGER",
+      "note": "to linger is to hang about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUNS",
+      "LINGER"
+     ],
+     "reversals": [
+      {
+       "from": "SNUG",
+       "to": "GUNS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to snuggle up and hang about with a hitman.",
+     "definitionFit": "A gunslinger is a gunfighter of the Wild West, often hired to kill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +836,70 @@
     "text": "Find out about dead becoming bloated",
     "enumeration": "8"
    },
-   "solution": "INFLATED"
+   "solution": "INFLATED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "INFLATED",
+    "definitions": [
+     {
+      "text": "bloated",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out can mean wrong or disordered, so the preceding word's letters are muddled"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the muddled letters wrap round the next piece"
+     }
+    ],
+    "linkWords": [
+     "becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Find",
+      "gives": "FIND",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "dead",
+      "gives": "LATE",
+      "note": "the late means the dead, as in the late king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INF",
+      "LATE",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FIND",
+       "gives": "INFD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone learns that a corpse has started to swell.",
+     "walkthrough": "'Find out' reads as discover, but find is the fodder and out its indicator.",
+     "definitionFit": "Inflated means swollen or puffed up, a synonym of bloated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +913,41 @@
     "text": "Transport used by some in metropolitan demography",
     "enumeration": "6"
    },
-   "solution": "TANDEM"
+   "solution": "TANDEM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TANDEM",
+    "definitions": [
+     {
+      "text": "Transport",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "used by some in",
+      "for": "hidden_word",
+      "note": "used by some in says only part of the following words' letters is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "metropolitan demography",
+      "gives": "TANDEM",
+      "note": "found spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A statistic on how people in cities travel.",
+     "definitionFit": "A tandem is a bicycle for two riders, a form of transport."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +961,64 @@
     "text": "Brussels first acquires information identifying someone espousing discredited science",
     "enumeration": "8"
    },
-   "solution": "EUGENIST"
+   "solution": "EUGENIST",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EUGENIST",
+    "definitions": [
+     {
+      "text": "someone espousing discredited science",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "acquires",
+      "for": "container",
+      "note": "to acquire something is to take it in, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "identifying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brussels",
+      "gives": "EU",
+      "note": "Brussels is the seat of the European Union"
+     },
+     {
+      "clueFragment": "first",
+      "gives": "IST",
+      "note": "1st, with the one written as I"
+     },
+     {
+      "clueFragment": "information",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EU",
+      "GEN",
+      "IST"
+     ]
+    },
+    "explanation": {
+     "surface": "The EU gets first-hand information on someone backing a dubious theory.",
+     "walkthrough": "Gen is British informal for information, as in 'get the gen'.",
+     "definitionFit": "A eugenist advocates eugenics, the discredited idea of improving humanity by selective breeding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Brussels"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1032,62 @@
     "text": "One showing a desire for essentially deadly sadism acts",
     "enumeration": "6"
    },
-   "solution": "ADDICT"
+   "solution": "ADDICT",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ADDICT",
+    "definitions": [
+     {
+      "text": "One showing a desire for",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its heart, so the middle letters of each word are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deadly",
+      "gives": "AD",
+      "select": "middle",
+      "note": "the middle two letters of deadly"
+     },
+     {
+      "clueFragment": "sadism",
+      "gives": "DI",
+      "select": "middle",
+      "note": "the middle two letters of sadism"
+     },
+     {
+      "clueFragment": "acts",
+      "gives": "CT",
+      "select": "middle",
+      "note": "the middle two letters of acts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "DI",
+      "CT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone craving deadly sadistic acts.",
+     "definitionFit": "An addict has a compulsive craving for something, so is one who shows a desire for it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "essentially"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1107,50 @@
      }
     ]
    },
-   "solution": "TICKOVER"
+   "solution": "TICKOVER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TICK OVER",
+    "definitions": [
+     {
+      "text": "Make slow progress",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "credit",
+      "gives": "TICK",
+      "note": "on tick is British slang for on credit"
+     },
+     {
+      "clueFragment": "is no longer available",
+      "gives": "OVER",
+      "note": "something over is finished, no longer there"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TICK",
+      "OVER"
+     ]
+    },
+    "explanation": {
+     "surface": "Business crawls along when lenders stop offering loans.",
+     "walkthrough": "Buying on tick is British informal for buying on credit.",
+     "definitionFit": "To tick over is to run slowly, like an idling engine, ticking along without real progress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "credit"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1164,49 @@
     "text": "Stump set by umpire, occasionally",
     "enumeration": "6"
    },
-   "solution": "STYMIE"
+   "solution": "STYMIE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "STYMIE",
+    "definitions": [
+     {
+      "text": "Stump",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means now and then, so only every other letter is picked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "set by umpire",
+      "gives": "STYMIE",
+      "select": "alternate",
+      "note": "the first, third, fifth letters and so on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STYMIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket stump put in place by the umpire.",
+     "walkthrough": "Stump looks like the cricket wicket, but it is the verb meaning to baffle.",
+     "definitionFit": "To stymie is to obstruct or thwart, and to stump someone is to baffle and block them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stump"
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1220,39 @@
     "text": "Illumination needed for blatant hold-up?",
     "enumeration": "8"
    },
-   "solution": "DAYLIGHT"
+   "solution": "DAYLIGHT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DAYLIGHT",
+    "definitions": [
+     {
+      "text": "Illumination needed for blatant hold-up?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Illumination needed for blatant hold-up?",
+      "note": "surface reading: lighting required for a brazen robbery"
+     },
+     {
+      "clueFragment": "blatant hold-up",
+      "note": "setter's reading: the phrase for an outrageous overcharge names the light of the sun"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A blatant hold-up is 'daylight robbery', an idiom for a shamelessly high price; the illumination is natural sunlight.",
+     "definitionFit": "Daylight is the natural light of day, and daylight robbery is a flagrant swindle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hold-up"
+    }
+   }
   },
   {
    "number": 21,
@@ -339,7 +1266,64 @@
     "text": "Fit to host just half of brunch — it's short",
     "enumeration": "6"
    },
-   "solution": "ABRUPT"
+   "solution": "ABRUPT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ABRUPT",
+    "definitions": [
+     {
+      "text": "short",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to host",
+      "for": "container",
+      "note": "a host takes guests in, so one piece is placed inside the other"
+     },
+     {
+      "text": "just half of",
+      "for": "letter_selection",
+      "note": "just half means only the first part of the word is kept"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fit",
+      "gives": "APT",
+      "note": "apt means fitting or suitable"
+     },
+     {
+      "clueFragment": "brunch",
+      "gives": "BRU",
+      "select": "first",
+      "note": "the first three of its six letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BRU",
+      "PT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fit to host only half a brunch has kept things brief.",
+     "definitionFit": "Abrupt means curt or brief, so short in manner or duration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fit"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1337,46 @@
     "text": "Little Christopher at school that's in poor taste",
     "enumeration": "6"
    },
-   "solution": "KITSCH"
+   "solution": "KITSCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KITSCH",
+    "definitions": [
+     {
+      "text": "that's in poor taste",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Little Christopher",
+      "gives": "KIT",
+      "note": "Kit is a short form of Christopher"
+     },
+     {
+      "clueFragment": "school",
+      "gives": "SCH",
+      "note": "SCH is an abbreviation for school"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KIT",
+      "SCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Young Christopher at school is behaving tastelessly.",
+     "definitionFit": "Kitsch is art or decoration considered tacky and in poor taste."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Little"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1390,54 @@
     "text": "Gear placed over kind of business lot",
     "enumeration": "6"
    },
-   "solution": "KISMET"
+   "solution": "KISMET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "KISMET",
+    "definitions": [
+     {
+      "text": "lot",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "placed over",
+      "for": "container",
+      "note": "something placed over another covers it, so the first piece surrounds the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gear",
+      "gives": "KIT",
+      "note": "kit is gear or equipment"
+     },
+     {
+      "clueFragment": "kind of business",
+      "gives": "SME",
+      "note": "an SME is a small or medium-sized enterprise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KI",
+      "SME",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Equipment laid over a type of business premises.",
+     "definitionFit": "Kismet is fate, and one's lot is one's destiny in life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lot"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1457,50 @@
      }
     ]
    },
-   "solution": "BRANDNAMES"
+   "solution": "BRANDNAMES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BRAND NAMES",
+    "definitions": [
+     {
+      "text": "Amazon and Google, perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stir up",
+      "for": "anagram",
+      "note": "to stir something up is to mix it vigorously, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bad manners",
+      "gives": "BADMANNERS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BADMANNERS",
+       "gives": "BRANDNAMES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tech giants behaving rudely and causing trouble.",
+     "definitionFit": "Amazon and Google are examples of famous company trademarks, the definition marked by perhaps."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Amazon"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1514,55 @@
     "text": "Extremely banal operatic group",
     "enumeration": "4"
    },
-   "solution": "BLOC"
+   "solution": "BLOC",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "BLOC",
+    "definitions": [
+     {
+      "text": "group",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "extremely means at the extremes, so only the outer letters of each word are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "banal",
+      "gives": "BL",
+      "select": "outer",
+      "note": "first and last letters of banal"
+     },
+     {
+      "clueFragment": "operatic",
+      "gives": "OC",
+      "select": "outer",
+      "note": "first and last letters of operatic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BL",
+      "OC"
+     ]
+    },
+    "explanation": {
+     "surface": "An opera company that is very dull.",
+     "definitionFit": "A bloc is an alliance of countries or parties acting as a group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Extremely"
+    }
+   }
   },
   {
    "number": 24,
@@ -415,7 +1576,49 @@
     "text": "Boy has way to avoid fight",
     "enumeration": "4"
    },
-   "solution": "BOUT"
+   "solution": "BOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOUT",
+    "definitions": [
+     {
+      "text": "fight",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boy",
+      "gives": "B",
+      "note": "B is an abbreviation for boy"
+     },
+     {
+      "clueFragment": "way to avoid",
+      "gives": "OUT",
+      "note": "a way out is a means of escape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A lad finds a route to dodge a scrap.",
+     "definitionFit": "A bout is a boxing or wrestling contest, a fight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 25,
@@ -429,7 +1632,43 @@
     "text": "You must be broke being on such drugs",
     "enumeration": "6"
    },
-   "solution": "UPPERS"
+   "solution": "UPPERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UPPERS",
+    "definitions": [
+     {
+      "text": "You must be broke being on such",
+      "at": 0
+     },
+     {
+      "text": "drugs",
+      "at": 32
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You must be broke being on such",
+      "note": "first meaning: a British idiom for being penniless, from worn-out shoes"
+     },
+     {
+      "clueFragment": "drugs",
+      "note": "second meaning: stimulant pills"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "On one's uppers means so poor the soles have worn through; uppers are also amphetamines.",
+     "definitionFit": "The word names the parts of shoes left when soles wear out, and slang for stimulant drugs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "broke"
+    }
+   }
   },
   {
    "number": 26,
@@ -443,7 +1682,57 @@
     "text": "Realises old wives are appealing inside",
     "enumeration": "8"
    },
-   "solution": "EXECUTES"
+   "solution": "EXECUTES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EXECUTES",
+    "definitions": [
+     {
+      "text": "Realises",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside says the preceding piece sits within the surrounding one"
+     }
+    ],
+    "linkWords": [
+     "are"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old wives",
+      "gives": "EXES",
+      "note": "former wives are exes"
+     },
+     {
+      "clueFragment": "appealing",
+      "gives": "CUTE",
+      "note": "cute means appealing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXE",
+      "CUTE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone discovers their former spouses are attractive after all.",
+     "definitionFit": "To execute a plan is to carry it out, which is one sense of realise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Realises"
+    }
+   }
   }
  ]
 }
