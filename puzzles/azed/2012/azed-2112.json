@@ -37,6 +37,9 @@
   "date": "2012-12-02",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -50,7 +53,78 @@
     "text": "Spicy chop cooked with a pinch of tarragon in mixed stew?",
     "enumeration": "8"
    },
-   "solution": "HOTCHPOT"
+   "solution": "HOTCHPOT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HOTCHPOT",
+    "definitions": [
+     {
+      "text": "mixed stew?",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooking works ingredients over, so the word before it is rearranged"
+     },
+     {
+      "text": "a pinch of",
+      "for": "letter_selection",
+      "note": "a pinch is only a tiny amount, so just the opening letter of the herb is used"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spicy",
+      "gives": "HOT",
+      "note": "spicy food is hot"
+     },
+     {
+      "clueFragment": "chop",
+      "gives": "CHPO",
+      "note": "the word chop rearranged"
+     },
+     {
+      "clueFragment": "tarragon",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of tarragon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOT",
+      "CHPO",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHOP",
+       "gives": "CHPO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe: a peppery chopped stew finished with a little tarragon.",
+     "walkthrough": "HOTCHPOT is the older form of hotchpotch; the question mark admits the definition is a figurative 'mixed stew'.",
+     "definitionFit": "A hotchpot is a jumble or mixture of things, originally a pot of mixed meats and vegetables."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Spicy"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +138,78 @@
     "text": "Small window that is round (seen from below), befouled badly",
     "enumeration": "11"
    },
-   "solution": "OEILDEBOEUF"
+   "solution": "OEILDEBOEUF",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "OEIL-DE-BOEUF",
+    "definitions": [
+     {
+      "text": "Small window",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "(seen from below)",
+      "for": "reversal",
+      "note": "in a down entry, reading from the bottom up runs the letters backwards"
+     },
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "something done badly is botched and disordered, so the letters of the preceding word are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, that is"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "O is round in shape"
+     },
+     {
+      "clueFragment": "befouled",
+      "gives": "LDEBOEUF",
+      "note": "the letters of befouled rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OEI",
+      "LDEBOEUF"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BEFOULED",
+       "gives": "LDEBOEUF"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "IEO",
+       "to": "OEI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A little round window has been badly fouled, by birds perhaps.",
+     "walkthrough": "The French name means 'bull's eye'; IE and O are read upwards before the jumbled befouled follows.",
+     "definitionFit": "An oeil-de-boeuf is a small round or oval window, typically set high in a wall or roof."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +223,43 @@
     "text": "Pedigree chestnut, say",
     "enumeration": "4"
    },
-   "solution": "TREE"
+   "solution": "TREE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TREE",
+    "definitions": [
+     {
+      "text": "Pedigree",
+      "at": 0
+     },
+     {
+      "text": "chestnut, say",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pedigree",
+      "note": "first meaning: a family ..., a line of ancestry"
+     },
+     {
+      "clueFragment": "chestnut, say",
+      "note": "second meaning: a chestnut is one example of this kind of plant"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a pedigree chestnut horse; 'say' marks chestnut as just one example.",
+     "definitionFit": "A family tree charts a pedigree, and the chestnut is a type of large woody plant with a trunk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "chestnut"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +273,52 @@
     "text": "Ornamental pendant with doubled opener requiring customs certificate",
     "enumeration": "6"
    },
-   "solution": "COCKET"
+   "solution": "COCKET",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "COCKET",
+    "definitions": [
+     {
+      "text": "customs certificate",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with doubled opener",
+      "for": "substitution",
+      "note": "the first letter is swapped so that it repeats a letter found later in the word"
+     }
+    ],
+    "linkWords": [
+     "requiring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ornamental pendant",
+      "gives": "LOCKET",
+      "note": "a locket is a pendant worn on a chain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OCKET"
+     ]
+    },
+    "explanation": {
+     "surface": "A jeweller's pendant with a two-part catch needs paperwork at customs.",
+     "walkthrough": "Change the L of LOCKET to C, so that the opener matches the C in the middle and C appears twice.",
+     "definitionFit": "A cocket was the seal of the King's custom-house, and so a document certifying that duty had been paid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opener"
+    }
+   }
   },
   {
    "number": 5,
@@ -105,7 +331,63 @@
    "clue": {
     "text": "Husband roared wildly for e.g. caviar (7, two words)"
    },
-   "solution": "HARDROE"
+   "solution": "HARDROE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "HARD ROE",
+    "definitions": [
+     {
+      "text": "e.g. caviar",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wildly",
+      "for": "anagram",
+      "note": "acting wildly is acting without order, so the letters of the verb before it are scrambled"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     },
+     {
+      "clueFragment": "roared",
+      "gives": "ARDROE",
+      "note": "roared rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ARDROE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROARED",
+       "gives": "ARDROE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A husband bellowed furiously when served caviar.",
+     "definitionFit": "Hard roe is the mass of eggs of a female fish, and caviar is sturgeon's eggs, so it is one instance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Husband"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +401,55 @@
     "text": "Silly old character, soft on top",
     "enumeration": "5"
    },
-   "solution": "PRUNE"
+   "solution": "PRUNE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRUNE",
+    "definitions": [
+     {
+      "text": "Silly",
+      "at": 0,
+      "note": "used as a noun: a silly person"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on top",
+      "for": "charade",
+      "note": "in a down entry, being on top means coming first in the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soft",
+      "gives": "P",
+      "note": "p (piano) means soft in music"
+     },
+     {
+      "clueFragment": "old character",
+      "gives": "RUNE",
+      "note": "a rune is a letter of an ancient Germanic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RUNE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes a foolish old eccentric who has gone soft in the head.",
+     "walkthrough": "'Silly' looks like an adjective, but it is a noun here, as in 'you silly'.",
+     "definitionFit": "A prune is slang for a dull or foolish person, much the same as calling someone a silly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Silly"
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +463,63 @@
     "text": "Producing hormones secreting what's central to good blending",
     "enumeration": "11"
    },
-   "solution": "OESTROGENIC"
+   "solution": "OESTROGENIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "OESTROGENIC",
+    "definitions": [
+     {
+      "text": "Producing hormones",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "what's central to",
+      "for": "letter_selection",
+      "note": "the centre of the next word is taken, its two middle letters"
+     },
+     {
+      "text": "blending",
+      "for": "anagram",
+      "note": "blending mixes things together, so the gathered letters are stirred into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secreting",
+      "gives": "SECRETING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "OO",
+      "select": "middle",
+      "note": "the middle pair of good"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SECRETINGOO",
+       "gives": "OESTROGENIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gland description: it produces hormones by secreting a good blend.",
+     "walkthrough": "'Secreting' looks like a biological verb in the surface but is simply anagram fodder.",
+     "definitionFit": "Oestrogenic means generating oestrogen, the female sex hormone, so it describes producing hormones."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "secreting"
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +533,44 @@
     "text": "Prohibition? It's essential to deprive topers",
     "enumeration": "4"
    },
-   "solution": "VETO"
+   "solution": "VETO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "VETO",
+    "definitions": [
+     {
+      "text": "Prohibition?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "It's essential to",
+      "for": "hidden_word",
+      "note": "the essence or core of the following words holds the letters we want"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deprive topers",
+      "gives": "VETO",
+      "note": "found running across the join of the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A temperance argument: banning drink is vital to stop drunkards.",
+     "walkthrough": "The surface points at Prohibition, the US alcohol ban; the question mark warns it means any ban.",
+     "definitionFit": "A veto is a formal prohibition, the power or act of forbidding something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Prohibition"
+    }
+   }
   },
   {
    "number": 9,
@@ -161,7 +584,58 @@
     "text": "Computer girl' put on exercises to get fit?",
     "enumeration": "5"
    },
-   "solution": "ADAPT"
+   "solution": "ADAPT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADAPT",
+    "definitions": [
+     {
+      "text": "fit",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put on",
+      "for": "charade",
+      "note": "in a down entry, one part put on another sits above it, so it comes first"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Computer girl'",
+      "gives": "ADA",
+      "note": "Ada is a girl's name and a computer programming language"
+     },
+     {
+      "clueFragment": "exercises",
+      "gives": "PT",
+      "note": "PT is physical training"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADA",
+      "PT"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl at a computer is told to do some exercises to get in shape.",
+     "walkthrough": "'Get fit' suggests exercise, but 'fit' is the verb meaning to make suitable.",
+     "definitionFit": "To adapt something is to make it suitable for a new purpose, to fit or adjust it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fit"
+    }
+   }
   },
   {
    "number": 10,
@@ -175,7 +649,62 @@
     "text": "Period instruments decorative band holds slantwise mostly",
     "enumeration": "6"
    },
-   "solution": "TIBIAE"
+   "solution": "TIBIAE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TIBIAE",
+    "definitions": [
+     {
+      "text": "Period instruments",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter of the word before it is dropped"
+     },
+     {
+      "text": "holds",
+      "for": "container",
+      "note": "one thing holding another wraps around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "decorative band",
+      "gives": "TIE",
+      "note": "a tie is a decorative band worn round the neck"
+     },
+     {
+      "clueFragment": "slantwise",
+      "gives": "BIAS",
+      "note": "on the bias means slantwise, diagonally"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "BIA",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Early-music players in a band wear decorative ribbons hung at a slant.",
+     "walkthrough": "'Period instruments' suggests early music and is right in a literal way: the tibia was an ancient Roman flute, also the name of the shin bone.",
+     "definitionFit": "Tibiae is the plural of tibia, a pipe or flute of ancient Greece and Rome, so instruments of a past period."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 11,
@@ -188,7 +717,74 @@
    "clue": {
     "text": "Self-denial time in shoddy acts rejected — it's star quality I'm after (11, two words)"
    },
-   "solution": "TALENTSCOUT"
+   "solution": "TALENTSCOUT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "TALENT SCOUT",
+    "definitions": [
+     {
+      "text": "it's star quality I'm after",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shoddy",
+      "for": "anagram",
+      "note": "shoddy work is badly put together, so the next word's letters come out disordered"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one part placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "acts",
+      "gives": "TASC",
+      "note": "acts rearranged"
+     },
+     {
+      "clueFragment": "Self-denial time",
+      "gives": "LENT",
+      "note": "Lent is the season of fasting before Easter"
+     },
+     {
+      "clueFragment": "rejected",
+      "gives": "OUT",
+      "note": "something rejected is thrown out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "LENT",
+      "SC",
+      "OUT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACTS",
+       "gives": "TASC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sitting through weak acts at an audition is hunting for real stars.",
+     "walkthrough": "The definition is in the first person: the speaker is the one looking for star quality, so the answer is who is talking.",
+     "definitionFit": "A talent scout seeks promising performers, so star quality is what such a person is looking for."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rejected"
+    }
+   }
   },
   {
    "number": 12,
@@ -202,7 +798,47 @@
     "text": "We're promised Jock's alleged tantrums",
     "enumeration": "8"
    },
-   "solution": "PLEDGEES"
+   "solution": "PLEDGEES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLEDGEES",
+    "definitions": [
+     {
+      "text": "We're promised",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jock's alleged",
+      "gives": "PLED",
+      "note": "pled is the Scots past tense of plead, to allege; Jock is a nickname for a Scotsman"
+     },
+     {
+      "clueFragment": "tantrums",
+      "gives": "GEES",
+      "note": "gee is Scots for a fit of temper, the Scots marker carrying over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLED",
+      "GEES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone claims a Scotsman's tantrums were promised to them.",
+     "walkthrough": "'Jock's' governs both words that follow: each is a Scots usage, so the solver must think in dialect for both.",
+     "definitionFit": "Pledgees are people to whom a pledge is given, so they can say that something was promised to them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "promised"
+    }
+   }
   },
   {
    "number": 13,
@@ -216,7 +852,54 @@
     "text": "Temple-shaped monuments, old, protected by Greek goddess",
     "enumeration": "5"
    },
-   "solution": "HEROA"
+   "solution": "HEROA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HEROA",
+    "definitions": [
+     {
+      "text": "Temple-shaped monuments",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "protected by",
+      "for": "container",
+      "note": "something protected is shielded on both sides by its guardian, so it goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek goddess",
+      "gives": "HERA",
+      "note": "Hera was queen of the Greek gods"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HER",
+      "O",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Old temple-like memorials stand under the protection of a Greek goddess.",
+     "definitionFit": "Heroa is the plural of heroon, a shrine or monument shaped like a temple and raised to a hero."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 14,
@@ -230,7 +913,50 @@
     "text": "Regiment given mug, therapeutic",
     "enumeration": "8"
    },
-   "solution": "REMEDIAL"
+   "solution": "REMEDIAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REMEDIAL",
+    "definitions": [
+     {
+      "text": "therapeutic",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Regiment",
+      "gives": "REME",
+      "note": "REME is the Royal Electrical and Mechanical Engineers, a British army corps"
+     },
+     {
+      "clueFragment": "mug",
+      "gives": "DIAL",
+      "note": "mug and dial are both slang for the face"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REME",
+      "DIAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A regiment is presented with a mug, which apparently works as a cure.",
+     "walkthrough": "'Mug' looks like a cup but means the face, as does dial.",
+     "definitionFit": "Remedial means intended to cure or put right, which is exactly what a therapeutic treatment does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mug"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +969,85 @@
    "clue": {
     "text": "Chippendale item, item that's bust at left and right, cracked inside (13, two words)"
    },
-   "solution": "PIECRUSTTABLE"
+   "solution": "PIECRUSTTABLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PIECRUST TABLE",
+    "definitions": [
+     {
+      "text": "Chippendale item",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cracked",
+      "for": "anagram",
+      "note": "a cracked thing is broken apart, so the gathered letters before it are rearranged"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "the shuffled group goes inside the first word"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "item",
+      "gives": "PIECE",
+      "note": "a piece is an item; this is the second of the two items in the clue"
+     },
+     {
+      "clueFragment": "bust",
+      "gives": "BUST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is short for left"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is short for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIEC",
+      "RUSTTABL",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BUSTATLR",
+       "gives": "RUSTTABL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Chippendale antique is described as broken at both ends and cracked in the middle.",
+     "walkthrough": "'Bust' looks like the anagram signal, but it is fodder; 'cracked' does that job. Chippendale was an 18th-century English furniture maker.",
+     "definitionFit": "A piecrust table is a small round tripod table with a raised carved rim, a classic Chippendale design."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bust"
+    }
+   }
   },
   {
    "number": 16,
@@ -257,7 +1061,65 @@
     "text": "Convalescence is lost after constant card sets",
     "enumeration": "8"
    },
-   "solution": "CANASTAS"
+   "solution": "CANASTAS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CANASTAS",
+    "definitions": [
+     {
+      "text": "card sets",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost",
+      "for": "deletion",
+      "note": "what is lost is no longer there, so those letters are removed from the longer word"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after places the shortened word behind the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "constant",
+      "gives": "C",
+      "note": "c is the symbol for a constant such as the speed of light"
+     },
+     {
+      "clueFragment": "Convalescence",
+      "gives": "ANASTASIS",
+      "note": "anastasis is a rare word for convalescence"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ANASTAS"
+     ]
+    },
+    "explanation": {
+     "surface": "A recovering patient loses at cards after constantly playing them.",
+     "walkthrough": "Anastasis is a rare Chambers word, from the Greek for rising up, which is why the convalescence block is hard to find.",
+     "definitionFit": "In the game canasta, a canasta is a meld of seven or more cards of the same rank, so it is a set of cards."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lost"
+    }
+   }
   },
   {
    "number": 17,
@@ -271,7 +1133,59 @@
     "text": "One entering dressed in vestment that's taken off",
     "enumeration": "6"
    },
-   "solution": "COPIED"
+   "solution": "COPIED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COPIED",
+    "definitions": [
+     {
+      "text": "taken off",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "something entering goes inside what follows"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dressed in vestment",
+      "gives": "COPED",
+      "note": "a cope is a long cloak worn by clergy, so coped means wearing one"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COP",
+      "I",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A priest dons a vestment and later removes it.",
+     "walkthrough": "'Taken off' suggests undressing, which suits the vestment, but it means mimicked.",
+     "definitionFit": "To take off someone is to imitate or mimic them, and copied means imitated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 18,
@@ -285,7 +1199,54 @@
     "text": "Sticker at 18 Across? Right!",
     "enumeration": "7"
    },
-   "solution": "ADHERER"
+   "solution": "ADHERER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADHERER",
+    "definitions": [
+     {
+      "text": "Sticker",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at",
+      "gives": "AD",
+      "note": "ad is Latin for at or to"
+     },
+     {
+      "clueFragment": "18 Across",
+      "gives": "HERE",
+      "note": "this entry is the very place in question, so here"
+     },
+     {
+      "clueFragment": "Right",
+      "gives": "R",
+      "note": "R is short for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "HERE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A note asks whether a label belongs at this spot, and confirms it does.",
+     "walkthrough": "The clue points to its own number: 18 Across is this light, so it means here.",
+     "definitionFit": "An adherer is someone or something that sticks, whether to a surface or to a cause."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Sticker"
+    }
+   }
   },
   {
    "number": 19,
@@ -299,7 +1260,51 @@
     "text": "Apollyon, gee calling for a flutter in Bangkok?",
     "enumeration": "6"
    },
-   "solution": "SATANG"
+   "solution": "SATANG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SATANG",
+    "definitions": [
+     {
+      "text": "for a flutter in Bangkok?",
+      "at": 22,
+      "note": "the definition describes a coin by its use, a small stake for a bet in Thailand"
+     }
+    ],
+    "linkWords": [
+     "calling"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Apollyon",
+      "gives": "SATAN",
+      "note": "Apollyon is a name for the Devil in Revelation and Pilgrim's Progress"
+     },
+     {
+      "clueFragment": "gee",
+      "gives": "G",
+      "note": "gee is how the letter G is named"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SATAN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "The Devil urges someone to have a bet while in Bangkok.",
+     "walkthrough": "A flutter is British slang for a small bet; the question mark admits the definition is a description of a coin rather than a synonym.",
+     "definitionFit": "The satang is a small Thai coin, a hundredth of a baht, the sort of money staked on a small wager."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "gee"
+    }
+   }
   },
   {
    "number": 20,
@@ -313,7 +1318,65 @@
     "text": "Tempers breaking records with ultimate in impatience",
     "enumeration": "7"
    },
-   "solution": "ANNEALS"
+   "solution": "ANNEALS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ANNEALS",
+    "definitions": [
+     {
+      "text": "Tempers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimate in",
+      "for": "letter_selection",
+      "note": "the ultimate letter of a word is its final one"
+     },
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "a letter breaking a word splits it open and sits in the gap"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "records",
+      "gives": "ANNALS",
+      "note": "annals are yearly historical records"
+     },
+     {
+      "clueFragment": "impatience",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of impatience"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANN",
+      "E",
+      "ALS"
+     ]
+    },
+    "explanation": {
+     "surface": "Impatient people lose their tempers and break records.",
+     "walkthrough": "'Tempers' reads as a noun in the surface but is the verb.",
+     "definitionFit": "To anneal metal or glass is to temper it, heating and cooling it slowly to toughen it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tempers"
+    }
+   }
   },
   {
    "number": 21,
@@ -327,7 +1390,48 @@
     "text": "Brood maybe, gold or yellow parrots",
     "enumeration": "6"
    },
-   "solution": "NESTOR"
+   "solution": "NESTOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NESTOR",
+    "definitions": [
+     {
+      "text": "parrots",
+      "at": 28,
+      "note": "Nestor is a genus name for a group of parrots"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brood maybe",
+      "gives": "NEST",
+      "note": "a nest can mean the brood of young in it"
+     },
+     {
+      "clueFragment": "gold or yellow",
+      "gives": "OR",
+      "note": "or is the heraldic word for gold or yellow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEST",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A brood of gold or yellow parrots, as a birdwatcher might record.",
+     "walkthrough": "'Gold or yellow' reads as a choice of colours, but or is the heraldic tincture meaning either of them.",
+     "definitionFit": "Nestor is the genus of large New Zealand parrots, the kea and the kaka."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "or"
+    }
+   }
   },
   {
    "number": 22,
@@ -341,7 +1445,62 @@
     "text": "Pay is half put on what you might call a flutter?",
     "enumeration": "6"
    },
-   "solution": "SALARY"
+   "solution": "SALARY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SALARY",
+    "definitions": [
+     {
+      "text": "Pay",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half",
+      "for": "letter_selection",
+      "note": "half of a two-letter word is a single letter, here the second"
+     },
+     {
+      "text": "put on",
+      "for": "charade",
+      "note": "in a down entry, a piece put on another sits above it and comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "S",
+      "select": "last",
+      "note": "the second half of is"
+     },
+     {
+      "clueFragment": "what you might call a flutter?",
+      "gives": "ALARY",
+      "note": "alary means relating to wings, and a flutter is a wing movement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ALARY"
+     ]
+    },
+    "explanation": {
+     "surface": "Half of someone's pay goes on a bet.",
+     "walkthrough": "'Flutter' points to betting, as in 13 Across's Bangkok coin, but here it is the beating of wings.",
+     "definitionFit": "A salary is fixed regular pay for a job."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flutter"
+    }
+   }
   },
   {
    "number": 23,
@@ -355,7 +1514,52 @@
     "text": "Number excluded from friendly relationship, opinionated",
     "enumeration": "6"
    },
-   "solution": "ENTETE"
+   "solution": "ENTETE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ENTETE",
+    "definitions": [
+     {
+      "text": "opinionated",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excluded from",
+      "for": "deletion",
+      "note": "what is excluded is shut out, so that letter is removed from the longer word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "friendly relationship",
+      "gives": "ENTENTE",
+      "note": "an entente is a friendly understanding between nations"
+     },
+     {
+      "clueFragment": "Number",
+      "gives": "N",
+      "note": "N stands for a number in algebra"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENTETE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone opinionated is shut out of a friendly arrangement.",
+     "definitionFit": "Entêté is French-derived for obstinate or headstrong, someone stubbornly set in their opinions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Number"
+    }
+   }
   },
   {
    "number": 24,
@@ -369,7 +1573,65 @@
     "text": "Little bird: short round maiden with oomph",
     "enumeration": "6"
    },
-   "solution": "TOMTIT"
+   "solution": "TOMTIT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TOMTIT",
+    "definitions": [
+     {
+      "text": "Little bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "one thing round another surrounds it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short",
+      "gives": "TOT",
+      "note": "a short is a measure of spirits, and so is a tot"
+     },
+     {
+      "clueFragment": "maiden",
+      "gives": "M",
+      "note": "M is a maiden over in cricket scoring"
+     },
+     {
+      "clueFragment": "oomph",
+      "gives": "IT",
+      "note": "it means sex appeal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "M",
+      "T",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A small plump girl full of energy, likened to a little bird.",
+     "walkthrough": "'Short round' reads as a description of the maiden, but short is a noun (a short drink) and round is the container signal.",
+     "definitionFit": "A tomtit is a small bird, especially the blue tit or other titmouse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 25,
@@ -383,7 +1645,55 @@
     "text": "Reduced, having retired, at being kept in",
     "enumeration": "6"
    },
-   "solution": "ABATED"
+   "solution": "ABATED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ABATED",
+    "definitions": [
+     {
+      "text": "Reduced",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being kept in",
+      "for": "container",
+      "note": "something kept in another is held inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "having retired",
+      "gives": "ABED",
+      "note": "someone who has retired for the night is abed"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "AT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A pensioner's income has fallen since retiring, while being kept indoors.",
+     "walkthrough": "'Retired' suggests leaving work, but here it means gone to bed.",
+     "definitionFit": "Abated means lessened or diminished, the same as reduced."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retired"
+    }
+   }
   },
   {
    "number": 26,
@@ -397,7 +1707,62 @@
     "text": "Crow's home? Fencing equipment after end of nest",
     "enumeration": "5"
    },
-   "solution": "TEPEE"
+   "solution": "TEPEE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TEPEE",
+    "definitions": [
+     {
+      "text": "Crow's home?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "the equipment comes after, so the single letter goes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nest",
+      "gives": "T",
+      "select": "last",
+      "note": "last letter of nest"
+     },
+     {
+      "clueFragment": "Fencing equipment",
+      "gives": "EPEE",
+      "note": "an épée is a fencing sword"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "EPEE"
+     ]
+    },
+    "explanation": {
+     "surface": "A crow's nest, with fencing nearby.",
+     "walkthrough": "'Crow' looks like the bird, and nest supports that, but it is the Crow people of the Great Plains.",
+     "definitionFit": "A tepee is a conical tent used as a dwelling by Plains peoples such as the Crow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Crow's"
+    }
+   }
   },
   {
    "number": 27,
@@ -411,7 +1776,55 @@
     "text": "Some NW Italians, those voting against wearing suit",
     "enumeration": "7"
    },
-   "solution": "GENOESE"
+   "solution": "GENOESE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GENOESE",
+    "definitions": [
+     {
+      "text": "Some NW Italians",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "a person wearing a garment is inside it, so the word before goes within the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suit",
+      "gives": "GEE",
+      "note": "gee is a dialect verb meaning to suit or fit"
+     },
+     {
+      "clueFragment": "those voting against",
+      "gives": "NOES",
+      "note": "the noes are those voting no"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GE",
+      "NOES",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Northern Italian politicians in suits voting against a measure.",
+     "walkthrough": "'Suit' looks like clothing, which suits 'wearing', but it is the verb.",
+     "definitionFit": "The Genoese are the people of Genoa, a port city in north-west Italy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suit"
+    }
+   }
   },
   {
    "number": 28,
@@ -425,7 +1838,70 @@
     "text": "Ultimate for poet in grip of Eros, transported?",
     "enumeration": "5"
    },
-   "solution": "ESTRO"
+   "solution": "ESTRO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "ESTRO",
+    "definitions": [
+     {
+      "text": "Ultimate for poet in grip of Eros, transported?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ultimate for",
+      "for": "letter_selection",
+      "note": "the ultimate letter of a word is the final one"
+     },
+     {
+      "text": "in grip of",
+      "for": "container",
+      "note": "something in another's grip is held inside it"
+     },
+     {
+      "text": "transported",
+      "for": "anagram",
+      "note": "transported means carried away, so the letters are moved into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eros",
+      "gives": "EROS",
+      "note": "the Greek god of love, taken as written"
+     },
+     {
+      "clueFragment": "poet",
+      "gives": "T",
+      "select": "last",
+      "note": "last letter of poet"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EROTS",
+       "gives": "ESTRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet in the grip of love is carried away into rapture.",
+     "walkthrough": "The whole clue is also the definition: a poet held by love and transported is in the grip of estro.",
+     "definitionFit": "Estro is poetic enthusiasm or inspiration, the ultimate rapture a poet could hope for."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "transported"
+    }
+   }
   },
   {
    "number": 29,
@@ -439,7 +1915,46 @@
     "text": "Calf muscle, without another unserviceable",
     "enumeration": "6"
    },
-   "solution": "SOLEUS"
+   "solution": "SOLEUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOLEUS",
+    "definitions": [
+     {
+      "text": "Calf muscle",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "without another",
+      "gives": "SOLE",
+      "note": "sole means only, with no other"
+     },
+     {
+      "clueFragment": "unserviceable",
+      "gives": "US",
+      "note": "u/s is the abbreviation of unserviceable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOLE",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "An injured calf muscle, with no partner, has become useless.",
+     "definitionFit": "The soleus is the flat muscle of the calf beneath the gastrocnemius, which flexes the foot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 30,
@@ -453,7 +1968,65 @@
     "text": "What's this seaweed for? Flavour when cooking",
     "enumeration": "4"
    },
-   "solution": "ULVA"
+   "solution": "ULVA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion"
+    ],
+    "answer": "ULVA",
+    "definitions": [
+     {
+      "text": "this seaweed",
+      "at": 7
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when cooking",
+      "for": "anagram",
+      "note": "cooking works ingredients over, so the word before it is rearranged"
+     },
+     {
+      "text": "What's",
+      "for": "deletion",
+      "note": "asking what is left once a word is taken away means removing those letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flavour",
+      "gives": "FLAVOUR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "for",
+      "gives": "FOR",
+      "note": "taken as written, the letters to take out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ULVA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FLAVOUR",
+       "gives": "ULVAFOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook asks what this seaweed is used for: flavouring dishes.",
+     "walkthrough": "Read as 'what is this seaweed? Flavour, cooked, without for'. The question reads as a cook's query but hides a subtraction.",
+     "definitionFit": "Ulva is the sea lettuce, a green seaweed with thin edible fronds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 31,
@@ -467,7 +2040,54 @@
     "text": "Good mimic that represents threat taking off Tory",
     "enumeration": "4"
    },
-   "solution": "MINA"
+   "solution": "MINA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MINA",
+    "definitions": [
+     {
+      "text": "Good mimic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking off",
+      "for": "deletion",
+      "note": "taking off means removing, so those letters are stripped from the longer word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that represents threat",
+      "gives": "MINATORY",
+      "note": "minatory means threatening"
+     },
+     {
+      "clueFragment": "Tory",
+      "gives": "TORY",
+      "note": "taken as written; a Tory is a British Conservative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MINA"
+     ]
+    },
+    "explanation": {
+     "surface": "A skilled impressionist mimics a threatening politician by imitating a Tory.",
+     "walkthrough": "'Taking off' suggests mimicry, which fits the mimic, but it means removing.",
+     "definitionFit": "The mina or myna is an Asian starling famous for imitating human speech, so a good mimic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "taking"
+    }
+   }
   },
   {
    "number": 32,
@@ -480,7 +2100,51 @@
    "clue": {
     "text": "Nepali tat, a ton transported — one of many in Assam? (13, two words)"
    },
-   "solution": "TEAPLANTATION"
+   "solution": "TEAPLANTATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TEA PLANTATION",
+    "definitions": [
+     {
+      "text": "one of many in Assam?",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "transported",
+      "for": "anagram",
+      "note": "transported means carried off elsewhere, so the letters are moved into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nepali tat, a ton",
+      "gives": "NEPALITATATON",
+      "note": "the four words taken together as letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NEPALITATATON",
+       "gives": "TEAPLANTATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ton of Nepalese junk is shipped across to Assam.",
+     "walkthrough": "Assam is a state in north-east India famous for its tea; the question mark marks the definition as an example.",
+     "definitionFit": "Assam is covered with estates growing tea, so a tea plantation is one of many found there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "transported"
+    }
+   }
   },
   {
    "number": 33,
@@ -493,7 +2157,74 @@
    "clue": {
     "text": "Gold surplus receding in rand vale (8, two words)"
    },
-   "solution": "AUREVOIR"
+   "solution": "AUREVOIR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "AU REVOIR",
+    "definitions": [
+     {
+      "text": "vale",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receding",
+      "for": "reversal",
+      "note": "something receding goes back, so the word before it is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "surplus",
+      "gives": "OVER",
+      "note": "a surplus is what is left over"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "I",
+      "note": "i' is a shortened dialect form of in"
+     },
+     {
+      "clueFragment": "rand",
+      "gives": "R",
+      "note": "R is the symbol of the South African rand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AU",
+      "REVO",
+      "I",
+      "R"
+     ],
+     "reversals": [
+      {
+       "from": "OVER",
+       "to": "REVO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gold surplus is shrinking in the South African currency valley.",
+     "walkthrough": "'Vale' reads as a valley but is Latin for farewell.",
+     "definitionFit": "Au revoir is French for goodbye, and vale is the Latin word for farewell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "vale"
+    }
+   }
   },
   {
    "number": 34,
@@ -507,7 +2238,70 @@
     "text": "Nothing's backed up when wife follows operating system",
     "enumeration": "5"
    },
-   "solution": "LINUX"
+   "solution": "LINUX",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "LINUX",
+    "definitions": [
+     {
+      "text": "operating system",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backed up",
+      "for": "reversal",
+      "note": "something backed up has moved backwards, so the word is read in reverse"
+     },
+     {
+      "text": "follows",
+      "for": "charade",
+      "note": "the wife follows, so her letters come last"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nothing",
+      "gives": "NIL",
+      "note": "nil means nothing"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "UX",
+      "note": "ux is short for uxor, Latin for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIN",
+      "UX"
+     ],
+     "reversals": [
+      {
+       "from": "NIL",
+       "to": "LIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A computer complaint: nothing has been saved, with the wife using the system next.",
+     "walkthrough": "'Backed up' sounds like saving computer files, which fits the surface, but it reverses the word.",
+     "definitionFit": "Linux is a free, open-source operating system used on servers and desktop computers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "backed"
+    }
+   }
   },
   {
    "number": 35,
@@ -521,7 +2315,43 @@
     "text": "Green paradise? Adam's description after arrival of Eve maybe",
     "enumeration": "8"
    },
-   "solution": "ECOSTATE"
+   "solution": "ECOSTATE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ECOSTATE",
+    "definitions": [
+     {
+      "text": "Green paradise?",
+      "at": 0
+     },
+     {
+      "text": "Adam's description after arrival of Eve maybe",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Green paradise?",
+      "note": "first meaning: an environmentally ideal nation"
+     },
+     {
+      "clueFragment": "Adam's description after arrival of Eve maybe",
+      "note": "second meaning: a botanical word for lacking ribs, which Adam was after one was used to make Eve"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In Genesis, Eve is made from Adam's rib, so afterwards he might be called ribless; that botanical sense is the second meaning.",
+     "definitionFit": "An ecostate would be an ecologically run state, while ecostate as a botanical adjective means without ribs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Green"
+    }
+   }
   }
  ]
 }
