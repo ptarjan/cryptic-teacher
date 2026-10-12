@@ -535,6 +535,10 @@ print("TABLE", added, saved["3 down"]["answer"], saved["8 down"]["blogged"],
       saved["8 down"]["answer"] == "", saved["8 down"]["how"].split(":")[0],
       T.dump_answers(json.loads(tab.read_text())) == tab.read_text(),
       T.blog_key(pathlib.Path("/x/georgeho/blog")), T.blog_key(pathlib.Path("/x/bigdave44")))
+# A continuation the parser could not place (`guessed`) is tried both ways.
+pisa = {"lights": [[8, "down"], [17, "down"]], "answer_printed": "LEANING TOWER"}
+print("GUESSED", [[l for l, _ in s] for s in T.splits(pisa)],
+      [[l for l, _ in s] for s in T.splits(dict(pisa, guessed=[1]))])
 
 PY
 )
@@ -669,6 +673,9 @@ check "a fix a word determines is the same either way" "True None" "$(field LENI
 check "a grid with a light the post skipped is refused for its missing clue" "True True" "$(field NO_CLUE)"
 check "corrections go in the shared table beside the blogger's original, wordplay ones kept" \
   "1 KEPT T True unknown True georgeho bigdave44" "$(field TABLE)"
+check "a guessed continuation is split both ways, a placed one its own" \
+  "[[(8, 'down'), (17, 'down')]] [[(8, 'down'), (17, 'across')], [(8, 'down'), (17, 'down')]]" \
+  "$(field GUESSED)"
 
 if [ "$fails" -gt 0 ]; then echo "$fails FAILURE(S)"; exit 1; fi
 echo "times_grids: all checks passed"

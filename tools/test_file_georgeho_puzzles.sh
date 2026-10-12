@@ -55,6 +55,11 @@ cut = [("timesjumbo-1409", J, "Times Cryptic Jumbo 1409", "6d", "Scotch bonnet (
 blog = {(6, "down"): "TAM-O-SHANTER", (7, "down"): "OFFREACHING", (8, "down"): "DUNDONIANS"}
 rec, _ = G.record("timesjumbo-1409", cut, {J: "2019-11-22"}, blog)
 print("WHOLE", [e["answer"] for e in rec["entries"]])
+# A number cell the scrape ran the clue's first words into gives them back:
+# glued with the direction mark after them, or spaced (a trailing letter is text).
+print("OPENED", G.opened("12aContainera", "of food (8)"), G.opened("21Lookd", "into it (7)"),
+      G.opened("20 A doctor tucking into mother's", "curry (6)"), G.opened("Whatd", "x"),
+      G.opened("13/15a", "x"))
 # The Times Jumbo prints on Saturdays, and on a bank holiday besides: one
 # Monday and one Thursday among the neighbours leave the Saturdays the slots
 # (timesjumbo-1304 is 13 January 2018, as the blog's title says).
@@ -102,6 +107,9 @@ check "an answer georgeho cut off is taken whole from our parse of the same post
       "['TAMOSHANTER', 'FAR', 'DUNDONIAN']" "$(field WHOLE)"
 check "a linked cell's suffix covers every number; a bare one takes the heading" \
       "[(13, 'across'), (15, 'across')] [(26, 'down'), (10, 'down')] None" "$(field LIGHTS)"
+check "a clue's opening words come back out of the number cell the scrape ran them into" \
+      "('12a', 'Container of food (8)') ('21d', 'Look into it (7)') ('20', \"A doctor tucking into mother's curry (6)\") ('Whatd', 'x') ('13/15a', 'x')" \
+      "$(field OPENED)"
 check "a count is read off the blogger's word breaks" "5,4 3-5 4" "$(field COUNT)"
 check "the post date is the url's; numbers that start again are the downs; a missing count is marked" \
       "None 2010-01-04 250 [(1, 'across', 'Hands over exchange here (4)', False), (5, 'across', 'A Roman barrier (5,4)', True), (2, 'down', 'Wimps (8)', True)]" \

@@ -951,5 +951,36 @@ check "a misheaded Across list" \
   "1|across|HEMP|4|Fibre of male politician (4) 1|down|WHEY|4|Pale and ill (4)" \
   "$(run "$twodown" | paste -sd' ')"
 
+# tls-1121: "16 & 6" under Across is YOKO ONO, and the "(See 16 Across)"
+# printed for 6 under Down says the continuation runs down. Left across it
+# was a 6-across no grid holds beside a blank 6-down.
+yoko='<p>Across</p><p>15 Chopin’s rebellious wife returned with Beethoven’s third (4)</p><p>EDNA</p>
+<p>16 &amp; 6. This artist loves mingling with New York’s fringe (4,3)</p><p>YOKO ONO. An anagram</p>
+<p>Down</p><p>5 The line following (7)</p><p>CORTEGE</p><p>6 (See 16 Across) (3)</p><p>Please do</p>
+<p>7 Most thin yarns can tie storage boxes (9)</p><p>SCANTIEST</p>'
+check "a continuation numbered with no suffix runs where its own pointer is printed" \
+  "15|across|EDNA|4|Chopin’s rebellious wife returned with Beethoven’s third (4)
+16|across|YOKO|4,3|This artist loves mingling with New York’s fringe (4,3)
+6|down|ONO||See 16
+5|down|CORTEGE|7|The line following (7)
+7|down|SCANTIEST|9|Most thin yarns can tie storage boxes (9)" "$(run "$yoko")"
+# One the post prints no pointer for is the grid's to place, both ways
+# (times_grids.splits); a pointer under the same heading settles it.
+guess() {
+  REPO="$REPO" python3 - "$1" <<'PY'
+import os, sys
+sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
+import parse_timesforthetimes as p
+post = {"id": 1, "date": "2020-01-01T00:00:00", "slug": "times-25184-x",
+        "link": "x", "categories": [11], "content": {"rendered": sys.argv[1]}}
+print(" ".join(str(u.get("guessed")) for u in p.parse_post(post)["unsplit"]))
+PY
+}
+pisa='<p>Down</p><p>8, 17 Tourist attraction ruined if we angle photos near it (3,7,5,2,4)</p>
+<p>THE LEANING TOWER OF PISA</p><p>Across</p><p>4 &amp; 29: A notable fight (6,2,8)</p>
+<p>BATTLE OF HASTINGS</p><p>29 See 4 (8)</p>'
+check "an unplaced suffixless continuation is marked guessed; a pointed one is not" \
+  "[1] None" "$(guess "$pisa")"
+
 if [ "$fails" -gt 0 ]; then echo "$fails FAILURE(S)"; exit 1; fi
 echo "all checks passed"
