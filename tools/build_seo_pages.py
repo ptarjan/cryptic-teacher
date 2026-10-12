@@ -34,7 +34,7 @@ So this writes real HTML files alongside the app:
                            from tools/difficulty_page.html with every number
                            filled in from tools/difficulty.py and
                            tools/data/difficulty_check.json.
-  progress/index.html      how many puzzles are known to exist, acquired, solved
+  progress/index.html      how many puzzles are known to exist, downloaded, filed, solved
                            and hinted, per series and over time, from
                            tools/data/progress.json (tools/progress.py) with
                            this build's index as today.
@@ -1452,12 +1452,14 @@ def difficulty_page(idx):
 # -------------------------------------------------------------- progress page
 
 RATE_DAYS = 60   # days of per-day bars /progress/ draws
+# The funnel's stages, in progress.nested()'s order: the bars and the table
+# both draw these, with these labels and colour classes, and nothing else.
+FUNNEL_LABEL = ("known to exist", "downloaded", "filed", "solved", "hinted")
+FUNNEL_CLASS = ("known", "queued", "filed", "solved", "hinted")
+S_KNOWN, S_DOWNLOADED, S_FILED, S_SOLVED, S_HINTED = range(5)
 # Solved is not paced: answers are found in the session that hints the puzzle,
 # so it moves with hinted and has no pace of its own.
-SHOWN = (progress.ACQUIRED, progress.FILED, progress.HINTED)
-PHASE_LABEL = {progress.KNOWN: "known to exist", progress.ACQUIRED: "acquired",
-               progress.FILED: "filed", progress.SOLVED: "solved", progress.HINTED: "hinted",
-               progress.QUEUED: "not read yet"}
+PACED = (S_KNOWN, S_DOWNLOADED, S_FILED, S_HINTED)
 
 
 def short_day(iso):
@@ -1485,40 +1487,31 @@ def at_pace(remaining, per_day):
     return f"{days / 365.25:.0f} years"
 
 
-FUNNEL_LABEL = ("known to exist", "downloaded", "filed", "solved", "hinted")
-FUNNEL_CLASS = ("known", "queued", "filed", "solved", "hinted")
-
-
-def funnel_chart(row):
-    """One bar a stage of progress.nested(), each inside the one above it:
-    known, downloaded (filed plus the not-read part, drawn lighter), filed,
-    solved, hinted, as a share of the puzzles known to exist."""
-    known, downloaded, filed, solved, hinted = progress.nested_totals(row)
-    unread = downloaded - filed
+def funnel_chart(stages):
+    """One bar a stage of progress.nested_totals() (known, downloaded, filed,
+    solved, hinted), each inside the one above it, as a share of the puzzles
+    known to exist. Every bar has the same form; downloaded less filed is
+    what is not read yet."""
+    known = stages[S_KNOWN]
     rowh, left, width = 30, 110, 400
     body = []
-    for i, n in enumerate((known, downloaded, filed, solved, hinted)):
+    for i, n in enumerate(stages):
         y = i * rowh
-        w = width * n / known
-        note = f" · {100 * n / known:.0f}%"
-        if i == 1:
-            wf = width * filed / known
-            bar = (f'<rect class="ph-queued" x="{left}" y="{y + 5}" width="{wf:.1f}" height="18"/>'
-                   f'<rect class="ph-queued unread" x="{left + wf:.1f}" y="{y + 5}" width="{w - wf:.1f}" height="18"/>')
-            note += f" ({unread:,} not read yet)"
-        else:
-            bar = f'<rect class="ph-{FUNNEL_CLASS[i]}" x="{left}" y="{y + 5}" width="{w:.1f}" height="18"/>'
         body.append(f'<text x="{left - 8}" y="{y + 18}" text-anchor="end">{FUNNEL_LABEL[i]}</text>'
-                    f'<rect class="track" x="{left}" y="{y + 5}" width="{width}" height="18"/>{bar}'
-                    f'<text x="{left + width + 6}" y="{y + 18}">{n:,}{note}</text>')
+                    f'<rect class="track" x="{left}" y="{y + 5}" width="{width}" height="18"/>'
+                    f'<rect class="ph-{FUNNEL_CLASS[i]}" x="{left}" y="{y + 5}" '
+                    f'width="{width * n / known:.1f}" height="18"/>'
+                    f'<text x="{left + width + 6}" y="{y + 18}">{n:,} · {100 * n / known:.0f}%</text>')
     return svg(left + width + 190, 5 * rowh + 4, "".join(body),
-               f"Each stage inside the one above, out of the {known:,} puzzles known to exist; the "
-               f"lighter part of downloaded is the {unread:,} not read yet")
+               f"Each stage inside the one above, out of the {known:,} puzzles known to exist")
 
 
 def cumulative_chart(days):
-    """Each phase's running total, one line a phase, over every day held."""
-    lines = {ph: pts for ph in SHOWN if (pts := progress.series_of(days, ph))}
+    """Downloaded, filed and hinted's running totals (progress.funnel_series),
+    one line a stage over the days it was counted; a stage counted on one day
+    only has no line yet."""
+    lines = {st: pts for st in (S_DOWNLOADED, S_FILED, S_HINTED)
+             if len(pts := progress.funnel_series(days, st)) > 1}
     first = datetime.fromisoformat(next(iter(days)))
     span = max((datetime.fromisoformat(next(reversed(days))) - first).days, 1)
     top = max(n for pts in lines.values() for _, n in pts)
@@ -1536,26 +1529,26 @@ def cumulative_chart(days):
     ticks = list(days)[::max(1, len(days) // 6)]
     body += [f'<text x="{px(d):.1f}" y="{H - 6}" text-anchor="middle">{short_day(d)}</text>' for d in ticks]
     ends = []
-    for ph, pts in lines.items():
-        name = progress.PHASES[ph]
+    for st, pts in lines.items():
+        name = FUNNEL_LABEL[st]
         xy = " ".join(f"{px(d):.1f},{py(n):.1f}" for d, n in pts)
-        body.append(f'<polyline class="line ph-{name}" points="{xy}"/>')
-        ends.append([py(pts[-1][1]), name, pts[-1][1]])
+        body.append(f'<polyline class="line ph-{FUNNEL_CLASS[st]}" points="{xy}"/>')
+        ends.append([py(pts[-1][1]), name, pts[-1][1], FUNNEL_CLASS[st]])
     # End labels pushed apart so two close lines do not print over each other.
     ends.sort()
     for a, b in zip(ends, ends[1:]):
         b[0] = max(b[0], a[0] + 13)
-    body += [f'<text class="ph-{name} key" x="{W - R + 6}" y="{y + 4:.1f}">{name} {n:,}</text>'
-             for y, name, n in ends]
-    return svg(W, H, "".join(body), "Running totals by day: acquired counts the coverage ledger's "
-               "units and starts with the first saved ledger; filed and hinted count puzzle files")
+    body += [f'<text class="ph-{cls} key" x="{W - R + 6}" y="{y + 4:.1f}">{name} {n:,}</text>'
+             for y, name, n, cls in ends]
+    return svg(W, H, "".join(body), "Running totals by day, the same counts as the bars: "
+               "downloaded from the first night the read queue was counted")
 
 
-def rate_chart(days, ph):
-    """The phase's gain each day over the last RATE_DAYS, with its 7-day pace
-    as a line. A day taller than the chart is cut off and its number printed."""
-    name = progress.PHASES[ph]
-    pts = progress.series_of(days, ph)
+def rate_chart(days, st):
+    """The funnel stage's gain each day over the last RATE_DAYS, with its 7-day
+    pace as a line. A day taller than the chart is cut off and its number printed."""
+    name = FUNNEL_CLASS[st]
+    pts = progress.funnel_series(days, st)
     gains = progress.daily(pts)[-RATE_DAYS:]
     if not gains:
         return ""
@@ -1589,13 +1582,13 @@ def rate_chart(days, ph):
         body.append(f'<text x="{x:.1f}" y="{H - 5}" text-anchor="{anchor}">'
                     f'{short_day(gains[i][0])}</text>')
     body.append(f'<line class="pace" x1="{L}" y1="{py(per7):.1f}" x2="{W}" y2="{py(per7):.1f}"/>')
-    return svg(W, H, "".join(body), f"Puzzles {PHASE_LABEL[ph]} a day, last {len(gains)} days"
+    return svg(W, H, "".join(body), f"Puzzles {FUNNEL_LABEL[st]} a day, last {len(gains)} days"
                f" · dashed: {per7:,.0f} a day over the last week")
 
 
 def series_chart(row):
     """One bar a series, its known puzzles split by progress.nested() into
-    hinted, solved, filed, downloaded but not read (lighter) and the rest
+    hinted, solved, filed, downloaded but not read and the rest
     still to find."""
     chain = {s: progress.nested(c) for s, c in row.items()}
     order = sorted((s for s in chain if chain[s][0]), key=lambda s: -chain[s][0])
@@ -1608,7 +1601,7 @@ def series_chart(row):
                     f'<rect class="track" x="{left}" y="{y + 4}" width="{width}" height="16"/>')
         done = 0
         for n, cls in ((hinted, "hinted"), (solved, "solved"), (filed, "filed"),
-                       (downloaded, "queued unread")):
+                       (downloaded, "queued")):
             w = width * (n - done) / known
             if w > 0:
                 body.append(f'<rect class="ph-{cls}" x="{x:.1f}" y="{y + 4}" width="{w:.1f}" height="16"/>')
@@ -1617,7 +1610,7 @@ def series_chart(row):
         body.append(f'<text x="{left + width + 6}" y="{y + 16}">{filed:,} of {known:,} filed'
                     f' · {100 * hinted / known:.0f}% hinted</text>')
     return svg(left + width + 190, len(order) * rowh + 4, "".join(body),
-               "Each series: hinted, then solved, then filed, then downloaded but not read (lighter), "
+               "Each series: hinted, then solved, then filed, then downloaded but not read, "
                "out of the puzzles known to exist (the grey is still to find)")
 
 
@@ -1650,6 +1643,21 @@ def queue_table(row, recorded):
             + "".join(rows) + "</table>")
 
 
+def pace_cells(pts, today):
+    """(7-day cell, 30-day cell, 7-day pace or None) for a funnel_series().
+    A window longer than the history held shows its real span in days; the
+    30-day cell is blank rather than repeat the 7-day one when under 7 days
+    are held."""
+    per7, per30 = progress.rate(pts, 7), progress.rate(pts, 30)
+    if per7 is None:
+        return "&mdash;", "&mdash;", None
+    held = (datetime.fromisoformat(today) - datetime.fromisoformat(pts[0][0])).days
+    c7 = f"{round(per7):,}" + ("" if held >= 7 else f" ({held} days)")
+    c30 = ("&mdash;" if held < 7 or per30 is None else
+           f"{round(per30):,}" + ("" if held >= 30 else f" ({held} days)"))
+    return c7, c30, per7
+
+
 def progress_page(idx, today=None):
     """/progress/: tools/progress.py's history with today's index as its last
     day, as totals, paces and charts."""
@@ -1658,38 +1666,28 @@ def progress_page(idx, today=None):
                                  for p in idx["puzzles"])
     recorded = progress.load()
     days = progress.with_today(recorded, files, today)
-    tot = progress.totals(days[today])
-    known = tot[progress.KNOWN]
+    # One source for every number on the page: the bars, the table and the
+    # text all read progress.nested_totals() / funnel_series().
+    stages = progress.nested_totals(days[today])
+    known = stages[S_KNOWN]
+    queued = progress.totals(days[today])[progress.QUEUED]
     rows = []
-    for ph in SHOWN:
-        pts = progress.series_of(days, ph)
-        n, per7, per30 = tot[ph], progress.rate(pts, 7), progress.rate(pts, 30)
-        held = (datetime.fromisoformat(today) - datetime.fromisoformat(pts[0][0])).days
-        share = "" if ph == progress.FILED else f"{100 * n / known:.0f}%"
-        pace = "" if ph == progress.FILED else at_pace(known - n, per7)
-        # Acquired has no bar of its own (the funnel draws downloaded), so no
-        # colour key either: a dot would promise a colour no bar shows.
-        dot = "" if ph == progress.ACQUIRED else f'<span class="key-dot ph-{progress.PHASES[ph]}"></span>'
-        rows.append(f'<tr><td>{dot}{PHASE_LABEL[ph]}</td>'
-                    f"<td>{n:,}</td><td>{share}</td><td>{per7 or 0:,.0f}</td>"
-                    f"<td class=\"wide\">{per30 or 0:,.0f}{'' if held >= 30 else f' ({held} days)'}</td>"
-                    f"<td>{pace}</td></tr>")
-    queued = tot[progress.QUEUED]
-    if queued is not None:
-        f7, f30 = queue_flow(recorded, 7), queue_flow(recorded, 30)
-        drain = f7[1] - f7[0] if f7[0] is not None else None
-        rows.insert(1, f'<tr><td><span class="key-dot ph-queued"></span>{PHASE_LABEL[progress.QUEUED]}</td>'
-                       f"<td>{queued:,}</td><td>{100 * queued / known:.0f}%</td>"
-                       f"<td>{flow_text(f7)}</td><td class=\"wide\">{flow_text(f30)}</td>"
-                       f"<td>{'' if drain is None else 'growing' if drain <= 0 else 'read in ' + at_pace(queued, drain)}"
-                       f"</td></tr>")
-    table = ('<table class="progress-table"><tr><th>Phase</th><th>Puzzles</th><th>Of known</th>'
+    for st, n in enumerate(stages):
+        c7 = c30 = forecast = ""
+        if st in PACED:
+            c7, c30, per7 = pace_cells(progress.funnel_series(days, st), today)
+            if st != S_KNOWN:
+                forecast = at_pace(known - n, per7) if per7 is not None else "&mdash;"
+        rows.append(f'<tr><td><span class="key-dot ph-{FUNNEL_CLASS[st]}"></span>{FUNNEL_LABEL[st]}</td>'
+                    f"<td>{n:,}</td><td>{100 * n / known:.0f}%</td><td>{c7}</td>"
+                    f'<td class="wide">{c30}</td><td>{forecast}</td></tr>')
+    table = ('<table class="progress-table"><tr><th>Stage</th><th>Puzzles</th><th>Of known</th>'
              '<th>7-day pace</th><th class="wide">30-day pace</th><th>All known in</th></tr>'
              + "".join(rows) + "</table>")
-    title = "Progress: every puzzle, acquired, solved and hinted"
-    desc = (f"How far Cryptic Teacher has got: {tot[progress.ACQUIRED]:,} of the {known:,} cryptic "
-            f"crosswords known to exist acquired, {tot[progress.SOLVED]:,} solved and "
-            f"{tot[progress.HINTED]:,} with full hints, and how fast each is moving.")
+    title = "Progress: every puzzle, downloaded, solved and hinted"
+    desc = (f"How far Cryptic Teacher has got: {stages[S_DOWNLOADED]:,} of the {known:,} cryptic "
+            f"crosswords known to exist downloaded, {stages[S_SOLVED]:,} solved and "
+            f"{stages[S_HINTED]:,} with full hints, and how fast each is moving.")
     canonical = f"{BASE}/progress/"
     crumbs = [("Cryptic Teacher", "/"), ("Progress", "")]
     page_ld = {"@context": "https://schema.org", "@type": "Article", "headline": title,
@@ -1697,11 +1695,12 @@ def progress_page(idx, today=None):
     body = [masthead(crumbs), '<main class="static-main tutorial-static">', f"<h1>{title}</h1>",
             f"<p>The goal is every cryptic puzzle each series has printed, with every answer and a "
             f"hint for every clue. As of {short_day(today)}: {known:,} are known to exist, "
-            f"{tot[progress.ACQUIRED]:,} are acquired, {tot[progress.SOLVED]:,} are solved and "
-            f"{tot[progress.HINTED]:,} are hinted.</p>",
-            funnel_chart(days[today]), table,
-            '<p class="muted small-note"><strong>Known</strong> and <strong>acquired</strong> are '
-            "the coverage ledger's counts, one per print date or number, so a reprint counts once. "
+            f"{stages[S_DOWNLOADED]:,} are downloaded, {stages[S_FILED]:,} are filed, "
+            f"{stages[S_SOLVED]:,} are solved and {stages[S_HINTED]:,} are hinted.</p>",
+            funnel_chart(stages), table,
+            '<p class="muted small-note"><strong>Known</strong> is the coverage ledger\'s count, one '
+            "per print date or number, so a reprint counts once, and never less than a series' "
+            "downloaded. "
             "<strong>Filed</strong> counts puzzle files, <strong>solved</strong> the files with every "
             "answer, <strong>hinted</strong> the files with every clue explained. Answers are found "
             "in the session that writes the hints, so solved has no pace of its own. "
@@ -1709,12 +1708,14 @@ def progress_page(idx, today=None):
             "is scans on disk (archive.org and Gale newspaper editions, Gale Listener pages, Trove "
             "articles) never read yet, one puzzle an edition or page, a Trove article counted at the "
             "share of read articles that held one, and no more than is known and not yet filed. "
-            "Its pace is downloads in and first reads out. "
-            "In the bars each stage sits inside the one above.</p>",
+            "Downloaded less filed is what is not read yet. "
+            "In the bars each stage sits inside the one above, and the table shows the same "
+            "numbers. A pace over fewer days than its window says how many; &mdash; is a stage "
+            "counted on one day only.</p>",
             *(("<h2>The read queue</h2>", queue_table(days[today], recorded)) if queued is not None else ()),
             "<h2>Running totals</h2>", cumulative_chart(days),
             "<h2>A day at a time</h2>",
-            *(rate_chart(days, ph) for ph in (progress.FILED, progress.HINTED)),
+            *(rate_chart(days, st) for st in (S_FILED, S_HINTED)),
             "<h2>By series</h2>", series_chart(days[today]),
             f'<p class="s-cta"><a class="cta" href="{BASE}/">Pick a puzzle &rarr;</a></p>',
             "</main>"]

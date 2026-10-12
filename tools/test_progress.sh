@@ -84,9 +84,34 @@ idx = {"puzzles": [{"series": "times", "hasSolutions": True, "annotated": True}]
                   + [{"series": "times", "hasSolutions": False, "annotated": False}]}
 html = B.progress_page(idx, today=date(2026, 10, 8))
 assert html.count("<svg") == 5, html.count("<svg")
-assert "5 not read yet" in html and "+5 in, &minus;10 read" in html and "read in 6 days" in html, html
-assert "solved</td>" not in html, "solved has no pace of its own"
-assert "<polyline" in html and "10 are known to exist" in html, html[:2000]
+assert "+5 in, &minus;10 read" in html, html
+assert "<polyline" in html, html[:2000]
+
+# The table is the bars: same stages, labels, numbers, order and colours, from
+# one source, and one known total everywhere on the page (Paul 10-12: "why are
+# the entries in the table different than the bars").
+import re
+main = html.split("<main", 1)[1].split("</main>")[0]
+funnel = main.split('<svg', 1)[1].split("</svg>")[0]
+bars = re.findall(r'text-anchor="end">([^<]+)</text><rect class="track"[^>]*/>'
+                  r'<rect class="ph-([a-z]+)"[^>]*/><text[^>]*>([\d,]+) ·', funnel)
+table = main.split('class="progress-table"', 1)[1].split("</table>")[0]
+trs = re.findall(r'<tr><td><span class="key-dot ph-([a-z]+)"></span>([^<]+)</td><td>([\d,]+)</td>'
+                 r'(.*?)</tr>', table)
+assert len(trs) == table.count("<tr>") - 1, ("every row is a stage with a dot", table)
+assert [(l, c, n) for l, c, n in bars] == [(l, c, n) for c, l, n, _ in trs], (bars, trs)
+assert [l for l, _, _ in bars] == list(B.FUNNEL_LABEL), bars
+assert len({c for _, c, _ in bars}) == 5, "no two stages share a colour"
+want = P.nested_totals(P.with_today(P.load(path), P.file_counts(
+    (p["series"], p.get("hasSolutions"), p.get("annotated")) for p in idx["puzzles"]), "2026-10-08")["2026-10-08"])
+assert [int(n.replace(",", "")) for _, _, n in bars] == want, (bars, want)
+assert all(a >= b for a, b in zip(want, want[1:])), want
+knowns = set(re.findall(r"([\d,]+) (?:are known to exist|puzzles known to exist)", main))
+assert knowns == {f"{want[0]:,}"}, ("one known total", knowns)
+assert "not read yet</td>" not in main and "acquired" not in main.lower(), "no queue or acquired row"
+assert "unread" not in main, "the downloaded bar is drawn like every other"
+solved = next(rest for c, l, n, rest in trs if l == "solved")
+assert re.sub(r"<[^>]+>", "", solved).replace("%", "").strip().isdigit(), ("solved has no pace", solved)
 assert "{" not in html.split("<main", 1)[1].split("</main>")[0], "an unfilled placeholder"
 print("ok")
 PY
