@@ -331,6 +331,8 @@ SERIES = {
         "publisher": "Telegraph",
         "badge": "toughie",
         "bylined": True,
+        "unbylined": {2875: "Telegraph bucket byline empty; bigdave44.com posted no Toughie on "
+                            "2022-06-23; no web page names its setter (searched 2026-10-12)"},
         "datedFromNeighbours": True,
         "blog": "bigdave44.com",
     },

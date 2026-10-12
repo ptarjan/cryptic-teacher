@@ -40,6 +40,7 @@ import argparse
 import bisect
 import datetime
 import html
+import itertools
 import json
 import re
 import sys
@@ -80,6 +81,11 @@ CACHE = downloads.TELEGRAPH
 #: tools/file_telegraph_puzzles.py files nothing at or past these but the
 #: numbers the calendar repeats (served()).
 FIRST_NUMBER = {"telegraph": 27738, "sundaytel": 2786, "toughie": 2486, "sundaytough": 24}
+#: Bylines the bucket leaves empty and no parsed bigdave44.com post carries
+#: (the crawl missed the post), each with where it is printed.
+BYLINES = {
+    ("toughie", 2489): ("Elgar", "https://bigdave44.com/2020/08/14/toughie-2489/"),
+}
 #: The bucket's variant -> the series on a weekday and on a Sunday.
 VARIANTS = {
     "cryptic-crossword-1": ("telegraph", "sundaytel"),
@@ -239,6 +245,40 @@ def span(text):
     return int(a), int(b or a)
 
 
+SEE = re.compile(r"^\s*see\s+(\d+)\s*(across|down|ac|dn|a|d)?\s*\.?\s*$", re.I)
+
+
+def infer_links(links, clues, lights):
+    """Add the continuations a leader's `links` leave out. Some Toughies
+    (2888 ZERO HOUR, 2907 PARTY LINE) give the leader no `links` at all: the
+    second light carries "See 12 across" with no enumeration, and the leader's
+    own answer is the whole phrase. A continuation is a clue with no format
+    whose text is only "See N [direction]"; its order among the leader's
+    members is the one whose lights spell the leader's printed answer."""
+    named = {m for ms in links.values() for m in ms}
+    found = {}
+    for key, c in clues.items():
+        if key in named or re.sub(r"\s+", "", c.get("format") or ""):
+            continue
+        m = SEE.match(html.unescape(c.get("clue") or ""))
+        if not m:
+            continue
+        n, d = int(m.group(1)), (m.group(2) or "").lower()
+        d = {"a": "across", "ac": "across", "d": "down", "dn": "down"}.get(d, d)
+        targets = [(n, d)] if d else [(n, key[1]), (n, "down" if key[1] == "across" else "across")]
+        leader = next((t for t in targets if t in clues and t != key), None)
+        if leader:
+            found.setdefault(leader, []).append(key)
+    for leader, extra in found.items():
+        rest = links[leader] + extra
+        answer = re.sub(r"[^A-Z]", "", html.unescape(clues[leader].get("answer") or "").upper())
+        for order in itertools.permutations(rest):
+            if "".join(lights[k]["solution"] for k in (leader, *order)) == answer:
+                rest = list(order)
+                break
+        links[leader] = rest
+
+
 def parse(doc, variant):
     """One bucket puzzle -> this app's puzzle dict."""
     j = doc.get("json", doc)
@@ -280,6 +320,7 @@ def parse(doc, variant):
     # The continuations are found first: one can be listed before its leader.
     links = {key: [(int(ln["number"]), ln["direction"].lower()) for ln in c.get("links") or ()]
              for key, c in clues.items()}
+    infer_links(links, clues, lights)
     linked = {m for ms in links.values() for m in ms}
     entries = []
     for key, c in clues.items():
@@ -478,6 +519,8 @@ def fetch(variant, slug, expect=None, setters=None):
     puzzle = parse(doc, variant)
     if not puzzle.get("setter") and setters:
         puzzle["setter"] = setters.get((puzzle["series"], puzzle["number"]))
+    if not puzzle.get("setter") and (puzzle["series"], puzzle["number"]) in BYLINES:
+        puzzle["setter"] = BYLINES[(puzzle["series"], puzzle["number"])][0]
     if expect and (puzzle["series"], puzzle["number"]) != expect:
         raise ValueError(f"{slug} is {puzzle['id']}, the calendar says {expect[0]}-{expect[1]}")
     path = puzzle_path(puzzle["series"], puzzle["number"])
