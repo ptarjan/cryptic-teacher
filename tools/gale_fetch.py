@@ -385,7 +385,7 @@ def plan(got, skip=SKIP):
     rows = gale_inbox.wanted()
     docs = gale_docs.load()
     aside = gale_inbox.aside_days()
-    passed = set(gale_inbox.staged_files()) | set(aside)
+    passed = {d for d, ms in gale_inbox.staged_matches().items() if not superseded(d, ms, docs)} | set(aside)
     passed |= {d for d, _ in rows if gale_inbox.not_on_gale(d, docs, aside)}
     out = []
     for day, _ in gale_inbox.next_up(rows, passed, None)[skip:]:
@@ -397,11 +397,22 @@ def plan(got, skip=SKIP):
     return out
 
 
+def superseded(day, ms, docs):
+    """Whether `day`'s staged pages `ms` are a page this script fetched that
+    its Times cache entry no longer names, or names under an older matcher
+    (gale_docs.stale): it is looked up again and, picked anew, fetched over."""
+    import gale_inbox
+    e = docs.get(f"TTDA/{day.isoformat()}")
+    fetched = {(m.get("docId") or "").upper() for m in ms if m.get("how") == gale_inbox.FETCHED_HOW}
+    return bool(e and fetched) and (gale_docs.stale("TTDA", e) or e.get("doc", "").upper() not in fetched)
+
+
 def want(prod, day, docs, got):
     """[(prod, day, its cache entry or None)], or [] when Gale has no
-    crossword that day or its document is in `got`."""
+    crossword that day or its document is in `got`. None: not looked up
+    yet, or looked up by an older matcher (gale_docs.stale)."""
     e = docs.get(f"{prod}/{day.isoformat()}")
-    if e is None:
+    if e is None or gale_docs.stale(prod, e):
         return [(prod, day, None)]
     return [(prod, day, e)] if "doc" in e and e["doc"].upper() not in got else []
 
@@ -410,8 +421,7 @@ def look_up(prod, day, gale):
     """The cache entry for `day` of `prod` (gale_docs.lookup), kept in gale_docs.CACHE."""
     e = gale_docs.lookup(prod, day, gale)
     e["at"] = datetime.datetime.now().astimezone().isoformat(timespec="seconds")
-    if "doc" not in e:
-        e["matcher"] = gale_docs.MATCHER
+    e["matcher"] = gale_docs.MATCHER[prod]
     gale_docs.keep(f"{prod}/{day.isoformat()}", e)
     return e
 

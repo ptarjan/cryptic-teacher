@@ -9,8 +9,8 @@ after the puzzle's. A row's lookup is the Alberta Research Portal's session (geo
 Gale's month of issues (issuesForMonth, once per month), then that date's
 issue (navigateToIssue), whose table of contents names the crossword's
 document id, page and page-image record ids. CACHE keeps each answer, a miss
-too, so no date is asked twice; a miss from an older MATCHER is asked once
-more.
+too, so no date is asked twice; one from an older MATCHER is asked once
+more when stale.
 
 The link is Gale's own Download target, BulkPDF as a GET: it needs a Gale
 session in the browser (the checklists' "Start Gale session"), not this
@@ -35,9 +35,9 @@ from gale_http import Chrome, click_headers, verifies
 CACHE = Path.home() / ".cache/gale_inbox/docs.json"
 PER_TICK = 15
 PACE = 2.0
-#: Bumped when crossword() or report() would find more: misses cached by an
-#: older one are looked up again.
-MATCHER = 2
+#: Per product, bumped when crossword() or report() would pick differently:
+#: entries cached by an older one are looked up again (stale).
+MATCHER = {"TTDA": 3, "LSNR": 2, "TGRH": 2, "FTHA": 2, "INDA": 2, "STHA": 2, "TLSH": 2}
 REPORT_WEEKS = 5
 #: Seconds a lookup started before resolve's `until` may run past it.
 LOOKUP_GRACE = 120
@@ -124,8 +124,12 @@ def crossword(prod, titles, number=None):
     # The 2000s also print the Saturday Jumbo and Times Two's quick crossword;
     # the Sunday papers their Mephisto, French, general knowledge and
     # two-into-one puzzles.
-    bad = re.compile(r"concise|solution|winners|report on|quick|jumbo|times ?two\b|\bt2\b|mephisto|french"
-                     r"|general knowledge|two-into-one", re.IGNORECASE)
+    # The Times' index on page 2 lists "Crossword 95 Today's Weather" (the
+    # page it is on), and its news reports the championship.
+    bad = re.compile(r"concise|solution|winners|report on|quick|jumbo|times ?(two|2)\b|\bt2\b|mephisto|french"
+                     r"|general knowledge|two-into-one|champion\b|\bcontest|today's weather|miscellany"
+                     + ("" if prod == "LSNR" else r"|listener")
+                     + (r"|^\W*[cg]ross-? ?w[oa]rd \d{1,3}\W*$" if prod == "TTDA" else ""), re.IGNORECASE)
     # Gale's OCR'd titles: "Grossword", "Crossward", "Cross-number" too; the
     # Telegraph's to 1990 or so are its clue heading, "No. 12,212 across".
     kind = re.compile(f"{KIND.pattern}|{ACROSS.pattern}", re.IGNORECASE) if prod == "TGRH" else KIND
@@ -134,9 +138,27 @@ def crossword(prod, titles, number=None):
         # The TLS's last solution is indexed under its puzzle's own title
         # ("TLS Crossword 603" beside "TLS Crossword 604"): the newest first.
         cands.sort(key=lambda i: -max(map(int, re.findall(r"\d+", titles[i].replace(",", ""))), default=0))
+    if prod == "TTDA":
+        cands.sort(key=lambda i: not TIMES_CRYPTIC.search(titles[i]))
     if number is not None:
         cands.sort(key=lambda i: not named(number).search(titles[i]))
     return cands[0] if cands else None
+
+
+#: The Times' cryptic as Gale titles it: "The Times Crossword 23,303",
+#: "Times Crossword", "The Times Crossword Puzzle No 17,563".
+TIMES_CRYPTIC = re.compile(r"\btimes\W+[cg]ross-? ?w[oa]rd\W*(puzzle\W*)?(no\b\W*)?(\d[\d,. ]*)?$", re.IGNORECASE)
+
+
+def stale(prod, e):
+    """Whether cache entry `e` is to be looked up again: cached by an older
+    matcher, and a miss or (the Times) a title this one rejects or ranks
+    below the cryptic's."""
+    if e.get("matcher", 0) >= MATCHER[prod]:
+        return False
+    if "doc" not in e:
+        return True
+    return prod == "TTDA" and not (crossword(prod, [e["title"]]) == 0 and TIMES_CRYPTIC.search(e["title"]))
 
 
 KIND = re.compile(r"[cg]ross-? ?(word|ward|number)", re.IGNORECASE)
@@ -247,7 +269,7 @@ def report_link(prod, number, docs):
 
 def cached(docs, key):
     e = docs.get(key)
-    return e is not None and ("doc" in e or e.get("matcher", 0) >= MATCHER)
+    return e is not None and not stale(key.split("/")[0], e)
 
 
 def resolve(prod, rows, out=sys.stdout, gale=None, cache=CACHE, limit=PER_TICK, reports=(), until=None):
@@ -280,8 +302,7 @@ def resolve(prod, rows, out=sys.stdout, gale=None, cache=CACHE, limit=PER_TICK, 
             print(f"gale_docs: {key}: {type(ex).__name__}: {ex}", file=out)
             break
         e["at"] = datetime.datetime.now().astimezone().isoformat(timespec="seconds")
-        if "doc" not in e:
-            e["matcher"] = MATCHER
+        e["matcher"] = MATCHER[prod]
         docs[key] = e
         added += "doc" in e
         print(f"gale_docs: {key}: " + (f"{e['doc']} {e['title']}" if "doc" in e else e["why"]), file=out)
