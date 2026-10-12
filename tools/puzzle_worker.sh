@@ -385,9 +385,10 @@ worker_await_preamble() {   # id entries
 }
 
 # A run that failed or was stopped. One cut off by a lockout usually leaves
-# real work behind: some clues annotated, the rest untouched, and that file
-# still validates. Throwing it away means paying for those clues again, so it
-# is kept. A half-written one — the run died mid-edit — is put back. Either way
+# real work behind: some clues annotated, the rest untouched. That file fails
+# validation (its blank clues), so validation cannot be the test: throwing it
+# away means paying for those clues again, so any file that still parses is
+# kept. Only a half-written one, the run died mid-write, is put back. Either way
 # the conversation (sid file $4) is resumed by the retry, since its reasoning is
 # the expensive part: the note written to $3 says what it finds on disk.
 # $5 says how it was stopped; $6 set means master changed the puzzle meanwhile,
@@ -399,8 +400,8 @@ worker_failed() {   # id what notefile sidfile [how] [moved]
   seen=$(python3 tools/puzzle_paths.py "$id")
   [ "$what" = Annotate ] && seen="tools/_puzzle_$id.json"
   if [ -z "${6:-}" ] && [ -n "$(git status --porcelain -- "$(puzzle_spec "$id")")" ] &&
-     python3 tools/validate_annotations.py "$id" >/dev/null 2>&1; then
-    echo "  [$id] run stopped — keeping what it finished, the file still validates"
+     python3 -c 'import glob,json,sys; [json.load(open(f)) for f in glob.glob(sys.argv[1])]' "$(puzzle_spec "$id")" >/dev/null 2>&1; then
+    echo "  [$id] run stopped — keeping what it finished, the file still parses"
     printf '%s\n' "You $how. Your edits to $seen are exactly as you left them. Pick up where you stopped, finish the task you were given, and run python3 tools/annotate_check.py $id until it reports clean. Do not commit." >"$3"
     return 0
   fi
