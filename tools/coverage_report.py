@@ -147,6 +147,11 @@ STALE_AFTER_DAYS = {
     "timesjumbo": 10 + 14,
     "azed": 40 + 7,      # monthly from 2026, first Sunday; blogged a week on
     "timesclub": 40,     # the Times Crossword Club's monthly
+    "tls": 17,           # fortnightly since 2025 (tools/tls_puzzles.py)
+    # Weekly, but its clues are printed only behind the Times' paywall and
+    # nothing fetches it (daily_units.SLOW_FETCHERS): this alerts until Paul
+    # chooses a source. Not "nation": its weekly cryptic ended 2020-04-13.
+    "listener": 10,
 }
 
 
