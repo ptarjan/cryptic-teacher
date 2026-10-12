@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Senior nurse, trade union member?",
     "enumeration": "6"
    },
-   "solution": "SISTER"
+   "solution": "SISTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SISTER",
+    "definitions": [
+     {
+      "text": "Senior nurse",
+      "at": 0
+     },
+     {
+      "text": "trade union member",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Senior nurse",
+      "note": "first meaning: a nurse in charge of a hospital ward"
+     },
+     {
+      "clueFragment": "trade union member",
+      "note": "second meaning: union members call one another brother and ..."
+     }
+    ],
+    "explanation": {
+     "surface": "Someone wonders whether the ward's senior nurse also belongs to a union.",
+     "walkthrough": "In Britain a ward sister is a senior nurse, and trade unionists address fellow members as brother or sister.",
+     "definitionFit": "The word is the British title of a ward's senior nurse and also the comradely form of address for a female union colleague."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +86,45 @@
     "text": "Gemstone — it has sparkle, we hear",
     "enumeration": "8"
    },
-   "solution": "SAPPHIRE"
+   "solution": "SAPPHIRE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SAPPHIRE",
+    "definitions": [
+     {
+      "text": "Gemstone",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is a spoken version, so the words are to be pronounced rather than read"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it has sparkle",
+      "gives": "SAPPHIRE",
+      "soundsLike": "'S AFIRE",
+      "note": "something with sparkle is afire; 'tis afire, run together, is pronounced like the stone"
+     }
+    ],
+    "explanation": {
+     "surface": "A jeweller hears that a stone glitters and names the gem.",
+     "walkthrough": "Read 'it has sparkle' as 'it's afire', said quickly as one word.",
+     "definitionFit": "The answer is a precious blue stone of the corundum family, so it is a gemstone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sparkle"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +138,54 @@
     "text": "Commercial interrupting peaceful piece of music",
     "enumeration": "8"
    },
-   "solution": "SERENADE"
+   "solution": "SERENADE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SERENADE",
+    "definitions": [
+     {
+      "text": "piece of music",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupting",
+      "for": "container",
+      "note": "to interrupt is to break into the middle, so one word sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peaceful",
+      "gives": "SERENE",
+      "note": "serene means calm, peaceful"
+     },
+     {
+      "clueFragment": "Commercial",
+      "gives": "AD",
+      "note": "a commercial is an advertisement, an ad"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEREN",
+      "AD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An advert breaks into a calm piece of music on the radio.",
+     "definitionFit": "A serenade is a song or instrumental piece, traditionally sung to a lover under a window."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Commercial"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +199,42 @@
     "text": "Relaxes during course of striptease show",
     "enumeration": "5"
    },
-   "solution": "EASES"
+   "solution": "EASES",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EASES",
+    "definitions": [
+     {
+      "text": "Relaxes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during course of",
+      "for": "hidden_word",
+      "note": "during the course of the words means somewhere inside their run of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "striptease show",
+      "gives": "EASES",
+      "note": "the letters run across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A performer unwinds while taking part in a striptease act.",
+     "definitionFit": "To ease is to loosen or relax, so 'eases' matches 'relaxes' as a third-person verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "striptease"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +248,51 @@
     "text": "Sign of a sore poet? You may see one holding a dagger",
     "enumeration": "8"
    },
-   "solution": "SCABBARD"
+   "solution": "SCABBARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCABBARD",
+    "definitions": [
+     {
+      "text": "one holding a dagger",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "You may see"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sign of a sore",
+      "gives": "SCAB",
+      "note": "a scab forms over a healing sore"
+     },
+     {
+      "clueFragment": "poet",
+      "gives": "BARD",
+      "note": "a bard is a poet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCAB",
+      "BARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A poet with a scabby sore turns up somewhere a dagger might be seen.",
+     "walkthrough": "The question mark ends the wordplay; the definition is the descriptive phrase after it.",
+     "definitionFit": "A scabbard is the sheath that a blade such as a dagger or sword is kept in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "sore"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +312,69 @@
      }
     ]
    },
-   "solution": "COVENTGARDEN"
+   "solution": "COVENTGARDEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "COVENT GARDEN",
+    "definitions": [
+     {
+      "text": "London district",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upset things are knocked over and disordered, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "vendor",
+      "gives": "VENDOR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "with agent",
+      "gives": "AGENT",
+      "note": "'with' joins the second word of the mixed letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OVENTGARDEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "VENDORAGENT",
+       "gives": "OVENTGARDEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A market trader is caught out and upset alongside an agent in a London district.",
+     "walkthrough": "Covent Garden is a central London district, once home to the fruit and vegetable market, now the Royal Opera House.",
+     "definitionFit": "The answer names an area of central London around its famous piazza and former market."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +388,71 @@
     "text": "Bet on changes involving a normal Corsican family",
     "enumeration": "9"
    },
-   "solution": "BONAPARTE"
+   "solution": "BONAPARTE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BONAPARTE",
+    "definitions": [
+     {
+      "text": "Corsican family",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changes",
+      "for": "anagram",
+      "note": "something that changes takes a new form, so these letters take a new order"
+     },
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "to involve is to wrap something up within, so one group goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bet on",
+      "gives": "BETON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "normal",
+      "gives": "PAR",
+      "note": "par is the normal standard, as in 'up to par'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BON",
+      "APAR",
+      "TE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BETON",
+       "gives": "BONTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gambler's bet keeps changing, oddly involving an ordinary family from Corsica.",
+     "definitionFit": "Napoleon's family, the Bonapartes, came from Ajaccio on Corsica, so the surname is that of a Corsican family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bet"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +466,48 @@
     "text": "A plank on a ship?",
     "enumeration": "6"
    },
-   "solution": "ABOARD"
+   "solution": "ABOARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABOARD",
+    "definitions": [
+     {
+      "text": "on a ship",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "plank",
+      "gives": "BOARD",
+      "note": "a board is a plank of wood"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BOARD"
+     ]
+    },
+    "explanation": {
+     "surface": "It sounds like asking about a plank found on a ship, perhaps one to walk.",
+     "walkthrough": "The question mark hints that 'on a ship' is not describing the plank but defining the answer.",
+     "definitionFit": "Being aboard means being on or in a vessel, so the adverb means on a ship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plank"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +521,44 @@
     "text": "Synopsis to assimilate",
     "enumeration": "6"
    },
-   "solution": "DIGEST"
+   "solution": "DIGEST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DIGEST",
+    "definitions": [
+     {
+      "text": "Synopsis",
+      "at": 0
+     },
+     {
+      "text": "assimilate",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Synopsis",
+      "note": "first meaning: a noun, a condensed summary"
+     },
+     {
+      "clueFragment": "assimilate",
+      "note": "second meaning: a verb, to absorb food or information"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The noun is stressed on the first syllable and the verb on the second, but they are spelt alike.",
+     "definitionFit": "A digest is a summary of material, and to digest is to take in and absorb, whether food or ideas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +572,64 @@
     "text": "Standard is set by leader of hillside community",
     "enumeration": "6"
    },
-   "solution": "PARISH"
+   "solution": "PARISH",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PARISH",
+    "definitions": [
+     {
+      "text": "community",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "the leader of a word is the letter at its front, so take only the opening letter"
+     }
+    ],
+    "linkWords": [
+     "set by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Standard",
+      "gives": "PAR",
+      "note": "par is the standard or expected level"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hillside",
+      "gives": "H",
+      "select": "first",
+      "note": "the opening letter of hillside"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "IS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A village on a hillside has its standards set by a local leader.",
+     "definitionFit": "A parish is the community of a local church district, and in Britain also a small unit of local government."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Standard"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +643,66 @@
     "text": "Calm, boy before Goran's first service",
     "enumeration": "8"
    },
-   "solution": "EVENSONG"
+   "solution": "EVENSONG",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EVENSONG",
+    "definitions": [
+     {
+      "text": "service",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the first of a name is its opening letter, so only that one is taken"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Calm",
+      "gives": "EVEN",
+      "note": "even means calm and steady, as in an even temper"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "SON",
+      "note": "a son is a boy"
+     },
+     {
+      "clueFragment": "Goran's",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter of the name Goran"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVEN",
+      "SON",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A calm boy goes before Goran's first serve, as if at Wimbledon.",
+     "walkthrough": "Goran Ivanisevic, the Wimbledon champion, makes 'service' look like tennis; it is a church service.",
+     "definitionFit": "Evensong is the Anglican evening prayer service, so it is a church service."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +722,62 @@
      }
     ]
    },
-   "solution": "ROYALWARRANT"
+   "solution": "ROYALWARRANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ROYAL WARRANT",
+    "definitions": [
+     {
+      "text": "Product endorsement?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the beginning, so the word yields just its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Impressive",
+      "gives": "ROYAL",
+      "note": "royal can mean magnificent, splendid, as in a royal welcome"
+     },
+     {
+      "clueFragment": "we",
+      "gives": "W",
+      "select": "first",
+      "note": "the opening letter of we"
+     },
+     {
+      "clueFragment": "utter",
+      "gives": "ARRANT",
+      "note": "arrant means utter, complete, as in arrant nonsense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROYAL",
+      "W",
+      "ARRANT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone with grand ideas pronounces their own approval of a product.",
+     "walkthrough": "'Utter' looks like a verb, to speak, but it is the adjective meaning complete. A Royal Warrant lets a supplier to the British royal household display the royal arms.",
+     "definitionFit": "A Royal Warrant certifies that a firm supplies the royal household, which acts as a prestigious endorsement of its goods."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "utter"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +797,46 @@
      }
     ]
    },
-   "solution": "HANDSDOWN"
+   "solution": "HANDSDOWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HANDS DOWN",
+    "definitions": [
+     {
+      "text": "Easily",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crewmen",
+      "gives": "HANDS",
+      "note": "a ship's crewmen are its hands"
+     },
+     {
+      "clueFragment": "losing?",
+      "gives": "DOWN",
+      "note": "a team that is losing is down, as in two goals down"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HANDS",
+      "DOWN"
+     ]
+    },
+    "explanation": {
+     "surface": "A captain asks whether the crew are losing, and is told they are winning easily.",
+     "definitionFit": "Winning hands down means winning with ease, so the idiom serves as an adverb for easily."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "losing"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +850,42 @@
     "text": "Leaves bits",
     "enumeration": "5"
    },
-   "solution": "PARTS"
+   "solution": "PARTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PARTS",
+    "definitions": [
+     {
+      "text": "Leaves",
+      "at": 0
+     },
+     {
+      "text": "bits",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leaves",
+      "note": "first meaning: a verb, goes away or separates"
+     },
+     {
+      "clueFragment": "bits",
+      "note": "second meaning: a plural noun, pieces or components"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Leaves' looks like foliage, as if 'leaves bits' were scraps of a plant; it is the verb to depart.",
+     "definitionFit": "To part is to leave or go separate ways, and parts as a plural noun are pieces of a whole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Leaves"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +905,51 @@
      }
     ]
    },
-   "solution": "RIDERHAGGARD"
+   "solution": "RIDERHAGGARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RIDER HAGGARD",
+    "definitions": [
+     {
+      "text": "Author",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jockey",
+      "gives": "RIDER",
+      "note": "a jockey is a horse rider"
+     },
+     {
+      "clueFragment": "drawn",
+      "gives": "HAGGARD",
+      "note": "drawn means looking tired and gaunt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIDER",
+      "HAGGARD"
+     ]
+    },
+    "explanation": {
+     "surface": "An author's portrait has been drawn by a jockey.",
+     "walkthrough": "'Drawn' looks like sketched but means gaunt; the pieces are read in reverse clue order because 'drawn by jockey' places the jockey first. H. Rider Haggard wrote King Solomon's Mines.",
+     "definitionFit": "Sir Henry Rider Haggard was a Victorian novelist, famed for adventure stories such as She."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "drawn"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +969,53 @@
      }
     ]
    },
-   "solution": "ROLEMODEL"
+   "solution": "ROLEMODEL",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "ROLE MODEL",
+    "definitions": [
+     {
+      "text": "someone to look up to",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "something reported is passed on by word of mouth, so the sound matters, not the spelling"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "go round",
+      "gives": "ROLE",
+      "soundsLike": "ROLL",
+      "note": "to roll is to go round, turning over and over"
+     },
+     {
+      "clueFragment": "type",
+      "gives": "MODEL",
+      "note": "a model is a type or version, as of a car"
+     }
+    ],
+    "explanation": {
+     "surface": "A person who turns things around with a certain type of character is held up as admirable.",
+     "definitionFit": "A role model is a person whose behaviour others admire and imitate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "type"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1029,89 @@
     "text": "Quotation in comic paper about one — good piece of humour",
     "enumeration": "8"
    },
-   "solution": "EPIGRAPH"
+   "solution": "EPIGRAPH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EPIGRAPH",
+    "definitions": [
+     {
+      "text": "Quotation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "comic",
+      "for": "anagram",
+      "note": "something comic is silly and topsy-turvy, so these letters are jumbled"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the jumbled letters surround the next pieces"
+     },
+     {
+      "text": "piece of",
+      "for": "letter_selection",
+      "note": "a piece of a word here is just its first letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "paper",
+      "gives": "PAPER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is a common abbreviation for good"
+     },
+     {
+      "clueFragment": "humour",
+      "gives": "H",
+      "select": "first",
+      "note": "the opening letter of humour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EP",
+      "IG",
+      "RAP",
+      "H"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PAPER",
+       "gives": "EPRAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A comic newspaper prints a quotation about someone, a good bit of humour.",
+     "walkthrough": "'Comic paper' suggests a children's comic, but 'comic' stirs the letters of the following word.",
+     "definitionFit": "An epigraph is a short quotation placed at the start of a book or chapter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "comic"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1125,66 @@
     "text": "Darbishire's friend, girl not unknown in G&S",
     "enumeration": "8"
    },
-   "solution": "JENNINGS"
+   "solution": "JENNINGS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "JENNINGS",
+    "definitions": [
+     {
+      "text": "Darbishire's friend",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not here means without, so a letter is removed from the name before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "JENNY",
+      "note": "Jenny is a girl's name"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "y is a mathematical unknown, like x"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "G&S",
+      "gives": "GS",
+      "note": "the initials of Gilbert and Sullivan, with the ampersand dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JENN",
+      "IN",
+      "GS"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl appears in a Gilbert and Sullivan operetta, linked somehow to Darbishire.",
+     "walkthrough": "Jennings and Darbishire are the schoolboy friends in Anthony Buckeridge's comic stories set at a boarding school. G&S suggests the operettas but simply gives its two letters.",
+     "definitionFit": "In the Jennings books, Darbishire is the hero Jennings's loyal best friend, so Jennings is Darbishire's friend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "girl"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1204,42 @@
      }
     ]
    },
-   "solution": "FLOWERPEOPLE"
+   "solution": "FLOWERPEOPLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FLOWER PEOPLE",
+    "definitions": [
+     {
+      "text": "Florists",
+      "at": 0
+     },
+     {
+      "text": "advocates of peace?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Florists",
+      "note": "first meaning, taken literally: people who deal in flowers"
+     },
+     {
+      "clueFragment": "advocates of peace?",
+      "note": "second meaning: 1960s hippies who preached peace and love"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first sense is a playful literal reading, hence the question mark; the real phrase means the hippies of the 1960s who handed out flowers.",
+     "definitionFit": "Flower power hippies promoted peace and love, and florists are literally people of flowers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1253,55 @@
     "text": "Greek character — priest entertaining Bachelor of Divinity",
     "enumeration": "6"
    },
-   "solution": "LAMBDA"
+   "solution": "LAMBDA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LAMBDA",
+    "definitions": [
+     {
+      "text": "Greek character",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "to entertain guests is to have them in, so the one word holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "priest",
+      "gives": "LAMA",
+      "note": "a lama is a Tibetan Buddhist priest"
+     },
+     {
+      "clueFragment": "Bachelor of Divinity",
+      "gives": "BD",
+      "note": "BD is the abbreviation of the degree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAM",
+      "BD",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek man, a priest, plays host to a newly qualified theology graduate.",
+     "walkthrough": "'Greek character' looks like a person from Greece; it is a letter of the alphabet.",
+     "definitionFit": "Lambda is the eleventh letter of the Greek alphabet, so it is a Greek character."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1315,54 @@
     "text": "Rules soon to be adopted by Civil Service",
     "enumeration": "6"
    },
-   "solution": "CANONS"
+   "solution": "CANONS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CANONS",
+    "definitions": [
+     {
+      "text": "Rules",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be adopted by",
+      "for": "container",
+      "note": "something adopted is taken in, so the word goes inside the abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Civil Service",
+      "gives": "CS",
+      "note": "CS is the abbreviation of Civil Service"
+     },
+     {
+      "clueFragment": "soon",
+      "gives": "ANON",
+      "note": "anon is an old word for soon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ANON",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "New regulations will shortly be taken up by government officials.",
+     "definitionFit": "Canons are rules or laws, especially church laws, or accepted principles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "adopted"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1376,43 @@
     "text": "Fear evident in Territorial Army",
     "enumeration": "5"
    },
-   "solution": "ALARM"
+   "solution": "ALARM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ALARM",
+    "definitions": [
+     {
+      "text": "Fear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "evident in",
+      "for": "hidden_word",
+      "note": "evident in means visible within, so the letters can be seen inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Territorial Army",
+      "gives": "ALARM",
+      "note": "the letters span the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Fear shows among the part-time soldiers of the British reserve force.",
+     "walkthrough": "The Territorial Army was the British army's volunteer reserve.",
+     "definitionFit": "Alarm is a sudden anxiety or fright at danger, so it means fear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "evident"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1432,50 @@
      }
     ]
    },
-   "solution": "REEDORGAN"
+   "solution": "REEDORGAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REED ORGAN",
+    "definitions": [
+     {
+      "text": "musical instrument",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Strange",
+      "for": "anagram",
+      "note": "strange means odd or out of order, so these letters are put in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "orange-red",
+      "gives": "ORANGERED",
+      "note": "the colour's letters, hyphen dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ORANGERED",
+       "gives": "REEDORGAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An oddly orange-red musical instrument catches the eye.",
+     "definitionFit": "A reed organ, such as a harmonium, is a keyboard instrument sounded by vibrating metal reeds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "orange-red"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1489,64 @@
     "text": "Ring from abroad about coming over",
     "enumeration": "5"
    },
-   "solution": "OUTER"
+   "solution": "OUTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "OUTER",
+    "definitions": [
+     {
+      "text": "Ring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming over",
+      "for": "reversal",
+      "note": "coming over suggests flipping, so this word is read from right to left in a down entry"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "abroad",
+      "gives": "OUT",
+      "note": "abroad means out and about, away from home"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about, concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "RE",
+       "to": "ER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A phone ring arrives from overseas about a visit.",
+     "walkthrough": "'Ring' looks like a telephone call; it is the outermost ring of an archery target.",
+     "definitionFit": "In archery and shooting the outer is the outermost ring of the target, so it is a ring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Ring"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1560,49 @@
     "text": "General behaviour in New York city street",
     "enumeration": "8"
    },
-   "solution": "BROADWAY"
+   "solution": "BROADWAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BROADWAY",
+    "definitions": [
+     {
+      "text": "New York city street",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "General",
+      "gives": "BROAD",
+      "note": "broad means general, as in broad terms"
+     },
+     {
+      "clueFragment": "behaviour",
+      "gives": "WAY",
+      "note": "a way is a manner of behaving, as in set in one's ways"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BROAD",
+      "WAY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes typical behaviour on a New York street.",
+     "definitionFit": "Broadway is the famous avenue running through Manhattan, home of New York's theatre district."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "General"
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1616,42 @@
     "text": "Trace line of ancestry",
     "enumeration": "6"
    },
-   "solution": "STRAIN"
+   "solution": "STRAIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRAIN",
+    "definitions": [
+     {
+      "text": "Trace",
+      "at": 0
+     },
+     {
+      "text": "line of ancestry",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trace",
+      "note": "first meaning: a noun, a slight element"
+     },
+     {
+      "clueFragment": "line of ancestry",
+      "note": "second meaning: a breed or lineage, as of animals or plants"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Trace' looks like a verb, as in tracing one's ancestry; it is a noun meaning a small hint.",
+     "definitionFit": "A strain is both a faint tendency within something and a line of descent within a species."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Trace"
+    }
+   }
   },
   {
    "number": 26,
@@ -439,7 +1665,56 @@
     "text": "Sailor, very good on ancient instrument? Perfect",
     "enumeration": "8"
    },
-   "solution": "ABSOLUTE"
+   "solution": "ABSOLUTE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABSOLUTE",
+    "definitions": [
+     {
+      "text": "Perfect",
+      "at": 41
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailor",
+      "gives": "AB",
+      "note": "AB, able-bodied seaman, is a sailor"
+     },
+     {
+      "clueFragment": "very good",
+      "gives": "SO",
+      "note": "so means very, as in so good; the pair reads as one intensifier"
+     },
+     {
+      "clueFragment": "ancient instrument?",
+      "gives": "LUTE",
+      "note": "the lute is an old plucked string instrument"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "SO",
+      "LUTE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor is very good on an old instrument, and his playing is perfect.",
+     "walkthrough": "'Very good' is best read as 'so (good)': only SO is needed, the setter's wording being loose here.",
+     "definitionFit": "Absolute means complete and total, so it matches perfect in the sense of utter, as in a perfect stranger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sailor"
+    }
+   }
   },
   {
    "number": 27,
@@ -453,7 +1728,66 @@
     "text": "Composer — supporter has original of his manuscript",
     "enumeration": "6"
    },
-   "solution": "BRAHMS"
+   "solution": "BRAHMS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BRAHMS",
+    "definitions": [
+     {
+      "text": "Composer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "original of",
+      "for": "letter_selection",
+      "note": "the original of a word is where it starts, its first letter"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "supporter",
+      "gives": "BRA",
+      "note": "a bra is a supporting undergarment"
+     },
+     {
+      "clueFragment": "his",
+      "gives": "H",
+      "select": "first",
+      "note": "the opening letter of his"
+     },
+     {
+      "clueFragment": "manuscript",
+      "gives": "MS",
+      "note": "MS is the abbreviation for manuscript"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRA",
+      "H",
+      "MS"
+     ]
+    },
+    "explanation": {
+     "surface": "A fan of a composer owns his original manuscript.",
+     "walkthrough": "'Supporter' suggests a fan of the composer; it is an item of underwear.",
+     "definitionFit": "Johannes Brahms was a German Romantic composer of symphonies and the German Requiem."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "supporter"
+    }
+   }
   }
  ]
 }
