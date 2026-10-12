@@ -25,7 +25,9 @@ clue's own word with the steps that turn it into the entry as `alteration`:
 the alteration is one more step of the solve. The archive PDFs' clues say it
 themselves ("(rev.)"); ARCHIVE_ALTERED holds those words. Multi-letter cells,
 numerical entries and a grid changed after the fill are out of scope: 3975 files
-its fill before the final moves, and 111 is skipped. A run the clue list does not
+its fill before the final moves, and 111 is skipped. A puzzle already filed from
+the paper (No 3, from Gale's scan) is not overwritten by the archive's re-set;
+the archive's solution grades its answers (graded_by_key). A run the clue list does not
 clue is barred shut (close_unclued), a numbered one it leaves out filed with a
 missing clue, and letters the blank grid already shows are `printed`. For the
 Times' pages each puzzle's TIMES row says how its preamble alters an answer, as
@@ -43,7 +45,8 @@ from collections import Counter, defaultdict
 import enumeration
 import downloads
 import series as series_meta
-from fetch_puzzle import puzzle_path, write_puzzle_file
+import puzzle_paths
+from fetch_puzzle import puzzle_path, read_puzzle_file, write_puzzle_file
 
 
 SERIES = "listener"
@@ -58,9 +61,8 @@ PDFS = (1, 3, 29, 93, 111)
 
 #: Puzzles read and deliberately not filed, and why.
 SKIP = {
-    3: "the solution numbers a square (27) that starts no light and prints "
-       "no 47, so no grid numbers as it does",
-    111: "numerical: every light is a number",
+    111: "numerical: every light is a number, and the site's player types "
+         "only A-Z (app.js), so a grid of digits could not be solved there",
 }
 
 #: Archive-PDF entries whose own clue alters the answer before entry ("(rev.)",
@@ -839,11 +841,64 @@ def file_pdfs(write=True, log=print):
         if puzzle is None:
             log(f"  {number}: {why}")
             continue
+        held = puzzle_paths.find(puzzle["id"])
+        held = read_puzzle_file(held) if held else None
+        if held and (held.get("source") or {}).get("acquiredBy") != GENERATOR:
+            graded, why = graded_by_key(held, puzzle)
+            if graded is None:
+                log(f"  {number}: filed from {held['source'].get('acquiredBy')}; {why}")
+                continue
+            if write:
+                write_puzzle_file(puzzle_path(SERIES, number), graded)
+            filed.append(puzzle["id"])
+            log(f"  graded {puzzle['id']} by the archive's solution: {why}"
+                + ("" if write else " (dry run)"))
+            continue
         if write:
             write_puzzle_file(puzzle_path(SERIES, number), puzzle, generator=GENERATOR)
         filed.append(puzzle["id"])
         log(f"  filed {puzzle['id']}" + ("" if write else " (dry run)"))
     return filed
+
+
+def cells_of(entry):
+    """The (y, x) squares an entry covers, in order."""
+    x, y = entry["position"]["x"], entry["position"]["y"]
+    dx, dy = (1, 0) if entry["direction"] == "across" else (0, 1)
+    return [(y + dy * i, x + dx * i) for i in range(entry["length"])]
+
+
+def graded_by_key(held, key):
+    """(held with the archive's answers, what changed) or (None, why not).
+
+    A puzzle already filed from the paper itself (Gale's scan of the 1930
+    Listener, tools/file_gale_listener.py) keeps the paper's clues and
+    numbering: the Listener Team's archive PDFs are a re-set, and No 3's
+    renumbers the grid the modern way (the paper numbers a square, 27, that
+    starts no light). Its solution PDF is still the official key, so it
+    grades the filed grid square by square: an answer that differs takes
+    the key's letters and loses the hint written for the old word, and a
+    model solve becomes published answers."""
+    letters = {c: ch for e in key["entries"] for c, ch in zip(cells_of(e), e["solution"])}
+    entries, changed = [], []
+    for e in held["entries"]:
+        cells = cells_of(e)
+        if any(c not in letters for c in cells):
+            return None, f"{e['number']}-{e['direction']} runs off the archive's grid"
+        word = "".join(letters[c] for c in cells)
+        e = dict(e)
+        if e.get("solution") != word:
+            changed.append(f"{e['number']}-{e['direction']} {e.get('solution')} -> {word}")
+            e["solution"] = word
+            e.pop("annotation", None)
+        entries.append(e)
+    was = held.get("solutions") or {}
+    if not changed and was.get("origin") == "published":
+        return None, "its answers already match the archive's solution"
+    previously = was.get("previousOrigin") or (was.get("origin") != "published" and was.get("origin"))
+    solutions = {"origin": "published", **({"previousOrigin": previously} if previously else {})}
+    return ({**held, "entries": entries, "solutions": solutions},
+            ", ".join(changed) or "answers confirmed")
 
 
 def main(argv=None):

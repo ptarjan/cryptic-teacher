@@ -138,6 +138,22 @@ L.pdf_bytes = lambda name: b""
 L.assemble = lambda number, a, b, date: (got.__setitem__(number, date), (None, "stub"))[1]
 L.file_pdfs(write=False, log=lambda *_: None)
 print("PDFDATES", got[93], got[1])
+# A puzzle filed from the paper is graded by the archive's solution, square by
+# square, whatever the archive numbers: an answer that differs takes the key's
+# letters and drops its hint; a model solve becomes published.
+held = {"id": "listener-3", "solutions": {"origin": "model", "model": "opus"}, "entries": [
+    {"number": 1, "direction": "across", "position": {"x": 0, "y": 0}, "length": 3,
+     "solution": "KAT", "annotation": {"answer": "KAT"}},
+    {"number": 2, "direction": "down", "position": {"x": 2, "y": 0}, "length": 2,
+     "solution": "TO", "annotation": {"answer": "TO"}}]}
+key = {"entries": [
+    {"number": 7, "direction": "across", "position": {"x": 0, "y": 0}, "length": 3, "solution": "CAT"},
+    {"number": 9, "direction": "down", "position": {"x": 2, "y": 0}, "length": 2, "solution": "TO"}]}
+g, why = L.graded_by_key(held, key)
+print("GRADE", why, g["solutions"], [(e["solution"], "annotation" in e) for e in g["entries"]])
+off = dict(key, entries=key["entries"][:1])
+print("GRADEOFF", L.graded_by_key(held, off))
+print("HELD", sorted(L.SKIP), sorted(L.TIMES_SKIP))
 PY
 )
 
@@ -169,5 +185,11 @@ check "notes: the answer is the capitalised cell after the number" \
   "NOTES {(1, 'across'): 'CANOPY', (2, 'down'): 'BOS’NS'}" "$(grep '^NOTES' <<<"$out")"
 
 check "an archive PDF's date is the year index's" "PDFDATES 1932-03-25 1931-12-24" "$(grep '^PDFDATES' <<<"$out")"
+check "the archive's key grades a paper-filed grid by square, dropping a changed hint" \
+  "GRADE 1-across KAT -> CAT {'origin': 'published', 'previousOrigin': 'model'} [('CAT', False), ('TO', True)]" \
+  "$(grep '^GRADE ' <<<"$out")"
+check "a light off the key's grid is not graded" \
+  "GRADEOFF (None, \"2-down runs off the archive's grid\")" "$(grep '^GRADEOFF' <<<"$out")"
+check "No 3 is filed (from Gale), not held" "HELD [111] [3985]" "$(grep '^HELD' <<<"$out")"
 
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }
