@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -38,7 +41,55 @@
      }
     ]
    },
-   "solution": "CHOPCHOP"
+   "solution": "CHOPCHOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHOP-CHOP",
+    "definitions": [
+     {
+      "text": "with expedition",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "A couple of",
+      "for": "charade",
+      "note": "a couple means two, so the same word is written down twice in a row"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hacks",
+      "gives": "CHOP",
+      "note": "a hack is a chop, as with an axe; this is the first of the pair"
+     },
+     {
+      "clueFragment": "hacks",
+      "gives": "CHOP",
+      "note": "the same cut again, the second of the pair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHOP",
+      "CHOP"
+     ]
+    },
+    "explanation": {
+     "surface": "Two journalists set off on an expedition together.",
+     "walkthrough": "'Hacks' suggests journalists, but here they are cuts. A couple means the same word twice.",
+     "definitionFit": "CHOP-CHOP is an informal command meaning quickly, and doing something with expedition means doing it with speed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hacks"
+    }
+   }
   },
   {
    "number": 2,
@@ -52,7 +103,50 @@
     "text": "Held a map out that shows way forward for driver",
     "enumeration": "8"
    },
-   "solution": "HEADLAMP"
+   "solution": "HEADLAMP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HEADLAMP",
+    "definitions": [
+     {
+      "text": "that shows way forward for driver",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "letters that are out are put out of their places, so they must be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Held a map",
+      "gives": "HELDAMAP",
+      "note": "the letters of these three words are the fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HELDAMAP",
+       "gives": "HEADLAMP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A motorist holds up a road map to find the route ahead.",
+     "definitionFit": "A headlamp is a car's front light, lighting the road ahead so the driver can see where to go."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 3,
@@ -66,7 +160,66 @@
     "text": "Liking horoscope about Leo, omitting nothing",
     "enumeration": "12"
    },
-   "solution": "PREDILECTION"
+   "solution": "PREDILECTION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "PREDILECTION",
+    "definitions": [
+     {
+      "text": "Liking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "omitting",
+      "for": "deletion",
+      "note": "omitting means leaving something out, so a letter is dropped from the star sign"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the forecast word goes round the shortened star sign"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horoscope",
+      "gives": "PREDICTION",
+      "note": "a horoscope is a prediction of what is to come"
+     },
+     {
+      "clueFragment": "Leo",
+      "gives": "LEO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "nothing is zero, which looks like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PREDI",
+      "LE",
+      "CTION"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone enjoys reading their star sign, Leo, every day.",
+     "walkthrough": "'Nothing' is a common way to clue the letter O, and here it is taken out of the star sign rather than added.",
+     "definitionFit": "A predilection is a fondness or preference, the same as a liking for something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nothing"
+    }
+   }
   },
   {
    "number": 4,
@@ -80,7 +233,49 @@
     "text": "Solitary religious person in that female university in US",
     "enumeration": "6"
    },
-   "solution": "HERMIT"
+   "solution": "HERMIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HERMIT",
+    "definitions": [
+     {
+      "text": "Solitary religious person",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that female",
+      "gives": "HER",
+      "note": "the pronoun for a female, as in 'that's her'"
+     },
+     {
+      "clueFragment": "university in US",
+      "gives": "MIT",
+      "note": "the Massachusetts Institute of Technology"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HER",
+      "MIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A nun lives a solitary life at an American university.",
+     "definitionFit": "A hermit is someone who lives alone, traditionally for religious reasons, like an anchorite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "female"
+    }
+   }
   },
   {
    "number": 5,
@@ -94,7 +289,50 @@
     "text": "Produce pictures mainly showing suffering",
     "enumeration": "4"
    },
-   "solution": "PAIN"
+   "solution": "PAIN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PAIN",
+    "definitions": [
+     {
+      "text": "suffering",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mainly",
+      "for": "deletion",
+      "note": "mainly means most but not all, so the last letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Produce pictures",
+      "gives": "PAINT",
+      "note": "to paint is to produce pictures"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist's work expresses anguish.",
+     "definitionFit": "Pain is physical or mental distress, which is what suffering is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mainly"
+    }
+   }
   },
   {
    "number": 6,
@@ -108,7 +346,63 @@
     "text": "Wind that's extremely lively after festival",
     "enumeration": "8"
    },
-   "solution": "EASTERLY"
+   "solution": "EASTERLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EASTERLY",
+    "definitions": [
+     {
+      "text": "Wind",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes of the word, its first and last letters"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the piece before it second, behind the piece that follows it in the clue"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "festival",
+      "gives": "EASTER",
+      "note": "the Christian spring festival"
+     },
+     {
+      "clueFragment": "lively",
+      "gives": "LY",
+      "select": "outer",
+      "note": "the first and last letters of lively"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EASTER",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A brisk breeze blows after a holiday celebration.",
+     "definitionFit": "An easterly is a wind blowing from the east, named for its direction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "festival"
+    }
+   }
   },
   {
    "number": 7,
@@ -122,7 +416,45 @@
     "text": "Measure of speed, in the main? Not from what we hear",
     "enumeration": "4"
    },
-   "solution": "KNOT"
+   "solution": "KNOT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "KNOT",
+    "definitions": [
+     {
+      "text": "Measure of speed, in the main",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from what we hear",
+      "for": "homophone",
+      "note": "what we hear is a word spoken, so the sound matters rather than the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not",
+      "gives": "KNOT",
+      "soundsLike": "NOT",
+      "note": "the word not, said out, sounds the same as the nautical unit"
+     }
+    ],
+    "explanation": {
+     "surface": "A puzzled question about speed at sea, then a denial.",
+     "walkthrough": "'The main' is the sea, so this is a nautical speed unit, one nautical mile per hour.",
+     "definitionFit": "A knot is a unit of speed used for ships, equal to one nautical mile per hour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +474,51 @@
      }
     ]
    },
-   "solution": "FAIRPLAY"
+   "solution": "FAIRPLAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FAIR PLAY",
+    "definitions": [
+     {
+      "text": "Justice",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "critic's moderate review",
+      "gives": "FAIR",
+      "note": "a moderate verdict is 'fair', neither good nor bad"
+     },
+     {
+      "clueFragment": "drama",
+      "gives": "PLAY",
+      "note": "a play is a drama"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAIR",
+      "PLAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A theatre critic gives a lukewarm verdict on a courtroom drama.",
+     "walkthrough": "Read together, the critic's verdict on the drama is that the play was fair.",
+     "definitionFit": "Fair play is honest, even-handed treatment, which is a form of justice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Justice"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +532,59 @@
     "text": "Snake found in Canada? No, that's wrong",
     "enumeration": "8"
    },
-   "solution": "ANACONDA"
+   "solution": "ANACONDA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANACONDA",
+    "definitions": [
+     {
+      "text": "Snake",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that's wrong",
+      "for": "anagram",
+      "note": "if something is wrong it is not in its proper order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "found in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Canada",
+      "gives": "CANADA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "No",
+      "gives": "NO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CANADANO",
+       "gives": "ANACONDA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone claims a big snake lives in Canada, then corrects themselves.",
+     "walkthrough": "'No' looks like a denial but supplies two letters.",
+     "definitionFit": "The anaconda is a very large South American constricting snake."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "No"
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +598,51 @@
     "text": "Benefit from Asian drink? Doesn't sound like it",
     "enumeration": "4"
    },
-   "solution": "SAKE"
+   "solution": "SAKE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SAKE",
+    "definitions": [
+     {
+      "text": "Benefit",
+      "at": 0
+     },
+     {
+      "text": "Asian drink",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Benefit",
+      "note": "first meaning: as in 'for the ... of', meaning for the good of"
+     },
+     {
+      "clueFragment": "Asian drink",
+      "note": "second meaning: the Japanese rice wine"
+     },
+     {
+      "clueFragment": "Doesn't sound like it",
+      "note": "surface padding remarking that the two meanings are pronounced differently"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks whether an Asian drink is good for you.",
+     "walkthrough": "'Doesn't sound like it' notes that the two meanings share a spelling but are said differently: 'sayk' for benefit, 'sah-keh' for the rice wine.",
+     "definitionFit": "Doing something for someone's sake means for their benefit; separately, sake is Japanese fermented rice wine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sound"
+    }
+   }
   },
   {
    "number": 11,
@@ -184,7 +656,67 @@
     "text": "Without doctor, don't arrest poorly protester",
     "enumeration": "12"
    },
-   "solution": "DEMONSTRATOR"
+   "solution": "DEMONSTRATOR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DEMONSTRATOR",
+    "definitions": [
+     {
+      "text": "protester",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "poorly",
+      "for": "anagram",
+      "note": "something poorly is out of sorts, so these letters are put in a new order"
+     },
+     {
+      "text": "Without",
+      "for": "container",
+      "note": "without here means outside, so the other letters go around the medic"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "don't arrest",
+      "gives": "DONTARREST",
+      "note": "the fodder, ignoring the apostrophe"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MO",
+      "note": "MO is a Medical Officer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "MO",
+      "NSTRATOR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DONTARREST",
+       "gives": "DENSTRATOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sickly protester begs police not to arrest them, though no doctor is present.",
+     "walkthrough": "'Without doctor' looks like 'with no doctor', but the older sense of without, meaning outside, is meant.",
+     "definitionFit": "A demonstrator is someone taking part in a public protest march or rally."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Without"
+    }
+   }
   },
   {
    "number": 12,
@@ -198,7 +730,56 @@
     "text": "Fear, perhaps, in one that's disturbed",
     "enumeration": "12"
    },
-   "solution": "APPREHENSION"
+   "solution": "APPREHENSION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "APPREHENSION",
+    "definitions": [
+     {
+      "text": "Fear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that's disturbed",
+      "for": "anagram",
+      "note": "something disturbed has been moved out of place, so the preceding letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "perhaps",
+      "gives": "PERHAPS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in one",
+      "gives": "INONE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PERHAPSINONE",
+       "gives": "APPREHENSION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A troubled person might be gripped by fear.",
+     "walkthrough": "'Perhaps' looks like it hedges the definition, but it is fodder alongside 'in one'.",
+     "definitionFit": "Apprehension is anxiety or dread that something bad will happen, a synonym for fear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "perhaps"
+    }
+   }
   },
   {
    "number": 13,
@@ -218,7 +799,50 @@
      }
     ]
    },
-   "solution": "TABLETOP"
+   "solution": "TABLETOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TABLE TOP",
+    "definitions": [
+     {
+      "text": "Where to serve meal",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and",
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pill",
+      "gives": "TABLET",
+      "note": "a tablet is a pill"
+     },
+     {
+      "clueFragment": "surgery",
+      "gives": "OP",
+      "note": "OP is short for operation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TABLET",
+      "OP"
+     ]
+    },
+    "explanation": {
+     "surface": "A patient is given a meal and a pill before an operation.",
+     "definitionFit": "A tabletop is the flat upper surface of a table, where food is set out for diners."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "surgery"
+    }
+   }
   },
   {
    "number": 14,
@@ -232,7 +856,45 @@
     "text": "Place to sit and fish",
     "enumeration": "5"
    },
-   "solution": "PERCH"
+   "solution": "PERCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PERCH",
+    "definitions": [
+     {
+      "text": "Place to sit",
+      "at": 0
+     },
+     {
+      "text": "fish",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Place to sit",
+      "note": "first meaning: a bird's roost or a high seat"
+     },
+     {
+      "clueFragment": "fish",
+      "note": "second meaning: a freshwater fish"
+     }
+    ],
+    "explanation": {
+     "surface": "An angler looks for a spot to settle down and fish.",
+     "definitionFit": "A perch is a resting place such as a bird's roost, and also a spiny freshwater fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fish"
+    }
+   }
   },
   {
    "number": 15,
@@ -246,7 +908,55 @@
     "text": "Revolt about a negative parliamentary procedure",
     "enumeration": "6"
    },
-   "solution": "REPEAL"
+   "solution": "REPEAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REPEAL",
+    "definitions": [
+     {
+      "text": "negative parliamentary procedure",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the verb wraps round the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Revolt",
+      "gives": "REPEL",
+      "note": "to revolt is to disgust or repel"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REPE",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "An uprising against a parliamentary motion that blocks something.",
+     "walkthrough": "'Revolt' reads as a noun, an uprising, but it is the verb meaning disgust.",
+     "definitionFit": "A repeal is the act of Parliament revoking a law, an undoing or negative step."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Revolt"
+    }
+   }
   },
   {
    "number": 16,
@@ -260,7 +970,57 @@
     "text": "European, by choice, cut short a long story",
     "enumeration": "4"
    },
-   "solution": "EPIC"
+   "solution": "EPIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "EPIC",
+    "definitions": [
+     {
+      "text": "a long story",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut short",
+      "for": "deletion",
+      "note": "cut short means trimmed at the end, so the final letter goes"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "choice",
+      "gives": "PICK",
+      "note": "a pick is a choice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "PIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A European chooses to shorten a lengthy tale.",
+     "definitionFit": "An epic is a long narrative poem or story about heroic deeds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "choice"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +1034,44 @@
     "text": "Quality of piece of cake or pie found in some areas, in essence",
     "enumeration": "8"
    },
-   "solution": "EASINESS"
+   "solution": "EASINESS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EASINESS",
+    "definitions": [
+     {
+      "text": "Quality of piece of cake or pie",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in some",
+      "for": "hidden_word",
+      "note": "found in some says the answer is sitting inside part of the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "areas, in essence",
+      "gives": "EASINESS",
+      "note": "the letters run across these words, ignoring the comma"
+     }
+    ],
+    "explanation": {
+     "surface": "A recipe writer claims the essence of a good pie is found in local regions.",
+     "walkthrough": "'Piece of cake' and 'easy as pie' are both idioms for something very simple.",
+     "definitionFit": "Easiness is the quality of being simple, which is what makes a task a piece of cake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cake"
+    }
+   }
   },
   {
    "number": 17,
@@ -288,7 +1085,47 @@
     "text": "British forces around the bend",
     "enumeration": "5"
    },
-   "solution": "BARMY"
+   "solution": "BARMY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BARMY",
+    "definitions": [
+     {
+      "text": "around the bend",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "forces",
+      "gives": "ARMY",
+      "note": "an army is a body of armed forces"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ARMY"
+     ]
+    },
+    "explanation": {
+     "surface": "British troops march round a curve in the road.",
+     "walkthrough": "'Around the bend' is British slang for mad, not a direction.",
+     "definitionFit": "Barmy is informal British for crazy, and someone around the bend is likewise mad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bend"
+    }
+   }
   },
   {
    "number": 17,
@@ -302,7 +1139,48 @@
     "text": "Like toast, typically, bachelor pronounced",
     "enumeration": "8"
    },
-   "solution": "BUTTERED"
+   "solution": "BUTTERED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUTTERED",
+    "definitions": [
+     {
+      "text": "Like toast, typically",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bachelor",
+      "gives": "B",
+      "note": "B is the abbreviation for bachelor"
+     },
+     {
+      "clueFragment": "pronounced",
+      "gives": "UTTERED",
+      "note": "to utter is to say or pronounce"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "UTTERED"
+     ]
+    },
+    "explanation": {
+     "surface": "A single man gives a toast at a wedding.",
+     "walkthrough": "'Toast' suggests a speech, which fits 'pronounced', but here it is grilled bread.",
+     "definitionFit": "Toast is usually spread with butter, so it is typically buttered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "toast"
+    }
+   }
   },
   {
    "number": 18,
@@ -316,7 +1194,48 @@
     "text": "Ultimately alive and kicking, very irritable",
     "enumeration": "4"
    },
-   "solution": "EDGY"
+   "solution": "EDGY",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "EDGY",
+    "definitions": [
+     {
+      "text": "irritable",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the end, so each word gives its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alive and kicking, very",
+      "gives": "EDGY",
+      "select": "last",
+      "note": "the last letter of each of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDGY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone full of life and energy is also very bad-tempered.",
+     "definitionFit": "Edgy means tense and on edge, easily irritated, so it matches irritable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "kicking"
+    }
+   }
   },
   {
    "number": 19,
@@ -330,7 +1249,49 @@
     "text": "Least experienced author, and one that's very good",
     "enumeration": "8"
    },
-   "solution": "GREENEST"
+   "solution": "GREENEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GREENEST",
+    "definitions": [
+     {
+      "text": "Least experienced",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "author",
+      "gives": "GREENE",
+      "note": "Graham Greene, the English novelist"
+     },
+     {
+      "clueFragment": "one that's very good",
+      "gives": "ST",
+      "note": "ST is short for saint, a very good person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREENE",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "A novice writer is praised as exceptionally good.",
+     "definitionFit": "Green means inexperienced or naive, so the greenest person has the least experience."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "author"
+    }
+   }
   },
   {
    "number": 20,
@@ -344,7 +1305,58 @@
     "text": "Indulged as child, getting upset about nothing",
     "enumeration": "6"
    },
-   "solution": "SPOILT"
+   "solution": "SPOILT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPOILT",
+    "definitions": [
+     {
+      "text": "Indulged as child",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the verb surrounds the zero"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "upset",
+      "gives": "SPILT",
+      "note": "upset as in knocked over, so spilt"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "nothing is zero, which looks like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "O",
+      "ILT"
+     ]
+    },
+    "explanation": {
+     "surface": "A pampered child gets upset over nothing at all.",
+     "walkthrough": "'Upset' reads as distressed, but it means knocked over.",
+     "definitionFit": "A spoilt child is one who has been overindulged by parents, so given everything they want."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 21,
@@ -358,7 +1370,75 @@
     "text": "Came about a page by author being restricted by hard editor",
     "enumeration": "8"
    },
-   "solution": "HAPPENED"
+   "solution": "HAPPENED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HAPPENED",
+    "definitions": [
+     {
+      "text": "Came about",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being restricted by",
+      "for": "container",
+      "note": "something restricted is hemmed in on both sides, so these letters sit inside the others"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the abbreviation for hard, as on pencils"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "page",
+      "gives": "P",
+      "note": "P is the abbreviation for page"
+     },
+     {
+      "clueFragment": "author",
+      "gives": "PEN",
+      "note": "to pen is to write, so a pen stands for a writer"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ED is short for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "A",
+      "P",
+      "P",
+      "EN",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer's page is censored by a tough editor.",
+     "definitionFit": "Happened means occurred or took place, which is what came about means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hard"
+    }
+   }
   },
   {
    "number": 22,
@@ -372,7 +1452,58 @@
     "text": "Caller of tune having inserted line for musician",
     "enumeration": "6"
    },
-   "solution": "PLAYER"
+   "solution": "PLAYER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PLAYER",
+    "definitions": [
+     {
+      "text": "musician",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having inserted",
+      "for": "container",
+      "note": "having inserted means something is put inside, so a letter goes into the word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Caller of tune",
+      "gives": "PAYER",
+      "note": "from the proverb 'he who pays the piper calls the tune'"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "L",
+      "AYER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone requests a song and adds a lyric for the band.",
+     "walkthrough": "The proverb says whoever pays for something controls it, so the one who calls the tune is the one who pays.",
+     "definitionFit": "A player is someone who plays an instrument, so a musician."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Caller"
+    }
+   }
   },
   {
    "number": 23,
@@ -386,7 +1517,60 @@
     "text": "Area in Netherlands converted for old people",
     "enumeration": "12"
    },
-   "solution": "NEANDERTHALS"
+   "solution": "NEANDERTHALS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEANDERTHALS",
+    "definitions": [
+     {
+      "text": "old people",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "converted",
+      "for": "anagram",
+      "note": "converted means changed into another form, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     },
+     {
+      "clueFragment": "Netherlands",
+      "gives": "NETHERLANDS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANETHERLANDS",
+       "gives": "NEANDERTHALS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Dutch district is turned into housing for pensioners.",
+     "walkthrough": "'Old people' suggests the elderly, but means an extinct prehistoric human species.",
+     "definitionFit": "Neanderthals were an ancient species of human, so people from very long ago."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 24,
@@ -400,7 +1584,42 @@
     "text": "Member of choir in cathedral town",
     "enumeration": "4"
    },
-   "solution": "ALTO"
+   "solution": "ALTO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ALTO",
+    "definitions": [
+     {
+      "text": "Member of choir",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the answer is contained within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cathedral town",
+      "gives": "ALTO",
+      "note": "the letters span the end of one word and the start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "A chorister sings in a cathedral city.",
+     "definitionFit": "An alto is a singer with the voice part below soprano, one of the voices in a choir."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "town"
+    }
+   }
   },
   {
    "number": 25,
@@ -414,7 +1633,51 @@
     "text": "Oddly deficient strikers in no-win situations",
     "enumeration": "4"
    },
-   "solution": "TIES"
+   "solution": "TIES",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TIES",
+    "definitions": [
+     {
+      "text": "no-win situations",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Oddly deficient",
+      "for": "letter_selection",
+      "note": "lacking the odd-numbered letters, so only the even ones are kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strikers",
+      "gives": "TIES",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIES"
+     ]
+    },
+    "explanation": {
+     "surface": "Poor forwards fail to score and games end level.",
+     "definitionFit": "A tie is a game where neither side wins, ending level."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "strikers"
+    }
+   }
   },
   {
    "number": 26,
@@ -428,7 +1691,46 @@
     "text": "One piece of news, or a couple",
     "enumeration": "4"
    },
-   "solution": "ITEM"
+   "solution": "ITEM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ITEM",
+    "definitions": [
+     {
+      "text": "One piece of news",
+      "at": 0
+     },
+     {
+      "text": "a couple",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One piece of news",
+      "note": "first meaning: a single report in a newspaper or bulletin"
+     },
+     {
+      "clueFragment": "a couple",
+      "note": "second meaning: two people in a romantic relationship"
+     }
+    ],
+    "explanation": {
+     "surface": "A gossip column runs a story about a pair seen together.",
+     "definitionFit": "A news item is one story, and a pair said to be 'an item' are romantically involved."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "couple"
+    }
+   }
   },
   {
    "number": 27,
@@ -448,7 +1750,50 @@
      }
     ]
    },
-   "solution": "SETPIECE"
+   "solution": "SETPIECE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SET PIECE",
+    "definitions": [
+     {
+      "text": "corner, maybe",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Place",
+      "gives": "SET",
+      "note": "to set something is to place it"
+     },
+     {
+      "clueFragment": "rook, say",
+      "gives": "PIECE",
+      "note": "a rook is an example of a chess piece"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SET",
+      "PIECE"
+     ]
+    },
+    "explanation": {
+     "surface": "A chess player moves a rook into the corner of the board.",
+     "walkthrough": "In football a corner kick is a set piece, a planned move from a dead ball.",
+     "definitionFit": "A set piece is a rehearsed play from a stoppage, and a corner kick is one example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "corner"
+    }
+   }
   },
   {
    "number": 28,
@@ -462,7 +1807,64 @@
     "text": "Awful eyestrain, dispelling a feeling of calmness",
     "enumeration": "8"
    },
-   "solution": "SERENITY"
+   "solution": "SERENITY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SERENITY",
+    "definitions": [
+     {
+      "text": "feeling of calmness",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dispelling",
+      "for": "deletion",
+      "note": "dispelling means driving away, so one letter is removed from the fodder"
+     },
+     {
+      "text": "Awful",
+      "for": "anagram",
+      "note": "awful means dreadful, so the letters are in a bad state and must be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eyestrain",
+      "gives": "EYESTRAIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SERENITY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EYESTRIN",
+       "gives": "SERENITY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Relief from painful eyestrain brings a sense of calm.",
+     "definitionFit": "Serenity is a state of being peaceful and untroubled, which is a calm feeling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dispelling"
+    }
+   }
   }
  ]
 }
