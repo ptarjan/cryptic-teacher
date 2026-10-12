@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,59 @@
     "text": "Choose filling food for VIPs seated here?",
     "enumeration": "8"
    },
-   "solution": "TOPTABLE"
+   "solution": "TOPTABLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TOPTABLE",
+    "definitions": [
+     {
+      "text": "VIPs seated here",
+      "at": 24,
+      "note": "a descriptive phrase for the place, so it stands for the noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filling",
+      "for": "container",
+      "note": "one word filling another sits inside it, the other wrapping round"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Choose",
+      "gives": "OPT",
+      "note": "to opt is to choose"
+     },
+     {
+      "clueFragment": "food",
+      "gives": "TABLE",
+      "note": "table in the sense of the food served, as in 'keeps a good table'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OPT",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dinner plan: picking the fare for the dignitaries' table at a banquet.",
+     "walkthrough": "'Food' for TABLE uses the old sense of the meals a household provides; 'filling' looks like hearty food but places one word inside the other.",
+     "definitionFit": "At a formal dinner or wedding the top table is the raised one where the guests of honour sit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "filling"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +102,69 @@
     "text": "Source of upset entering streetcar, a deeply distressing experience",
     "enumeration": "6"
    },
-   "solution": "TRAUMA"
+   "solution": "TRAUMA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "TRAUMA",
+    "definitions": [
+     {
+      "text": "a deeply distressing experience",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Source of",
+      "for": "letter_selection",
+      "note": "the source of a word is where it starts, so take its opening letter"
+     },
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "something entering goes inside the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "streetcar",
+      "gives": "TRAM",
+      "note": "a streetcar is a tram"
+     },
+     {
+      "clueFragment": "upset",
+      "gives": "U",
+      "select": "first",
+      "note": "first letter of upset"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRA",
+      "U",
+      "M",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone upset on a tram ride that proves a horrible ordeal.",
+     "walkthrough": "U goes inside TRAM, then A is added.",
+     "definitionFit": "Trauma is the psychological term for a shocking event that leaves lasting emotional damage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Source"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +178,49 @@
     "text": "Average sum for chief",
     "enumeration": "9"
    },
-   "solution": "PARAMOUNT"
+   "solution": "PARAMOUNT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARAMOUNT",
+    "definitions": [
+     {
+      "text": "chief",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Average",
+      "gives": "PAR",
+      "note": "par is the normal or average level"
+     },
+     {
+      "clueFragment": "sum",
+      "gives": "AMOUNT",
+      "note": "a sum is an amount"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "AMOUNT"
+     ]
+    },
+    "explanation": {
+     "surface": "Arithmetic in a boss's report: the mean figure is what matters most.",
+     "definitionFit": "Paramount means of supreme importance, the same adjective sense as chief or principal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Average"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +234,70 @@
     "text": "Dr No, I suspect, shown in advertisement for a robot",
     "enumeration": "7"
    },
-   "solution": "ANDROID"
+   "solution": "ANDROID",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ANDROID",
+    "definitions": [
+     {
+      "text": "robot",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suspect",
+      "for": "anagram",
+      "note": "a suspect version is not to be trusted as given, so the letters get rearranged"
+     },
+     {
+      "text": "shown in",
+      "for": "container",
+      "note": "being shown in something places it inside that word"
+     }
+    ],
+    "linkWords": [
+     "for a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "advertisement",
+      "gives": "AD",
+      "note": "ad is short for advertisement"
+     },
+     {
+      "clueFragment": "Dr No, I",
+      "gives": "DRNOI",
+      "note": "letters of Dr, No and I to be shuffled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NDROI",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DRNOI",
+       "gives": "NDROI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Bond villain apparently fronting a commercial for a mechanical man.",
+     "walkthrough": "Dr No is the villain of the first James Bond film; here his name is just letters to shuffle.",
+     "definitionFit": "An android is a robot built to look and act like a human being."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suspect"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +311,82 @@
     "text": "Weird tale about sailor going in that place for fish",
     "enumeration": "13"
    },
-   "solution": "LEATHERJACKET"
+   "solution": "LEATHERJACKET",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LEATHERJACKET",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Weird",
+      "for": "anagram",
+      "note": "weird means strange or odd, so these letters come out in an odd order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the shuffled letters surround what follows"
+     },
+     {
+      "text": "going in",
+      "for": "container",
+      "note": "going in places the sailor inside the next word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tale",
+      "gives": "LEAT",
+      "note": "letters of tale rearranged"
+     },
+     {
+      "clueFragment": "that place",
+      "gives": "THERE",
+      "note": "there means in that place"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "JACK",
+      "note": "a jack, or jack tar, is a sailor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEA",
+      "THER",
+      "JACK",
+      "E",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TALE",
+       "gives": "LEAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strange yarn about a seaman heading to some spot to go fishing.",
+     "walkthrough": "Two containers nest: the sailor goes into 'that place' first, and the whole lot sits within the shuffled tale.",
+     "definitionFit": "Leatherjacket is the name of several tough-skinned fish, such as the filefish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fish"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +400,52 @@
     "text": "Swift runner loses heart getting duck",
     "enumeration": "6"
    },
-   "solution": "SCOTER"
+   "solution": "SCOTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SCOTER",
+    "definitions": [
+     {
+      "text": "duck",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loses heart",
+      "for": "deletion",
+      "note": "losing its heart means the central letter is removed"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swift runner",
+      "gives": "SCOOTER",
+      "note": "a scooter is a fast-moving small vehicle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCO",
+      "TER"
+     ]
+    },
+    "explanation": {
+     "surface": "A sprinter who loses nerve and comes away with nothing, a duck in cricket.",
+     "walkthrough": "SCOOTER drops its middle O. 'Duck' looks like a cricket score or a dodge, but it is the bird.",
+     "definitionFit": "The scoter is a dark-plumaged sea duck of northern coasts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "runner"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +459,49 @@
     "text": "Strong fabric, fine in wind",
     "enumeration": "7"
    },
-   "solution": "CHINOOK"
+   "solution": "CHINOOK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHINOOK",
+    "definitions": [
+     {
+      "text": "wind",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Strong fabric",
+      "gives": "CHINO",
+      "note": "chino is a hard-wearing twilled cotton cloth"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "OK",
+      "note": "OK means fine, all right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHINO",
+      "OK"
+     ]
+    },
+    "explanation": {
+     "surface": "A sturdy cloth that holds up well in a gale.",
+     "definitionFit": "The chinook is a warm dry wind that blows down the eastern slopes of the Rocky Mountains."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fine"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +515,47 @@
     "text": "Turn in wind",
     "enumeration": "5"
    },
-   "solution": "TWIST"
+   "solution": "TWIST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TWIST",
+    "definitions": [
+     {
+      "text": "Turn",
+      "at": 0
+     },
+     {
+      "text": "wind",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turn",
+      "note": "first meaning: a turn or bend, as in a road"
+     },
+     {
+      "clueFragment": "wind",
+      "note": "second meaning: to wind or coil, the verb pronounced to rhyme with mind"
+     }
+    ],
+    "explanation": {
+     "surface": "A change of direction caused by a gust.",
+     "walkthrough": "'Wind' reads as the breeze, but it is the verb meaning to coil.",
+     "definitionFit": "Twist works as a noun for a turn or bend and as a verb meaning to wind or wrap round."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wind"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +575,82 @@
      }
     ]
    },
-   "solution": "RAGTRADE"
+   "solution": "RAGTRADE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "container"
+    ],
+    "answer": "RAG TRADE",
+    "definitions": [
+     {
+      "text": "the clothing business",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over, the word is read from its end back to its start"
+     },
+     {
+      "text": "dropping in",
+      "for": "container",
+      "note": "dropping in means placing this inside the following letters"
+     },
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "a new version of the word has its letters rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gear",
+      "gives": "RAGE",
+      "note": "letters of gear rearranged"
+     },
+     {
+      "clueFragment": "Rush",
+      "gives": "DART",
+      "note": "to dart is to rush"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAG",
+      "TRAD",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GEAR",
+       "gives": "RAGE"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "DART",
+       "to": "TRAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hurrying to deliver new outfits to the fashion industry.",
+     "walkthrough": "'Gear' looks like the clothes themselves, but it is only letters to shuffle. Rag trade is informal British for the garment industry.",
+     "definitionFit": "Rag trade is a slang name for the industry that designs, makes and sells clothes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gear"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +664,54 @@
     "text": "Biting cold in desert",
     "enumeration": "5"
    },
-   "solution": "ACRID"
+   "solution": "ACRID",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ACRID",
+    "definitions": [
+     {
+      "text": "Biting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "desert",
+      "gives": "ARID",
+      "note": "a desert is arid, dry"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on taps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "RID"
+     ]
+    },
+    "explanation": {
+     "surface": "The sharp chill of a desert night.",
+     "definitionFit": "Acrid describes a sharp, pungent, stinging smell or taste, the sense of biting as harsh."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "desert"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +725,54 @@
     "text": "Sailor's reportedly sick of this outdoor pursuit",
     "enumeration": "9"
    },
-   "solution": "ABSEILING"
+   "solution": "ABSEILING",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "ABSEILING",
+    "definitions": [
+     {
+      "text": "this outdoor pursuit",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as heard or said, so go by the sound of the words"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailor's",
+      "gives": "ABS",
+      "note": "AB, able seaman, is a sailor; AB'S is spoken as the first syllable"
+     },
+     {
+      "clueFragment": "sick",
+      "gives": "EILING",
+      "soundsLike": "AILING",
+      "note": "ailing means sick"
+     }
+    ],
+    "explanation": {
+     "surface": "A seaman is said to be fed up with this activity.",
+     "walkthrough": "Said aloud, AB'S AILING sounds like ABSEILING.",
+     "definitionFit": "Abseiling, descending a rock face on a rope, is a popular open-air adventure activity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sick"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +792,49 @@
      }
     ]
    },
-   "solution": "SERVICECHARGE"
+   "solution": "SERVICECHARGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SERVICE CHARGE",
+    "definitions": [
+     {
+      "text": "A bistro may make one",
+      "at": 0,
+      "note": "a clause describing the thing, standing for the noun"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "check",
+      "gives": "SERVICE",
+      "note": "a service is a check on a car or machine"
+     },
+     {
+      "clueFragment": "order",
+      "gives": "CHARGE",
+      "note": "a charge is an order or command"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SERVICE",
+      "CHARGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A restaurant may make a single cheque out to order, for a meal ordered.",
+     "walkthrough": "'Check' and 'order' look like a restaurant bill and a food order; they are a maintenance inspection and a command.",
+     "definitionFit": "Many restaurants add a service charge, a percentage of the bill paid in lieu of tipping."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "check"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +848,56 @@
     "text": "Huge insect discovered by male, American",
     "enumeration": "7"
    },
-   "solution": "MAMMOTH"
+   "solution": "MAMMOTH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAMMOTH",
+    "definitions": [
+     {
+      "text": "Huge",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "discovered by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "AM",
+      "note": "AM is the abbreviation for American"
+     },
+     {
+      "clueFragment": "insect",
+      "gives": "MOTH",
+      "note": "a moth is an insect"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AM",
+      "MOTH"
+     ]
+    },
+    "explanation": {
+     "surface": "A man from the US finds an enormous bug.",
+     "walkthrough": "'Discovered by' places the insect after the other pieces, as if found by them.",
+     "definitionFit": "Mammoth, from the extinct giant elephant, is used as an adjective meaning enormous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "discovered"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +911,58 @@
     "text": "Farmyard cock and duck in list",
     "enumeration": "7"
    },
-   "solution": "ROOSTER"
+   "solution": "ROOSTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ROOSTER",
+    "definitions": [
+     {
+      "text": "Farmyard cock",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "list",
+      "gives": "ROSTER",
+      "note": "a roster is a list of duties"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "O",
+      "note": "a duck is a zero score in cricket, shaped like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "O",
+      "STER"
+     ]
+    },
+    "explanation": {
+     "surface": "Animals on a farm inventory: a cockerel and a duck.",
+     "walkthrough": "'Duck' sounds like the farmyard bird; it is the cricket score of nought.",
+     "definitionFit": "Rooster is the chiefly American word for a male domestic chicken."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +986,54 @@
      }
     ]
    },
-   "solution": "UNDERMILKWOOD"
+   "solution": "UNDERMILKWOOD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNDER MILK WOOD",
+    "definitions": [
+     {
+      "text": "play",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to change",
+      "for": "anagram",
+      "note": "changing the letters means putting them into a different order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rum do led, I know",
+      "gives": "RUMDOLEDIKNOW",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RUMDOLEDIKNOW",
+       "gives": "UNDERMILKWOOD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An odd party is said to have prompted a change in a stage show.",
+     "walkthrough": "'Rum' is British slang for strange and 'do' for a party.",
+     "definitionFit": "Under Milk Wood is Dylan Thomas's radio play about a Welsh fishing village."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rum"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1057,61 @@
      }
     ]
    },
-   "solution": "ONTHINICE"
+   "solution": "ONTHINICE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ON THIN ICE",
+    "definitions": [
+     {
+      "text": "Vulnerable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sticky",
+      "for": "anagram",
+      "note": "a sticky situation is awkward and messy, signalling the letters are muddled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in hot",
+      "gives": "ONTHI",
+      "note": "letters of in and hot rearranged"
+     },
+     {
+      "clueFragment": "French city",
+      "gives": "NICE",
+      "note": "Nice is a city on the French Riviera"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONTHI",
+      "NICE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INHOT",
+       "gives": "ONTHI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Exposed on a sweltering, humid day in a Riviera resort.",
+     "walkthrough": "'Sticky' reads as humid weather, but it signals the shuffle.",
+     "definitionFit": "To be on thin ice is an idiom for being in a risky, precarious position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sticky"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1131,66 @@
      }
     ]
    },
-   "solution": "MIXEDBAG"
+   "solution": "MIXEDBAG",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MIXED BAG",
+    "definitions": [
+     {
+      "text": "an assortment of diverse people",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     },
+     {
+      "text": "strangely",
+      "for": "anagram",
+      "note": "strangely means in an unusual way, so the letters are put in an unusual order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game bid",
+      "gives": "MIEDBAG",
+      "note": "letters of game and bid rearranged"
+     },
+     {
+      "clueFragment": "Ten",
+      "gives": "X",
+      "note": "X is the Roman numeral for ten"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "X",
+      "EDBAG"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GAMEBID",
+       "gives": "MIEDBAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An odd bid at a card table, with a varied crowd of players.",
+     "definitionFit": "A mixed bag is an idiom for a varied collection of people or things."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ten"
+    }
+   }
   },
   {
    "number": 17,
@@ -323,7 +1218,43 @@
      }
     ]
    },
-   "solution": "INTHESAMEBOAT"
+   "solution": "INTHESAMEBOAT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IN THE SAME BOAT",
+    "definitions": [
+     {
+      "text": "Similarly situated",
+      "at": 0
+     },
+     {
+      "text": "as the three with Montmorency were?",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Similarly situated",
+      "note": "first meaning: sharing the same predicament"
+     },
+     {
+      "clueFragment": "as the three with Montmorency were?",
+      "note": "second meaning: literally, the three men of Jerome K. Jerome's novel shared one rowing boat with their dog"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Montmorency is the fox terrier in Jerome K. Jerome's comic novel Three Men in a Boat, about a Thames boating trip.",
+     "definitionFit": "The idiom means facing the same difficulties as others, and the novel's trio were literally sharing one craft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Montmorency"
+    }
+   }
   },
   {
    "number": 18,
@@ -337,7 +1268,49 @@
     "text": "Former partner given sufficient warning",
     "enumeration": "7"
    },
-   "solution": "EXAMPLE"
+   "solution": "EXAMPLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXAMPLE",
+    "definitions": [
+     {
+      "text": "warning",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Former partner",
+      "gives": "EX",
+      "note": "an ex is a former partner"
+     },
+     {
+      "clueFragment": "sufficient",
+      "gives": "AMPLE",
+      "note": "ample means sufficient or more than enough"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "AMPLE"
+     ]
+    },
+    "explanation": {
+     "surface": "An ex-spouse gets plenty of notice of what is coming.",
+     "definitionFit": "An example, as in making an example of someone, serves as a caution to others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "partner"
+    }
+   }
   },
   {
    "number": 19,
@@ -351,7 +1324,47 @@
     "text": "Look at newspaper endlessly",
     "enumeration": "7"
    },
-   "solution": "OBSERVE"
+   "solution": "OBSERVE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OBSERVE",
+    "definitions": [
+     {
+      "text": "Look at",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without an end means the final letter is cut off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "newspaper",
+      "gives": "OBSERVER",
+      "note": "The Observer is a British Sunday newspaper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OBSERVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reads the paper on and on without stopping.",
+     "definitionFit": "To observe something is to watch or notice it carefully."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "endlessly"
+    }
+   }
   },
   {
    "number": 20,
@@ -365,7 +1378,42 @@
     "text": "Failing to change sides",
     "enumeration": "6"
    },
-   "solution": "DEFECT"
+   "solution": "DEFECT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DEFECT",
+    "definitions": [
+     {
+      "text": "Failing",
+      "at": 0
+     },
+     {
+      "text": "to change sides",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Failing",
+      "note": "first meaning: a fault or flaw, as a noun"
+     },
+     {
+      "clueFragment": "to change sides",
+      "note": "second meaning: to desert one's country or party for another"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Failing' reads as a verb tied to the rest; it is a noun meaning a weakness.",
+     "definitionFit": "Defect is a noun for an imperfection and a verb, stressed differently, for going over to the opposition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Failing"
+    }
+   }
   },
   {
    "number": 21,
@@ -379,7 +1427,60 @@
     "text": "Designate member to go aboard English vessel",
     "enumeration": "7"
    },
-   "solution": "EARMARK"
+   "solution": "EARMARK",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EARMARK",
+    "definitions": [
+     {
+      "text": "Designate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go aboard",
+      "for": "container",
+      "note": "going aboard a vessel puts one inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "member",
+      "gives": "ARM",
+      "note": "an arm is a limb, a member of the body"
+     },
+     {
+      "clueFragment": "vessel",
+      "gives": "ARK",
+      "note": "an ark is a boat, like Noah's"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "ARM",
+      "ARK"
+     ]
+    },
+    "explanation": {
+     "surface": "Appointing a club member to board a British ship.",
+     "walkthrough": "'Member' suggests a club member; here it is a limb of the body.",
+     "definitionFit": "To earmark is to set aside or assign something for a particular purpose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "member"
+    }
+   }
   },
   {
    "number": 22,
@@ -393,7 +1494,58 @@
     "text": "A Parisian in bar getting a number of drinks",
     "enumeration": "5"
    },
-   "solution": "ROUND"
+   "solution": "ROUND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ROUND",
+    "definitions": [
+     {
+      "text": "a number of drinks",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bar",
+      "gives": "ROD",
+      "note": "a rod is a bar of metal or wood"
+     },
+     {
+      "clueFragment": "A Parisian",
+      "gives": "UN",
+      "note": "un is French for a"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "UN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A Frenchman in a pub buys drinks for everyone.",
+     "walkthrough": "'Bar' sounds like the pub; it is a metal rod.",
+     "definitionFit": "A round is a set of drinks bought for everyone in a group at once."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1559,54 @@
     "text": "Unfriendly landlord, extremely unpleasant losing head",
     "enumeration": "7"
    },
-   "solution": "HOSTILE"
+   "solution": "HOSTILE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "HOSTILE",
+    "definitions": [
+     {
+      "text": "Unfriendly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing head",
+      "for": "deletion",
+      "note": "losing its head means the first letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "landlord",
+      "gives": "HOST",
+      "note": "a host is a landlord, as of an inn"
+     },
+     {
+      "clueFragment": "extremely unpleasant",
+      "gives": "VILE",
+      "note": "vile means extremely unpleasant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOST",
+      "ILE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pub landlord so nasty he gets his head bitten off.",
+     "definitionFit": "Hostile describes antagonistic, unfriendly behaviour, like an enemy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 24,
@@ -427,7 +1626,69 @@
      }
     ]
    },
-   "solution": "BLUEPETER"
+   "solution": "BLUEPETER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "BLUE PETER",
+    "definitions": [
+     {
+      "text": "Flag",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so take the first letter only"
+     },
+     {
+      "text": "engaged by",
+      "for": "container",
+      "note": "something engaged by another is held inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "down",
+      "gives": "BLUE",
+      "note": "feeling down is feeling blue"
+     },
+     {
+      "clueFragment": "nobleman",
+      "gives": "PEER",
+      "note": "a peer is a member of the nobility"
+     },
+     {
+      "clueFragment": "taxi",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of taxi"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLUE",
+      "PE",
+      "T",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A lord hailing a cab, waving it down.",
+     "walkthrough": "'Flag down' reads as one phrase, hailing a taxi; split it, flag is the definition and down gives BLUE.",
+     "definitionFit": "The Blue Peter is a blue and white signal flag hoisted when a ship is about to sail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "down"
+    }
+   }
   },
   {
    "number": 25,
@@ -441,7 +1702,54 @@
     "text": "Inflate article during climb",
     "enumeration": "5"
    },
-   "solution": "RAISE"
+   "solution": "RAISE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RAISE",
+    "definitions": [
+     {
+      "text": "Inflate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something happening during another sits within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "climb",
+      "gives": "RISE",
+      "note": "to rise is to climb"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "A",
+      "ISE"
+     ]
+    },
+    "explanation": {
+     "surface": "Puffing up a piece of kit on the way up a mountain.",
+     "definitionFit": "To raise prices or figures is to increase them, the economic sense of inflate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 26,
@@ -455,7 +1763,51 @@
     "text": "Ingenious device engineer tagged",
     "enumeration": "6"
    },
-   "solution": "GADGET"
+   "solution": "GADGET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GADGET",
+    "definitions": [
+     {
+      "text": "Ingenious device",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "engineer",
+      "for": "anagram",
+      "note": "to engineer is to construct or contrive, so the letters are built into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tagged",
+      "gives": "TAGGED",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TAGGED",
+       "gives": "GADGET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clever contraption that an engineer has labelled.",
+     "walkthrough": "'Engineer' looks like the person who tagged it; it is a verb telling you to rebuild the letters.",
+     "definitionFit": "A gadget is a small clever mechanical tool or appliance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "engineer"
+    }
+   }
   },
   {
    "number": 27,
@@ -469,7 +1821,57 @@
     "text": "Chaps, in principle, responsible for flat",
     "enumeration": "8"
    },
-   "solution": "TENEMENT"
+   "solution": "TENEMENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TENEMENT",
+    "definitions": [
+     {
+      "text": "flat",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "responsible for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "principle",
+      "gives": "TENET",
+      "note": "a tenet is a principle or belief"
+     },
+     {
+      "clueFragment": "Chaps",
+      "gives": "MEN",
+      "note": "chaps are men"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TENE",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Men who are, in principle, in charge of an apartment.",
+     "definitionFit": "A tenement is a flat or set of rooms in a large shared building, especially in Scotland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flat"
+    }
+   }
   }
  ]
 }
