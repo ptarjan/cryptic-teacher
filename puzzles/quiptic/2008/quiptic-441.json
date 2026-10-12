@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Deal in contraband carried by road?",
     "enumeration": "7"
    },
-   "solution": "TRAFFIC"
+   "solution": "TRAFFIC",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRAFFIC",
+    "definitions": [
+     {
+      "text": "Deal in contraband",
+      "at": 0
+     },
+     {
+      "text": "carried by road?",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deal in contraband",
+      "note": "first meaning: to trade illegally, as in drugs or arms"
+     },
+     {
+      "clueFragment": "carried by road?",
+      "note": "second meaning: the vehicles a road carries"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests smuggling by lorry; the question mark marks the second, playful meaning of vehicles on a road.",
+     "definitionFit": "The word is both a verb for illicit dealing and a noun for the vehicles moving along a street."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "carried"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +86,56 @@
     "text": "Mrs Gore when touring Romania in a day?",
     "enumeration": "7"
    },
-   "solution": "TRIPPER"
+   "solution": "TRIPPER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRIPPER",
+    "definitions": [
+     {
+      "text": "in a day?",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when touring",
+      "for": "container",
+      "note": "someone touring a country goes inside its borders, so the person surrounds the place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mrs Gore",
+      "gives": "TIPPER",
+      "note": "Tipper Gore is the wife of former US Vice President Al Gore"
+     },
+     {
+      "clueFragment": "Romania",
+      "gives": "R",
+      "note": "R stands for Romania"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "IPPER"
+     ]
+    },
+    "explanation": {
+     "surface": "Al Gore's wife makes a whistle-stop tour of Romania.",
+     "walkthrough": "The definition is cryptic: a day tripper does a trip in a day. R goes into TIPPER: T(R)IPPER.",
+     "definitionFit": "A tripper is a holidaymaker on a short outing, and a day tripper's whole trip fits in a day."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Gore"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +149,83 @@
     "text": "Instrument has a key string carrying over 60% of sound",
     "enumeration": "9"
    },
-   "solution": "ACCORDION"
+   "solution": "ACCORDION",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "ACCORDION",
+    "definitions": [
+     {
+      "text": "Instrument",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "60% of",
+      "for": "deletion",
+      "note": "sixty per cent of a five-letter word keeps only its first three letters"
+     },
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over means flipped end to end, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "carrying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "C",
+      "note": "C is a musical key"
+     },
+     {
+      "clueFragment": "string",
+      "gives": "CORD",
+      "note": "a cord is a string"
+     },
+     {
+      "clueFragment": "sound",
+      "gives": "NOISE",
+      "note": "a noise is a sound"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "CORD",
+      "ION"
+     ],
+     "reversals": [
+      {
+       "from": "NOI",
+       "to": "ION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician's instrument with a key and strings carries most of the sound.",
+     "walkthrough": "Three-fifths of the sound word is NOI, turned over to follow the string.",
+     "definitionFit": "The accordion is a portable bellows-driven musical instrument with keys or buttons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "string"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +239,49 @@
     "text": "Castle hard by Scottish river",
     "enumeration": "5"
    },
-   "solution": "FORTH"
+   "solution": "FORTH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FORTH",
+    "definitions": [
+     {
+      "text": "Scottish river",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Castle",
+      "gives": "FORT",
+      "note": "a fort is a fortified building like a castle"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil-grade abbreviation for hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FORT",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A castle stands close by a river in Scotland.",
+     "definitionFit": "The Forth is a river flowing through Stirling into the Firth of Forth near Edinburgh."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hard"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +295,46 @@
     "text": "Proper journalist took out the mistakes",
     "enumeration": "9"
    },
-   "solution": "CORRECTED"
+   "solution": "CORRECTED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CORRECTED",
+    "definitions": [
+     {
+      "text": "took out the mistakes",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Proper",
+      "gives": "CORRECT",
+      "note": "proper means correct"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED is short for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CORRECT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A conscientious journalist removed the errors from a story.",
+     "definitionFit": "To correct a text is to remove its errors, so the past tense matches took out the mistakes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Proper"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +348,58 @@
     "text": "Accounts for everything being in knots",
     "enumeration": "7"
    },
-   "solution": "TALLIES"
+   "solution": "TALLIES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TALLIES",
+    "definitions": [
+     {
+      "text": "Accounts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being in",
+      "for": "container",
+      "note": "one thing being in another means it sits inside it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "everything",
+      "gives": "ALL",
+      "note": "everything is all of it"
+     },
+     {
+      "clueFragment": "knots",
+      "gives": "TIES",
+      "note": "knots tied in string or rope are ties"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ALL",
+      "IES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone explains what tying everything up in knots means.",
+     "walkthrough": "'Accounts for' reads as a phrase meaning explains; 'for' is only a link, and 'Accounts' alone is the noun definition.",
+     "definitionFit": "Tallies are running counts or scores, a synonym for accounts in the sense of reckonings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "knots"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +413,58 @@
     "text": "Try to persuade casual worker to end contract",
     "enumeration": "5"
    },
-   "solution": "TEMPT"
+   "solution": "TEMPT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TEMPT",
+    "definitions": [
+     {
+      "text": "Try to persuade",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, the only one kept"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "casual worker",
+      "gives": "TEMP",
+      "note": "a temp is a temporary worker"
+     },
+     {
+      "clueFragment": "contract",
+      "gives": "T",
+      "select": "last",
+      "note": "last letter of contract"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEMP",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An employer tries to talk a temporary worker into ending their contract.",
+     "definitionFit": "To tempt someone is to entice them, trying to win them round to something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +478,42 @@
     "text": "Warplane with red rose emblem?",
     "enumeration": "9"
    },
-   "solution": "LANCASTER"
+   "solution": "LANCASTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LANCASTER",
+    "definitions": [
+     {
+      "text": "Warplane",
+      "at": 0
+     },
+     {
+      "text": "with red rose emblem?",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Warplane",
+      "note": "first meaning: the Avro bomber of the Second World War"
+     },
+     {
+      "clueFragment": "with red rose emblem?",
+      "note": "second meaning: the royal house whose badge was the red rose"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a plane's insignia; the red rose was the badge of the House of Lancaster in the Wars of the Roses, and of Lancashire.",
+     "definitionFit": "The name fits the famous RAF heavy bomber and the medieval English dynasty that bore the red rose."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "emblem"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +527,46 @@
     "text": "Child is to take legal action",
     "enumeration": "5"
    },
-   "solution": "ISSUE"
+   "solution": "ISSUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ISSUE",
+    "definitions": [
+     {
+      "text": "Child",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "to take legal action",
+      "gives": "SUE",
+      "note": "to sue is to take someone to court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "SUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A child is going to take someone to court.",
+     "definitionFit": "Issue is a legal and formal word for offspring, as in died without issue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Child"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +580,50 @@
     "text": "Respect wild spirit",
     "enumeration": "7"
    },
-   "solution": "SPECTRE"
+   "solution": "SPECTRE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPECTRE",
+    "definitions": [
+     {
+      "text": "spirit",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "something wild is out of control, so the letters run loose into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Respect",
+      "gives": "RESPECT",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RESPECT",
+       "gives": "SPECTRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to show respect to an untamed spirit.",
+     "definitionFit": "A spectre is a ghost, a spirit of the dead."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wild"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +637,46 @@
     "text": "Become responsible for home and dog",
     "enumeration": "5"
    },
-   "solution": "INCUR"
+   "solution": "INCUR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INCUR",
+    "definitions": [
+     {
+      "text": "Become responsible for",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "at home is in"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "CUR",
+      "note": "a cur is a mongrel dog"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A pet owner takes on duties for their house and their dog.",
+     "definitionFit": "To incur a debt or cost is to bring it upon yourself, so you become liable for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +690,83 @@
     "text": "Remember right-on British artist putting diamonds round front of skull?",
     "enumeration": "9"
    },
-   "solution": "REMINISCE"
+   "solution": "REMINISCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "REMINISCE",
+    "definitions": [
+     {
+      "text": "Remember",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "putting",
+      "for": "container",
+      "note": "putting one thing round another places it outside, enclosing it"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means encircling, so the gem word wraps the letter that follows"
+     },
+     {
+      "text": "front of",
+      "for": "letter_selection",
+      "note": "the front of a word is its opening letter, the only one kept"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "British artist",
+      "gives": "EMIN",
+      "note": "Tracey Emin, the British artist"
+     },
+     {
+      "clueFragment": "diamonds",
+      "gives": "ICE",
+      "note": "ice is slang for diamonds"
+     },
+     {
+      "clueFragment": "skull",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of skull"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EMIN",
+      "I",
+      "S",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A trendy British artist encrusts a skull with diamonds, recalling Damien Hirst's famous piece.",
+     "walkthrough": "'Right-on' looks like one word meaning trendy; split it, with 'on' simply placing right before the artist, Tracey Emin.",
+     "definitionFit": "To reminisce is to recall past times fondly, so it is a synonym for remember."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right-on"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +780,68 @@
     "text": "Guardian takes award by original Manchester quality paper",
     "enumeration": "9"
    },
-   "solution": "PARCHMENT"
+   "solution": "PARCHMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "PARCHMENT",
+    "definitions": [
+     {
+      "text": "quality paper",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "takes",
+      "for": "container",
+      "note": "a word that takes others in holds them inside itself"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guardian",
+      "gives": "PARENT",
+      "note": "a parent is a child's guardian"
+     },
+     {
+      "clueFragment": "award",
+      "gives": "CH",
+      "note": "CH is the Companion of Honour, a British award"
+     },
+     {
+      "clueFragment": "original Manchester",
+      "gives": "M",
+      "select": "first",
+      "note": "first letter of Manchester"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "CH",
+      "M",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "The Guardian newspaper, born in Manchester, wins a prize.",
+     "walkthrough": "The Guardian began as the Manchester Guardian, so the surface is about the newspaper; here 'Guardian' means a child's parent or carer.",
+     "definitionFit": "Parchment is fine writing material made from animal skin, or high-grade paper imitating it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Guardian"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +855,72 @@
     "text": "Turn away vicar turning up in a sort of casual shirt",
     "enumeration": "5"
    },
-   "solution": "AVERT"
+   "solution": "AVERT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "AVERT",
+    "definitions": [
+     {
+      "text": "Turn away",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down clue turning up reads letters upward, here simply backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the cleric's title is placed in the middle of the other pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vicar",
+      "gives": "REV",
+      "note": "Rev is short for Reverend, a vicar's title"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sort of casual shirt",
+      "gives": "T",
+      "note": "a T-shirt is a casual shirt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "VER",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "REV",
+       "to": "VER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar arrives dressed down in a T-shirt.",
+     "walkthrough": "In a down clue 'turning up' would read upward; here it simply reverses the vicar's title, which sits between A and T: A(VER)T.",
+     "definitionFit": "To avert your eyes or gaze is to turn them away; it also means to ward off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +934,66 @@
     "text": "Bring up perfect son in dire semi",
     "enumeration": "5"
    },
-   "solution": "RAISE"
+   "solution": "RAISE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "RAISE",
+    "definitions": [
+     {
+      "text": "Bring up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "semi",
+      "for": "deletion",
+      "note": "semi means half, so only half of the word before it is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the perfect son sits in the middle of the half word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "perfect",
+      "gives": "AI",
+      "note": "A1 means first-rate, written with the digit read as the letter I"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "dire",
+      "gives": "DIRE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "AIS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A proud parent places their perfect son in a grim semi-detached house.",
+     "walkthrough": "A semi is a British semi-detached house; here it means half of DIRE, the RE, which holds AI and S: R(AIS)E. Reading the 1 of A1 as I is a crossword trick.",
+     "definitionFit": "To raise a child is to bring them up, so the two phrasal senses match."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "semi"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +1007,59 @@
     "text": "Teams take last two pies for break time",
     "enumeration": "9"
    },
-   "solution": "ELEVENSES"
+   "solution": "ELEVENSES",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ELEVENSES",
+    "definitions": [
+     {
+      "text": "break time",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last two",
+      "for": "deletion",
+      "note": "only the final pair of letters of the word after it are kept, the rest dropped"
+     }
+    ],
+    "linkWords": [
+     "take",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Teams",
+      "gives": "ELEVENS",
+      "note": "cricket and football teams have eleven players"
+     },
+     {
+      "clueFragment": "pies",
+      "gives": "PIES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELEVENS",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Sports teams eat the last two pies during a break.",
+     "walkthrough": "Elevenses is a British mid-morning snack and tea break, taken around eleven o'clock.",
+     "definitionFit": "Elevenses names the mid-morning pause for tea and a snack, a break time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Teams"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +1073,50 @@
     "text": "Schedule has changed; bet I'm late!",
     "enumeration": "9"
    },
-   "solution": "TIMETABLE"
+   "solution": "TIMETABLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TIMETABLE",
+    "definitions": [
+     {
+      "text": "Schedule",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has changed",
+      "for": "anagram",
+      "note": "a schedule that has changed is altered, so its letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bet I'm late",
+      "gives": "BETIMLATE",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BETIMLATE",
+       "gives": "TIMETABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A commuter, finding the train times altered, bets they will be late.",
+     "definitionFit": "A timetable is a schedule of times for trains, lessons or events."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "changed"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1130,51 @@
     "text": "Cruel French showing no gratitude?",
     "enumeration": "9"
    },
-   "solution": "MERCILESS"
+   "solution": "MERCILESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MERCILESS",
+    "definitions": [
+     {
+      "text": "Cruel",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French",
+      "gives": "MERCI",
+      "note": "the French for thanks, the gratitude named later in the clue"
+     },
+     {
+      "clueFragment": "no gratitude",
+      "gives": "LESS",
+      "note": "having no thanks is being without, -less"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MERCI",
+      "LESS"
+     ]
+    },
+    "explanation": {
+     "surface": "The French are accused of being ungrateful.",
+     "walkthrough": "Read as French 'merci' with none of it: merci-less, a word lacking thanks.",
+     "definitionFit": "Merciless means without pity or compassion, which is cruel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "gratitude"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1188,53 @@
     "text": "Dancer has to bare all in free form",
     "enumeration": "9"
    },
-   "solution": "BALLERINA"
+   "solution": "BALLERINA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BALLERINA",
+    "definitions": [
+     {
+      "text": "Dancer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "free form",
+      "for": "anagram",
+      "note": "a free form is a loose shape, so the letters take a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "has to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bare all in",
+      "gives": "BAREALLIN",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BAREALLIN",
+       "gives": "BALLERINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dancer must strip completely for a free-form performance.",
+     "definitionFit": "A ballerina is a female ballet dancer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bare"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1248,46 @@
     "text": "Trick young competitor",
     "enumeration": "9"
    },
-   "solution": "CONTENDER"
+   "solution": "CONTENDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONTENDER",
+    "definitions": [
+     {
+      "text": "competitor",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trick",
+      "gives": "CON",
+      "note": "a con is a trick or swindle"
+     },
+     {
+      "clueFragment": "young",
+      "gives": "TENDER",
+      "note": "of tender years means young"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "TENDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A sly trick played on an inexperienced rival.",
+     "definitionFit": "A contender is someone competing for a title or prize, a rival in the running."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "young"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1301,57 @@
     "text": "Room is yellowish after decoration",
     "enumeration": "7"
    },
-   "solution": "CHAMBER"
+   "solution": "CHAMBER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHAMBER",
+    "definitions": [
+     {
+      "text": "Room",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "this puts the colour word behind the honour, fixing their order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "decoration",
+      "gives": "CH",
+      "note": "CH is the Companion of Honour, a British decoration"
+     },
+     {
+      "clueFragment": "yellowish",
+      "gives": "AMBER",
+      "note": "amber is a yellowish orange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "AMBER"
+     ]
+    },
+    "explanation": {
+     "surface": "A room turns yellowish after redecoration.",
+     "walkthrough": "'Decoration' suggests painting, but it is an honour, abbreviated CH.",
+     "definitionFit": "A chamber is a room, especially a private or formal one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "decoration"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1365,65 @@
     "text": "Governor has to regret split with liberal resistance",
     "enumeration": "5"
    },
-   "solution": "RULER"
+   "solution": "RULER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "RULER",
+    "definitions": [
+     {
+      "text": "Governor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "split with",
+      "for": "container",
+      "note": "a word split with something is broken open and has it inserted"
+     }
+    ],
+    "linkWords": [
+     "has to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "regret",
+      "gives": "RUE",
+      "note": "to rue is to regret"
+     },
+     {
+      "clueFragment": "liberal",
+      "gives": "L",
+      "note": "L is the abbreviation for Liberal"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the symbol for electrical resistance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "L",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A governor regrets a split with the Liberals over resistance to policy.",
+     "walkthrough": "The regret word is split by L, and R follows: RU(L)E + R.",
+     "definitionFit": "A ruler governs a country, so a governor in the general sense of one who rules."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "split"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1437,49 @@
     "text": "Revolutionary leader called Ginger",
     "enumeration": "7"
    },
-   "solution": "REDHEAD"
+   "solution": "REDHEAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REDHEAD",
+    "definitions": [
+     {
+      "text": "Ginger",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "called"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Revolutionary",
+      "gives": "RED",
+      "note": "a Red is a revolutionary communist"
+     },
+     {
+      "clueFragment": "leader",
+      "gives": "HEAD",
+      "note": "a head is a leader"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "HEAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A revolutionary leader goes by the nickname Ginger.",
+     "definitionFit": "Ginger is a common nickname for a red-haired person, which is what a redhead is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Ginger"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1493,72 @@
     "text": "Argue about dropping university's key grant",
     "enumeration": "5"
    },
-   "solution": "AGREE"
+   "solution": "AGREE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "charade"
+    ],
+    "answer": "AGREE",
+    "definitions": [
+     {
+      "text": "grant",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about means around and about, so the letters are moved about"
+     },
+     {
+      "text": "dropping",
+      "for": "deletion",
+      "note": "dropping something means letting it go, so a letter leaves the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Argue",
+      "gives": "ARGUE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "university's",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "E",
+      "note": "E is a musical key"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGRE",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARGE",
+       "gives": "AGRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Students argue over the university dropping a key grant.",
+     "walkthrough": "'Argue' looks like the definition, and its opposite sense makes that tempting; it is the fodder, losing its U before E is added.",
+     "definitionFit": "To grant a point is to concede or agree to it, so both mean accept as true."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grant"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1572,55 @@
     "text": "Review variety of hip-hop around the city",
     "enumeration": "5"
    },
-   "solution": "RECAP"
+   "solution": "RECAP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RECAP",
+    "definitions": [
+     {
+      "text": "Review",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the music word goes around the district, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "variety of hip-hop",
+      "gives": "RAP",
+      "note": "rap is a style of hip-hop music"
+     },
+     {
+      "clueFragment": "the city",
+      "gives": "EC",
+      "note": "EC is the postcode of the City of London"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EC",
+      "AP"
+     ]
+    },
+    "explanation": {
+     "surface": "A critic reviews a hip-hop style from around the city.",
+     "walkthrough": "The City is London's financial district, whose postcode prefix is EC: R(EC)AP.",
+     "definitionFit": "A recap is a summary review of what has happened, short for recapitulation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "city"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1634,50 @@
     "text": "One looks after pigs when Reid's off",
     "enumeration": "9"
    },
-   "solution": "SWINEHERD"
+   "solution": "SWINEHERD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SWINEHERD",
+    "definitions": [
+     {
+      "text": "One looks after pigs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone wrong or awry, so the letters are disordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when Reid's",
+      "gives": "WHENREIDS",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WHENREIDS",
+       "gives": "SWINEHERD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone minds the pigs whenever a farmer called Reid is away.",
+     "definitionFit": "A swineherd is a person who tends pigs, as a shepherd tends sheep."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1691,55 @@
     "text": "Shark heartlessly devoured fish",
     "enumeration": "5"
    },
-   "solution": "SKATE"
+   "solution": "SKATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SKATE",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartlessly",
+      "for": "deletion",
+      "note": "without a heart means the middle of the word is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shark",
+      "gives": "SHARK",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "devoured",
+      "gives": "ATE",
+      "note": "devoured means ate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SK",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cruel shark devoured a fish.",
+     "walkthrough": "Removing the middle of the shark word leaves its outer letters.",
+     "definitionFit": "A skate is a flat fish of the ray family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heartlessly"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1753,55 @@
     "text": "Delete article in Gaelic",
     "enumeration": "5"
    },
-   "solution": "ERASE"
+   "solution": "ERASE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ERASE",
+    "definitions": [
+     {
+      "text": "Delete",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the article is placed in the language word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     },
+     {
+      "clueFragment": "Gaelic",
+      "gives": "ERSE",
+      "note": "Erse is an old name for Scottish or Irish Gaelic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "A",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to strike out a newspaper article written in Gaelic.",
+     "walkthrough": "'Article' suggests a newspaper piece; it is the grammatical article a.",
+     "definitionFit": "To erase something is to rub it out or remove it, so delete."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1815,56 @@
     "text": "Helps from time to time behind the scenes",
     "enumeration": "9"
    },
-   "solution": "BACKSTAGE"
+   "solution": "BACKSTAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BACKSTAGE",
+    "definitions": [
+     {
+      "text": "behind the scenes",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Helps",
+      "gives": "BACKS",
+      "note": "backs means supports or helps"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "to time",
+      "gives": "AGE",
+      "note": "an age is a period of time; 'to' adds it on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACKS",
+      "T",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lends a hand now and then, out of sight in a theatre.",
+     "walkthrough": "'From time to time' reads as a stock phrase meaning occasionally, but it splits into two separate time words.",
+     "definitionFit": "Backstage is the area behind a theatre's stage, and figuratively out of public view."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 26,
@@ -439,7 +1878,49 @@
     "text": "Alas, the bag I left behind has mobile inside",
     "enumeration": "5"
    },
-   "solution": "AGILE"
+   "solution": "AGILE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AGILE",
+    "definitions": [
+     {
+      "text": "mobile",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has",
+      "for": "hidden_word",
+      "note": "the phrase before it is said to contain the answer within its run of letters"
+     },
+     {
+      "text": "inside",
+      "for": "hidden_word",
+      "note": "the answer is tucked inside the words, not spread across the clue"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Alas, the bag I left behind",
+      "gives": "AGILE",
+      "note": "letters running across bag, I and left"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone laments leaving a bag behind with their mobile phone in it.",
+     "walkthrough": "'Mobile' looks like a phone in the surface; it is the definition, meaning nimble.",
+     "definitionFit": "Agile means able to move quickly and easily, which is what mobile means as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mobile"
+    }
+   }
   },
   {
    "number": 27,
@@ -453,7 +1934,68 @@
     "text": "Sally tries out keeping little post office",
     "enumeration": "7"
    },
-   "solution": "RIPOSTE"
+   "solution": "RIPOSTE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RIPOSTE",
+    "definitions": [
+     {
+      "text": "Sally",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "trying something out moves it around, and out also means wrong, so the letters shift"
+     },
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping something means holding it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tries",
+      "gives": "TRIES",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "little post office",
+      "gives": "PO",
+      "note": "PO is the short form of post office"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "PO",
+      "STE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRIES",
+       "gives": "RISTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman named Sally tries out a job at a small post office.",
+     "walkthrough": "'Sally' looks like a name; it is a witty remark. The rearranged letters hold PO: RI(PO)STE.",
+     "definitionFit": "A sally is a quick witty retort, and so is a riposte."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sally"
+    }
+   }
   },
   {
    "number": 28,
@@ -467,7 +2009,56 @@
     "text": "Attendant takes second note to hospital room",
     "enumeration": "7"
    },
-   "solution": "STEWARD"
+   "solution": "STEWARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STEWARD",
+    "definitions": [
+     {
+      "text": "Attendant",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "takes",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "TE",
+      "note": "te is a note in the sol-fa scale"
+     },
+     {
+      "clueFragment": "hospital room",
+      "gives": "WARD",
+      "note": "a ward is a room in a hospital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TE",
+      "WARD"
+     ]
+    },
+    "explanation": {
+     "surface": "An attendant carries a second note to a hospital ward.",
+     "definitionFit": "A steward attends to passengers or guests, so is an attendant in the service sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   }
  ]
 }
