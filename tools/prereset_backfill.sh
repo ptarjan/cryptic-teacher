@@ -389,6 +389,9 @@ on_fix_run() { pool_mark; POOL_FIXING="$1"; }
 #   $1 the puzzle id  $2 the commit message prefix
 handle_failed_run() {
   tail -5 "/tmp/ct-prereset-$1.txt" 2>/dev/null | sed "s/^/  [$1] failed: /"
+  # The API refusing the conversation itself is no lockout: forgotten, and not
+  # a wave failure that a nap would requeue to resume it.
+  worker_flagged "$1" "/tmp/ct-prereset-$1.resume" "$RUNS/$1.sid" "/tmp/ct-prereset-$1.txt" && return 1
   worker_failed "$1" "$2" "/tmp/ct-prereset-$1.resume" "$RUNS/$1.sid" || true
 }
 
@@ -525,8 +528,7 @@ pool_reap() {
     # Cut off, most likely by a lockout, before its fill went in: requeued to
     # resume that conversation, its fill as it left it.
     if [ "$rc" -ne 0 ] && [ -z "$(git status --porcelain -- "$(puzzle_spec "$id")")" ]; then
-      handle_failed_run "$id" "$WAVE_WHAT"
-      WAVE_FAILED_IDS+=("$id")
+      handle_failed_run "$id" "$WAVE_WHAT" && WAVE_FAILED_IDS+=("$id")
       return
     fi
     solve_applied "$id" || return
@@ -535,8 +537,7 @@ pool_reap() {
     tail -3 "/tmp/ct-prereset-$id.txt" | sed "s/^/  [$id] /"
     commit_puzzle "$id" "$WAVE_WHAT"
   else
-    handle_failed_run "$id" "$WAVE_WHAT"
-    WAVE_FAILED_IDS+=("$id")
+    handle_failed_run "$id" "$WAVE_WHAT" && WAVE_FAILED_IDS+=("$id")
   fi
 }
 
