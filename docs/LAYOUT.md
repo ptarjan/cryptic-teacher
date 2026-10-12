@@ -1393,9 +1393,9 @@ tools/data/corroboration_ledger.json          every disagreement tools/corrobora
                                               or could not, and every field it filled: the
                                               puzzle, the field, each candidate with its
                                               sources, the winner and the rule that picked it
-tools/data/times_answers.json                 Times-blog answers settled from the clue's
-                                              wordplay; times_grids.py applies them before
-                                              rebuilding
+tools/data/blog_answers.json                  blog answers (Times, bigdave44) settled from the
+                                              clue's wordplay; times_grids.py applies them
+                                              before rebuilding
 tools/data/difficulty_baseline.json           the frozen distribution difficulty.py normalises
                                               against
 tools/data/lexicon.tsv                        192,738 British-cryptic words by frequency rank;
