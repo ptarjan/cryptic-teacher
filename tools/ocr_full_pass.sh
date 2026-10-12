@@ -68,9 +68,8 @@
 # script re-execs itself between slices when its own shell code moves.
 #
 # Runs in a worktree of its own (tools/nightly_worktree.sh), at origin/master.
-# All of puzzles/, not the series it files: filing a newspaper puzzle deletes
-# the held book file that reprints it (fetch_puzzle.supersede_book), and that
-# deletion is part of the write.
+# All of puzzles/, not the series it files: a write that moves a file between
+# folders (fetch_puzzle.write_puzzle_file unlinks the old path) is one change.
 # shellcheck disable=SC2034  # read by the sourced nightly_worktree.sh
 CT_SALVAGE_PATHS="puzzles"
 # It files puzzles and stamps no page: it reads no generated file

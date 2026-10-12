@@ -8,8 +8,7 @@
 #
 # The units: borrow:<id> takes one loan, fetches that book's text onto disk
 # and returns the loan (minutes); read:<id> reads one book from its text on
-# disk, its grid searches on the desktop when it answers; supersede turns a
-# held book file that reprints a held newspaper puzzle into a reading of it.
+# disk, its grid searches on the desktop when it answers.
 # Each has its own lock, time limit and worktree, so one slow book holds up
 # only itself, and a book borrowed now is read at the next tick rather than
 # behind every other read.
@@ -110,17 +109,6 @@ publish() {  # publish <subject>
 # The grid searches run on Paul's desktop when it answers (tools/ocr_remote.py,
 # which yields it the moment he games); OCR_REMOTE= keeps them here.
 export OCR_REMOTE="${OCR_REMOTE-micro@192.168.1.198,micro@100.68.145.15}"
-
-if [ "$key" = supersede ]; then
-  # A book leaf filed here and the newspaper puzzle it reprints, filed by another
-  # job before either push reached the other, met in no write: each becomes a
-  # reading of the newspaper puzzle now that this tree holds both.
-  python3 tools/fetch_puzzle.py --supersede-books ||
-    fail "fetch_puzzle.py --supersede-books exited $?; its traceback is above"
-  publish "Book reprints of held newspaper puzzles kept as readings" ||
-    fail "could not push the superseded book files"
-  exit 0
-fi
 
 # BORROW: one book's text onto disk, the loan returned as soon as its pages are
 # read (minutes). Only the text needs a loan; a read unit takes it from disk.

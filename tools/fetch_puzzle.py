@@ -16,9 +16,6 @@ Usage:
                                                  # Where more annotation work comes from.
   python3 tools/fetch_puzzle.py --reindex        # rebuild puzzles/index.json + index.js
                                                  # from the puzzle files already on disk
-  python3 tools/fetch_puzzle.py --supersede-books  # turn each held book file that
-                                                 # reprints a held newspaper puzzle
-                                                 # into a reading of it (supersede_book)
   python3 tools/fetch_puzzle.py --refresh-unsolved  # re-fetch puzzles still missing
                                                  # solutions (Saturday prize puzzles
                                                  # publish theirs about a week late)
@@ -1081,7 +1078,8 @@ def write_puzzle_file(path, puzzle, generator=None):
     # A new id is refused when its clues are another held puzzle's, whichever
     # filer wrote it, and every corpus write enters the index, so a second
     # copy filed by the same run is refused too.
-    superseded = check_not_copy(puzzle) if corpus and held is None else []
+    if corpus and held is None:
+        check_not_copy(puzzle)
     dest = puzzle_paths.file_for(puzzle) if corpus else path
     dest.parent.mkdir(parents=True, exist_ok=True)
     # Whole or not at all: a long job's checkpoint (tools/durable.sh) commits
@@ -1102,8 +1100,6 @@ def write_puzzle_file(path, puzzle, generator=None):
         if held is None or (_CLUE_INDEX is not None
                             and _CLUE_INDEX_DIR == puzzle_paths.PUZZLE_DIR):
             clue_index().add(puzzle["id"], puzzle)
-        for book_id in superseded:
-            supersede_book(book_id, puzzle["id"])
     # The browser cannot fetch() off file:// (README: the site runs from disk),
     # so it is fed a generated script instead. Written here as well as by
     # --reindex because a fetcher that has just rewritten a puzzle must not
@@ -3089,75 +3085,22 @@ def check_not_copy(puzzle):
     Quiptic 591's clues; /cryptic/2545 served cryptic 25,545's. Filing either
     would make two files hold one puzzle.
 
-    A newspaper's own puzzle outranks a book's reprint of it, whichever was
-    filed first: when every match is a held book-N file and `puzzle` is no
-    book, those ids are returned, for write_puzzle_file to turn into readings
-    of `puzzle` once it is filed (supersede_book). Otherwise [] or refused."""
+    The held file always stands, a book or reprint copy included: a newspaper
+    id whose clues are a held book file's is refused like any copy, so no
+    filer can replace a solved and annotated book file with a blog's rebuild.
+    The pair goes in tools/book_twins.py, where the newspaper copy's blog
+    rows cross-check the book."""
     import puzzle_integrity  # lazy: it imports this module
     hits = clue_index().matches(puzzle["id"], clue_keys(puzzle))
-    if hits and not is_book(puzzle["id"]) and all(is_book(h[0]) for h in hits):
-        return [h[0] for h in hits]
     for other, shared, m, _ in hits:
+        if is_book(other) and not is_book(puzzle["id"]):
+            import book_twins
+            book_twins.add(other, puzzle["id"], root=puzzle_paths.PUZZLE_DIR.parent)
         why = f"{shared} of {m} clues are {other}'s"
         raise puzzle_integrity.RefusedWrite(
             f"requested {puzzle['id']} but the page served the clues of "
             f"{other} ({shared} of {m} clues are the same) — refusing to file a copy",
             [("NEARDUP", puzzle["id"], why)])
-    return []
-
-
-def supersede_book(book_id, original_id):
-    """Turn held book file `book_id` into a reading of `original_id`, the
-    newspaper puzzle it reprints, as tools/acquire_book.py keeps a leaf that
-    reprints a held puzzle: its clues go to book_queue.REPRINT_DIR/<original>/,
-    and its file, shim and clue-index entry go."""
-    import book_queue  # only a superseding write needs it
-    path = puzzle_paths.find(book_id)
-    book = read_puzzle_file(path)
-    lights = {"across": [], "down": []}
-    for e in book.get("entries") or []:
-        c = e.get("clue") if isinstance(e.get("clue"), dict) else {"text": e.get("clue")}
-        lights[e["direction"]].append(
-            [e["number"], e.get("length"), None,
-             {"clue": c.get("text"), "enumeration": c.get("enumeration")}])
-    leaf = (book.get("source") or {}).get("book") or {}
-    saved = book_queue.save_reprint(original_id, leaf.get("identifier", book_id),
-                                    leaf.get("numberInBook", book.get("number")),
-                                    lights["across"], lights["down"])
-    path.unlink()
-    puzzle_paths.shim_path(path).unlink(missing_ok=True)
-    clue_index().discard(book_id)
-    # The book id lives on as the newspaper puzzle's: a redirect at its old
-    # address, and its book still lists it (renamed_ids.reprinted_in). Its
-    # per-puzzle table rows described the book's own reading, now a reprint
-    # text, so they go (puzzle_rows; book-12076 kept one and CI failed).
-    # Both tables are the checkout's that holds the puzzles, so a test that
-    # points PUZZLE_DIR at a temp dir leaves the real ones alone.
-    import puzzle_rows
-    import renamed_ids
-    root = puzzle_paths.PUZZLE_DIR.parent
-    table = root / renamed_ids.MAP.relative_to(renamed_ids.ROOT)
-    if table.exists():
-        renamed_ids.write({**renamed_ids.read(table), book_id: original_id}, table)
-    puzzle_rows.retire(book_id, root=root)
-    print(f"{book_id} reprints {original_id}: removed, its clues kept as a "
-          f"reading at {saved}", file=sys.stderr)
-
-
-def supersede_held_books():
-    """supersede_book every held book file whose clues are a held newspaper
-    puzzle's: the pairs no write saw whole, when the book and the newspaper
-    were filed by two jobs in two worktrees, each before the other's push
-    reached it. A book matching books alone is left to puzzle_integrity.
-    Returns [(book id, original id)]."""
-    done = []
-    for a, b, *_ in clue_index().pairs():
-        if is_book(a) != is_book(b):
-            book, original = (a, b) if is_book(a) else (b, a)
-            if book not in {d[0] for d in done}:
-                supersede_book(book, original)
-                done.append((book, original))
-    return done
 
 
 def fetch_number(num, series="cryptic"):
@@ -3412,10 +3355,6 @@ def main(argv):
         return 0
     if argv[0] == "--refresh-unsolved":
         refresh_unsolved()
-        return 0
-    if argv[0] == "--supersede-books":
-        done = supersede_held_books()
-        print(f"{len(done)} book file(s) turned into readings of the newspaper puzzle they reprint")
         return 0
     if argv[0] == "--backfill":
         count = int(argv[1]) if len(argv) > 1 else 30

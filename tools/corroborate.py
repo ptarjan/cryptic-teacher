@@ -324,8 +324,10 @@ def same_grid_only(source):
 
 @same_grid_only
 def georgeho(puzzle):
-    """georgeho.org's scrape of fifteensquared, times-xwd-times and bigdave44 (ODbL)."""
-    pid = puzzle["id"]
+    """georgeho.org's scrape of fifteensquared, times-xwd-times and bigdave44 (ODbL).
+    A held book file reads the rows of the newspaper id it is (book_twins)."""
+    import book_twins
+    pid = book_twins.twin_of(puzzle["id"])
     if not _georgeho:
         _georgeho.append(_georgeho_index())
     db = _georgeho[0]
