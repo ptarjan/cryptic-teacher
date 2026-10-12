@@ -710,7 +710,7 @@ SHELL_SUM=$(shell_sum)
 REEXEC_VARS=(queue at requeued resumed naps NAPPED WAVE_FAILED_IDS WAVE_WHAT POOL_TMPL
   POOL_REORDER POOL_PLANNED POOL_RUNS POOL_SOLVING POOL_RUN_US POOL_MARK_US POOL_STARTED_US
   POOL_SYNCED_US POOL_LAUNCHED_US POOL_DONE POOL_REPLANNED_US POOL_BEFORE POOL_BEFORE_S wide
-  resets_in RESET_AT STOP_AT MAX_NAPS POOL_PHASE fields field_i)
+  resets_in RESET_AT STOP_AT MAX_NAPS POOL_PHASE fields field_i burn_stopped)
 reexec_self() {
   local state="$RUN_LOG.state" err
   # New code that does not parse would kill the burn with its runs in flight.
@@ -949,7 +949,7 @@ if ! command -v claude >/dev/null 2>&1; then
   exit 1
 fi
 
-POOL_PHASE="" fields=() field_i=0
+POOL_PHASE="" fields=() field_i=0 burn_stopped=0
 if [ -n "$REEXEC_STATE" ]; then
   reexec_load "$REEXEC_STATE" || { alert "the pre-reset backfill re-execed but could not read its state $REEXEC_STATE — stopping; the runs it had in flight resume at the next start."; exit 1; }
   echo "adopted ${#POOL_ADOPTED[@]} runs in flight: ${POOL_RUNS[*]}"
@@ -1051,9 +1051,28 @@ print(" ".join(n for n,_ in sorted(d.items(), key=lambda kv: kv[1])))' "$field")
     at=0
   fi
   if [ ${#queue[@]} -gt 0 ]; then
-    run_pool "Backfill $field for" "$prompt" || break
+    run_pool "Backfill $field for" "$prompt" || { burn_stopped=1; break; }
   fi
 done
+
+# --- 3. re-check what the blogs read another way ------------------------------
+# tools/blog_compare.py compares every annotated clue with what its blog marked
+# (definition, type, blocks) and lists as `due` the puzzles with a disagreement
+# nobody has looked at. A disagreement is a prompt to check, not an overwrite:
+# the run fixes ours where the blog is right and files why ours stands where it
+# is not (tools/data/blog_disagree.json), which takes the clue off the list.
+# Re-planned when the phase starts, so tonight's filed rows count.
+if [ "$burn_stopped" = 0 ] && ! past_deadline; then
+  if [ "$POOL_PHASE" != blog-recheck ]; then
+    POOL_PHASE=blog-recheck
+    python3 tools/blog_compare.py || echo "tools/blog_compare.py failed; re-checking last report's list"
+    queue=($(python3 tools/blog_compare.py --due))
+    at=0
+    echo "blog re-check backlog: ${#queue[@]} puzzles"
+  fi
+  BLOG_PROMPT="In this repo, the annotated crossword @ (@PATH@) has clues whose definition, type or building blocks disagree with what its blog marked: run python3 tools/annotate_check.py @ and read the warnings naming the blog. For each such clue, solve it fresh from the clue and answer. If the blog is right, fix our annotation in @PATH@ (the definition, type or blocks, and every hint and walkthrough line that depends on them, in the same voice). If ours is right, run python3 tools/blog_compare.py --keep @ <entry id> <definition|type|blocks> \"<one sentence: why ours stands>\". The blog can be wrong; never copy its wording. Change nothing else. Run python3 tools/annotate_check.py @ until no blog warning is left and it reports clean. Do not commit — the calling script commits."
+  [ ${#queue[@]} -gt 0 ] && run_pool "Re-check against its blog:" "$BLOG_PROMPT"
+fi
 
 if [ "$DRY_RUN" = 1 ]; then
   echo "=== dry run — nothing spent, nothing built, nothing committed $(date '+%H:%M') ==="

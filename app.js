@@ -5511,7 +5511,9 @@
     if (!theirs) return ` <span class="badge auto letters" title="We haven't explained this clue ourselves yet, and ${name} marked nothing in it. Its ${which} ${are} worked out from the letters of the clue and the answer.">hints from the letters</span>`;
     const what = ourDef || ours || ourInds || ourBlocks ? `what ${name} marked in its write-up, put into our own words. The ${which} ${are} not ${name}'s: worked out from the letters of the clue and the answer`
       : `the definition and clue type that ${name} marked in its write-up, put into our own words`;
-    return ` <span class="badge auto blog" title="We haven't explained this clue ourselves yet. These hints are ${what}.">hints via ${name}</span>`;
+    // Provisional, and says so: once we annotate the clue, with_blog_facts drops
+    // the blog's facts and our own ladder takes this one's place.
+    return ` <span class="badge auto blog" title="We haven't explained this clue ourselves yet. These hints are ${what}. Our own full hint replaces them once we write it.">hints via ${name} · ours to come</span>`;
   }
 
   function renderHintPanel() {

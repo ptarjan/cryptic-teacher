@@ -650,9 +650,19 @@ tools/test_indicator_straddle.sh              an indicator may sit inside a defi
                                               across its edge
 tools/test_indicator_repeats.sh               an indicator may repeat in `indicators` only as
                                               often as the clue prints it
-tools/test_blocks_against_blog.sh             holds the blog block check to its fixtures: a
-                                              piece we spell, reverse, hear, delete from or
-                                              anagram is silent, and one we lack is reported
+tools/blog_compare.py                         compares every annotated clue's definition, type
+                                              and blocks with what its blog marked, using the
+                                              validator's own blog checks; writes the rates per
+                                              series and the puzzles still disagreeing (due) to
+                                              tools/data/blog_compare.json, which the burn
+                                              re-checks; --keep files a clue checked and kept
+tools/test_blocks_against_blog.sh             holds the blog block and type checks to their
+                                              fixtures: a piece we spell, reverse, hear, delete
+                                              from or anagram is silent, and one we lack is
+                                              reported; a type in another family (double
+                                              definition against charade) is reported, a label
+                                              within one is not, and a clue filed in
+                                              blog_disagree.json is silent
 tools/hidden_messages.py                      hidden-letter devices: checks each annotation's
                                               `hiddenLetter` against its clue and each
                                               `messages` phrase against its clues' letters,
@@ -1519,6 +1529,17 @@ tools/data/source_clue_wrong.json             clues a source serves or OCRs wron
                                               id/entry id: how the served text opens, the clue
                                               as printed, the evidence; read as
                                               fetch_puzzle.SOURCE_CLUE_WRONG, merged per key
+tools/data/blog_disagree.json                 clues a run checked against its blog's reading
+                                              and kept ours, keyed puzzle id/entry id: the
+                                              fields (definition, type, blocks) and one
+                                              sentence why ours stands; filed by
+                                              annotate_check's blogDisagree or blog_compare.py
+                                              --keep; the validator's blog checks and
+                                              blog_compare.py skip them; merged per key
+tools/data/blog_compare.json                  our annotations against the blogs' marked facts
+                                              (tools/blog_compare.py): unhinted clues the blogs
+                                              cover, disagreement rates per series, examples,
+                                              and the puzzles due a re-check
 tools/data/setter_error.json                  clues the setter printed wrong, keyed puzzle
                                               id/entry id: the anagram fodder (words the clue
                                               prints, or a block's gives), the letters it

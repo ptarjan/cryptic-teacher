@@ -50,6 +50,27 @@ core = {"inferred": ["type"], "typeCore": True}
 check("an inferred core type is a lower bound, not a contradiction", False, typed(["container", "deletion"], ["container"], **core))
 check("a cryptic definition against an inferred core type is reported as at least it", True,
       [w for w in typed(["cryptic_definition"], ["container"], **core) if "at least 'container'" in w])
+
+# check_type_against_blog: a type family apart is reported, a label within one is not.
+def family(ours, theirs, pid="x-1", **fact):
+    puzzle = {"id": pid, "entries": [{"number": 1, "direction": "across",
+                                      "clue": {"text": "x"}, "annotation": {"type": ours}}]}
+    v.blog_facts_for = lambda p: {"name": "Blog", "url": "u",
+                                  "entries": {"1-across": {"type": theirs, **fact}}}
+    warnings = []
+    v.check_type_against_blog(puzzle, warnings)
+    return warnings
+
+check("a container the blog calls a charade is silent", False, family(["container"], ["charade"]))
+check("a double definition the blog calls cryptic is silent", False, family(["double_definition"], ["cryptic_definition"]))
+check("a double definition the blog parses as a charade is reported", True, family(["double_definition"], ["charade"]))
+check("an anagram the blog reads as a charade is reported", True, family(["anagram"], ["charade"]))
+check("an &lit goes with anything", False, family(["and_lit", "anagram"], ["charade"]))
+check("an inferred type is not the blogger's", False, family(["anagram"], ["charade"], inferred=["type"]))
+check("ours as a cryptic definition against named wordplay is the other check's", False,
+      family(["cryptic_definition"], ["anagram"]))
+v.BLOG_DISAGREE[("x-2", "1-across")] = ("definition,type", "the blog's charade misses the second definition")
+check("a clue filed as kept is silent", False, family(["double_definition"], ["charade"], pid="x-2"))
 raise SystemExit(fails)
 PY
 echo "all check_blocks_against_blog checks passed"

@@ -1,0 +1,12217 @@
+{
+ "_why": "Our annotations against the blogs' marked facts (tools/blog_compare.py). Rates are disagreements per clue where both sides mark that fact; `due` is each puzzle's clues still disagreeing, unfiled in blog_disagree.json, which tools/prereset_backfill.sh re-checks. A disagreement is a prompt to check, not an overwrite.",
+ "coverage": {
+  "blog_hinted_clues": 560351,
+  "blog_hinted_partial_puzzles": 28,
+  "blog_hinted_puzzles": 20516,
+  "blog_marked_clues": 553141,
+  "clues": 1498996,
+  "puzzles": 50347,
+  "unhinted_clues": 1000142,
+  "unhinted_puzzles": 33893
+ },
+ "summary": {
+  "azed": {
+   "blocks_compared": 8657,
+   "blocks_disagree": 21,
+   "clues": 15467,
+   "definition_compared": 13967,
+   "definition_disagree": 57,
+   "type_compared": 9066,
+   "type_disagree": 66,
+   "definition_rate": 0.41,
+   "blocks_rate": 0.24,
+   "type_rate": 0.73
+  },
+  "cryptic": {
+   "blocks_compared": 21914,
+   "blocks_disagree": 8,
+   "clues": 32820,
+   "definition_compared": 30999,
+   "definition_disagree": 21,
+   "type_compared": 19353,
+   "type_disagree": 171,
+   "definition_rate": 0.07,
+   "blocks_rate": 0.04,
+   "type_rate": 0.88
+  },
+  "cyclops": {
+   "blocks_compared": 8070,
+   "blocks_disagree": 2,
+   "clues": 10344,
+   "definition_compared": 7268,
+   "definition_disagree": 5,
+   "type_compared": 6122,
+   "type_disagree": 125,
+   "definition_rate": 0.07,
+   "blocks_rate": 0.02,
+   "type_rate": 2.04
+  },
+  "everyman": {
+   "blocks_compared": 12272,
+   "blocks_disagree": 3,
+   "clues": 22150,
+   "definition_compared": 18922,
+   "definition_disagree": 13,
+   "type_compared": 13453,
+   "type_disagree": 92,
+   "definition_rate": 0.07,
+   "blocks_rate": 0.02,
+   "type_rate": 0.68
+  },
+  "ftcryptic": {
+   "blocks_compared": 17367,
+   "blocks_disagree": 3,
+   "clues": 22728,
+   "definition_compared": 22158,
+   "definition_disagree": 14,
+   "type_compared": 14945,
+   "type_disagree": 169,
+   "definition_rate": 0.06,
+   "blocks_rate": 0.02,
+   "type_rate": 1.13
+  },
+  "genius": {
+   "blocks_compared": 706,
+   "clues": 1095,
+   "definition_compared": 855,
+   "type_compared": 524,
+   "type_disagree": 4,
+   "definition_rate": 0.0,
+   "blocks_rate": 0.0,
+   "type_rate": 0.76
+  },
+  "independent": {
+   "blocks_compared": 21549,
+   "blocks_disagree": 12,
+   "clues": 34136,
+   "definition_compared": 29631,
+   "definition_disagree": 31,
+   "type_compared": 19993,
+   "type_disagree": 145,
+   "definition_rate": 0.1,
+   "blocks_rate": 0.06,
+   "type_rate": 0.73
+  },
+  "indysunday": {
+   "blocks_compared": 9516,
+   "blocks_disagree": 4,
+   "clues": 20882,
+   "definition_compared": 19779,
+   "definition_disagree": 15,
+   "type_compared": 12066,
+   "type_disagree": 80,
+   "definition_rate": 0.08,
+   "blocks_rate": 0.04,
+   "type_rate": 0.66
+  },
+  "mephisto": {
+   "blocks_compared": 8217,
+   "blocks_disagree": 1,
+   "clues": 15285,
+   "definition_compared": 14904,
+   "definition_disagree": 21,
+   "type_compared": 8919,
+   "type_disagree": 49,
+   "definition_rate": 0.14,
+   "blocks_rate": 0.01,
+   "type_rate": 0.55
+  },
+  "quiptic": {
+   "blocks_compared": 9993,
+   "blocks_disagree": 1,
+   "clues": 22608,
+   "definition_compared": 20936,
+   "definition_disagree": 11,
+   "type_compared": 15134,
+   "type_disagree": 133,
+   "definition_rate": 0.05,
+   "blocks_rate": 0.01,
+   "type_rate": 0.88
+  },
+  "sundaytel": {
+   "blocks_compared": 10539,
+   "clues": 16866,
+   "definition_compared": 16100,
+   "definition_disagree": 13,
+   "type_compared": 7624,
+   "type_disagree": 61,
+   "definition_rate": 0.08,
+   "blocks_rate": 0.0,
+   "type_rate": 0.8
+  },
+  "sundaytimes": {
+   "blocks_compared": 5401,
+   "clues": 14679,
+   "definition_compared": 14576,
+   "definition_disagree": 9,
+   "type_compared": 7694,
+   "type_disagree": 58,
+   "definition_rate": 0.06,
+   "blocks_rate": 0.0,
+   "type_rate": 0.75
+  },
+  "sundaytough": {
+   "blocks_compared": 400,
+   "clues": 3966,
+   "definition_compared": 3903,
+   "definition_disagree": 1,
+   "type_compared": 638,
+   "type_disagree": 11,
+   "definition_rate": 0.03,
+   "blocks_rate": 0.0,
+   "type_rate": 1.72
+  },
+  "telegraph": {
+   "blocks_compared": 5551,
+   "blocks_disagree": 1,
+   "clues": 18345,
+   "definition_compared": 15366,
+   "definition_disagree": 9,
+   "type_compared": 4453,
+   "type_disagree": 47,
+   "definition_rate": 0.06,
+   "blocks_rate": 0.02,
+   "type_rate": 1.06
+  },
+  "times": {
+   "blocks_compared": 24990,
+   "blocks_disagree": 5,
+   "clues": 40335,
+   "definition_compared": 39602,
+   "definition_disagree": 21,
+   "type_compared": 23385,
+   "type_disagree": 151,
+   "definition_rate": 0.05,
+   "blocks_rate": 0.02,
+   "type_rate": 0.65
+  },
+  "timesclub": {
+   "blocks_compared": 2713,
+   "blocks_disagree": 2,
+   "clues": 3810,
+   "definition_compared": 3706,
+   "definition_disagree": 1,
+   "type_compared": 1500,
+   "type_disagree": 14,
+   "definition_rate": 0.03,
+   "blocks_rate": 0.07,
+   "type_rate": 0.93
+  },
+  "timesjumbo": {
+   "blocks_compared": 21989,
+   "blocks_disagree": 2,
+   "clues": 31799,
+   "definition_compared": 31352,
+   "definition_disagree": 21,
+   "type_compared": 20127,
+   "type_disagree": 149,
+   "definition_rate": 0.07,
+   "blocks_rate": 0.01,
+   "type_rate": 0.74
+  },
+  "timesquick": {
+   "blocks_compared": 17840,
+   "blocks_disagree": 8,
+   "clues": 25861,
+   "definition_compared": 25641,
+   "definition_disagree": 7,
+   "type_compared": 17578,
+   "type_disagree": 99,
+   "definition_rate": 0.03,
+   "blocks_rate": 0.04,
+   "type_rate": 0.56
+  },
+  "tls": {
+   "blocks_compared": 570,
+   "blocks_disagree": 2,
+   "clues": 1145,
+   "definition_compared": 1056,
+   "definition_disagree": 6,
+   "type_compared": 281,
+   "type_disagree": 2,
+   "definition_rate": 0.57,
+   "blocks_rate": 0.35,
+   "type_rate": 0.71
+  },
+  "toughie": {
+   "blocks_compared": 3171,
+   "clues": 18178,
+   "definition_compared": 17526,
+   "definition_disagree": 6,
+   "type_compared": 2535,
+   "type_disagree": 59,
+   "definition_rate": 0.03,
+   "blocks_rate": 0.0,
+   "type_rate": 2.33
+  },
+  "ALL": {
+   "blocks_compared": 211425,
+   "blocks_disagree": 75,
+   "clues": 372499,
+   "definition_compared": 348247,
+   "definition_disagree": 282,
+   "type_compared": 205390,
+   "type_disagree": 1685,
+   "definition_rate": 0.08,
+   "blocks_rate": 0.04,
+   "type_rate": 0.82
+  }
+ },
+ "examples": {
+  "type": [
+   {
+    "puzzle": "azed-1968",
+    "entry": "14-across",
+    "clue": "'Bridge Road'? Place half reduced in recession",
+    "answer": "ACOL",
+    "warning": "typed 'deletion + reversal', but Fifteensquared parses it as 'double definition' (https://fifteensquared.net/2010/02/21/azed-no-1968-plain/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "azed-2075",
+    "entry": "4-down",
+    "clue": "Hitched, as one who was to Willis B",
+    "answer": "MOORED",
+    "warning": "typed 'double definition', but Fifteensquared parses it as 'charade' (https://fifteensquared.net/2012/03/18/azed-no-2075-plain/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "azed-2172",
+    "entry": "28-down",
+    "clue": "Bog that shifts as ground on all sides falling away",
+    "answer": "QUAG",
+    "warning": "typed 'cryptic definition', but Fifteensquared parses it as 'charade + deletion' (https://fifteensquared.net/2014/01/26/azed-2172/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "azed-2231",
+    "entry": "8-down",
+    "clue": "Golf course employee, one responsible for many extras?",
+    "answer": "GREENKEEPER",
+    "warning": "typed 'double definition', but Fifteensquared parses it as 'charade' (https://fifteensquared.net/2015/03/15/azed-no-2231/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "azed-2305",
+    "entry": "14-across",
+    "clue": "Grip umpteenth rally has reserved",
+    "answer": "RETICENT",
+    "warning": "typed cryptic definition, but Fifteensquared parses it as 'hidden word' (https://fifteensquared.net/2016/08/14/azed-2305-wrong-number/). If the hidden word is there, annotate it. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "azed-2345",
+    "entry": "16-across",
+    "clue": "They provide shade for Pradeep's extremities?",
+    "answer": "TOPEES",
+    "warning": "typed 'charade', but Fifteensquared parses it as 'homophone' (https://fifteensquared.net/2017/05/28/azed-2345/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "azed-2357",
+    "entry": "9-down",
+    "clue": "Coat in wax American cactus? Rescue works",
+    "answer": "CEREUS",
+    "warning": "typed 'charade', but Fifteensquared parses it as 'anagram' (https://fifteensquared.net/2017/08/20/azed-2357/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "azed-2380",
+    "entry": "13-across",
+    "clue": "Myself and friend mum's enveloped in fantastic jumper",
+    "answer": "IMPALA",
+    "warning": "typed 'anagram', but Fifteensquared parses it as 'charade + container' (https://fifteensquared.net/2018/01/28/azed-2380/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "azed-2419",
+    "entry": "21-down",
+    "clue": "Strong wind, a biggy, in storm striking Luxembourg",
+    "answer": "BUSTER",
+    "warning": "typed 'deletion', but Fifteensquared parses it as 'double definition' (https://fifteensquared.net/2018/10/28/azed-2419/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "azed-2469",
+    "entry": "1-across",
+    "clue": "Lake with sails initially hoisted in part? Argument risk past",
+    "answer": "PLOUGHWRIGHT",
+    "warning": "typed 'letter selection + charade + container', but Fifteensquared parses it as 'spoonerism' (https://fifteensquared.net/2019/10/13/azed-2469/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "azed-2469",
+    "entry": "13-down",
+    "clue": "Driller's pipe? Pair is briefly left inside alembic",
+    "answer": "SPELLICAN",
+    "warning": "typed 'charade + container', but Fifteensquared parses it as 'spoonerism' (https://fifteensquared.net/2019/10/13/azed-2469/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "azed-2475",
+    "entry": "1-across",
+    "clue": "Millions fail to get air in bed, it's strongly emphasized",
+    "answer": "COMMISSARIAT",
+    "warning": "typed 'charade + container', but Fifteensquared parses it as 'anagram' (https://fifteensquared.net/2019/11/24/azed-2475/). One of the two reads the clue another way. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"type\", \"<one sentence: why ours is right>\"] to the entry"
+   }
+  ],
+  "definition": [
+   {
+    "puzzle": "azed-2148",
+    "entry": "9-down",
+    "clue": "I am attached to pagan deity — or was",
+    "answer": "PANIM",
+    "warning": "definition 'pagan' shares no word with the definition Fifteensquared underlined ('or was', https://fifteensquared.net/2013/08/11/azed-2148/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "azed-2231",
+    "entry": "9-down",
+    "clue": "Hitler's dream? He made list possibly",
+    "answer": "HERR",
+    "warning": "definition 'He' shares no word with the definition Fifteensquared underlined ('Hitler', https://fifteensquared.net/2015/03/15/azed-no-2231/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "azed-2264",
+    "entry": "22-across",
+    "clue": "Foreign racing driver, fantastically 'vite'? Here's panegyric",
+    "answer": "LAUDATIVE",
+    "warning": "definition 'panegyric' shares no word with the definition Fifteensquared underlined ('Foreign racing driver', https://fifteensquared.net/2015/11/01/azed-2264/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "azed-2305",
+    "entry": "1-down",
+    "clue": "American vessel in elm tossed in the drink",
+    "answer": "PATTYPAN",
+    "warning": "definition 'vessel' shares no word with the definition Fifteensquared underlined ('the drink', https://fifteensquared.net/2016/08/14/azed-2305-wrong-number/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "azed-2305",
+    "entry": "5-across",
+    "clue": "A small weak brandy drunk polishing off book? Non-sense!",
+    "answer": "PSALTER",
+    "warning": "definition 'book' shares no word with the definition Fifteensquared underlined ('Non-sense', https://fifteensquared.net/2016/08/14/azed-2305-wrong-number/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "azed-2305",
+    "entry": "9-down",
+    "clue": "Two pairs of spectators joined in a minor quarrel",
+    "answer": "EYNE",
+    "warning": "definition 'spectators' shares no word with the definition Fifteensquared underlined ('a minor quarrel', https://fifteensquared.net/2016/08/14/azed-2305-wrong-number/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "azed-2305",
+    "entry": "13-across",
+    "clue": "Greek delicacy among buffet adornments",
+    "answer": "THRO",
+    "warning": "definition 'among' shares no word with the definition Fifteensquared underlined ('Greek delicacy', https://fifteensquared.net/2016/08/14/azed-2305-wrong-number/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "azed-2305",
+    "entry": "17-down",
+    "clue": "One of the reps in a mood (Scots), worker getting agitated",
+    "answer": "DELEGATES",
+    "warning": "definition 'reps' shares no word with the definition Fifteensquared underlined ('agitated', https://fifteensquared.net/2016/08/14/azed-2305-wrong-number/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "azed-2305",
+    "entry": "22-across",
+    "clue": "Agents, only half modest, age led astray",
+    "answer": "SHAMEFAST",
+    "warning": "definition 'modest' shares no word with the definition Fifteensquared underlined ('Agents', https://fifteensquared.net/2016/08/14/azed-2305-wrong-number/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "azed-2305",
+    "entry": "25-down",
+    "clue": "Disabled chap has time confined to mend",
+    "answer": "UNFIT",
+    "warning": "definition 'Disabled' shares no word with the definition Fifteensquared underlined ('mend', https://fifteensquared.net/2016/08/14/azed-2305-wrong-number/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "azed-2305",
+    "entry": "29-across",
+    "clue": "A little butter and any scraps of past tuck simmering in cook's receptacle",
+    "answer": "PROVIANT",
+    "warning": "definition 'tuck' shares no word with the definition Fifteensquared underlined (\"cook's receptacle\", https://fifteensquared.net/2016/08/14/azed-2305-wrong-number/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "azed-2305",
+    "entry": "34-across",
+    "clue": "It's fine to stop one becoming unwell",
+    "answer": "STALL",
+    "warning": "definition 'stop' shares no word with the definition Fifteensquared underlined ('unwell', https://fifteensquared.net/2016/08/14/azed-2305-wrong-number/). Bloggers slip too (theirs may be wordplay). Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"definition\", \"<one sentence: why ours is right>\"] to the entry"
+   }
+  ],
+  "blocks": [
+   {
+    "puzzle": "azed-2157",
+    "entry": "8-down",
+    "clue": "I'm flagging around end of marathon, in one piece but antiquated",
+    "answer": "INTIRE",
+    "warning": "Fifteensquared reads 'in one piece' as ENTIRE, and no block of ours spells it or takes those words (https://fifteensquared.net/2013/10/20/azed-2157/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "azed-2283",
+    "entry": "30-across",
+    "clue": "Perverse old skill reflected in icon crafted by king",
+    "answer": "CONTRAIR",
+    "warning": "Fifteensquared reads 'Perverse' as CONTRARY, and no block of ours spells it or takes those words (https://fifteensquared.net/2016/03/13/azed-2283/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "azed-2526",
+    "entry": "33-across",
+    "clue": "With troops in lines traditionally, representing command a Tory ignored",
+    "answer": "MAND",
+    "warning": "Fifteensquared reads 'With troops' as MANNED, and no block of ours spells it or takes those words (https://fifteensquared.net/2020/11/15/azed-no-2526-plain/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "azed-2688",
+    "entry": "12-across",
+    "clue": "What makes painting work, looking back? Base place for mail",
+    "answer": "POLIO",
+    "warning": "Fifteensquared reads 'Base' as LOW, and no block of ours spells it or takes those words (https://fifteensquared.net/2024/01/08/azed-no-2688-a-cool-yomp-christmas-competition-puzzle/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "azed-2688",
+    "entry": "26-across",
+    "clue": "Acquire rams to arrive with shepherd's lead",
+    "answer": "TURNUPS",
+    "warning": "Fifteensquared reads 'Acquire' as EARN, and no block of ours spells it or takes those words (https://fifteensquared.net/2024/01/08/azed-no-2688-a-cool-yomp-christmas-competition-puzzle/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "azed-2767",
+    "entry": "32-across",
+    "clue": "Fish in barrel, newly gutted",
+    "answer": "TUNNY",
+    "warning": "Fifteensquared reads 'gutted' as EWL, and no block of ours spells it or takes those words (https://fifteensquared.net/2025/07/06/azed-2767/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "cryptic-29415",
+    "entry": "15-down",
+    "clue": "A walk in the park means a healthy 1 down without much exertion",
+    "answer": "EASYMONEY",
+    "warning": "Fifteensquared reads '1 down' as RETURN, and no block of ours spells it or takes those words (https://fifteensquared.net/2024/06/21/guardian-cryptic-29415-by-fed/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "cryptic-30043",
+    "entry": "20-down",
+    "clue": "Concerned with Muslim leader rejecting an outcome",
+    "answer": "RESULT",
+    "warning": "Fifteensquared reads 'rejecting an' as AN, and no block of ours spells it or takes those words (https://fifteensquared.net/2026/06/26/guardian-cryptic-crossword-no-30043-by-pangakupu/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "everyman-4155",
+    "entry": "10-down",
+    "clue": "Perhaps makes Brown edgy and tense regularly",
+    "answer": "DYES",
+    "warning": "Fifteensquared reads 'Brown' as BY, and no block of ours spells it or takes those words (https://fifteensquared.net/2026/06/14/everyman-4155/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "ftcryptic-18301",
+    "entry": "29-across",
+    "clue": "Too caring to take time for treating eyes soundly",
+    "answer": "DOTTING",
+    "warning": "Fifteensquared reads 'soundly' as IS, and no block of ours spells it or takes those words (https://fifteensquared.net/2026/02/23/financial-times-18301-by-gaff/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "independent-11191",
+    "entry": "14-across",
+    "clue": "Record producer John still entertains largely just using covers",
+    "answer": "EVELYN",
+    "warning": "Fifteensquared reads 'just using covers' as ARGEL, and no block of ours spells it or takes those words (https://fifteensquared.net/2022/08/25/independent-11191-rodriguez/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
+   },
+   {
+    "puzzle": "independent-11846",
+    "entry": "12-across",
+    "clue": "Black line last to turn a different colour",
+    "answer": "BROWN",
+    "warning": "Fifteensquared reads 'last' as END, and no block of ours spells it or takes those words (https://fifteensquared.net/2024/09/27/independent-11846-by-phi/). Check whether our parse misses a piece. Fix ours if the blog is right; if ours stands, add \"blogDisagree\": [\"blocks\", \"<one sentence: why ours is right>\"] to the entry"
+   }
+  ]
+ },
+ "due": {
+  "azed-1968": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "azed-1975": [
+   [
+    "26-down",
+    "type"
+   ]
+  ],
+  "azed-1982": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "azed-2003": [
+   [
+    "9-down",
+    "type"
+   ]
+  ],
+  "azed-2075": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "azed-2141": [
+   [
+    "15-across",
+    "type"
+   ]
+  ],
+  "azed-2148": [
+   [
+    "9-down",
+    "definition"
+   ]
+  ],
+  "azed-2152": [
+   [
+    "30-across",
+    "type"
+   ]
+  ],
+  "azed-2157": [
+   [
+    "8-down",
+    "blocks"
+   ],
+   [
+    "29-across",
+    "type"
+   ]
+  ],
+  "azed-2163": [
+   [
+    "14-across",
+    "blocks"
+   ]
+  ],
+  "azed-2172": [
+   [
+    "28-down",
+    "type"
+   ]
+  ],
+  "azed-2188": [
+   [
+    "28-down",
+    "type"
+   ]
+  ],
+  "azed-2190": [
+   [
+    "6-down",
+    "definition"
+   ]
+  ],
+  "azed-2199": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "azed-2212": [
+   [
+    "8-down",
+    "definition"
+   ]
+  ],
+  "azed-2224": [
+   [
+    "13-down",
+    "definition"
+   ]
+  ],
+  "azed-2230": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "azed-2231": [
+   [
+    "8-down",
+    "type"
+   ],
+   [
+    "9-down",
+    "definition"
+   ]
+  ],
+  "azed-2234": [
+   [
+    "4-down",
+    "blocks"
+   ]
+  ],
+  "azed-2235": [
+   [
+    "18-across",
+    "blocks"
+   ]
+  ],
+  "azed-2236": [
+   [
+    "26-down",
+    "definition"
+   ]
+  ],
+  "azed-2243": [
+   [
+    "11-across",
+    "definition"
+   ]
+  ],
+  "azed-2248": [
+   [
+    "15-down",
+    "definition"
+   ]
+  ],
+  "azed-2264": [
+   [
+    "22-across",
+    "definition"
+   ]
+  ],
+  "azed-2280": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "azed-2283": [
+   [
+    "30-across",
+    "blocks"
+   ]
+  ],
+  "azed-2296": [
+   [
+    "25-down",
+    "definition"
+   ]
+  ],
+  "azed-2300": [
+   [
+    "18-across",
+    "definition"
+   ],
+   [
+    "33-across",
+    "definition"
+   ]
+  ],
+  "azed-2305": [
+   [
+    "1-down",
+    "definition"
+   ],
+   [
+    "2-down",
+    "definition"
+   ],
+   [
+    "3-down",
+    "definition"
+   ],
+   [
+    "4-down",
+    "definition"
+   ],
+   [
+    "5-across",
+    "definition"
+   ],
+   [
+    "6-down",
+    "definition"
+   ],
+   [
+    "6-down",
+    "type"
+   ],
+   [
+    "7-down",
+    "definition"
+   ],
+   [
+    "8-down",
+    "definition"
+   ],
+   [
+    "9-down",
+    "definition"
+   ],
+   [
+    "10-down",
+    "definition"
+   ],
+   [
+    "11-across",
+    "definition"
+   ],
+   [
+    "12-across",
+    "definition"
+   ],
+   [
+    "13-across",
+    "definition"
+   ],
+   [
+    "13-across",
+    "type"
+   ],
+   [
+    "14-across",
+    "definition"
+   ],
+   [
+    "14-across",
+    "type"
+   ],
+   [
+    "15-across",
+    "definition"
+   ],
+   [
+    "16-down",
+    "definition"
+   ],
+   [
+    "17-down",
+    "definition"
+   ],
+   [
+    "19-down",
+    "definition"
+   ],
+   [
+    "20-down",
+    "definition"
+   ],
+   [
+    "21-across",
+    "definition"
+   ],
+   [
+    "22-across",
+    "definition"
+   ],
+   [
+    "22-down",
+    "definition"
+   ],
+   [
+    "23-down",
+    "definition"
+   ],
+   [
+    "24-across",
+    "definition"
+   ],
+   [
+    "25-down",
+    "definition"
+   ],
+   [
+    "26-down",
+    "definition"
+   ],
+   [
+    "27-down",
+    "definition"
+   ],
+   [
+    "28-across",
+    "definition"
+   ],
+   [
+    "29-across",
+    "definition"
+   ],
+   [
+    "30-across",
+    "definition"
+   ],
+   [
+    "32-across",
+    "definition"
+   ],
+   [
+    "33-across",
+    "definition"
+   ],
+   [
+    "34-across",
+    "definition"
+   ]
+  ],
+  "azed-2308": [
+   [
+    "23-down",
+    "type"
+   ]
+  ],
+  "azed-2320": [
+   [
+    "28-down",
+    "type"
+   ]
+  ],
+  "azed-2329": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "azed-2345": [
+   [
+    "16-across",
+    "type"
+   ]
+  ],
+  "azed-2349": [
+   [
+    "29-across",
+    "type"
+   ]
+  ],
+  "azed-2353": [
+   [
+    "29-across",
+    "type"
+   ]
+  ],
+  "azed-2354": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "azed-2357": [
+   [
+    "9-down",
+    "type"
+   ]
+  ],
+  "azed-2362": [
+   [
+    "23-down",
+    "blocks"
+   ]
+  ],
+  "azed-2365": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "azed-2370": [
+   [
+    "25-down",
+    "type"
+   ]
+  ],
+  "azed-2374": [
+   [
+    "7-down",
+    "definition"
+   ]
+  ],
+  "azed-2375": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "azed-2380": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "azed-2385": [
+   [
+    "29-down",
+    "type"
+   ]
+  ],
+  "azed-2404": [
+   [
+    "32-across",
+    "type"
+   ]
+  ],
+  "azed-2412": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "azed-2419": [
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "azed-2442": [
+   [
+    "8-down",
+    "definition"
+   ]
+  ],
+  "azed-2461": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "azed-2462": [
+   [
+    "21-down",
+    "type"
+   ],
+   [
+    "30-across",
+    "blocks"
+   ]
+  ],
+  "azed-2468": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "azed-2469": [
+   [
+    "1-across",
+    "type"
+   ],
+   [
+    "3-down",
+    "type"
+   ],
+   [
+    "4-down",
+    "type"
+   ],
+   [
+    "5-down",
+    "type"
+   ],
+   [
+    "6-down",
+    "definition"
+   ],
+   [
+    "13-down",
+    "type"
+   ],
+   [
+    "21-across",
+    "type"
+   ],
+   [
+    "23-across",
+    "type"
+   ],
+   [
+    "28-across",
+    "type"
+   ]
+  ],
+  "azed-2475": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "azed-2492": [
+   [
+    "32-across",
+    "type"
+   ]
+  ],
+  "azed-2495": [
+   [
+    "12-down",
+    "definition"
+   ]
+  ],
+  "azed-2500": [
+   [
+    "27-across",
+    "blocks"
+   ]
+  ],
+  "azed-2511": [
+   [
+    "26-down",
+    "type"
+   ]
+  ],
+  "azed-2526": [
+   [
+    "33-across",
+    "blocks"
+   ]
+  ],
+  "azed-2553": [
+   [
+    "1-across",
+    "definition"
+   ]
+  ],
+  "azed-2556": [
+   [
+    "9-down",
+    "definition"
+   ]
+  ],
+  "azed-2563": [
+   [
+    "29-down",
+    "type"
+   ]
+  ],
+  "azed-2569": [
+   [
+    "26-down",
+    "type"
+   ]
+  ],
+  "azed-2573": [
+   [
+    "6-down",
+    "definition"
+   ]
+  ],
+  "azed-2574": [
+   [
+    "19-down",
+    "definition"
+   ]
+  ],
+  "azed-2576": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "azed-2577": [
+   [
+    "24-across",
+    "type"
+   ]
+  ],
+  "azed-2579": [
+   [
+    "26-down",
+    "definition"
+   ]
+  ],
+  "azed-2582": [
+   [
+    "33-across",
+    "type"
+   ]
+  ],
+  "azed-2588": [
+   [
+    "27-down",
+    "blocks"
+   ]
+  ],
+  "azed-2589": [
+   [
+    "9-down",
+    "type"
+   ]
+  ],
+  "azed-2592": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "azed-2606": [
+   [
+    "32-across",
+    "blocks"
+   ]
+  ],
+  "azed-2627": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "azed-2629": [
+   [
+    "7-down",
+    "type"
+   ],
+   [
+    "27-down",
+    "type"
+   ]
+  ],
+  "azed-2631": [
+   [
+    "1-down",
+    "type"
+   ],
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "azed-2653": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "azed-2667": [
+   [
+    "21-across",
+    "definition"
+   ]
+  ],
+  "azed-2680": [
+   [
+    "19-down",
+    "type"
+   ]
+  ],
+  "azed-2688": [
+   [
+    "8-down",
+    "blocks"
+   ],
+   [
+    "12-across",
+    "blocks"
+   ],
+   [
+    "13-down",
+    "blocks"
+   ],
+   [
+    "21-down",
+    "blocks"
+   ],
+   [
+    "25-down",
+    "blocks"
+   ],
+   [
+    "26-across",
+    "blocks"
+   ],
+   [
+    "32-across",
+    "blocks"
+   ]
+  ],
+  "azed-2689": [
+   [
+    "22-across",
+    "type"
+   ]
+  ],
+  "azed-2699": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "azed-2702": [
+   [
+    "17-across",
+    "definition"
+   ],
+   [
+    "26-down",
+    "type"
+   ]
+  ],
+  "azed-2746": [
+   [
+    "28-down",
+    "definition"
+   ]
+  ],
+  "azed-2755": [
+   [
+    "3-down",
+    "blocks"
+   ],
+   [
+    "28-down",
+    "blocks"
+   ]
+  ],
+  "azed-2767": [
+   [
+    "32-across",
+    "blocks"
+   ]
+  ],
+  "azed-2771": [
+   [
+    "7-across",
+    "type"
+   ]
+  ],
+  "azed-2781": [
+   [
+    "33-across",
+    "type"
+   ]
+  ],
+  "cryptic-25310": [
+   [
+    "22-down",
+    "type"
+   ]
+  ],
+  "cryptic-26013": [
+   [
+    "23-down",
+    "type"
+   ]
+  ],
+  "cryptic-26172": [
+   [
+    "29-across",
+    "type"
+   ]
+  ],
+  "cryptic-26276": [
+   [
+    "25-down",
+    "type"
+   ]
+  ],
+  "cryptic-26333": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "cryptic-26461": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "cryptic-26666": [
+   [
+    "16-across",
+    "type"
+   ]
+  ],
+  "cryptic-26741": [
+   [
+    "2-down",
+    "type"
+   ],
+   [
+    "3-down",
+    "type"
+   ],
+   [
+    "4-down",
+    "type"
+   ],
+   [
+    "5-across",
+    "type"
+   ],
+   [
+    "12-down",
+    "type"
+   ],
+   [
+    "13-across",
+    "type"
+   ],
+   [
+    "18-across",
+    "type"
+   ],
+   [
+    "19-down",
+    "type"
+   ],
+   [
+    "20-across",
+    "type"
+   ],
+   [
+    "22-down",
+    "type"
+   ],
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "cryptic-26819": [
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "cryptic-26859": [
+   [
+    "22-across",
+    "type"
+   ]
+  ],
+  "cryptic-27124": [
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "cryptic-27393": [
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "cryptic-27966": [
+   [
+    "13-across",
+    "type"
+   ],
+   [
+    "21-down",
+    "definition"
+   ]
+  ],
+  "cryptic-28032": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "cryptic-28130": [
+   [
+    "17-across",
+    "type"
+   ]
+  ],
+  "cryptic-28410": [
+   [
+    "23-down",
+    "type"
+   ],
+   [
+    "24-down",
+    "type"
+   ]
+  ],
+  "cryptic-28632": [
+   [
+    "25-down",
+    "type"
+   ]
+  ],
+  "cryptic-28780": [
+   [
+    "13-down",
+    "type"
+   ]
+  ],
+  "cryptic-28992": [
+   [
+    "20-down",
+    "type"
+   ]
+  ],
+  "cryptic-29033": [
+   [
+    "3-down",
+    "type"
+   ],
+   [
+    "7-across",
+    "type"
+   ]
+  ],
+  "cryptic-29072": [
+   [
+    "14-down",
+    "type"
+   ],
+   [
+    "21-across",
+    "type"
+   ],
+   [
+    "23-across",
+    "type"
+   ]
+  ],
+  "cryptic-29082": [
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "cryptic-29086": [
+   [
+    "14-down",
+    "blocks"
+   ]
+  ],
+  "cryptic-29093": [
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "cryptic-29100": [
+   [
+    "17-across",
+    "type"
+   ]
+  ],
+  "cryptic-29107": [
+   [
+    "24-across",
+    "type"
+   ]
+  ],
+  "cryptic-29109": [
+   [
+    "19-across",
+    "type"
+   ]
+  ],
+  "cryptic-29130": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "cryptic-29137": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "cryptic-29142": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "cryptic-29143": [
+   [
+    "28-down",
+    "type"
+   ]
+  ],
+  "cryptic-29154": [
+   [
+    "19-down",
+    "type"
+   ]
+  ],
+  "cryptic-29161": [
+   [
+    "1-down",
+    "type"
+   ],
+   [
+    "4-down",
+    "type"
+   ],
+   [
+    "12-across",
+    "definition"
+   ]
+  ],
+  "cryptic-29170": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "cryptic-29175": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "cryptic-29179": [
+   [
+    "5-across",
+    "type"
+   ]
+  ],
+  "cryptic-29188": [
+   [
+    "18-across",
+    "type"
+   ]
+  ],
+  "cryptic-29192": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "cryptic-29207": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "cryptic-29208": [
+   [
+    "13-down",
+    "type"
+   ]
+  ],
+  "cryptic-29214": [
+   [
+    "17-across",
+    "type"
+   ]
+  ],
+  "cryptic-29217": [
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "cryptic-29221": [
+   [
+    "20-down",
+    "definition"
+   ],
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "cryptic-29222": [
+   [
+    "15-across",
+    "type"
+   ]
+  ],
+  "cryptic-29230": [
+   [
+    "19-down",
+    "type"
+   ]
+  ],
+  "cryptic-29231": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "cryptic-29246": [
+   [
+    "10-across",
+    "type"
+   ]
+  ],
+  "cryptic-29248": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "cryptic-29255": [
+   [
+    "20-across",
+    "type"
+   ],
+   [
+    "22-across",
+    "type"
+   ]
+  ],
+  "cryptic-29269": [
+   [
+    "27-down",
+    "definition"
+   ]
+  ],
+  "cryptic-29272": [
+   [
+    "24-down",
+    "type"
+   ]
+  ],
+  "cryptic-29282": [
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "cryptic-29316": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "cryptic-29319": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "cryptic-29375": [
+   [
+    "1-across",
+    "definition"
+   ]
+  ],
+  "cryptic-29377": [
+   [
+    "3-down",
+    "definition"
+   ],
+   [
+    "14-across",
+    "blocks"
+   ]
+  ],
+  "cryptic-29381": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "cryptic-29384": [
+   [
+    "15-across",
+    "blocks"
+   ]
+  ],
+  "cryptic-29385": [
+   [
+    "18-across",
+    "definition"
+   ]
+  ],
+  "cryptic-29389": [
+   [
+    "6-down",
+    "definition"
+   ]
+  ],
+  "cryptic-29396": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "cryptic-29399": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "cryptic-29415": [
+   [
+    "15-down",
+    "definition"
+   ],
+   [
+    "15-down",
+    "blocks"
+   ]
+  ],
+  "cryptic-29423": [
+   [
+    "20-down",
+    "definition"
+   ]
+  ],
+  "cryptic-29425": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "cryptic-29427": [
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "cryptic-29441": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "cryptic-29446": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "cryptic-29451": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "cryptic-29460": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "cryptic-29464": [
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "cryptic-29469": [
+   [
+    "23-down",
+    "type"
+   ]
+  ],
+  "cryptic-29472": [
+   [
+    "13-down",
+    "type"
+   ]
+  ],
+  "cryptic-29485": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "cryptic-29493": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "cryptic-29497": [
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "cryptic-29506": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "cryptic-29518": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "cryptic-29519": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "cryptic-29522": [
+   [
+    "29-across",
+    "type"
+   ]
+  ],
+  "cryptic-29524": [
+   [
+    "18-across",
+    "type"
+   ]
+  ],
+  "cryptic-29528": [
+   [
+    "7-across",
+    "type"
+   ]
+  ],
+  "cryptic-29529": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "cryptic-29533": [
+   [
+    "15-down",
+    "type"
+   ]
+  ],
+  "cryptic-29540": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "cryptic-29543": [
+   [
+    "18-across",
+    "type"
+   ]
+  ],
+  "cryptic-29550": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "cryptic-29554": [
+   [
+    "9-down",
+    "type"
+   ]
+  ],
+  "cryptic-29569": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "cryptic-29595": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "cryptic-29604": [
+   [
+    "31-across",
+    "type"
+   ]
+  ],
+  "cryptic-29631": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "cryptic-29637": [
+   [
+    "17-across",
+    "definition"
+   ]
+  ],
+  "cryptic-29639": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "cryptic-29641": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "cryptic-29642": [
+   [
+    "20-down",
+    "type"
+   ]
+  ],
+  "cryptic-29645": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "cryptic-29646": [
+   [
+    "18-across",
+    "type"
+   ]
+  ],
+  "cryptic-29652": [
+   [
+    "24-across",
+    "type"
+   ]
+  ],
+  "cryptic-29653": [
+   [
+    "24-across",
+    "type"
+   ]
+  ],
+  "cryptic-29655": [
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "cryptic-29657": [
+   [
+    "25-across",
+    "definition"
+   ]
+  ],
+  "cryptic-29662": [
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "cryptic-29663": [
+   [
+    "16-across",
+    "type"
+   ]
+  ],
+  "cryptic-29667": [
+   [
+    "1-down",
+    "type"
+   ],
+   [
+    "16-across",
+    "type"
+   ],
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "cryptic-29674": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "cryptic-29675": [
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "cryptic-29686": [
+   [
+    "10-across",
+    "definition"
+   ]
+  ],
+  "cryptic-29708": [
+   [
+    "19-down",
+    "type"
+   ]
+  ],
+  "cryptic-29709": [
+   [
+    "7-down",
+    "type"
+   ],
+   [
+    "8-across",
+    "type"
+   ]
+  ],
+  "cryptic-29711": [
+   [
+    "20-down",
+    "definition"
+   ]
+  ],
+  "cryptic-29715": [
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "cryptic-29721": [
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "cryptic-29743": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "cryptic-29745": [
+   [
+    "3-down",
+    "type"
+   ],
+   [
+    "8-down",
+    "type"
+   ],
+   [
+    "17-across",
+    "type"
+   ],
+   [
+    "21-down",
+    "type"
+   ],
+   [
+    "22-down",
+    "type"
+   ]
+  ],
+  "cryptic-29759": [
+   [
+    "19-down",
+    "type"
+   ]
+  ],
+  "cryptic-29771": [
+   [
+    "13-down",
+    "type"
+   ]
+  ],
+  "cryptic-29790": [
+   [
+    "3-down",
+    "type"
+   ],
+   [
+    "23-across",
+    "type"
+   ]
+  ],
+  "cryptic-29811": [
+   [
+    "15-down",
+    "type"
+   ]
+  ],
+  "cryptic-29825": [
+   [
+    "16-down",
+    "type"
+   ],
+   [
+    "23-down",
+    "type"
+   ]
+  ],
+  "cryptic-29841": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "cryptic-29864": [
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "cryptic-29880": [
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "cryptic-29904": [
+   [
+    "13-down",
+    "definition"
+   ]
+  ],
+  "cryptic-29905": [
+   [
+    "4-down",
+    "blocks"
+   ]
+  ],
+  "cryptic-29906": [
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "cryptic-29908": [
+   [
+    "11-across",
+    "definition"
+   ]
+  ],
+  "cryptic-29912": [
+   [
+    "20-across",
+    "type"
+   ]
+  ],
+  "cryptic-29916": [
+   [
+    "11-down",
+    "type"
+   ]
+  ],
+  "cryptic-29925": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "cryptic-29926": [
+   [
+    "28-across",
+    "type"
+   ]
+  ],
+  "cryptic-29929": [
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "cryptic-29931": [
+   [
+    "7-down",
+    "type"
+   ],
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "cryptic-29944": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "cryptic-29945": [
+   [
+    "13-across",
+    "type"
+   ],
+   [
+    "15-down",
+    "type"
+   ]
+  ],
+  "cryptic-29948": [
+   [
+    "7-down",
+    "definition"
+   ]
+  ],
+  "cryptic-29952": [
+   [
+    "18-across",
+    "type"
+   ]
+  ],
+  "cryptic-29958": [
+   [
+    "18-across",
+    "definition"
+   ]
+  ],
+  "cryptic-29966": [
+   [
+    "10-across",
+    "type"
+   ]
+  ],
+  "cryptic-29968": [
+   [
+    "30-across",
+    "type"
+   ]
+  ],
+  "cryptic-29972": [
+   [
+    "17-across",
+    "type"
+   ]
+  ],
+  "cryptic-29974": [
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "cryptic-29979": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "cryptic-29985": [
+   [
+    "2-down",
+    "blocks"
+   ]
+  ],
+  "cryptic-29991": [
+   [
+    "10-down",
+    "type"
+   ]
+  ],
+  "cryptic-29993": [
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "cryptic-30014": [
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "cryptic-30021": [
+   [
+    "1-across",
+    "blocks"
+   ]
+  ],
+  "cryptic-30032": [
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "cryptic-30034": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "cryptic-30039": [
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "cryptic-30043": [
+   [
+    "20-down",
+    "blocks"
+   ]
+  ],
+  "cryptic-30045": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "cryptic-30049": [
+   [
+    "5-across",
+    "type"
+   ]
+  ],
+  "cryptic-30054": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "cryptic-30058": [
+   [
+    "18-across",
+    "definition"
+   ]
+  ],
+  "cryptic-30060": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "cryptic-30061": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "cryptic-30062": [
+   [
+    "18-down",
+    "type"
+   ]
+  ],
+  "cryptic-30072": [
+   [
+    "14-down",
+    "type"
+   ]
+  ],
+  "cryptic-30073": [
+   [
+    "22-down",
+    "type"
+   ]
+  ],
+  "cryptic-30079": [
+   [
+    "23-down",
+    "type"
+   ]
+  ],
+  "cryptic-30088": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "cryptic-30105": [
+   [
+    "5-across",
+    "definition"
+   ],
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "cryptic-30106": [
+   [
+    "3-down",
+    "type"
+   ],
+   [
+    "22-across",
+    "definition"
+   ]
+  ],
+  "cryptic-30119": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "cyclops-434": [
+   [
+    "4-down",
+    "type"
+   ],
+   [
+    "17-across",
+    "type"
+   ]
+  ],
+  "cyclops-438": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "cyclops-440": [
+   [
+    "18-across",
+    "type"
+   ]
+  ],
+  "cyclops-441": [
+   [
+    "1-across",
+    "type"
+   ],
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "cyclops-442": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "cyclops-443": [
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "cyclops-444": [
+   [
+    "23-down",
+    "type"
+   ]
+  ],
+  "cyclops-451": [
+   [
+    "27-across",
+    "blocks"
+   ]
+  ],
+  "cyclops-460": [
+   [
+    "8-across",
+    "type"
+   ]
+  ],
+  "cyclops-468": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "cyclops-470": [
+   [
+    "29-across",
+    "type"
+   ]
+  ],
+  "cyclops-472": [
+   [
+    "24-down",
+    "type"
+   ]
+  ],
+  "cyclops-474": [
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "cyclops-476": [
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "cyclops-480": [
+   [
+    "22-down",
+    "type"
+   ]
+  ],
+  "cyclops-481": [
+   [
+    "18-down",
+    "type"
+   ]
+  ],
+  "cyclops-485": [
+   [
+    "11-across",
+    "definition"
+   ],
+   [
+    "17-across",
+    "type"
+   ],
+   [
+    "53-across",
+    "type"
+   ]
+  ],
+  "cyclops-488": [
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "cyclops-493": [
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "cyclops-496": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "cyclops-497": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "cyclops-499": [
+   [
+    "15-across",
+    "type"
+   ]
+  ],
+  "cyclops-500": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "cyclops-501": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "cyclops-503": [
+   [
+    "15-across",
+    "type"
+   ],
+   [
+    "29-across",
+    "type"
+   ]
+  ],
+  "cyclops-506": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "cyclops-509": [
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "cyclops-513": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "cyclops-521": [
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "cyclops-528": [
+   [
+    "24-down",
+    "type"
+   ]
+  ],
+  "cyclops-529": [
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "cyclops-532": [
+   [
+    "23-down",
+    "type"
+   ]
+  ],
+  "cyclops-537": [
+   [
+    "77-across",
+    "type"
+   ]
+  ],
+  "cyclops-541": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "cyclops-544": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "cyclops-551": [
+   [
+    "10-across",
+    "type"
+   ]
+  ],
+  "cyclops-555": [
+   [
+    "10-across",
+    "type"
+   ],
+   [
+    "19-across",
+    "type"
+   ]
+  ],
+  "cyclops-558": [
+   [
+    "9-down",
+    "type"
+   ]
+  ],
+  "cyclops-564": [
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "cyclops-565": [
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "cyclops-570": [
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "cyclops-577": [
+   [
+    "7-across",
+    "type"
+   ]
+  ],
+  "cyclops-580": [
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "cyclops-582": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "cyclops-584": [
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "cyclops-585": [
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "cyclops-587": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "cyclops-588": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "cyclops-590": [
+   [
+    "1-across",
+    "definition"
+   ]
+  ],
+  "cyclops-592": [
+   [
+    "18-across",
+    "type"
+   ]
+  ],
+  "cyclops-597": [
+   [
+    "10-down",
+    "type"
+   ]
+  ],
+  "cyclops-601": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "cyclops-606": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "cyclops-614": [
+   [
+    "16-across",
+    "type"
+   ]
+  ],
+  "cyclops-616": [
+   [
+    "19-down",
+    "type"
+   ]
+  ],
+  "cyclops-617": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "cyclops-618": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "cyclops-628": [
+   [
+    "14-across",
+    "type"
+   ],
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "cyclops-640": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "cyclops-641": [
+   [
+    "26-down",
+    "definition"
+   ]
+  ],
+  "cyclops-650": [
+   [
+    "3-down",
+    "type"
+   ],
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "cyclops-651": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "cyclops-657": [
+   [
+    "18-down",
+    "type"
+   ]
+  ],
+  "cyclops-659": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "cyclops-667": [
+   [
+    "8-down",
+    "type"
+   ],
+   [
+    "29-across",
+    "type"
+   ],
+   [
+    "30-down",
+    "type"
+   ],
+   [
+    "32-across",
+    "type"
+   ],
+   [
+    "36-down",
+    "type"
+   ],
+   [
+    "40-down",
+    "type"
+   ],
+   [
+    "56-across",
+    "type"
+   ],
+   [
+    "58-down",
+    "type"
+   ],
+   [
+    "65-down",
+    "type"
+   ],
+   [
+    "68-across",
+    "type"
+   ],
+   [
+    "73-across",
+    "type"
+   ]
+  ],
+  "cyclops-668": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "cyclops-670": [
+   [
+    "18-across",
+    "type"
+   ]
+  ],
+  "cyclops-672": [
+   [
+    "20-down",
+    "type"
+   ]
+  ],
+  "cyclops-682": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "cyclops-695": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "cyclops-697": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "cyclops-700": [
+   [
+    "1-down",
+    "type"
+   ],
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "cyclops-702": [
+   [
+    "9-down",
+    "type"
+   ]
+  ],
+  "cyclops-712": [
+   [
+    "20-down",
+    "type"
+   ]
+  ],
+  "cyclops-714": [
+   [
+    "20-across",
+    "type"
+   ]
+  ],
+  "cyclops-716": [
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "cyclops-719": [
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "cyclops-721": [
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "cyclops-729": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "cyclops-739": [
+   [
+    "24-down",
+    "type"
+   ]
+  ],
+  "cyclops-743": [
+   [
+    "41-across",
+    "type"
+   ],
+   [
+    "6-down",
+    "type"
+   ],
+   [
+    "63-down",
+    "type"
+   ]
+  ],
+  "cyclops-744": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "cyclops-745": [
+   [
+    "25-down",
+    "type"
+   ]
+  ],
+  "cyclops-762": [
+   [
+    "28-across",
+    "type"
+   ]
+  ],
+  "cyclops-768": [
+   [
+    "66-across",
+    "type"
+   ]
+  ],
+  "cyclops-770": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "cyclops-772": [
+   [
+    "18-across",
+    "type"
+   ]
+  ],
+  "cyclops-776": [
+   [
+    "6-down",
+    "type"
+   ],
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "cyclops-778": [
+   [
+    "1-down",
+    "blocks"
+   ]
+  ],
+  "cyclops-780": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "cyclops-783": [
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "cyclops-793": [
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "cyclops-794": [
+   [
+    "45-across",
+    "definition"
+   ]
+  ],
+  "cyclops-795": [
+   [
+    "13-across",
+    "type"
+   ],
+   [
+    "28-across",
+    "type"
+   ]
+  ],
+  "cyclops-797": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "cyclops-802": [
+   [
+    "15-down",
+    "type"
+   ]
+  ],
+  "cyclops-803": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "cyclops-805": [
+   [
+    "28-across",
+    "type"
+   ]
+  ],
+  "cyclops-806": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "cyclops-807": [
+   [
+    "7-across",
+    "type"
+   ]
+  ],
+  "cyclops-809": [
+   [
+    "23-across",
+    "definition"
+   ]
+  ],
+  "cyclops-811": [
+   [
+    "7-down",
+    "type"
+   ],
+   [
+    "28-across",
+    "type"
+   ]
+  ],
+  "cyclops-812": [
+   [
+    "24-across",
+    "type"
+   ]
+  ],
+  "cyclops-820": [
+   [
+    "24-across",
+    "type"
+   ]
+  ],
+  "cyclops-824": [
+   [
+    "19-down",
+    "type"
+   ]
+  ],
+  "cyclops-825": [
+   [
+    "10-across",
+    "type"
+   ]
+  ],
+  "cyclops-828": [
+   [
+    "31-across",
+    "type"
+   ]
+  ],
+  "cyclops-838": [
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "everyman-1": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "everyman-3311": [
+   [
+    "12-across",
+    "type"
+   ],
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "everyman-3313": [
+   [
+    "10-across",
+    "type"
+   ]
+  ],
+  "everyman-3325": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "everyman-3327": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "everyman-3329": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "everyman-3333": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "everyman-3337": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "everyman-3343": [
+   [
+    "1-down",
+    "type"
+   ],
+   [
+    "14-down",
+    "type"
+   ]
+  ],
+  "everyman-3347": [
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "everyman-3348": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "everyman-3353": [
+   [
+    "23-across",
+    "type"
+   ]
+  ],
+  "everyman-3355": [
+   [
+    "20-across",
+    "type"
+   ]
+  ],
+  "everyman-3363": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "everyman-3370": [
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "everyman-3371": [
+   [
+    "15-across",
+    "type"
+   ]
+  ],
+  "everyman-3384": [
+   [
+    "6-down",
+    "type"
+   ],
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "everyman-3386": [
+   [
+    "10-down",
+    "type"
+   ]
+  ],
+  "everyman-3388": [
+   [
+    "13-down",
+    "type"
+   ]
+  ],
+  "everyman-3391": [
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "everyman-3399": [
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "everyman-3400": [
+   [
+    "25-across",
+    "definition"
+   ]
+  ],
+  "everyman-3402": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "everyman-3414": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "everyman-3459": [
+   [
+    "13-across",
+    "type"
+   ],
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "everyman-3470": [
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "everyman-3496": [
+   [
+    "15-across",
+    "type"
+   ]
+  ],
+  "everyman-3503": [
+   [
+    "1-down",
+    "definition"
+   ],
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "everyman-3507": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "everyman-3536": [
+   [
+    "18-across",
+    "type"
+   ]
+  ],
+  "everyman-3547": [
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "everyman-3551": [
+   [
+    "22-down",
+    "type"
+   ]
+  ],
+  "everyman-3554": [
+   [
+    "1-across",
+    "type"
+   ],
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "everyman-3555": [
+   [
+    "19-across",
+    "type"
+   ]
+  ],
+  "everyman-3559": [
+   [
+    "20-down",
+    "definition"
+   ]
+  ],
+  "everyman-3567": [
+   [
+    "14-across",
+    "type"
+   ],
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "everyman-3624": [
+   [
+    "18-across",
+    "type"
+   ]
+  ],
+  "everyman-3655": [
+   [
+    "22-across",
+    "type"
+   ]
+  ],
+  "everyman-3709": [
+   [
+    "26-across",
+    "definition"
+   ]
+  ],
+  "everyman-3714": [
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "everyman-3730": [
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "everyman-3748": [
+   [
+    "10-across",
+    "type"
+   ]
+  ],
+  "everyman-3760": [
+   [
+    "18-across",
+    "definition"
+   ]
+  ],
+  "everyman-3771": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "everyman-3772": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "everyman-3773": [
+   [
+    "18-across",
+    "type"
+   ]
+  ],
+  "everyman-3784": [
+   [
+    "14-down",
+    "type"
+   ]
+  ],
+  "everyman-3794": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "everyman-3795": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "everyman-3804": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "everyman-3807": [
+   [
+    "26-down",
+    "type"
+   ]
+  ],
+  "everyman-3814": [
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "everyman-3815": [
+   [
+    "20-down",
+    "type"
+   ]
+  ],
+  "everyman-3821": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "everyman-3823": [
+   [
+    "15-across",
+    "type"
+   ]
+  ],
+  "everyman-3825": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "everyman-3832": [
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "everyman-3835": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "everyman-3851": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "everyman-3854": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "everyman-3862": [
+   [
+    "15-across",
+    "type"
+   ]
+  ],
+  "everyman-3868": [
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "everyman-3888": [
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "everyman-3908": [
+   [
+    "20-across",
+    "type"
+   ]
+  ],
+  "everyman-3914": [
+   [
+    "6-across",
+    "type"
+   ]
+  ],
+  "everyman-3944": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "everyman-3953": [
+   [
+    "19-across",
+    "type"
+   ]
+  ],
+  "everyman-3954": [
+   [
+    "16-down",
+    "definition"
+   ]
+  ],
+  "everyman-3955": [
+   [
+    "6-across",
+    "definition"
+   ]
+  ],
+  "everyman-3980": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "everyman-3992": [
+   [
+    "22-down",
+    "type"
+   ]
+  ],
+  "everyman-4001": [
+   [
+    "17-across",
+    "type"
+   ]
+  ],
+  "everyman-4005": [
+   [
+    "15-across",
+    "type"
+   ]
+  ],
+  "everyman-4031": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "everyman-4038": [
+   [
+    "3-down",
+    "definition"
+   ]
+  ],
+  "everyman-4069": [
+   [
+    "22-across",
+    "type"
+   ]
+  ],
+  "everyman-4071": [
+   [
+    "14-down",
+    "blocks"
+   ]
+  ],
+  "everyman-4072": [
+   [
+    "13-down",
+    "definition"
+   ]
+  ],
+  "everyman-4083": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "everyman-4084": [
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "everyman-4089": [
+   [
+    "11-down",
+    "type"
+   ]
+  ],
+  "everyman-4094": [
+   [
+    "5-down",
+    "type"
+   ],
+   [
+    "22-across",
+    "type"
+   ]
+  ],
+  "everyman-4096": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "everyman-4097": [
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "everyman-4098": [
+   [
+    "1-across",
+    "definition"
+   ]
+  ],
+  "everyman-4106": [
+   [
+    "12-down",
+    "definition"
+   ]
+  ],
+  "everyman-4108": [
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "everyman-4109": [
+   [
+    "5-down",
+    "definition"
+   ]
+  ],
+  "everyman-4114": [
+   [
+    "19-across",
+    "type"
+   ]
+  ],
+  "everyman-4117": [
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "everyman-4119": [
+   [
+    "14-down",
+    "type"
+   ]
+  ],
+  "everyman-4124": [
+   [
+    "26-across",
+    "definition"
+   ]
+  ],
+  "everyman-4132": [
+   [
+    "12-down",
+    "type"
+   ]
+  ],
+  "everyman-4140": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "everyman-4143": [
+   [
+    "18-down",
+    "type"
+   ]
+  ],
+  "everyman-4152": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "everyman-4155": [
+   [
+    "10-down",
+    "blocks"
+   ],
+   [
+    "22-across",
+    "blocks"
+   ]
+  ],
+  "everyman-4159": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "everyman-4162": [
+   [
+    "18-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-13980": [
+   [
+    "22-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-14507": [
+   [
+    "5-down",
+    "type"
+   ],
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-15657": [
+   [
+    "18-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-15827": [
+   [
+    "19-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-15942": [
+   [
+    "15-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-16336": [
+   [
+    "25-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-16460": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-16545": [
+   [
+    "20-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-16622": [
+   [
+    "18-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-16695": [
+   [
+    "23-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-16825": [
+   [
+    "16-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-16927": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-17260": [
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-17314": [
+   [
+    "7-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-17618": [
+   [
+    "24-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-17692": [
+   [
+    "10-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-17784": [
+   [
+    "4-down",
+    "type"
+   ],
+   [
+    "16-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-17786": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-17796": [
+   [
+    "5-down",
+    "type"
+   ],
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-17797": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-17798": [
+   [
+    "10-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-17804": [
+   [
+    "13-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-17808": [
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-17816": [
+   [
+    "23-down",
+    "blocks"
+   ],
+   [
+    "30-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-17820": [
+   [
+    "9-down",
+    "type"
+   ],
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-17821": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-17822": [
+   [
+    "6-across",
+    "type"
+   ],
+   [
+    "8-down",
+    "type"
+   ],
+   [
+    "24-down",
+    "type"
+   ],
+   [
+    "26-across",
+    "type"
+   ],
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-17831": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-17833": [
+   [
+    "22-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-17846": [
+   [
+    "27-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-17847": [
+   [
+    "5-down",
+    "definition"
+   ]
+  ],
+  "ftcryptic-17848": [
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-17857": [
+   [
+    "14-across",
+    "type"
+   ],
+   [
+    "24-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-17866": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-17871": [
+   [
+    "16-across",
+    "type"
+   ],
+   [
+    "24-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-17874": [
+   [
+    "26-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-17886": [
+   [
+    "25-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-17901": [
+   [
+    "20-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-17904": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-17908": [
+   [
+    "10-down",
+    "definition"
+   ]
+  ],
+  "ftcryptic-17910": [
+   [
+    "27-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-17919": [
+   [
+    "23-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-17921": [
+   [
+    "20-across",
+    "blocks"
+   ]
+  ],
+  "ftcryptic-17922": [
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-17923": [
+   [
+    "22-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-17925": [
+   [
+    "30-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-17927": [
+   [
+    "28-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-17930": [
+   [
+    "6-down",
+    "definition"
+   ],
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-17944": [
+   [
+    "23-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-17956": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-17957": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-17966": [
+   [
+    "20-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-17967": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-17971": [
+   [
+    "22-down",
+    "definition"
+   ],
+   [
+    "28-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-17977": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-17978": [
+   [
+    "14-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-17980": [
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-17982": [
+   [
+    "12-across",
+    "definition"
+   ]
+  ],
+  "ftcryptic-17993": [
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-17994": [
+   [
+    "24-down",
+    "type"
+   ],
+   [
+    "25-across",
+    "definition"
+   ]
+  ],
+  "ftcryptic-17995": [
+   [
+    "22-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18000": [
+   [
+    "9-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18001": [
+   [
+    "28-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18011": [
+   [
+    "24-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18022": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18027": [
+   [
+    "6-down",
+    "type"
+   ],
+   [
+    "9-down",
+    "type"
+   ],
+   [
+    "26-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18037": [
+   [
+    "16-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18041": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18063": [
+   [
+    "4-across",
+    "type"
+   ],
+   [
+    "13-across",
+    "type"
+   ],
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18064": [
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18071": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18079": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18080": [
+   [
+    "14-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18083": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18086": [
+   [
+    "6-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18092": [
+   [
+    "31-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18098": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18106": [
+   [
+    "18-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18114": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18116": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18121": [
+   [
+    "23-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18122": [
+   [
+    "1-down",
+    "type"
+   ],
+   [
+    "19-across",
+    "definition"
+   ]
+  ],
+  "ftcryptic-18126": [
+   [
+    "23-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18128": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18136": [
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18137": [
+   [
+    "15-down",
+    "definition"
+   ]
+  ],
+  "ftcryptic-18138": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18143": [
+   [
+    "4-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18157": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18159": [
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18166": [
+   [
+    "22-across",
+    "type"
+   ],
+   [
+    "23-down",
+    "definition"
+   ]
+  ],
+  "ftcryptic-18175": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18177": [
+   [
+    "15-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18179": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18189": [
+   [
+    "2-down",
+    "type"
+   ],
+   [
+    "18-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18195": [
+   [
+    "28-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18198": [
+   [
+    "14-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18202": [
+   [
+    "8-down",
+    "definition"
+   ]
+  ],
+  "ftcryptic-18204": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18209": [
+   [
+    "23-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18221": [
+   [
+    "23-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18227": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18234": [
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18243": [
+   [
+    "23-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18250": [
+   [
+    "7-down",
+    "type"
+   ],
+   [
+    "12-across",
+    "type"
+   ],
+   [
+    "22-across",
+    "type"
+   ],
+   [
+    "23-across",
+    "type"
+   ],
+   [
+    "26-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18255": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18279": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18284": [
+   [
+    "2-down",
+    "type"
+   ],
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18291": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18293": [
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18296": [
+   [
+    "11-across",
+    "definition"
+   ],
+   [
+    "14-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18299": [
+   [
+    "20-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18301": [
+   [
+    "29-across",
+    "blocks"
+   ]
+  ],
+  "ftcryptic-18311": [
+   [
+    "6-down",
+    "type"
+   ],
+   [
+    "22-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18321": [
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18323": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18324": [
+   [
+    "2-down",
+    "definition"
+   ]
+  ],
+  "ftcryptic-18327": [
+   [
+    "2-down",
+    "type"
+   ],
+   [
+    "18-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18329": [
+   [
+    "1-down",
+    "type"
+   ],
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18333": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18342": [
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18343": [
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18346": [
+   [
+    "4-down",
+    "type"
+   ],
+   [
+    "24-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18351": [
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18353": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18360": [
+   [
+    "15-across",
+    "definition"
+   ]
+  ],
+  "ftcryptic-18362": [
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18376": [
+   [
+    "19-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18381": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18384": [
+   [
+    "17-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18386": [
+   [
+    "24-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18390": [
+   [
+    "22-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18392": [
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18398": [
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18400": [
+   [
+    "13-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18404": [
+   [
+    "9-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18405": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18413": [
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18414": [
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18417": [
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18429": [
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18450": [
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18451": [
+   [
+    "11-across",
+    "definition"
+   ]
+  ],
+  "ftcryptic-18452": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18453": [
+   [
+    "17-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18458": [
+   [
+    "10-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18461": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18463": [
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18466": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18477": [
+   [
+    "8-down",
+    "type"
+   ],
+   [
+    "28-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18486": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18489": [
+   [
+    "23-across",
+    "type"
+   ]
+  ],
+  "ftcryptic-18491": [
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "ftcryptic-18500": [
+   [
+    "14-down",
+    "type"
+   ]
+  ],
+  "genius-154": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "genius-177": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "genius-243": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "genius-272": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "independent-10033": [
+   [
+    "26-across",
+    "blocks"
+   ]
+  ],
+  "independent-10098": [
+   [
+    "19-across",
+    "type"
+   ]
+  ],
+  "independent-10110": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "independent-10138": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "independent-10162": [
+   [
+    "3-down",
+    "definition"
+   ],
+   [
+    "15-down",
+    "definition"
+   ]
+  ],
+  "independent-10198": [
+   [
+    "22-down",
+    "type"
+   ]
+  ],
+  "independent-10297": [
+   [
+    "15-down",
+    "type"
+   ]
+  ],
+  "independent-10425": [
+   [
+    "24-down",
+    "type"
+   ]
+  ],
+  "independent-10430": [
+   [
+    "19-across",
+    "definition"
+   ]
+  ],
+  "independent-10435": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "independent-10529": [
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "independent-10553": [
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "independent-10641": [
+   [
+    "8-across",
+    "type"
+   ]
+  ],
+  "independent-10722": [
+   [
+    "10-across",
+    "type"
+   ]
+  ],
+  "independent-10978": [
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "independent-11109": [
+   [
+    "12-across",
+    "type"
+   ],
+   [
+    "28-across",
+    "type"
+   ]
+  ],
+  "independent-11119": [
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "independent-11162": [
+   [
+    "2-down",
+    "type"
+   ],
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "independent-11187": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "independent-11191": [
+   [
+    "14-across",
+    "blocks"
+   ]
+  ],
+  "independent-11201": [
+   [
+    "21-across",
+    "blocks"
+   ]
+  ],
+  "independent-11252": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "independent-11273": [
+   [
+    "9-across",
+    "blocks"
+   ]
+  ],
+  "independent-11391": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "independent-11448": [
+   [
+    "8-down",
+    "type"
+   ],
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "independent-11461": [
+   [
+    "22-across",
+    "type"
+   ]
+  ],
+  "independent-11497": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "independent-11499": [
+   [
+    "3-across",
+    "type"
+   ],
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "independent-11556": [
+   [
+    "20-across",
+    "type"
+   ]
+  ],
+  "independent-11561": [
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "independent-11566": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "independent-11571": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "independent-11572": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "independent-11575": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "independent-11580": [
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "independent-11582": [
+   [
+    "22-down",
+    "type"
+   ]
+  ],
+  "independent-11585": [
+   [
+    "14-across",
+    "definition"
+   ]
+  ],
+  "independent-11599": [
+   [
+    "14-across",
+    "definition"
+   ]
+  ],
+  "independent-11602": [
+   [
+    "20-across",
+    "type"
+   ]
+  ],
+  "independent-11606": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "independent-11607": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "independent-11609": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "independent-11617": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "independent-11618": [
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "independent-11638": [
+   [
+    "30-across",
+    "type"
+   ]
+  ],
+  "independent-11665": [
+   [
+    "27-across",
+    "definition"
+   ]
+  ],
+  "independent-11666": [
+   [
+    "10-across",
+    "type"
+   ],
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "independent-11669": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "independent-11672": [
+   [
+    "15-across",
+    "blocks"
+   ]
+  ],
+  "independent-11681": [
+   [
+    "16-across",
+    "type"
+   ]
+  ],
+  "independent-11689": [
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "independent-11693": [
+   [
+    "20-across",
+    "type"
+   ]
+  ],
+  "independent-11700": [
+   [
+    "10-across",
+    "type"
+   ]
+  ],
+  "independent-11717": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "independent-11719": [
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "independent-11727": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "independent-11733": [
+   [
+    "2-down",
+    "type"
+   ],
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "independent-11737": [
+   [
+    "22-down",
+    "type"
+   ]
+  ],
+  "independent-11741": [
+   [
+    "6-across",
+    "type"
+   ]
+  ],
+  "independent-11753": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "independent-11757": [
+   [
+    "18-across",
+    "definition"
+   ]
+  ],
+  "independent-11763": [
+   [
+    "24-down",
+    "type"
+   ]
+  ],
+  "independent-11766": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "independent-11783": [
+   [
+    "16-across",
+    "type"
+   ]
+  ],
+  "independent-11787": [
+   [
+    "7-across",
+    "type"
+   ]
+  ],
+  "independent-11792": [
+   [
+    "3-down",
+    "definition"
+   ],
+   [
+    "4-down",
+    "definition"
+   ],
+   [
+    "8-down",
+    "definition"
+   ],
+   [
+    "9-across",
+    "definition"
+   ],
+   [
+    "10-across",
+    "definition"
+   ],
+   [
+    "12-across",
+    "definition"
+   ],
+   [
+    "13-down",
+    "definition"
+   ],
+   [
+    "18-across",
+    "definition"
+   ],
+   [
+    "23-down",
+    "definition"
+   ],
+   [
+    "24-down",
+    "definition"
+   ],
+   [
+    "26-across",
+    "definition"
+   ],
+   [
+    "26-down",
+    "definition"
+   ],
+   [
+    "29-down",
+    "definition"
+   ],
+   [
+    "31-across",
+    "definition"
+   ]
+  ],
+  "independent-11794": [
+   [
+    "22-down",
+    "type"
+   ]
+  ],
+  "independent-11801": [
+   [
+    "22-down",
+    "definition"
+   ]
+  ],
+  "independent-11805": [
+   [
+    "22-across",
+    "type"
+   ]
+  ],
+  "independent-11820": [
+   [
+    "15-across",
+    "type"
+   ],
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "independent-11826": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "independent-11829": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "independent-11831": [
+   [
+    "31-across",
+    "type"
+   ]
+  ],
+  "independent-11836": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "independent-11837": [
+   [
+    "16-across",
+    "type"
+   ]
+  ],
+  "independent-11846": [
+   [
+    "12-across",
+    "blocks"
+   ]
+  ],
+  "independent-11868": [
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "independent-11877": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "independent-11897": [
+   [
+    "3-down",
+    "type"
+   ],
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "independent-11903": [
+   [
+    "27-down",
+    "type"
+   ]
+  ],
+  "independent-11906": [
+   [
+    "15-across",
+    "type"
+   ],
+   [
+    "23-down",
+    "type"
+   ],
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "independent-11908": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "independent-11929": [
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "independent-11942": [
+   [
+    "21-across",
+    "blocks"
+   ]
+  ],
+  "independent-11944": [
+   [
+    "16-across",
+    "type"
+   ]
+  ],
+  "independent-11997": [
+   [
+    "8-across",
+    "type"
+   ],
+   [
+    "24-across",
+    "type"
+   ]
+  ],
+  "independent-12001": [
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "independent-12007": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "independent-12019": [
+   [
+    "22-across",
+    "type"
+   ]
+  ],
+  "independent-12027": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "independent-12031": [
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "independent-12035": [
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "independent-12039": [
+   [
+    "18-across",
+    "type"
+   ]
+  ],
+  "independent-12052": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "independent-12059": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "independent-12076": [
+   [
+    "1-across",
+    "type"
+   ],
+   [
+    "6-across",
+    "type"
+   ],
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "independent-12079": [
+   [
+    "17-across",
+    "type"
+   ]
+  ],
+  "independent-12082": [
+   [
+    "9-across",
+    "definition"
+   ]
+  ],
+  "independent-12084": [
+   [
+    "1-down",
+    "definition"
+   ]
+  ],
+  "independent-12088": [
+   [
+    "9-down",
+    "type"
+   ]
+  ],
+  "independent-12089": [
+   [
+    "13-down",
+    "type"
+   ]
+  ],
+  "independent-12094": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "independent-12125": [
+   [
+    "16-across",
+    "type"
+   ]
+  ],
+  "independent-12135": [
+   [
+    "16-across",
+    "type"
+   ]
+  ],
+  "independent-12157": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "independent-12159": [
+   [
+    "14-down",
+    "type"
+   ],
+   [
+    "18-down",
+    "type"
+   ],
+   [
+    "26-across",
+    "definition"
+   ]
+  ],
+  "independent-12161": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "independent-12163": [
+   [
+    "13-down",
+    "type"
+   ]
+  ],
+  "independent-12176": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "independent-12194": [
+   [
+    "9-across",
+    "definition"
+   ]
+  ],
+  "independent-12204": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "independent-12215": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "independent-12219": [
+   [
+    "8-across",
+    "blocks"
+   ]
+  ],
+  "independent-12230": [
+   [
+    "7-down",
+    "type"
+   ],
+   [
+    "13-down",
+    "type"
+   ]
+  ],
+  "independent-12242": [
+   [
+    "24-across",
+    "blocks"
+   ]
+  ],
+  "independent-12269": [
+   [
+    "28-across",
+    "type"
+   ]
+  ],
+  "independent-12272": [
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "independent-12280": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "independent-12283": [
+   [
+    "30-down",
+    "type"
+   ]
+  ],
+  "independent-12295": [
+   [
+    "24-down",
+    "blocks"
+   ]
+  ],
+  "independent-12309": [
+   [
+    "3-down",
+    "definition"
+   ],
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "independent-12315": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "independent-12319": [
+   [
+    "22-down",
+    "definition"
+   ]
+  ],
+  "independent-12321": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "independent-12334": [
+   [
+    "19-down",
+    "type"
+   ]
+  ],
+  "independent-12343": [
+   [
+    "19-across",
+    "type"
+   ]
+  ],
+  "independent-12346": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "independent-12354": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "independent-12355": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "independent-12359": [
+   [
+    "4-down",
+    "definition"
+   ]
+  ],
+  "independent-12390": [
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "independent-12397": [
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "independent-12405": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "independent-12414": [
+   [
+    "3-across",
+    "type"
+   ]
+  ],
+  "independent-12423": [
+   [
+    "16-across",
+    "type"
+   ]
+  ],
+  "independent-12424": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "independent-12442": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "independent-12445": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "independent-12447": [
+   [
+    "20-down",
+    "definition"
+   ]
+  ],
+  "independent-12449": [
+   [
+    "15-down",
+    "type"
+   ]
+  ],
+  "independent-7596": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "independent-7660": [
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "independent-7668": [
+   [
+    "10-across",
+    "type"
+   ]
+  ],
+  "independent-7848": [
+   [
+    "8-down",
+    "blocks"
+   ]
+  ],
+  "independent-8811": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "independent-9037": [
+   [
+    "18-across",
+    "type"
+   ]
+  ],
+  "independent-9047": [
+   [
+    "14-down",
+    "definition"
+   ]
+  ],
+  "independent-9306": [
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "independent-9392": [
+   [
+    "30-across",
+    "blocks"
+   ]
+  ],
+  "independent-9722": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "independent-9732": [
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "independent-9740": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "independent-9759": [
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "independent-9871": [
+   [
+    "22-across",
+    "type"
+   ]
+  ],
+  "independent-9886": [
+   [
+    "6-across",
+    "type"
+   ]
+  ],
+  "independent-9891": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "independent-9959": [
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "indysunday-1150": [
+   [
+    "23-down",
+    "blocks"
+   ]
+  ],
+  "indysunday-1166": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "indysunday-1182": [
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "indysunday-1191": [
+   [
+    "25-down",
+    "type"
+   ]
+  ],
+  "indysunday-1193": [
+   [
+    "24-down",
+    "type"
+   ]
+  ],
+  "indysunday-1195": [
+   [
+    "25-down",
+    "type"
+   ]
+  ],
+  "indysunday-1209": [
+   [
+    "15-across",
+    "type"
+   ]
+  ],
+  "indysunday-1225": [
+   [
+    "22-across",
+    "definition"
+   ]
+  ],
+  "indysunday-1233": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "indysunday-1244": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "indysunday-1246": [
+   [
+    "13-across",
+    "type"
+   ],
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "indysunday-1258": [
+   [
+    "1-down",
+    "type"
+   ],
+   [
+    "14-down",
+    "type"
+   ]
+  ],
+  "indysunday-1265": [
+   [
+    "1-down",
+    "type"
+   ],
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "indysunday-1284": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "indysunday-1285": [
+   [
+    "19-down",
+    "type"
+   ]
+  ],
+  "indysunday-1287": [
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "indysunday-1288": [
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "indysunday-1306": [
+   [
+    "14-down",
+    "type"
+   ]
+  ],
+  "indysunday-1314": [
+   [
+    "29-across",
+    "type"
+   ]
+  ],
+  "indysunday-1319": [
+   [
+    "9-down",
+    "type"
+   ]
+  ],
+  "indysunday-1322": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "indysunday-1344": [
+   [
+    "20-down",
+    "definition"
+   ],
+   [
+    "27-across",
+    "blocks"
+   ]
+  ],
+  "indysunday-1370": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "indysunday-1371": [
+   [
+    "23-down",
+    "type"
+   ]
+  ],
+  "indysunday-1377": [
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "indysunday-1378": [
+   [
+    "10-down",
+    "type"
+   ]
+  ],
+  "indysunday-1384": [
+   [
+    "19-down",
+    "type"
+   ]
+  ],
+  "indysunday-1394": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "indysunday-1408": [
+   [
+    "24-down",
+    "type"
+   ]
+  ],
+  "indysunday-1412": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "indysunday-1413": [
+   [
+    "25-down",
+    "type"
+   ],
+   [
+    "27-across",
+    "definition"
+   ]
+  ],
+  "indysunday-1415": [
+   [
+    "9-down",
+    "type"
+   ],
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "indysunday-1417": [
+   [
+    "25-across",
+    "definition"
+   ]
+  ],
+  "indysunday-1436": [
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "indysunday-1437": [
+   [
+    "15-across",
+    "definition"
+   ]
+  ],
+  "indysunday-1439": [
+   [
+    "22-across",
+    "blocks"
+   ]
+  ],
+  "indysunday-1441": [
+   [
+    "16-across",
+    "type"
+   ],
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "indysunday-1442": [
+   [
+    "4-down",
+    "definition"
+   ]
+  ],
+  "indysunday-1454": [
+   [
+    "22-down",
+    "definition"
+   ]
+  ],
+  "indysunday-1470": [
+   [
+    "17-across",
+    "type"
+   ]
+  ],
+  "indysunday-1479": [
+   [
+    "9-across",
+    "definition"
+   ]
+  ],
+  "indysunday-1481": [
+   [
+    "20-down",
+    "type"
+   ]
+  ],
+  "indysunday-1483": [
+   [
+    "13-across",
+    "blocks"
+   ]
+  ],
+  "indysunday-1486": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "indysunday-1501": [
+   [
+    "4-across",
+    "type"
+   ]
+  ],
+  "indysunday-1504": [
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "indysunday-1507": [
+   [
+    "8-down",
+    "definition"
+   ]
+  ],
+  "indysunday-1508": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "indysunday-1522": [
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "indysunday-1525": [
+   [
+    "4-down",
+    "definition"
+   ]
+  ],
+  "indysunday-1527": [
+   [
+    "9-down",
+    "type"
+   ]
+  ],
+  "indysunday-1530": [
+   [
+    "22-down",
+    "definition"
+   ]
+  ],
+  "indysunday-1536": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "indysunday-1551": [
+   [
+    "10-across",
+    "type"
+   ]
+  ],
+  "indysunday-1566": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "indysunday-1574": [
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "indysunday-1615": [
+   [
+    "23-down",
+    "type"
+   ]
+  ],
+  "indysunday-1625": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "indysunday-1631": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "indysunday-1636": [
+   [
+    "25-down",
+    "type"
+   ]
+  ],
+  "indysunday-1639": [
+   [
+    "18-across",
+    "type"
+   ]
+  ],
+  "indysunday-1652": [
+   [
+    "12-down",
+    "type"
+   ]
+  ],
+  "indysunday-1653": [
+   [
+    "9-down",
+    "type"
+   ]
+  ],
+  "indysunday-1658": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "indysunday-1668": [
+   [
+    "15-across",
+    "type"
+   ]
+  ],
+  "indysunday-1669": [
+   [
+    "9-down",
+    "type"
+   ]
+  ],
+  "indysunday-1679": [
+   [
+    "29-across",
+    "definition"
+   ]
+  ],
+  "indysunday-1689": [
+   [
+    "30-across",
+    "type"
+   ]
+  ],
+  "indysunday-1700": [
+   [
+    "2-down",
+    "type"
+   ],
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "indysunday-1712": [
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "indysunday-1726": [
+   [
+    "30-across",
+    "type"
+   ]
+  ],
+  "indysunday-1727": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "indysunday-1731": [
+   [
+    "14-down",
+    "type"
+   ]
+  ],
+  "indysunday-1740": [
+   [
+    "2-down",
+    "type"
+   ],
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "indysunday-1759": [
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "indysunday-1760": [
+   [
+    "18-down",
+    "type"
+   ]
+  ],
+  "indysunday-1761": [
+   [
+    "16-down",
+    "definition"
+   ]
+  ],
+  "indysunday-1772": [
+   [
+    "16-across",
+    "type"
+   ]
+  ],
+  "indysunday-1782": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "indysunday-1788": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "indysunday-1789": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "indysunday-1791": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "indysunday-1816": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "indysunday-1833": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "indysunday-1848": [
+   [
+    "26-down",
+    "type"
+   ]
+  ],
+  "indysunday-1849": [
+   [
+    "17-across",
+    "type"
+   ]
+  ],
+  "indysunday-1853": [
+   [
+    "18-down",
+    "definition"
+   ]
+  ],
+  "indysunday-1865": [
+   [
+    "10-across",
+    "definition"
+   ]
+  ],
+  "indysunday-1897": [
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "indysunday-1907": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "mephisto-2958": [
+   [
+    "30-across",
+    "definition"
+   ]
+  ],
+  "mephisto-2976": [
+   [
+    "32-across",
+    "type"
+   ]
+  ],
+  "mephisto-2988": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "mephisto-2992": [
+   [
+    "19-across",
+    "type"
+   ]
+  ],
+  "mephisto-3002": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "mephisto-3039": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "mephisto-3041": [
+   [
+    "17-across",
+    "type"
+   ]
+  ],
+  "mephisto-3042": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "mephisto-3069": [
+   [
+    "28-down",
+    "type"
+   ]
+  ],
+  "mephisto-3073": [
+   [
+    "23-down",
+    "type"
+   ]
+  ],
+  "mephisto-3075": [
+   [
+    "4-down",
+    "definition"
+   ],
+   [
+    "19-down",
+    "type"
+   ]
+  ],
+  "mephisto-3080": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "mephisto-3088": [
+   [
+    "28-down",
+    "type"
+   ]
+  ],
+  "mephisto-3090": [
+   [
+    "14-across",
+    "type"
+   ],
+   [
+    "28-across",
+    "type"
+   ]
+  ],
+  "mephisto-3102": [
+   [
+    "30-across",
+    "definition"
+   ]
+  ],
+  "mephisto-3114": [
+   [
+    "6-across",
+    "definition"
+   ],
+   [
+    "28-across",
+    "type"
+   ]
+  ],
+  "mephisto-3115": [
+   [
+    "22-down",
+    "definition"
+   ]
+  ],
+  "mephisto-3127": [
+   [
+    "16-across",
+    "type"
+   ]
+  ],
+  "mephisto-3130": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "mephisto-3140": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "mephisto-3144": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "mephisto-3149": [
+   [
+    "15-across",
+    "type"
+   ]
+  ],
+  "mephisto-3152": [
+   [
+    "12-down",
+    "definition"
+   ]
+  ],
+  "mephisto-3156": [
+   [
+    "20-down",
+    "definition"
+   ]
+  ],
+  "mephisto-3157": [
+   [
+    "20-across",
+    "type"
+   ]
+  ],
+  "mephisto-3160": [
+   [
+    "29-across",
+    "definition"
+   ]
+  ],
+  "mephisto-3163": [
+   [
+    "28-across",
+    "type"
+   ]
+  ],
+  "mephisto-3168": [
+   [
+    "28-across",
+    "type"
+   ]
+  ],
+  "mephisto-3169": [
+   [
+    "1-down",
+    "definition"
+   ]
+  ],
+  "mephisto-3170": [
+   [
+    "9-down",
+    "type"
+   ]
+  ],
+  "mephisto-3184": [
+   [
+    "23-across",
+    "definition"
+   ]
+  ],
+  "mephisto-3191": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "mephisto-3193": [
+   [
+    "23-down",
+    "type"
+   ]
+  ],
+  "mephisto-3194": [
+   [
+    "4-down",
+    "type"
+   ],
+   [
+    "28-across",
+    "type"
+   ]
+  ],
+  "mephisto-3198": [
+   [
+    "9-down",
+    "definition"
+   ]
+  ],
+  "mephisto-3202": [
+   [
+    "36-across",
+    "type"
+   ]
+  ],
+  "mephisto-3205": [
+   [
+    "5-across",
+    "type"
+   ],
+   [
+    "24-across",
+    "definition"
+   ]
+  ],
+  "mephisto-3206": [
+   [
+    "24-across",
+    "type"
+   ]
+  ],
+  "mephisto-3214": [
+   [
+    "27-down",
+    "type"
+   ]
+  ],
+  "mephisto-3229": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "mephisto-3233": [
+   [
+    "28-down",
+    "type"
+   ]
+  ],
+  "mephisto-3234": [
+   [
+    "17-across",
+    "type"
+   ]
+  ],
+  "mephisto-3235": [
+   [
+    "31-across",
+    "type"
+   ]
+  ],
+  "mephisto-3236": [
+   [
+    "18-down",
+    "definition"
+   ]
+  ],
+  "mephisto-3239": [
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "mephisto-3274": [
+   [
+    "22-across",
+    "definition"
+   ]
+  ],
+  "mephisto-3298": [
+   [
+    "31-across",
+    "definition"
+   ]
+  ],
+  "mephisto-3318": [
+   [
+    "18-across",
+    "definition"
+   ]
+  ],
+  "mephisto-3324": [
+   [
+    "34-across",
+    "type"
+   ]
+  ],
+  "mephisto-3326": [
+   [
+    "32-across",
+    "definition"
+   ]
+  ],
+  "mephisto-3331": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "mephisto-3334": [
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "mephisto-3341": [
+   [
+    "24-down",
+    "type"
+   ]
+  ],
+  "mephisto-3350": [
+   [
+    "23-down",
+    "definition"
+   ]
+  ],
+  "mephisto-3354": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "mephisto-3367": [
+   [
+    "1-down",
+    "definition"
+   ],
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "mephisto-3395": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "mephisto-3423": [
+   [
+    "19-down",
+    "type"
+   ]
+  ],
+  "mephisto-3430": [
+   [
+    "32-across",
+    "type"
+   ]
+  ],
+  "mephisto-3432": [
+   [
+    "20-across",
+    "type"
+   ]
+  ],
+  "mephisto-3437": [
+   [
+    "19-across",
+    "blocks"
+   ],
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "mephisto-3442": [
+   [
+    "13-down",
+    "definition"
+   ],
+   [
+    "28-across",
+    "type"
+   ]
+  ],
+  "mephisto-3449": [
+   [
+    "28-across",
+    "definition"
+   ]
+  ],
+  "quiptic-1003": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "quiptic-1006": [
+   [
+    "27-down",
+    "definition"
+   ]
+  ],
+  "quiptic-1012": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "quiptic-1014": [
+   [
+    "15-down",
+    "type"
+   ]
+  ],
+  "quiptic-1017": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "quiptic-1018": [
+   [
+    "5-across",
+    "type"
+   ]
+  ],
+  "quiptic-1044": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "quiptic-1049": [
+   [
+    "29-across",
+    "blocks"
+   ]
+  ],
+  "quiptic-1056": [
+   [
+    "12-down",
+    "type"
+   ]
+  ],
+  "quiptic-1057": [
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "quiptic-1069": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "quiptic-1070": [
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "quiptic-1073": [
+   [
+    "23-across",
+    "type"
+   ]
+  ],
+  "quiptic-1074": [
+   [
+    "5-down",
+    "type"
+   ],
+   [
+    "23-down",
+    "type"
+   ]
+  ],
+  "quiptic-1090": [
+   [
+    "23-down",
+    "type"
+   ]
+  ],
+  "quiptic-1104": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "quiptic-1106": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "quiptic-1107": [
+   [
+    "1-down",
+    "definition"
+   ]
+  ],
+  "quiptic-1120": [
+   [
+    "19-across",
+    "type"
+   ]
+  ],
+  "quiptic-1130": [
+   [
+    "24-across",
+    "type"
+   ]
+  ],
+  "quiptic-1139": [
+   [
+    "20-down",
+    "definition"
+   ]
+  ],
+  "quiptic-1141": [
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "quiptic-1147": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "quiptic-1166": [
+   [
+    "22-down",
+    "type"
+   ]
+  ],
+  "quiptic-1171": [
+   [
+    "2-down",
+    "type"
+   ],
+   [
+    "13-down",
+    "type"
+   ]
+  ],
+  "quiptic-1173": [
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "quiptic-1177": [
+   [
+    "15-down",
+    "type"
+   ]
+  ],
+  "quiptic-1178": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "quiptic-1184": [
+   [
+    "17-across",
+    "type"
+   ]
+  ],
+  "quiptic-1190": [
+   [
+    "10-across",
+    "type"
+   ]
+  ],
+  "quiptic-1200": [
+   [
+    "23-across",
+    "type"
+   ]
+  ],
+  "quiptic-1216": [
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "quiptic-1222": [
+   [
+    "18-across",
+    "type"
+   ]
+  ],
+  "quiptic-1228": [
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "quiptic-1248": [
+   [
+    "18-across",
+    "type"
+   ]
+  ],
+  "quiptic-1249": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "quiptic-1261": [
+   [
+    "10-down",
+    "type"
+   ]
+  ],
+  "quiptic-1279": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "quiptic-1285": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "quiptic-1292": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "quiptic-1302": [
+   [
+    "10-across",
+    "type"
+   ],
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "quiptic-1308": [
+   [
+    "25-across",
+    "type"
+   ],
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "quiptic-1312": [
+   [
+    "19-down",
+    "type"
+   ]
+  ],
+  "quiptic-1322": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "quiptic-1330": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "quiptic-1334": [
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "quiptic-1340": [
+   [
+    "19-down",
+    "type"
+   ]
+  ],
+  "quiptic-1351": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "quiptic-1358": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "quiptic-1371": [
+   [
+    "23-across",
+    "type"
+   ]
+  ],
+  "quiptic-1376": [
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "quiptic-1380": [
+   [
+    "15-across",
+    "type"
+   ]
+  ],
+  "quiptic-602": [
+   [
+    "23-across",
+    "type"
+   ]
+  ],
+  "quiptic-608": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "quiptic-616": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "quiptic-638": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "quiptic-644": [
+   [
+    "30-across",
+    "type"
+   ]
+  ],
+  "quiptic-656": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "quiptic-660": [
+   [
+    "23-down",
+    "type"
+   ]
+  ],
+  "quiptic-663": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "quiptic-667": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "quiptic-671": [
+   [
+    "10-across",
+    "type"
+   ]
+  ],
+  "quiptic-676": [
+   [
+    "12-down",
+    "type"
+   ]
+  ],
+  "quiptic-678": [
+   [
+    "22-across",
+    "type"
+   ]
+  ],
+  "quiptic-680": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "quiptic-685": [
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "quiptic-692": [
+   [
+    "16-across",
+    "definition"
+   ]
+  ],
+  "quiptic-712": [
+   [
+    "11-across",
+    "type"
+   ],
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "quiptic-720": [
+   [
+    "7-down",
+    "type"
+   ],
+   [
+    "19-down",
+    "type"
+   ]
+  ],
+  "quiptic-735": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "quiptic-736": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "quiptic-740": [
+   [
+    "18-down",
+    "definition"
+   ]
+  ],
+  "quiptic-742": [
+   [
+    "13-down",
+    "definition"
+   ]
+  ],
+  "quiptic-752": [
+   [
+    "18-down",
+    "type"
+   ]
+  ],
+  "quiptic-756": [
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "quiptic-757": [
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "quiptic-761": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "quiptic-765": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "quiptic-768": [
+   [
+    "18-down",
+    "type"
+   ]
+  ],
+  "quiptic-769": [
+   [
+    "2-down",
+    "type"
+   ],
+   [
+    "11-across",
+    "type"
+   ],
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "quiptic-779": [
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "quiptic-783": [
+   [
+    "17-across",
+    "type"
+   ]
+  ],
+  "quiptic-784": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "quiptic-787": [
+   [
+    "26-across",
+    "definition"
+   ]
+  ],
+  "quiptic-790": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "quiptic-792": [
+   [
+    "4-down",
+    "type"
+   ],
+   [
+    "5-down",
+    "type"
+   ],
+   [
+    "20-across",
+    "type"
+   ]
+  ],
+  "quiptic-794": [
+   [
+    "7-down",
+    "type"
+   ],
+   [
+    "10-across",
+    "type"
+   ],
+   [
+    "22-across",
+    "type"
+   ],
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "quiptic-796": [
+   [
+    "13-down",
+    "type"
+   ]
+  ],
+  "quiptic-804": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "quiptic-809": [
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "quiptic-814": [
+   [
+    "24-down",
+    "type"
+   ]
+  ],
+  "quiptic-815": [
+   [
+    "18-down",
+    "type"
+   ]
+  ],
+  "quiptic-816": [
+   [
+    "16-down",
+    "type"
+   ],
+   [
+    "19-down",
+    "type"
+   ]
+  ],
+  "quiptic-820": [
+   [
+    "22-across",
+    "definition"
+   ]
+  ],
+  "quiptic-828": [
+   [
+    "21-across",
+    "definition"
+   ]
+  ],
+  "quiptic-833": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "quiptic-834": [
+   [
+    "22-across",
+    "type"
+   ]
+  ],
+  "quiptic-848": [
+   [
+    "2-down",
+    "definition"
+   ]
+  ],
+  "quiptic-849": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "quiptic-854": [
+   [
+    "18-across",
+    "type"
+   ]
+  ],
+  "quiptic-856": [
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "quiptic-859": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "quiptic-867": [
+   [
+    "23-across",
+    "type"
+   ]
+  ],
+  "quiptic-871": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "quiptic-878": [
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "quiptic-879": [
+   [
+    "2-down",
+    "type"
+   ],
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "quiptic-886": [
+   [
+    "1-down",
+    "type"
+   ],
+   [
+    "5-down",
+    "definition"
+   ],
+   [
+    "5-down",
+    "type"
+   ],
+   [
+    "10-across",
+    "type"
+   ]
+  ],
+  "quiptic-891": [
+   [
+    "6-down",
+    "type"
+   ],
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "quiptic-892": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "quiptic-895": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "quiptic-896": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "quiptic-898": [
+   [
+    "22-across",
+    "type"
+   ]
+  ],
+  "quiptic-900": [
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "quiptic-902": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "quiptic-908": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "quiptic-918": [
+   [
+    "23-across",
+    "type"
+   ]
+  ],
+  "quiptic-933": [
+   [
+    "24-across",
+    "type"
+   ]
+  ],
+  "quiptic-938": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "quiptic-942": [
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "quiptic-948": [
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "quiptic-964": [
+   [
+    "28-across",
+    "type"
+   ]
+  ],
+  "quiptic-974": [
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "quiptic-978": [
+   [
+    "15-down",
+    "type"
+   ]
+  ],
+  "quiptic-979": [
+   [
+    "5-across",
+    "type"
+   ]
+  ],
+  "quiptic-986": [
+   [
+    "13-down",
+    "type"
+   ]
+  ],
+  "quiptic-992": [
+   [
+    "17-across",
+    "type"
+   ]
+  ],
+  "sundaytel-2477": [
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "sundaytel-2480": [
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "sundaytel-2508": [
+   [
+    "13-down",
+    "type"
+   ]
+  ],
+  "sundaytel-2628": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "sundaytel-2779": [
+   [
+    "24-across",
+    "definition"
+   ]
+  ],
+  "sundaytel-2789": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "sundaytel-2806": [
+   [
+    "10-across",
+    "type"
+   ]
+  ],
+  "sundaytel-2820": [
+   [
+    "20-across",
+    "type"
+   ]
+  ],
+  "sundaytel-2829": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "sundaytel-2838": [
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "sundaytel-2851": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "sundaytel-2853": [
+   [
+    "23-down",
+    "type"
+   ]
+  ],
+  "sundaytel-2864": [
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "sundaytel-2865": [
+   [
+    "13-down",
+    "type"
+   ]
+  ],
+  "sundaytel-2867": [
+   [
+    "8-down",
+    "definition"
+   ]
+  ],
+  "sundaytel-2869": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "sundaytel-2882": [
+   [
+    "12-down",
+    "type"
+   ]
+  ],
+  "sundaytel-2922": [
+   [
+    "22-down",
+    "type"
+   ]
+  ],
+  "sundaytel-2938": [
+   [
+    "10-across",
+    "definition"
+   ]
+  ],
+  "sundaytel-2944": [
+   [
+    "23-across",
+    "type"
+   ]
+  ],
+  "sundaytel-2997": [
+   [
+    "23-down",
+    "definition"
+   ]
+  ],
+  "sundaytel-3001": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "sundaytel-3003": [
+   [
+    "1-across",
+    "type"
+   ],
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "sundaytel-3007": [
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "sundaytel-3015": [
+   [
+    "19-across",
+    "type"
+   ]
+  ],
+  "sundaytel-3019": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "sundaytel-3025": [
+   [
+    "21-across",
+    "definition"
+   ]
+  ],
+  "sundaytel-3033": [
+   [
+    "18-down",
+    "definition"
+   ]
+  ],
+  "sundaytel-3044": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "sundaytel-3046": [
+   [
+    "20-across",
+    "type"
+   ]
+  ],
+  "sundaytel-3047": [
+   [
+    "10-across",
+    "type"
+   ]
+  ],
+  "sundaytel-3077": [
+   [
+    "10-across",
+    "type"
+   ]
+  ],
+  "sundaytel-3091": [
+   [
+    "4-down",
+    "type"
+   ],
+   [
+    "17-across",
+    "type"
+   ]
+  ],
+  "sundaytel-3092": [
+   [
+    "14-down",
+    "type"
+   ]
+  ],
+  "sundaytel-3097": [
+   [
+    "8-down",
+    "type"
+   ],
+   [
+    "16-across",
+    "type"
+   ]
+  ],
+  "sundaytel-3106": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "sundaytel-3113": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "sundaytel-3119": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "sundaytel-3125": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "sundaytel-3132": [
+   [
+    "13-down",
+    "type"
+   ],
+   [
+    "15-across",
+    "type"
+   ]
+  ],
+  "sundaytel-3145": [
+   [
+    "21-down",
+    "definition"
+   ]
+  ],
+  "sundaytel-3148": [
+   [
+    "28-across",
+    "type"
+   ]
+  ],
+  "sundaytel-3152": [
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "sundaytel-3180": [
+   [
+    "25-down",
+    "type"
+   ]
+  ],
+  "sundaytel-3182": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "sundaytel-3184": [
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "sundaytel-3186": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "sundaytel-3188": [
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "sundaytel-3197": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "sundaytel-3203": [
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "sundaytel-3208": [
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "sundaytel-3228": [
+   [
+    "14-down",
+    "type"
+   ]
+  ],
+  "sundaytel-3231": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "sundaytel-3234": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "sundaytel-3237": [
+   [
+    "17-across",
+    "definition"
+   ]
+  ],
+  "sundaytel-3255": [
+   [
+    "15-across",
+    "type"
+   ]
+  ],
+  "sundaytel-3257": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "sundaytel-3269": [
+   [
+    "20-down",
+    "type"
+   ]
+  ],
+  "sundaytel-3274": [
+   [
+    "11-down",
+    "definition"
+   ]
+  ],
+  "sundaytel-3295": [
+   [
+    "24-down",
+    "type"
+   ]
+  ],
+  "sundaytel-3296": [
+   [
+    "4-down",
+    "definition"
+   ]
+  ],
+  "sundaytel-3298": [
+   [
+    "13-down",
+    "type"
+   ]
+  ],
+  "sundaytel-3300": [
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "sundaytel-3314": [
+   [
+    "9-down",
+    "type"
+   ]
+  ],
+  "sundaytel-3328": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "sundaytel-3330": [
+   [
+    "1-down",
+    "definition"
+   ]
+  ],
+  "sundaytel-3367": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "sundaytel-3369": [
+   [
+    "16-across",
+    "definition"
+   ]
+  ],
+  "sundaytel-3370": [
+   [
+    "30-across",
+    "type"
+   ]
+  ],
+  "sundaytel-3377": [
+   [
+    "20-down",
+    "definition"
+   ]
+  ],
+  "sundaytimes-4590": [
+   [
+    "13-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-4619": [
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-4641": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-4643": [
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "sundaytimes-4647": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "sundaytimes-4649": [
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-4659": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-4665": [
+   [
+    "18-across",
+    "definition"
+   ]
+  ],
+  "sundaytimes-4675": [
+   [
+    "10-across",
+    "type"
+   ]
+  ],
+  "sundaytimes-4681": [
+   [
+    "13-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-4682": [
+   [
+    "5-across",
+    "type"
+   ]
+  ],
+  "sundaytimes-4687": [
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "sundaytimes-4699": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-4711": [
+   [
+    "19-across",
+    "type"
+   ]
+  ],
+  "sundaytimes-4713": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-4714": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "sundaytimes-4740": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-4741": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-4745": [
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-4747": [
+   [
+    "28-across",
+    "type"
+   ]
+  ],
+  "sundaytimes-4767": [
+   [
+    "13-across",
+    "type"
+   ],
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "sundaytimes-4770": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "sundaytimes-4797": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-4800": [
+   [
+    "18-across",
+    "definition"
+   ]
+  ],
+  "sundaytimes-4814": [
+   [
+    "20-across",
+    "type"
+   ]
+  ],
+  "sundaytimes-4840": [
+   [
+    "9-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-4868": [
+   [
+    "24-across",
+    "type"
+   ]
+  ],
+  "sundaytimes-4890": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-4925": [
+   [
+    "15-down",
+    "definition"
+   ]
+  ],
+  "sundaytimes-4930": [
+   [
+    "22-across",
+    "type"
+   ]
+  ],
+  "sundaytimes-4932": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "sundaytimes-4944": [
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-4950": [
+   [
+    "18-across",
+    "type"
+   ]
+  ],
+  "sundaytimes-4958": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-4966": [
+   [
+    "25-across",
+    "definition"
+   ]
+  ],
+  "sundaytimes-4972": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-4980": [
+   [
+    "23-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-5016": [
+   [
+    "24-across",
+    "type"
+   ]
+  ],
+  "sundaytimes-5034": [
+   [
+    "14-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-5037": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-5039": [
+   [
+    "34-across",
+    "type"
+   ]
+  ],
+  "sundaytimes-5043": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-5044": [
+   [
+    "19-down",
+    "definition"
+   ]
+  ],
+  "sundaytimes-5057": [
+   [
+    "20-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-5071": [
+   [
+    "20-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-5073": [
+   [
+    "10-across",
+    "type"
+   ]
+  ],
+  "sundaytimes-5074": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-5100": [
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "sundaytimes-5107": [
+   [
+    "3-down",
+    "definition"
+   ]
+  ],
+  "sundaytimes-5111": [
+   [
+    "10-across",
+    "type"
+   ]
+  ],
+  "sundaytimes-5114": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-5124": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-5127": [
+   [
+    "23-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-5141": [
+   [
+    "12-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-5142": [
+   [
+    "23-across",
+    "type"
+   ]
+  ],
+  "sundaytimes-5152": [
+   [
+    "19-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-5154": [
+   [
+    "24-across",
+    "definition"
+   ]
+  ],
+  "sundaytimes-5155": [
+   [
+    "16-across",
+    "definition"
+   ]
+  ],
+  "sundaytimes-5157": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-5181": [
+   [
+    "5-down",
+    "definition"
+   ]
+  ],
+  "sundaytimes-5189": [
+   [
+    "11-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-5198": [
+   [
+    "18-across",
+    "type"
+   ]
+  ],
+  "sundaytimes-5206": [
+   [
+    "15-across",
+    "type"
+   ],
+   [
+    "22-across",
+    "type"
+   ]
+  ],
+  "sundaytimes-5219": [
+   [
+    "20-down",
+    "type"
+   ]
+  ],
+  "sundaytimes-5220": [
+   [
+    "19-across",
+    "type"
+   ]
+  ],
+  "sundaytough-100": [
+   [
+    "23-across",
+    "type"
+   ]
+  ],
+  "sundaytough-101": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "sundaytough-112": [
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "sundaytough-122": [
+   [
+    "24-across",
+    "type"
+   ]
+  ],
+  "sundaytough-125": [
+   [
+    "8-across",
+    "type"
+   ]
+  ],
+  "sundaytough-129": [
+   [
+    "17-across",
+    "definition"
+   ]
+  ],
+  "sundaytough-151": [
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "sundaytough-158": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "sundaytough-187": [
+   [
+    "26-down",
+    "type"
+   ]
+  ],
+  "sundaytough-197": [
+   [
+    "22-across",
+    "type"
+   ]
+  ],
+  "sundaytough-217": [
+   [
+    "28-across",
+    "type"
+   ]
+  ],
+  "sundaytough-234": [
+   [
+    "25-down",
+    "type"
+   ]
+  ],
+  "telegraph-25871": [
+   [
+    "19-down",
+    "type"
+   ]
+  ],
+  "telegraph-26037": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "telegraph-26816": [
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "telegraph-27073": [
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "telegraph-27198": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "telegraph-27551": [
+   [
+    "1-across",
+    "definition"
+   ]
+  ],
+  "telegraph-29048": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "telegraph-29519": [
+   [
+    "20-down",
+    "type"
+   ]
+  ],
+  "telegraph-30000": [
+   [
+    "19-down",
+    "type"
+   ]
+  ],
+  "telegraph-30425": [
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "telegraph-30750": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "telegraph-30773": [
+   [
+    "18-across",
+    "type"
+   ]
+  ],
+  "telegraph-30831": [
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "telegraph-30833": [
+   [
+    "8-down",
+    "definition"
+   ]
+  ],
+  "telegraph-30843": [
+   [
+    "18-down",
+    "type"
+   ]
+  ],
+  "telegraph-30853": [
+   [
+    "28-across",
+    "type"
+   ]
+  ],
+  "telegraph-30858": [
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "telegraph-30860": [
+   [
+    "27-down",
+    "type"
+   ],
+   [
+    "28-across",
+    "type"
+   ]
+  ],
+  "telegraph-30866": [
+   [
+    "16-down",
+    "type"
+   ],
+   [
+    "25-down",
+    "definition"
+   ]
+  ],
+  "telegraph-30873": [
+   [
+    "17-down",
+    "definition"
+   ]
+  ],
+  "telegraph-30884": [
+   [
+    "24-across",
+    "type"
+   ]
+  ],
+  "telegraph-30887": [
+   [
+    "28-across",
+    "type"
+   ]
+  ],
+  "telegraph-30911": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "telegraph-30930": [
+   [
+    "18-down",
+    "type"
+   ]
+  ],
+  "telegraph-30952": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "telegraph-30955": [
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "telegraph-30989": [
+   [
+    "23-down",
+    "type"
+   ]
+  ],
+  "telegraph-30990": [
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "telegraph-30992": [
+   [
+    "27-across",
+    "definition"
+   ]
+  ],
+  "telegraph-31010": [
+   [
+    "3-across",
+    "type"
+   ]
+  ],
+  "telegraph-31020": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "telegraph-31022": [
+   [
+    "20-down",
+    "type"
+   ]
+  ],
+  "telegraph-31023": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "telegraph-31031": [
+   [
+    "22-down",
+    "type"
+   ]
+  ],
+  "telegraph-31050": [
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "telegraph-31055": [
+   [
+    "12-across",
+    "type"
+   ],
+   [
+    "18-down",
+    "type"
+   ]
+  ],
+  "telegraph-31064": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "telegraph-31085": [
+   [
+    "20-down",
+    "type"
+   ]
+  ],
+  "telegraph-31101": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "telegraph-31106": [
+   [
+    "6-down",
+    "definition"
+   ]
+  ],
+  "telegraph-31126": [
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "telegraph-31130": [
+   [
+    "9-across",
+    "definition"
+   ]
+  ],
+  "telegraph-31165": [
+   [
+    "25-down",
+    "type"
+   ]
+  ],
+  "telegraph-31169": [
+   [
+    "18-across",
+    "definition"
+   ],
+   [
+    "25-across",
+    "blocks"
+   ]
+  ],
+  "telegraph-31202": [
+   [
+    "14-down",
+    "type"
+   ]
+  ],
+  "telegraph-31247": [
+   [
+    "10-across",
+    "definition"
+   ]
+  ],
+  "telegraph-31253": [
+   [
+    "3-across",
+    "type"
+   ]
+  ],
+  "telegraph-31266": [
+   [
+    "23-down",
+    "type"
+   ]
+  ],
+  "telegraph-31283": [
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "telegraph-31309": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "telegraph-31334": [
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "telegraph-31337": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "telegraph-31356": [
+   [
+    "13-down",
+    "type"
+   ]
+  ],
+  "times-26787": [
+   [
+    "15-down",
+    "type"
+   ]
+  ],
+  "times-26848": [
+   [
+    "27-across",
+    "definition"
+   ]
+  ],
+  "times-26872": [
+   [
+    "14-across",
+    "type"
+   ],
+   [
+    "20-down",
+    "definition"
+   ]
+  ],
+  "times-26885": [
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "times-26887": [
+   [
+    "10-down",
+    "type"
+   ]
+  ],
+  "times-26889": [
+   [
+    "15-down",
+    "type"
+   ]
+  ],
+  "times-26907": [
+   [
+    "9-down",
+    "definition"
+   ],
+   [
+    "9-down",
+    "type"
+   ]
+  ],
+  "times-26919": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "times-26921": [
+   [
+    "13-down",
+    "type"
+   ],
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "times-26927": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "times-26941": [
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "times-26947": [
+   [
+    "3-across",
+    "type"
+   ]
+  ],
+  "times-26961": [
+   [
+    "5-down",
+    "definition"
+   ],
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "times-27005": [
+   [
+    "15-across",
+    "type"
+   ]
+  ],
+  "times-27031": [
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "times-27032": [
+   [
+    "11-across",
+    "type"
+   ],
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "times-27046": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "times-27055": [
+   [
+    "23-across",
+    "type"
+   ]
+  ],
+  "times-27103": [
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "times-27133": [
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "times-27237": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "times-27254": [
+   [
+    "16-across",
+    "type"
+   ]
+  ],
+  "times-27266": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "times-27273": [
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "times-27322": [
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "times-27342": [
+   [
+    "9-down",
+    "blocks"
+   ]
+  ],
+  "times-27812": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "times-27962": [
+   [
+    "13-down",
+    "type"
+   ]
+  ],
+  "times-28301": [
+   [
+    "25-across",
+    "definition"
+   ]
+  ],
+  "times-28306": [
+   [
+    "27-down",
+    "type"
+   ]
+  ],
+  "times-28425": [
+   [
+    "24-down",
+    "type"
+   ]
+  ],
+  "times-28433": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "times-28447": [
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "times-28467": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "times-28470": [
+   [
+    "20-across",
+    "type"
+   ]
+  ],
+  "times-28474": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "times-28478": [
+   [
+    "15-across",
+    "type"
+   ]
+  ],
+  "times-28491": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "times-28509": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "times-28529": [
+   [
+    "8-across",
+    "type"
+   ]
+  ],
+  "times-28533": [
+   [
+    "19-down",
+    "type"
+   ]
+  ],
+  "times-28550": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "times-28551": [
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "times-28552": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "times-28558": [
+   [
+    "23-across",
+    "type"
+   ]
+  ],
+  "times-28578": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "times-28589": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "times-28595": [
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "times-28600": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "times-28602": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "times-28608": [
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "times-28614": [
+   [
+    "21-across",
+    "definition"
+   ]
+  ],
+  "times-28633": [
+   [
+    "14-down",
+    "type"
+   ],
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "times-28670": [
+   [
+    "4-down",
+    "type"
+   ],
+   [
+    "28-across",
+    "type"
+   ]
+  ],
+  "times-28687": [
+   [
+    "28-across",
+    "definition"
+   ]
+  ],
+  "times-28695": [
+   [
+    "15-across",
+    "definition"
+   ]
+  ],
+  "times-28706": [
+   [
+    "22-across",
+    "type"
+   ]
+  ],
+  "times-28709": [
+   [
+    "15-down",
+    "type"
+   ]
+  ],
+  "times-28714": [
+   [
+    "6-down",
+    "type"
+   ],
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "times-28721": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "times-28727": [
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "times-28731": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "times-28736": [
+   [
+    "9-down",
+    "type"
+   ]
+  ],
+  "times-28737": [
+   [
+    "15-down",
+    "definition"
+   ]
+  ],
+  "times-28748": [
+   [
+    "20-across",
+    "type"
+   ]
+  ],
+  "times-28754": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "times-28792": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "times-28794": [
+   [
+    "2-down",
+    "definition"
+   ],
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "times-28805": [
+   [
+    "25-down",
+    "type"
+   ]
+  ],
+  "times-28811": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "times-28812": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "times-28813": [
+   [
+    "24-down",
+    "type"
+   ]
+  ],
+  "times-28830": [
+   [
+    "10-across",
+    "type"
+   ]
+  ],
+  "times-28847": [
+   [
+    "22-across",
+    "type"
+   ]
+  ],
+  "times-28885": [
+   [
+    "3-down",
+    "type"
+   ],
+   [
+    "24-down",
+    "definition"
+   ]
+  ],
+  "times-28899": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "times-28909": [
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "times-28916": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "times-28917": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "times-28919": [
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "times-28946": [
+   [
+    "6-down",
+    "blocks"
+   ]
+  ],
+  "times-28961": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "times-28965": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "times-28966": [
+   [
+    "16-across",
+    "type"
+   ]
+  ],
+  "times-28971": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "times-28983": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "times-28992": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "times-28996": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "times-28997": [
+   [
+    "9-across",
+    "type"
+   ],
+   [
+    "23-across",
+    "type"
+   ]
+  ],
+  "times-29011": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "times-29016": [
+   [
+    "19-across",
+    "type"
+   ]
+  ],
+  "times-29027": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "times-29046": [
+   [
+    "8-across",
+    "blocks"
+   ]
+  ],
+  "times-29054": [
+   [
+    "23-across",
+    "type"
+   ]
+  ],
+  "times-29055": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "times-29057": [
+   [
+    "22-down",
+    "type"
+   ]
+  ],
+  "times-29084": [
+   [
+    "17-across",
+    "type"
+   ]
+  ],
+  "times-29092": [
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "times-29093": [
+   [
+    "14-across",
+    "definition"
+   ]
+  ],
+  "times-29094": [
+   [
+    "15-across",
+    "type"
+   ]
+  ],
+  "times-29095": [
+   [
+    "21-down",
+    "definition"
+   ]
+  ],
+  "times-29106": [
+   [
+    "15-across",
+    "type"
+   ]
+  ],
+  "times-29115": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "times-29130": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "times-29136": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "times-29154": [
+   [
+    "24-across",
+    "type"
+   ]
+  ],
+  "times-29168": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "times-29175": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "times-29176": [
+   [
+    "11-across",
+    "definition"
+   ]
+  ],
+  "times-29180": [
+   [
+    "19-down",
+    "blocks"
+   ]
+  ],
+  "times-29184": [
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "times-29196": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "times-29200": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "times-29204": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "times-29218": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "times-29221": [
+   [
+    "5-down",
+    "definition"
+   ]
+  ],
+  "times-29223": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "times-29247": [
+   [
+    "28-across",
+    "definition"
+   ]
+  ],
+  "times-29248": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "times-29251": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "times-29257": [
+   [
+    "10-across",
+    "type"
+   ]
+  ],
+  "times-29272": [
+   [
+    "10-across",
+    "type"
+   ]
+  ],
+  "times-29286": [
+   [
+    "17-down",
+    "type"
+   ]
+  ],
+  "times-29297": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "times-29302": [
+   [
+    "19-down",
+    "blocks"
+   ]
+  ],
+  "times-29311": [
+   [
+    "17-across",
+    "type"
+   ]
+  ],
+  "times-29333": [
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "times-29334": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "times-29335": [
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "times-29342": [
+   [
+    "13-down",
+    "type"
+   ]
+  ],
+  "times-29363": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "times-29377": [
+   [
+    "18-across",
+    "type"
+   ]
+  ],
+  "times-29384": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "times-29385": [
+   [
+    "15-across",
+    "type"
+   ]
+  ],
+  "times-29388": [
+   [
+    "1-across",
+    "definition"
+   ]
+  ],
+  "times-29395": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "times-29399": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "times-29416": [
+   [
+    "5-down",
+    "definition"
+   ]
+  ],
+  "times-29424": [
+   [
+    "3-across",
+    "type"
+   ]
+  ],
+  "times-29430": [
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "times-29431": [
+   [
+    "15-across",
+    "type"
+   ]
+  ],
+  "times-29432": [
+   [
+    "15-down",
+    "type"
+   ]
+  ],
+  "times-29468": [
+   [
+    "17-across",
+    "type"
+   ]
+  ],
+  "times-29469": [
+   [
+    "20-across",
+    "type"
+   ]
+  ],
+  "times-29499": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "times-29501": [
+   [
+    "22-across",
+    "definition"
+   ]
+  ],
+  "times-29511": [
+   [
+    "24-down",
+    "type"
+   ]
+  ],
+  "times-29522": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "times-29524": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "times-29545": [
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "times-29571": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "times-29581": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "times-29582": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "times-29583": [
+   [
+    "20-across",
+    "type"
+   ]
+  ],
+  "times-29597": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "times-29607": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "times-29609": [
+   [
+    "22-across",
+    "type"
+   ]
+  ],
+  "times-29610": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "times-29616": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "times-29633": [
+   [
+    "6-down",
+    "type"
+   ],
+   [
+    "9-down",
+    "type"
+   ]
+  ],
+  "times-29638": [
+   [
+    "9-across",
+    "definition"
+   ]
+  ],
+  "times-29643": [
+   [
+    "26-across",
+    "definition"
+   ]
+  ],
+  "times-29656": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "times-29664": [
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "times-29668": [
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "timesclub-20166": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "timesclub-20174": [
+   [
+    "14-down",
+    "type"
+   ],
+   [
+    "22-across",
+    "type"
+   ]
+  ],
+  "timesclub-20181": [
+   [
+    "22-across",
+    "type"
+   ]
+  ],
+  "timesclub-20200": [
+   [
+    "23-across",
+    "type"
+   ]
+  ],
+  "timesclub-20206": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "timesclub-20208": [
+   [
+    "13-down",
+    "type"
+   ]
+  ],
+  "timesclub-20223": [
+   [
+    "7-down",
+    "definition"
+   ]
+  ],
+  "timesclub-20227": [
+   [
+    "24-across",
+    "type"
+   ]
+  ],
+  "timesclub-20246": [
+   [
+    "9-down",
+    "type"
+   ]
+  ],
+  "timesclub-20249": [
+   [
+    "14-down",
+    "type"
+   ]
+  ],
+  "timesclub-20258": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "timesclub-20267": [
+   [
+    "19-across",
+    "blocks"
+   ]
+  ],
+  "timesclub-20279": [
+   [
+    "14-down",
+    "type"
+   ]
+  ],
+  "timesclub-284": [
+   [
+    "19-down",
+    "type"
+   ]
+  ],
+  "timesclub-290": [
+   [
+    "27-down",
+    "type"
+   ]
+  ],
+  "timesclub-301": [
+   [
+    "24-across",
+    "blocks"
+   ]
+  ],
+  "timesjumbo-1197": [
+   [
+    "2-down",
+    "type"
+   ],
+   [
+    "36-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1202": [
+   [
+    "1-across",
+    "type"
+   ],
+   [
+    "50-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1210": [
+   [
+    "29-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1217": [
+   [
+    "36-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1230": [
+   [
+    "24-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1242": [
+   [
+    "12-down",
+    "type"
+   ],
+   [
+    "18-down",
+    "type"
+   ],
+   [
+    "50-across",
+    "type"
+   ],
+   [
+    "54-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1247": [
+   [
+    "9-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1250": [
+   [
+    "11-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1252": [
+   [
+    "49-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1267": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1270": [
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1277": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1282": [
+   [
+    "17-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1287": [
+   [
+    "5-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1289": [
+   [
+    "32-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1292": [
+   [
+    "31-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1306": [
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1312": [
+   [
+    "36-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1316": [
+   [
+    "38-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1317": [
+   [
+    "43-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1324": [
+   [
+    "35-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1331": [
+   [
+    "19-across",
+    "type"
+   ],
+   [
+    "35-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1332": [
+   [
+    "32-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1334": [
+   [
+    "4-down",
+    "definition"
+   ]
+  ],
+  "timesjumbo-1336": [
+   [
+    "47-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1342": [
+   [
+    "11-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1346": [
+   [
+    "15-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1351": [
+   [
+    "5-down",
+    "definition"
+   ]
+  ],
+  "timesjumbo-1356": [
+   [
+    "9-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1357": [
+   [
+    "17-across",
+    "type"
+   ],
+   [
+    "20-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1359": [
+   [
+    "49-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1374": [
+   [
+    "49-down",
+    "definition"
+   ]
+  ],
+  "timesjumbo-1377": [
+   [
+    "30-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1379": [
+   [
+    "19-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1381": [
+   [
+    "36-across",
+    "definition"
+   ]
+  ],
+  "timesjumbo-1390": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1391": [
+   [
+    "55-across",
+    "definition"
+   ]
+  ],
+  "timesjumbo-1394": [
+   [
+    "52-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1399": [
+   [
+    "33-down",
+    "definition"
+   ]
+  ],
+  "timesjumbo-1410": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1423": [
+   [
+    "43-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1433": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1435": [
+   [
+    "20-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1437": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1440": [
+   [
+    "52-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1446": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1447": [
+   [
+    "46-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1448": [
+   [
+    "7-down",
+    "type"
+   ],
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1455": [
+   [
+    "44-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1456": [
+   [
+    "10-down",
+    "type"
+   ],
+   [
+    "35-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1457": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1458": [
+   [
+    "16-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1459": [
+   [
+    "32-down",
+    "type"
+   ],
+   [
+    "37-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1462": [
+   [
+    "46-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1472": [
+   [
+    "41-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1473": [
+   [
+    "6-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1474": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1475": [
+   [
+    "31-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1483": [
+   [
+    "16-across",
+    "definition"
+   ]
+  ],
+  "timesjumbo-1489": [
+   [
+    "21-down",
+    "definition"
+   ]
+  ],
+  "timesjumbo-1493": [
+   [
+    "17-across",
+    "definition"
+   ]
+  ],
+  "timesjumbo-1494": [
+   [
+    "33-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1496": [
+   [
+    "47-across",
+    "definition"
+   ]
+  ],
+  "timesjumbo-1498": [
+   [
+    "19-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1503": [
+   [
+    "19-down",
+    "definition"
+   ],
+   [
+    "41-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1506": [
+   [
+    "6-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1513": [
+   [
+    "45-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1514": [
+   [
+    "37-down",
+    "type"
+   ],
+   [
+    "43-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1517": [
+   [
+    "56-across",
+    "definition"
+   ]
+  ],
+  "timesjumbo-1518": [
+   [
+    "44-across",
+    "definition"
+   ]
+  ],
+  "timesjumbo-1519": [
+   [
+    "39-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1522": [
+   [
+    "40-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1524": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1525": [
+   [
+    "54-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1526": [
+   [
+    "41-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1529": [
+   [
+    "50-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1539": [
+   [
+    "8-across",
+    "type"
+   ],
+   [
+    "49-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1542": [
+   [
+    "50-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1544": [
+   [
+    "20-across",
+    "type"
+   ],
+   [
+    "43-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1546": [
+   [
+    "11-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1547": [
+   [
+    "16-across",
+    "definition"
+   ]
+  ],
+  "timesjumbo-1552": [
+   [
+    "56-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1553": [
+   [
+    "30-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1557": [
+   [
+    "34-down",
+    "type"
+   ],
+   [
+    "43-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1558": [
+   [
+    "19-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1567": [
+   [
+    "36-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1569": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1575": [
+   [
+    "44-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1576": [
+   [
+    "28-down",
+    "blocks"
+   ]
+  ],
+  "timesjumbo-1583": [
+   [
+    "27-across",
+    "blocks"
+   ]
+  ],
+  "timesjumbo-1593": [
+   [
+    "35-across",
+    "definition"
+   ]
+  ],
+  "timesjumbo-1594": [
+   [
+    "19-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1598": [
+   [
+    "44-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1603": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1605": [
+   [
+    "44-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1608": [
+   [
+    "11-down",
+    "type"
+   ],
+   [
+    "33-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1614": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1615": [
+   [
+    "52-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1619": [
+   [
+    "30-across",
+    "type"
+   ],
+   [
+    "31-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1623": [
+   [
+    "28-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1628": [
+   [
+    "11-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1629": [
+   [
+    "31-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1637": [
+   [
+    "34-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1638": [
+   [
+    "50-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1639": [
+   [
+    "15-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1644": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1646": [
+   [
+    "12-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1649": [
+   [
+    "12-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1651": [
+   [
+    "25-across",
+    "definition"
+   ]
+  ],
+  "timesjumbo-1653": [
+   [
+    "47-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1656": [
+   [
+    "49-down",
+    "definition"
+   ]
+  ],
+  "timesjumbo-1657": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1660": [
+   [
+    "39-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1670": [
+   [
+    "41-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1671": [
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1672": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1674": [
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1675": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1676": [
+   [
+    "38-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1677": [
+   [
+    "35-across",
+    "type"
+   ],
+   [
+    "51-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1678": [
+   [
+    "45-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1688": [
+   [
+    "41-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1689": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1693": [
+   [
+    "13-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1697": [
+   [
+    "47-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1699": [
+   [
+    "51-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1703": [
+   [
+    "10-across",
+    "definition"
+   ]
+  ],
+  "timesjumbo-1704": [
+   [
+    "30-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1719": [
+   [
+    "54-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1720": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1721": [
+   [
+    "54-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1722": [
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1724": [
+   [
+    "42-across",
+    "definition"
+   ]
+  ],
+  "timesjumbo-1728": [
+   [
+    "29-across",
+    "type"
+   ],
+   [
+    "45-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1734": [
+   [
+    "50-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1738": [
+   [
+    "11-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1742": [
+   [
+    "56-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1748": [
+   [
+    "22-down",
+    "definition"
+   ]
+  ],
+  "timesjumbo-1755": [
+   [
+    "37-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1762": [
+   [
+    "30-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1765": [
+   [
+    "10-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1767": [
+   [
+    "50-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1768": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1769": [
+   [
+    "33-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1770": [
+   [
+    "15-across",
+    "type"
+   ],
+   [
+    "25-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1787": [
+   [
+    "49-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1795": [
+   [
+    "39-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1800": [
+   [
+    "35-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1804": [
+   [
+    "30-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1805": [
+   [
+    "50-down",
+    "type"
+   ]
+  ],
+  "timesjumbo-1808": [
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "timesjumbo-1811": [
+   [
+    "50-down",
+    "definition"
+   ]
+  ],
+  "timesquick-1002": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "timesquick-1622": [
+   [
+    "20-down",
+    "type"
+   ]
+  ],
+  "timesquick-1624": [
+   [
+    "10-down",
+    "type"
+   ]
+  ],
+  "timesquick-1990": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "timesquick-2263": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "timesquick-2332": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "timesquick-2461": [
+   [
+    "11-across",
+    "definition"
+   ]
+  ],
+  "timesquick-2469": [
+   [
+    "22-across",
+    "type"
+   ]
+  ],
+  "timesquick-2470": [
+   [
+    "10-down",
+    "type"
+   ]
+  ],
+  "timesquick-2475": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "timesquick-2476": [
+   [
+    "8-across",
+    "type"
+   ]
+  ],
+  "timesquick-2484": [
+   [
+    "22-across",
+    "type"
+   ]
+  ],
+  "timesquick-2489": [
+   [
+    "8-across",
+    "type"
+   ]
+  ],
+  "timesquick-2511": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "timesquick-2516": [
+   [
+    "24-across",
+    "blocks"
+   ]
+  ],
+  "timesquick-2533": [
+   [
+    "3-down",
+    "blocks"
+   ],
+   [
+    "12-down",
+    "type"
+   ]
+  ],
+  "timesquick-2536": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "timesquick-2556": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "timesquick-2608": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "timesquick-2619": [
+   [
+    "5-across",
+    "type"
+   ]
+  ],
+  "timesquick-2635": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "timesquick-2661": [
+   [
+    "14-down",
+    "type"
+   ]
+  ],
+  "timesquick-2685": [
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "timesquick-2698": [
+   [
+    "23-across",
+    "type"
+   ]
+  ],
+  "timesquick-2699": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "timesquick-2706": [
+   [
+    "18-down",
+    "type"
+   ]
+  ],
+  "timesquick-2709": [
+   [
+    "9-down",
+    "type"
+   ],
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "timesquick-2735": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "timesquick-2737": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "timesquick-2741": [
+   [
+    "20-across",
+    "type"
+   ]
+  ],
+  "timesquick-2742": [
+   [
+    "14-down",
+    "type"
+   ]
+  ],
+  "timesquick-2756": [
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "timesquick-2760": [
+   [
+    "20-across",
+    "blocks"
+   ]
+  ],
+  "timesquick-2767": [
+   [
+    "8-across",
+    "blocks"
+   ]
+  ],
+  "timesquick-2777": [
+   [
+    "13-down",
+    "definition"
+   ],
+   [
+    "15-across",
+    "type"
+   ]
+  ],
+  "timesquick-2785": [
+   [
+    "24-across",
+    "blocks"
+   ]
+  ],
+  "timesquick-2786": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "timesquick-2788": [
+   [
+    "23-across",
+    "type"
+   ]
+  ],
+  "timesquick-2804": [
+   [
+    "18-down",
+    "type"
+   ]
+  ],
+  "timesquick-2810": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "timesquick-2824": [
+   [
+    "10-across",
+    "type"
+   ]
+  ],
+  "timesquick-2837": [
+   [
+    "23-across",
+    "type"
+   ]
+  ],
+  "timesquick-2839": [
+   [
+    "3-down",
+    "type"
+   ]
+  ],
+  "timesquick-2864": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "timesquick-2873": [
+   [
+    "14-down",
+    "type"
+   ]
+  ],
+  "timesquick-2877": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "timesquick-2886": [
+   [
+    "10-across",
+    "type"
+   ],
+   [
+    "14-down",
+    "type"
+   ]
+  ],
+  "timesquick-2889": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "timesquick-2918": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "timesquick-2955": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "timesquick-2957": [
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "timesquick-2970": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "timesquick-2971": [
+   [
+    "15-down",
+    "type"
+   ]
+  ],
+  "timesquick-2975": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "timesquick-2982": [
+   [
+    "8-across",
+    "type"
+   ]
+  ],
+  "timesquick-2985": [
+   [
+    "16-across",
+    "type"
+   ]
+  ],
+  "timesquick-3003": [
+   [
+    "22-down",
+    "definition"
+   ]
+  ],
+  "timesquick-3006": [
+   [
+    "15-across",
+    "type"
+   ]
+  ],
+  "timesquick-3035": [
+   [
+    "15-down",
+    "definition"
+   ]
+  ],
+  "timesquick-3038": [
+   [
+    "8-across",
+    "type"
+   ]
+  ],
+  "timesquick-3039": [
+   [
+    "3-down",
+    "type"
+   ],
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "timesquick-3043": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "timesquick-3047": [
+   [
+    "14-down",
+    "definition"
+   ]
+  ],
+  "timesquick-3076": [
+   [
+    "4-down",
+    "type"
+   ]
+  ],
+  "timesquick-3081": [
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "timesquick-3089": [
+   [
+    "12-across",
+    "definition"
+   ]
+  ],
+  "timesquick-3125": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "timesquick-3129": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "timesquick-3135": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "timesquick-3136": [
+   [
+    "18-down",
+    "type"
+   ]
+  ],
+  "timesquick-3140": [
+   [
+    "17-down",
+    "definition"
+   ]
+  ],
+  "timesquick-3144": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "timesquick-3146": [
+   [
+    "15-down",
+    "type"
+   ]
+  ],
+  "timesquick-3156": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "timesquick-3162": [
+   [
+    "10-across",
+    "type"
+   ]
+  ],
+  "timesquick-3177": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "timesquick-3184": [
+   [
+    "19-down",
+    "type"
+   ]
+  ],
+  "timesquick-3195": [
+   [
+    "15-down",
+    "type"
+   ]
+  ],
+  "timesquick-3197": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "timesquick-3206": [
+   [
+    "3-down",
+    "type"
+   ],
+   [
+    "16-down",
+    "type"
+   ]
+  ],
+  "timesquick-3209": [
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "timesquick-3223": [
+   [
+    "11-down",
+    "type"
+   ]
+  ],
+  "timesquick-3225": [
+   [
+    "19-down",
+    "type"
+   ]
+  ],
+  "timesquick-3227": [
+   [
+    "8-across",
+    "type"
+   ]
+  ],
+  "timesquick-3235": [
+   [
+    "1-down",
+    "type"
+   ],
+   [
+    "6-down",
+    "blocks"
+   ]
+  ],
+  "timesquick-3257": [
+   [
+    "17-across",
+    "type"
+   ]
+  ],
+  "timesquick-3268": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "timesquick-3279": [
+   [
+    "19-down",
+    "type"
+   ]
+  ],
+  "timesquick-3282": [
+   [
+    "6-across",
+    "type"
+   ]
+  ],
+  "timesquick-3295": [
+   [
+    "23-across",
+    "type"
+   ]
+  ],
+  "timesquick-3299": [
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "timesquick-3303": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "timesquick-3313": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "timesquick-3314": [
+   [
+    "19-down",
+    "type"
+   ]
+  ],
+  "timesquick-3329": [
+   [
+    "9-across",
+    "type"
+   ]
+  ],
+  "timesquick-3346": [
+   [
+    "24-across",
+    "type"
+   ]
+  ],
+  "timesquick-3347": [
+   [
+    "2-down",
+    "type"
+   ]
+  ],
+  "timesquick-3350": [
+   [
+    "8-across",
+    "type"
+   ]
+  ],
+  "timesquick-3351": [
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "timesquick-3366": [
+   [
+    "24-across",
+    "blocks"
+   ]
+  ],
+  "timesquick-3376": [
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "timesquick-3383": [
+   [
+    "13-across",
+    "blocks"
+   ]
+  ],
+  "timesquick-3389": [
+   [
+    "3-down",
+    "type"
+   ],
+   [
+    "7-down",
+    "type"
+   ]
+  ],
+  "timesquick-3403": [
+   [
+    "13-down",
+    "type"
+   ]
+  ],
+  "timesquick-375": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "timesquick-545": [
+   [
+    "1-down",
+    "type"
+   ]
+  ],
+  "tls-1119": [
+   [
+    "3-down",
+    "blocks"
+   ],
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "tls-1120": [
+   [
+    "23-across",
+    "definition"
+   ]
+  ],
+  "tls-1147": [
+   [
+    "27-across",
+    "definition"
+   ]
+  ],
+  "tls-1153": [
+   [
+    "19-across",
+    "definition"
+   ]
+  ],
+  "tls-1158": [
+   [
+    "2-down",
+    "definition"
+   ]
+  ],
+  "tls-1165": [
+   [
+    "29-across",
+    "type"
+   ]
+  ],
+  "tls-1169": [
+   [
+    "18-across",
+    "definition"
+   ]
+  ],
+  "tls-1173": [
+   [
+    "26-across",
+    "definition"
+   ]
+  ],
+  "tls-1176": [
+   [
+    "14-across",
+    "blocks"
+   ]
+  ],
+  "toughie-107": [
+   [
+    "22-down",
+    "type"
+   ]
+  ],
+  "toughie-108": [
+   [
+    "19-down",
+    "type"
+   ]
+  ],
+  "toughie-117": [
+   [
+    "18-down",
+    "type"
+   ]
+  ],
+  "toughie-1345": [
+   [
+    "22-across",
+    "definition"
+   ]
+  ],
+  "toughie-2697": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "toughie-2760": [
+   [
+    "24-down",
+    "type"
+   ]
+  ],
+  "toughie-2969": [
+   [
+    "6-down",
+    "type"
+   ]
+  ],
+  "toughie-3256": [
+   [
+    "13-across",
+    "type"
+   ]
+  ],
+  "toughie-3292": [
+   [
+    "28-across",
+    "definition"
+   ]
+  ],
+  "toughie-3317": [
+   [
+    "23-down",
+    "type"
+   ]
+  ],
+  "toughie-3331": [
+   [
+    "2-down",
+    "definition"
+   ],
+   [
+    "28-across",
+    "type"
+   ]
+  ],
+  "toughie-3355": [
+   [
+    "28-down",
+    "type"
+   ]
+  ],
+  "toughie-3357": [
+   [
+    "25-down",
+    "type"
+   ]
+  ],
+  "toughie-3385": [
+   [
+    "24-down",
+    "type"
+   ]
+  ],
+  "toughie-3397": [
+   [
+    "25-down",
+    "type"
+   ]
+  ],
+  "toughie-3416": [
+   [
+    "5-down",
+    "definition"
+   ]
+  ],
+  "toughie-3427": [
+   [
+    "20-across",
+    "type"
+   ]
+  ],
+  "toughie-3428": [
+   [
+    "6-across",
+    "type"
+   ]
+  ],
+  "toughie-3429": [
+   [
+    "25-down",
+    "type"
+   ]
+  ],
+  "toughie-3469": [
+   [
+    "26-down",
+    "type"
+   ]
+  ],
+  "toughie-3489": [
+   [
+    "22-down",
+    "type"
+   ]
+  ],
+  "toughie-3517": [
+   [
+    "8-down",
+    "type"
+   ]
+  ],
+  "toughie-3535": [
+   [
+    "22-down",
+    "type"
+   ]
+  ],
+  "toughie-3547": [
+   [
+    "27-down",
+    "type"
+   ]
+  ],
+  "toughie-3560": [
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "toughie-3579": [
+   [
+    "1-down",
+    "type"
+   ],
+   [
+    "12-across",
+    "type"
+   ]
+  ],
+  "toughie-3582": [
+   [
+    "21-down",
+    "type"
+   ]
+  ],
+  "toughie-3583": [
+   [
+    "24-down",
+    "type"
+   ]
+  ],
+  "toughie-3584": [
+   [
+    "17-across",
+    "type"
+   ]
+  ],
+  "toughie-3590": [
+   [
+    "14-across",
+    "type"
+   ]
+  ],
+  "toughie-3595": [
+   [
+    "24-down",
+    "type"
+   ]
+  ],
+  "toughie-3602": [
+   [
+    "22-down",
+    "type"
+   ]
+  ],
+  "toughie-3623": [
+   [
+    "25-down",
+    "type"
+   ]
+  ],
+  "toughie-3627": [
+   [
+    "26-down",
+    "type"
+   ]
+  ],
+  "toughie-3635": [
+   [
+    "24-down",
+    "type"
+   ]
+  ],
+  "toughie-3637": [
+   [
+    "24-down",
+    "type"
+   ]
+  ],
+  "toughie-3643": [
+   [
+    "22-down",
+    "type"
+   ]
+  ],
+  "toughie-3645": [
+   [
+    "8-down",
+    "definition"
+   ]
+  ],
+  "toughie-3647": [
+   [
+    "9-down",
+    "type"
+   ]
+  ],
+  "toughie-3651": [
+   [
+    "22-down",
+    "type"
+   ]
+  ],
+  "toughie-3656": [
+   [
+    "16-across",
+    "definition"
+   ]
+  ],
+  "toughie-3666": [
+   [
+    "1-across",
+    "type"
+   ]
+  ],
+  "toughie-3671": [
+   [
+    "22-down",
+    "type"
+   ]
+  ],
+  "toughie-3675": [
+   [
+    "23-down",
+    "type"
+   ]
+  ],
+  "toughie-3677": [
+   [
+    "5-down",
+    "type"
+   ]
+  ],
+  "toughie-3680": [
+   [
+    "27-down",
+    "type"
+   ]
+  ],
+  "toughie-3683": [
+   [
+    "25-down",
+    "type"
+   ]
+  ],
+  "toughie-3687": [
+   [
+    "2-down",
+    "type"
+   ],
+   [
+    "23-down",
+    "type"
+   ]
+  ],
+  "toughie-3695": [
+   [
+    "21-across",
+    "type"
+   ]
+  ],
+  "toughie-3711": [
+   [
+    "22-down",
+    "type"
+   ]
+  ],
+  "toughie-3715": [
+   [
+    "24-down",
+    "type"
+   ]
+  ],
+  "toughie-3725": [
+   [
+    "11-across",
+    "type"
+   ]
+  ],
+  "toughie-3728": [
+   [
+    "17-across",
+    "type"
+   ]
+  ],
+  "toughie-3731": [
+   [
+    "22-down",
+    "type"
+   ]
+  ],
+  "toughie-3736": [
+   [
+    "27-across",
+    "type"
+   ]
+  ],
+  "toughie-3737": [
+   [
+    "27-down",
+    "type"
+   ]
+  ],
+  "toughie-3739": [
+   [
+    "25-down",
+    "type"
+   ]
+  ],
+  "toughie-3747": [
+   [
+    "22-down",
+    "type"
+   ]
+  ],
+  "toughie-3757": [
+   [
+    "26-across",
+    "type"
+   ]
+  ],
+  "toughie-3759": [
+   [
+    "23-down",
+    "type"
+   ]
+  ],
+  "toughie-3768": [
+   [
+    "1-down",
+    "type"
+   ],
+   [
+    "13-across",
+    "type"
+   ]
+  ]
+ }
+}
