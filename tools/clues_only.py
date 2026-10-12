@@ -389,10 +389,19 @@ def _nation_build(record, answers):
     return fetch_nation.promote(record, answers)
 
 
+def _genius_numbered_build(record, answers):
+    """A Genius whose numbered clue list no grid read took, filed on the grid
+    its answers cross in (genius_puzzles.promote_numbered). Imported late: it
+    imports this."""
+    import genius_puzzles
+    return genius_puzzles.promote_numbered(record, answers)
+
+
 # A series with no grid kind (grid_kind() None) keys on None: its filer's
 # builder knows its own grids (the Nation's are blocked 15x15 or 13x13).
 BUILDERS = {("tools/acquire_book.py", "blocked"): _book_build,
-            ("tools/fetch_nation.py", None): _nation_build}
+            ("tools/fetch_nation.py", None): _nation_build,
+            ("tools/genius_puzzles.py", None): _genius_numbered_build}
 
 
 def grid_kind(record):

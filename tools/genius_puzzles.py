@@ -1522,11 +1522,41 @@ GRID_MISFIT = {"enumeration is not the entry's length", "lights left unclued",
 HELD_CLUES = "held clues-only (grid does not take the clue list)"
 
 
+def promote_numbered(record, answers):
+    """(puzzle, problems): a Genius held by hold_clues filed unsolved on the
+    one grid its answers cross in (clues_only.derive_grid), numbered by that
+    grid. An altered puzzle's plain answers cross in no grid, so it stays held."""
+    import clues_only
+    grid, why = clues_only.derive_grid(record, answers)
+    if grid is None:
+        return None, [f"no single grid holds these answers: {why}"]
+    lights = {d: [[None, None, "clues-only", {"clue": light["clue"].get("text"),
+                                              "enumeration": light["clue"].get("enumeration")}]
+                  for light in record["clues"][d]] for d in clues_only.DIRECTIONS}
+    entries, problems = clues_only.entries_from_grid(grid, lights["across"], lights["down"])
+    if problems:
+        return None, problems
+    rec = {"post_id": None, "link": record["source"]["url"], "date": None, "series": CATEGORY,
+           "number": record["number"], "setter": record.get("setter"),
+           "entries": [{"number": e["number"], "direction": e["direction"], "answer": None,
+                        "clue": f"{e['clue']} ({e['enumeration']})" if e["enumeration"] else e["clue"],
+                        "enumeration": e["enumeration"]} for e in entries]}
+    row = {"grid": grid, "number": record["number"], "how": "the grid its answers cross in"}
+    puzzle, why = file_blog_puzzles.build(rec, row, SERIES, datetime.date.fromisoformat(record["date"]),
+                                          record.get("setter"))
+    if why:
+        return None, [why]
+    if record.get("preamble"):
+        puzzle["preamble"] = record["preamble"]
+    puzzle["source"] = {"url": record["source"]["url"], "gridOrigin": "reconstructed"}
+    return puzzle, []
+
+
 def hold_clues(number, pdf, date, url, write):
     """file()'s (class, why) for a numbered clue list no grid read takes: its
     clues held in clues_only/, each direction in printed order with no length
-    (the grid's lights are what disagree). No builder promotes it yet, so it
-    waits as data rather than in the solve queue."""
+    (the grid's lights are what disagree). The solve answers it and
+    promote_numbered files it on the grid those answers cross in."""
     import clues_only
     meta = {"id": series_meta.puzzle_id(SERIES, number), "number": number, "series": SERIES,
             "name": f"Guardian genius crossword No {number}", "setter": pdf["setter"],
