@@ -164,6 +164,30 @@ f = glob.glob("puzzles/genius/*/genius-7.json")
 if f:
     z = json.load(open(f[0]))
     print("unsolved-nosetter", z["solutions"]["origin"], z.get("setter"))
+
+# Every clue printed unnumbered (280): the list and its instruction read apart,
+# held clues-only, then placed on the printed grid once answered.
+import clues_only
+uc, up = G.unplaced_clues("A board devoid of soft fruit (4) Hard back (5) Clues are listed in alphabetical "
+                          "order of their answers, to be entered jigsaw-fashion where they will fit. "
+                          "Workforce keeping mum (3-4) Run dry (4)")
+print("unplaced-clues", uc)
+print("unplaced-preamble", up)
+ws = ["ABCD", "HIJK", "AEH", "CFJ", "DGK", "FG"]
+rec = {"number": 9999, "date": "2026-01-01", "setter": "Test", "preamble": "Fit them.",
+       "source": {"url": "https://example.com/g"},
+       "clues": {"unplaced": [{"clue": {"text": f"Clue {i}", "enumeration": str(len(w))}, "length": len(w)}
+                              for i, w in enumerate(ws)]}}
+grid = ["....", ".#..", "...."]
+pz, why = G.promote_jigsaw(rec, {"unplaced": ws}, grid=grid)
+print("jigsaw-placed", why, sorted(pz["_parts"].items()), pz["cluesUnplaced"])
+rec["clues"]["unplaced"].append({"clue": {"text": "Below the grid", "enumeration": "3"}, "length": 3})
+print("jigsaw-off-grid", G.promote_jigsaw(rec, {"unplaced": ws + ["XYZ"]}, grid=grid)[1])
+print("jigsaw-builder", clues_only.builder({"cluesUnplaced": True, "series": "genius",
+      "source": {"acquiredBy": "tools/genius_puzzles.py"}}) is not None, 280 in G.SCHEMA_GAP)
+z = clues_only.read("genius-280")
+if z:
+    print("held-280", z.get("cluesUnplaced"), len(z["clues"]["unplaced"]), z["preamble"].startswith("Clues are listed"))
 PY
 )
 echo "$out" | sed 's/^/     /'
@@ -216,5 +240,11 @@ check "a jigsaw clue's answer and entry come off the post row printing it (250)"
 [ -z "$(get setter-84)" ] || check "genius-84 files with no setter (series.py unbylined)" "None" "$(get setter-84)"
 [ -z "$(get unsolved-nosetter)" ] || check "an early Genius with no post and no setter named files unsolved with no setter (7)" "unsolved None" "$(get unsolved-nosetter)"
 [ -z "$(get filed-165)" ] || check "genius-165 files its eight See-preamble lights unclued" "32 8" "$(get filed-165)"
+check "an unnumbered list reads clue by clue, the instruction between two clues cut out (280)" "[('A board devoid of soft fruit (4)', '4'), ('Hard back (5)', '5'), ('Workforce keeping mum (3-4)', '3-4'), ('Run dry (4)', '4')]" "$(get unplaced-clues)"
+check "the instruction among the unnumbered clues is the preamble (280)" "Clues are listed in alphabetical order of their answers, to be entered jigsaw-fashion where they will fit." "$(get unplaced-preamble)"
+check "a Genius jigsaw's answers take the printed grid's lights, numbered there" "[] [('1-across', (0, 'ABCD')), ('1-down', (2, 'AEH')), ('2-down', (3, 'CFJ')), ('3-down', (4, 'DGK')), ('4-across', (5, 'FG')), ('5-across', (1, 'HIJK'))] True" "$(get jigsaw-placed)"
+check "an answer taking no light of the printed grid is refused, not dropped" "['1 answers take no light of the printed grid (XYZ): the puzzle schema has no place for an answer entered off the grid']" "$(get jigsaw-off-grid)"
+check "a held Genius jigsaw has a builder (queued); 280 is out of SCHEMA_GAP" "True False" "$(get jigsaw-builder)"
+[ -z "$(get held-280)" ] || check "genius-280 is held clues-only: 39 unnumbered clues and its instruction" "True 39 True" "$(get held-280)"
 
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }
