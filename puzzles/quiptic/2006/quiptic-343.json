@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,51 @@
     "text": "Plant produces vehicle abroad",
     "enumeration": "7"
    },
-   "solution": "CARAWAY"
+   "solution": "CARAWAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CARAWAY",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "produces"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vehicle",
+      "gives": "CAR",
+      "note": "a car is a road vehicle"
+     },
+     {
+      "clueFragment": "abroad",
+      "gives": "AWAY",
+      "note": "someone abroad is away from home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "AWAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A factory overseas turning out cars.",
+     "walkthrough": "'Plant' reads as a factory, but it is the botanical definition.",
+     "definitionFit": "Caraway is an umbelliferous herb grown for its aromatic seeds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Plant"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +94,45 @@
     "text": "Some heroic agent is in prison",
     "enumeration": "4"
    },
-   "solution": "CAGE"
+   "solution": "CAGE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CAGE",
+    "definitions": [
+     {
+      "text": "prison",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means only part of the words that follow is taken"
+     }
+    ],
+    "linkWords": [
+     "is in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heroic agent",
+      "gives": "CAGE",
+      "note": "the letters run across the gap between the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A brave spy has been locked up.",
+     "definitionFit": "A cage is an enclosure for confining captives, so a prison."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +146,65 @@
     "text": "Covering for holding nothing that is lifted",
     "enumeration": "4"
    },
-   "solution": "ROOF"
+   "solution": "ROOF",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "ROOF",
+    "definitions": [
+     {
+      "text": "Covering",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "a word holding another has it inside its own letters"
+     },
+     {
+      "text": "that is lifted",
+      "for": "reversal",
+      "note": "in a down clue lifting something turns it upward, so it reads bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "FOR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O is zero, nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROOF"
+     ],
+     "reversals": [
+      {
+       "from": "FOOR",
+       "to": "ROOF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cover being raised from something empty.",
+     "walkthrough": "O goes inside FOR to make FOOR, which is then read upwards.",
+     "definitionFit": "A roof is the covering on top of a building."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +224,42 @@
      }
     ]
    },
-   "solution": "WIDEOPEN"
+   "solution": "WIDEOPEN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WIDE OPEN",
+    "definitions": [
+     {
+      "text": "In danger",
+      "at": 0
+     },
+     {
+      "text": "up in the air",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In danger",
+      "note": "first meaning: exposed and vulnerable to attack"
+     },
+     {
+      "clueFragment": "up in the air",
+      "note": "second meaning: undecided, with the result uncertain"
+     }
+    ],
+    "explanation": {
+     "surface": "Something at risk while uncertain or airborne.",
+     "definitionFit": "The phrase describes both being exposed to harm and a contest or question whose outcome is undecided."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "air"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +273,42 @@
     "text": "Part with profit",
     "enumeration": "5"
    },
-   "solution": "YIELD"
+   "solution": "YIELD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "YIELD",
+    "definitions": [
+     {
+      "text": "Part with",
+      "at": 0
+     },
+     {
+      "text": "profit",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part with",
+      "note": "first meaning: to give up or surrender something"
+     },
+     {
+      "clueFragment": "profit",
+      "note": "second meaning: the return produced by an investment"
+     }
+    ],
+    "explanation": {
+     "surface": "Sharing out the gains.",
+     "definitionFit": "As a verb the word means to hand over or surrender; as a noun the return or income from an investment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Part"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +322,59 @@
     "text": "Pitifulness of boy or girl with short stockings",
     "enumeration": "6"
    },
-   "solution": "PATHOS"
+   "solution": "PATHOS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PATHOS",
+    "definitions": [
+     {
+      "text": "Pitifulness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "something cut short loses its tail end, so the last letter goes"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boy or girl",
+      "gives": "PAT",
+      "note": "Pat is a name used for either sex (Patrick or Patricia)"
+     },
+     {
+      "clueFragment": "stockings",
+      "gives": "HOSE",
+      "note": "hose is an old word for stockings"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAT",
+      "HOS"
+     ]
+    },
+    "explanation": {
+     "surface": "A child looking pitiful in stockings that are too short.",
+     "walkthrough": "HOSE loses its last letter to leave HOS, giving PAT + HOS = PATHOS.",
+     "definitionFit": "Pathos is the quality in art or life that evokes pity or sorrow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +388,47 @@
     "text": "Smoker could be in need of one to settle",
     "enumeration": "6"
    },
-   "solution": "ALIGHT"
+   "solution": "ALIGHT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ALIGHT",
+    "definitions": [
+     {
+      "text": "Smoker could be in need of one",
+      "at": 0
+     },
+     {
+      "text": "settle",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Smoker could be in need of one",
+      "note": "first meaning: read as two words, what a smoker without matches asks for"
+     },
+     {
+      "clueFragment": "settle",
+      "note": "second meaning: to come down and rest, as a bird does on a branch"
+     }
+    ],
+    "explanation": {
+     "surface": "A smoker craving a cigarette to calm their nerves.",
+     "walkthrough": "Split as A LIGHT, the answer is what a smoker asks for; as one word it is a verb.",
+     "definitionFit": "To alight is to descend and come to rest, as a bird settles on a perch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "settle"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +456,38 @@
      }
     ]
    },
-   "solution": "HOWDOYOUDO"
+   "solution": "HOWDOYOUDO",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HOW DO YOU DO",
+    "definitions": [
+     {
+      "text": "A forerunner of \"Hi!\"?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A forerunner of",
+      "note": "the surface reading: something that historically came before, an ancestor"
+     },
+     {
+      "clueFragment": "\"Hi!\"?",
+      "note": "the setter's reading: the formal greeting that the casual one replaced"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The older, formal salutation on first meeting someone has largely been replaced by a casual hello.",
+     "definitionFit": "This set phrase is a traditional formal greeting on being introduced, now often superseded by a breezy informal one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "forerunner"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +501,65 @@
     "text": "Correspondence shows I limit dues differently",
     "enumeration": "10"
    },
-   "solution": "SIMILITUDE"
+   "solution": "SIMILITUDE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SIMILITUDE",
+    "definitions": [
+     {
+      "text": "Correspondence",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "differently",
+      "for": "anagram",
+      "note": "arranged differently means put in another order"
+     }
+    ],
+    "linkWords": [
+     "shows"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "limit",
+      "gives": "LIMIT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dues",
+      "gives": "DUES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ILIMITDUES",
+       "gives": "SIMILITUDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A letter in which someone says they will cap their fees another way.",
+     "walkthrough": "'Correspondence' suggests letters, but here it means likeness.",
+     "definitionFit": "Similitude means resemblance, and correspondence in the sense of a close match between things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Correspondence"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +579,50 @@
      }
     ]
    },
-   "solution": "GOODDEED"
+   "solution": "GOODDEED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GOOD DEED",
+    "definitions": [
+     {
+      "text": "favour",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "is in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Excellent",
+      "gives": "GOOD",
+      "note": "good means excellent"
+     },
+     {
+      "clueFragment": "document",
+      "gives": "DEED",
+      "note": "a deed is a legal document"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOOD",
+      "DEED"
+     ]
+    },
+    "explanation": {
+     "surface": "A first-rate document that comes down on one side of a dispute.",
+     "walkthrough": "'in favour' reads as one phrase, but 'is in' is the link and 'favour' alone is the definition.",
+     "definitionFit": "A good deed is a kind act done for someone, which is what a favour is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "favour"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +636,57 @@
     "text": "Dwelling where hairpiece is needed by woman in the morning",
     "enumeration": "6"
    },
-   "solution": "WIGWAM"
+   "solution": "WIGWAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WIGWAM",
+    "definitions": [
+     {
+      "text": "Dwelling",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "where",
+     "is needed by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hairpiece",
+      "gives": "WIG",
+      "note": "a wig is a hairpiece"
+     },
+     {
+      "clueFragment": "woman",
+      "gives": "W",
+      "note": "W is the abbreviation for woman"
+     },
+     {
+      "clueFragment": "in the morning",
+      "gives": "AM",
+      "note": "a.m. means in the morning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIG",
+      "W",
+      "AM"
+     ]
+    },
+    "explanation": {
+     "surface": "A home where a lady must put on her wig first thing in the day.",
+     "definitionFit": "A wigwam is a domed hut or tent once lived in by some Native American peoples."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "needed"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +700,56 @@
     "text": "Dennis turns up, having misbehaved",
     "enumeration": "6"
    },
-   "solution": "SINNED"
+   "solution": "SINNED",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SINNED",
+    "definitions": [
+     {
+      "text": "misbehaved",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turns up",
+      "for": "reversal",
+      "note": "in a down clue turning up means flipping to read from the bottom upward"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dennis",
+      "gives": "DENNIS",
+      "note": "the name taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SINNED"
+     ],
+     "reversals": [
+      {
+       "from": "DENNIS",
+       "to": "SINNED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dennis arrives after behaving badly, as Dennis the Menace would.",
+     "definitionFit": "To have sinned is to have done wrong, a stronger way of saying misbehaved."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turns"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +769,48 @@
      }
     ]
    },
-   "solution": "GOLDFISHBOWL"
+   "solution": "GOLDFISHBOWL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GOLDFISH BOWL",
+    "definitions": [
+     {
+      "text": "It allows public appearances of ornamental pets",
+      "at": 0
+     },
+     {
+      "text": "film stars",
+      "at": 52,
+      "note": "loosely, what film stars live in: a life on constant public view"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It allows public appearances of ornamental pets",
+      "note": "first meaning: a glass tank in which small orange pet fish are on show"
+     },
+     {
+      "clueFragment": "film stars",
+      "note": "second meaning: the figurative fishbowl of celebrities, whose every move is watched"
+     }
+    ],
+    "explanation": {
+     "surface": "A display case that shows off both pet fish and screen celebrities.",
+     "walkthrough": "The phrase serves literally for a tank of pet fish and figuratively for a life with no privacy, which is how film stars live.",
+     "definitionFit": "The idiom names any situation where everything one does is exposed to onlookers, like fish seen through glass."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "appearances"
+    }
+   }
   },
   {
    "number": 13,
@@ -253,7 +830,65 @@
      }
     ]
    },
-   "solution": "AIRHOSTESS"
+   "solution": "AIRHOSTESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AIR HOSTESS",
+    "definitions": [
+     {
+      "text": "she must fly",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "like that",
+      "for": "anagram",
+      "note": "sitting like that means arranged in some other way, so the letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "so"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "HORSE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sits",
+      "gives": "SITS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AHORSESITS",
+       "gives": "AIRHOSTESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rider perched in an odd way on a horse, hurrying off.",
+     "walkthrough": "'she must fly' is a definition by description: her job keeps her aboard planes.",
+     "definitionFit": "An air hostess is a female cabin attendant, whose work requires her to travel by plane."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fly"
+    }
+   }
   },
   {
    "number": 14,
@@ -267,7 +902,59 @@
     "text": "Go past with case undone, but we are wrongly blamed",
     "enumeration": "10"
    },
-   "solution": "SCAPEGOATS"
+   "solution": "SCAPEGOATS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCAPEGOATS",
+    "definitions": [
+     {
+      "text": "we are wrongly blamed",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "undone",
+      "for": "anagram",
+      "note": "undone means taken apart, so the letters can be rebuilt in a fresh order"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go past",
+      "gives": "GOPAST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "case",
+      "gives": "CASE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GOPASTCASE",
+       "gives": "SCAPEGOATS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Travellers walk by with a burst suitcase and protest it was not their fault.",
+     "walkthrough": "The definition is spoken by the answer itself, so 'we' is the plural people who take the blame.",
+     "definitionFit": "Scapegoats are people made to bear the blame for others' misdeeds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +968,58 @@
     "text": "Bewildered since grain is swelling",
     "enumeration": "10"
    },
-   "solution": "INCREASING"
+   "solution": "INCREASING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INCREASING",
+    "definitions": [
+     {
+      "text": "swelling",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bewildered",
+      "for": "anagram",
+      "note": "bewildered means thrown into confusion, so the following letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "since",
+      "gives": "SINCE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "grain",
+      "gives": "GRAIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SINCEGRAIN",
+       "gives": "INCREASING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone baffled as to why their grain store keeps getting bigger.",
+     "definitionFit": "Increasing and swelling are both present participles meaning growing larger."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bewildered"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1033,54 @@
     "text": "Drink available after a second",
     "enumeration": "6"
    },
-   "solution": "SHANDY"
+   "solution": "SHANDY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHANDY",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says the word for available comes behind the one for a second, so the clue order is swapped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "available",
+      "gives": "HANDY",
+      "note": "handy means close by and available"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HANDY"
+     ]
+    },
+    "explanation": {
+     "surface": "A drink that will be ready in a moment.",
+     "walkthrough": "'after' places the second piece behind the first; a shandy is beer mixed with lemonade.",
+     "definitionFit": "A shandy is a drink of beer mixed with lemonade or ginger beer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1094,45 @@
     "text": "It's revealed as unfashionable",
     "enumeration": "3"
    },
-   "solution": "OUT"
+   "solution": "OUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OUT",
+    "definitions": [
+     {
+      "text": "revealed",
+      "at": 5
+     },
+     {
+      "text": "unfashionable",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "It's",
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "revealed",
+      "note": "first meaning: made known"
+     },
+     {
+      "clueFragment": "unfashionable",
+      "note": "second meaning: no longer in style"
+     }
+    ],
+    "explanation": {
+     "surface": "A trend exposed as passé.",
+     "definitionFit": "The short adverb covers both something now public knowledge and something that has gone out of style."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1146,50 @@
     "text": "It's lovely to be arriving",
     "enumeration": "8"
    },
-   "solution": "BECOMING"
+   "solution": "BECOMING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BECOMING",
+    "definitions": [
+     {
+      "text": "lovely",
+      "at": 5
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to be",
+      "gives": "BE",
+      "note": "the verb taken as written"
+     },
+     {
+      "clueFragment": "arriving",
+      "gives": "COMING",
+      "note": "arriving means coming"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "COMING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone delighted to be on their way.",
+     "walkthrough": "'to be' supplies the verb itself, which is then followed by its synonym for arriving.",
+     "definitionFit": "Becoming means attractive or flattering, as in a becoming dress, so lovely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lovely"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1203,55 @@
     "text": "One lying in Hewlett-Packard type of bath",
     "enumeration": "3"
    },
-   "solution": "HIP"
+   "solution": "HIP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HIP",
+    "definitions": [
+     {
+      "text": "type of bath",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lying in",
+      "for": "container",
+      "note": "something lying in another thing is placed within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hewlett-Packard",
+      "gives": "HP",
+      "note": "HP is the company's abbreviation"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "I",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stretched out in a bath made by a computer company.",
+     "definitionFit": "A hip bath is a small tub in which one sits immersed up to the hips, so the word names that type."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "lying"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1265,46 @@
     "text": "I'm hairless, but without regard for the consequences",
     "enumeration": "10"
    },
-   "solution": "BALDHEADED"
+   "solution": "BALDHEADED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BALDHEADED",
+    "definitions": [
+     {
+      "text": "I'm hairless",
+      "at": 0
+     },
+     {
+      "text": "without regard for the consequences",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'm hairless",
+      "note": "first meaning: having no hair on the scalp"
+     },
+     {
+      "clueFragment": "without regard for the consequences",
+      "note": "second meaning: going at something headlong and recklessly"
+     }
+    ],
+    "explanation": {
+     "surface": "A bald speaker insists they are not reckless.",
+     "walkthrough": "'I'm hairless' is spoken by the answer itself, so it describes the word. Going at something bald-headed is an informal phrase for charging in recklessly.",
+     "definitionFit": "The adjective means literally without hair, and in an idiom also rash and heedless of risk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1318,63 @@
     "text": "Young girl has to fib about a Sunday school",
     "enumeration": "6"
    },
-   "solution": "LASSIE"
+   "solution": "LASSIE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LASSIE",
+    "definitions": [
+     {
+      "text": "Young girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece goes around the others"
+     }
+    ],
+    "linkWords": [
+     "has to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fib",
+      "gives": "LIE",
+      "note": "a fib is a lie"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Sunday school",
+      "gives": "SS",
+      "note": "SS is the abbreviation for Sunday school"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "A",
+      "SS",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl has to tell a little untruth about her church classes.",
+     "definitionFit": "Lassie is a Scottish and northern English word for a girl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1398,39 @@
      }
     ]
    },
-   "solution": "SAGEANDONION"
+   "solution": "SAGEANDONION",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SAGE AND ONION",
+    "definitions": [
+     {
+      "text": "It makes the goose go round",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "makes the goose go round",
+      "note": "the surface reading: something that keeps a goose spinning or circling"
+     },
+     {
+      "clueFragment": "It makes the goose go round",
+      "note": "the setter's reading: the stuffing that bulks out a roast goose, making it rounder and making it feed more people"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Go round' means both to be rotund and to stretch to serve everyone at table, both of which stuffing does for a roast bird.",
+     "definitionFit": "This herb-and-onion mixture is the traditional British stuffing for roast goose or chicken."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1444,57 @@
     "text": "It's hard to get into good position",
     "enumeration": "5"
    },
-   "solution": "NICHE"
+   "solution": "NICHE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NICHE",
+    "definitions": [
+     {
+      "text": "position",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to get into",
+      "for": "container",
+      "note": "getting into something means going inside it"
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "NICE",
+      "note": "nice means good"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the abbreviation for hard, as on pencils"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIC",
+      "H",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Landing a good post is tough.",
+     "definitionFit": "A niche is a suitable position or role in which someone fits well."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hard"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1508,59 @@
     "text": "At this place is her empty semi",
     "enumeration": "4"
    },
-   "solution": "HERE"
+   "solution": "HERE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "HERE",
+    "definitions": [
+     {
+      "text": "At this place",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "semi",
+      "for": "letter_selection",
+      "note": "semi means only partly there, so just a fragment of the next word is kept"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "her",
+      "gives": "HER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "empty",
+      "gives": "E",
+      "select": "first",
+      "note": "only the opening letter of the word is kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HER",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Here stands her unoccupied semi-detached house.",
+     "walkthrough": "A loose device: 'empty semi' leaves only a scrap of 'empty', its first letter. A semi is a semi-detached house, one of a joined pair.",
+     "definitionFit": "Here is the adverb meaning in or at this location."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "semi"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1574,53 @@
     "text": "Man with sex appeal let the dust settle",
     "enumeration": "4"
    },
-   "solution": "STUD"
+   "solution": "STUD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STUD",
+    "definitions": [
+     {
+      "text": "Man with sex appeal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "settle",
+      "for": "anagram",
+      "note": "letting something settle means it falls into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "let the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dust",
+      "gives": "DUST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DUST",
+       "gives": "STUD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A heartthrob waits for things to calm down.",
+     "definitionFit": "Stud is informal slang for a sexually attractive, virile young man."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "settle"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1634,55 @@
     "text": "See pal awkwardly go by",
     "enumeration": "6"
    },
-   "solution": "ELAPSE"
+   "solution": "ELAPSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ELAPSE",
+    "definitions": [
+     {
+      "text": "go by",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awkwardly",
+      "for": "anagram",
+      "note": "done awkwardly means clumsily arranged, so the letters are put in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See",
+      "gives": "SEE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pal",
+      "gives": "PAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEEPAL",
+       "gives": "ELAPSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Watching a friend shuffle past clumsily.",
+     "definitionFit": "Time that elapses passes, so the verb is a synonym of the phrasal verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "awkwardly"
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +1696,55 @@
     "text": "Misadventure I had, masked by stress",
     "enumeration": "8"
    },
-   "solution": "ACCIDENT"
+   "solution": "ACCIDENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ACCIDENT",
+    "definitions": [
+     {
+      "text": "Misadventure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "masked by",
+      "for": "container",
+      "note": "something masked by another thing is covered over by it, so it sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stress",
+      "gives": "ACCENT",
+      "note": "accent is stress on a syllable"
+     },
+     {
+      "clueFragment": "I had",
+      "gives": "ID",
+      "note": "I'd is the contraction of I had"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACC",
+      "ID",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hiding a mishap behind the strain they are under.",
+     "walkthrough": "'stress' looks like worry, but here it is the emphasis placed on a syllable.",
+     "definitionFit": "An accident is an unlucky mishap, which is what misadventure means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stress"
+    }
+   }
   },
   {
    "number": 28,
@@ -473,7 +1758,67 @@
     "text": "Nurse is returning, all but severe",
     "enumeration": "6"
    },
-   "solution": "SISTER"
+   "solution": "SISTER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "SISTER",
+    "definitions": [
+     {
+      "text": "Nurse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so the short word is read right to left"
+     },
+     {
+      "text": "all but",
+      "for": "deletion",
+      "note": "all but means everything except one bit, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "severe",
+      "gives": "STERN",
+      "note": "stern means severe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "STER"
+     ],
+     "reversals": [
+      {
+       "from": "IS",
+       "to": "SI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nurse back on the ward, nearly as strict as ever.",
+     "walkthrough": "In British hospitals a sister is the senior nurse in charge of a ward, so 'Nurse' is a fair definition.",
+     "definitionFit": "A sister is a senior grade of hospital nurse, so the title stands for a nurse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returning"
+    }
+   }
   },
   {
    "number": 29,
@@ -487,7 +1832,50 @@
     "text": "Bluestocking has something for breakfast with the chairwoman",
     "enumeration": "7"
    },
-   "solution": "EGGHEAD"
+   "solution": "EGGHEAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EGGHEAD",
+    "definitions": [
+     {
+      "text": "Bluestocking",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "has",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "something for breakfast",
+      "gives": "EGG",
+      "note": "an egg is a breakfast food"
+     },
+     {
+      "clueFragment": "the chairwoman",
+      "gives": "HEAD",
+      "note": "the chair of a body is its head"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EGG",
+      "HEAD"
+     ]
+    },
+    "explanation": {
+     "surface": "An intellectual woman shares her morning boiled egg with the woman who runs the committee.",
+     "definitionFit": "A bluestocking is an intellectual or scholarly woman, so an egghead, a highbrow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bluestocking"
+    }
+   }
   }
  ]
 }
