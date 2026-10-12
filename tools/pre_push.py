@@ -242,6 +242,13 @@ def main(argv):
                                cwd=ROOT, capture_output=True, text=True, check=False)
             if r.returncode:
                 fails.append(("tools/puzzle_integrity.py on the pushed puzzles", (r.stdout + r.stderr).splitlines()[-25:]))
+            # The deploy's validate run: a definition `at` a clue rewrite left
+            # stale passes puzzle_integrity and turns the site red (8cb5a7e0b2).
+            r = subprocess.run([sys.executable, "tools/validate_annotations.py", "--deploy", *published],
+                               cwd=ROOT, capture_output=True, text=True, check=False)
+            if r.returncode:
+                errs = [ln for ln in (r.stdout + r.stderr).splitlines() if "ERROR" in ln or "FAIL" in ln]
+                fails.append(("tools/validate_annotations.py on the pushed puzzles", errs[-25:]))
 
     code = [p for p in changed if not p.startswith(DATA_DIRS)]
     passed = unfinished = []

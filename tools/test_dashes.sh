@@ -211,5 +211,26 @@ check("in_clue_spelling: link word", ["—"], got["linkWords"])
 check("in_clue_spelling: indicator", "all-round", got["indicators"][0]["text"])
 check("in_clue_spelling: block", "gin…", got["blocks"][0]["clueFragment"])
 
+# A ligature is two or three letters, so straightening one is a clue rewrite
+# like a dash's: every `at` and quoted phrase moves with it (8cb5a7e0b2 left
+# azed-2778..2783's definition offsets one short). quotes.straighten goes
+# through enumeration.rewrite_entry.
+import quotes
+lig = {"clue": {"text": "Ruﬃanly behaviour ‘with’ a girl, some of it",
+                "italics": [{"at": 10, "length": 9}]},
+       "annotation": {"definitions": [{"text": "Ruﬃanly behaviour", "at": 0},
+                                      {"text": "some of it", "at": 34}],
+                      "indicators": [{"text": "some of"}], "linkWords": ["with"],
+                      "blocks": [{"clueFragment": "a girl, some of it"}]}}
+got = quotes.straighten({"entries": [lig]})["entries"][0]
+text = got["clue"]["text"]
+check("ligature: clue spelt out", "Ruffianly behaviour 'with' a girl, some of it", text)
+check("ligature: definitions' at moved", [0, 35], [d["at"] for d in got["annotation"]["definitions"]])
+check("ligature: definitions sit at their at", True,
+      all(text[d["at"]:d["at"] + len(d["text"])] == d["text"] for d in got["annotation"]["definitions"]))
+check("ligature: definition text spelt out", "Ruffianly behaviour", got["annotation"]["definitions"][0]["text"])
+check("ligature: italics moved", [{"at": 12, "length": 9}], got["clue"]["italics"])
+check("ligature: caller's puzzle untouched", 34, lig["annotation"]["definitions"][1]["at"])
+
 raise SystemExit(fails)
 PY
