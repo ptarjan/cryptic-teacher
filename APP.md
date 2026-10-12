@@ -97,8 +97,9 @@ Terms used below:
   to work out here". The type-derived sentence is said only when some
   indicator has neither. The smoke test enforces this structurally, not by
   banned phrases: remove the notes from a fully-noted rung, and what is left
-  must be empty, apart from the rule to keep below.
-- **The indicator and type rungs end on a rule to keep.** One labelled line
+  must be empty, apart from the rule chip below.
+- **The indicator and type rungs end on a rule chip.** A small "rule" chip at the
+  end of the rung's last line opens, in place, one line that
   says what the device's words usually mean in any clue and lists other words
   that do the same job ("“occupying” usually means: put one piece inside
   another; also: in, about, around…"), then links to that device's section of

@@ -3184,22 +3184,36 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       // explanation has to be specific to this clue's context, never just text
       // filling space. Anything the clue type alone could have written is
       // filler beside a sentence about this clue. The one exception is the
-      // labelled rule to keep (DEVICE_RULES), which is general on purpose: it is
-      // what the solver takes to the next clue, so it must be there.
+      // rule chip (DEVICE_RULES), which is general on purpose: it is what the
+      // solver takes to the next clue. It adds no text until tapped, and a tap
+      // on it opens the rule with its lesson link.
       const inds = (s.e.annotation.indicators || []);
       if (inds.length && inds.every((i) => i.note)) {
-        const rung = (html.split('<div class="hint-step">')
+        const rungOf = (h) => (h.split('<div class="hint-step">')
           .find((sec) => sec.includes("Spot the indicator words")) || "")
           .replace(/<\/div>[\s\S]*$/, "");
-        const rules = rung.match(/<p class="device-rule">[\s\S]*?<\/p>/g) || [];
-        assert(!inds.some((i) => i.for) || rules.length,
-          `${s.id} ${entryId(s.e)}: the indicators rung ends on the rule for its device: ` + rung);
-        assert(rules.every((r) => /href="learn\/#[a-z-]+"/.test(r)),
-          `${s.id} ${entryId(s.e)}: each rule links to its lesson section: ` + rules);
+        const rulesIn = (h) => h.match(/<span class="device-rule">[\s\S]*?<\/span>/g) || [];
+        const rung = rungOf(html);
+        const chip = /<button type="button" class="rule-chip" data-rule="indicators"/.test(rung);
+        assert(!inds.some((i) => i.for) || chip,
+          `${s.id} ${entryId(s.e)}: the indicators rung ends on a chip for its device's rule: ` + rung);
+        assert(!rulesIn(rung).length,
+          `${s.id} ${entryId(s.e)}: the rule stays closed until its chip is tapped: ` + rung);
+        if (chip) {
+          const tap = () => registry["hint-body"].listeners.click[0]({ target: { dataset: { rule: "indicators" } } });
+          tap();
+          const rules = rulesIn(rungOf(registry["hint-body"].innerHTML));
+          assert(rules.length,
+            `${s.id} ${entryId(s.e)}: tapping the chip opens the rule for its device: ` + rung);
+          assert(rules.every((r) => /href="learn\/#[a-z-]+"/.test(r)),
+            `${s.id} ${entryId(s.e)}: each rule links to its lesson section: ` + rules);
+          tap();
+          assert(!rulesIn(rungOf(registry["hint-body"].innerHTML)).length,
+            `${s.id} ${entryId(s.e)}: a second tap closes the rule again`);
+        }
         const rest = rung
           .replace(/<span class="step-label">[^<]*<\/span>/, "")
-          .replace(/<ul class="ind-notes">[\s\S]*?<\/ul>/, "")
-          .replace(/<p class="device-rule">[\s\S]*?<\/p>/g, "").trim();
+          .replace(/<ul class="ind-notes">[\s\S]*?<\/ul>/, "").trim();
         assert(!rest, `${s.id} ${entryId(s.e)}: every indicator has a note, so the rung ` +
           `should be those notes and nothing else — also found: ` + rest);
       }

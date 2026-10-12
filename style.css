@@ -894,11 +894,14 @@ button:disabled:hover { border-color: var(--line); }
 }
 .hint-step p, .hint-step ul { margin: 4px 0; }
 .hint-step ul { padding-left: 20px; }
-/* The general rule under a rung: set apart from what is true of this clue. */
-.hint-step .device-rule { margin-top: 8px; padding: 6px 10px; border-left: 3px solid var(--accent-soft);
-  background: var(--bg); font-size: .92rem; }
-.device-rule .rule-tag { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .06em;
-  text-transform: uppercase; color: var(--muted); }
+/* The general rule: a small chip at the end of the rung's last line, opening
+   in place under it, so the rung takes no extra room until it is tapped. */
+.rule-chip { display: inline; font: inherit; font-size: .72rem; font-weight: 700; line-height: 1.2;
+  letter-spacing: .04em; color: var(--accent); background: var(--accent-soft); border: 0;
+  border-radius: 9px; padding: 1px 7px; margin-left: 2px; cursor: pointer; vertical-align: 1px; }
+.rule-chip[aria-expanded="true"] { color: var(--bg); background: var(--accent); }
+.hint-step .device-rule { display: block; margin-top: 4px; padding: 4px 8px;
+  border-left: 3px solid var(--accent-soft); font-size: .88rem; color: var(--muted); }
 .device-rule .learn-link { white-space: nowrap; }
 .hint-step .gives { font-weight: 700; font-family: -apple-system, Helvetica, sans-serif; }
 /* The precise (compound) clue type — named only once the family, definition and

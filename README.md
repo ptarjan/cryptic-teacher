@@ -32,7 +32,8 @@ How the ladder behaves:
   definition, type) can be taken in any order. The building blocks and the
   walkthrough stay locked until the spotting rungs are up.
 - **Solving the clue unlocks every rung for free.**
-- **The indicator and type rungs end on a rule to keep.** A labelled line says
+- **The indicator and type rungs end on a rule chip.** Tapping the small "rule"
+  chip at the end of the rung opens a line that says
   what that device's words usually mean in any clue, with other words that do
   the same job, and links to the device's section of the /learn/ lesson. The
   rest of the ladder explains this clue; the rule is what carries over to the
