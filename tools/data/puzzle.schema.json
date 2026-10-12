@@ -1492,6 +1492,11 @@
      "description": "Cells in this light, when the enumeration says (a linked answer's lights are split). Absent when unknown; the grid search then decides.",
      "type": "integer",
      "minimum": 1
+    },
+    "blogAnswer": {
+     "description": "A blog post's own answer to this clue (tools/file_blog_puzzles.py hold_clues): a cross-check on the solve, never its truth, since the blog's answers are what fit no grid.",
+     "type": "string",
+     "pattern": "^[A-Z]+$"
     }
    }
   },

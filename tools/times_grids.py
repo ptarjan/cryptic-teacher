@@ -359,6 +359,104 @@ def one_number_wrong(lights, words, n, cap=TIMES_BLACK_RUN, budget=None):
     return found.pop() if len(found) == 1 else None
 
 
+#: The most skipped light numbers tolerant() puts back: each may be an
+#: across, a down or both, so k gaps are 3**k searches.
+MAX_GAPS = 2
+
+
+def loosened(rec):
+    """(lights, words): the blog's light list with every answer it gives no
+    reason to trust left unknown. An answer that disagrees with its own
+    enumeration takes the enumeration's length and no letters; a blank answer
+    takes its enumeration's length, or none. The rest stay as blogged."""
+    leaders = parser.leader_numbers(rec["entries"])
+    lights, words = [], []
+    for e in printed(rec):
+        span, word = length(e), e["answer"] or None
+        if word and parser.enum_agrees(e, leaders) is False:
+            span = sum(int(n) for n in re.findall(r"\d+", e["enumeration"])) or None
+            word = None
+        lights.append((e["number"], e["direction"], span))
+        words.append(word)
+    return lights, words
+
+
+def gaps(lights):
+    """The light numbers no light carries, below the highest one that does."""
+    have = {num for num, _d, _n in lights}
+    return sorted(set(range(1, max(have, default=0) + 1)) - have)
+
+
+def with_gaps(lights, words):
+    """Every (lights, words) that puts back the lights a post skipped: each
+    number no light carries as an across, a down or both, of unknown length
+    and letters. [] when more than MAX_GAPS are missing."""
+    missing = gaps(lights)
+    if not missing:
+        return [(lights, words)]
+    if len(missing) > MAX_GAPS:
+        return []
+    out = []
+    ways = (("across",), ("down",), ("across", "down"))
+    for dirs in itertools.product(ways, repeat=len(missing)):
+        extra = [((g, d, None), None) for g, ds in zip(missing, dirs) for d in ds]
+        pairs = sorted(list(zip(lights, words)) + extra, key=lambda p: (p[0][0], p[0][1]))
+        out.append(([p[0] for p in pairs], [p[1] for p in pairs]))
+    return out
+
+
+def tolerant(rec, n, budget, max_nodes=DEFAULT_MAX_NODES):
+    """(grid, how) when the post's answers fit exactly one grid once every
+    answer it cannot be trusted on is unknown (loosened), every light it
+    skipped is put back (with_gaps), and then, if that fits none, one more
+    light at a time is freed (one_light_wrong); else (None, why).
+
+    The blog is a solver's write-up: an answer at the wrong length for its
+    printed count, a blank one and a missing one are holes in the list, and
+    the crossings round a hole are what fill it. A grid found this way is
+    still settled against the blog's answers (settle), so each typo it
+    proves carries the blogger's original as `blogged`."""
+    lights, words = loosened(rec)
+    variants = with_gaps(lights, words)
+    if not variants:
+        return None, f"no grid: {len(gaps(lights))} light numbers skipped"
+    cap = black_run(rec)
+    unknown = [f"{num} {d}" for (num, d, _), w in zip(lights, words) if w is None]
+    found, truncated = {}, False
+    plain = variants == [(triples(rec), [e["answer"] or None for e in printed(rec)])]
+    if not plain:           # the list as blogged was searched already
+        for spec, ws in variants:
+            try:
+                sols, info = budget.search("tolerant", spec, max_nodes, cols=n, rows=n,
+                                           limit=2, words=ws, max_black_run=cap)
+            except ValueError:
+                continue
+            if budget.spent():
+                return None, f"truncated: puzzle budget spent at {budget.spent_at or 'tolerant'}"
+            truncated |= bool(info.get("truncated"))
+            found.update(dict.fromkeys(sols, "unknown"))
+            if len(found) > 1:
+                return None, f"tolerant: {len(found)} grids fit with answers unknown"
+    if not found and not truncated:
+        for spec, ws in variants:
+            grid, why = one_light_wrong(spec, ws, n, cap, budget)
+            if budget.spent():
+                return None, f"truncated: puzzle budget spent at {budget.spent_at or 'one light freed'}"
+            if grid:
+                found[grid] = why
+            if len(found) > 1:
+                return None, f"tolerant: {len(found)} grids fit with one light freed"
+    if len(found) == 1 and not truncated:
+        grid, how = found.popitem()
+        named = {(num, d) for num, d, _ in lights}
+        skipped = [_key(k) for k in sorted(rg.light_cells(grid)) if k not in named]
+        notes = ([f"answers unknown at {', '.join(unknown)}"] if unknown else []) + (
+            [f"lights put back at {', '.join(skipped)}"] if skipped else []) + (
+            [how] if how != "unknown" else [])
+        return grid, "unique, tolerant: " + "; ".join(notes)
+    return None, "no grid" + (" (tolerant search truncated)" if truncated else "")
+
+
 def _written(grid, entries):
     """Do these answers write into the grid's lights without a clash? An
     answer shorter than its light (georgeho's TAM for TAM-O'-SHANTER) is
@@ -407,7 +505,7 @@ def settled_answers(blog="timesforthetimes"):
     for pid, lights in raw.get(blog, {}).items():
         if pid.startswith("_"):
             continue
-        out[int(pid)] = {(int(k.split()[0]), k.split()[1]): v["answer"]
+        out[int(pid) if pid.isdigit() else pid] = {(int(k.split()[0]), k.split()[1]): v["answer"]
                          for k, v in lights.items() if not k.startswith("_")}
     return out
 
@@ -428,6 +526,116 @@ def amend(rec, settled):
     return dict(rec, entries=entries), made
 
 
+def blog_key(where):
+    """The ANSWERS key for a blog cache directory: its name, or for
+    georgeho's (georgeho/blog) "georgeho"."""
+    if where is None:
+        return "timesforthetimes"
+    return where.parent.name if where.name == "blog" else where.name
+
+
+def dump_answers(raw):
+    """ANSWERS' text: one line per post, as it is kept by hand."""
+    out = []
+    for k, v in raw.items():
+        if not isinstance(v, dict):
+            out.append(f"  {json.dumps(k)}: {json.dumps(v, ensure_ascii=False)}")
+            continue
+        posts = [f"    {json.dumps(pid)}: {json.dumps(fix, ensure_ascii=False)}"
+                 for pid, fix in v.items()]
+        out.append(f"  {json.dumps(k)}: {{\n" + ",\n".join(posts) + "\n  }")
+    return "{\n" + ",\n".join(out) + "\n}\n"
+
+
+#: What a correction tolerant() proved says of itself in ANSWERS.
+CROSSED = "crossings: the one grid the tolerant search found"
+UNKNOWN = "unknown: the grid proves the blog wrong and no one word fits; left for the solver"
+
+
+def record_corrections(blog, rec, fixes, path=None):
+    """Write each of `fixes` (settle's corrections on a grid tolerant() found)
+    into ANSWERS under blog -> post, keeping the blogger's own answer as
+    `blogged` beside it. An entry already there, set by reading the wordplay,
+    is never overwritten. Returns how many it added."""
+    path = path or ANSWERS
+    raw = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+    post = raw.setdefault(blog, {}).setdefault(str(rec["post_id"]), {})
+    if not post:
+        post["_puzzle"] = rec.get("title") or f"{rec['series']} {rec.get('number')}"
+    added = 0
+    for f in fixes:
+        k = f"{f['number']} {f['direction']}"
+        if k in post:
+            continue
+        post[k] = {"answer": f["answer"], "blogged": f["blogged"],
+                   "how": CROSSED if f["answer"] else UNKNOWN}
+        added += 1
+    if not added and list(post) == ["_puzzle"]:
+        del raw[blog][str(rec["post_id"])]
+    path.write_text(dump_answers(raw), encoding="utf-8")
+    return added
+
+
+def retolerate(where=None, series=None, max_nodes=1_000_000, write=True, log=sys.stderr):
+    """Run tolerant() alone over every post whose latest attempt found no
+    grid (or refused one), with `max_nodes` per search: the searches that
+    came before it in solve() have already failed on these. A grid it pins
+    and settle(lenient) accepts is written to grids.jsonl, its corrections to
+    ANSWERS. Returns {"how": Counter, "by_series": {series: Counter}}."""
+    parsed, out_path, attempts = ((where / "parsed.jsonl", where / "grids.jsonl",
+                                   where / "attempts.jsonl") if where
+                                  else (PARSED, OUT, ATTEMPTS))
+    every = [json.loads(line) for line in parsed.open(encoding="utf-8")]
+    last = {}
+    for line in attempts.open(encoding="utf-8"):
+        try:
+            a = json.loads(line)
+        except ValueError:
+            continue
+        last[a["post_id"]] = a["how"]
+    done = solved_already(out_path)
+    blog = blog_key(where)
+    settled = settled_answers(blog)
+    vocab = vocabulary(every)
+    due = [r for r in every if r["series"] in SIZE and r["series"] not in BARRED
+           and (series is None or r["series"] == series) and has_clues(r)
+           and r["post_id"] not in done and not r.get("unsplit")
+           and last.get(r["post_id"], "").startswith(("no grid", "refused", "answers fit none"))]
+    how, by_series = collections.Counter(), collections.defaultdict(collections.Counter)
+    out = out_path.open("a", encoding="utf-8") if write else None
+    alog = attempts.open("a", encoding="utf-8") if write else None
+    for rec in due:
+        lit = light_key(rec)
+        rec, made = amend(rec, settled)
+        budget = Budget(PUZZLE_SEARCHES * max_nodes, f"post {rec['post_id']}", log=None)
+        t = time.monotonic()
+        grid, why = tolerant(rec, size(rec), budget, max_nodes)
+        fixes = []
+        if grid:
+            fixes, refused = settle(grid, rec, vocab, lenient=True)
+            if refused:
+                grid, why = None, refused
+        key = ("filed" if grid else why.split(":")[0].split(" (")[0])
+        key = "no clue for a skipped light" if why.startswith(NO_CLUE) else key
+        how[key] += 1
+        by_series[rec["series"]][key] += 1
+        print(f"  {rec['post_id']} {why}, {time.monotonic() - t:.1f}s", file=log, flush=True)
+        if not write:
+            continue
+        alog.write(json.dumps({"post_id": rec["post_id"], "how": why,
+                               "max_nodes": max_nodes, "lights": lit}) + "\n")
+        alog.flush()
+        if grid:
+            out.write(json.dumps(row(rec, grid, why, made + fixes), ensure_ascii=False) + "\n")
+            out.flush()
+            if fixes:
+                record_corrections(blog, rec, fixes)
+    if out:
+        out.close()
+        alog.close()
+    return {"how": how, "by_series": by_series, "n": len(due)}
+
+
 def vocabulary(recs):
     """Every word a correction may be, by length: the lexicon's, and every
     answer the blog gave anywhere. The lexicon has no phrases (URSA MINOR) and
@@ -446,6 +654,9 @@ def vocabulary(recs):
 
 
 LIGHTS_DIFFER = "refused: lights differ from the grid at "
+#: A grid tolerant() found with a light the post skipped: its clue is gone,
+#: and the clue is the one thing no grid can derive.
+NO_CLUE = "refused: the post gives no clue for "
 
 #: More wrong answers than this in one grid is a wrong grid, not typos.
 MAX_WRONG = 3
@@ -530,7 +741,7 @@ def _real(w, words, vocab):
     return split(w, words)
 
 
-def settle(grid, rec, vocab):
+def settle(grid, rec, vocab, lenient=False):
     """(corrections, None) when the answers as blogged fit this grid, or can be
     made to by correcting the fewest answers in exactly one way; else
     (None, why).
@@ -545,9 +756,21 @@ def settle(grid, rec, vocab):
     answer fill, and the puzzle stands. Any other answer that two corrections
     fit, or none, refuses the puzzle. A blank answer is no answer: it is never
     corrected. Each correction is {"number", "direction", "blogged", "answer"}.
+
+    `lenient`, for a grid tolerant() found: the grid already stands on the
+    crossings, so a wrong answer no single word corrects is blanked ("") for
+    the solver rather than refusing the puzzle, and when the clashes could be
+    any of several answers' fault, every one of them is blanked. Only what
+    the strict settle refuses is settled so: a determined fix stays one.
     """
     lights = rg.light_cells(grid)
     entries = {(e["number"], e["direction"]): e for e in rec["entries"]}
+    if lenient and set(entries) < set(lights):
+        return None, NO_CLUE + ", ".join(map(_key, sorted(set(lights) - set(entries))))
+    if lenient:
+        fixes, why = settle(grid, rec, vocab)
+        if not why or why.startswith(LIGHTS_DIFFER) or "more than" in why:
+            return fixes, why
     if set(entries) != set(lights):
         odd = sorted(set(entries) ^ set(lights))
         return None, LIGHTS_DIFFER + ", ".join(map(_key, odd))
@@ -579,7 +802,10 @@ def settle(grid, rec, vocab):
             for k in sorted(wrong):
                 ws = _fixes(lights[k], known, entries[k]["answer"], entries[k],
                             leaders, vocab)
-                if len(ws) != 1 and k in forced:
+                crossed = [known.get(c) for c in lights[k]]
+                if lenient and not ws and all(crossed):
+                    ws = {"".join(crossed)}     # every cell checked: the crossings spell it
+                if len(ws) != 1 and (k in forced or lenient):
                     fix[k] = ""
                     continue
                 if len(ws) > 1:
@@ -601,6 +827,10 @@ def settle(grid, rec, vocab):
             return [{"number": k[0], "direction": k[1],
                      "blogged": entries[k]["answer"], "answer": w}
                     for k, w in outcomes.pop()], None
+        if lenient and len(outcomes) > 1:
+            blank = sorted({k for o in outcomes for k, _ in o})
+            return [{"number": k[0], "direction": k[1],
+                     "blogged": entries[k]["answer"], "answer": ""} for k in blank], None
         if outcomes or maybe:
             return None, "refused: answers correct " + " or ".join(sorted(
                 ["/".join(f"{_key(k)} {w}" for k, w in o) for o in outcomes] + maybe))
@@ -936,6 +1166,11 @@ def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES, thorough=True, budget=None
     if refused:
         return [], refused
     if info.get("gaps"):
+        grid, why = tolerant(rec, n, budget, max_nodes) if thorough else (None, None)
+        if grid:
+            return [grid], why
+        if budget.spent():
+            return [], f"truncated: puzzle budget spent at {budget.spent_at or 'tolerant'}"
         return [], "no grid: no light numbered " + ", ".join(map(str, info["gaps"]))
     if sols:
         if info["truncated"]:
@@ -974,9 +1209,9 @@ def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES, thorough=True, budget=None
             return grids, why + ", directions as headed"
     if not thorough:
         return [], "no grid"
-    grid, why = one_light_wrong(lights, words, n, black_run(rec), budget)
+    grid, why = tolerant(rec, n, budget, max_nodes)
     if grid:
-        return [grid], "unique, " + why
+        return [grid], why
     if budget.spent():
         return [], f"truncated: puzzle budget spent at {budget.spent_at or 'one light freed'}"
     sols, info = budget.search("numbering only", lights, max_nodes, cols=n, rows=n,
@@ -1266,7 +1501,7 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
         if rec["series"] not in BARRED:
             grids, why = held_tiebreak(rec, grids, why)
         if len(grids) == 1:
-            fixes, refused = settle(grids[0], rec, vocab)
+            fixes, refused = settle(grids[0], rec, vocab, lenient="tolerant" in why)
             if refused:
                 grids, why = [], refused
         # A bucket is a category, not a sentence: the two outcomes that carry
@@ -1383,6 +1618,11 @@ def main():
                          "given. A run retries by itself only a post whose "
                          "lights the parser now reads otherwise: a search "
                          "change that could fix old failures runs this once")
+    ap.add_argument("--tolerant-retry", action="store_true",
+                    help="run only the tolerant search (answers that disagree "
+                         "with their count, blank or skipped left unknown, then "
+                         "one more freed) over the posts whose last attempt "
+                         "found no grid, at --max-nodes per search")
     ap.add_argument("--resettle", action="store_true",
                     help="correct or refuse the grids already written, "
                          "against the parsed records as they are now")
@@ -1390,6 +1630,12 @@ def main():
     where = None if a.blog == "timesforthetimes" else fetch_wp_blog.BLOGS[a.blog].cache
     if a.resettle and where:
         ap.error("--resettle reads the Times blog's records only")
+    if a.tolerant_retry:
+        r = retolerate(where, a.series, a.max_nodes, write=not a.status)
+        for s, c in sorted(r["by_series"].items()):
+            print(f"  {s:<14} " + ", ".join(f"{k} {n}" for k, n in c.most_common()))
+        print(f"{r['n']} post(s) tried: " + ", ".join(f"{k} {n}" for k, n in r["how"].most_common()))
+        return 0
     if a.resettle:
         r = resettle()
         for pid, why in sorted(r["refused"].items()):

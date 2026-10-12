@@ -399,9 +399,23 @@ def _genius_numbered_build(record, answers):
 
 # A series with no grid kind (grid_kind() None) keys on None: its filer's
 # builder knows its own grids (the Nation's are blocked 15x15 or 13x13).
+def _blog_build(record, answers):
+    """A blog post whose answers fit no grid, even with the untrusted ones
+    left unknown (file_blog_puzzles.hold_clues), filed on the grid the solve's
+    answers cross in (file_blog_puzzles.promote). Imported late: it imports
+    times_grids, which is heavy."""
+    import file_blog_puzzles
+    return file_blog_puzzles.promote(record, answers)
+
+
+# Every blog filer: a blog series keys on None, its grid a blocked square.
+BLOG_FILERS = ("tools/file_georgeho_puzzles.py", "tools/file_times_puzzles.py",
+               "tools/file_telegraph_puzzles.py")
+
 BUILDERS = {("tools/acquire_book.py", "blocked"): _book_build,
             ("tools/fetch_nation.py", None): _nation_build,
-            ("tools/genius_puzzles.py", None): _genius_numbered_build}
+            ("tools/genius_puzzles.py", None): _genius_numbered_build,
+            **{(tool, None): _blog_build for tool in BLOG_FILERS}}
 
 
 def grid_kind(record):

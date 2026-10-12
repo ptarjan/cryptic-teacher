@@ -345,7 +345,14 @@ print("RUN_ANSWERS", T.answers_fit(TINY, {"entries": T.answers(typo, rows[0])}))
 T.PARSED.write_text("".join(json.dumps(r) + "\n" for r in (lone, elsewhere)))
 T.OUT.write_text("")
 T.run(fresh=True)
-print("RUN_REFUSED", T.OUT.read_text() == "", json.loads(T.ATTEMPTS.read_text())["how"][:7])
+# The tolerant search pins its grid with that light freed, so the answer is
+# blanked for the solver, with the blogger's own kept as `blogged`.
+print("RUN_BLANKED", [(c["blogged"][0], c["answer"]) for r in map(json.loads, T.OUT.open())
+                      for c in r.get("corrections", [])], json.loads(T.ATTEMPTS.read_text())["how"][:18])
+# As a refusal a run made before the tolerant search, for the retries below.
+T.OUT.write_text("")
+T.ATTEMPTS.write_text(json.dumps({"post_id": 2, "how": "refused: answers clash",
+                                  "lights": T.light_key(lone)}) + "\n")
 # A failure already tried is skipped, unless the run is told to retry it,
 # and a grid already written never is.
 calls = []
@@ -475,6 +482,60 @@ g, w = T.held_tiebreak(rec, [], "no grid")
 print("HELD_NONE", [tuple(x) for x in g] == [TINY], w)
 T._HELD[("Times", 5)] = {}
 print("HELD_EMPTY", T.held_tiebreak(rec, [], "no grid"))
+
+# THE TOLERANT SEARCH. A blog's answer at the wrong length for its own count,
+# a blank one and a skipped light are holes, not facts: each is searched as
+# unknown, and then one more light at a time is freed, so the crossings round
+# the holes fill them.
+loose = {"series": "Test", "entries": [dict(e) for e in rec["entries"]]}
+lp = T.printed(loose)
+lp[0]["enumeration"] = str(len(lp[0]["answer"]))
+lp[0]["answer"] += "Q"                                  # disagrees with its count
+lp[3]["answer"], lp[3]["enumeration"] = "", None        # blank, no count
+lp[5]["answer"] = "Z" + lp[5]["answer"][1:]             # wrong, nothing says so
+lights_l, words_l = T.loosened(loose)
+print("LOOSENED", words_l[0], lights_l[0][2] == len(T.printed(rec)[0]["answer"]),
+      words_l[3], lights_l[3][2], words_l[5][0])
+g, how = T.tolerant(loose, 5, T.Budget(10**7, log=False), 10**6)
+fixed = T.settle(g, loose, {}, lenient=True)[0]
+print("TOLERANT_ALL", g == TINY, how.split(" at ")[0], [c["blogged"][0] for c in fixed])
+print("WITH_GAPS", len(T.with_gaps(*T.loosened(gappy))),
+      T.with_gaps([(1, "across", 3), (5, "down", 2)], ["ABC", None]))
+# A skipped light and a wrong answer together: the light is put back, the
+# answer freed.
+both = {"series": "Test", "entries": [dict(e) for e in gappy["entries"]]}
+T.printed(both)[0]["answer"] = "Z" + T.printed(both)[0]["answer"][1:]
+g, how = T.tolerant(both, 5, T.Budget(10**7, log=False), 10**6)
+print("TOLERANT_GAP_TYPO", g == TINY, "lights put back at 2 down" in how, "one light wrong" in how)
+# A grid the tolerant search found still settles the blog's answers: what a
+# word fixes is fixed, what none does is blanked for the solver, never
+# refused; a skipped light's clue is gone and says so.
+one = {"series": "Test", "entries": [dict(e) for e in rec["entries"]]}
+T.printed(one)[6]["answer"] = "Z" + T.printed(one)[6]["answer"][1:]
+strict = T.settle(TINY, one, {})
+lenient = T.settle(TINY, one, {}, lenient=True)
+print("LENIENT", strict[0], strict[1][:7], sorted(c["answer"] for c in lenient[0]),
+      lenient[1], sorted(c["blogged"][0] for c in lenient[0]))
+right = T.printed(rec)[6]["answer"]
+print("LENIENT_KEEPS_FIX", T.settle(TINY, one, {len(right): {right}}, lenient=True)
+      == T.settle(TINY, one, {len(right): {right}}), T.settle(TINY, one, {len(right): {right}})[1])
+print("NO_CLUE", T.settle(TINY, gappy, {}, lenient=True)[1].startswith(T.NO_CLUE),
+      T.settle(TINY, gappy, {})[1].startswith(T.LIGHTS_DIFFER))
+# Each correction goes into the shared table under blog -> post, beside the
+# blogger's original; one set there by reading the wordplay is kept; the
+# table keeps its one-line-per-post layout.
+tab = pathlib.Path(tempfile.mkdtemp()) / "answers.json"
+tab.write_text(T.dump_answers({"_doc": "d", "georgeho": {"x-1": {"_puzzle": "X 1",
+               "3 down": {"answer": "KEPT", "wordplay": "read"}}}}))
+added = T.record_corrections("georgeho", {"post_id": "x-1", "series": "x", "number": 1},
+    [{"number": 3, "direction": "down", "blogged": "KEEP", "answer": "KEPX"},
+     {"number": 8, "direction": "down", "blogged": "T", "answer": ""}], tab)
+saved = json.loads(tab.read_text())["georgeho"]["x-1"]
+print("TABLE", added, saved["3 down"]["answer"], saved["8 down"]["blogged"],
+      saved["8 down"]["answer"] == "", saved["8 down"]["how"].split(":")[0],
+      T.dump_answers(json.loads(tab.read_text())) == tab.read_text(),
+      T.blog_key(pathlib.Path("/x/georgeho/blog")), T.blog_key(pathlib.Path("/x/bigdave44")))
+
 PY
 )
 echo "$out"
@@ -512,7 +573,7 @@ check "linked groups over the split cap are pruned one by one, then searched" \
 check "answers refuting every candidate does not read as an unsettled tie" \
       "answers fit none of 2" "$(field REFUTED)"
 check "the search itself refuses a grid its answers clash in" "[] 1" "$(field WORDS_PRUNE)"
-check "a list that skips a number is no grid, found without search" "no grid: no light numbered 2" "$(field GAP)"
+check "a list that skips a number has the light put back by the tolerant search" "unique, tolerant: lights put back at 2 down" "$(field GAP)"
 check "a line of blocks past the cap is refused, one at the cap is not" "True [] True" "$(field CAP)"
 check "a diagonal-symmetric grid is rebuilt, and no half-turn one fits it" \
       "unique, mirror symmetry True []" "$(field DIAGONAL)"
@@ -522,7 +583,7 @@ check "an answer at the wrong length is rebuilt at its enumeration's" \
 check "an answer cut off inside a phrase keeps its letters; a short one-word answer does not" \
   "([(1, 'across', 17), (2, 'down', 6), (3, 'down', 3)], ['WORST', None, 'CAT'])" "$(field ENUM_CUT)"
 check "one wrong light with no enumeration is found by freeing it" \
-      "unique, one light wrong at 1 across True" "$(field ONE_WRONG)"
+      "unique, tolerant: one light wrong at 1 across True" "$(field ONE_WRONG)"
 check "two lights under one number are told apart by the grid" "True True" "$(field MISNUMBERED_TWICE)"
 check "and the grid numbers the second one" \
       "unique, number freed: 10 across to 11 True True" "$(field MISNUMBERED_TWICE_SOLVED)"
@@ -560,7 +621,7 @@ check "a grid its answers do not number is refused, not corrected" \
 check "a run writes the corrected answer into the grid row" \
       "[(1, [('ZJ', 'EJ')])]" "$(field RUN_ROW)"
 check "and answers() reads the corrected answers back" True "$(field RUN_ANSWERS)"
-check "a run refuses a puzzle whose typo no word corrects" "True refused" "$(field RUN_REFUSED)"
+check "a run files a puzzle whose typo no word corrects with the clashing answers blank" "[('A', ''), ('Z', '')] unique, tolerant:" "$(field RUN_BLANKED)"
 check "a tried failure is retried only when the run is told to" "[] [2]" "$(field RETRY_FAILED)"
 check "a run starts no puzzle past its time budget; the next run tries the rest" \
       "[3, 2] 2 1 [3, 2, 1]" "$(field TIME_BUDGET)"
@@ -594,6 +655,20 @@ check "a held grid picks one of a shortlist" "True unique, the held grid of 2" "
 check "the only held grid with the blog's lights is taken when the search finds none" \
   "True unique, a held grid's lights" "$(field HELD_NONE)"
 check "no held grid leaves the result alone" "([], 'no grid')" "$(field HELD_EMPTY)"
+
+check "an answer against its count, or blank, is searched as unknown at the count's length" \
+  "None True None None Z" "$(field LOOSENED)"
+check "the tolerant search pins the grid round a wrong-length, a blank and an unchecked typo; the wrong-length one is corrected" \
+  "True unique, tolerant: answers unknown ['A']" "$(field TOLERANT_ALL)"
+check "a skipped number is put back as an across, a down or both; past MAX_GAPS, not at all" \
+  "3 []" "$(field WITH_GAPS)"
+check "a skipped light and a wrong answer together are both recovered" "True True True" "$(field TOLERANT_GAP_TYPO)"
+check "a typo no word fixes is refused strictly but blanked on a tolerant grid, blogged kept" \
+  "None refused ['', ''] None ['A', 'Z']" "$(field LENIENT)"
+check "a fix a word determines is the same either way" "True None" "$(field LENIENT_KEEPS_FIX)"
+check "a grid with a light the post skipped is refused for its missing clue" "True True" "$(field NO_CLUE)"
+check "corrections go in the shared table beside the blogger's original, wordplay ones kept" \
+  "1 KEPT T True unknown True georgeho bigdave44" "$(field TABLE)"
 
 if [ "$fails" -gt 0 ]; then echo "$fails FAILURE(S)"; exit 1; fi
 echo "times_grids: all checks passed"
