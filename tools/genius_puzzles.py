@@ -292,8 +292,10 @@ def flat(raw, kerned=True):
     word hyphenated over a line break ("oth- erwise") joined when the join is
     a word (fpp.join_lines).
 
-    The kerning rejoin is for PDF text only (`kerned`), and only when the
-    join is a word: a clue can print a letter standing alone. genius-8's
+    The kerning rejoin is for PDF text only (`kerned`), and a letter is
+    left standing when its rest is a word and the join is not, since a clue
+    can print a letter alone: genius-162's "X and Y appears", genius-246's
+    "E recently". A rest that is no word ("T urpin", "T orbay") still joins. genius-8's
     "T going west in form of lottery" and "T with a long T wasting" (a T is
     every theme word's stand-in) were filed "Tgoing" and "Twith ... Twasting"
     when the rejoin ran over article text, which has no kerning — its
@@ -303,8 +305,8 @@ def flat(raw, kerned=True):
     t = re.sub(r"\s+", " ", t).strip()
     if kerned:
         t = re.sub(r"\b([B-HJ-Z]) ([a-z]{2,})\b",
-                   lambda m: m.group(1) + m.group(2) if fpp.rank(m.group(1) + m.group(2)) is not None
-                   else m.group(0), t)
+                   lambda m: m.group(0) if fpp.rank(m.group(2)) is not None
+                   and fpp.rank(m.group(1) + m.group(2)) is None else m.group(1) + m.group(2), t)
     return re.sub(r"\b([A-Za-z]+)- ([a-z]+)\b",
                   lambda m: fpp.join_lines(m.group(1) + "-", m.group(2)), t)
 
