@@ -217,4 +217,50 @@ check "a clue under a head-only line starts at its next line" "Child given a ten
 check "an undated number takes a day only when the printing days between its neighbours are exactly the numbers" \
   "2010-06-12 2010-06-14 None" "$(g NEIGHBOUR)"
 
+# Trick enumerations a preamble explains (the Genius prints them): the shared
+# reader takes the grid's count from each, and Genius's clue reader runs on
+# past them instead of ending the list there.
+trick=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
+import ft_pdf_puzzles as F
+import genius_puzzles as G
+for name, clue in (("SEMI", "Top of old letter's given new heading (5;3)"),
+                   ("SEMISPACE", "Heather's singularly flashy jewellery (5; 9)"),
+                   ("ROW", "After onset of winter, ordinary leaves disappear (4,3) (7)"),
+                   ("ROWSEMI", "Warns dinosaur's health is suffering (6,3,5); (6,3,6)"),
+                   ("NESTED", "Hector, complete philosopher (6,5 (9))"),
+                   ("AND", "Going on a while, male poet cut free verse (10 and 5)"),
+                   ("YEAR", "Wall Street share prices (1929) crashed")):
+    m = F.ENUM.search(clue)
+    print(name, m and m.group(1))
+def read(t):
+    return " ; ".join(f"{c['lights'][0][0]}={c['enumeration']}:{c['clue']}"
+                      for c in G.section(t, 0, "across")[0])
+print("GSEMI", read(" 1 Top of letter (5;3) 2 Pop group member? (8)"))
+print("GROW", read(" 20 Thus new dons fast (5,2) (7) 21 String player lives with tenor (7)"))
+print("GNESTED", read(" 5,8 Hector (6,5 (9)) 8 See 5 9 Lass (4)"))
+print("GSTUB", read(" 17 See 7 (8) 29 [unclued] (4) 30 Bug (6)"))
+print("GBARE", read(" 1 (6) 2 (6) 3 (4)"))
+print("GXREF", read(" 5 (2) What gets branch of police together? (6)"))
+PY
+)
+echo "$trick" | sed 's/^/  | /'
+t() { echo "$trick" | grep "^$1 " | head -1 | cut -d' ' -f2-; }
+check "(5;3): two counts in one bracket, the grid's after the semicolon" "3" "$(t SEMI)"
+check "(5; 9): a spaced semicolon too" "9" "$(t SEMISPACE)"
+check "(4,3) (7): two brackets in a row, the grid's the second" "7" "$(t ROW)"
+check "(6,3,5); (6,3,6): two brackets split by a semicolon" "6,3,6" "$(t ROWSEMI)"
+check "(6,5 (9)): a nested count, the grid's the outer" "6,5" "$(t NESTED)"
+check "(10 and 5): counts joined by and" "10 and 5" "$(t AND)"
+check "a year in the clue's words is no enumeration" "None" "$(t YEAR)"
+check "Genius: a (5;3) clue does not end the list" "1=3:Top of letter (5;3) ; 2=8:Pop group member? (8)" "$(t GSEMI)"
+check "Genius: a (5,2) (7) clue does not end the list" \
+  "20=7:Thus new dons fast (5,2) (7) ; 21=7:String player lives with tenor (7)" "$(t GROW)"
+check "Genius: a nested (6,5 (9)) clue does not end the list" \
+  "5=6,5:Hector (6,5 (9)) ; 8=None:See 5 ; 9=4:Lass (4)" "$(t GNESTED)"
+check "Genius: a stub's printed count is dropped, the stub kept" \
+  "17=None:See 7 ; 29=None:[unclued] ; 30=6:Bug (6)" "$(t GSTUB)"
+check "Genius: lights printed with a count and no clue" "1=6:(6) ; 2=6:(6) ; 3=4:(4)" "$(t GBARE)"
+check "Genius: a clue opening on a bracketed cross-reference is one clue" \
+  "5=6:(2) What gets branch of police together? (6)" "$(t GXREF)"
+
 if [ "$fails" -eq 0 ]; then echo "all passed"; else echo "$fails failed"; exit 1; fi

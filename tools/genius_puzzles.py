@@ -264,13 +264,19 @@ SMALL_PRINT = re.compile(r"(?i)register\s*once|\b(?:deadline|closing date|regist
 SECTION_AT = {"across": re.compile(r"\b(?:ACROSS|A[Cc]ross)\b(?=\s*\d)"),
               "down": re.compile(r"\b(?:DOWN|D[Oo][Ww]N|Down)\b(?=\s*\d)")}
 #: One clue at the head of the text: its lights ("22,17,3", "20/4", "4 down"),
-#: then its words up to the first enumeration, "See N" or "[unclued]".
+#: then its words up to the first enumeration (fpp.ENUM_TEXT: "(6;4)",
+#: "(4,3) (7)", "(8,4 (5,5))" too), or a stub: "See N" or "[unclued]", which
+#: may print its light's count after it ("See 7 (8)"), or a count alone
+#: ("1 (6) 2 (6)": a light the puzzle leaves without a clue; one with words
+#: after it, "5 (2) What gets...", is a clue opening on a cross-reference).
+STUB = (r"(?:See\s+\d{1,2}(?:\s*(?:across|down))?(?![\w(])"
+        r"|\[unclued\]|\(See (?:special )?instructions\))")
 CLUE_AT = re.compile(
     r"\s*(?P<head>\d{1,2}(?:\s*(?:across|down))?(?:\s*[,/&]\s*\d{1,2}(?:\s*(?:across|down))?)*)"
-    r"(?P<star>\*)?\s+(?P<text>(?:See\s+\d{1,2}(?:\s*(?:across|down))?(?![\w(])"
-    r"|\[unclued\]|\(See (?:special )?instructions\)"
-    r"|\S.*?\(\s*\d{1,2}(?:\s*[,\-–.'’\s]\s*\d{1,2})*(?:\s*words?)?\s*\)))",
+    rf"(?P<star>\*)?\s+(?P<text>{STUB}(?:\s*{fpp.ENUM_TEXT})?|{fpp.ENUM_TEXT}(?=\s*(?:\d|Down\b|$))|\S.*?{fpp.ENUM_TEXT})",
     re.IGNORECASE)
+#: A stub with its count: the stub alone is what the reader keeps.
+STUB_COUNTED = re.compile(rf"({STUB})\s*{fpp.ENUM_TEXT}", re.IGNORECASE)
 
 
 UNCLUED_MARK = re.compile(r"(?i)\[unclued\]|\(See (?:special )?instructions\)")
@@ -300,8 +306,10 @@ def section(text, start, direction):
         lights = fpp.heads(m.group("head"), direction)
         if not lights or lights[0][0] < last or (lights[0][0] == last and lights == clues[-1]["lights"]):
             break
-        body = (m.group("star") or "") + m.group("text").strip()
-        e = fpp.ENUM.search(body)
+        said = m.group("text").strip()
+        stub = STUB_COUNTED.fullmatch(said)
+        body = (m.group("star") or "") + (stub.group(1) if stub else said)
+        e = None if stub else fpp.ENUM.search(body)
         clues.append({"lights": lights, "clue": body,
                       "enumeration": e.group(1).strip() if e else None})
         last, pos = lights[0][0], m.end()
