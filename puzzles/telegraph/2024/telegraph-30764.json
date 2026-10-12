@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,69 @@
     "text": "Second best doctor covering area must be a temporary measure",
     "enumeration": "7"
    },
-   "solution": "STOPGAP"
+   "solution": "STOPGAP",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "STOPGAP",
+    "definitions": [
+     {
+      "text": "must be a temporary measure",
+      "at": 33,
+      "note": "a verb phrase standing for a noun: read as 'must be a stopgap'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "one thing covering another wraps round it, so the doctor goes outside the area"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "S",
+      "note": "S is the standard abbreviation for second"
+     },
+     {
+      "clueFragment": "best",
+      "gives": "TOP",
+      "note": "top means best, as in top marks"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "GP",
+      "note": "a GP is a general practitioner, a family doctor"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TOP",
+      "G",
+      "A",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A second-best doctor filling in for a region can only ever be a temporary fix.",
+     "walkthrough": "The doctor's two letters split round the area letter, after second and best.",
+     "definitionFit": "A stopgap is something used to fill a gap until a permanent solution arrives, so it is a temporary measure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Second"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +111,44 @@
     "text": "End what an American president does?",
     "enumeration": "8"
    },
-   "solution": "TERMINUS"
+   "solution": "TERMINUS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TERMINUS",
+    "definitions": [
+     {
+      "text": "End",
+      "at": 0
+     },
+     {
+      "text": "what an American president does?",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "End",
+      "note": "first meaning: the final stop of a line or route"
+     },
+     {
+      "clueFragment": "what an American president does?",
+      "note": "second reading: serves a TERM IN (the) US, split as three words"
+     }
+    ],
+    "explanation": {
+     "surface": "It sounds like a question about how a US presidency finishes.",
+     "walkthrough": "The question mark flags the whimsical split: a president serves a TERM IN US.",
+     "definitionFit": "A terminus is the station at the end of a railway or bus route, the place where the line stops."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "does"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +162,61 @@
     "text": "Straight home, at last sorting pipework",
     "enumeration": "8"
    },
-   "solution": "PLUMBING"
+   "solution": "PLUMBING",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PLUMBING",
+    "definitions": [
+     {
+      "text": "pipework",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the final letter only of the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Straight",
+      "gives": "PLUMB",
+      "note": "plumb means exactly vertical or straight"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "to be in is to be at home"
+     },
+     {
+      "clueFragment": "sorting",
+      "gives": "G",
+      "select": "last",
+      "note": "the closing letter of sorting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLUMB",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone heads straight home to finally sort out the pipes.",
+     "definitionFit": "Plumbing is the collective name for the pipes, tanks and fittings of a building's water system."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Straight"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +230,55 @@
     "text": "Loyalty perhaps found in marriage",
     "enumeration": "10"
    },
-   "solution": "ALLEGIANCE"
+   "solution": "ALLEGIANCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ALLEGIANCE",
+    "definitions": [
+     {
+      "text": "Loyalty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in another is sitting inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "marriage",
+      "gives": "ALLIANCE",
+      "note": "a marriage is an alliance between two people or families"
+     },
+     {
+      "clueFragment": "perhaps",
+      "gives": "EG",
+      "note": "perhaps signals an example, abbreviated e.g."
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "EG",
+      "IANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that loyalty might be discovered within a marriage.",
+     "walkthrough": "'Perhaps' looks like a hedge on the definition but is the example marker, e.g., placed inside the word for marriage.",
+     "definitionFit": "Allegiance is faithful loyalty owed to a ruler, country or cause."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "perhaps"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +292,50 @@
     "text": "PM has answer for American civilization",
     "enumeration": "4"
    },
-   "solution": "MAYA"
+   "solution": "MAYA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAYA",
+    "definitions": [
+     {
+      "text": "American civilization",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "has",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "PM",
+      "gives": "MAY",
+      "note": "Theresa May was a British prime minister"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the abbreviation for answer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAY",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A prime minister has a reply ready about an ancient American culture.",
+     "definitionFit": "The Maya were the pre-Columbian civilization of Central America known for their cities and calendar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "PM"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,7 +349,44 @@
     "text": "Range of character shown by Romeo?",
     "enumeration": "6"
    },
-   "solution": "SIERRA"
+   "solution": "SIERRA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SIERRA",
+    "definitions": [
+     {
+      "text": "Range",
+      "at": 0
+     },
+     {
+      "text": "character shown by Romeo?",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Range",
+      "note": "first meaning: a jagged chain of mountains"
+     },
+     {
+      "clueFragment": "character shown by Romeo?",
+      "note": "second meaning: the letter that stands beside Romeo in the NATO phonetic alphabet"
+     }
+    ],
+    "explanation": {
+     "surface": "It reads like a theatre note on the range of personality an actor shows playing Romeo.",
+     "walkthrough": "In the NATO alphabet Romeo stands for R and the next letter, S, is this word; 'character' means letter, not personality.",
+     "definitionFit": "A sierra is a long jagged mountain chain, and it is also the radio code word for the letter S."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 7,
@@ -116,7 +400,61 @@
     "text": "Plant liable to suffer absorbing oxygen",
     "enumeration": "7"
    },
-   "solution": "LOBELIA"
+   "solution": "LOBELIA",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "LOBELIA",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absorbing",
+      "for": "container",
+      "note": "absorbing means taking in, so the oxygen is drawn inside the other letters"
+     },
+     {
+      "text": "to suffer",
+      "for": "anagram",
+      "note": "something made to suffer is knocked about and damaged, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "liable",
+      "gives": "LIABLE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "oxygen",
+      "gives": "O",
+      "note": "O is the chemical symbol for oxygen"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LIABLEO",
+       "gives": "LOBELIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plant that wilts easily when it takes in too much oxygen.",
+     "definitionFit": "Lobelia is a garden flowering plant, often blue and grown in hanging baskets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suffer"
+    }
+   }
   },
   {
    "number": 8,
@@ -130,7 +468,43 @@
     "text": "Poor farm labourer from Europe, as antecedent",
     "enumeration": "7"
    },
-   "solution": "PEASANT"
+   "solution": "PEASANT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PEASANT",
+    "definitions": [
+     {
+      "text": "Poor farm labourer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "from says the letters are taken out of the run of words that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Europe, as antecedent",
+      "gives": "PEASANT",
+      "note": "the letters run across the end of Europe, all of as, and the start of antecedent"
+     }
+    ],
+    "explanation": {
+     "surface": "It sounds like a description of a poor European labourer as someone's ancestor.",
+     "walkthrough": "The answer is spelt out continuously in euroPE AS ANTecedent.",
+     "definitionFit": "A peasant is a poor agricultural worker or smallholder, especially in historical or European settings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "antecedent"
+    }
+   }
   },
   {
    "number": 9,
@@ -144,7 +518,47 @@
     "text": "The voice of an Italian city tenor?",
     "enumeration": "8"
    },
-   "solution": "BARITONE"
+   "solution": "BARITONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BARITONE",
+    "definitions": [
+     {
+      "text": "The voice",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an Italian city",
+      "gives": "BARI",
+      "note": "Bari is a port city in southern Italy"
+     },
+     {
+      "clueFragment": "tenor",
+      "gives": "TONE",
+      "note": "tenor in the sense of general character or tone, as in the tenor of a speech"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BARI",
+      "TONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about which singing voice suits an Italian tenor.",
+     "walkthrough": "'Tenor' looks like another voice but is used in its sense of drift or tone.",
+     "definitionFit": "Baritone is the male singing voice pitched between tenor and bass."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tenor"
+    }
+   }
   },
   {
    "number": 10,
@@ -158,7 +572,56 @@
     "text": "Finally get ready for Russian unrest",
     "enumeration": "7"
    },
-   "solution": "TROUBLE"
+   "solution": "TROUBLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TROUBLE",
+    "definitions": [
+     {
+      "text": "unrest",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "get",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of get"
+     },
+     {
+      "clueFragment": "ready for Russian",
+      "gives": "ROUBLE",
+      "note": "ready is slang for cash, and the Russian currency is the rouble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ROUBLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finally prepares for a Russian uprising.",
+     "walkthrough": "'Ready' is not prepared here: the ready, or readies, is British slang for money.",
+     "definitionFit": "Trouble means disturbance or civil disorder, the same as unrest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ready"
+    }
+   }
   },
   {
    "number": 11,
@@ -172,7 +635,51 @@
     "text": "Hot and stuffy without a coat",
     "enumeration": "8"
    },
-   "solution": "HAIRLESS"
+   "solution": "HAIRLESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HAIRLESS",
+    "definitions": [
+     {
+      "text": "without a coat",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hot",
+      "gives": "H",
+      "note": "H is the abbreviation for hot on taps"
+     },
+     {
+      "clueFragment": "stuffy",
+      "gives": "AIRLESS",
+      "note": "a stuffy room is airless"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AIRLESS"
+     ]
+    },
+    "explanation": {
+     "surface": "It is so hot and stuffy that someone goes without a coat.",
+     "walkthrough": "'Without a coat' looks like a person who has left their jacket off; it means having no coat of fur or hair.",
+     "definitionFit": "An animal's coat is its fur, so a creature with no coat is hairless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "coat"
+    }
+   }
   },
   {
    "number": 11,
@@ -186,7 +693,54 @@
     "text": "Complain bitterly, beset by workers supporting bars",
     "enumeration": "9"
    },
-   "solution": "HANDRAILS"
+   "solution": "HANDRAILS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HANDRAILS",
+    "definitions": [
+     {
+      "text": "supporting bars",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beset by",
+      "for": "container",
+      "note": "something beset by others is surrounded by them on all sides"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "workers",
+      "gives": "HANDS",
+      "note": "hands are manual workers, as in farmhands"
+     },
+     {
+      "clueFragment": "Complain bitterly",
+      "gives": "RAIL",
+      "note": "to rail is to complain bitterly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAND",
+      "RAIL",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Workers surround someone complaining bitterly about the bars that hold them up.",
+     "definitionFit": "Handrails are rails gripped for support on stairs or walkways, so they are bars that support people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bars"
+    }
+   }
   },
   {
    "number": 12,
@@ -200,7 +754,60 @@
     "text": "Broadcast talk about road safety feature",
     "enumeration": "6"
    },
-   "solution": "AIRBAG"
+   "solution": "AIRBAG",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "AIRBAG",
+    "definitions": [
+     {
+      "text": "road safety feature",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about here means turned round, so the word for talk is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Broadcast",
+      "gives": "AIR",
+      "note": "to air a programme is to broadcast it"
+     },
+     {
+      "clueFragment": "talk",
+      "gives": "GAB",
+      "note": "gab is idle talk, as in the gift of the gab"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIR",
+      "BAG"
+     ],
+     "reversals": [
+      {
+       "from": "GAB",
+       "to": "BAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A broadcast discussion about a road safety measure.",
+     "definitionFit": "An airbag is the cushion in a car that inflates on impact, a key piece of vehicle safety equipment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Broadcast"
+    }
+   }
   },
   {
    "number": 13,
@@ -214,7 +821,46 @@
     "text": "Pub cheers feature that's new",
     "enumeration": "10"
    },
-   "solution": "INNOVATION"
+   "solution": "INNOVATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INNOVATION",
+    "definitions": [
+     {
+      "text": "feature that's new",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pub",
+      "gives": "INN",
+      "note": "an inn is a pub"
+     },
+     {
+      "clueFragment": "cheers",
+      "gives": "OVATION",
+      "note": "an ovation is a burst of cheering and applause"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INN",
+      "OVATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A pub cheers the arrival of a new attraction.",
+     "definitionFit": "An innovation is a novel feature or method, something newly introduced."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cheers"
+    }
+   }
   },
   {
    "number": 14,
@@ -228,7 +874,60 @@
     "text": "Weirdly lovely dance game",
     "enumeration": "10"
    },
-   "solution": "VOLLEYBALL"
+   "solution": "VOLLEYBALL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "VOLLEYBALL",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Weirdly",
+      "for": "anagram",
+      "note": "weirdly means in a strange manner, so the following letters are set out oddly"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lovely",
+      "gives": "LOVELY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dance",
+      "gives": "BALL",
+      "note": "a ball is a formal dance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VOLLEY",
+      "BALL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOVELY",
+       "gives": "VOLLEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An oddly charming dance turns into a game.",
+     "definitionFit": "Volleyball is a team sport in which a ball is hit over a high net."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lovely"
+    }
+   }
   },
   {
    "number": 15,
@@ -242,7 +941,58 @@
     "text": "Pull a face seeing piece about Republican",
     "enumeration": "4"
    },
-   "solution": "GURN"
+   "solution": "GURN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GURN",
+    "definitions": [
+     {
+      "text": "Pull a face",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the weapon wraps round the party letter"
+     }
+    ],
+    "linkWords": [
+     "seeing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piece",
+      "gives": "GUN",
+      "note": "piece is slang for a gun"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GU",
+      "R",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone grimaces on reading an article about a Republican.",
+     "walkthrough": "'Piece' suggests a newspaper article; it is slang for a firearm. To gurn is a northern English word for pulling a grotesque face.",
+     "definitionFit": "To gurn is to make a distorted, grotesque facial expression, sometimes in contests."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piece"
+    }
+   }
   },
   {
    "number": 16,
@@ -256,7 +1006,53 @@
     "text": "European convention on information, by and large",
     "enumeration": "9"
    },
-   "solution": "GENERALLY"
+   "solution": "GENERALLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GENERALLY",
+    "definitions": [
+     {
+      "text": "by and large",
+      "at": 36
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "information",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "convention",
+      "gives": "RALLY",
+      "note": "a rally is a mass gathering or convention"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEN",
+      "E",
+      "RALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A European conference on data, broadly speaking.",
+     "walkthrough": "'On' means placed after, so the information word comes first.",
+     "definitionFit": "Generally and by and large both mean mostly, on the whole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "convention"
+    }
+   }
   },
   {
    "number": 17,
@@ -270,7 +1066,47 @@
     "text": "I hear you will diet about this time of year",
     "enumeration": "8"
    },
-   "solution": "YULETIDE"
+   "solution": "YULETIDE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "YULETIDE",
+    "definitions": [
+     {
+      "text": "this time of year",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "I hear",
+      "for": "homophone",
+      "note": "I hear says the words are to be judged by their sound when spoken"
+     }
+    ],
+    "linkWords": [
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "you will diet",
+      "gives": "YULETIDE",
+      "soundsLike": "YOU'LL DIET",
+      "note": "you will contracts to you'll, and said with diet it matches the seasonal word"
+     }
+    ],
+    "explanation": {
+     "surface": "A friend predicts you will go on a diet around Christmas.",
+     "walkthrough": "Spoken quickly, you'll diet runs together into the festive word.",
+     "definitionFit": "Yuletide is the Christmas season, which is this time of year if the puzzle appeared in December."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 18,
@@ -290,7 +1126,52 @@
      }
     ]
    },
-   "solution": "NEWDELHI"
+   "solution": "NEWDELHI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEW DELHI",
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "working here means being put to work, so the letters are set about and reshaped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when idle",
+      "gives": "WHENIDLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WHENIDLE",
+       "gives": "NEWDELHI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A paradox: a city at work while it is idle.",
+     "walkthrough": "The surface contrasts working and idle, but working just shakes up the letters.",
+     "definitionFit": "New Delhi is the capital city of India."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 19,
@@ -304,7 +1185,62 @@
     "text": "A fool accepts bad is funny",
     "enumeration": "7"
    },
-   "solution": "AMUSING"
+   "solution": "AMUSING",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "AMUSING",
+    "definitions": [
+     {
+      "text": "is funny",
+      "at": 19,
+      "note": "read with 'is' as part of it, the adjective follows naturally"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepts",
+      "for": "container",
+      "note": "a word that accepts another takes it in, so one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fool",
+      "gives": "MUG",
+      "note": "a mug is a gullible person, a fool"
+     },
+     {
+      "clueFragment": "bad",
+      "gives": "SIN",
+      "note": "sin is wrongdoing, something bad"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MU",
+      "SIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A fool admits that something bad is actually funny.",
+     "definitionFit": "Amusing means entertaining enough to make people laugh, which is what funny means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bad"
+    }
+   }
   },
   {
    "number": 20,
@@ -318,7 +1254,49 @@
     "text": "Varying extent of deficit — arrears on the rise",
     "enumeration": "7"
    },
-   "solution": "ERRATIC"
+   "solution": "ERRATIC",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ERRATIC",
+    "definitions": [
+     {
+      "text": "Varying",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extent of",
+      "for": "hidden_word",
+      "note": "an extent of something is a stretch of it, so a run of letters is lifted from the words"
+     },
+     {
+      "text": "on the rise",
+      "for": "reversal",
+      "note": "in a down clue, rising means read from bottom to top, so the letters go backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deficit — arrears",
+      "gives": "CITARRE",
+      "note": "the end of deficit plus the start of arrears"
+     }
+    ],
+    "explanation": {
+     "surface": "A financial note on how a shortfall shifts as arrears climb.",
+     "walkthrough": "The letters defiCIT ARREars, read upwards, spell the answer.",
+     "definitionFit": "Erratic means irregular and unpredictable, constantly varying."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extent"
+    }
+   }
   },
   {
    "number": 21,
@@ -332,7 +1310,63 @@
     "text": "Succeeded in university education, getting employed",
     "enumeration": "4"
    },
-   "solution": "USED"
+   "solution": "USED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "USED",
+    "definitions": [
+     {
+      "text": "employed",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first letter inside the following pair"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     },
+     {
+      "clueFragment": "Succeeded",
+      "gives": "S",
+      "note": "S is the abbreviation for succeeded"
+     },
+     {
+      "clueFragment": "education",
+      "gives": "ED",
+      "note": "ED is the abbreviation for education"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "S",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A graduate did well at university and landed a job.",
+     "definitionFit": "Used means put into service or employed, as in employed a tool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Succeeded"
+    }
+   }
   },
   {
    "number": 22,
@@ -346,7 +1380,64 @@
     "text": "Flower child must accept reason and run",
     "enumeration": "10"
    },
-   "solution": "MARGUERITE"
+   "solution": "MARGUERITE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MARGUERITE",
+    "definitions": [
+     {
+      "text": "Flower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accept",
+      "for": "container",
+      "note": "to accept is to take in, so the child word holds the others"
+     }
+    ],
+    "linkWords": [
+     "must"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "child",
+      "gives": "MITE",
+      "note": "a mite is a small child"
+     },
+     {
+      "clueFragment": "reason",
+      "gives": "ARGUE",
+      "note": "to argue is to reason a case"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ARGUE",
+      "R",
+      "ITE"
+     ]
+    },
+    "explanation": {
+     "surface": "A child has to take a reason and run with it.",
+     "definitionFit": "A marguerite is a daisy-like flower with white petals and a yellow centre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reason"
+    }
+   }
   },
   {
    "number": 23,
@@ -360,7 +1451,47 @@
     "text": "Riding round hopeful",
     "enumeration": "6"
    },
-   "solution": "UPBEAT"
+   "solution": "UPBEAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPBEAT",
+    "definitions": [
+     {
+      "text": "hopeful",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Riding",
+      "gives": "UP",
+      "note": "a jockey who is up is riding the horse"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "BEAT",
+      "note": "a police officer's beat is the round they walk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "BEAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone out riding around is feeling optimistic.",
+     "walkthrough": "'Up' is racing language: a jockey is up on a horse when riding it.",
+     "definitionFit": "Upbeat means cheerful and optimistic, so it is a near synonym of hopeful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 24,
@@ -374,7 +1505,43 @@
     "text": "Submits returns",
     "enumeration": "6"
    },
-   "solution": "YIELDS"
+   "solution": "YIELDS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "YIELDS",
+    "definitions": [
+     {
+      "text": "Submits",
+      "at": 0
+     },
+     {
+      "text": "returns",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Submits",
+      "note": "first meaning: gives way, surrenders"
+     },
+     {
+      "clueFragment": "returns",
+      "note": "second meaning: profits or produce, as an investment or crop gives"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads like filing tax returns; the two words are separate senses of one word.",
+     "definitionFit": "The word means both surrenders to pressure and the financial or agricultural output something produces."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "returns"
+    }
+   }
   },
   {
    "number": 25,
@@ -388,7 +1555,50 @@
     "text": "Walks by quiet scene of slaughter",
     "enumeration": "8"
    },
-   "solution": "SHAMBLES"
+   "solution": "SHAMBLES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHAMBLES",
+    "definitions": [
+     {
+      "text": "scene of slaughter",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "sh is the call for quiet"
+     },
+     {
+      "clueFragment": "Walks",
+      "gives": "AMBLES",
+      "note": "ambles means walks at a leisurely pace"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "AMBLES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone strolls quietly past the site of a massacre.",
+     "walkthrough": "'By' means beside: the walking word sits next to the quiet word.",
+     "definitionFit": "A shambles was originally a slaughterhouse or meat market, hence a scene of carnage or chaos."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Walks"
+    }
+   }
   },
   {
    "number": 26,
@@ -402,7 +1612,60 @@
     "text": "What about a 100 apiece?",
     "enumeration": "4"
    },
-   "solution": "EACH"
+   "solution": "EACH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EACH",
+    "definitions": [
+     {
+      "text": "apiece",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the query word goes round the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What",
+      "gives": "EH",
+      "note": "eh? is a way of saying what?"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "100",
+      "gives": "C",
+      "note": "C is the Roman numeral for 100"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "A",
+      "C",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks if the price is a hundred apiece.",
+     "definitionFit": "Each and apiece both mean for every one, as in a pound each."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "What"
+    }
+   }
   },
   {
    "number": 27,
@@ -416,7 +1679,46 @@
     "text": "Plain variety of orchid",
     "enumeration": "7"
    },
-   "solution": "VANILLA"
+   "solution": "VANILLA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "VANILLA",
+    "definitions": [
+     {
+      "text": "Plain variety",
+      "at": 0
+     },
+     {
+      "text": "orchid",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plain variety",
+      "note": "first meaning: the ordinary, basic version of something"
+     },
+     {
+      "clueFragment": "orchid",
+      "note": "second meaning: the climbing orchid whose pods give the flavouring"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a plain kind of orchid; the clue splits after 'variety'.",
+     "definitionFit": "Vanilla is slang for the standard, no-frills version, and it is also the name of an orchid genus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "variety"
+    }
+   }
   },
   {
    "number": 28,
@@ -430,7 +1732,54 @@
     "text": "Suspicion about one's annoyance",
     "enumeration": "8"
    },
-   "solution": "NUISANCE"
+   "solution": "NUISANCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NUISANCE",
+    "definitions": [
+     {
+      "text": "annoyance",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the first word goes round the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Suspicion",
+      "gives": "NUANCE",
+      "note": "a suspicion in the sense of a slight trace or hint"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "IS",
+      "note": "one is I, so one's is I'S, written IS"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NU",
+      "IS",
+      "ANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A hint of doubt over oneself proves irritating.",
+     "definitionFit": "A nuisance is a person or thing causing annoyance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Suspicion"
+    }
+   }
   },
   {
    "number": 29,
@@ -450,7 +1799,54 @@
      }
     ]
    },
-   "solution": "SLOEGIN"
+   "solution": "SLOEGIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SLOE GIN",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mad",
+      "for": "anagram",
+      "note": "mad means crazed and disordered, so the letters lose their order"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "legions",
+      "gives": "LEGIONS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEGIONS",
+       "gives": "SLOEGIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drink that sends whole armies crazy.",
+     "definitionFit": "Sloe gin is a liqueur made by steeping sloes, blackthorn berries, in gin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "legions"
+    }
+   }
   }
  ]
 }
