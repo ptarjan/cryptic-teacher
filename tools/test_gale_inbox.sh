@@ -70,7 +70,7 @@ for name, want in [("The Times 12 Jan. 1955.pdf", D(1955, 1, 12)), ("2005-03-14 
 for name, want in [("Times Crossword Puzzle No 5,432.pdf", 5432), ("No_543.pdf", 543), ("crossword 1955.pdf", None),
                    ("piano 123.pdf", None), ("No. 23,456 Times.pdf", 23456)]:
     check(f"the puzzle number in {name!r}", want, g.name_number(name))
-check("the printed run spans every year Gale holds, into the January after (filed brackets)", (D(1930, 2, 1), D(2020, 1, 31)), (g.PRINTED[0], g.PRINTED[-1]))
+check("the printed run spans every year Gale holds, into the January after (filed brackets)", (D(1930, 2, 1), D(2015, 1, 31)), (g.PRINTED[0], g.PRINTED[-1]))
 # A date in a 43-year gap: the two brackets' counts disagree (holidays the
 # calendar does not skip), so the difference is shared out by position.
 gap = {1: D(1930, 2, 1), 13578: D(1974, 1, 5)}
@@ -752,6 +752,17 @@ finally:
      archive_coverage.ledger, archive_coverage.failed_fetches) = saved_ac
 check("wanted(): every unfiled date, a scanned one too (unread, as SCAN_UNFILED), no filed one",
       [(D(2000, 1, 2), "no-scan"), (D(2000, 1, 3), g.SCAN_UNFILED)], listed)
+# Gale's Times Digital Archive ends with 2014: no later date is ever wanted.
+archive_coverage.corpus = lambda series: ({}, {})
+archive_coverage.scans = lambda paper: ({}, {})
+archive_coverage.printed_dates = lambda series, today: ["2014-12-31", "2015-01-02", "2017-08-24", "2018-04-16"]
+archive_coverage.ledger = archive_coverage.failed_fetches = unread
+try:
+    late = [d for d, _ in g.wanted(datetime.date(2026, 1, 1))]
+finally:
+    (archive_coverage.corpus, archive_coverage.scans, archive_coverage.printed_dates,
+     archive_coverage.ledger, archive_coverage.failed_fetches) = saved_ac
+check("wanted(): no date after 2014, where Gale's Times archive ends", [D(2014, 12, 31)], late)
 print("FAILS", fails)
 sys.exit(1 if fails else 0)
 PY
