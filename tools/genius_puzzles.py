@@ -47,6 +47,7 @@ import file_blog_puzzles
 import groups
 import ft_pdf_puzzles as fpp
 import puzzle_integrity
+import quotes
 import series as series_meta
 import downloads
 import reconstruct_grid as rg
@@ -286,8 +287,8 @@ STUB_COUNTED = re.compile(rf"({STUB})\s*{fpp.ENUM_TEXT}", re.IGNORECASE)
 UNCLUED_MARK = re.compile(r"(?i)\[unclued\]|\(See (?:special )?instructions\)|See (?:the )?(?:special )?(?:preamble|instructions)")
 
 
-LIGATURES = str.maketrans({"\ufb00": "ff", "\ufb01": "fi", "\ufb02": "fl", "\ufb03": "ffi",
-                           "\ufb04": "ffl", "\ufb05": "st", "\ufb06": "st"})
+#: The one ligature table (quotes.LIGATURES), which every clue write applies too.
+LIGATURES = str.maketrans(quotes.LIGATURES)
 
 
 def flat(raw, kerned=True):

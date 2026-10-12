@@ -168,6 +168,21 @@ def _space_map(text):
     return "".join(out), at
 
 
+def translated(table):
+    """A rewrite_entry mapper that puts the text through `table` (a
+    str.maketrans table: one character to a string of any length, "ﬁ"
+    -> "fi"), with the offset map that keeps every `at` on its letter."""
+    def mapper(text):
+        at, out = [], []
+        for ch in text:
+            at.append(len(out))
+            rep = table.get(ord(ch), ch)
+            out.extend(chr(rep) if isinstance(rep, int) else ("" if rep is None else rep))
+        at.append(len(out))
+        return "".join(out), at
+    return mapper
+
+
 def collapse_spaces(text, italics=()):
     """`text` with each run of plain spaces inside it ("Toe  so") cut to
     one, and its italic spans moved to match: (text, italics). Only U+0020:
@@ -217,8 +232,14 @@ def words_at(text, phrase, i):
 
 
 def rewrite_entry(entry, mapper):
-    """Rewrite `entry`'s clue text in place through `mapper` (text -> (new
-    text, [new offset of each old offset 0..len(text)])) and move everything
+    """THE way to rewrite a filed clue's text (quotes, ligatures, dashes,
+    spaces, a leading quote, punctuation): never assign clue["text"] and its
+    annotation's strings separately, or the definition `at`s go stale and
+    validate_annotations fails the deploy (18bf10d65a, 8cb5a7e0b2).
+
+    Rewrite `entry`'s clue text in place through `mapper` (text -> (new
+    text, [new offset of each old offset 0..len(text)]); translated() makes
+    one from a character table) and move everything
     that points into the text with it: italics, its annotation's definition
     offsets and hiddenLetter, and each phrase the annotation quotes, which
     becomes the new clue's own words where the old clue held it, else that

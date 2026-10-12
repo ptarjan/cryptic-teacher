@@ -3635,12 +3635,18 @@ def main(argv):
               "CALIBRATION — every hit is either a broken check or a rare setter's "
               "liberty, and the default reading is the former.")
     tighten = "--tighten" in argv
-    argv = [a for a in argv if a != "--tighten"]
+    # --deploy FILE...: the deploy's corpus rules (a dropped annotation is
+    # queued, an unannotated puzzle skipped) on just these files, for the
+    # hooks (.githooks/pre-commit, tools/pre_push.py) to refuse what would
+    # turn the deploy red, and nothing the deploy lets through.
+    deploy = "--deploy" in argv
+    argv = [a for a in argv if a not in ("--tighten", "--deploy")]
     if argv:
         paths = [resolve_puzzle(a) for a in argv]
     else:
         paths = puzzle_files()
     full_run = not argv
+    corpus = full_run or deploy
     allowed = load_backlog()
     observed = {}
     failed = False
@@ -3650,11 +3656,11 @@ def main(argv):
             failed = True
             continue
         puzzle = read_puzzle_file(path)
-        annotated, errors, warnings = validate_puzzle(puzzle, corpus=full_run)
-        if not full_run:        # a run's own puzzles; the corpus is HEAD already
+        annotated, errors, warnings = validate_puzzle(puzzle, corpus=corpus)
+        if not corpus:          # a run's own puzzles; the corpus is HEAD already
             check_against_committed(puzzle, path, errors)
         total = len(puzzle["entries"])
-        if annotated == 0 and not argv:
+        if annotated == 0 and corpus:
             # Nothing to check about annotations that do not exist yet — but
             # the checks that walk the whole file (markup) do apply, and
             # dropping them here would exempt exactly the puzzles nobody has

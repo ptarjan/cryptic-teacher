@@ -9,8 +9,10 @@ back into ‘ ’ “ ” when it shows a clue (quotes.js). The static pages and
 social cards curl with curl() here, which has quotes.js's rules; test_quotes.js
 runs both over tools/quotes_cases.json, so they cannot drift.
 
-Each quote mapping is one character for one, so every offset into a clue (a
-definition's `at`, italics, a mark) means the same before and after.
+Each quote mapping is one character for one, but a ligature is two or three
+("\ufb01" -> "fi"), so straighten() rewrites each clue through
+enumeration.rewrite_entry, which moves every offset into it (a definition's
+`at`, italics, hiddenLetter) and every phrase its annotation quotes with it.
 
     python3 tools/quotes.py            # straighten every held puzzle file
     python3 tools/quotes.py FILE...    # just those
@@ -93,8 +95,13 @@ def straighten(puzzle):
     a copy, so the caller's puzzle is left as it was."""
     if not curly(puzzle):
         return puzzle
+    import enumeration  # lazy: it imports this module
     puzzle = copy.deepcopy(puzzle)
+    mapper = enumeration.translated(STRAIGHT)
     for e in puzzle.get("entries") or []:
+        # The clue and every offset and quoted phrase together; then any
+        # annotation string the clue's rewrite did not reach.
+        enumeration.rewrite_entry(e, mapper)
         for holder, key in _clue_strings(e):
             if isinstance(holder[key], str):
                 holder[key] = straight(holder[key])
