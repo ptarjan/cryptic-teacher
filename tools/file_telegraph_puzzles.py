@@ -53,7 +53,11 @@ SOURCE = file_blog_puzzles.Source(
     # post date wherever it is the print date.
     target=lambda row: (row["series"], False),
     print_dates=print_dates,
-    setter=lambda rec, series: rec.get("setter") or series_meta.default_setter(series),
+    # A byline the post withholds or the parser missed comes from
+    # fetch_telegraph.BYLINES, which says where it is printed.
+    setter=lambda rec, series: (rec.get("setter")
+                                or fetch_telegraph.BYLINES.get((series, rec.get("number")), (None,))[0]
+                                or series_meta.default_setter(series)),
     # From the bucket's first calendared number on, tools/fetch_telegraph.py
     # files the printed puzzle; the blog's posts stay its hints and blog facts.
     published=fetch_telegraph.served,

@@ -232,4 +232,19 @@ L = ["Across", "1a Topic of discussion (7,6)", "SUBJECT = one that’s ruled, MA
 e, _ = tftt.read_entries(pb.headed(L))
 print(" ".join("%d%s:%s" % (x["number"], x["direction"][0], x["answer"]) for x in e))' 2>&1 | tail -1)"
 
+check "a post's garbled clue is filed as SOURCE_CLUE_WRONG prints it; a withheld byline comes from BYLINES" \
+  "None ['Pet animal', 'Tom', 'Brew', 'Drink'] Elgar Y" "$(PYTHONPATH="$REPO/tools" python3 -c '
+import file_blog_puzzles as F, fetch_puzzle, file_telegraph_puzzles as f
+E = lambda n, d, a, c: {"number": n, "direction": d, "answer": a, "clue": c, "enumeration": "3"}
+rec = {"post_id": 1, "link": "https://example.org/t", "slug": "t", "title": "Toughie 99999",
+       "series": "toughie", "number": 99999, "date": "2026-01-01", "entries": [
+    E(1, "across", "CAT", "Pet garbledXX junk (3)"), E(3, "across", "TEA", "Drink (3)"),
+    E(1, "down", "CAT", "Tom (3)"), E(2, "down", "TEA", "Brew (3)")]}
+row = {"post_id": 1, "number": 99999, "series": "toughie", "date": "2026-01-01",
+       "grid": ["...", ".#.", "..."], "how": "unique"}
+fetch_puzzle.SOURCE_CLUE_WRONG[("toughie-99999", "1-across")] = ("Pet garbledXX", "Pet animal", "test")
+p, why = F.build(rec, row, "toughie", None, "X")
+print(why, [e["clue"]["text"] for e in p["entries"]],
+      f.SOURCE.setter({"number": 866}, "toughie"), f.SOURCE.setter({"number": 866, "setter": "Y"}, "toughie"))' 2>&1 | tail -1)"
+
 [ $fails -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }
