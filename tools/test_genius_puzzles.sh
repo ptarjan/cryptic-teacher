@@ -78,7 +78,24 @@ g8 = ('<div data-gu-name="body" class="dcr-13wig6c"><p><strong>Across</strong><b
       '<strong>22</strong> An extended T on hill (4)</p></div>'
       '<div data-gu-name="footer">Explore more on these topics</div>')
 print("letter-apart", [c["clue"] for c in G.parse_text(G.article_text(g8))["clues"]])
+print("ligatures", G.flat("stu\ufb00 to sco\ufb00, \ufb01ne"))
 print("kern-rejoin", G.flat("T earful T going T his T urpin X and"))
+
+# The filed corpus: a capital glued onto a common word that is no word with
+# it ("Tgoing", "Xsupport") is the join above. genius-210's preamble is
+# enciphered ("Pof pg uiftf"); NAMES are names the lexicon lacks.
+import re, ft_pdf_puzzles as fpp
+glued, NAMES = [], {"Edam", "Jones"}
+for f in sorted(glob.glob("puzzles/genius/*/*.json")):
+    p = json.load(open(f))
+    if p["id"] == "genius-210":
+        continue
+    for t in [e["clue"].get("text", "") for e in p["entries"] if isinstance(e.get("clue"), dict)] + [p.get("preamble") or ""]:
+        for m in re.finditer(r"(?<![A-Za-z'&-])([B-HJ-Z])([a-z]{2,})(?![A-Za-z'-])", t):
+            r = fpp.rank(m.group(2))
+            if m.group(0) not in NAMES and fpp.rank(m.group(0)) is None and r is not None and r < 3000:
+                glued.append((p["id"], m.group(0)))
+print("corpus-no-glued-letter", glued)
 f = glob.glob("puzzles/genius/*/genius-135.json")
 if f:
     e = json.load(open(f[0]))["entries"][0]["clue"]
@@ -212,6 +229,8 @@ check "a count is not markup" "False" "$(get markup3)"
 check "the word class is not markup" "False" "$(get markup4)"
 check "no filed Genius carries markup" "[]" "$(get corpus-genius-clean)"
 check "an article's standalone letter stays a word (genius-8)" "['T with a long T wasting nothing in 12, T: the key (4,10)', 'T going west in form of lottery (7,3)', 'An extended T on hill (4)']" "$(get letter-apart)"
+check "a PDF ligature is its letters (205)" "stuff to scoff, fine" "$(get ligatures)"
+check "no filed Genius glues a letter onto a word" "[]" "$(get corpus-no-glued-letter)"
 check "a PDF capital kerned off its word rejoins unless it stands before a word (162, 182)" "Tearful T going This Turpin X and" "$(get kern-rejoin)"
 check "genius-135 1-across prints (4,3) (7)" "After onset of winter, ordinary leaves disappear (4,3) (7) True" "$(get genius-135-1a)"
 check "a list printed without counts is cut at its clue numbers (233)" "[(8, 'Bit of theatre role almost went wrong'), (9, 'Outlines injuries, losing time'), (10, 'Amount of drink'), (11, 'Article about dancing in the Guardian?'), (12, 'Retreats in France from Poles'), (1, 'Upshot mostly (6)')]" "$(get countless)"
