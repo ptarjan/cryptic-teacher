@@ -622,6 +622,7 @@ LAYOUT = [
     ("fetching", "tools/test_leading_quote.sh", "an OCR'd clue opens with a quote only when it is a quotation (tools/leading_quote.py): a stray unclosed quote and a clue number leaked after one go, an attributed quotation that lost its closing quote is closed, a matched quotation, an elision and a dropped h stand, offsets move with the text, a publisher's clue is never touched, both OCR readers finish a clue through it, and the write gate refuses what it would still mend"),
     ("fetching", "tools/gale_http.py", "the Chrome-like browsing of Gale and its portal, shared by gale_fetch.py"),
     ("fetching", "tools/test_gale_page_cap.sh", "is a Gale page laid out within gale_inbox.MAX_PAGE_PIXELS however small the grid it is scaled by (a crossword-centenary article's printed grid scaled the 2013-12-17 page to 363 MP), is a leaf staged before that cap shrunk to fit (its edition's input_hash moved, so its scan and read come due) and left alone the second time, and does a scan unit past its memory ceiling (edition_queue.UNIT_MEMORY_MB, RLIMIT_AS) end a failure naming it?"),
+    ("fetching", "tools/test_ctc_title_date.py", "does a CtC video title's date pin its puzzle when the year is short or absent?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
