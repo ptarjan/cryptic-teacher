@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,62 @@
     "text": "Architectural feature is half obscured by stucco",
     "enumeration": "8"
    },
-   "solution": "PILASTER"
+   "solution": "PILASTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PILASTER",
+    "definitions": [
+     {
+      "text": "Architectural feature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half",
+      "for": "letter_selection",
+      "note": "only half of a two-letter word survives, the opening one"
+     },
+     {
+      "text": "obscured by",
+      "for": "container",
+      "note": "something obscured by a covering is hidden inside it, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stucco",
+      "gives": "PLASTER",
+      "note": "stucco is a fine plaster for coating walls"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "I",
+      "select": "first",
+      "note": "the first half of the word is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "I",
+      "LASTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Part of a building's ornament has been half covered over by plasterwork.",
+     "walkthrough": "The single letter from 'is' goes after the P of PLASTER, giving PILASTER.",
+     "definitionFit": "A pilaster is a flat rectangular column projecting slightly from a wall, a classic piece of architectural decoration."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "is"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +105,43 @@
     "text": "Forceful, like Judy's partner?",
     "enumeration": "6"
    },
-   "solution": "PUNCHY"
+   "solution": "PUNCHY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PUNCHY",
+    "definitions": [
+     {
+      "text": "Forceful",
+      "at": 0
+     },
+     {
+      "text": "like Judy's partner?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Forceful",
+      "note": "first meaning: vigorous and hard-hitting"
+     },
+     {
+      "clueFragment": "like Judy's partner?",
+      "note": "second meaning: resembling Mr Punch, Judy's husband in the puppet show"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Punch and Judy is a traditional British seaside puppet show; adding -Y to Punch makes a whimsical adjective, hence the question mark.",
+     "definitionFit": "Punchy describes writing or speech with vigour and impact, and jokingly also means Punch-like."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Judy's"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +155,51 @@
     "text": "Herb has lots of varieties and grows easily at first",
     "enumeration": "6"
    },
-   "solution": "LOVAGE"
+   "solution": "LOVAGE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "LOVAGE",
+    "definitions": [
+     {
+      "text": "Herb",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of each word in the run before it"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lots of varieties and grows easily",
+      "gives": "LOVAGE",
+      "select": "first",
+      "note": "initial letters of these six words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOVAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A garden herb that comes in many kinds and is easy to cultivate.",
+     "definitionFit": "Lovage is a tall perennial plant of the celery family whose leaves are used as a culinary herb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +213,52 @@
     "text": "Girl's French boyfriend is cured",
     "enumeration": "6"
    },
-   "solution": "SALAMI"
+   "solution": "SALAMI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SALAMI",
+    "definitions": [
+     {
+      "text": "cured",
+      "at": 27,
+      "note": "adjective standing for a cured sausage"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "SAL",
+      "note": "short for Sally, a stock crossword girl"
+     },
+     {
+      "clueFragment": "French boyfriend",
+      "gives": "AMI",
+      "note": "French for friend or boyfriend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAL",
+      "AMI"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl's French boyfriend has recovered from his illness.",
+     "walkthrough": "'Cured' seems to mean healed in the surface; it is the meat-preserving sense, and the 's is just 'has' or a possessive glue.",
+     "definitionFit": "Salami is a sausage preserved by salting and air-drying, i.e. a cured meat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cured"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +278,64 @@
      }
     ]
    },
-   "solution": "EASYSTREET"
+   "solution": "EASYSTREET",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "EASY STREET",
+    "definitions": [
+     {
+      "text": "state of financial security",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "struggling",
+      "for": "anagram",
+      "note": "something struggling is thrashing about, so its letters are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "to achieve"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Simple",
+      "gives": "EASY",
+      "note": "simple means easy"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "SETTER",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EASY",
+      "STREET"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SETTER",
+       "gives": "STREET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crossword setter finds it hard work becoming well off.",
+     "definitionFit": "To be on easy street is an idiom for living in comfort without money worries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Simple"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +349,60 @@
     "text": "A wild beast gets weaker",
     "enumeration": "6"
    },
-   "solution": "ABATES"
+   "solution": "ABATES",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ABATES",
+    "definitions": [
+     {
+      "text": "gets weaker",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "wild means out of control, so the letters run loose into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "beast",
+      "gives": "BEAST",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BATES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BEAST",
+       "gives": "BATES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A savage animal is losing its strength.",
+     "definitionFit": "To abate is to lessen or diminish in intensity, as a storm does when it weakens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wild"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +416,43 @@
     "text": "Show off like Russell?",
     "enumeration": "8"
    },
-   "solution": "BRANDISH"
+   "solution": "BRANDISH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BRANDISH",
+    "definitions": [
+     {
+      "text": "Show off",
+      "at": 0
+     },
+     {
+      "text": "like Russell?",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Show off",
+      "note": "first meaning: wave about ostentatiously"
+     },
+     {
+      "clueFragment": "like Russell?",
+      "note": "second meaning: resembling the comedian Russell Brand, a jokey adjective"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Russell Brand is a British comedian known for showing off, so 'Brand-ish' is a playful description, flagged by the question mark.",
+     "definitionFit": "To brandish is to flourish or wave something to display it, which is a form of showing off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Russell"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +472,54 @@
      }
     ]
    },
-   "solution": "TAKETHAT"
+   "solution": "TAKETHAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TAKE THAT",
+    "definitions": [
+     {
+      "text": "a pop group",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Harry",
+      "for": "anagram",
+      "note": "to harry is to harass and worry, so the following letters are pushed around into a new order"
+     }
+    ],
+    "linkWords": [
+     "forming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Etta and Kath",
+      "gives": "ETTAKATH",
+      "note": "the two names taken as written, 'and' joining them"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ETTAKATH",
+       "gives": "TAKETHAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Three friends, Harry, Etta and Kath, get together to start a band.",
+     "walkthrough": "'Harry' looks like the third band member's name; it is the verb meaning harass, the anagram signal.",
+     "definitionFit": "Take That are a hugely successful British boy band formed in Manchester in 1990."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Harry"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +533,51 @@
     "text": "Luther's enemy is fine chap",
     "enumeration": "8"
    },
-   "solution": "SUPERMAN"
+   "solution": "SUPERMAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUPERMAN",
+    "definitions": [
+     {
+      "text": "Luther's enemy",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fine",
+      "gives": "SUPER",
+      "note": "fine means super, excellent"
+     },
+     {
+      "clueFragment": "chap",
+      "gives": "MAN",
+      "note": "a chap is a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUPER",
+      "MAN"
+     ]
+    },
+    "explanation": {
+     "surface": "The religious reformer's opponent is a decent fellow.",
+     "walkthrough": "'Luther' summons Martin Luther, but it is Lex Luthor, the comic-book villain, with the spelling bent for the surface.",
+     "definitionFit": "Superman is the comic-book hero whose arch-nemesis is the villain Lex Luthor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Luther's"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +591,47 @@
     "text": "Herzog, for example, is German writer",
     "enumeration": "8"
    },
-   "solution": "NOVELIST"
+   "solution": "NOVELIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOVELIST",
+    "definitions": [
+     {
+      "text": "writer",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Herzog, for example",
+      "gives": "NOVEL",
+      "note": "Herzog is a novel by Saul Bellow"
+     },
+     {
+      "clueFragment": "is German",
+      "gives": "IST",
+      "note": "the German word for is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOVEL",
+      "IST"
+     ]
+    },
+    "explanation": {
+     "surface": "Herzog, say, is a German author.",
+     "walkthrough": "'Herzog' suggests the German film-maker Werner Herzog; here it is Saul Bellow's 1964 novel.",
+     "definitionFit": "A novelist is an author of novels, a kind of writer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Herzog"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +645,57 @@
     "text": "Support for king in Lancashire town",
     "enumeration": "6"
    },
-   "solution": "BACKUP"
+   "solution": "BACKUP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BACKUP",
+    "definitions": [
+     {
+      "text": "Support",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in tells us one item is placed within the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lancashire town",
+      "gives": "BACUP",
+      "note": "Bacup is a small town in Lancashire, a county in north-west England"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAC",
+      "K",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "Backing for a monarch found in a northern English town.",
+     "definitionFit": "Backup is reserve help or support held ready in case it is needed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +715,49 @@
      }
     ]
    },
-   "solution": "HIGHMASS"
+   "solution": "HIGHMASS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HIGH MASS",
+    "definitions": [
+     {
+      "text": "service",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very important",
+      "gives": "HIGH",
+      "note": "high as in high-ranking or high-priority"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "MASS",
+      "note": "mass as in mass-market, appealing to many"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIGH",
+      "MASS"
+     ]
+    },
+    "explanation": {
+     "surface": "A significant church service that is well attended.",
+     "definitionFit": "High Mass is a full ceremonial Eucharist with music and incense, a church service."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "popular"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +771,55 @@
     "text": "Dissolute, tired old newspaperman",
     "enumeration": "6"
    },
-   "solution": "EDITOR"
+   "solution": "EDITOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EDITOR",
+    "definitions": [
+     {
+      "text": "newspaperman",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dissolute",
+      "for": "anagram",
+      "note": "dissolute means debauched, loose-living, so the following letters lose their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tired",
+      "gives": "TIRED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is a standard abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TIREDO",
+       "gives": "EDITOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worn-out, debauched old hack from Fleet Street.",
+     "definitionFit": "An editor is the journalist in charge of a newspaper's content, a senior newspaper professional."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dissolute"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +839,47 @@
      }
     ]
    },
-   "solution": "STOCKSTILL"
+   "solution": "STOCKSTILL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STOCK-STILL",
+    "definitions": [
+     {
+      "text": "completely motionless",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Keeps",
+      "gives": "STOCKS",
+      "note": "a shop that keeps an item in store stocks it"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "TILL",
+      "note": "to husband land is an old sense meaning to farm or cultivate it, i.e. till it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOCKS",
+      "TILL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone holds their husband so that he cannot move at all.",
+     "walkthrough": "'Husband' looks like a spouse; it is the verb meaning cultivate.",
+     "definitionFit": "Stock-still means utterly without movement, as still as a post."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "husband"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +893,61 @@
     "text": "Supporter trashing Latvia's capital city",
     "enumeration": "10"
    },
-   "solution": "BRATISLAVA"
+   "solution": "BRATISLAVA",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "BRATISLAVA",
+    "definitions": [
+     {
+      "text": "capital city",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trashing",
+      "for": "anagram",
+      "note": "trashing means wrecking, so the following letters are smashed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Supporter",
+      "gives": "BRA",
+      "note": "a bra is an item of supporting underwear"
+     },
+     {
+      "clueFragment": "Latvia's",
+      "gives": "LATVIAS",
+      "note": "taken as written, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRA",
+      "TISLAVA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LATVIAS",
+       "gives": "TISLAVA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fan vandalising the Latvian capital.",
+     "walkthrough": "'Latvia's capital' looks like it will be Riga; Latvia's letters are only fodder and the city is elsewhere.",
+     "definitionFit": "Bratislava is the capital of Slovakia, on the Danube."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Supporter"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +967,47 @@
      }
     ]
    },
-   "solution": "OFFBREAK"
+   "solution": "OFFBREAK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OFF BREAK",
+    "definitions": [
+     {
+      "text": "ball",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turned",
+      "gives": "OFF",
+      "note": "milk that has turned has gone off"
+     },
+     {
+      "clueFragment": "opening",
+      "gives": "BREAK",
+      "note": "a break is a gap or opening"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFF",
+      "BREAK"
+     ]
+    },
+    "explanation": {
+     "surface": "A first delivery in a game that spun after bouncing.",
+     "walkthrough": "In cricket, an off break is a delivery from a spin bowler that turns on pitching; the surface uses 'turned' and 'opening' in that cricketing sense.",
+     "definitionFit": "An off break is a type of spinning delivery bowled in cricket, so it is a ball in that sport's jargon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Turned"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1021,61 @@
     "text": "Arrest criminal in jail",
     "enumeration": "8"
    },
-   "solution": "RESTRAIN"
+   "solution": "RESTRAIN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "RESTRAIN",
+    "definitions": [
+     {
+      "text": "jail",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "something criminal is crooked, so the preceding letters are bent out of shape"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arrest",
+      "gives": "ARREST",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RESTRA",
+      "IN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARREST",
+       "gives": "RESTRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Detain a lawbreaker in prison.",
+     "walkthrough": "'Arrest' is the obvious definition, but its letters are needed as fodder; 'jail', used as a verb, is the definition.",
+     "definitionFit": "To jail someone is to hold them back from freedom, which is to restrain them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Arrest"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1089,72 @@
     "text": "Plant is strangely shaped with no end of appeal",
     "enumeration": "8"
    },
-   "solution": "ASPHODEL"
+   "solution": "ASPHODEL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ASPHODEL",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "end of picks out only the final letter of the following word"
+     },
+     {
+      "text": "strangely",
+      "for": "anagram",
+      "note": "strangely means in an odd way, so the letters are put into an unusual order"
+     }
+    ],
+    "linkWords": [
+     "is",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shaped",
+      "gives": "SHAPED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "no",
+      "gives": "O",
+      "note": "no, as in nil, is the zero-shaped letter O"
+     },
+     {
+      "clueFragment": "appeal",
+      "gives": "L",
+      "select": "last",
+      "note": "last letter of appeal"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SHAPEDOL",
+       "gives": "ASPHODEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plant has an odd form and nothing attractive about it.",
+     "walkthrough": "All three pieces go into the mix together; 'no' supplies the O and 'end of appeal' the L.",
+     "definitionFit": "Asphodel is a lily-family flower, in Greek myth said to cover the Elysian fields."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "appeal"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1174,47 @@
      }
     ]
    },
-   "solution": "FREESPEECH"
+   "solution": "FREESPEECH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FREE SPEECH",
+    "definitions": [
+     {
+      "text": "right",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It costs nothing",
+      "gives": "FREE",
+      "note": "something that costs nothing is free"
+     },
+     {
+      "clueFragment": "to talk",
+      "gives": "SPEECH",
+      "note": "speech is the act of talking"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FREE",
+      "SPEECH"
+     ]
+    },
+    "explanation": {
+     "surface": "Talking is free, and it is correct to do so.",
+     "walkthrough": "'Right' reads as an adverb, correct; it is the noun, an entitlement.",
+     "definitionFit": "Free speech is a basic civil liberty, a right guaranteed in many constitutions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1228,57 @@
     "text": "Golfer showing hesitation under tree",
     "enumeration": "6"
    },
-   "solution": "PALMER"
+   "solution": "PALMER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PALMER",
+    "definitions": [
+     {
+      "text": "Golfer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down clue, being under something means sitting below it, so the earlier-named piece comes second in the answer"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tree",
+      "gives": "PALM",
+      "note": "a palm is a tree"
+     },
+     {
+      "clueFragment": "hesitation",
+      "gives": "ER",
+      "note": "er is the sound of hesitation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PALM",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer hesitates after his ball lands beneath a tree.",
+     "walkthrough": "In a down clue, 'under' puts the second piece below, i.e. after, the first.",
+     "definitionFit": "Arnold Palmer was a celebrated American professional golfer, winner of seven major championships."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tree"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1292,63 @@
     "text": "Fake doctor dupes others to start with",
     "enumeration": "6"
    },
-   "solution": "PSEUDO"
+   "solution": "PSEUDO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "PSEUDO",
+    "definitions": [
+     {
+      "text": "Fake",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doctor",
+      "for": "anagram",
+      "note": "to doctor is to tamper with, so the following letters are falsified into a new order"
+     },
+     {
+      "text": "to start with",
+      "for": "letter_selection",
+      "note": "to start with takes just the opening letter of the word before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dupes",
+      "gives": "DUPES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "others",
+      "gives": "O",
+      "select": "first",
+      "note": "first letter of others"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DUPESO",
+       "gives": "PSEUDO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bogus medic first fools other people.",
+     "walkthrough": "'Doctor' looks like a noun paired with 'Fake'; it is the verb, tamper with.",
+     "definitionFit": "Pseudo means sham or not genuine, pretending to be something it is not."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1362,46 @@
     "text": "Revolutionary English golfer",
     "enumeration": "6"
    },
-   "solution": "ENGELS"
+   "solution": "ENGELS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENGELS",
+    "definitions": [
+     {
+      "text": "Revolutionary",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "ENG",
+      "note": "standard abbreviation for English"
+     },
+     {
+      "clueFragment": "golfer",
+      "gives": "ELS",
+      "note": "Ernie Els, the South African golfer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENG",
+      "ELS"
+     ]
+    },
+    "explanation": {
+     "surface": "An English golfer who changed the game.",
+     "definitionFit": "Friedrich Engels co-wrote The Communist Manifesto with Marx, a famous revolutionary thinker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Revolutionary"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1415,50 @@
     "text": "Bachelor's prickly and spiteful",
     "enumeration": "6"
    },
-   "solution": "BITCHY"
+   "solution": "BITCHY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BITCHY",
+    "definitions": [
+     {
+      "text": "spiteful",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bachelor",
+      "gives": "B",
+      "note": "B is the abbreviation for bachelor, as in BA"
+     },
+     {
+      "clueFragment": "prickly",
+      "gives": "ITCHY",
+      "note": "prickly in the sense of causing a tingling itch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ITCHY"
+     ]
+    },
+    "explanation": {
+     "surface": "A single man is touchy and mean-spirited.",
+     "walkthrough": "The 's after Bachelor stands for 'is' in the surface and is ignored in the wordplay.",
+     "definitionFit": "Bitchy is an informal word for malicious or catty in remarks about others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prickly"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1472,57 @@
     "text": "He murders Jack and Jenny at home",
     "enumeration": "8"
    },
-   "solution": "ASSASSIN"
+   "solution": "ASSASSIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASSASSIN",
+    "definitions": [
+     {
+      "text": "He murders",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jack",
+      "gives": "ASS",
+      "note": "a jack is a male donkey or ass"
+     },
+     {
+      "clueFragment": "Jenny",
+      "gives": "ASS",
+      "note": "a jenny is a female donkey or ass"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASS",
+      "ASS",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A killer strikes at Jack and Jenny in their house.",
+     "walkthrough": "Jack and Jenny look like two victims; they are a male and female donkey.",
+     "definitionFit": "An assassin is a killer, especially one who murders a prominent person, so he is one who murders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Jenny"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1536,47 @@
     "text": "Cockney catches antelopes",
     "enumeration": "6"
    },
-   "solution": "ELANDS"
+   "solution": "ELANDS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELANDS",
+    "definitions": [
+     {
+      "text": "antelopes",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cockney",
+      "gives": "E",
+      "note": "a Cockney drops his aitches, saying 'e for he"
+     },
+     {
+      "clueFragment": "catches",
+      "gives": "LANDS",
+      "note": "to land a fish is to catch it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LANDS"
+     ]
+    },
+    "explanation": {
+     "surface": "A Londoner gets hold of some antelopes.",
+     "walkthrough": "Read 'Cockney catches' as 'he lands' in a Cockney accent: 'e lands. Cockneys are working-class East Londoners famed for dropping H.",
+     "definitionFit": "Elands are large African antelopes with spiralled horns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cockney"
+    }
+   }
   },
   {
    "number": 25,
@@ -419,7 +1590,71 @@
     "text": "Bird finally caught by extremely intelligent rodent",
     "enumeration": "8"
    },
-   "solution": "TITMOUSE"
+   "solution": "TITMOUSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TITMOUSE",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally keeps only the last letter of the word beside it"
+     },
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the two extremes, the first and last letters"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caught",
+      "gives": "T",
+      "select": "last",
+      "note": "last letter of caught"
+     },
+     {
+      "clueFragment": "intelligent",
+      "gives": "IT",
+      "select": "outer",
+      "note": "outer letters of intelligent"
+     },
+     {
+      "clueFragment": "rodent",
+      "gives": "MOUSE",
+      "note": "a mouse is a rodent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "IT",
+      "MOUSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird is eventually caught by a very clever rat or mouse.",
+     "walkthrough": "'By' here means next to, so the pieces sit side by side rather than one inside another.",
+     "definitionFit": "Titmouse is the old full name for the tit, a small songbird; it is a bird, not a mouse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 26,
@@ -433,7 +1668,53 @@
     "text": "Explosive linked to fire",
     "enumeration": "6"
    },
-   "solution": "KINDLE"
+   "solution": "KINDLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "KINDLE",
+    "definitions": [
+     {
+      "text": "fire",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Explosive",
+      "for": "anagram",
+      "note": "an explosive blast scatters things, so the letters are blown into a new order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "linked",
+      "gives": "LINKED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LINKED",
+       "gives": "KINDLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bomb wired up to set a blaze.",
+     "definitionFit": "To kindle is to set alight, so it means to fire in the sense of igniting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Explosive"
+    }
+   }
   },
   {
    "number": 27,
@@ -447,7 +1728,79 @@
     "text": "Beautiful girl, mad with love, quietly leaves work",
     "enumeration": "8"
    },
-   "solution": "GLORIOUS"
+   "solution": "GLORIOUS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "deletion"
+    ],
+    "answer": "GLORIOUS",
+    "definitions": [
+     {
+      "text": "Beautiful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mad",
+      "for": "anagram",
+      "note": "mad means crazy, so the letters are thrown into disorder"
+     },
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "leaves means departs, so that letter is taken away"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "GIRL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OPUS",
+      "note": "an opus is a musical or literary work"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p is piano, the musical marking for quietly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GLORI",
+      "OUS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GIRLO",
+       "gives": "GLORI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lovely girl, crazy with passion, slips silently out of the office.",
+     "definitionFit": "Glorious means magnificent or splendid, a strong synonym for beautiful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   }
  ]
 }
