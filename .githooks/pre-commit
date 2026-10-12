@@ -17,6 +17,10 @@ staged=$(git diff --cached --name-only --diff-filter=AM -- 'puzzles/*.json')
 # refuse the commit instead. Fix: python3 tools/renamed_ids.py --stage. A
 # worktree whose tools/ predates the map has nothing to check.
 [ ! -f tools/renamed_ids.py ] || python3 tools/renamed_ids.py --check-staged || exit 1
+# A deleted or renamed puzzle's rows in the per-puzzle tables (source_clue_wrong
+# and the rest) name nothing and fail CI; refuse the commit instead. Fix:
+# python3 tools/puzzle_rows.py retire <old id> [<new id>], then stage the tables.
+[ ! -f tools/puzzle_rows.py ] || python3 tools/puzzle_rows.py --check-staged || exit 1
 # A page-build module missing from SMOKE_DEPS in tools/ci_cache.js fails CI's
 # tools/test_ci_cache_deps.js; refuse the commit instead. Fix: add the path it
 # names to SMOKE_DEPS.

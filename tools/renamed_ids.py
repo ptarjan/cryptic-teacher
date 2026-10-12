@@ -158,16 +158,21 @@ def reprinted_in(renamed, live):
 
 def main(argv):
     if argv == ["--write"]:
-        renamed = dict(from_history())   # a later rename of an id wins
+        # A later rename of an id wins. A row history cannot pair stays: a
+        # book file superseded by the newspaper puzzle another job filed
+        # (fetch_puzzle.supersede_book) is deleted in a commit of its own.
+        renamed = {**read(), **dict(from_history())}
         write(renamed)
         print(f"{MAP.relative_to(ROOT)}: {len(renamed)} renamed id(s)")
         return 0
     if argv == ["--check"]:
         # Sorted: a job's batch can stage its rows in path order and commit
         # its renames in another.
-        if (have := read()) != (want := dict(from_history())):
+        # A row history does not pair is a supersede (see --write) and stands.
+        have, want = read(), dict(from_history())
+        if any(have.get(a) != b for a, b in want.items()):
             missing = [f"{a} -> {b}" for a, b in want.items() if have.get(a) != b]
-            extra = [f"{a} -> {b}" for a, b in have.items() if want.get(a) != b]
+            extra = [f"{a} -> {b}" for a, b in have.items() if a in want and want[a] != b]
             print(f"{MAP.relative_to(ROOT)} disagrees with history: missing {missing[:5]}"
                   f"{' ...' if len(missing) > 5 else ''}, not in history {extra[:5]}; "
                   "run python3 tools/renamed_ids.py --write", file=sys.stderr)

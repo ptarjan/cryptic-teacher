@@ -923,6 +923,18 @@ tools/renamed_ids.py                          every puzzle id a commit renamed, 
                                               history into tools/data/renamed_ids.json;
                                               --check-staged is the pre-commit refusal of a
                                               rename without its row, --stage adds the row
+tools/puzzle_rows.py                          the per-puzzle tables' rows follow their file:
+                                              retire carries a renamed id's rows to its new id
+                                              and discards a dropped one's; --check-staged is
+                                              the pre-commit refusal of a deletion or rename
+                                              that leaves rows, --check that every row names a
+                                              file on disk
+tools/test_puzzle_rows.sh                     do a puzzle's table rows go where its file goes?
+                                              retire discards and carries, the pre-commit gate
+                                              refuses a drop or rename leaving rows, durable.sh
+                                              commits a drop with its rows gone, supersede_book
+                                              writes the redirect row and retires the rows, and
+                                              every real row names a file
 tools/test_renamed_ids.sh                     does a renamed puzzle's old id keep resolving? A
                                               rename inside a commit that moves every file is
                                               still paired, a staged rename the map lacks is

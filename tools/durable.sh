@@ -68,8 +68,23 @@ durable_checkpoint() {  # durable_checkpoint <what>: commit what is filed, push 
         python3 "$_durable_dir/renamed_ids.py" --stage || return 1
         p+=(tools/data/renamed_ids.json)
       fi
+      # A deletion or rename takes its per-puzzle table rows (tools/puzzle_rows.py:
+      # carried to the new id, else discarded), and a superseded book its
+      # redirect row (fetch_puzzle.supersede_book), in this commit; otherwise
+      # the rows name no puzzle and CI fails (book-12076, 10-11). These lines
+      # come last, so the whole tables they carry follow every puzzle file
+      # their other rows describe.
+      if [[ "$line" == [DR]* ]] && [ -f "$_durable_dir/puzzle_rows.py" ]; then
+        local t gone="${p[1]##*/}" now=""
+        [[ "$line" == R* ]] && now="${p[2]##*/}" && now="${now%.json}"
+        python3 "$_durable_dir/puzzle_rows.py" retire "${gone%.json}" $now >/dev/null || return 1
+        for t in source_clue_wrong source_answer_wrong setter_error ninas blind_misses diagnosed_misses renamed_ids; do
+          [ -f "tools/data/$t.json" ] && p+=("tools/data/$t.json")
+        done
+      fi
       git commit -q -m "$(printf '%s\n\n%s' "$subj" "$trailer")" -- "${p[@]:1}" || return 1
-    done < <(git diff --cached --name-status -M -- puzzles)
+    done < <(git diff --cached --name-status -M -- puzzles | grep -v '^[DR]'
+             git diff --cached --name-status -M -- puzzles | grep '^[DR]')
     if ! git diff --cached --quiet; then
       git commit -q -m "$(printf '%s\n\n%s' "$what" "$trailer")" || return 1
     fi
