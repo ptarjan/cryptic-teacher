@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "Pick up line provided by team's leader",
     "enumeration": "4"
    },
-   "solution": "LIFT"
+   "solution": "LIFT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LIFT",
+    "definitions": [
+     {
+      "text": "Pick up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader goes in front, so only the opening letter of the word before it is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the standard abbreviation for line"
+     },
+     {
+      "clueFragment": "provided",
+      "gives": "IF",
+      "note": "'provided' as in 'provided that' means if"
+     },
+     {
+      "clueFragment": "team's",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of team"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IF",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A coach scribbles down a play, picked up from what the captain says.",
+     "definitionFit": "To lift something is to raise it, a direct synonym of the phrasal verb meaning raise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +104,51 @@
     "text": "Type of printer that's turned up in fire sale",
     "enumeration": "5"
    },
-   "solution": "LASER"
+   "solution": "LASER",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "LASER",
+    "definitions": [
+     {
+      "text": "Type of printer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the letters are sitting inside the following phrase, running across its word break"
+     },
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turned up means the letters are read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fire sale",
+      "gives": "RESAL",
+      "note": "the run of letters straddling the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A cheap printer is spotted among the bargains at a fire-damage sale.",
+     "definitionFit": "A laser printer is a common kind of office printer that fuses toner using a beam of light."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +168,50 @@
      }
     ]
    },
-   "solution": "FLAGLIEUTENANT"
+   "solution": "FLAGLIEUTENANT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FLAG LIEUTENANT",
+    "definitions": [
+     {
+      "text": "aide-de-camp",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "At sea",
+      "for": "anagram",
+      "note": "something at sea is confused and adrift, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fault inelegant",
+      "gives": "FAULTINELEGANT",
+      "note": "the fourteen letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FAULTINELEGANT",
+       "gives": "FLAGLIEUTENANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A naval aide is criticised for being clumsy while serving on board ship.",
+     "definitionFit": "A flag lieutenant is the naval officer serving as personal assistant to an admiral, the navy's equivalent of an aide-de-camp."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sea"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +225,50 @@
     "text": "Vehicle with particular floor covering",
     "enumeration": "6"
    },
-   "solution": "CARPET"
+   "solution": "CARPET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CARPET",
+    "definitions": [
+     {
+      "text": "floor covering",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vehicle",
+      "gives": "CAR",
+      "note": "a car is a vehicle"
+     },
+     {
+      "clueFragment": "particular",
+      "gives": "PET",
+      "note": "a pet subject or pet project is one's particular favourite"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "PET"
+     ]
+    },
+    "explanation": {
+     "surface": "A car comes fitted with the owner's choice of mat.",
+     "walkthrough": "'Particular' is used in the sense of a favourite, as in a pet hate.",
+     "definitionFit": "A carpet is a thick woven fabric laid over a room's floor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "particular"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +282,43 @@
     "text": "Mobile busy?",
     "enumeration": "6"
    },
-   "solution": "ACTIVE"
+   "solution": "ACTIVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ACTIVE",
+    "definitions": [
+     {
+      "text": "Mobile",
+      "at": 0
+     },
+     {
+      "text": "busy",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mobile",
+      "note": "first meaning: able to move about, not bedridden"
+     },
+     {
+      "clueFragment": "busy",
+      "note": "second meaning: occupied, doing a lot"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests asking whether a mobile phone line is engaged; the two words are separate senses of one adjective.",
+     "definitionFit": "An active patient is up and moving, and an active person is energetically occupied."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Mobile"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +342,50 @@
      }
     ]
    },
-   "solution": "PUTUPJOB"
+   "solution": "PUTUPJOB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PUT-UP JOB",
+    "definitions": [
+     {
+      "text": "a fix",
+      "at": 40
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Accommodate",
+      "gives": "PUTUP",
+      "note": "to put someone up is to give them a bed"
+     },
+     {
+      "clueFragment": "person of great patience",
+      "gives": "JOB",
+      "note": "the biblical Job is proverbial for patience"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUTUP",
+      "JOB"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone saintly agrees to host a guest who is in trouble.",
+     "walkthrough": "'In a fix' reads as being in trouble, but 'a fix' is the definition and 'in' only joins it.",
+     "definitionFit": "A put-up job is a rigged or prearranged affair, which is what a fix means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fix"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +399,46 @@
     "text": "Body temperature, approximately",
     "enumeration": "5"
    },
-   "solution": "TORSO"
+   "solution": "TORSO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TORSO",
+    "definitions": [
+     {
+      "text": "Body",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "T is the abbreviation for temperature"
+     },
+     {
+      "clueFragment": "approximately",
+      "gives": "ORSO",
+      "note": "'or so' means approximately, as in ten or so"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ORSO"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor gives a rough reading of a patient's body temperature.",
+     "definitionFit": "The torso is the trunk of the human body, without head or limbs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Body"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +452,45 @@
     "text": "Declared policy from rostrum",
     "enumeration": "8"
    },
-   "solution": "PLATFORM"
+   "solution": "PLATFORM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PLATFORM",
+    "definitions": [
+     {
+      "text": "Declared policy",
+      "at": 0
+     },
+     {
+      "text": "rostrum",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Declared policy",
+      "note": "first meaning: a party's stated programme"
+     },
+     {
+      "clueFragment": "rostrum",
+      "note": "second meaning: a raised stage for speakers"
+     }
+    ],
+    "explanation": {
+     "surface": "A politician announces policy while standing on the speaker's stand.",
+     "definitionFit": "A political platform is a published set of policies, and a platform is also a raised stage a speaker addresses a crowd from."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "from"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +514,54 @@
      }
     ]
    },
-   "solution": "DAYOFRECKONING"
+   "solution": "DAYOFRECKONING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DAY OF RECKONING",
+    "definitions": [
+     {
+      "text": "Time to fulfil one's obligations",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after repair",
+      "for": "anagram",
+      "note": "repairing something takes it apart and puts it back together differently"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "any foreign dock",
+      "gives": "ANYFOREIGNDOCK",
+      "note": "the fourteen letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANYFOREIGNDOCK",
+       "gives": "DAYOFRECKONING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ship's bills fall due in whatever overseas port it puts into for repairs.",
+     "walkthrough": "'In' looks like part of the fodder, but it is the link; only the three words after it are rearranged.",
+     "definitionFit": "The day of reckoning is the moment when debts must be settled or one must answer for one's actions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "repair"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +575,66 @@
     "text": "English poet, one avoiding stress round New York",
     "enumeration": "8"
    },
-   "solution": "TENNYSON"
+   "solution": "TENNYSON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TENNYSON",
+    "definitions": [
+     {
+      "text": "English poet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "avoiding",
+      "for": "deletion",
+      "note": "to avoid something is to leave it out, so a letter is dropped"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "going round means the remaining word wraps around the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stress",
+      "gives": "TENSION",
+      "note": "tension is stress or strain"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "one as the Roman numeral I, the letter removed"
+     },
+     {
+      "clueFragment": "New York",
+      "gives": "NY",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEN",
+      "NY",
+      "SON"
+     ]
+    },
+    "explanation": {
+     "surface": "An English poet tries to stay relaxed while visiting New York.",
+     "walkthrough": "Take the I out of TENSION and put NY into the middle of what is left.",
+     "definitionFit": "Alfred, Lord Tennyson was a Victorian Poet Laureate born in Lincolnshire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stress"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +648,66 @@
     "text": "Young actress the Spanish upset during opening",
     "enumeration": "7"
    },
-   "solution": "STARLET"
+   "solution": "STARLET",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "STARLET",
+    "definitions": [
+     {
+      "text": "Young actress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset means tipped over, so the word is turned back to front"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during places one piece within the span of another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "opening",
+      "gives": "START",
+      "note": "the start is the opening"
+     },
+     {
+      "clueFragment": "the Spanish",
+      "gives": "EL",
+      "note": "el is Spanish for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAR",
+      "LE",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "EL",
+       "to": "LE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young actress from Spain is upset on her opening night.",
+     "definitionFit": "A starlet is a young actress being promoted as a future star."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +721,67 @@
     "text": "Row of houses — create changes involving first in row",
     "enumeration": "7"
    },
-   "solution": "TERRACE"
+   "solution": "TERRACE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "TERRACE",
+    "definitions": [
+     {
+      "text": "Row of houses",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changes",
+      "for": "anagram",
+      "note": "the word changes its form, so its letters are rearranged"
+     },
+     {
+      "text": "involving",
+      "for": "anagram",
+      "note": "involving brings the extra letter into the mix before the letters are rearranged"
+     },
+     {
+      "text": "first in",
+      "for": "letter_selection",
+      "note": "first in means only the opening letter of the following word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "create",
+      "gives": "CREATE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "row",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of the final word of the clue"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CREATER",
+       "gives": "TERRACE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A developer builds a terrace by altering the first house in the street.",
+     "definitionFit": "A terrace is a continuous row of joined houses, a common British street layout."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "changes"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +801,71 @@
      }
     ]
    },
-   "solution": "RELATIVEPRONOUN"
+   "solution": "RELATIVEPRONOUN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RELATIVE PRONOUN",
+    "definitions": [
+     {
+      "text": "Who, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "accepting means taking something in, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "could be",
+     "offered by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brother, perhaps",
+      "gives": "RELATIVE",
+      "note": "a brother is one example of a relative"
+     },
+     {
+      "clueFragment": "in favour of",
+      "gives": "PRO",
+      "note": "pro means for or in favour of"
+     },
+     {
+      "clueFragment": "sister",
+      "gives": "NUN",
+      "note": "a nun is called Sister"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "O is round like a ring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RELATIVE",
+      "PRO",
+      "NOUN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders who would back a sister taking a ring her brother offers.",
+     "walkthrough": "RELATIVE comes first in the answer though its words end the clue; 'offered by' only places it. NUN takes in O to make NOUN.",
+     "definitionFit": "Who is an example of a relative pronoun, one that introduces a relative clause."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Who"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +879,64 @@
     "text": "Market town in Britain, once desecrated",
     "enumeration": "6"
    },
-   "solution": "BRECON"
+   "solution": "BRECON",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "BRECON",
+    "definitions": [
+     {
+      "text": "Market town",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "desecrated",
+      "for": "anagram",
+      "note": "something desecrated has been violated and wrecked, so the letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Britain",
+      "gives": "BR",
+      "note": "BR is an abbreviation for Britain"
+     },
+     {
+      "clueFragment": "once",
+      "gives": "ONCE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BR",
+      "ECON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONCE",
+       "gives": "ECON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A British market town whose old church was once desecrated.",
+     "walkthrough": "'In Britain' looks like part of the definition, but 'in' is the link and Britain is wordplay. BRECON is a market town in mid-Wales.",
+     "definitionFit": "Brecon is a small Welsh market town in the Brecon Beacons area of Powys."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "once"
+    }
+   }
   },
   {
    "number": 13,
@@ -261,7 +950,61 @@
     "text": "Unpleasant around river crossing industrial city",
     "enumeration": "8"
    },
-   "solution": "BRADFORD"
+   "solution": "BRADFORD",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BRADFORD",
+    "definitions": [
+     {
+      "text": "industrial city",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means one word encloses the next item"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unpleasant",
+      "gives": "BAD",
+      "note": "bad means unpleasant"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     },
+     {
+      "clueFragment": "crossing",
+      "gives": "FORD",
+      "note": "a ford is a shallow river crossing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "R",
+      "AD",
+      "FORD"
+     ]
+    },
+    "explanation": {
+     "surface": "A grim river crossing in an industrial city.",
+     "definitionFit": "Bradford is a West Yorkshire city that grew on the wool industry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crossing"
+    }
+   }
   },
   {
    "number": 14,
@@ -281,7 +1024,69 @@
      }
     ]
    },
-   "solution": "FOIEGRAS"
+   "solution": "FOIEGRAS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "FOIE GRAS",
+    "definitions": [
+     {
+      "text": "Type of pate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means without, so the following item is removed"
+     },
+     {
+      "text": "may be got from",
+      "for": "anagram",
+      "note": "getting something from material means working it up into a new form"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goose fair",
+      "gives": "GOOSEFAIR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "O",
+      "note": "a duck in cricket is a score of nought, O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOIEGRAS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GOSEFAIR",
+       "gives": "FOIEGRAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A goose-based pate might be on sale at Nottingham's Goose Fair, so long as there's no duck.",
+     "walkthrough": "Goose Fair is a traditional autumn fair in Nottingham. A duck is a cricket score of nought, so one O goes before the letters are rearranged.",
+     "definitionFit": "Foie gras is a rich pate of fattened goose or duck liver."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 15,
@@ -295,7 +1100,42 @@
     "text": "Use train",
     "enumeration": "8"
    },
-   "solution": "EXERCISE"
+   "solution": "EXERCISE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EXERCISE",
+    "definitions": [
+     {
+      "text": "Use",
+      "at": 0
+     },
+     {
+      "text": "train",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Use",
+      "note": "first meaning: to ... a right or power is to use it"
+     },
+     {
+      "clueFragment": "train",
+      "note": "second meaning: to drill or work out"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Both words look like nouns, but each is a verb here.",
+     "definitionFit": "One exercises an option by using it, and exercising is physical training."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "train"
+    }
+   }
   },
   {
    "number": 16,
@@ -309,7 +1149,67 @@
     "text": "Police unit manhandled ten after fashionable event",
     "enumeration": "8"
    },
-   "solution": "INCIDENT"
+   "solution": "INCIDENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "INCIDENT",
+    "definitions": [
+     {
+      "text": "event",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "manhandled",
+      "for": "anagram",
+      "note": "roughly manhandled things get pushed about, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fashionable",
+      "gives": "IN",
+      "note": "in means in fashion"
+     },
+     {
+      "clueFragment": "Police unit",
+      "gives": "CID",
+      "note": "the Criminal Investigation Department of British police"
+     },
+     {
+      "clueFragment": "ten",
+      "gives": "TEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CID",
+      "ENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEN",
+       "gives": "ENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Detectives rough up ten people outside a trendy venue.",
+     "walkthrough": "'After' tells you the police unit and the rearranged number follow the word for fashionable, though the clue lists them first. The CID is the plain-clothes detective branch of British police forces.",
+     "definitionFit": "An incident is an occurrence or happening, a synonym of event."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "manhandled"
+    }
+   }
   },
   {
    "number": 17,
@@ -323,7 +1223,58 @@
     "text": "I'm stopping boy identifying an element",
     "enumeration": "8"
    },
-   "solution": "ANTIMONY"
+   "solution": "ANTIMONY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ANTIMONY",
+    "definitions": [
+     {
+      "text": "an element",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stopping",
+      "for": "container",
+      "note": "something stopping a gap sits inside it, plugging it"
+     }
+    ],
+    "linkWords": [
+     "identifying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'm",
+      "gives": "IM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "ANTONY",
+      "note": "Antony is a boy's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANT",
+      "IM",
+      "ONY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stops a boy to identify a chemical element.",
+     "walkthrough": "'An' looks like wordplay, but it belongs to the definition; the boy's name supplies those letters.",
+     "definitionFit": "Antimony is a metalloid chemical element, symbol Sb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boy"
+    }
+   }
   },
   {
    "number": 18,
@@ -337,7 +1288,51 @@
     "text": "Watch fire in western half of Bucks town",
     "enumeration": "6"
    },
-   "solution": "BEACON"
+   "solution": "BEACON",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BEACON",
+    "definitions": [
+     {
+      "text": "Watch fire",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "western half of",
+      "for": "deletion",
+      "note": "in an across entry the western half is the left-hand portion, so the rest of the word is dropped"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bucks town",
+      "gives": "BEACONSFIELD",
+      "note": "a town in Buckinghamshire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEACON"
+     ]
+    },
+    "explanation": {
+     "surface": "A lookout's fire burns in the west of a Buckinghamshire town.",
+     "walkthrough": "Bucks is short for Buckinghamshire, an English county; Beaconsfield is one of its towns, and its first six letters are kept.",
+     "definitionFit": "A beacon is a signal fire lit on a hill to give warning, which a watch would keep."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Watch"
+    }
+   }
   },
   {
    "number": 19,
@@ -351,7 +1346,66 @@
     "text": "Urge almost gone over drink",
     "enumeration": "6"
    },
-   "solution": "EGGNOG"
+   "solution": "EGGNOG",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "EGGNOG",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the last letter is cut"
+     },
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over, in a down entry, means read upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Urge",
+      "gives": "EGG",
+      "note": "to egg someone on is to urge them"
+     },
+     {
+      "clueFragment": "gone",
+      "gives": "GONE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EGG",
+      "NOG"
+     ],
+     "reversals": [
+      {
+       "from": "GON",
+       "to": "NOG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone says the urge to drink has nearly passed.",
+     "definitionFit": "Eggnog is a drink of beaten eggs, milk and sugar, often with spirits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 20,
@@ -371,7 +1425,50 @@
      }
     ]
    },
-   "solution": "FINISHINGSCHOOL"
+   "solution": "FINISHINGSCHOOL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FINISHING SCHOOL",
+    "definitions": [
+     {
+      "text": "girls' college",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stopping",
+      "gives": "FINISHING",
+      "note": "finishing means stopping"
+     },
+     {
+      "clueFragment": "train",
+      "gives": "SCHOOL",
+      "note": "to school someone is to train them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FINISHING",
+      "SCHOOL"
+     ]
+    },
+    "explanation": {
+     "surface": "A railway announcement that a train terminates for a girls' college.",
+     "definitionFit": "A finishing school is a private college teaching young women social graces."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "train"
+    }
+   }
   },
   {
    "number": 21,
@@ -385,7 +1482,45 @@
     "text": "Chide son, lacking in affection",
     "enumeration": "5"
    },
-   "solution": "SCOLD"
+   "solution": "SCOLD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCOLD",
+    "definitions": [
+     {
+      "text": "Chide",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "lacking in affection",
+      "gives": "COLD",
+      "note": "cold means unaffectionate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "COLD"
+     ]
+    },
+    "explanation": {
+     "surface": "A parent tells off a son who shows no warmth.",
+     "definitionFit": "To scold is to rebuke someone angrily, the same as to chide."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -399,7 +1534,50 @@
     "text": "Generous lager poured out",
     "enumeration": "5"
    },
-   "solution": "LARGE"
+   "solution": "LARGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LARGE",
+    "definitions": [
+     {
+      "text": "Generous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "poured out",
+      "for": "anagram",
+      "note": "poured out suggests spilling, so the letters land in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lager",
+      "gives": "LAGER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LAGER",
+       "gives": "LARGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A barman pours a generous measure of lager.",
+     "definitionFit": "A large helping is a generous one, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "poured"
+    }
+   }
   },
   {
    "number": 23,
@@ -413,7 +1591,46 @@
     "text": "British writer published quite a few",
     "enumeration": "7"
    },
-   "solution": "RANSOME"
+   "solution": "RANSOME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RANSOME",
+    "definitions": [
+     {
+      "text": "British writer",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "published",
+      "gives": "RAN",
+      "note": "a newspaper ran a story when it published it"
+     },
+     {
+      "clueFragment": "quite a few",
+      "gives": "SOME",
+      "note": "some means a fair number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAN",
+      "SOME"
+     ]
+    },
+    "explanation": {
+     "surface": "A British author has had a fair number of books published.",
+     "definitionFit": "Arthur Ransome was the British author of the Swallows and Amazons children's books."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "published"
+    }
+   }
   },
   {
    "number": 24,
@@ -427,7 +1644,58 @@
     "text": "Bridge player leads as row becomes more unpleasant",
     "enumeration": "7"
    },
-   "solution": "NASTIER"
+   "solution": "NASTIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NASTIER",
+    "definitions": [
+     {
+      "text": "more unpleasant",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "leads",
+     "becomes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bridge player",
+      "gives": "N",
+      "note": "North is one of the four players at bridge"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "row",
+      "gives": "TIER",
+      "note": "a tier is a row, as of seats"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "AS",
+      "TIER"
+     ]
+    },
+    "explanation": {
+     "surface": "A bridge player takes the lead as an argument turns nasty.",
+     "walkthrough": "'Row' looks like a quarrel, but it is a line of seats. 'Leads' puts the player first.",
+     "definitionFit": "Nastier is the comparative of nasty, meaning more unpleasant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 25,
@@ -441,7 +1709,58 @@
     "text": "Senility demonstrated by magistrate imprisoning volunteers",
     "enumeration": "6"
    },
-   "solution": "DOTAGE"
+   "solution": "DOTAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DOTAGE",
+    "definitions": [
+     {
+      "text": "Senility",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "imprisoning",
+      "for": "container",
+      "note": "imprisoning means holding something inside, so one piece encloses another"
+     }
+    ],
+    "linkWords": [
+     "demonstrated by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "magistrate",
+      "gives": "DOGE",
+      "note": "the Doge was the chief magistrate of Venice"
+     },
+     {
+      "clueFragment": "volunteers",
+      "gives": "TA",
+      "note": "the Territorial Army, Britain's volunteer reserve"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "TA",
+      "GE"
+     ]
+    },
+    "explanation": {
+     "surface": "An aged magistrate shows his senility by locking up volunteers.",
+     "walkthrough": "The Territorial Army was the British army's part-time volunteer force.",
+     "definitionFit": "Dotage is the period of feeble-minded old age, which senility describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "magistrate"
+    }
+   }
   },
   {
    "number": 26,
@@ -455,7 +1774,60 @@
     "text": "Try reflecting about giant",
     "enumeration": "4"
    },
-   "solution": "OGRE"
+   "solution": "OGRE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "OGRE",
+    "definitions": [
+     {
+      "text": "giant",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reflecting",
+      "for": "reversal",
+      "note": "a mirror reflection runs the opposite way, so the word is turned back to front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Try",
+      "gives": "GO",
+      "note": "to have a go is to try"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OG",
+      "RE"
+     ],
+     "reversals": [
+      {
+       "from": "GO",
+       "to": "OG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries to think carefully about a giant.",
+     "definitionFit": "An ogre is a man-eating giant in folklore and fairy tales."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reflecting"
+    }
+   }
   }
  ]
 }
