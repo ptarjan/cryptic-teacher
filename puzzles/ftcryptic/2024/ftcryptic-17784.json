@@ -24,6 +24,9 @@
   "date": "2024-07-10",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,67 @@
     "text": "Corrupt assistant married retiring go-between",
     "enumeration": "8"
    },
-   "solution": "MEDIATOR"
+   "solution": "MEDIATOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MEDIATOR",
+    "definitions": [
+     {
+      "text": "go-between",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retiring",
+      "for": "reversal",
+      "note": "retiring means drawing back, so the string built from the first three words is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Corrupt",
+      "gives": "ROT",
+      "note": "to rot is to corrupt or decay"
+     },
+     {
+      "clueFragment": "assistant",
+      "gives": "AIDE",
+      "note": "an aide is an assistant"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the abbreviation for married"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "EDIA",
+      "TOR"
+     ],
+     "reversals": [
+      {
+       "from": "ROTAIDEM",
+       "to": "MEDIATOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crooked aide, now wed, steps down from brokering deals.",
+     "walkthrough": "'Corrupt' looks like an adjective on the assistant, but it is a verb giving its own piece; the whole run is then reversed.",
+     "definitionFit": "A go-between carries messages and settles disputes between two parties, which is exactly the role of a mediator."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Corrupt"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +114,67 @@
     "text": "Rebuilding harms east end of city resembling Slough",
     "enumeration": "6"
    },
-   "solution": "MARSHY"
+   "solution": "MARSHY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "MARSHY",
+    "definitions": [
+     {
+      "text": "resembling Slough",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rebuilding",
+      "for": "anagram",
+      "note": "rebuilding means putting together in a new form, so the letters are rearranged"
+     },
+     {
+      "text": "east end of",
+      "for": "letter_selection",
+      "note": "on a map east is the right-hand side, so the east end of a word is its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "harms",
+      "gives": "HARMS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "Y",
+      "select": "last",
+      "note": "the last letter of city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARSHY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HARMSY",
+       "gives": "MARSHY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Redevelopment damages the eastern side of a town like Slough.",
+     "walkthrough": "Slough is a town west of London, so the clue reads as urban planning; with a lower-case s, a slough is a swamp.",
+     "definitionFit": "A slough is a bog or swamp, so ground resembling one is boggy and wet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Slough"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +188,62 @@
     "text": "Easing of hostilities briefly interrupted by stray nuclear weapon?",
     "enumeration": "9"
    },
-   "solution": "DETERRENT"
+   "solution": "DETERRENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "DETERRENT",
+    "definitions": [
+     {
+      "text": "nuclear weapon?",
+      "at": 51,
+      "note": "the question mark flags a definition by example"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly says the word is cut short by its last letter"
+     },
+     {
+      "text": "interrupted by",
+      "for": "container",
+      "note": "interrupted by means something breaks into the middle of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Easing of hostilities",
+      "gives": "DETENTE",
+      "note": "detente is a relaxation of tension between nations"
+     },
+     {
+      "clueFragment": "stray",
+      "gives": "ERR",
+      "note": "to err is to stray from the right path"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DET",
+      "ERR",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A wandering warhead briefly disrupts a thaw in the Cold War.",
+     "walkthrough": "'Stray' looks like an adjective on the weapon, but it is a verb meaning to go wrong.",
+     "definitionFit": "A nuclear arsenal is the classic example of a deterrent, a weapon meant to discourage attack."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "stray"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +257,69 @@
     "text": "Duck eggs served up in diner for starters",
     "enumeration": "5"
    },
-   "solution": "AVOID"
+   "solution": "AVOID",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AVOID",
+    "definitions": [
+     {
+      "text": "Duck",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "served up",
+      "for": "reversal",
+      "note": "in a down entry, served up means brought upwards, so the word is read bottom to top"
+     },
+     {
+      "text": "for starters",
+      "for": "letter_selection",
+      "note": "starters are what come first, so only the opening letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eggs",
+      "gives": "OVA",
+      "note": "ova is Latin for eggs"
+     },
+     {
+      "clueFragment": "in diner",
+      "gives": "ID",
+      "select": "first",
+      "note": "the first letters of in and diner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVO",
+      "ID"
+     ],
+     "reversals": [
+      {
+       "from": "OVA",
+       "to": "AVO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A café menu offering duck eggs as a starter.",
+     "walkthrough": "'Duck' is a bird on the menu here, but it is the verb meaning to dodge.",
+     "definitionFit": "To duck something is to dodge it, a verb synonym of avoid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Duck"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +333,48 @@
     "text": "Go too far on ladder",
     "enumeration": "7"
    },
-   "solution": "OVERRUN"
+   "solution": "OVERRUN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERRUN",
+    "definitions": [
+     {
+      "text": "Go too far",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "OVER",
+      "note": "on top of is over"
+     },
+     {
+      "clueFragment": "ladder",
+      "gives": "RUN",
+      "note": "a ladder in tights or stockings is also called a run"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "RUN"
+     ]
+    },
+    "explanation": {
+     "surface": "A warning not to climb too high up a ladder.",
+     "walkthrough": "In Britain a ladder is also a line of unravelled stitches in tights, which Americans call a run.",
+     "definitionFit": "To overrun is to exceed a limit, such as a schedule or a boundary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ladder"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +388,52 @@
     "text": "Despicable individual I'm relieved to hear should be indoors now",
     "enumeration": "6"
    },
-   "solution": "CURFEW"
+   "solution": "CURFEW",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "CURFEW",
+    "definitions": [
+     {
+      "text": "should be indoors now",
+      "at": 43,
+      "note": "a descriptive phrase for the time when a curfew is in force rather than a noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to hear",
+      "for": "homophone",
+      "note": "to hear tells us the exclamation is taken by its sound, not its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Despicable individual",
+      "gives": "CUR",
+      "note": "a cur is a contemptible person"
+     },
+     {
+      "clueFragment": "I'm relieved",
+      "gives": "FEW",
+      "soundsLike": "PHEW",
+      "note": "the exclamation of relief, spelt as a word meaning a small number"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone sneers that they're glad a nasty type must stay at home.",
+     "walkthrough": "The definition is a cryptic paraphrase: when it is curfew, everyone should be indoors now.",
+     "definitionFit": "A curfew is an imposed hour after which people must stay inside their homes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "relieved"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +447,48 @@
     "text": "Boxers possibly subject to damage over time",
     "enumeration": "9"
    },
-   "solution": "UNDERWEAR"
+   "solution": "UNDERWEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNDERWEAR",
+    "definitions": [
+     {
+      "text": "Boxers possibly",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "subject to",
+      "gives": "UNDER",
+      "note": "under in the sense of subject to, as under orders"
+     },
+     {
+      "clueFragment": "damage over time",
+      "gives": "WEAR",
+      "note": "wear is gradual damage from use"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNDER",
+      "WEAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Fighters in the ring take a battering as the years go by.",
+     "walkthrough": "Boxers suggests fighters, but here they are boxer shorts.",
+     "definitionFit": "Boxer shorts are one type of underpants, an example of the category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Boxers"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +502,56 @@
     "text": "Play around near resting place",
     "enumeration": "5"
    },
-   "solution": "FUTON"
+   "solution": "FUTON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FUTON",
+    "definitions": [
+     {
+      "text": "resting place",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so the first word wraps the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Play",
+      "gives": "FUN",
+      "note": "play is fun, amusement"
+     },
+     {
+      "clueFragment": "near",
+      "gives": "TO",
+      "note": "to in the sense of close by, as in a door pulled to"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FU",
+      "TO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Children romp near where someone lies, perhaps a grave.",
+     "walkthrough": "'Resting place' suggests a grave, but it is a mattress you sleep on.",
+     "definitionFit": "A futon is a Japanese-style mattress on which one sleeps, a literal place for resting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "resting"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +565,71 @@
     "text": "Aggravated witness withholding name in brief statement",
     "enumeration": "8"
    },
-   "solution": "WORSENED"
+   "solution": "WORSENED",
+   "annotation": {
+    "type": [
+     "container",
+     "deletion"
+    ],
+    "answer": "WORSENED",
+    "definitions": [
+     {
+      "text": "Aggravated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "withholding",
+      "for": "container",
+      "note": "withholding means keeping something back inside, so one word holds the next"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places that combination inside the last word"
+     },
+     {
+      "text": "brief",
+      "for": "deletion",
+      "note": "brief says the word is cut short by its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "statement",
+      "gives": "WORD",
+      "note": "a word is a brief statement, as in a word of warning"
+     },
+     {
+      "clueFragment": "witness",
+      "gives": "SEE",
+      "note": "to see is to witness"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WOR",
+      "SENE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "An irritated witness keeps a name out of their short testimony.",
+     "walkthrough": "Two containers nest here: the name goes inside the witness, and that inside the shortened statement.",
+     "definitionFit": "Aggravated means made worse, as an aggravated injury, so it matches worsened."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "witness"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +643,73 @@
     "text": "Limited availability of network radio's lost work unfortunately",
     "enumeration": "8"
    },
-   "solution": "RATIONED"
+   "solution": "RATIONED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "RATIONED",
+    "definitions": [
+     {
+      "text": "Limited",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost",
+      "for": "deletion",
+      "note": "lost means the following word is dropped out of the longer word before it"
+     },
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "unfortunately suggests things have gone wrong, so the letters end up in a bad, jumbled order"
+     }
+    ],
+    "linkWords": [
+     "availability of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "network",
+      "gives": "NETWORK",
+      "note": "taken as written before its tail is removed"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "WORK",
+      "note": "the letters removed from the first word"
+     },
+     {
+      "clueFragment": "radio",
+      "gives": "RADIO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RATIONED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NETRADIO",
+       "gives": "RATIONED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A broadcaster's scant output is blamed on lost work across the radio network.",
+     "walkthrough": "Network minus work leaves NET; joined with RADIO and mixed up it gives RATIONED. 'Availability of' just ties the definition in.",
+     "definitionFit": "Something rationed is handed out only in limited, controlled amounts, as food was in wartime."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "network"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +723,43 @@
     "text": "Who blue-pencilled it originally, at least in part?",
     "enumeration": "6"
    },
-   "solution": "EDITOR"
+   "solution": "EDITOR",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "and_lit"
+    ],
+    "answer": "EDITOR",
+    "definitions": [
+     {
+      "text": "Who blue-pencilled it originally, at least in part?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at least in part",
+      "for": "hidden_word",
+      "note": "in part says only a portion of the run of words is wanted, so look inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blue-pencilled it originally",
+      "gives": "EDITOR",
+      "note": "the letters run across the end of blue-pencilled, all of it and the start of originally"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about who first struck out a passage with a blue pencil.",
+     "walkthrough": "The whole clue also defines: blue pencil is the traditional tool for marking cuts in copy.",
+     "definitionFit": "Blue-pencilling means censoring or cutting text, the classic job of the person who prepares copy for publication."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +773,64 @@
     "text": "Inclination of Republican politician charged by America",
     "enumeration": "4"
    },
-   "solution": "RAMP"
+   "solution": "RAMP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAMP",
+    "definitions": [
+     {
+      "text": "Inclination",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "charged by",
+      "for": "charade",
+      "note": "charged by suggests being headed or led by, so the letter for the country goes in front of the politician"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "A",
+      "note": "A is a common abbreviation for America"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "an MP is a Member of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "A",
+      "MP"
+     ]
+    },
+    "explanation": {
+     "surface": "The leanings of a Republican lawmaker indicted by the United States.",
+     "walkthrough": "'Charged by America' means headed by the letter for America, so A sits in front of MP.",
+     "definitionFit": "Inclination here is a slope or incline, and a ramp is a sloping surface."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Inclination"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +844,63 @@
     "text": "Did career finish off employee in firm?",
     "enumeration": "5"
    },
-   "solution": "HARED"
+   "solution": "HARED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "HARED",
+    "definitions": [
+     {
+      "text": "Did career",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finish off",
+      "for": "letter_selection",
+      "note": "finish off points to the final letter of the next word"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places that letter inside the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "firm",
+      "gives": "HARD",
+      "note": "firm means hard; it wraps round the other piece"
+     },
+     {
+      "clueFragment": "employee",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of employee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAR",
+      "E",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether a staff member's job ended at the company.",
+     "walkthrough": "'Career' looks like a noun about a working life, but it is the verb meaning to rush headlong.",
+     "definitionFit": "To career is to rush wildly; to have hared is likewise to have run very fast, like a hare."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "career"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +914,49 @@
     "text": "Modify plans to raise freedom of movement",
     "enumeration": "9"
    },
-   "solution": "REARRANGE"
+   "solution": "REARRANGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REARRANGE",
+    "definitions": [
+     {
+      "text": "Modify plans",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "raise",
+      "gives": "REAR",
+      "note": "to rear is to raise, as with children"
+     },
+     {
+      "clueFragment": "freedom of movement",
+      "gives": "RANGE",
+      "note": "range is the scope within which one can move"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REAR",
+      "RANGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Changing one's arrangements to win more liberty to move about.",
+     "definitionFit": "To modify plans is to arrange them again in a different way; a verb phrase matching the verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raise"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +976,49 @@
      }
     ]
    },
-   "solution": "GETSON"
+   "solution": "GETSON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GETS ON",
+    "definitions": [
+     {
+      "text": "Agrees",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "have",
+      "gives": "GET",
+      "note": "to have something, as to have a cold, is to get it"
+     },
+     {
+      "clueFragment": "child",
+      "gives": "SON",
+      "note": "a son is a male child"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GET",
+      "SON"
+     ]
+    },
+    "explanation": {
+     "surface": "A couple consent to start a family.",
+     "definitionFit": "People who get on are on friendly terms and agree with one another, an idiomatic phrasal verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Agrees"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +1032,53 @@
     "text": "Most genuine support comes after seeing that",
     "enumeration": "9"
    },
-   "solution": "SINCEREST"
+   "solution": "SINCEREST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SINCEREST",
+    "definitions": [
+     {
+      "text": "Most genuine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "comes after",
+      "for": "charade",
+      "note": "comes after tells us the following word is placed behind the next phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seeing that",
+      "gives": "SINCE",
+      "note": "since means seeing that, because"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "REST",
+      "note": "a rest is a support, as an armrest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SINCE",
+      "REST"
+     ]
+    },
+    "explanation": {
+     "surface": "The truest backing arrives once you have watched something.",
+     "definitionFit": "Sincere means genuine and heartfelt, so the superlative is the most genuine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +1092,50 @@
     "text": "Get ready to make cuts in advance",
     "enumeration": "7"
    },
-   "solution": "PREPARE"
+   "solution": "PREPARE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PREPARE",
+    "definitions": [
+     {
+      "text": "Get ready",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in advance",
+      "gives": "PRE",
+      "note": "pre- is the prefix meaning before or in advance"
+     },
+     {
+      "clueFragment": "make cuts",
+      "gives": "PARE",
+      "note": "to pare is to trim or cut back"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRE",
+      "PARE"
+     ]
+    },
+    "explanation": {
+     "surface": "Planning budget reductions ahead of time.",
+     "walkthrough": "The clue lists the cutting before the advance, but the prefix comes first in the answer.",
+     "definitionFit": "To prepare is to make ready, the transitive synonym of get ready."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cuts"
+    }
+   }
   },
   {
    "number": 17,
@@ -281,7 +1149,53 @@
     "text": "Praise speech following publicity",
     "enumeration": "9"
    },
-   "solution": "ADORATION"
+   "solution": "ADORATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADORATION",
+    "definitions": [
+     {
+      "text": "Praise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following tells us the speech is placed after the publicity rather than before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "publicity",
+      "gives": "AD",
+      "note": "an ad is an advertisement, a piece of publicity"
+     },
+     {
+      "clueFragment": "speech",
+      "gives": "ORATION",
+      "note": "an oration is a formal speech"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "ORATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A speech of acclaim given after a publicity campaign.",
+     "walkthrough": "'Following' puts the speech after the publicity, so the short piece comes first.",
+     "definitionFit": "Adoration is worship and veneration, praise in its most devoted form."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1209,47 @@
     "text": "Find disguise belonging to detective",
     "enumeration": "8"
    },
-   "solution": "DISCOVER"
+   "solution": "DISCOVER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISCOVER",
+    "definitions": [
+     {
+      "text": "Find",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "belonging to detective",
+      "gives": "DIS",
+      "note": "DI is a Detective Inspector; DI's means belonging to the detective"
+     },
+     {
+      "clueFragment": "disguise",
+      "gives": "COVER",
+      "note": "a cover is a disguise or false identity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "COVER"
+     ]
+    },
+    "explanation": {
+     "surface": "Uncovering a detective's undercover outfit.",
+     "walkthrough": "The clue lists disguise first, but the possessive piece leads the answer.",
+     "definitionFit": "To find something out is to discover it; the verbs are close synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "disguise"
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +1263,80 @@
     "text": "Great Britain at last isn't involved with Europe's borders",
     "enumeration": "7"
    },
-   "solution": "INTENSE"
+   "solution": "INTENSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "INTENSE",
+    "definitions": [
+     {
+      "text": "Great",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last picks the final letter of the place name before it"
+     },
+     {
+      "text": "involved",
+      "for": "anagram",
+      "note": "involved means tangled up, so the gathered letters are mixed together"
+     },
+     {
+      "text": "borders",
+      "for": "letter_selection",
+      "note": "borders are the edges, so only the outside letters of the word are kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Britain",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of Britain"
+     },
+     {
+      "clueFragment": "isn't",
+      "gives": "ISNT",
+      "note": "taken as written, apostrophe dropped"
+     },
+     {
+      "clueFragment": "Europe's",
+      "gives": "EE",
+      "select": "outer",
+      "note": "the first and last letters of Europe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTENSE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NISNTEE",
+       "gives": "INTENSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Brexit-era remark that Britain finally stays out of European affairs.",
+     "walkthrough": "'Great Britain' reads as one name, but Great is the definition and only Britain feeds the wordplay.",
+     "definitionFit": "Great in the sense of extreme in degree, as in great heat, matches intense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Great"
+    }
+   }
   },
   {
    "number": 20,
@@ -323,7 +1350,60 @@
     "text": "Doctor barely tastes food",
     "enumeration": "4"
    },
-   "solution": "EATS"
+   "solution": "EATS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "EATS",
+    "definitions": [
+     {
+      "text": "food",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "barely",
+      "for": "deletion",
+      "note": "barely suggests stripping something bare, so the word loses its outside letters"
+     },
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor is to tamper with, so the remaining letters are reshuffled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tastes",
+      "gives": "TASTES",
+      "note": "taken as written before its outer letters go"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EATS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ASTE",
+       "gives": "EATS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A physician hardly samples any of the meal.",
+     "walkthrough": "Strip the outer letters of tastes to leave ASTE, then rearrange. 'Doctor' looks like a person; here it is a verb.",
+     "definitionFit": "Eats is informal slang for food, as in a snack bar promising good eats."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 21,
@@ -337,7 +1417,54 @@
     "text": "Distress curtailed difficult dispute",
     "enumeration": "6"
    },
-   "solution": "HARROW"
+   "solution": "HARROW",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "HARROW",
+    "definitions": [
+     {
+      "text": "Distress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "curtailed",
+      "for": "deletion",
+      "note": "curtailed literally means having its tail cut off, so the next word loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "difficult",
+      "gives": "HARD",
+      "note": "hard means difficult"
+     },
+     {
+      "clueFragment": "dispute",
+      "gives": "ROW",
+      "note": "a row is a quarrel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAR",
+      "ROW"
+     ]
+    },
+    "explanation": {
+     "surface": "Anguish cut short by a tough argument.",
+     "definitionFit": "To harrow is to distress or torment someone, as in a harrowing experience."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "curtailed"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1478,52 @@
     "text": "Spooner's much more out of it and confused",
     "enumeration": "7"
    },
-   "solution": "HAYWIRE"
+   "solution": "HAYWIRE",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "HAYWIRE",
+    "definitions": [
+     {
+      "text": "confused",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner's",
+      "for": "spoonerism",
+      "note": "Spooner was famous for swapping the opening sounds of words, so that swap is wanted"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "much more out of it",
+      "gives": "HAYWIRE",
+      "soundsLike": "WAY HIGHER",
+      "note": "much more is way, more out of it is higher; swapping their opening sounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAYWIRE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone far more intoxicated and muddled than before.",
+     "walkthrough": "High is slang for out of it on drugs, so much more out of it is way higher.",
+     "definitionFit": "Going haywire means behaving erratically or getting badly muddled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1537,44 @@
     "text": "Reforms what PM's inauguration requires?",
     "enumeration": "6"
    },
-   "solution": "AMENDS"
+   "solution": "AMENDS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AMENDS",
+    "definitions": [
+     {
+      "text": "Reforms",
+      "at": 0
+     },
+     {
+      "text": "what PM's inauguration requires?",
+      "at": 8,
+      "note": "a cryptic phrase for the time of day changing, read as A.M. ENDS"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reforms",
+      "note": "first meaning: mends or makes improvements"
+     },
+     {
+      "clueFragment": "what PM's inauguration requires?",
+      "note": "second, cryptic meaning: the afternoon can only begin when the morning finishes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "PM suggests a Prime Minister being sworn in, but it is post meridiem: for p.m. to start, a.m. ends.",
+     "definitionFit": "Amends as a verb means alters for the better, as when a law is improved, matching reforms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "PM's"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1588,60 @@
     "text": "Trade writer trapped in vehicle test",
     "enumeration": "9"
    },
-   "solution": "CARPENTRY"
+   "solution": "CARPENTRY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CARPENTRY",
+    "definitions": [
+     {
+      "text": "Trade",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trapped in",
+      "for": "container",
+      "note": "trapped in means held inside, so one piece sits within the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vehicle",
+      "gives": "CAR",
+      "note": "a car is a vehicle"
+     },
+     {
+      "clueFragment": "test",
+      "gives": "TRY",
+      "note": "to try is to test"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "PEN",
+      "note": "a pen is a writing instrument"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "PEN",
+      "TRY"
+     ]
+    },
+    "explanation": {
+     "surface": "A craftsman's writing implement got stuck during a car's roadworthiness check.",
+     "definitionFit": "Carpentry is the skilled trade of working wood, a craft one can follow for a living."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "writer"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1655,52 @@
     "text": "Harry tries something to improve Mark?",
     "enumeration": "5"
    },
-   "solution": "RESIT"
+   "solution": "RESIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RESIT",
+    "definitions": [
+     {
+      "text": "something to improve Mark?",
+      "at": 12
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Harry",
+      "for": "anagram",
+      "note": "to harry is to harass and disturb, so the letters that follow are knocked out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tries",
+      "gives": "TRIES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRIES",
+       "gives": "RESIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Harry tries to help his friend Mark do better.",
+     "walkthrough": "Harry and Mark look like two people; one is an anagram signal and the other an exam grade.",
+     "definitionFit": "A resit is a second sitting of a failed exam, taken to raise one's grade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Harry"
+    }
+   }
   },
   {
    "number": 25,
@@ -407,7 +1714,56 @@
     "text": "Maintain case for commercial objective",
     "enumeration": "5"
    },
-   "solution": "CLAIM"
+   "solution": "CLAIM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CLAIM",
+    "definitions": [
+     {
+      "text": "Maintain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "case for",
+      "for": "letter_selection",
+      "note": "a case is the outside casing, so only the outer letters of the next word are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "commercial",
+      "gives": "CL",
+      "select": "outer",
+      "note": "the first and last letters of commercial"
+     },
+     {
+      "clueFragment": "objective",
+      "gives": "AIM",
+      "note": "an aim is an objective"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CL",
+      "AIM"
+     ]
+    },
+    "explanation": {
+     "surface": "Arguing for a business goal in a sales pitch.",
+     "walkthrough": "'Case for commercial' reads like a business argument, but case means only the outer letters.",
+     "definitionFit": "To maintain something is to assert it as true, which is what you do when you claim it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1777,57 @@
     "text": "Daily Mail's original attraction",
     "enumeration": "5"
    },
-   "solution": "CHARM"
+   "solution": "CHARM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHARM",
+    "definitions": [
+     {
+      "text": "attraction",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "original",
+      "for": "letter_selection",
+      "note": "original means the first one, so only the opening letter of the word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Daily",
+      "gives": "CHAR",
+      "note": "a daily is a cleaning woman who comes in each day, also called a char"
+     },
+     {
+      "clueFragment": "Mail's",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of Mail"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAR",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "What first drew readers to a British tabloid newspaper.",
+     "walkthrough": "The Daily Mail is a British newspaper, but daily alone is old British slang for a charwoman, a domestic cleaner.",
+     "definitionFit": "Charm is the power of pleasing or drawing people in, the quality of attraction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Daily"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1841,43 @@
     "text": "Container ship",
     "enumeration": "6"
    },
-   "solution": "VESSEL"
+   "solution": "VESSEL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "VESSEL",
+    "definitions": [
+     {
+      "text": "Container",
+      "at": 0
+     },
+     {
+      "text": "ship",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Container",
+      "note": "first meaning: a receptacle such as a jug or bowl"
+     },
+     {
+      "clueFragment": "ship",
+      "note": "second meaning: a large boat"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a container ship carrying freight; the two words are separate meanings of one word.",
+     "definitionFit": "The word means both a hollow receptacle for liquid and a seagoing craft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Container"
+    }
+   }
   },
   {
    "number": 27,
@@ -449,7 +1891,73 @@
     "text": "Withdrawing no one imposition provided that thing",
     "enumeration": "8"
    },
-   "solution": "FIXATION"
+   "solution": "FIXATION",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "FIXATION",
+    "definitions": [
+     {
+      "text": "thing",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Withdrawing",
+      "for": "reversal",
+      "note": "withdrawing means pulling back, so the whole string that follows is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "imposition",
+      "gives": "TAX",
+      "note": "a tax is an imposition or levy"
+     },
+     {
+      "clueFragment": "provided that",
+      "gives": "IF",
+      "note": "if means provided that"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FI",
+      "XAT",
+      "I",
+      "ON"
+     ],
+     "reversals": [
+      {
+       "from": "NOITAXIF",
+       "to": "FIXATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone backing out of a burden on condition nobody else pays it.",
+     "walkthrough": "'Provided that thing' looks like one phrase; provided that is the conditional, and thing alone is the definition, as in having a thing about something.",
+     "definitionFit": "Having a thing about something means an obsession with it, which is a fixation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "thing"
+    }
+   }
   },
   {
    "number": 28,
@@ -463,7 +1971,57 @@
     "text": "Take turns to judge entertaining books",
     "enumeration": "6"
    },
-   "solution": "ROTATE"
+   "solution": "ROTATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ROTATE",
+    "definitions": [
+     {
+      "text": "Take turns",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "entertaining means hosting a guest, so the first word holds the second inside it"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "judge",
+      "gives": "RATE",
+      "note": "to rate is to assess or judge"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "OT",
+      "note": "OT is the Old Testament, the books of the Hebrew scriptures"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "OT",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Panel members alternate in assessing amusing books.",
+     "definitionFit": "To rotate a duty is to have people do it in turn, the same as taking turns."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "entertaining"
+    }
+   }
   },
   {
    "number": 29,
@@ -477,7 +2035,47 @@
     "text": "End period of study at Harvard?",
     "enumeration": "8"
    },
-   "solution": "TERMINUS"
+   "solution": "TERMINUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TERMINUS",
+    "definitions": [
+     {
+      "text": "End",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "period of study",
+      "gives": "TERM",
+      "note": "a term is a division of the academic year"
+     },
+     {
+      "clueFragment": "at Harvard?",
+      "gives": "INUS",
+      "note": "Harvard is in the US, so at Harvard is in the US"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TERM",
+      "INUS"
+     ]
+    },
+    "explanation": {
+     "surface": "The close of a semester at an American university.",
+     "walkthrough": "The question mark flags that Harvard is just an example of a place in the United States.",
+     "definitionFit": "A terminus is the end of a line or route, the final stop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Harvard"
+    }
+   }
   }
  ]
 }
