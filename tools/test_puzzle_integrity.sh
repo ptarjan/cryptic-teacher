@@ -299,7 +299,12 @@ today = datetime.now(timezone.utc).date()
 # Every key names its puzzle, so the puzzles the tables name are the only
 # ones whose findings the tables can change. check_shape reads neither table,
 # so it runs once per puzzle; every variant below reruns the rest in memory.
-named = sorted({pid for pid, _ in [*pi.PUBLISHED_WRONG, *pi.UNLINKED_IN_SOURCE]})
+# A key naming a puzzle not filed yet is puzzle_integrity's FILED finding
+# (check_table_ids, tested below), not this check's: its rows are left out.
+named = sorted({pid for pid, _ in [*pi.PUBLISHED_WRONG, *pi.UNLINKED_IN_SOURCE]
+                if pi.puzzle_paths.find(pid)})
+pi.PUBLISHED_WRONG = {k: v for k, v in pi.PUBLISHED_WRONG.items() if k[0] in named}
+pi.UNLINKED_IN_SOURCE = {k: v for k, v in pi.UNLINKED_IN_SOURCE.items() if k[0] in named}
 cache = []
 for pid in named:
     puzzle = pi.read_puzzle_file(pi.puzzle_paths.find(pid))
@@ -357,6 +362,26 @@ same "dropping PUBLISHED_WRONG alone reproduces its own $n_pw finding(s), not UN
 same "dropping UNLINKED_IN_SOURCE alone reproduces its own $n_uis finding(s), not PUBLISHED_WRONG's" \
   "$(field DROP_UNLINKED_IN_SOURCE "$combo")" "$n_uis"
 same "both tables restored, clean again" "$(field RESTORED "$combo")" "0"
+
+echo "a table key naming a puzzle not filed is a FILED finding, not a crash"
+unheld=$(PYTHONPATH="$REPO/tools" python3 - 2>&1 <<'PY'
+import puzzle_integrity as pi
+
+named = {pid for pid, _ in [*pi.PUBLISHED_WRONG, *pi.UNLINKED_IN_SOURCE]}
+held = {pid for pid in named if pi.puzzle_paths.find(pid)}
+flags = []
+pi.check_table_ids(held, flags)
+print("ALL_HELD", len(flags), *(p for _, p, _ in flags))
+pi.PUBLISHED_WRONG = {**pi.PUBLISHED_WRONG, ("genius-99999", "1-across: anything"): "ahead of its file"}
+flags = []
+pi.check_table_ids(held, flags)
+print("UNHELD", len(flags), *(f"{f}:{p}" for f, p, _ in flags))
+PY
+)
+died "$unheld" "the unfiled-key check"
+same "every puzzle the tables name is filed" "$(awk '$1=="ALL_HELD" {$1=""; print substr($0, 2)}' <<<"$unheld")" "0"
+same "a key naming an unfiled puzzle: one FILED finding for it" \
+  "$(awk '$1=="UNHELD" {print $2, $3}' <<<"$unheld")" "1 FILED:genius-99999"
 
 echo "non-blanket suppression: baselining a finding must not blank out the rest of its puzzle"
 out3=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
