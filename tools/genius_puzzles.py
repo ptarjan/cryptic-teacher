@@ -863,6 +863,24 @@ DATED = {2: "2003-07-30"}  # url 2016/feb/04/genius-crossword-2; page published 
 #: rather than as the reader's first complaint about it.
 SCHEMA_GAP = {}
 
+#: Why a Genius is in no free source: tools/coverage.py's ("guardian", key)
+#: causes, so these leave its none/no-source bucket. In 2007 the Genius was for
+#: subscribers (a capture of guardian.co.uk/crossword/genius redirects to
+#: /subscribe). fifteensquared's Genius posts start at No 44 and print answers
+#: and wordplay, not clues (No 52's has its answers only); the Guardian's
+#: annotated solutions start at No 89.
+LOST_CAUSES = {
+    "not-on-guardian": "the Guardian's Genius series never posted it (its dated URL 404s) "
+                       "and no archive or blog holds a free copy: only a print copy files it",
+    "counts-only": "the Guardian's article prints only the counts, the clues having been on "
+                   "a picture it no longer serves; no archive or blog holds them",
+}
+#: Checked 2026-10-12 on theguardian.com, fifteensquared and web.archive.org
+#: (whose captures of these 403'd or 503'd: re-check it when it answers).
+LOST = {6: "not-on-guardian", 20: "not-on-guardian", 33: "not-on-guardian",
+        52: "not-on-guardian", 54: "not-on-guardian", 56: "not-on-guardian",
+        9: "counts-only", 21: "counts-only", 32: "counts-only"}
+
 
 def split_shared_leaders(pdf, answers):
     """Take out of pdf["clues"] each clue starting on a light an earlier clue
@@ -1596,6 +1614,9 @@ def file(write=True, numbers=None, log=print):
             blocked["no PDF or article"].append(n)
             continue
         counts["fetched"] += 1
+        if n in LOST:
+            blocked[f"lost: {LOST[n]}"].append(n)
+            continue
         if puzzle_path(SERIES, n).exists():
             counts["already filed"] += 1
             continue
