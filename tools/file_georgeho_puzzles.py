@@ -43,6 +43,7 @@ import corroborate
 import fetch_telegraph
 import file_blog_puzzles as fbp
 import parse_bigdave44
+import post_index
 import puzzle_paths
 import series as series_meta
 import times_grids as tg
@@ -259,20 +260,21 @@ def other_setters(wanted, bigdave=parse_bigdave44.POSTS, fifteensquared=FIFTEENS
     named = collections.defaultdict(set)
     if bigdave.is_dir():
         cats, numbers = parse_bigdave44.categories(), {str(n) for _, n in keys}
-        for path in bigdave.glob("*.json"):
-            post = json.loads(path.read_text(encoding="utf-8"))
-            if not numbers & set(re.findall(r"\d+", post.get("slug", ""))):
+        # Only the posts whose slug names a wanted number are opened, found
+        # off tools/post_index.py's local index rather than the share's 20k+.
+        for stem, (_t, _l, slug) in sorted(post_index.entries(bigdave).items()):
+            if not numbers & set(re.findall(r"\d+", slug)):
                 continue
+            post = json.loads((bigdave / f"{stem}.json").read_text(encoding="utf-8"))
             got = parse_bigdave44.named_setter(post, cats)
             if got and got[:2] in keys and got[2]:
                 named[got[:2]].add(got[2])
     urls = {url_key(r["link"]): (r["series"], r["number"]) for r in wanted
             if (r["series"], r["number"]) not in named}
     if urls and fifteensquared.is_dir():
-        for path in fifteensquared.glob("*.json"):
-            post = json.loads(path.read_text(encoding="utf-8"))
-            key = urls.get(url_key(post.get("link")))
-            setter = key and corroborate.blog_setter(post.get("title", {}).get("rendered"))
+        for _stem, (title, link, _s) in sorted(post_index.entries(fifteensquared).items()):
+            key = urls.get(url_key(link))
+            setter = key and corroborate.blog_setter(title)
             if setter:
                 named[key].add(setter)
     return {k: v.pop() for k, v in named.items() if len(v) == 1}

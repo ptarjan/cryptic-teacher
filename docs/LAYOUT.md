@@ -470,6 +470,10 @@ tools/blog_facts_gold.jsonl                   hand-read truth for clues across t
                                               the definition, blocks, indicators and type are;
                                               blog_facts.py --score measures precision and
                                               recall per field against it
+tools/post_index.py                           a local index (~/.cache) of each cached blog's
+                                              posts — title, link, slug — topped up from a
+                                              listing, so a one-puzzle lookup opens only its
+                                              own posts instead of the 20k+ on the media share
 tools/corroborate.py                          checks every puzzle written against the other
                                               sources we cache for it — georgeho's scrape,
                                               fifteensquared's posts, the Times listing —
@@ -2236,6 +2240,11 @@ tools/track_prereset.sh                       register the pre-reset burn as a s
                                               label typed here
 tools/test_writeup_keyed.sh                   a blank light on a puzzle whose answer key is a
                                               blog's write-up is never offered for a solve
+tools/test_post_index.sh                      does a single-puzzle write find its
+                                              fifteensquared posts off the local post index,
+                                              opening only the posts it lacks, and do
+                                              corroborate, blog_post and other_setters find
+                                              what a full read found?
 tools/test_fifteensquared_index.sh            do the fifteensquared readers find a category's
                                               posts off the index, without opening every cached
                                               post, and does tools/ft_puzzles.py's budget count
