@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,48 @@
     "text": "First of all, our adventurer happening upon a Pacific island",
     "enumeration": "4"
    },
-   "solution": "OAHU"
+   "solution": "OAHU",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "OAHU",
+    "definitions": [
+     {
+      "text": "a Pacific island",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "First of all",
+      "for": "letter_selection",
+      "note": "the opening letter of every one of the following words is wanted, not just of one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "our adventurer happening upon",
+      "gives": "OAHU",
+      "select": "first",
+      "note": "initial letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OAHU"
+     ]
+    },
+    "explanation": {
+     "surface": "An explorer chancing upon a tropical island in the Pacific, the way all such voyages begin.",
+     "definitionFit": "Oahu is the Hawaiian island that holds Honolulu, so it is one Pacific island among many."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "adventurer"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +97,70 @@
      }
     ]
    },
-   "solution": "SPIKELEE"
+   "solution": "SPIKELEE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SPIKE LEE",
+    "definitions": [
+     {
+      "text": "director",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "served two ways",
+      "for": "reversal",
+      "note": "one fish comes the normal way round and a second is served the other way, back to front"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the usual abbreviation for small"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "PIKE",
+      "note": "a freshwater predator, served the usual way"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "EEL",
+      "note": "a second fish, served backwards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PIKE",
+      "LEE"
+     ],
+     "reversals": [
+      {
+       "from": "EEL",
+       "to": "LEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A restaurant offering a little fish cooked in two styles, apparently ordered for a film director.",
+     "walkthrough": "The single word 'fish' does double duty: one fish forwards, a second fish backwards, which is what 'two ways' means.",
+     "definitionFit": "Spike Lee is the American film-maker behind Do the Right Thing, so he is an example of a director."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "served"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +174,56 @@
     "text": "Shapeless length in copper",
     "enumeration": "6"
    },
-   "solution": "BLOBBY"
+   "solution": "BLOBBY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BLOBBY",
+    "definitions": [
+     {
+      "text": "Shapeless",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item placed inside another, so the second word wraps round the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "copper",
+      "gives": "BOBBY",
+      "note": "a copper and a bobby are both slang for a British police officer"
+     },
+     {
+      "clueFragment": "length",
+      "gives": "L",
+      "note": "L is the standard abbreviation for length"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "L",
+      "OBBY"
+     ]
+    },
+    "explanation": {
+     "surface": "A formless stretch of copper metal, perhaps a lump of molten material.",
+     "walkthrough": "'Copper' looks like the metal but is British slang for a policeman, as is bobby.",
+     "definitionFit": "Something blobby is lumpy and without a clear form, which is what shapeless describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +243,44 @@
      }
     ]
    },
-   "solution": "PONDLIFE"
+   "solution": "PONDLIFE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POND LIFE",
+    "definitions": [
+     {
+      "text": "Frogs, say",
+      "at": 0
+     },
+     {
+      "text": "toads, worms and rats",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frogs, say",
+      "note": "first meaning: creatures living in still water, frogs being an example"
+     },
+     {
+      "clueFragment": "toads, worms and rats",
+      "note": "second meaning: a contemptuous term for despicable people, all three being insults too"
+     }
+    ],
+    "explanation": {
+     "surface": "A list of creatures you might find around a pond, with rats as a doubtful addition.",
+     "walkthrough": "Toads, worms and rats look like more animals but here are insults for nasty people; British slang calls such people pond life.",
+     "definitionFit": "Pond life literally means aquatic creatures and colloquially means contemptible, low-grade people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rats"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +294,58 @@
     "text": "Games set up for pets",
     "enumeration": "6"
    },
-   "solution": "STROPS"
+   "solution": "STROPS",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "STROPS",
+    "definitions": [
+     {
+      "text": "pets",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set up",
+      "for": "reversal",
+      "note": "in a down entry, raising something up means reading it from the bottom upwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Games",
+      "gives": "SPORTS",
+      "note": "games and sports are synonyms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STROPS"
+     ],
+     "reversals": [
+      {
+       "from": "SPORTS",
+       "to": "STROPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Organised games arranged to entertain household animals.",
+     "walkthrough": "'Pets' looks like animals, but a pet is also a sulk or fit of pique.",
+     "definitionFit": "A pet in the sense of a sulky fit of temper is a strop, British slang for a bad mood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pets"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +359,44 @@
     "text": "Deserve Ashes trophy, did you say?",
     "enumeration": "4"
    },
-   "solution": "EARN"
+   "solution": "EARN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EARN",
+    "definitions": [
+     {
+      "text": "Deserve",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "did you say?",
+      "for": "homophone",
+      "note": "asking what someone said points to a word heard rather than read"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ashes trophy",
+      "gives": "EARN",
+      "soundsLike": "URN",
+      "note": "the Ashes cricket series is played for a tiny urn"
+     }
+    ],
+    "explanation": {
+     "surface": "A query whether a cricket team merits winning the Ashes.",
+     "walkthrough": "The Ashes is the England–Australia cricket series, and its trophy is a small urn; in a non-rhotic accent URN and the answer sound alike.",
+     "definitionFit": "To earn something is to merit it through effort, which is what deserve means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ashes"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +410,47 @@
     "text": "Little European 4",
     "enumeration": "7"
    },
-   "solution": "TADPOLE"
+   "solution": "TADPOLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TADPOLE",
+    "definitions": [
+     {
+      "text": "4",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Little",
+      "gives": "TAD",
+      "note": "a tad is a little bit"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "POLE",
+      "note": "a Pole is a person from Poland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAD",
+      "POLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A small person from mainland Europe, described by a cross-reference.",
+     "walkthrough": "4 refers to the answer at 4 down, POND LIFE.",
+     "definitionFit": "A tadpole is the larval frog swimming in ponds, a classic example of pond life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "European"
+    }
+   }
   },
   {
    "number": 8,
@@ -156,7 +477,42 @@
     "text": "Steer clear of 4",
     "enumeration": "4"
    },
-   "solution": "DUCK"
+   "solution": "DUCK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DUCK",
+    "definitions": [
+     {
+      "text": "Steer clear of",
+      "at": 0
+     },
+     {
+      "text": "4",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Steer clear of",
+      "note": "first meaning: to dodge or avoid something"
+     },
+     {
+      "clueFragment": "4",
+      "note": "second meaning: a waterbird found on ponds, so pond life"
+     }
+    ],
+    "explanation": {
+     "surface": "Avoid the clue at 4.",
+     "walkthrough": "4 refers to POND LIFE at 4 down.",
+     "definitionFit": "To duck an issue is to avoid it, and a duck is a bird that lives on ponds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -176,7 +532,62 @@
      }
     ]
    },
-   "solution": "BOWEDDOWN"
+   "solution": "BOWEDDOWN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BOWED DOWN",
+    "definitions": [
+     {
+      "text": "showed respect",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grabbing",
+      "for": "container",
+      "note": "to grab something is to take hold of it, so one word clutches the other inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Person",
+      "gives": "BOD",
+      "note": "bod is informal British for a person"
+     },
+     {
+      "clueFragment": "tie",
+      "gives": "WED",
+      "note": "to tie the knot is to wed"
+     },
+     {
+      "clueFragment": "individual",
+      "gives": "OWN",
+      "note": "own as in individual or personal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "WED",
+      "D",
+      "OWN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone seizing a necktie while another person shows deference.",
+     "walkthrough": "'Tie' looks like a necktie but is the verb meaning marry.",
+     "definitionFit": "To bow down is to lower oneself before someone in deference, a gesture of respect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tie"
+    }
+   }
   },
   {
    "number": 11,
@@ -200,7 +611,74 @@
    "group": [
     "11-down",
     "20-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "homophone"
+    ],
+    "answer": "WHIRLIGIG BEETLE",
+    "definitions": [
+     {
+      "text": "4",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sending up",
+      "for": "reversal",
+      "note": "in a down entry, sending a word up means it reads from the bottom upwards"
+     },
+     {
+      "text": "in audition",
+      "for": "homophone",
+      "note": "an audition is a hearing, so this word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Try",
+      "gives": "WHIRL",
+      "note": "to give something a whirl is to try it"
+     },
+     {
+      "clueFragment": "musical",
+      "gives": "GIGI",
+      "note": "Gigi is the Lerner and Loewe stage and film musical"
+     },
+     {
+      "clueFragment": "icon of the sixties",
+      "gives": "BEETLE",
+      "soundsLike": "BEATLE",
+      "note": "a member of the Beatles is an icon of that decade"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHIRL",
+      "IGIG",
+      "BEETLE"
+     ],
+     "reversals": [
+      {
+       "from": "GIGI",
+       "to": "IGIG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An attempt to mock a famous sixties pop star at a singing audition.",
+     "walkthrough": "'Musical' looks like an adjective for the icon but names the show Gigi. 4 refers to POND LIFE at 4 down.",
+     "definitionFit": "The whirligig beetle is a small water insect that spins on pond surfaces, so it is a kind of pond life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "musical"
+    }
+   }
   },
   {
    "number": 12,
@@ -214,7 +692,54 @@
     "text": "Plonker, partner coming after wife",
     "enumeration": "5"
    },
-   "solution": "WALLY"
+   "solution": "WALLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WALLY",
+    "definitions": [
+     {
+      "text": "Plonker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming after",
+      "for": "charade",
+      "note": "one thing following another fixes the order the two parts are joined in"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the standard abbreviation for wife"
+     },
+     {
+      "clueFragment": "partner",
+      "gives": "ALLY",
+      "note": "an ally is a partner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A fool, with a partner trailing after his wife.",
+     "walkthrough": "Plonker and wally are both British slang for a foolish person.",
+     "definitionFit": "A wally is British slang for an idiot, the same sense as plonker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "partner"
+    }
+   }
   },
   {
    "number": 12,
@@ -238,7 +763,44 @@
    "group": [
     "12-down",
     "8-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WATER BOATMAN",
+    "definitions": [
+     {
+      "text": "4",
+      "at": 0
+     },
+     {
+      "text": "wetter setter",
+      "at": 3
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "4",
+      "note": "first meaning: an aquatic insect, a type of pond life"
+     },
+     {
+      "clueFragment": "wetter setter",
+      "note": "second meaning: another Guardian crossword setter, imagined here in a soggy version"
+     }
+    ],
+    "explanation": {
+     "surface": "A rhyming query whether the puzzle-maker is getting rather damp.",
+     "walkthrough": "Boatman is the pseudonym of a fellow Guardian setter; Paul imagines him as a watery colleague. 4 refers to POND LIFE at 4 down.",
+     "definitionFit": "The water boatman is a pond bug that rows with long legs, and the phrase also reads as a wet version of the setter Boatman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "setter"
+    }
+   }
   },
   {
    "number": 13,
@@ -258,7 +820,50 @@
      }
     ]
    },
-   "solution": "INITSELF"
+   "solution": "INITSELF",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IN ITSELF",
+    "definitions": [
+     {
+      "text": "Essentially",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bewildered",
+      "for": "anagram",
+      "note": "a bewildered mind is muddled, so these letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "silent, if",
+      "gives": "SILENTIF",
+      "note": "the fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SILENTIF",
+       "gives": "INITSELF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at heart quiet, if confused.",
+     "definitionFit": "Something considered in itself is regarded by its intrinsic nature, which is the sense of essentially."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "silent"
+    }
+   }
   },
   {
    "number": 14,
@@ -272,7 +877,51 @@
     "text": "Artist's line on the ground?",
     "enumeration": "5"
    },
-   "solution": "LOWRY"
+   "solution": "LOWRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOWRY",
+    "definitions": [
+     {
+      "text": "Artist",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on the ground",
+      "gives": "LOW",
+      "note": "something on the ground is low down"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "RY",
+      "note": "RY is short for railway, a line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOW",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A painter's line drawn along the ground, perhaps a horizon.",
+     "walkthrough": "L. S. Lowry painted northern English industrial scenes; a railway line runs on the ground, hence the low line.",
+     "definitionFit": "Lowry was a celebrated English painter of matchstick figures, so he is an artist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 15,
@@ -286,7 +935,54 @@
     "text": "Bacterial infection you once discovered by the way",
     "enumeration": "4"
    },
-   "solution": "STYE"
+   "solution": "STYE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STYE",
+    "definitions": [
+     {
+      "text": "Bacterial infection",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discovered by",
+      "for": "charade",
+      "note": "found next to something, so the two parts sit side by side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the way",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street, a way"
+     },
+     {
+      "clueFragment": "you once",
+      "gives": "YE",
+      "note": "ye is the archaic form of you"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "YE"
+     ]
+    },
+    "explanation": {
+     "surface": "An infection someone picked up by chance along a road.",
+     "walkthrough": "Wordplay reads 'you once' after 'the way', though the clue lists them the other way round.",
+     "definitionFit": "A stye is an inflamed swelling on the eyelid caused by bacteria, so it is a bacterial infection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "discovered"
+    }
+   }
   },
   {
    "number": 16,
@@ -300,7 +996,44 @@
     "text": "Beat runner, for example",
     "enumeration": "5"
    },
-   "solution": "PULSE"
+   "solution": "PULSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PULSE",
+    "definitions": [
+     {
+      "text": "Beat",
+      "at": 0
+     },
+     {
+      "text": "runner, for example",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beat",
+      "note": "first meaning: a rhythmic throb, as of the heart"
+     },
+     {
+      "clueFragment": "runner, for example",
+      "note": "second meaning: an edible seed of the pea family, of which the runner bean is one"
+     }
+    ],
+    "explanation": {
+     "surface": "Defeat an athlete in a race.",
+     "walkthrough": "'Runner' suggests an athlete, but it is the runner bean.",
+     "definitionFit": "A pulse is a heartbeat, and pulses are edible legumes such as beans."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "runner"
+    }
+   }
   },
   {
    "number": 16,
@@ -314,7 +1047,62 @@
     "text": "Intolerant greedy banks reeling, at first",
     "enumeration": "8"
    },
-   "solution": "PRIGGISH"
+   "solution": "PRIGGISH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PRIGGISH",
+    "definitions": [
+     {
+      "text": "Intolerant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "only the opening letter of the word before is kept"
+     },
+     {
+      "text": "banks",
+      "for": "container",
+      "note": "banks line both sides of a river, so one word encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "greedy",
+      "gives": "PIGGISH",
+      "note": "greedy as a pig"
+     },
+     {
+      "clueFragment": "reeling",
+      "gives": "R",
+      "select": "first",
+      "note": "the initial of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "R",
+      "IGGISH"
+     ]
+    },
+    "explanation": {
+     "surface": "Avaricious banks in turmoil, being narrow-minded at the outset.",
+     "walkthrough": "'Banks' looks like financial institutions but is a verb: greedy banks a letter, holding it on either side.",
+     "definitionFit": "A priggish person is self-righteously prim and disapproving of others, which makes them intolerant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "banks"
+    }
+   }
   },
   {
    "number": 17,
@@ -328,7 +1116,49 @@
     "text": "4 behind 23 and 6 hearing old sovereign?",
     "enumeration": "4"
    },
-   "solution": "NEWT"
+   "solution": "NEWT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "NEWT",
+    "definitions": [
+     {
+      "text": "4",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hearing",
+      "for": "homophone",
+      "note": "this asks for the phrase as it sounds when spoken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "behind 23 and 6",
+      "note": "places this entry after the answers at 23 and 6, the spoken lead-in to the old king's name"
+     },
+     {
+      "clueFragment": "old sovereign",
+      "gives": "NEWT",
+      "soundsLike": "KING CANUTE",
+      "note": "said carelessly, the old king's name comes out as entry 23 and entry 6 followed by the answer"
+     }
+    ],
+    "explanation": {
+     "surface": "Pond life coming after two other answers, with the sound of an ancient monarch.",
+     "walkthrough": "23 is KINK and 6 is EARN; put this answer behind them and KINK-EARN-NEWT sounds like King Canute, an eleventh-century English king. 4 is POND LIFE.",
+     "definitionFit": "A newt is a small amphibian that breeds in ponds, so it counts as pond life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "number": 17,
@@ -342,7 +1172,80 @@
     "text": "Drop clearly seen climbing briefly across peaks of other states",
     "enumeration": "8"
    },
-   "solution": "NOSEDIVE"
+   "solution": "NOSEDIVE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "NOSEDIVE",
+    "definitions": [
+     {
+      "text": "Drop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "being brief means cut short, so the last letter goes"
+     },
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down entry, climbing means reading from the bottom upwards"
+     },
+     {
+      "text": "peaks of",
+      "for": "letter_selection",
+      "note": "peaks are the tops, so the first letters of the words are kept"
+     },
+     {
+      "text": "across",
+      "for": "container",
+      "note": "lying across something means spanning it, so one part is placed around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clearly seen",
+      "gives": "EVIDENT",
+      "note": "evident means clearly seen"
+     },
+     {
+      "clueFragment": "other states",
+      "gives": "OS",
+      "select": "first",
+      "note": "initial letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "OS",
+      "EDIVE"
+     ],
+     "reversals": [
+      {
+       "from": "EVIDEN",
+       "to": "NEDIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fall clearly visible as someone ascends over the summits of foreign lands.",
+     "walkthrough": "The truncated word, read upward, spans the two initials.",
+     "definitionFit": "A nosedive is a steep plunge, as of an aircraft or a share price, so it is a drop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "climbing"
+    }
+   }
   },
   {
    "number": 18,
@@ -356,7 +1259,43 @@
     "text": "Very quick, when working out?",
     "enumeration": "8"
    },
-   "solution": "CRACKING"
+   "solution": "CRACKING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CRACKING",
+    "definitions": [
+     {
+      "text": "Very quick",
+      "at": 0
+     },
+     {
+      "text": "when working out?",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very quick",
+      "note": "first meaning: fast"
+     },
+     {
+      "clueFragment": "when working out?",
+      "note": "second meaning: in the act of solving"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Working out' suggests the gym, but it means solving a problem.",
+     "definitionFit": "A cracking pace is a brisk one, and cracking a puzzle is working out its answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 19,
@@ -370,7 +1309,42 @@
     "text": "Porky 9",
     "enumeration": "6"
    },
-   "solution": "CANARD"
+   "solution": "CANARD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CANARD",
+    "definitions": [
+     {
+      "text": "Porky",
+      "at": 0
+     },
+     {
+      "text": "9",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Porky",
+      "note": "first meaning: a lie, from rhyming slang porky pie"
+     },
+     {
+      "clueFragment": "9",
+      "note": "second meaning: the French word for the answer at 9, a waterbird"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Porky is short for porky pie, British rhyming slang for a lie. 9 is DUCK, which in French is canard.",
+     "definitionFit": "A canard is a false rumour or hoax, and it is also the French for a duck."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Porky"
+    }
+   }
   },
   {
    "number": 20,
@@ -384,7 +1358,46 @@
     "text": "Travel past item of headgear",
     "enumeration": "5"
    },
-   "solution": "BUSBY"
+   "solution": "BUSBY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUSBY",
+    "definitions": [
+     {
+      "text": "item of headgear",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Travel",
+      "gives": "BUS",
+      "note": "to bus is to travel by bus"
+     },
+     {
+      "clueFragment": "past",
+      "gives": "BY",
+      "note": "by as in gone by, past"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUS",
+      "BY"
+     ]
+    },
+    "explanation": {
+     "surface": "Going beyond a hat as you journey along.",
+     "definitionFit": "A busby is the tall fur hat worn by hussars and some guards regiments, so it is headgear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Travel"
+    }
+   }
   },
   {
    "number": 20,
@@ -411,7 +1424,54 @@
     "text": "Place for prayer when keen on iniquity, reportedly",
     "enumeration": "9"
    },
-   "solution": "SYNAGOGUE"
+   "solution": "SYNAGOGUE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "SYNAGOGUE",
+    "definitions": [
+     {
+      "text": "Place for prayer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "what is reported is passed on by word of mouth, so these words count by sound"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "iniquity",
+      "gives": "SYN",
+      "soundsLike": "SIN",
+      "note": "iniquity is wickedness"
+     },
+     {
+      "clueFragment": "keen",
+      "gives": "AGOGUE",
+      "soundsLike": "AGOG",
+      "note": "agog means eagerly excited"
+     }
+    ],
+    "explanation": {
+     "surface": "Where to pray when one is drawn to wickedness.",
+     "walkthrough": "'Keen on iniquity' puts the eager word after the wicked one.",
+     "definitionFit": "A synagogue is a Jewish house of worship, a building where people pray."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "keen"
+    }
+   }
   },
   {
    "number": 21,
@@ -425,7 +1485,41 @@
     "text": "Algae, 4?",
     "enumeration": "4"
    },
-   "solution": "SCUM"
+   "solution": "SCUM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCUM",
+    "definitions": [
+     {
+      "text": "Algae",
+      "at": 0
+     },
+     {
+      "text": "4",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Algae",
+      "note": "first meaning: a film of algae on water"
+     },
+     {
+      "clueFragment": "4",
+      "note": "second meaning: the contemptuous sense of the answer at 4, despicable people"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "4 is POND LIFE, here in its insulting sense of worthless people.",
+     "definitionFit": "Scum is the greenish film on stagnant water and also an insult for vile people, matching the derogatory pond life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -439,7 +1533,55 @@
     "text": "Ultimately blunted instrument: Prince Andrew, say",
     "enumeration": "4"
    },
-   "solution": "DUKE"
+   "solution": "DUKE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DUKE",
+    "definitions": [
+     {
+      "text": "Prince Andrew, say",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the closing letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blunted",
+      "gives": "D",
+      "select": "last",
+      "note": "final letter of this word"
+     },
+     {
+      "clueFragment": "instrument",
+      "gives": "UKE",
+      "note": "uke is short for ukulele"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "UKE"
+     ]
+    },
+    "explanation": {
+     "surface": "A blunt tool, a jibe aimed at a much-criticised royal.",
+     "definitionFit": "Prince Andrew holds the title Duke of York, so he is an example of a duke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "instrument"
+    }
+   }
   },
   {
    "number": 23,
@@ -453,7 +1595,64 @@
     "text": "Twist knife initially with blood over it",
     "enumeration": "4"
    },
-   "solution": "KINK"
+   "solution": "KINK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "KINK",
+    "definitions": [
+     {
+      "text": "Twist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter is kept"
+     },
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "together with something else, so the two parts are joined side by side"
+     }
+    ],
+    "linkWords": [
+     "over it"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blood",
+      "gives": "KIN",
+      "note": "blood as in family relations"
+     },
+     {
+      "clueFragment": "knife",
+      "gives": "K",
+      "select": "first",
+      "note": "the opening letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KIN",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "A knife given a twist, with blood spilt over it.",
+     "walkthrough": "'Blood' looks gory but means family, as in blood relations.",
+     "definitionFit": "A kink is a sharp bend or twist in something like a rope or hose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blood"
+    }
+   }
   },
   {
    "number": 24,
@@ -467,7 +1666,48 @@
     "text": "4 in audible Pamplona stampede?",
     "enumeration": "7"
    },
-   "solution": "BULRUSH"
+   "solution": "BULRUSH",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BULRUSH",
+    "definitions": [
+     {
+      "text": "4",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "audible",
+      "for": "homophone",
+      "note": "audible means able to be heard, so the phrase counts by its sound"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pamplona stampede",
+      "gives": "BULRUSH",
+      "soundsLike": "BULL RUSH",
+      "note": "the Spanish city of Pamplona holds the annual running of the bulls"
+     }
+    ],
+    "explanation": {
+     "surface": "Something found in a noisy charge of bulls through the streets of Pamplona.",
+     "walkthrough": "4 is POND LIFE; a waterside plant counts.",
+     "definitionFit": "The bulrush is a tall reed that grows at the edges of ponds, so it is pond life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pamplona"
+    }
+   }
   },
   {
    "number": 25,
@@ -481,7 +1721,42 @@
     "text": "European gaining access to husband's love nest",
     "enumeration": "7"
    },
-   "solution": "SLOVENE"
+   "solution": "SLOVENE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SLOVENE",
+    "definitions": [
+     {
+      "text": "European",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gaining access to",
+      "for": "hidden_word",
+      "note": "getting in to a place means the answer sits inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "husband's love nest",
+      "gives": "SLOVENE",
+      "note": "runs across the apostrophe-s, the second word and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A foreigner sneaking into a married man's secret hideaway for affairs.",
+     "definitionFit": "A Slovene is a native of Slovenia, a country in central Europe, so a European."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "husband's"
+    }
+   }
   }
  ]
 }
