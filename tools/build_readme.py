@@ -603,7 +603,7 @@ LAYOUT = [
     ("fetching", "tools/mem_gate.py", "memory gate: a queue starts a unit only while available RAM stays above a floor"),
     ("fetching", "tools/test_hidden_message.js", "a solved clue shows its hidden letter, and the message fills in under the grid"),
     ("fetching", "tools/test_blocks_link_word.sh", "when a clue's blocks are short by exactly the letters of a word filed under linkWords, that word is fodder, and the warning says the edit to make"),
-    ("fetching", "tools/test_link_word_untangle.sh", "does annotate_check take a link word out of the block it sits in only when exactly one edit (drop it from linkWords, trim the fragment, drop the block) clears it cleanly, and does the error name the edit when none does?"),
+    ("fetching", "tools/test_link_word_untangle.sh", "does annotate_check take a link word out of the block it sits in only when exactly one edit (drop it from linkWords, trim the fragment, drop the block) clears it cleanly, does it take a link word off the definition or indicator it lands on (an &lit's connectives), and does the error name the edit when none does?"),
     ("fetching", "tools/test_blocks_surplus.sh", "when a clue's blocks give too many letters and none too few, the warning names the single-block edits that take exactly the surplus away"),
     ("fetching", "tools/test_reprints.js", "a paper that reprints another's puzzle is listed, and every way in opens the original; a book, Globe and Mail or Canberra Times puzzle renamed to the puzzle it reprints stays listed and counted in its series at its own number"),
     ("fetching", "tools/gale_arrived.py", "mark a Gale download arrived on the checklists within seconds of it landing"),
