@@ -39,8 +39,8 @@ Once the check passes, write the fill in and make the copy you annotate:
     python3 tools/annotate_check.py --view <number>
 
 Annotate each `(MODEL)` answer there from the wordplay you derived it by. The moment `annotate_check.py` says `clean`,
-you are done: end with the confidence line below and nothing else — no
-summary, no further pass.
+you are done: end with the confidence line below and nothing else —
+no summary, no further pass.
 
 ## Method
 
