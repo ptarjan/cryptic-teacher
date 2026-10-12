@@ -171,6 +171,7 @@ import clue_repair
 import enumeration
 import file_trove_puzzles as ftp
 import ocr_clues
+import provenance
 import punctuation
 import reconstruct_grid as rg
 import scan_queue
@@ -2625,6 +2626,14 @@ FILERS = {**PAPERS, GALE.key: GALE, GALE_INDEPENDENT.key: GALE_INDEPENDENT,
 #: The papers of the same series in other items whose editions a run of
 #: FILERS[key] reads too.
 ALSO = {TIMES.key: (TIMES_1930,), TELEGRAPH.key: (GALE_TELEGRAPH,), FT.key: (GALE_FT,)}
+#: Every Gale paper but the Times files its puzzles under the document's
+#: link.gale.com permalink, so each needs provenance's row for that host: one
+#: added without it would file puzzles the validator flags, so it fails here.
+_NO_GALE_ROW = sorted({q.series for q in (*FILERS.values(), *(x for v in ALSO.values() for x in v))
+                       if q.key.startswith("gale") and q.series != "times"
+                       and (q.series, "link.gale.com") not in provenance.ACQUISITION_BY_SOURCE})
+if _NO_GALE_ROW:
+    raise RuntimeError(f"Gale papers with no (series, 'link.gale.com') row in provenance.ACQUISITION_BY_SOURCE: {_NO_GALE_ROW}")
 #: Each run's ledger in the cache, filed.jsonl unless named here.
 LEDGER_NAMES = {GALE.key: downloads.GALE_LEDGER.name}
 #: The runs whose never-read editions are read latest laid out first (pages
