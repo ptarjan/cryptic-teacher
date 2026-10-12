@@ -22,7 +22,7 @@ NewsUK19xxUKEnglish, and files each "Times Crossword Puzzle No N" as times-N:
     the size with two recognisers (multilingual PP-OCRv4 and English
     PP-OCRv5), and Tesseract, whose errors are not RapidOCR's (READERS). Each is parsed as file_trove_puzzles.py parses
     Trove's text, after tidy() undoes the print's commonest slips, and each
-    list is repaired from each other reading in turn (tools/trove_clue_ocr.py).
+    list is repaired from each other reading in turn (tools/clue_repair.py).
   - A reading votes only when it has clue words and its clues lie on the
     scanned grid by number and count and read like the others' clues of
     those numbers (screened): one with every clue blank is no reading, and
@@ -154,6 +154,7 @@ import urllib.parse
 import xml.etree.ElementTree as ET
 from difflib import SequenceMatcher
 from pathlib import Path
+import clue_repair
 import enumeration
 import file_trove_puzzles as ftp
 import ocr_clues
@@ -161,7 +162,6 @@ import punctuation
 import reconstruct_grid as rg
 import scan_queue
 import series as series_meta
-import trove_clue_ocr
 import trove_grid
 import trove_solution_ocr
 import vlm_reader as vlm
@@ -3018,15 +3018,13 @@ def read_puzzle(d, found, hit, solutions):
             verdict.setdefault("unparsed", {})[order[0]] = why
             continue
         # A clue this list lost is taken from each other reading in turn.
-        for other in [order[1]] + [k for k in texts if k not in order]:
-            if trove_clue_ocr.complete(parsed):
-                break
-            parsed, _ = trove_clue_ocr.repair(parsed, texts[other])
+        parsed, _ = clue_repair.repaired(
+            parsed, [texts[k] for k in [order[1]] + [k for k in texts if k not in order]])
         # A number its list's order refuses ("12" after 19) is left for the
         # grid to place, never handed to the rebuild as read.
         parsed, _ = ftp.renumber(parsed)
         laid, why = ftp.match(parsed, g) if g else (None, None)
-        tried.append((laid is not None, trove_clue_ocr.complete(parsed),
+        tried.append((laid is not None, clue_repair.complete(parsed),
                       sum(len(v) for v in parsed.values()), -len(tried), order, parsed, laid, why))
         if laid is not None:
             break

@@ -32,7 +32,8 @@ Layout under --out:
   <id>/grid.jpg           the grid zone cut from the page scan (see --grid-width)
 
 `zones` caches the page scan's text zones (every zone but the grid) in
-downloads.TROVE_CLUES/<id>/zone<N>.png, which tools/trove_clue_ocr.py reads.
+downloads.TROVE_CLUES/<id>/zone<N>.png, which tools/file_trove_puzzles.py
+reads with tools/ocr_clues.py's readers and the VLM.
 Given ids it fetches those; given none it fetches the articles whose filing
 ledger row (<out>/filed.jsonl) is pending and that have no zones yet, oldest
 first. Filers only read caches, so this is how a pending article gets its
