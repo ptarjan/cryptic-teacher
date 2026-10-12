@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,71 @@
     "text": "He's rich, eccentric and fourth in line for county",
     "enumeration": "8"
    },
-   "solution": "CHESHIRE"
+   "solution": "CHESHIRE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "CHESHIRE",
+    "definitions": [
+     {
+      "text": "county",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eccentric",
+      "for": "anagram",
+      "note": "something eccentric is odd and off-centre, so the letters before it are thrown into a new order"
+     },
+     {
+      "text": "fourth in",
+      "for": "letter_selection",
+      "note": "fourth in asks for the letter in fourth position of the following word only"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He's",
+      "gives": "HES",
+      "note": "taken as written, without the apostrophe"
+     },
+     {
+      "clueFragment": "rich",
+      "gives": "RICH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "E",
+      "select": 4,
+      "note": "the fourth letter of line"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HESRICHE",
+       "gives": "CHESHIRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy oddball who stands fourth in the succession to some English county estate.",
+     "walkthrough": "'Line' reads as a line of succession, but it only supplies its fourth letter.",
+     "definitionFit": "Cheshire is an English county in the north-west, home of the grinning cat and the cheese."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +114,45 @@
     "text": "Grant delivered dye",
     "enumeration": "3"
    },
-   "solution": "HUE"
+   "solution": "HUE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HUE",
+    "definitions": [
+     {
+      "text": "dye",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "delivered",
+      "for": "homophone",
+      "note": "a speech is delivered out loud, so the word wanted is the one that matches what is heard"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grant",
+      "gives": "HUE",
+      "soundsLike": "HUGH",
+      "note": "Hugh Grant is the English film actor"
+     }
+    ],
+    "explanation": {
+     "surface": "A grant of money has been handed over to pay for dye.",
+     "walkthrough": "'Grant' looks like a gift of money or a verb; it is the actor Hugh Grant, and his first name sounds like the answer.",
+     "definitionFit": "A hue is a colour or tint, which is what a dye gives to cloth, so the two stand as loose synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Grant"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +166,43 @@
     "text": "Singer voiced part",
     "enumeration": "5"
    },
-   "solution": "SHARE"
+   "solution": "SHARE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SHARE",
+    "definitions": [
+     {
+      "text": "part",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "voiced",
+      "for": "homophone",
+      "note": "voiced means spoken out loud, so the answer is a word heard the same way as the singer's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Singer",
+      "gives": "SHARE",
+      "soundsLike": "CHER",
+      "note": "Cher is the American pop singer, said 'shair'"
+     }
+    ],
+    "explanation": {
+     "surface": "A vocalist sang her part in the piece.",
+     "definitionFit": "A share is a portion or part of something divided among several people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "voiced"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +216,73 @@
     "text": "999p ÷ @1 causing irritability?",
     "enumeration": "10"
    },
-   "solution": "IMPATIENCE"
+   "solution": "IMPATIENCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "IMPATIENCE",
+    "definitions": [
+     {
+      "text": "irritability",
+      "at": 18,
+      "note": "the clue's question mark marks the playful arithmetic, not the definition"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "÷",
+      "for": "container",
+      "note": "the division sign says the item before it is split apart, with the item after it placed in the gap"
+     }
+    ],
+    "linkWords": [
+     "causing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "999",
+      "gives": "IM",
+      "note": "one less than a thousand in Roman numerals, I before M"
+     },
+     {
+      "clueFragment": "p",
+      "gives": "PENCE",
+      "note": "p is the abbreviation for pence"
+     },
+     {
+      "clueFragment": "@",
+      "gives": "AT",
+      "note": "the @ symbol is read as the word at"
+     },
+     {
+      "clueFragment": "1",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "P",
+      "AT",
+      "I",
+      "ENCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A baffling sum in symbols, the sort of thing that would make anyone short-tempered.",
+     "walkthrough": "IM is a non-standard but crosswordly way of writing 999. PENCE is divided by AT I: IM + P(ATI)ENCE.",
+     "definitionFit": "Impatience is restless annoyance at delay, which is close in meaning to irritability."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "÷"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +296,53 @@
     "text": "Guarantee blame after Conservative loss",
     "enumeration": "6"
    },
-   "solution": "ENSURE"
+   "solution": "ENSURE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ENSURE",
+    "definitions": [
+     {
+      "text": "Guarantee",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "deletion",
+      "note": "after a loss of the party abbreviation means what remains once that letter has been taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blame",
+      "gives": "CENSURE",
+      "note": "to censure is to blame or criticise formally"
+     },
+     {
+      "clueFragment": "Conservative loss",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative, here the letter lost"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENSURE"
+     ]
+    },
+    "explanation": {
+     "surface": "A political promise to pin the blame somewhere once the Tories have been defeated.",
+     "walkthrough": "'Conservative loss' reads as an election defeat; it is the letter C going missing from the word for blame.",
+     "definitionFit": "To ensure something is to make certain it happens, which is to guarantee it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "loss"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +356,68 @@
     "text": "Ill — will he swallow one capsule to begin with?",
     "enumeration": "6"
    },
-   "solution": "MALICE"
+   "solution": "MALICE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MALICE",
+    "definitions": [
+     {
+      "text": "Ill — will",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallow",
+      "for": "container",
+      "note": "whatever is swallowed ends up inside, so the following items go within the word for he"
+     },
+     {
+      "text": "to begin with",
+      "for": "letter_selection",
+      "note": "to begin with points at only the opening letter of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "he",
+      "gives": "MALE",
+      "note": "he refers to a male"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "capsule",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of capsule"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAL",
+      "I",
+      "C",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone poorly wonders whether a patient will take a pill to start the treatment.",
+     "walkthrough": "The dash splits 'Ill' and 'will', which together make the phrase ill will. The rest is MAL(I C)E.",
+     "definitionFit": "Malice is the desire to harm others, which is exactly what the phrase ill will means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Ill"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +431,55 @@
     "text": "Average bloke touring Spain",
     "enumeration": "4"
    },
-   "solution": "MEAN"
+   "solution": "MEAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MEAN",
+    "definitions": [
+     {
+      "text": "Average",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "someone touring a country goes all round it, so one item wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bloke",
+      "gives": "MAN",
+      "note": "a bloke is a man"
+     },
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "E is the international vehicle code for Spain (España)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "E",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "An ordinary chap on holiday travelling round Spain.",
+     "walkthrough": "Bloke is British slang for a man; M(E)AN.",
+     "definitionFit": "The mean is the arithmetic average of a set of numbers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "touring"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +493,39 @@
     "text": "Idyllic place of contentment for auto enthusiasts?",
     "enumeration": "9"
    },
-   "solution": "LOTUSLAND"
+   "solution": "LOTUSLAND",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LOTUSLAND",
+    "definitions": [
+     {
+      "text": "Idyllic place of contentment",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Idyllic place of contentment",
+      "note": "the straight reading: a dreamy realm of carefree ease, after the lotus-eaters of Homer"
+     },
+     {
+      "clueFragment": "for auto enthusiasts?",
+      "note": "the setter's reading: a country for fans of a well-known British sports-car maker"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Lotus is a British sports-car make, so the place sounds like a paradise for motoring fans.",
+     "definitionFit": "The term means a state or place of dreamy, contented idleness, from the Odyssey's lotus-eaters who forgot all cares."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "auto"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +539,60 @@
     "text": "Exaggerated profiles rate a circus 'poor'",
     "enumeration": "11"
    },
-   "solution": "CARICATURES"
+   "solution": "CARICATURES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CARICATURES",
+    "definitions": [
+     {
+      "text": "Exaggerated profiles",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'poor'",
+      "for": "anagram",
+      "note": "poor here means badly made, so the letters are rearranged into a better form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rate",
+      "gives": "RATE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "circus",
+      "gives": "CIRCUS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RATEACIRCUS",
+       "gives": "CARICATURES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Critics' sketches score a circus show as poor.",
+     "definitionFit": "Caricatures are portraits or descriptions that exaggerate a person's features for comic effect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "poor"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +606,64 @@
     "text": "Prime Minister to declare U-turn and modernise",
     "enumeration": "6"
    },
-   "solution": "REVAMP"
+   "solution": "REVAMP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "REVAMP",
+    "definitions": [
+     {
+      "text": "modernise",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "U-turn",
+      "for": "reversal",
+      "note": "a U-turn sends you back the way you came, so the combined letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prime Minister",
+      "gives": "PM",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "to declare",
+      "gives": "AVER",
+      "note": "to aver is to declare or assert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REVA",
+      "MP"
+     ],
+     "reversals": [
+      {
+       "from": "PMAVER",
+       "to": "REVAMP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Prime Minister announces a policy reversal and promises to bring the country up to date.",
+     "walkthrough": "PM + AVER, all read backwards.",
+     "definitionFit": "To revamp is to renovate or overhaul, giving something a modern makeover."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "U-turn"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +677,77 @@
     "text": "Name-dropping Star Trek actor takes time with small breaks",
     "enumeration": "8"
    },
-   "solution": "SHATTERS"
+   "solution": "SHATTERS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "SHATTERS",
+    "definitions": [
+     {
+      "text": "breaks",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Name-dropping",
+      "for": "deletion",
+      "note": "read literally, name-dropping means letting the abbreviation for name fall out of the word"
+     },
+     {
+      "text": "takes",
+      "for": "container",
+      "note": "takes means admits inside, so the next letter is placed within the actor's name"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     },
+     {
+      "clueFragment": "Star Trek actor",
+      "gives": "SHATNER",
+      "note": "William Shatner played Captain Kirk"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHAT",
+      "T",
+      "ER",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity from Star Trek who boasts of famous friends has a few short holidays.",
+     "walkthrough": "'Name-dropping' looks like a social vice; it means SHATNER loses N. SHATER then takes T inside, and S is added.",
+     "definitionFit": "To shatter is to break into pieces, so shatters fits breaks as a verb in the third person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Name-dropping"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +761,84 @@
     "text": "Exciting incident as a criminal turned to steal banks from Venice",
     "enumeration": "9"
    },
-   "solution": "ADVENTURE"
+   "solution": "ADVENTURE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "ADVENTURE",
+    "definitions": [
+     {
+      "text": "Exciting incident",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "something criminal is crooked, so the word beside it is bent into a new order"
+     },
+     {
+      "text": "to steal",
+      "for": "container",
+      "note": "a thief keeps stolen goods inside, so the rearranged word takes the next letters in"
+     },
+     {
+      "text": "banks",
+      "for": "letter_selection",
+      "note": "the banks of something are its two edges, so only the outer letters of the city are used"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "turned",
+      "gives": "TURNED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Venice",
+      "gives": "VE",
+      "select": "outer",
+      "note": "the first and last letters of Venice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "D",
+      "VE",
+      "NTURE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TURNED",
+       "gives": "DNTURE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crook goes bad and robs the banks of Venice, quite a thrilling episode.",
+     "walkthrough": "'Turned' looks like the anagram signal, but it is the material; 'criminal' does the rearranging, and the bank-robbing picture hides the container.",
+     "definitionFit": "An adventure is an unusual, exciting or daring experience, an exciting incident in plain words."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +852,52 @@
     "text": "Tate Modern's 9:23",
     "enumeration": "11"
    },
-   "solution": "DEMONSTRATE"
+   "solution": "DEMONSTRATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEMONSTRATE",
+    "definitions": [
+     {
+      "text": "23",
+      "at": 16,
+      "note": "23 is the answer to 23 down, march, in its sense of protesting in the street"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "9",
+      "for": "anagram",
+      "note": "the answer to 9 across means overhaul or remodel, so the gallery's name is rebuilt in a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tate Modern's",
+      "gives": "TATEMODERNS",
+      "note": "taken as written, without the apostrophe"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TATEMODERNS",
+       "gives": "DEMONSTRATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gallery's update reads like a timetable entry or a Bible reference.",
+     "walkthrough": "The numbers are cross-references: 9 across is REVAMP, the anagram signal, and 23 down is MARCH, the definition. Tate Modern is London's modern art gallery.",
+     "definitionFit": "To demonstrate is to take part in a public protest march, so the verb march stands for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "9"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +911,50 @@
     "text": "Mentally prepare for endless horror film",
     "enumeration": "5"
    },
-   "solution": "PSYCH"
+   "solution": "PSYCH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PSYCH",
+    "definitions": [
+     {
+      "text": "Mentally prepare",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "endless means without its end, so the final letter of the film title is dropped"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horror film",
+      "gives": "PSYCHO",
+      "note": "Psycho is Hitchcock's 1960 horror classic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PSYCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Steeling yourself before an unbearably long scary movie.",
+     "definitionFit": "To psych yourself (up) is informal for getting into the right frame of mind before a challenge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "endless"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +968,75 @@
     "text": "Pope's legacy: avoiding prison in retirement, simply",
     "enumeration": "10"
    },
-   "solution": "INNOCENTLY"
+   "solution": "INNOCENTLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "deletion"
+    ],
+    "answer": "INNOCENTLY",
+    "definitions": [
+     {
+      "text": "simply",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in retirement",
+      "for": "reversal",
+      "note": "retiring means withdrawing or going back, so the word for prison is read backwards"
+     },
+     {
+      "text": "avoiding",
+      "for": "deletion",
+      "note": "avoiding means steering clear of, so those letters are removed from the inheritance word"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pope",
+      "gives": "INNOCENT",
+      "note": "thirteen popes took the name Innocent"
+     },
+     {
+      "clueFragment": "legacy",
+      "gives": "LEGACY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "prison",
+      "gives": "CAGE",
+      "note": "a cage is a prison"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INNOCENT",
+      "LY"
+     ],
+     "reversals": [
+      {
+       "from": "CAGE",
+       "to": "EGAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A retired pontiff's legacy was keeping out of jail.",
+     "walkthrough": "'Pope' is the papal name, not a man to be housed in the prison; 'in retirement' turns the prison word round before it is removed from the inheritance word.",
+     "definitionFit": "To act innocently is to act artlessly or guilelessly, one sense of simply."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retirement"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +1050,57 @@
     "text": "Derided and cut short after capital doubles?",
     "enumeration": "6"
    },
-   "solution": "MOCKED"
+   "solution": "MOCKED",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "MOCKED",
+    "definitions": [
+     {
+      "text": "Derided",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doubles",
+      "for": "substitution",
+      "note": "doubles says the opening letter's value is multiplied by two and so swapped for another letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cut short",
+      "gives": "DOCKED",
+      "note": "docked means cut short, as of a tail or pay"
+     },
+     {
+      "clueFragment": "capital",
+      "gives": "M",
+      "note": "the capital (first) letter of the word is D, Roman 500; twice that is 1000, Roman M"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "OCKED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is ridiculed and has their pay cut once the capital's prices double.",
+     "walkthrough": "'Capital' looks like a city or money; it is the initial D of DOCKED. Read as a Roman numeral, D doubled is M.",
+     "definitionFit": "To mock is to ridicule or scoff at, so mocked is a past-tense synonym of derided."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 16,
@@ -257,7 +1114,50 @@
     "text": "Fish and tea seller in New York",
     "enumeration": "9"
    },
-   "solution": "CHAVENDER"
+   "solution": "CHAVENDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHAVENDER",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea",
+      "gives": "CHA",
+      "note": "cha is slang for tea"
+     },
+     {
+      "clueFragment": "seller in New York",
+      "gives": "VENDER",
+      "note": "vender is the American spelling of vendor, a seller"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "VENDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A street trader in New York selling fish and tea.",
+     "walkthrough": "'In New York' flags an American spelling rather than a container.",
+     "definitionFit": "The chavender is an old name for the chub, a freshwater fish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fish"
+    }
+   }
   },
   {
    "number": 17,
@@ -271,7 +1171,68 @@
     "text": "Female, one entering pub with tense baby",
     "enumeration": "6"
    },
-   "solution": "INFANT"
+   "solution": "INFANT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "INFANT",
+    "definitions": [
+     {
+      "text": "baby",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "things entering a place go inside it, so the first two pieces sit within the pub word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "INN",
+      "note": "an inn is a pub"
+     },
+     {
+      "clueFragment": "Female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammatical abbreviation for tense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "F",
+      "A",
+      "N",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman walks into a bar with a stressed-out baby.",
+     "walkthrough": "IN(F A)N + T.",
+     "definitionFit": "An infant is a very young child, which is what a baby is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tense"
+    }
+   }
   },
   {
    "number": 18,
@@ -285,7 +1246,65 @@
     "text": "Subtlety shown by religious person describing a church",
     "enumeration": "6"
    },
-   "solution": "NUANCE"
+   "solution": "NUANCE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "NUANCE",
+    "definitions": [
+     {
+      "text": "Subtlety",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "describing",
+      "for": "container",
+      "note": "in its geometric sense, to describe is to draw a line round, so the nun goes round the next letter"
+     }
+    ],
+    "linkWords": [
+     "shown by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "religious person",
+      "gives": "NUN",
+      "note": "a nun is a religious woman"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NU",
+      "A",
+      "N",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A nun's careful account of a church shows fine sensitivity.",
+     "walkthrough": "NU(A)N + CE.",
+     "definitionFit": "A nuance is a subtle shade of difference in meaning or tone, a subtlety."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "describing"
+    }
+   }
   },
   {
    "number": 19,
@@ -299,7 +1318,64 @@
     "text": "Ruby present sent back in amazement",
     "enumeration": "6"
    },
-   "solution": "WONDER"
+   "solution": "WONDER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "WONDER",
+    "definitions": [
+     {
+      "text": "amazement",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sent back",
+      "for": "reversal",
+      "note": "something sent back returns the way it came, so the letters read in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ruby",
+      "gives": "RED",
+      "note": "ruby is a shade of red"
+     },
+     {
+      "clueFragment": "present",
+      "gives": "NOW",
+      "note": "the present is now"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WON",
+      "DER"
+     ],
+     "reversals": [
+      {
+       "from": "REDNOW",
+       "to": "WONDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ruby gift returned to the giver, who is astonished.",
+     "walkthrough": "'Present' looks like a gift, which fits a ruby; it means the present time. RED NOW reads backwards.",
+     "definitionFit": "Wonder is a feeling of surprise and admiration, so it matches amazement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "present"
+    }
+   }
   },
   {
    "number": 20,
@@ -313,7 +1389,45 @@
     "text": "Pieces of Cambridge college",
     "enumeration": "6"
    },
-   "solution": "QUEENS"
+   "solution": "QUEENS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "QUEENS",
+    "definitions": [
+     {
+      "text": "Pieces",
+      "at": 0
+     },
+     {
+      "text": "Cambridge college",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pieces",
+      "note": "first meaning: the most powerful pieces on a chessboard"
+     },
+     {
+      "clueFragment": "Cambridge college",
+      "note": "second meaning: ...' College, Cambridge"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Reads as bits of a college; it is chess pieces and a college name.",
+     "definitionFit": "Queens are chess pieces, and Queens' is a college of Cambridge University founded in 1448."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pieces"
+    }
+   }
   },
   {
    "number": 21,
@@ -327,7 +1441,61 @@
     "text": "Difficult actress rejects Oscar, finally",
     "enumeration": "5"
    },
-   "solution": "STEEP"
+   "solution": "STEEP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "STEEP",
+    "definitions": [
+     {
+      "text": "Difficult",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejects",
+      "for": "deletion",
+      "note": "rejects means throws out, so a letter is taken away from the actress's name"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally picks out only the last letter of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "actress",
+      "gives": "STREEP",
+      "note": "Meryl Streep, the American actress"
+     },
+     {
+      "clueFragment": "Oscar",
+      "gives": "R",
+      "select": "last",
+      "note": "the last letter of Oscar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "EEP"
+     ]
+    },
+    "explanation": {
+     "surface": "A temperamental actress turns down an Academy Award at last.",
+     "walkthrough": "'Oscar' tempts as the NATO-alphabet O, but 'finally' takes its last letter R out of STREEP.",
+     "definitionFit": "Steep describes a slope or demand that is hard to manage, so it can mean difficult."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Oscar"
+    }
+   }
   },
   {
    "number": 22,
@@ -341,7 +1509,56 @@
     "text": "Some tutor moving farthest away",
     "enumeration": "9"
    },
-   "solution": "OUTERMOST"
+   "solution": "OUTERMOST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OUTERMOST",
+    "definitions": [
+     {
+      "text": "farthest away",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving",
+      "for": "anagram",
+      "note": "letters that are moving shift position, so the words before are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Some",
+      "gives": "SOME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tutor",
+      "gives": "TUTOR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOMETUTOR",
+       "gives": "OUTERMOST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A teacher who has relocated as far off as possible.",
+     "walkthrough": "'Some' looks like a selection signal, but it is part of the fodder.",
+     "definitionFit": "Outermost means furthest from the centre, the most remote position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 23,
@@ -355,7 +1572,61 @@
     "text": "Walk over hot stuff",
     "enumeration": "5"
    },
-   "solution": "MARCH"
+   "solution": "MARCH",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MARCH",
+    "definitions": [
+     {
+      "text": "Walk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "in a down clue, over means turned upside down, so the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the abbreviation for hot, as on a tap"
+     },
+     {
+      "clueFragment": "stuff",
+      "gives": "CRAM",
+      "note": "to stuff is to cram"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARC",
+      "H"
+     ],
+     "reversals": [
+      {
+       "from": "HCRAM",
+       "to": "MARCH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stepping across glowing coals in a fire-walk.",
+     "walkthrough": "'Walk over hot stuff' paints a fire-walk; 'over' is the reversal of H + CRAM.",
+     "definitionFit": "To march is to walk in a steady, purposeful way, so the verbs match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 24,
@@ -369,7 +1640,63 @@
     "text": "Not hard to talk with small animals",
     "enumeration": "4"
    },
-   "solution": "CATS"
+   "solution": "CATS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CATS",
+    "definitions": [
+     {
+      "text": "animals",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not hard",
+      "for": "deletion",
+      "note": "not hard means without the abbreviation for hard, so that letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the abbreviation for hard, as on pencils"
+     },
+     {
+      "clueFragment": "to talk",
+      "gives": "CHAT",
+      "note": "to chat is to talk"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAT",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "It is easy to have a conversation with little creatures.",
+     "walkthrough": "CHAT without H, plus S.",
+     "definitionFit": "Cats are domestic animals, an example standing for the broader category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hard"
+    }
+   }
   },
   {
    "number": 25,
@@ -383,7 +1710,63 @@
     "text": "Personally crafted by female attendant discounting one note",
     "enumeration": "8"
    },
-   "solution": "HANDMADE"
+   "solution": "HANDMADE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "HANDMADE",
+    "definitions": [
+     {
+      "text": "Personally crafted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discounting",
+      "for": "deletion",
+      "note": "discounting means leaving out of the reckoning, so a letter is removed from the attendant word"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female attendant",
+      "gives": "HANDMAID",
+      "note": "a handmaid is a female servant"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one, the letter taken out"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "E",
+      "note": "E is a musical note"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HANDMAD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Something made by hand by a lady's maid, sold at a discount.",
+     "walkthrough": "HANDMAID loses I, then E is added.",
+     "definitionFit": "Handmade goods are produced by a person's own hands rather than by machine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 26,
@@ -397,7 +1780,79 @@
     "text": "Express disapproval over end of supper with extremely little soup?",
     "enumeration": "6"
    },
-   "solution": "TURTLE"
+   "solution": "TURTLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "TURTLE",
+    "definitions": [
+     {
+      "text": "soup?",
+      "at": 61,
+      "note": "the question mark admits the answer is only one kind of soup"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "container",
+      "note": "over here means lying across or around, so the disapproving word goes round the next letter"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "end of asks for only the final letter of the following word"
+     },
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points at the extremes of the following word, its first and last letters"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Express disapproval",
+      "gives": "TUT",
+      "note": "tut is the sound of disapproval"
+     },
+     {
+      "clueFragment": "supper",
+      "gives": "R",
+      "select": "last",
+      "note": "the last letter of supper"
+     },
+     {
+      "clueFragment": "little",
+      "gives": "LE",
+      "select": "outer",
+      "note": "the outer letters of little"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TU",
+      "R",
+      "T",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A diner tuts at the end of supper over a meagre bowl of soup.",
+     "walkthrough": "TU(R)T + LE. Turtle soup was once a grand Victorian dish, hence the question mark.",
+     "definitionFit": "Turtle is a soup by ellipsis: turtle soup, once a luxury dish, is often just called turtle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "supper"
+    }
+   }
   },
   {
    "number": 27,
@@ -411,7 +1866,57 @@
     "text": "Family wanting the ultimate speed for local network",
     "enumeration": "3"
    },
-   "solution": "LAN"
+   "solution": "LAN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LAN",
+    "definitions": [
+     {
+      "text": "local network",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wanting",
+      "for": "deletion",
+      "note": "wanting means lacking, so a letter is missing from the family word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Family",
+      "gives": "CLAN",
+      "note": "a clan is a family group"
+     },
+     {
+      "clueFragment": "the ultimate speed",
+      "gives": "C",
+      "note": "c is the speed of light, the physical limit on speed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A household that needs the fastest broadband for its home network.",
+     "walkthrough": "'The ultimate speed' sounds like a broadband boast; it is c, the speed of light in physics.",
+     "definitionFit": "LAN stands for local area network, a computer network linking machines in one building."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ultimate"
+    }
+   }
   },
   {
    "number": 28,
@@ -425,7 +1930,56 @@
     "text": "They beat qualifiers' outstanding run",
     "enumeration": "6"
    },
-   "solution": "HEARTS"
+   "solution": "HEARTS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HEARTS",
+    "definitions": [
+     {
+      "text": "They beat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outstanding",
+      "for": "container",
+      "note": "read as standing outside, the qualifier word stands around the next letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "qualifiers'",
+      "gives": "HEATS",
+      "note": "heats are qualifying rounds of a race"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEA",
+      "R",
+      "TS"
+     ]
+    },
+    "explanation": {
+     "surface": "Competitors who win their qualifying rounds with a superb run.",
+     "walkthrough": "'Outstanding' praises the run, but it means standing outside: HEA(R)TS.",
+     "definitionFit": "Hearts are the organs that beat, so the pronoun phrase 'they beat' describes them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "outstanding"
+    }
+   }
   },
   {
    "number": 29,
@@ -439,7 +1993,67 @@
     "text": "Cutting very critical leading actor to be replaced by unknown",
     "enumeration": "8"
    },
-   "solution": "SCYTHING"
+   "solution": "SCYTHING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "SCYTHING",
+    "definitions": [
+     {
+      "text": "Cutting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leading",
+      "for": "letter_selection",
+      "note": "leading picks the first letter of the word it precedes"
+     },
+     {
+      "text": "to be replaced by",
+      "for": "substitution",
+      "note": "to be replaced by says one letter is swapped out for the one named next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very critical",
+      "gives": "SCATHING",
+      "note": "scathing means severely critical"
+     },
+     {
+      "clueFragment": "actor",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of actor"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "algebra uses x, y and z for unknowns"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SC",
+      "Y",
+      "THING"
+     ]
+    },
+    "explanation": {
+     "surface": "A harsh review says the star should be swapped for a nobody.",
+     "walkthrough": "'Leading actor' reads as the star; it is just A, swapped for Y in SCATHING.",
+     "definitionFit": "Scything is mowing with a long curved blade, a form of cutting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leading"
+    }
+   }
   }
  ]
 }
