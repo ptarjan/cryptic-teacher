@@ -146,7 +146,7 @@ def normalise(puzzle):
 
 
 def _lights(record):
-    return [l for d in ("across", "down") for l in (record.get("clues") or {}).get(d) or ()
+    return [l for d in ("across", "down", "unplaced") for l in (record.get("clues") or {}).get(d) or ()
             if isinstance(l, dict) and isinstance(l.get("clue"), dict)]
 
 

@@ -1319,6 +1319,14 @@
     "year": {
      "$ref": "#/properties/year"
     },
+    "preamble": {
+     "description": "The instruction printed above the clues, as for a grid puzzle: a jigsaw's \"Method:\" line, without the label.",
+     "$ref": "#/properties/preamble"
+    },
+    "cluesUnplaced": {
+     "description": "A jigsaw: the book printed one list of clues with no numbers and no across or down, so `clues` holds `unplaced`. No builder promotes it yet (clues_only.builder), so it is held as data, never queued.",
+     "const": true
+    },
     "dimensions": {
      "description": "The printed grid's size: what the grid is searched within.",
      "$ref": "#/properties/dimensions"
@@ -1349,11 +1357,20 @@
      }
     },
     "clues": {
-     "description": "Each direction's lights in the order the paper printed them (row-major, the order numbering would sort them into). Numbers are left out: the derived grid numbers them.",
+     "description": "Each direction's lights in the order the paper printed them (row-major, the order numbering would sort them into). Numbers are left out: the derived grid numbers them. A jigsaw (`cluesUnplaced`) holds `unplaced` instead: every clue in the printed order, direction unknown.",
      "type": "object",
-     "required": [
-      "across",
-      "down"
+     "oneOf": [
+      {
+       "required": [
+        "across",
+        "down"
+       ]
+      },
+      {
+       "required": [
+        "unplaced"
+       ]
+      }
      ],
      "additionalProperties": false,
      "properties": {
@@ -1365,6 +1382,13 @@
        }
       },
       "down": {
+       "type": "array",
+       "minItems": 1,
+       "items": {
+        "$ref": "#/$defs/cluesOnlyLight"
+       }
+      },
+      "unplaced": {
        "type": "array",
        "minItems": 1,
        "items": {

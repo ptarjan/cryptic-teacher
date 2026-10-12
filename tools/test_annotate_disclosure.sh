@@ -244,6 +244,14 @@ try:
         all(" | ABCD | " in l for l in json.loads(text)["entries"]))
 finally:
     view.unlink()
+# A jigsaw's view says so: the run must know the answers go wherever they fit.
+jig_path = path.parent / "cyclops-99997.json"
+jig_path.write_text(json.dumps({**real, "id": "cyclops-99997", "cluesUnplaced": True}))
+jig_view = AC.write_view(jig_path)
+try:
+    say("view_says_jigsaw", json.loads(jig_view.read_text()).get("cluesUnplaced") is True)
+finally:
+    jig_view.unlink()
 apply_annotations.apply(path, {entry_id(e): {"type": ["charade"]} for e in real["entries"]},
                         by="human")
 say("apply_keeps_solutions_detail",
@@ -416,7 +424,7 @@ for k in linked_leader_quiet annotated_continuation_flagged \
          blog_hidden_when_many_null blog_hidden_when_all_done \
          blog_shown_for_last_few blog_hidden_when_blind \
          blog_hidden_without_a_blog times_names_its_own_blog \
-         plain_puzzle_no_notes cd_note likely_note view_has_no_url \
+         plain_puzzle_no_notes cd_note likely_note view_has_no_url view_says_jigsaw \
          view_keeps_solutions apply_keeps_solutions_detail \
          fragment_not_in_clue_fails hole_fails_the_run hole_queued_in_corpus \
          blanks_one_line one_blank_not_called_half_written \
