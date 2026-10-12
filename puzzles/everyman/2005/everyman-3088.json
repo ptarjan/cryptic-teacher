@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "Old sailor's wit",
     "enumeration": "4"
    },
-   "solution": "SALT"
+   "solution": "SALT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SALT",
+    "definitions": [
+     {
+      "text": "Old sailor",
+      "at": 0
+     },
+     {
+      "text": "wit",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old sailor",
+      "note": "first meaning: a seasoned seaman"
+     },
+     {
+      "clueFragment": "wit",
+      "note": "second meaning: pungent, lively humour"
+     }
+    ],
+    "explanation": {
+     "surface": "An old seaman's sense of humour.",
+     "walkthrough": "The possessive looks like it ties the sailor to the wit, but 's is just 'is' joining two meanings of one word.",
+     "definitionFit": "An old salt is a veteran seaman, and salt also means sharp, piquant humour that seasons talk the way salt seasons food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wit"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +90,50 @@
     "text": "Knock off tarts cub prepared",
     "enumeration": "8"
    },
-   "solution": "SUBTRACT"
+   "solution": "SUBTRACT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SUBTRACT",
+    "definitions": [
+     {
+      "text": "Knock off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "prepared means made ready by working on, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tarts cub",
+      "gives": "TARTSCUB",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TARTSCUB",
+       "gives": "SUBTRACT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young Scout steals pastries he has just baked.",
+     "definitionFit": "To knock off an amount, as from a price, is to take it away, which is to subtract."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tarts"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +147,64 @@
     "text": "Fruit from Spanish region leader in market imported",
     "enumeration": "5"
    },
-   "solution": "LEMON"
+   "solution": "LEMON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LEMON",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader in",
+      "for": "letter_selection",
+      "note": "the leader is what comes first, so just the opening letter of the next word"
+     },
+     {
+      "text": "imported",
+      "for": "container",
+      "note": "imported means brought in, so the letter goes inside the other piece"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spanish region",
+      "gives": "LEON",
+      "note": "León is a region of north-west Spain"
+     },
+     {
+      "clueFragment": "market",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of market"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "M",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Fruit from a Spanish region, introduced by a major market trader.",
+     "definitionFit": "A lemon is a sour yellow citrus fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "imported"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +218,79 @@
     "text": "Calculation in chart, I suspect, contains transposed entry",
     "enumeration": "10"
    },
-   "solution": "ARITHMETIC"
+   "solution": "ARITHMETIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ARITHMETIC",
+    "definitions": [
+     {
+      "text": "Calculation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suspect",
+      "for": "anagram",
+      "note": "a suspect account is not to be trusted as it stands, so these letters are rearranged"
+     },
+     {
+      "text": "contains",
+      "for": "container",
+      "note": "contains says one group of letters holds another inside it"
+     },
+     {
+      "text": "transposed",
+      "for": "anagram",
+      "note": "transposed means swapped around, so the letters of the word for entry change order too"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chart, I",
+      "gives": "CHARTI",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "entry",
+      "gives": "ITEM",
+      "note": "an item is an entry in a list or ledger"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARITH",
+      "METI",
+      "C"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHARTI",
+       "gives": "ARITHC"
+      },
+      {
+       "fodder": "ITEM",
+       "gives": "METI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An accountant suspects a figure on a chart has been entered the wrong way round.",
+     "walkthrough": "The clue needs two separate shuffles, one inside the other; 'transposed' applies only to the word for entry.",
+     "definitionFit": "Arithmetic is working with numbers, so a sum or a reckoning can be called arithmetic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suspect"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +304,82 @@
     "text": "Bird from Brazil seen flying around or perched on line",
     "enumeration": "9"
    },
-   "solution": "RAZORBILL"
+   "solution": "RAZORBILL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "RAZORBILL",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flying",
+      "for": "anagram",
+      "note": "flying around scatters things, so these letters are rearranged"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so one piece goes inside the other"
+     },
+     {
+      "text": "perched on",
+      "for": "charade",
+      "note": "perched on means sitting above, so in a down answer this piece comes first"
+     }
+    ],
+    "linkWords": [
+     "from",
+     "seen"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brazil",
+      "gives": "BRAZIL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAZ",
+      "OR",
+      "BIL",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BRAZIL",
+       "gives": "RAZBIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird from Brazil flies around and settles on a wire.",
+     "definitionFit": "The razorbill is a black-and-white North Atlantic seabird of the auk family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flying"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +399,46 @@
      }
     ]
    },
-   "solution": "TIEUP"
+   "solution": "TIEUP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TIE UP",
+    "definitions": [
+     {
+      "text": "Invest",
+      "at": 0
+     },
+     {
+      "text": "dock",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Invest",
+      "note": "first meaning: commit money so it is not readily available"
+     },
+     {
+      "clueFragment": "dock",
+      "note": "second meaning: moor a boat at a quay"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like putting money into a port; the two words are separate meanings of one phrasal verb.",
+     "definitionFit": "You tie up capital when you invest it, and you tie up a vessel when you moor it at a quay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dock"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +458,55 @@
      }
     ]
    },
-   "solution": "MAGICMUSHROOMS"
+   "solution": "MAGICMUSHROOMS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MAGIC MUSHROOMS",
+    "definitions": [
+     {
+      "text": "liberty caps",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "could make",
+      "for": "anagram",
+      "note": "could make says the following letters can be formed into something new"
+     }
+    ],
+    "linkWords": [
+     "Eating these"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a groom miss much",
+      "gives": "AGROOMMISSMUCH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AGROOMMISSMUCH",
+       "gives": "MAGICMUSHROOMS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bridegroom who eats hallucinogenic fungi may miss much of his own wedding.",
+     "walkthrough": "Liberty caps are a common British species of hallucinogenic mushroom; 'Eating these' frames the definition.",
+     "definitionFit": "Liberty caps are a kind of psilocybin fungus, the commonest wild hallucinogenic mushroom in Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "liberty"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +520,68 @@
     "text": "Battle flag a tar unfurled heading for Rhodes",
     "enumeration": "9"
    },
-   "solution": "TRAFALGAR"
+   "solution": "TRAFALGAR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TRAFALGAR",
+    "definitions": [
+     {
+      "text": "Battle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfurled",
+      "for": "anagram",
+      "note": "unfurled means unrolled and spread out, so the letters are laid out anew"
+     },
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "a heading is at the top, so only the first letter of the next word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flag a tar",
+      "gives": "FLAGATAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Rhodes",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of Rhodes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAFALGA",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FLAGATAR",
+       "gives": "TRAFALGA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor unrolls a flag while sailing for Rhodes before a sea battle.",
+     "walkthrough": "Tar is a crossword sailor, fitting a naval battle.",
+     "definitionFit": "Trafalgar was the 1805 sea battle in which Nelson defeated the French and Spanish fleets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tar"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +595,62 @@
     "text": "Bright, bar after introduction of candles?",
     "enumeration": "6"
    },
-   "solution": "CLEVER"
+   "solution": "CLEVER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CLEVER",
+    "definitions": [
+     {
+      "text": "Bright",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction of",
+      "for": "letter_selection",
+      "note": "an introduction comes at the start, so only the first letter of the next word"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means this piece follows the other in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "candles",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of candles"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "LEVER",
+      "note": "a lever is a bar used for prising"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LEVER"
+     ]
+    },
+    "explanation": {
+     "surface": "Is the room brighter now that the candles have been brought in?",
+     "walkthrough": "Bright here is about intelligence, not light, despite the candles.",
+     "definitionFit": "Clever and bright both mean quick-witted and intelligent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bright"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +674,39 @@
      }
     ]
    },
-   "solution": "HOTWATERBOTTLE"
+   "solution": "HOTWATERBOTTLE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HOT-WATER BOTTLE",
+    "definitions": [
+     {
+      "text": "One may be prepared for retirement",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One may be prepared for retirement",
+      "note": "surface reading: someone planning for leaving work in later life"
+     },
+     {
+      "clueFragment": "retirement",
+      "note": "setter's reading: retiring means going to bed, and this is filled to warm the bed"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Retirement suggests stopping work; here it means retiring for the night, and the thing prepared is filled from the kettle.",
+     "definitionFit": "A rubber bed-warmer is filled from a kettle just before going to bed for the night."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "retirement"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +720,77 @@
     "text": "Deceive bishop in the morning having drop of liqueur in drink",
     "enumeration": "9"
    },
-   "solution": "BAMBOOZLE"
+   "solution": "BAMBOOZLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BAMBOOZLE",
+    "definitions": [
+     {
+      "text": "Deceive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drop of",
+      "for": "letter_selection",
+      "note": "a drop is the smallest amount, so only the first letter of the next word is used"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     },
+     {
+      "clueFragment": "in the morning",
+      "gives": "AM",
+      "note": "a.m. means in the morning"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "BOOZE",
+      "note": "booze is informal for alcoholic drink"
+     },
+     {
+      "clueFragment": "liqueur",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of liqueur"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "AM",
+      "BOOZ",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A bishop tippling in the morning is up to no good.",
+     "definitionFit": "To bamboozle someone is to trick or hoodwink them, a slangy synonym for deceive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drop"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +804,48 @@
     "text": "Weighty mass of small stones reduced",
     "enumeration": "5"
    },
-   "solution": "GRAVE"
+   "solution": "GRAVE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GRAVE",
+    "definitions": [
+     {
+      "text": "Weighty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reduced",
+      "for": "deletion",
+      "note": "reduced means cut down, so the word loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mass of small stones",
+      "gives": "GRAVEL",
+      "note": "gravel is a loose mass of small stones"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRAVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A heavy load of pebbles has been cut down in size.",
+     "walkthrough": "GRAVEL loses its last letter to give GRAVE.",
+     "definitionFit": "Grave means serious or important, carrying weight, as in a grave matter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Weighty"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +859,48 @@
     "text": "Frenchman and wife make a fresh start",
     "enumeration": "5"
    },
-   "solution": "RENEW"
+   "solution": "RENEW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RENEW",
+    "definitions": [
+     {
+      "text": "make a fresh start",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frenchman",
+      "gives": "RENE",
+      "note": "René is a common French man's name"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RENE",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "A Frenchman and his wife begin again after trouble.",
+     "definitionFit": "To renew is to begin afresh or restore, as when renewing a relationship or a commitment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +914,74 @@
     "text": "Changed pace here to secure lead in gruelling supplementary heat",
     "enumeration": "9"
    },
-   "solution": "REPECHAGE"
+   "solution": "REPECHAGE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "REPECHAGE",
+    "definitions": [
+     {
+      "text": "supplementary heat",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Changed",
+      "for": "anagram",
+      "note": "changed tells you to alter the order of the letters that follow"
+     },
+     {
+      "text": "to secure",
+      "for": "container",
+      "note": "to secure something is to hold it fast, so the shuffled letters close round another"
+     },
+     {
+      "text": "lead in",
+      "for": "letter_selection",
+      "note": "the lead is the front runner, so only the opening letter of the next word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pace here",
+      "gives": "PACEHERE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gruelling",
+      "gives": "G",
+      "select": "first",
+      "note": "the first letter of gruelling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REPECHA",
+      "G",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PACEHERE",
+       "gives": "REPECHAE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A runner alters pace in an extra race to keep a hard-won lead.",
+     "walkthrough": "A repechage, from French for 'fishing out again', is a rowing or cycling race giving losers of earlier heats a second chance to qualify.",
+     "definitionFit": "A repechage is an extra qualifying heat added for those who failed in the first round."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +1001,39 @@
      }
     ]
    },
-   "solution": "COCKTAILLOUNGE"
+   "solution": "COCKTAILLOUNGE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "COCKTAIL LOUNGE",
+    "definitions": [
+     {
+      "text": "Where one may be introduced to a black Russian or a white lady?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where one may be introduced to a black Russian or a white lady?",
+      "note": "surface reading: a social venue where you meet foreign strangers"
+     },
+     {
+      "clueFragment": "a black Russian or a white lady",
+      "note": "setter's reading: both are names of mixed drinks served in a smart bar"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The capitalised Russian and the lady suggest people being introduced; a Black Russian is vodka and coffee liqueur, a White Lady is gin, Cointreau and lemon.",
+     "definitionFit": "A bar room in a hotel where mixed drinks such as these are served is where you would first try them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Russian"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +1047,59 @@
     "text": "G-man with cheap fizzy pop",
     "enumeration": "9"
    },
-   "solution": "CHAMPAGNE"
+   "solution": "CHAMPAGNE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHAMPAGNE",
+    "definitions": [
+     {
+      "text": "pop",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fizzy",
+      "for": "anagram",
+      "note": "fizzy suggests bubbling agitation, so the letters are stirred into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "G-man",
+      "gives": "GMAN",
+      "note": "taken as written, without the hyphen"
+     },
+     {
+      "clueFragment": "cheap",
+      "gives": "CHEAP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GMANCHEAP",
+       "gives": "CHAMPAGNE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An FBI agent drinking cheap fizzy soft drink.",
+     "walkthrough": "A G-man is an FBI agent; 'fizzy pop' reads as one phrase but splits into indicator and definition.",
+     "definitionFit": "Pop is informal for a sparkling drink, and champagne is the classic one whose cork pops."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "fizzy"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1113,60 @@
     "text": "Painting of lake and southern headland",
     "enumeration": "9"
    },
-   "solution": "LANDSCAPE"
+   "solution": "LANDSCAPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LANDSCAPE",
+    "definitions": [
+     {
+      "text": "Painting",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the abbreviation for lake"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "southern",
+      "gives": "S",
+      "note": "S is the abbreviation for southern"
+     },
+     {
+      "clueFragment": "headland",
+      "gives": "CAPE",
+      "note": "a cape is a headland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "AND",
+      "S",
+      "CAPE"
+     ]
+    },
+    "explanation": {
+     "surface": "A picture of a lake and a southern promontory.",
+     "definitionFit": "A landscape is a picture of natural inland scenery, a genre of painting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1180,82 @@
     "text": "Lion-tamer's opening following my act, is weird and wonderful",
     "enumeration": "8"
    },
-   "solution": "MYSTICAL"
+   "solution": "MYSTICAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MYSTICAL",
+    "definitions": [
+     {
+      "text": "wonderful",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "weird",
+      "for": "anagram",
+      "note": "weird means strange and odd, so the letters are made into a strange new order"
+     },
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "opening means the start, so only the first letter is used"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means this piece comes after the others"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "my",
+      "gives": "MY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "act, is",
+      "gives": "ACTIS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Lion-tamer's",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of Lion-tamer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MY",
+      "STICA",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACTIS",
+       "gives": "STICA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A circus performer boasts that his act is strange and marvellous.",
+     "walkthrough": "'weird and wonderful' reads as a stock phrase, but 'weird' is the anagram signal and only 'wonderful' is the definition.",
+     "definitionFit": "Mystical describes something with spiritual, awe-inspiring significance beyond ordinary understanding, which is a sense of wonderful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "weird"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1279,59 @@
      }
     ]
    },
-   "solution": "LAURELANDHARDY"
+   "solution": "LAURELANDHARDY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LAUREL AND HARDY",
+    "definitions": [
+     {
+      "text": "Comedy stars",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out here means wrong or disordered, so these letters must be rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a lady",
+      "gives": "ALADY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "her lad, run",
+      "gives": "HERLADRUN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALADYHERLADRUN",
+       "gives": "LAURELANDHARDY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman and her boyfriend have fled, like characters in a comedy caper.",
+     "walkthrough": "'with' joins the fodder pieces and is not itself used; the letters are A LADY, HER LAD and RUN.",
+     "definitionFit": "Stan Laurel and Oliver Hardy were the famous slapstick double act of early Hollywood film."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1345,48 @@
     "text": "Egyptian god identified by very large woman",
     "enumeration": "6"
    },
-   "solution": "OSIRIS"
+   "solution": "OSIRIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OSIRIS",
+    "definitions": [
+     {
+      "text": "Egyptian god",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "identified by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very large",
+      "gives": "OS",
+      "note": "OS stands for outsize, a clothing size"
+     },
+     {
+      "clueFragment": "woman",
+      "gives": "IRIS",
+      "note": "Iris is a woman's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OS",
+      "IRIS"
+     ]
+    },
+    "explanation": {
+     "surface": "An Egyptian deity recognised by a very big woman.",
+     "definitionFit": "Osiris was the ancient Egyptian god of the dead and the afterlife."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1400,50 @@
     "text": "Dramatist organised polo and chess",
     "enumeration": "9"
    },
-   "solution": "SOPHOCLES"
+   "solution": "SOPHOCLES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOPHOCLES",
+    "definitions": [
+     {
+      "text": "Dramatist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "organised",
+      "for": "anagram",
+      "note": "organised means arranged into a new order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "polo and chess",
+      "gives": "POLOCHESS",
+      "note": "taken as written, skipping and"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POLOCHESS",
+       "gives": "SOPHOCLES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A playwright who set up games of polo and chess.",
+     "definitionFit": "Sophocles was an ancient Greek tragic playwright, author of Oedipus Rex and Antigone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "organised"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1457,47 @@
     "text": "Extremely drunk, failing to start game",
     "enumeration": "5"
    },
-   "solution": "LOTTO"
+   "solution": "LOTTO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LOTTO",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "failing to start",
+      "for": "deletion",
+      "note": "failing to start means the beginning is missing, so the first letter drops away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Extremely drunk",
+      "gives": "BLOTTO",
+      "note": "blotto is slang for very drunk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOTTO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone too drunk to get a game going.",
+     "definitionFit": "Lotto is a game of chance like bingo, and also a name for lotteries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "start"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1511,41 @@
     "text": "Beginning an attack",
     "enumeration": "5"
    },
-   "solution": "ONSET"
+   "solution": "ONSET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ONSET",
+    "definitions": [
+     {
+      "text": "Beginning",
+      "at": 0
+     },
+     {
+      "text": "an attack",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beginning",
+      "note": "first meaning: the start of something, such as winter"
+     },
+     {
+      "clueFragment": "an attack",
+      "note": "second meaning: an assault or onslaught"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as the opening of a battle; the two halves are separate meanings.",
+     "definitionFit": "Onset means both the start of something and, in older use, a military assault."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1559,57 @@
     "text": "One enthralled by name of Indian instrument",
     "enumeration": "5"
    },
-   "solution": "SITAR"
+   "solution": "SITAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SITAR",
+    "definitions": [
+     {
+      "text": "Indian instrument",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enthralled by",
+      "for": "container",
+      "note": "enthralled means held captive, so this piece sits inside another"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "name",
+      "gives": "STAR",
+      "note": "a star or big name is a celebrity"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "I",
+      "TAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone captivated by a big name in Indian music.",
+     "definitionFit": "The sitar is a long-necked plucked string instrument of classical Indian music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "name"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1623,48 @@
     "text": "Proper shock, opener getting dismissed",
     "enumeration": "5"
    },
-   "solution": "RIGHT"
+   "solution": "RIGHT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RIGHT",
+    "definitions": [
+     {
+      "text": "Proper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opener getting dismissed",
+      "for": "deletion",
+      "note": "in cricket a dismissed opener is out, so the first letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shock",
+      "gives": "FRIGHT",
+      "note": "a fright is a sudden shock"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket team's real shock when its opening batsman is out.",
+     "walkthrough": "The cricket picture makes opener a batsman, but it is the first letter of FRIGHT that is removed.",
+     "definitionFit": "Right can mean correct or fitting, the same sense as proper in 'the proper way'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "opener"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1678,69 @@
     "text": "Cut arm badly bathing at one — it's distressing",
     "enumeration": "9"
    },
-   "solution": "TRAUMATIC"
+   "solution": "TRAUMATIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TRAUMATIC",
+    "definitions": [
+     {
+      "text": "distressing",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "badly suggests things done wrong, so the letters are put in a new order"
+     },
+     {
+      "text": "bathing",
+      "for": "container",
+      "note": "bathing means immersing, so the other piece goes inside"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cut arm",
+      "gives": "CUTARM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "at one",
+      "gives": "ATI",
+      "note": "at as written, and one is I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAUM",
+      "ATI",
+      "C"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CUTARM",
+       "gives": "TRAUMC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Washing a badly cut arm is an upsetting experience.",
+     "definitionFit": "Something traumatic causes deep shock or upset, which is what distressing describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bathing"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1754,62 @@
     "text": "Man does engaging right dockers",
     "enumeration": "10"
    },
-   "solution": "STEVEDORES"
+   "solution": "STEVEDORES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "STEVEDORES",
+    "definitions": [
+     {
+      "text": "dockers",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "engaging",
+      "for": "container",
+      "note": "engaging means taking on or holding, so one piece holds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man",
+      "gives": "STEVE",
+      "note": "a man's name"
+     },
+     {
+      "clueFragment": "does",
+      "gives": "DOES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEVE",
+      "DO",
+      "R",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "A man takes on the right kind of workers at the docks.",
+     "walkthrough": "'Man' is any man's name; here it is STEVE.",
+     "definitionFit": "Stevedores are workers who load and unload ships, another word for dockers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Man"
+    }
+   }
   },
   {
    "number": 27,
@@ -449,7 +1823,38 @@
     "text": "Examination in East wing of castle",
     "enumeration": "4"
    },
-   "solution": "ORAL"
+   "solution": "ORAL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ORAL",
+    "definitions": [
+     {
+      "text": "Examination",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Examination",
+      "note": "the definition: a spoken test, as opposed to a written paper"
+     },
+     {
+      "clueFragment": "in East wing of castle",
+      "note": "read here as scene-setting for where such a test is held; no letter-by-letter wordplay for it has been found"
+     }
+    ],
+    "explanation": {
+     "surface": "A candidate sits a test in the east wing of a castle.",
+     "walkthrough": "UNRESOLVED: no abbreviation, selection, hidden or reversed reading of 'in East wing of castle' yields the answer, and no published parse was found. Only 'Examination' is secure; the clue may be corrupt.",
+     "definitionFit": "A viva or spoken test is commonly called by this adjective used as a noun, as in sitting your French orals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
