@@ -900,9 +900,15 @@ tools/test_difficulty_page.sh                 can /difficulty/ describe a rating
                                               matches today's weights, and leave no
                                               {{placeholder}} unfilled
 tools/progress.py                             per series and per day, how many puzzles are
-                                              known, acquired, filed, solved and hinted: the
+                                              known, acquired, filed, solved and hinted, and
+                                              how many are downloaded and still unread: the
                                               history /progress/ draws, read without touching
                                               the corpus
+tools/edition_backlog.py                      the read queue's size without planning it: per
+                                              series, the editions, Listener pages and Trove
+                                              articles on the media disk and how many no ledger
+                                              row has read, in puzzles; progress_record.py
+                                              records it nightly
 tools/progress_record.py                      writes that history: `record` nightly, and a
                                               one-off `backfill` from the files, the commit
                                               history and the saved coverage ledgers

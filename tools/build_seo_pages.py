@@ -1452,9 +1452,12 @@ def difficulty_page(idx):
 # -------------------------------------------------------------- progress page
 
 RATE_DAYS = 60   # days of per-day bars /progress/ draws
-SHOWN = (progress.ACQUIRED, progress.FILED, progress.SOLVED, progress.HINTED)
+# Solved is not paced: answers are found in the session that hints the puzzle,
+# so it moves with hinted and has no pace of its own.
+SHOWN = (progress.ACQUIRED, progress.FILED, progress.HINTED)
 PHASE_LABEL = {progress.KNOWN: "known to exist", progress.ACQUIRED: "acquired",
-               progress.FILED: "filed", progress.SOLVED: "solved", progress.HINTED: "hinted"}
+               progress.FILED: "filed", progress.SOLVED: "solved", progress.HINTED: "hinted",
+               progress.QUEUED: "downloaded, not read"}
 
 
 def short_day(iso):
@@ -1487,20 +1490,24 @@ def funnel_chart(tot):
     known = tot[progress.KNOWN]
     row, left, width = 30, 110, 400
     body = []
-    for i, ph in enumerate((progress.KNOWN, progress.ACQUIRED, progress.SOLVED, progress.HINTED)):
+    phases = [progress.KNOWN, progress.ACQUIRED, progress.QUEUED, progress.SOLVED, progress.HINTED]
+    if tot[progress.QUEUED] is None:
+        phases.remove(progress.QUEUED)
+    for i, ph in enumerate(phases):
         n, y = tot[ph] or 0, i * row
         w = width * min(n / known, 1)
         body.append(f'<text x="{left - 8}" y="{y + 18}" text-anchor="end">{PHASE_LABEL[ph]}</text>'
                     f'<rect class="track" x="{left}" y="{y + 5}" width="{width}" height="18"/>'
                     f'<rect class="ph-{progress.PHASES[ph]}" x="{left}" y="{y + 5}" width="{w:.1f}" height="18"/>'
                     f'<text x="{left + width + 6}" y="{y + 18}">{n:,} · {100 * n / known:.0f}%</text>')
-    return svg(left + width + 110, 4 * row + 4, "".join(body),
-               f"Every phase as a share of the {known:,} puzzles known to exist")
+    return svg(left + width + 110, len(phases) * row + 4, "".join(body),
+               f"Every phase as a share of the {known:,} puzzles known to exist; solved comes with "
+               "hinting, in the same session")
 
 
 def cumulative_chart(days):
     """Each phase's running total, one line a phase, over every day held."""
-    lines = {ph: progress.series_of(days, ph) for ph in SHOWN}
+    lines = {ph: pts for ph in SHOWN if (pts := progress.series_of(days, ph))}
     first = datetime.fromisoformat(next(iter(days)))
     span = max((datetime.fromisoformat(next(reversed(days))) - first).days, 1)
     top = max(n for pts in lines.values() for _, n in pts)
@@ -1530,7 +1537,7 @@ def cumulative_chart(days):
     body += [f'<text class="ph-{name} key" x="{W - R + 6}" y="{y + 4:.1f}">{name} {n:,}</text>'
              for y, name, n in ends]
     return svg(W, H, "".join(body), "Running totals by day: acquired counts the coverage ledger's "
-               "units and starts with the first saved ledger; filed, solved and hinted count puzzle files")
+               "units and starts with the first saved ledger; filed and hinted count puzzle files")
 
 
 def rate_chart(days, ph):
@@ -1583,7 +1590,7 @@ def series_chart(row):
     rowh, left, width = 24, 220, 330
     body = []
     for i, s in enumerate(order):
-        known, acquired, filed, solved, hinted = row[s]
+        known, acquired, filed, solved, hinted = row[s][:progress.DOWNLOADED]
         whole = known or filed
         if not whole:
             continue
@@ -1606,13 +1613,43 @@ def series_chart(row):
                "(the grey is still to find)")
 
 
+def queue_flow(days, window):
+    """(in, out) a day over the last `window` days: downloads, and first
+    reads (downloaded's gain less queued's); (None, None) with one night.
+    `days` are the recorded nights only: the build carries the last night's
+    queue to today, which would read as a day of no change."""
+    got = progress.rate(progress.series_of(days, progress.DOWNLOADED), window)
+    grew = progress.rate(progress.series_of(days, progress.QUEUED), window)
+    return (None, None) if got is None or grew is None else (got, got - grew)
+
+
+def flow_text(flow):
+    i, o = flow
+    return "from the second night" if i is None else f"+{i:,.0f} in, &minus;{o:,.0f} read"
+
+
+def queue_table(row, recorded):
+    """The queue by series: today's `row`, downloaded and not read, and
+    each series' 7-day flow over the `recorded` nights."""
+    rows = []
+    for s, c in sorted(row.items(), key=lambda kv: -(kv[1][progress.QUEUED] or 0)):
+        if c[progress.DOWNLOADED] is None:
+            continue
+        one = {d: {s: r[s]} for d, r in recorded.items() if s in r}
+        rows.append(f"<tr><td>{esc(series_name(s))}</td><td>{c[progress.QUEUED]:,}</td>"
+                    f"<td>{c[progress.DOWNLOADED]:,}</td><td>{flow_text(queue_flow(one, 7))}</td></tr>")
+    return ("<table><tr><th>Series</th><th>Not read</th><th>Downloaded</th><th>A day, last 7 days</th></tr>"
+            + "".join(rows) + "</table>")
+
+
 def progress_page(idx, today=None):
     """/progress/: tools/progress.py's history with today's index as its last
     day, as totals, paces and charts."""
     today = (today or london_today()).isoformat()
     files = progress.file_counts((p["series"], p.get("hasSolutions"), p.get("annotated"))
                                  for p in idx["puzzles"])
-    days = progress.with_today(progress.load(), files, today)
+    recorded = progress.load()
+    days = progress.with_today(recorded, files, today)
     tot = progress.totals(days[today])
     known = tot[progress.KNOWN]
     rows = []
@@ -1626,6 +1663,15 @@ def progress_page(idx, today=None):
                     f"<td>{n:,}</td><td>{share}</td><td>{per7 or 0:,.0f}</td>"
                     f"<td>{per30 or 0:,.0f}{'' if held >= 30 else f' ({held} days)'}</td>"
                     f"<td>{pace}</td></tr>")
+    queued = tot[progress.QUEUED]
+    if queued is not None:
+        f7, f30 = queue_flow(recorded, 7), queue_flow(recorded, 30)
+        drain = f7[1] - f7[0] if f7[0] is not None else None
+        rows.insert(1, f'<tr><td><span class="key-dot ph-queued"></span>{PHASE_LABEL[progress.QUEUED]}</td>'
+                       f"<td>{queued:,}</td><td>{100 * queued / known:.0f}%</td>"
+                       f"<td>{flow_text(f7)}</td><td>{flow_text(f30)}</td>"
+                       f"<td>{'' if drain is None else 'growing' if drain <= 0 else 'read in ' + at_pace(queued, drain)}"
+                       f"</td></tr>")
     table = ("<table><tr><th>Phase</th><th>Puzzles</th><th>Of known</th><th>A day, last 7 days</th>"
              "<th>A day, last 30 days</th><th>All known at the 7-day pace</th></tr>"
              + "".join(rows) + "</table>")
@@ -1646,10 +1692,16 @@ def progress_page(idx, today=None):
             '<p class="muted small-note"><strong>Known</strong> and <strong>acquired</strong> are '
             "the coverage ledger's counts, one per print date or number, so a reprint counts once. "
             "<strong>Filed</strong> counts puzzle files, <strong>solved</strong> the files with every "
-            "answer, <strong>hinted</strong> the files with every clue explained.</p>",
+            "answer, <strong>hinted</strong> the files with every clue explained. Answers are found "
+            "in the session that writes the hints, so solved has no pace of its own. "
+            "<strong>Downloaded, not read</strong> is the read queue: scans on disk (archive.org and "
+            "Gale newspaper editions, Gale Listener pages, Trove articles) never read yet, one puzzle "
+            "an edition or page, a Trove article counted at the share of read articles that held one; "
+            "its pace is downloads in and first reads out.</p>",
+            *(("<h2>The read queue</h2>", queue_table(days[today], recorded)) if queued is not None else ()),
             "<h2>Running totals</h2>", cumulative_chart(days),
             "<h2>A day at a time</h2>",
-            *(rate_chart(days, ph) for ph in (progress.FILED, progress.SOLVED, progress.HINTED)),
+            *(rate_chart(days, ph) for ph in (progress.FILED, progress.HINTED)),
             "<h2>By series</h2>", series_chart(days[today]),
             f'<p class="s-cta"><a class="cta" href="{BASE}/">Pick a puzzle &rarr;</a></p>',
             "</main>"]
