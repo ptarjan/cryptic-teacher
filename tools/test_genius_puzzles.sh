@@ -71,6 +71,34 @@ f = glob.glob("puzzles/genius/*/genius-135.json")
 if f:
     e = json.load(open(f[0]))["entries"][0]["clue"]
     print("genius-135-1a", E.printed(e), e.get("pairedCount"))
+
+# Layout faults that held 233 161 162 112 165 76 (2026-10-12).
+cl = G.parse_text("Genius No 233 Across 8 Bit of theatre role almost went wrong 9 Outlines injuries, losing time "
+                  "10 Amount of drink 11 Article about dancing in the Guardian? 12 Retreats in France from Poles "
+                  "All down clues and solutions are normal. All across ones are shifted. Down 1 Upshot mostly (6) 2 Shiner (4)")
+print("countless", [(c["lights"][0][0], c["clue"]) for c in cl["clues"][:6]])
+print("countless-preamble", cl["preamble"])
+lost = G.parse_text("Across 1 Light meat (6) Down 7 I live (4) 8 Dropping belt (4) 2 Amazing half day (10) 13 One taking over (8)")
+print("lost-leading-1", [c["lights"][0] for c in lost["clues"]])
+stray = G.parse_text("Across 1 Light meat (6) Down 5 Press carpet (6) 19 Feature of brute (8) 7 By one (7) 19 Feature of brute (8) 20 Germany (7)")
+print("stray-copy", [c["lights"][0][0] for c in stray["clues"] if c["lights"][0][1] == "down"])
+two = G.parse_text("Across 20 Short key (4,4) 22,17,3 Short key, article (6,7) 22,2,5 Overcome a novel (4,4,5) 23 Short book (3)")
+print("two-22s", [c["lights"] for c in two["clues"]])
+st = G.parse_text("Across 1 See special instructions 10 Make out (9) 26 See special instructions (8) Down 2 One (7)")
+print("stub-uncounted", [(c["lights"][0][0], c["clue"]) for c in st["clues"]])
+sl = [{"lights": [(12, "across")], "clue": "Heritage (3,8)", "enumeration": "3,8"},
+      {"lights": [(2, "down")], "clue": "See 12 across", "enumeration": None},
+      {"lights": [(12, "down")], "clue": "Jack (3)", "enumeration": "3"}]
+G.see_links(sl)
+print("see-way", sl[0]["lights"], sl[2]["lights"])
+print("unnumbered", G.unnumbered("Solutions to the remaining clues have their place About this (4,3) Anti pig (7) "
+                                 "Art in tears (7) Barren function (4,5) Boy (5)"),
+      G.unnumbered("8 Extremely insalubrious (8) 9 Novel (6) 10 Voyeur (13) 11 Story (9) 12 Vehicle (5)"))
+for n, want in ((161, None), (162, None), (165, 8)):
+    f = glob.glob(f"puzzles/genius/*/genius-{n}.json")
+    if f:
+        es = json.load(open(f[0]))["entries"]
+        print(f"filed-{n}", len(es), sum(bool(e["clue"].get("missing")) for e in es))
 PY
 )
 echo "$out" | sed 's/^/     /'
@@ -95,5 +123,14 @@ check "a count is not markup" "False" "$(get markup3)"
 check "the word class is not markup" "False" "$(get markup4)"
 check "no filed Genius carries markup" "[]" "$(get corpus-genius-clean)"
 check "genius-135 1-across prints (4,3) (7)" "After onset of winter, ordinary leaves disappear (4,3) (7) True" "$(get genius-135-1a)"
+check "a list printed without counts is cut at its clue numbers (233)" "[(8, 'Bit of theatre role almost went wrong'), (9, 'Outlines injuries, losing time'), (10, 'Amount of drink'), (11, 'Article about dancing in the Guardian?'), (12, 'Retreats in France from Poles'), (1, 'Upshot mostly (6)')]" "$(get countless)"
+check "the prose after a countless list stays the preamble" "All down clues and solutions are normal. All across ones are shifted." "$(get countless-preamble)"
+check "a number that lost its leading 1 is mended (161)" "[(1, 'across'), (7, 'down'), (8, 'down'), (12, 'down'), (13, 'down')]" "$(get lost-leading-1)"
+check "a stray copy of a later clue is dropped (162)" "[5, 7, 19, 20]" "$(get stray-copy)"
+check "two clues headed by one number both read (209)" "[[(20, 'across')], [(22, 'across'), (17, 'across'), (3, 'across')], [(22, 'across'), (2, 'across'), (5, 'across')], [(23, 'across')]]" "$(get two-22s)"
+check "See special instructions with no count is a stub; with one, a clue (112, 92)" "[(1, 'See special instructions'), (10, 'Make out (9)'), (26, 'See special instructions (8)'), (2, 'One (7)')]" "$(get stub-uncounted)"
+check "See 12 across joins 12 across, not 12 down (162)" "[(12, 'across'), (2, 'down')] [(12, 'down')]" "$(get see-way)"
+check "unnumbered clues in the preamble are counted; numbered ones are not (76, 157)" "5 0" "$(get unnumbered)"
+[ -z "$(get filed-165)" ] || check "genius-165 files its eight See-preamble lights unclued" "32 8" "$(get filed-165)"
 
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }

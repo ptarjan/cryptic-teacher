@@ -270,7 +270,7 @@ SECTION_AT = {"across": re.compile(r"\b(?:ACROSS|A[Cc]ross)\b(?=\s*\d)"),
 #: ("1 (6) 2 (6)": a light the puzzle leaves without a clue; one with words
 #: after it, "5 (2) What gets...", is a clue opening on a cross-reference).
 STUB = (r"(?:See\s+\d{1,2}(?:\s*(?:across|down))?(?![\w(])"
-        r"|\[unclued\]|\(See (?:special )?instructions\)|See (?:the )?preamble\b)")
+        r"|\[unclued\]|\(See (?:special )?instructions\)|See (?:the )?preamble\b|See (?:the )?(?:special )?instructions\b(?!\s*\())")
 CLUE_AT = re.compile(
     r"\s*(?P<head>\d{1,2}(?:\s*(?:across|down))?(?:\s*[,/&]\s*\d{1,2}(?:\s*(?:across|down))?)*)"
     rf"(?P<star>\*)?\s+(?P<text>{STUB}(?:\s*{fpp.ENUM_TEXT})?|{fpp.ENUM_TEXT}(?=\s*(?:\d|Down\b|$))|\S.*?{fpp.ENUM_TEXT})",
@@ -279,7 +279,7 @@ CLUE_AT = re.compile(
 STUB_COUNTED = re.compile(rf"({STUB})\s*{fpp.ENUM_TEXT}", re.IGNORECASE)
 
 
-UNCLUED_MARK = re.compile(r"(?i)\[unclued\]|\(See (?:special )?instructions\)|See (?:the )?preamble")
+UNCLUED_MARK = re.compile(r"(?i)\[unclued\]|\(See (?:special )?instructions\)|See (?:the )?(?:special )?(?:preamble|instructions)")
 
 
 def flat(raw):
@@ -294,26 +294,100 @@ def flat(raw):
                   lambda m: fpp.join_lines(m.group(1) + "-", m.group(2)), t)
 
 
+#: A clue head inside a run of clues printed without counts: a number after
+#: a word's end, before a capital ("... went wrong 9 Outlines ...").
+BARE_HEAD = re.compile(r"(?<=[A-Za-z?!'’”)]) (\d{1,2})\*? (?=[A-Z‘“\"'])")
+
+
+def countless(text, start, end, first, direction):
+    """(clues, end) for a run whose clues print no count (No 233's across
+    list, its lengths the gimmick's): text[start:end] cut at each bare head
+    whose number exceeds the last. The last clue runs to the end of the run,
+    or, when prose follows it there ("... instigation of evil All down clues
+    are normal."), up to the last capital before the prose's first full stop."""
+    run = text[start:end]
+    if re.search(fpp.ENUM_TEXT, run):
+        return None     # counts printed: a clue the reader misses, not a countless list (No 17's "(*,7)")
+    cuts, last = [(0, first)], first
+    for m in BARE_HEAD.finditer(run):
+        if int(m.group(1)) > last:
+            cuts.append((m.start(), int(m.group(1))))
+            last = int(m.group(1))
+    if len(cuts) < 3:
+        return None
+    clues = []
+    for i, (at, n) in enumerate(cuts):
+        to = cuts[i + 1][0] if i + 1 < len(cuts) else len(run)
+        body = re.sub(r"^\s*\d{1,2}(\*?)\s*", r"\1", run[at:to]).strip()
+        clues.append({"lights": [(n, direction)], "clue": body, "enumeration": None})
+    tail, stop = clues[-1]["clue"], len(run)
+    full = re.search(r"[.!?](?:\s|$)", tail)
+    caps = [m for m in re.finditer(r"\s(?=[A-Z][a-z])", tail[:full.start()])] if full else []
+    if caps and len(tail[:caps[-1].start()].split()) >= 2 and len(tail[caps[-1].start():full.start()].split()) >= 3:
+        clues[-1]["clue"] = tail[:caps[-1].start()].strip()
+        stop = run.rindex(tail) + caps[-1].start()
+    return clues, start + stop
+
+
+def in_order(clues):
+    """The clues up to the first whose number does not exceed the one
+    before, after mending two misprints that break the order:
+    a stray copy of a later clue (No 162 prints 19 down's clue again where
+    6 down would be) is dropped, and a number that lost its leading 1 (No
+    161's "2" between 8 and 13) is read as the one that fits between its
+    neighbours."""
+    clues, out, i = list(clues), [], 0
+    key = lambda c: (c["lights"][0], c["clue"])
+    while i < len(clues):
+        c, n = clues[i], clues[i]["lights"][0][0]
+        prev = out[-1]["lights"][0][0] if out else 0
+        nxt = clues[i + 1]["lights"][0][0] if i + 1 < len(clues) else None
+        i += 1
+        if c["enumeration"] and nxt is not None and nxt <= n and key(c) in map(key, clues[i:]):
+            continue                    # a stray copy: its own place comes later
+        if n > prev or (out and n == prev and c["lights"] != out[-1]["lights"]):
+            out.append(c)       # "22,17,3 ..." then "22,2,5 ...": No 209's two 22s
+        elif n < 10 and nxt is not None and prev < n + 10 < nxt:
+            out.append(dict(c, lights=[(n + 10, c["lights"][0][1])] + c["lights"][1:]))
+        else:
+            break
+    return out
+
+
 def section(text, start, direction):
-    """(clues, end) read one after another from text[start:]: a clue's first
-    number must exceed the one before, and the first stretch that is not a
-    clue ends the section."""
-    clues, last, pos = [], 0, start
+    """(clues, end) read one after another from text[start:]: clue numbers
+    rise (in_order mends a misprint), and the first stretch that is not a
+    clue ends the section. A first clue whose words run over more bare clue
+    heads ("8 Bit of ... wrong 9 Outlines ...") is a list printed without
+    counts, read by countless() up to the next heading."""
+    found, pos = [], start
     while True:
         m = CLUE_AT.match(text, pos)
         if not m:
             break
         lights = fpp.heads(m.group("head"), direction)
-        if not lights or lights[0][0] < last or (lights[0][0] == last and lights == clues[-1]["lights"]):
+        if not lights:
             break
         said = m.group("text").strip()
+        if not found:
+            inner = [int(h.group(1)) for h in BARE_HEAD.finditer(said)]
+            rising = [x for i, x in enumerate(inner) if x > lights[0][0] and all(x > y for y in inner[:i])]
+            if len(rising) >= 2:
+                heading = [h.start() for rx in SECTION_AT.values() for h in rx.finditer(text, m.start("text"))]
+                got = countless(text, m.start("head"), min(heading, default=len(text)), lights[0][0], direction)
+                if got:
+                    return got
         stub = STUB_COUNTED.fullmatch(said)
         body = (m.group("star") or "") + (stub.group(1) if stub else said)
         e = None if stub else fpp.ENUM.search(body)
-        clues.append({"lights": lights, "clue": body,
-                      "enumeration": e.group(1).strip() if e else None})
-        last, pos = lights[0][0], m.end()
-    return clues, pos
+        found.append(({"lights": lights, "clue": body,
+                       "enumeration": e.group(1).strip() if e else None}, m.end()))
+        pos = m.end()
+        if len(found) > 1 and lights == found[-2][0]["lights"]:
+            break
+    ends = {id(c): e for c, e in found}
+    clues = in_order(c for c, _ in found)
+    return clues, (ends[id(clues[-1])] if clues else start)
 
 
 def parse_text(text):
@@ -451,6 +525,7 @@ def read_pdf(path):
     out = parse_text(flat(raw))
     # A light printed "[unclued]" or "(See instructions)" has no clue: it is
     # left out, as an unclued light the clue list skips is.
+    out["marked"] = {l for c in out["clues"] if UNCLUED_MARK.fullmatch(c["clue"]) for l in c["lights"]}
     out["clues"] = [c for c in out["clues"] if not UNCLUED_MARK.fullmatch(c["clue"])]
     see_links(out["clues"])
     grid = fpp.read_grid(fpp.filled_rects(ops))
@@ -493,6 +568,7 @@ def read_article(number):
     out["number"] = out["number"] if out["number"] == int(number) else None
     by = re.search(r'"byline":"([^"]+)"', body)
     out["setter"] = out["setter"] or (by and by.group(1))
+    out["marked"] = {l for c in out["clues"] if UNCLUED_MARK.fullmatch(c["clue"]) for l in c["lights"]}
     out["clues"] = [c for c in out["clues"] if not UNCLUED_MARK.fullmatch(c["clue"])]
     see_links(out["clues"])
     images = []
@@ -532,7 +608,10 @@ def see_links(clues):
     for c in clues:
         m = c["enumeration"] is None and len(c["lights"]) == 1 and re.fullmatch(
             r"See (\d{1,2})(?:\s*(across|down))?", c["clue"], re.IGNORECASE)
-        lead = m and leaders.get(int(m.group(1)))
+        # "See 12 across" names its way: No 162 has a 12 down as well.
+        way = m and m.group(2) and m.group(2).lower()
+        lead = m and (next((x for x in clues if x["enumeration"] and x["lights"][0] == (int(m.group(1)), way)), None)
+                      if way else leaders.get(int(m.group(1))))
         if lead and c["lights"][0] not in lead["lights"] and not any(
                 l[0] == c["lights"][0][0] for l in lead["lights"][1:]):
             lead["lights"].append(c["lights"][0])
@@ -618,6 +697,18 @@ def blog_answers(rendered, clues):
 
 # ------------------------------------------------------------------ join
 
+#: Counts in the text left over from the numbered clues that make it an
+#: unnumbered clue list: a preamble prints one at most.
+UNNUMBERED_AT = 5
+
+
+def unnumbered(text):
+    """How many clues in text end on a count with no clue number before
+    their words: numbered ones left there are another misread (No 157)."""
+    parts = re.split(fpp.ENUM_TEXT, text or "")[:-1]
+    return sum(not re.match(r"\s*\d", x) for x in parts)
+
+
 def assemble(number, pdf, post, date, url):
     """(puzzle, None) or (None, (class, why not))."""
     if not pdf["text"]:
@@ -627,6 +718,12 @@ def assemble(number, pdf, post, date, url):
     pdf["setter"] = pdf["setter"] or post_setter(post)
     if not pdf["clues"]:
         return None, ("clue list unread", "")
+    # Clues printed with no number (No 76: "Solutions to the remaining clues
+    # have their indicated place", then an alphabetical list) fall out of the
+    # numbered runs into the preamble. Their lights are the solver's to find,
+    # and a post that prints answers only cannot place them.
+    if unnumbered(pdf["preamble"]) >= UNNUMBERED_AT:
+        return None, ("clue list unnumbered (jigsaw)", "clues printed with no number, in the preamble's place")
     if pdf["grid"] is None:
         return None, ("grid unread", "")
     why = fpp.grid_matches(pdf["grid"], pdf["clues"])
@@ -835,7 +932,13 @@ def assemble_altered(number, pdf, post, date, url):
     # A numbered light the clue list leaves out is unclued: it takes a word
     # the post prints beside its number, else its crossings' letters.
     unclued = [l for l in lights if l not in listed]
-    if unclued and not re.search(r"(?i)\bunclued|not clued|no clues?\b|without (?:a )?clues?", preamble):
+    # The clue list itself may say a light has no clue, printing "See
+    # preamble" or "[unclued]" in its place (No 165's eight theme lights):
+    # that is the setter's word as much as the preamble's, once the preamble
+    # it points to is read (No 112's points to a megaclue on a picture).
+    declared = bool(preamble) and set(unclued) <= pdf.get("marked", set())
+    if unclued and not declared and not re.search(
+            r"(?i)\bunclued|not clued|no clues?\b|without (?:a )?clues?", preamble):
         return None, f"{len(unclued)} lights unclued, and the preamble says none is"
     if len(unclued) > MOST_UNCLUED:
         return None, f"{len(unclued)} lights unclued: more than a preamble leaves, so the clue list is misread"
