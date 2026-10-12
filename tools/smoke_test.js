@@ -2629,7 +2629,13 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
     // answer as a word).
     const LADDER_PROSE = [...CLUE_TYPES.families.flatMap(f => [f.blurb, f.label]),
       ...CLUE_TYPES.types.flatMap(t => [t.blurb, t.label]),
-      ...rungTemplateProse(appSrc).map(t => t.replace(/<[^>]*>|&[#\w]+;/g, " "))]
+      ...rungTemplateProse(appSrc).map(t => t.replace(/<[^>]*>|&[#\w]+;/g, " ")),
+      // The rule chip's label, its lesson link and the general rules behind it
+      // (DEVICE_RULES, FAMILY_RULES) are written once for every clue too:
+      // "often flags the playful kind" is not a leak of FLAG.
+      "rule", "More in the lesson",
+      ...[...appSrc.slice(appSrc.indexOf("const DEVICE_RULES = {"), appSrc.indexOf("const SELECT_OPS"))
+        .matchAll(/"([^"]*)"/g)].map(m => m[1])]
       .map(t => (t || "").replace(/[^A-Za-z]/g, "").toUpperCase()).filter(Boolean);
     for (const cd of cds) {
       const ans = (cd.e.annotation.answer || "").replace(/[^A-Za-z]/g, "").toUpperCase();

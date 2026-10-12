@@ -7,10 +7,8 @@ after the day after the video's publish date; with no publish date it names no
 date.
 """
 import sys
-from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-from ctc_transcripts import title_facts  # noqa: E402
+from ctc_transcripts import title_facts
 
 CASES = [
     ('"Speed" solving The Times crossword: 24 Jan 18', None, ("times", "2018-01-24", None)),
