@@ -773,6 +773,15 @@ CLUES_ABOVE_SPAN = (800, 1700)
 OVERHANG = 40
 
 
+def clues_left(grid, title, margin=40):
+    """The x where the two clue columns over a clues-above grid start:
+    `margin` left of the grid, or of the title ("No. 15,302 ACROSS" heads
+    the across column) when it starts further left. The 1970s Telegraph
+    indents its grid under the clues, the Quick crossword's clues in the
+    gap: a crop from the grid's edge cut every across clue's number off."""
+    return min(grid[0] - margin, title[0] - margin)
+
+
 def gutter(lines, grid, top, lo=None, hi=None):
     """The x between two clue columns over the grid: the middle of the
     longest run of x in [lo, hi) (by default the grid's middle half) that
@@ -816,9 +825,10 @@ def windows(grid, third=None, margin=40, above=None, left=None, split=None, lead
     title's foot) down, comes first, and the column under the grid starts at
     `split` (lead_column(): the 1983-86 FT). The left
     column starts `margin` left of the grid (the Times outdents its numbers).
-    With `above`, (top, gutter, right), the two columns are over the grid
-    instead, from `top` down, split at the gutter, the right one ending at
-    `right` (it may overhang the grid). With `left`, (x0, gutter, bottom),
+    With `above`, (top, gutter, right[, x0]), the two columns are over the
+    grid instead, from `top` down, split at the gutter, the right one ending
+    at `right` (it may overhang the grid), the left starting at x0 (by
+    default `margin` left of the grid; clues_left()). With `left`, (x0, gutter, bottom),
     they are left of the grid from x0, split at the gutter, from LEFT_RISE
     over the grid's top down to `bottom`; with no gutter, they are one
     column (left_column()). Under the grid, the columns split at `split`
@@ -830,8 +840,8 @@ def windows(grid, third=None, margin=40, above=None, left=None, split=None, lead
             return [(x0, gx0 - 5, gx0 - 5, gy0 - LEFT_RISE)]
         return [(x0, split, split, gy0 - LEFT_RISE), (split, gx0 - 5, gx0 - 5, gy0 - LEFT_RISE)]
     if above:
-        top, split, right = above
-        return [(gx0 - margin, split, split, top), (split, right, right, top)]
+        top, split, right, x0 = (above + (gx0 - margin,))[:4]
+        return [(x0, split, split, top), (split, right, right, top)]
     mid = gx0 + (gx1 - gx0) / 2 - 10 if split is None else split
     out = [(gx0 - margin, mid, gx1 + 15, gy1 - 5), (mid, gx1 + 15, gx1 + 15, gy1 - 5)]
     if lead:
@@ -1293,20 +1303,21 @@ def lead_split(lines, grid, lead, margin=40):
     return lead + (gutter(lines, (gx0, bottom, gx1, bottom), gy1, gx0 - margin, gx0 + 10),)
 
 
-def rapid_lines(img, grid, which, cache_path, third=None, margin=40, above=None, left=None, lead=None):
+def rapid_lines(img, grid, which, cache_path, third=None, margin=40, above=None, left=None, lead=None, x0=None):
     """One recogniser's reading of the page under the grid (RapidOCR's, or
     Tesseract's for a TESS_MODELS reader), as djvu-style lines of one word each, in page
     coordinates; cached as JSON with the crop it read, so a reading of another
     crop is read again (a bare list kept no crop and is used as it stands).
     With `left`, (x0, bottom), the crop is left of the grid instead, from x0
-    and LEFT_RISE over the grid's top down to `bottom`."""
+    and LEFT_RISE over the grid's top down to `bottom`. With `above` (the
+    clues' top over the grid), `x0` is where they start (clues_left())."""
     gx0, gy0, gx1, gy1 = grid
     gw = gx1 - gx0
     box = (max(0, gx0 - margin), gy1, min(img.width, gx1 + RIGHT_REACH), min(img.height, int(gy1 + 1.8 * gw)))
     if third:
         box = (box[0], min(gy1, third[1]), min(img.width, gx1 + 15 + third[0]), box[3])
     if above is not None:
-        box = (max(0, gx0 - margin), max(0, int(above)), min(img.width, gx1 + OVERHANG), gy0)
+        box = (max(0, int(gx0 - margin if x0 is None else x0)), max(0, int(above)), min(img.width, gx1 + OVERHANG), gy0)
     if left:
         box = (max(0, int(left[0])), max(0, gy0 - LEFT_RISE), gx0, min(img.height, int(left[1])))
     if lead:
@@ -3135,6 +3146,7 @@ def read_puzzle(d, found, hit, solutions):
     # Clues over the grid: from the title line down, split where the fewest
     # words of any reading cross.
     top = hit["box"][1] - 10 if paper.clues_above else None
+    x0 = clues_left(gbox, hit["box"], m) if top is not None else None
     beside = side == "left"
     # The clues read from a crop left of the grid: two columns a grid's
     # width wide (beside), or the one column left_column() finds.
@@ -3142,7 +3154,7 @@ def read_puzzle(d, found, hit, solutions):
     crop = (gbox[0] - (gbox[2] - gbox[0]) - 60, left_bottom(gbox)) if beside else column and column[::2]
     lead = lead_column(hit["box"], gbox, m) if side == "right" else None
     rapid = {which: rapid_lines(img, gbox, which, CROPS / "rapid" / f"{key}.{reader_key(which)}.json", third, m, top,
-                                crop, lead) for which in READERS}
+                                crop, lead, x0) for which in READERS}
     # The scan's grid, read before the clues: the 1930 Times prints no
     # counts, so its clues take theirs from it.
     gpath = CROPS / "grids" / f"{key}.png"
@@ -3170,7 +3182,11 @@ def read_puzzle(d, found, hit, solutions):
                 pass
         texts = {k: counted(spaced(t), g) for k, t in texts.items()}
     elif top is not None:
-        above = (top, gutter(every, gbox, top), gutter(every, gbox, top, gbox[2] - OVERHANG, gbox[2] + OVERHANG))
+        # The gutter is sought in the middle of the columns' span: from the
+        # grid's left edge, or from x0 when the clues start further left.
+        span = min(gbox[0], x0 + m)
+        mid = (span + 0.3 * (gbox[2] - span), span + 0.75 * (gbox[2] - span)) if span < gbox[0] else (None, None)
+        above = (top, gutter(every, gbox, top, *mid), gutter(every, gbox, top, gbox[2] - OVERHANG, gbox[2] + OVERHANG), x0)
     if beside:
         left = left_columns(every, gbox)
     elif column:
