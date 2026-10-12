@@ -286,14 +286,25 @@ STUB_COUNTED = re.compile(rf"({STUB})\s*{fpp.ENUM_TEXT}", re.IGNORECASE)
 UNCLUED_MARK = re.compile(r"(?i)\[unclued\]|\(See (?:special )?instructions\)|See (?:the )?(?:special )?(?:preamble|instructions)")
 
 
-def flat(raw):
+def flat(raw, kerned=True):
     """The PDF's text as one line: pypdf's per-word and per-line breaks are
     all spaces, a capital kerned off its word ("T earful") rejoined, and a
     word hyphenated over a line break ("oth- erwise") joined when the join is
-    a word (fpp.join_lines)."""
+    a word (fpp.join_lines).
+
+    The kerning rejoin is for PDF text only (`kerned`), and only when the
+    join is a word: a clue can print a letter standing alone. genius-8's
+    "T going west in form of lottery" and "T with a long T wasting" (a T is
+    every theme word's stand-in) were filed "Tgoing" and "Twith ... Twasting"
+    when the rejoin ran over article text, which has no kerning — its
+    spaces are the page's own. "Ton hill" and "Tin 5" there join to words, so
+    no lexicon check can tell them apart: article text is never rejoined."""
     t = re.sub(r"[\u200b\u00ad]", "", raw)
     t = re.sub(r"\s+", " ", t).strip()
-    t = re.sub(r"\b([B-HJ-Z]) (?=[a-z]{2})", r"\1", t)
+    if kerned:
+        t = re.sub(r"\b([B-HJ-Z]) ([a-z]{2,})\b",
+                   lambda m: m.group(1) + m.group(2) if fpp.rank(m.group(1) + m.group(2)) is not None
+                   else m.group(0), t)
     return re.sub(r"\b([A-Za-z]+)- ([a-z]+)\b",
                   lambda m: fpp.join_lines(m.group(1) + "-", m.group(2)), t)
 
@@ -591,7 +602,7 @@ def article_text(body):
     t = " ".join(re.sub(r"<script.*?</script>|<style.*?</style>", " ", x, flags=re.S) for x in parts)
     t = html.unescape(re.sub(r"<[^>]+>", " ", t))
     t = re.sub(r"(?i)click here to access the print version|Photograph: \w+", " ", t)
-    return flat(t)
+    return flat(t, kerned=False)
 
 
 def read_article(number):

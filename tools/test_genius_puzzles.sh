@@ -67,6 +67,18 @@ for i, s in enumerate(['class="dcr-47amn7">', "dcr-47amn7", '<p>x</p>', "Plain w
 bad = [f for f in glob.glob("puzzles/genius/*/genius-*.json")
        if V.MARKUP_RE.search(json.dumps(json.load(open(f)), ensure_ascii=False).replace('\\"', '"'))]
 print("corpus-genius-clean", bad)
+
+# genius-8's article page prints a T standing for each theme word, as its
+# own word: "<strong>13</strong> T going west". Article text keeps it apart
+# (even where the join is a word, "Ton hill"); PDF text rejoins a capital
+# kerned off its word only when the join is one.
+g8 = ('<div data-gu-name="body" class="dcr-13wig6c"><p><strong>Across</strong><br/>'
+      '<strong>11</strong> T with a long T wasting nothing in 12, T: the key (4,10)<br/>'
+      '<strong>13</strong> T going west in form of lottery (7,3)<br/>'
+      '<strong>22</strong> An extended T on hill (4)</p></div>'
+      '<div data-gu-name="footer">Explore more on these topics</div>')
+print("letter-apart", [c["clue"] for c in G.parse_text(G.article_text(g8))["clues"]])
+print("kern-rejoin", G.flat("T earful T going T his"))
 f = glob.glob("puzzles/genius/*/genius-135.json")
 if f:
     e = json.load(open(f[0]))["entries"][0]["clue"]
@@ -175,6 +187,8 @@ check "a tag is markup" "True" "$(get markup2)"
 check "a count is not markup" "False" "$(get markup3)"
 check "the word class is not markup" "False" "$(get markup4)"
 check "no filed Genius carries markup" "[]" "$(get corpus-genius-clean)"
+check "an article's standalone letter stays a word (genius-8)" "['T with a long T wasting nothing in 12, T: the key (4,10)', 'T going west in form of lottery (7,3)', 'An extended T on hill (4)']" "$(get letter-apart)"
+check "a PDF capital kerned off its word rejoins only into a word" "Tearful T going This" "$(get kern-rejoin)"
 check "genius-135 1-across prints (4,3) (7)" "After onset of winter, ordinary leaves disappear (4,3) (7) True" "$(get genius-135-1a)"
 check "a list printed without counts is cut at its clue numbers (233)" "[(8, 'Bit of theatre role almost went wrong'), (9, 'Outlines injuries, losing time'), (10, 'Amount of drink'), (11, 'Article about dancing in the Guardian?'), (12, 'Retreats in France from Poles'), (1, 'Upshot mostly (6)')]" "$(get countless)"
 check "the prose after a countless list stays the preamble" "All down clues and solutions are normal. All across ones are shifted." "$(get countless-preamble)"
