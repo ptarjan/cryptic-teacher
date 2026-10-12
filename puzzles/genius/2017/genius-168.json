@@ -25,6 +25,9 @@
   "date": "2017-07-02",
   "check": "grid and clues read from the Guardian's printable PDF, its numbering matching the clue list; every fifteensquared answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -38,7 +41,43 @@
     "text": "Copy some data? Certainly",
     "enumeration": "4"
    },
-   "solution": "ACER"
+   "solution": "ACER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ACER",
+    "definitions": [
+     {
+      "text": "Copy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "'some' asks for only part of the words that follow, a run of letters sitting inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "data? Certainly",
+      "gives": "ACER",
+      "note": "the letters run across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A request to copy some data, answered with a cheerful yes.",
+     "walkthrough": "ACER is one of the nine related answers, all anagrams of ACER or CRATE, whose definitions the preamble says are swapped: 'Copy' really defines TRACE at 18 across, while ACER's own definition, 'Tree', sits in the clue for 21 across.",
+     "definitionFit": "The swapped definition fits its true owner: to trace a drawing is to copy it by following its lines through thin paper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Copy"
+    }
+   }
   },
   {
    "number": 2,
@@ -52,7 +91,55 @@
     "text": "Claymore chopped herb with magical powers",
     "enumeration": "4"
    },
-   "solution": "MOLY"
+   "solution": "MOLY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "MOLY",
+    "definitions": [
+     {
+      "text": "herb with magical powers",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chopped",
+      "for": "anagram",
+      "note": "chopping cuts something into pieces that can be put back together any way, so the letters get mixed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Claymore",
+      "gives": "CLAYMORE",
+      "note": "a claymore is a Scottish broadsword, taken here as plain letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOLY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LYMO",
+       "gives": "MOLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Highland sword has been used to chop up a magic herb.",
+     "walkthrough": "As the preamble warns, the wordplay here wrongly includes the letters of one of the nine related answers: take C, A, R, E (CARE) out of CLAYMORE and the four letters left are mixed up.",
+     "definitionFit": "Moly is the mythical plant Hermes gave Odysseus to protect him from Circe's spells, so it is a herb with magical properties."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chopped"
+    }
+   }
   },
   {
    "number": 3,
@@ -66,7 +153,49 @@
     "text": "Give someone else part, the one played briefly by Roger Moore?",
     "enumeration": "6"
    },
-   "solution": "RECAST"
+   "solution": "RECAST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RECAST",
+    "definitions": [
+     {
+      "text": "Give someone else part",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "gives": "RECA",
+      "note": "missing from the wordplay, as the preamble says: the letters of one of the four-letter group (ACER, ACRE, RACE, CARE)"
+     },
+     {
+      "clueFragment": "the one played briefly by Roger Moore",
+      "gives": "ST",
+      "note": "Roger Moore played Simon Templar, The Saint, on television; Saint is shortened to its usual abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RECA",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "A casting director thinks of handing a role to someone else, perhaps the one Roger Moore once played.",
+     "walkthrough": "This is one of the nine clues whose wordplay leaves out the letters of one of the nine related answers: only the Saint is clued, and four letters of the ACER group are missing in front of it.",
+     "definitionFit": "To recast a play is to assign a role to a different actor, so giving a part to someone else is exactly that."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Moore"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +215,70 @@
      }
     ]
    },
-   "solution": "LANDAREA"
+   "solution": "LANDAREA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "LAND AREA",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "centre of",
+      "for": "letter_selection",
+      "note": "the centre of a word is its middle letter, which is all that is kept"
+     },
+     {
+      "text": "repositioned as centre-right",
+      "for": "container",
+      "note": "the word is moved from the end to sit just right of the middle of the finished answer, inside the other pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "alliances",
+      "gives": "A",
+      "select": "middle",
+      "note": "the fifth of nine letters"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "ARE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "AND",
+      "ARE",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Political alliances are reshuffled so that a left-wing party ends up in the centre-right.",
+     "walkthrough": "One of the nine clues with no definition: it is defined by ACRE (5 down), a unit of land area. The setter explained that ARE moves to just right of the answer's centre, between LAND and the final A.",
+     "definitionFit": "An acre is a measure of land area, so the solution is what the answer at 5 down quantifies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "centre-right"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +292,65 @@
     "text": "Perhaps rebel girl returns without Boatman",
     "enumeration": "4"
    },
-   "solution": "ACRE"
+   "solution": "ACRE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion"
+    ],
+    "answer": "ACRE",
+    "definitions": [
+     {
+      "text": "Perhaps rebel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returns",
+      "for": "reversal",
+      "note": "returning means going back the way one came, so the name is read from right to left"
+     },
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "'without' means lacking, so the setter's letter is left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "ERICA",
+      "note": "a girl's name"
+     },
+     {
+      "clueFragment": "Boatman",
+      "gives": "I",
+      "note": "the setter refers to himself, so Boatman is I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACRE"
+     ],
+     "reversals": [
+      {
+       "from": "ERICA",
+       "to": "ACIRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rebellious girl comes back home, leaving the boatman behind.",
+     "walkthrough": "One of the nine related answers whose definitions are swapped: 'Perhaps rebel' belongs to REACT (29 across); ACRE's own definition, 'Measure in the field', is in the clue for 13 down.",
+     "definitionFit": "To rebel is one way to react against something, hence 'perhaps': the swapped definition fits REACT, not this entry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rebel"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +364,43 @@
     "text": "Two things that Alan Rusbridger was, one of which Katharine Viner isn't",
     "enumeration": "4"
    },
-   "solution": "HEED"
+   "solution": "HEED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEED",
+    "definedByPreamble": true,
+    "blocks": [
+     {
+      "clueFragment": "Two things that Alan Rusbridger was",
+      "gives": "HE",
+      "note": "first thing: a man, a he"
+     },
+     {
+      "clueFragment": "one of which Katharine Viner isn't",
+      "gives": "ED",
+      "note": "second thing: an editor, ED, which Viner, his successor at the Guardian, also is; she is not a he"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle about two Guardian editors: what the former one was that his successor is and is not.",
+     "walkthrough": "One of the nine clues with no definition: it is defined by CARE (28 down). Rusbridger edited the Guardian until 2015, when Katharine Viner took over.",
+     "definitionFit": "To heed something is to take care over it or pay attention, so the answer at 28 down serves as its synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Rusbridger"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +420,64 @@
      }
     ]
    },
-   "solution": "COMMONERA"
+   "solution": "COMMONERA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "COMMON ERA",
+    "definitions": [
+     {
+      "text": "Ad",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be in",
+      "for": "container",
+      "note": "'to be in' places the clued pieces inside something else, here letters the preamble supplies"
+     }
+    ],
+    "linkWords": [
+     "found"
+    ],
+    "blocks": [
+     {
+      "gives": "CERA",
+      "note": "missing from the wordplay, as the preamble says: the letters of one of the four-letter group, split around the clued pieces"
+     },
+     {
+      "clueFragment": "order",
+      "gives": "OM",
+      "note": "the Order of Merit, a British honour"
+     },
+     {
+      "clueFragment": "one day",
+      "gives": "MON",
+      "note": "Monday's abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OM",
+      "MON",
+      "ERA"
+     ]
+    },
+    "explanation": {
+     "surface": "An advertisement turns out to be in good order one day.",
+     "walkthrough": "The clue never mentions the outer letters: they are those of ACRE, which the preamble says are missing from this wordplay. 'Ad' looks like an advert; it is Anno Domini.",
+     "definitionFit": "Common Era (CE) is the secular name for the dating system marked AD, Anno Domini, so the abbreviation is its equivalent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Ad"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +491,45 @@
     "text": "Plot to get on top of the French?",
     "enumeration": "5"
    },
-   "solution": "MAPLE"
+   "solution": "MAPLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAPLE",
+    "definedByPreamble": true,
+    "linkWords": [
+     "to get on top of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plot",
+      "gives": "MAP",
+      "note": "to plot a course is to map it"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for 'the'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAP",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A schemer plans to get the better of the French.",
+     "walkthrough": "One of the nine clues with no definition: it is defined by ACER (1 down). The first piece sits on top of the second in this down entry.",
+     "definitionFit": "Acer is the botanical genus of the maples, so the answer at 1 down names this kind of tree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Plot"
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +543,44 @@
     "text": "Chest pains?",
     "enumeration": "5"
    },
-   "solution": "CRATE"
+   "solution": "CRATE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CRATE",
+    "definitions": [
+     {
+      "text": "Chest",
+      "at": 0
+     },
+     {
+      "text": "pains",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chest",
+      "note": "the wordplay: a large box or chest"
+     },
+     {
+      "clueFragment": "pains",
+      "note": "the swapped definition, which belongs to CARE at 28 down: to take pains is to take care"
+     }
+    ],
+    "explanation": {
+     "surface": "A patient asks about pains in the chest.",
+     "walkthrough": "One of the nine related answers whose definitions are swapped: 'Chest' gives this word, but 'pains' defines CARE (28 down). This entry's own definition, 'case', is in the clue for 29 across.",
+     "definitionFit": "A crate is a slatted wooden box, so it fits 'Chest'; 'pains' fits only its true owner, as care and pains both mean effort."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Chest"
+    }
+   }
   },
   {
    "number": 10,
@@ -176,7 +594,66 @@
     "text": "Artist's workplace is a gallery — that's in two ways",
     "enumeration": "7"
    },
-   "solution": "ATELIER"
+   "solution": "ATELIER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "ATELIER",
+    "definitions": [
+     {
+      "text": "Artist's workplace",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the abbreviation for 'that's' inside the pair of letters for the two ways"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a gallery",
+      "gives": "TATE",
+      "note": "the Tate is the London art gallery; the T at its start is one the preamble says is wrongly included"
+     },
+     {
+      "clueFragment": "two ways",
+      "gives": "LR",
+      "note": "left and right, two directions"
+     },
+     {
+      "clueFragment": "that's",
+      "gives": "IE",
+      "note": "i.e., id est, means 'that is'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATE",
+      "L",
+      "IE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist's studio is described as being a gallery as well, in two senses.",
+     "walkthrough": "One of the seven clues where a T is wrongly included or missing: the Tate gives its letters, but the first T must be dropped. The Tate is a well-known London art gallery.",
+     "definitionFit": "An atelier is a workshop or studio, especially one where a painter or designer works."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ways"
+    }
+   }
   },
   {
    "number": 11,
@@ -190,7 +667,42 @@
     "text": "Once again sail a familiar route",
     "enumeration": "5"
    },
-   "solution": "REPLY"
+   "solution": "REPLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REPLY",
+    "definedByPreamble": true,
+    "blocks": [
+     {
+      "clueFragment": "Once again",
+      "gives": "RE",
+      "note": "re- as a prefix means again"
+     },
+     {
+      "clueFragment": "sail a familiar route",
+      "gives": "PLY",
+      "note": "a ship that plies a route sails it regularly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "PLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor sets out on a well-known route once more.",
+     "walkthrough": "One of the nine clues with no definition: it is defined by REACT (29 across).",
+     "definitionFit": "To react is to respond, and a reply is a response, so the answer at 29 across gives its meaning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sail"
+    }
+   }
   },
   {
    "number": 12,
@@ -204,7 +716,71 @@
     "text": "Person with confused ideas, unfortunately declared in position of leader",
     "enumeration": "9"
    },
-   "solution": "ADDLEHEAD"
+   "solution": "ADDLEHEAD",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "ADDLEHEAD",
+    "definitions": [
+     {
+      "text": "Person with confused ideas",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "something that has gone unfortunately has gone wrong, so the letters are out of order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' puts the mixed letters inside the phrase for a leader's place"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "declared",
+      "gives": "DECLARED",
+      "note": "taken as written, before four letters are removed"
+     },
+     {
+      "clueFragment": "position of leader",
+      "gives": "AHEAD",
+      "note": "the leader of a race is ahead"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DDLE",
+      "HEAD"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DELD",
+       "gives": "DDLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A muddled person has, unfortunately, been declared the leader.",
+     "walkthrough": "One of the nine clues whose wordplay wrongly includes a related answer's letters: C, A, R and E (CARE, 28 down) must be removed before the remaining four are mixed.",
+     "definitionFit": "An addlehead is a muddled, foolish person whose thinking is addled, or confused."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "declared"
+    }
+   }
   },
   {
    "number": 13,
@@ -224,7 +800,55 @@
      }
     ]
    },
-   "solution": "CREWCUT"
+   "solution": "CREWCUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CREW CUT",
+    "definitions": [
+     {
+      "text": "style",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boatman's people",
+      "gives": "CREW",
+      "note": "a boat's crew"
+     },
+     {
+      "clueFragment": "with an element",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     },
+     {
+      "gives": "T",
+      "note": "missing from the wordplay, as the preamble says"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CREW",
+      "CU",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter's team have something stylish about them.",
+     "walkthrough": "One of the seven clues where a T is missing or wrongly included: here the final T is not clued at all.",
+     "definitionFit": "A crew cut is a very short haircut, so it is a hairstyle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "element"
+    }
+   }
   },
   {
    "number": 13,
@@ -238,7 +862,62 @@
     "text": "Measure in the field by taking radius from inside bomb damage",
     "enumeration": "5"
    },
-   "solution": "CATER"
+   "solution": "CATER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CATER",
+    "definitions": [
+     {
+      "text": "Measure in the field",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "deletion",
+      "note": "taking something away removes it, leaving the rest closed up"
+     },
+     {
+      "text": "from inside",
+      "for": "deletion",
+      "note": "'from inside' says the removed letter comes out of the middle of the word, not an end"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bomb damage",
+      "gives": "CRATER",
+      "note": "a bomb leaves a crater"
+     },
+     {
+      "clueFragment": "radius",
+      "gives": "R",
+      "note": "r is the usual symbol for radius"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ATER"
+     ]
+    },
+    "explanation": {
+     "surface": "A surveyor measures a field by working out the radius of a bomb crater.",
+     "walkthrough": "One of the nine related answers whose definitions are swapped: 'Measure in the field' defines ACRE (5 down), and this word's own definition, 'Furnish', is in the clue for 27 down.",
+     "definitionFit": "An acre is a unit of land area, a measure of fields, so the swapped definition suits 5 down rather than this entry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "field"
+    }
+   }
   },
   {
    "number": 14,
@@ -265,7 +944,49 @@
     "text": "Disaster for marines",
     "enumeration": "7"
    },
-   "solution": "REMAINS"
+   "solution": "REMAINS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REMAINS",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "Disaster",
+      "for": "anagram",
+      "note": "a disaster throws everything into chaos, so the letters come out jumbled"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "marines",
+      "gives": "MARINES",
+      "note": "taken as written, ready to be mixed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MARINES",
+       "gives": "REMAINS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A military calamity strikes the marines.",
+     "walkthrough": "One of the nine clues with no definition: it is defined by TRACE (18 across).",
+     "definitionFit": "Remains are what is left behind, and a trace is a surviving mark or vestige, so the answer at 18 across gives its sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Disaster"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1000,50 @@
     "text": "He keeps a staff of millions",
     "enumeration": "5"
    },
-   "solution": "MACER"
+   "solution": "MACER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MACER",
+    "definitions": [
+     {
+      "text": "He keeps a staff",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "m is the abbreviation for million"
+     },
+     {
+      "gives": "ACER",
+      "note": "missing from the wordplay, as the preamble says: one of the nine related answers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ACER"
+     ]
+    },
+    "explanation": {
+     "surface": "A boss keeps a workforce numbering millions.",
+     "walkthrough": "One of the nine clues whose wordplay leaves out the letters of a related answer: only M is clued, and ACER must follow it unprompted.",
+     "definitionFit": "A macer is an official who carries a mace, a ceremonial staff, especially in Scottish courts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "staff"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1057,60 @@
     "text": "Plots positions against the party line? Not in this place",
     "enumeration": "5"
    },
-   "solution": "SITES"
+   "solution": "SITES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SITES",
+    "definitions": [
+     {
+      "text": "Plots",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not",
+      "for": "deletion",
+      "note": "'not' excludes the words that follow, so their letters are taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "positions against the party line",
+      "gives": "HERESIES",
+      "note": "heresies are opinions against official doctrine"
+     },
+     {
+      "clueFragment": "in this place",
+      "gives": "HERE",
+      "note": "here means in this place"
+     },
+     {
+      "gives": "T",
+      "note": "missing from the wordplay, as the preamble says"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "T",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "A question of whether certain plots are dissenting views, and not to be held here.",
+     "walkthrough": "One of the seven clues where a T is missing: the deletion leaves four letters, and the unclued T goes between the second and third.",
+     "definitionFit": "Sites and plots are both pieces of land set aside for building, so one serves as a synonym of the other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Plots"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1124,43 @@
     "text": "Dash a dash",
     "enumeration": "5"
    },
-   "solution": "TRACE"
+   "solution": "TRACE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRACE",
+    "definitions": [
+     {
+      "text": "Dash",
+      "at": 0
+     },
+     {
+      "text": "a dash",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dash",
+      "note": "the swapped definition, belonging to RACE at 27 down: to dash is to race"
+     },
+     {
+      "clueFragment": "a dash",
+      "note": "the wordplay: a dash of something is a tiny amount of it"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "One of the nine related answers whose definitions are swapped: 'a dash' gives this word, while 'Dash' defines RACE (27 down). Its own definition, 'Copy', is in the clue for 1 down.",
+     "definitionFit": "A trace is a very small quantity, as is a dash of milk; only the second meaning belongs to this entry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dash"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1180,55 @@
      }
     ]
    },
-   "solution": "ARALSEA"
+   "solution": "ARALSEA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ARAL SEA",
+    "definitions": [
+     {
+      "text": "What category should this be in? Lakes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "subject to revision",
+      "for": "anagram",
+      "note": "something subject to revision gets rewritten, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "atlas are",
+      "gives": "ATLASARE",
+      "note": "taken as written; one T is wrongly included, as the preamble says"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALASARE",
+       "gives": "ARALSEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mapmaker wonders how to classify a lake whose atlas entry keeps being revised.",
+     "walkthrough": "One of the seven clues where a T is wrongly included: drop it from the fodder. The Aral Sea is a lake despite its name, and has shrunk so much that atlases keep redrawing it.",
+     "definitionFit": "The Aral Sea in Central Asia is a large salt lake called a sea, so which category it belongs to is a fair question."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "atlas"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1252,63 @@
    "group": [
     "20-across",
     "14-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "TEA CHEST",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "to take no part in",
+      "for": "deletion",
+      "note": "taking no part means staying out, so these letters are removed from the word that follows"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trains",
+      "gives": "TEACHES",
+      "note": "to train someone is to teach them"
+     },
+     {
+      "clueFragment": "transport",
+      "gives": "TRANSPORT",
+      "note": "taken as written, before letters are removed"
+     },
+     {
+      "clueFragment": "organised",
+      "gives": "RAN",
+      "note": "to run an event is to organise it"
+     },
+     {
+      "clueFragment": "diversion",
+      "gives": "SPORT",
+      "note": "sport is a pastime or diversion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEACHES",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A rail enthusiast organises a diversion but declines to take any part in the transport.",
+     "walkthrough": "One of the nine clues with no definition: it is defined by CRATE (9 across). Removing the organised diversion from the last word leaves just its first letter.",
+     "definitionFit": "A tea chest is a large wooden packing box for tea, so the crate at 9 across describes it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Trains"
+    }
+   }
   },
   {
    "number": 20,
@@ -365,7 +1322,54 @@
     "text": "It's cooked on a surface that's flat or level, they say",
     "enumeration": "8"
    },
-   "solution": "TORTILLA"
+   "solution": "TORTILLA",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "TORTILLA",
+    "definitions": [
+     {
+      "text": "It's cooked on a surface that's flat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "they say",
+      "for": "homophone",
+      "note": "'they say' points to how something is spoken rather than how it is written"
+     }
+    ],
+    "blocks": [
+     {
+      "gives": "T",
+      "note": "missing from the wordplay, as the preamble says"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "level",
+      "gives": "TILLA",
+      "soundsLike": "TIER",
+      "note": "a tier is a level; in a non-rhotic accent it is said 'tee-uh', the end of the Spanish word"
+     }
+    ],
+    "explanation": {
+     "surface": "A recipe says something is cooked on a flat or level surface.",
+     "walkthrough": "One of the seven clues where a T is missing: the opening T is not clued, and 'or tier' spoken aloud is the rest of the word.",
+     "definitionFit": "A tortilla is a flat Mexican bread cooked on a griddle, a flat hot plate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "level"
+    }
+   }
   },
   {
    "number": 21,
@@ -379,7 +1383,44 @@
     "text": "Tree root report",
     "enumeration": "5"
    },
-   "solution": "CARET"
+   "solution": "CARET",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CARET",
+    "definitions": [
+     {
+      "text": "Tree",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "report",
+      "for": "homophone",
+      "note": "a report is something said aloud, so the word is to be heard, not read"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "root",
+      "gives": "CARET",
+      "soundsLike": "CARROT",
+      "note": "a carrot is a root vegetable"
+     }
+    ],
+    "explanation": {
+     "surface": "A survey report on the roots of a tree.",
+     "walkthrough": "One of the nine related answers whose definitions are swapped: 'Tree' defines ACER (1 down), and this word's own definition, 'put in a few words here', is in the clue for 28 down.",
+     "definitionFit": "Acer is the maple genus, so 'Tree' fits the answer at 1 down and not this proofreader's mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "root"
+    }
+   }
   },
   {
    "number": 22,
@@ -393,7 +1434,49 @@
     "text": "Alternatively, a source of power",
     "enumeration": "7"
    },
-   "solution": "REACTOR"
+   "solution": "REACTOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REACTOR",
+    "definitions": [
+     {
+      "text": "a source of power",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "gives": "REACT",
+      "note": "missing from the wordplay, as the preamble says: one of the nine related answers"
+     },
+     {
+      "clueFragment": "Alternatively",
+      "gives": "OR",
+      "note": "'or' introduces an alternative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REACT",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "An alternative power supply is being proposed.",
+     "walkthrough": "One of the nine clues whose wordplay leaves out a related answer: only the final two letters are clued, and the answer at 29 across must be supplied in front.",
+     "definitionFit": "A nuclear reactor generates the heat that drives turbines in a power station."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Alternatively"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1490,46 @@
     "text": "Weathermen: these are essential to global ecosystem",
     "enumeration": "7"
    },
-   "solution": "FORESTS"
+   "solution": "FORESTS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "FORESTS",
+    "definitions": [
+     {
+      "text": "these are essential to global ecosystem",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     ":"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Weathermen",
+      "gives": "FORECASTERS",
+      "note": "weathermen forecast the weather"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FORE",
+      "ST",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Weather forecasters reflect on what keeps the planet's ecosystem going.",
+     "walkthrough": "One of the nine clues whose wordplay wrongly includes a related answer's letters: remove C, A, E and R, the letters of CARE (28 down), and the rest reads straight on.",
+     "definitionFit": "Forests absorb carbon and shelter much of the world's wildlife, so they are vital parts of the planet's ecology."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Weathermen"
+    }
+   }
   },
   {
    "number": 23,
@@ -427,7 +1549,51 @@
      }
     ]
    },
-   "solution": "FUNRUN"
+   "solution": "FUNRUN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "FUN RUN",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "Endless",
+      "for": "deletion",
+      "note": "something endless has had its end cut off, so the last letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "supply of money",
+      "gives": "FUND",
+      "note": "a fund is a supply of money"
+     },
+     {
+      "clueFragment": "a pound",
+      "gives": "RUN",
+      "note": "to pound along is to run heavily"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FUN",
+      "RUN"
+     ]
+    },
+    "explanation": {
+     "surface": "A never-ending money supply, at the cost of a single pound.",
+     "walkthrough": "One of the nine clues with no definition: it is defined by RACE (27 down). The brackets make 'pound' look like the currency unit, but it is the verb for running heavily.",
+     "definitionFit": "A fun run is a charity race for amateurs, so the answer at 27 down describes it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pound"
+    }
+   }
   },
   {
    "number": 24,
@@ -441,7 +1607,45 @@
     "text": "Before? Before this might have been The Jam",
     "enumeration": "5"
    },
-   "solution": "SERVE"
+   "solution": "SERVE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SERVE",
+    "definedByPreamble": true,
+    "linkWords": [
+     "this might have been"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The Jam",
+      "gives": "PRESERVE",
+      "note": "jam is a fruit preserve; The Jam were also a British band"
+     },
+     {
+      "clueFragment": "Before",
+      "gives": "PRE",
+      "note": "pre- as a prefix means before"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SERVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about what came before The Jam, the British rock band.",
+     "walkthrough": "One of the nine clues with no definition: it is defined by CATER (13 down). Put 'before' in front of this word and you get a jam; so the answer is that jam with its prefix taken off.",
+     "definitionFit": "To cater is to provide and serve food, so the answer at 13 down gives its sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Jam"
+    }
+   }
   },
   {
    "number": 25,
@@ -455,7 +1659,55 @@
     "text": "Fashionable profession, no different from dropping out",
     "enumeration": "9"
    },
-   "solution": "INSERTION"
+   "solution": "INSERTION",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "INSERTION",
+    "definedByPreamble": true,
+    "indicators": [
+     {
+      "text": "dropping out",
+      "for": "deletion",
+      "note": "dropping out means leaving, so the letters for 'no different from' are taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fashionable",
+      "gives": "IN",
+      "note": "in means fashionable"
+     },
+     {
+      "clueFragment": "profession",
+      "gives": "ASSERTION",
+      "note": "a profession of belief is a declaration, an assertion"
+     },
+     {
+      "clueFragment": "no different from",
+      "gives": "AS",
+      "note": "'as' marks equality, being no different from"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SERTION"
+     ]
+    },
+    "explanation": {
+     "surface": "A trendy career is not unlike quitting school.",
+     "walkthrough": "One of the nine clues with no definition: it is defined by CARET (21 across).",
+     "definitionFit": "A caret is the editor's mark showing where an insertion goes, so the answer at 21 across stands for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "profession"
+    }
+   }
   },
   {
    "number": 25,
@@ -469,7 +1721,57 @@
     "text": "Sign of the cross seen in Saint Trinian's",
     "enumeration": "4"
    },
-   "solution": "INRI"
+   "solution": "INRI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "INRI",
+    "definitions": [
+     {
+      "text": "Sign of the cross",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen in",
+      "for": "letter_selection",
+      "note": "'seen in' says the letters are visible inside the words that follow, the end of one and the start of the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saint",
+      "gives": "INT",
+      "select": "last",
+      "note": "the last three letters"
+     },
+     {
+      "clueFragment": "Trinian's",
+      "gives": "TRI",
+      "select": "first",
+      "note": "the first three letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "RI"
+     ]
+    },
+    "explanation": {
+     "surface": "A cross is spotted at the anarchic girls' school of St Trinian's.",
+     "walkthrough": "One of the seven clues where a T is wrongly included: two Ts must come out of the hidden run. St Trinian's is the fictional unruly girls' school of cartoons and films.",
+     "definitionFit": "INRI, the initials of the Latin for 'Jesus of Nazareth, King of the Jews', is the inscription placed on the cross."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Saint"
+    }
+   }
   },
   {
    "number": 26,
@@ -483,7 +1785,56 @@
     "text": "Spoils of leading pairs of criminals robbing Atlantic escorts",
     "enumeration": "4"
    },
-   "solution": "ROTS"
+   "solution": "ROTS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "ROTS",
+    "definitions": [
+     {
+      "text": "Spoils",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leading pairs of",
+      "for": "letter_selection",
+      "note": "the leading pair of a word is its first two letters, taken from each word in turn"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "criminals robbing Atlantic escorts",
+      "gives": "CRROATES",
+      "select": "first",
+      "note": "two letters from the start of each of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "O",
+      "T",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "The haul taken by criminals who prey on Atlantic convoys.",
+     "walkthrough": "One of the nine clues whose wordplay wrongly includes a related answer's letters: remove C, R, A, E (RACE) from the eight letters and four remain in order.",
+     "definitionFit": "To spoil food is to let it go bad, which is what rots means as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spoils"
+    }
+   }
   },
   {
    "number": 27,
@@ -497,7 +1848,52 @@
     "text": "Dewy root crop and grain",
     "enumeration": "5"
    },
-   "solution": "RORIC"
+   "solution": "RORIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "RORIC",
+    "definitions": [
+     {
+      "text": "Dewy",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "root crop",
+      "gives": "CARROT",
+      "note": "the carrot is a root crop"
+     },
+     {
+      "clueFragment": "grain",
+      "gives": "RICE",
+      "note": "rice is a cereal grain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "O",
+      "RIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A dewy field of root vegetables and cereal.",
+     "walkthrough": "One of the nine clues whose wordplay wrongly includes a related answer: C, A, R, T, E (CARET) must be removed from CARROTRICE, leaving the rare word.",
+     "definitionFit": "Roric is a rare adjective from Latin ros, dew, meaning relating to or like dew."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "root"
+    }
+   }
   },
   {
    "number": 27,
@@ -511,7 +1907,60 @@
     "text": "Furnish row of houses, ignoring their oddities",
     "enumeration": "4"
    },
-   "solution": "RACE"
+   "solution": "RACE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "RACE",
+    "definitions": [
+     {
+      "text": "Furnish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "ignoring something leaves it out, so these letters are dropped"
+     },
+     {
+      "text": "oddities",
+      "for": "letter_selection",
+      "note": "the odd ones are the first, third and fifth letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "row of houses",
+      "gives": "TERRACE",
+      "note": "a terrace is a row of joined houses"
+     },
+     {
+      "clueFragment": "their",
+      "gives": "TER",
+      "select": "alternate",
+      "note": "letters one, three and five"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RACE"
+     ]
+    },
+    "explanation": {
+     "surface": "Furnishing a row of houses while overlooking the residents' quirks.",
+     "walkthrough": "One of the nine related answers whose definitions are swapped: 'Furnish' defines CATER (13 down), and this word's own definition, 'Dash', is in the clue for 18 across. A terrace is the British name for a row of joined houses.",
+     "definitionFit": "To cater is to furnish or supply food, so the swapped definition belongs to the answer at 13 down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "oddities"
+    }
+   }
   },
   {
    "number": 28,
@@ -525,7 +1974,49 @@
     "text": "Chairmen regularly put in a few words here",
     "enumeration": "4"
    },
-   "solution": "CARE"
+   "solution": "CARE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "CARE",
+    "definitions": [
+     {
+      "text": "put in a few words here",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chairmen",
+      "gives": "CARE",
+      "select": "alternate",
+      "note": "the first, third, fifth and seventh letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARE"
+     ]
+    },
+    "explanation": {
+     "surface": "Chairmen routinely say a few words at this point in a meeting.",
+     "walkthrough": "One of the nine related answers whose definitions are swapped: 'put in a few words here' defines CARET (21 across), and this word's own definition, 'pains', is in the clue for 9 across.",
+     "definitionFit": "A caret is the proofreader's mark showing where missing words should be inserted, so the swapped definition suits 21 across."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Chairmen"
+    }
+   }
   },
   {
    "number": 29,
@@ -539,7 +2030,47 @@
     "text": "About routine case",
     "enumeration": "5"
    },
-   "solution": "REACT"
+   "solution": "REACT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REACT",
+    "definitions": [
+     {
+      "text": "case",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "About",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "routine",
+      "gives": "ACT",
+      "note": "a performer's routine is an act"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "ACT"
+     ]
+    },
+    "explanation": {
+     "surface": "A note about an ordinary, routine case.",
+     "walkthrough": "One of the nine related answers whose definitions are swapped: 'case' defines CRATE (9 across), and this word's own definition, 'Perhaps rebel', is in the clue for 5 down.",
+     "definitionFit": "A crate is a packing case, so the swapped definition belongs to the answer at 9 across."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 30,
@@ -559,7 +2090,55 @@
      }
     ]
    },
-   "solution": "LOUDCHEER"
+   "solution": "LOUDCHEER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "LOUD CHEER",
+    "definitions": [
+     {
+      "text": "Strong acclaim",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "puzzle",
+      "for": "anagram",
+      "note": "to puzzle is to confuse, so the letters are muddled"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clued hotter",
+      "gives": "CLUEDHOTTER",
+      "note": "taken as written; two Ts are wrongly included, as the preamble says"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLUEDHOER",
+       "gives": "LOUDCHEER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Solvers loudly applaud a crossword that has been clued more fiercely.",
+     "walkthrough": "One of the seven clues where a T is wrongly included: drop both Ts from the fodder before rearranging.",
+     "definitionFit": "A loud cheer is a noisy shout of approval, which is how strong acclaim sounds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "puzzle"
+    }
+   }
   }
  ]
 }
