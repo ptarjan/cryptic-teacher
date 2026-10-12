@@ -1448,6 +1448,10 @@ def refuse_bad_clues_only(record):
     pid = record.get("id")
     flags = [("SCHEMA", pid, p) for p in puzzle_schema.validate_clues_only(record)]
     flags += [("LEAD", pid, _lead_finding(l, t)) for l, t in leading_quote.unclean_clues_only(record)]
+    import validate_annotations  # lazy: it imports this module's fetcher
+    markup = []
+    validate_annotations.text_errors(record, markup)
+    flags += [("SHAPE", pid, err) for err in markup]
     by =(record.get("source") or {}).get("acquiredBy")
     if clues_only.builder(record) is None:
         flags.append(("STATE", pid, (f"no builder in clues_only.BUILDERS for a "

@@ -66,6 +66,16 @@ def _tail(printed):
     return m
 
 
+def echoed(printed):
+    """True when a printed line closes on two counts of one total, "(4,3)
+    (7)", which split() reads as a count and its echo unless told the
+    source prints both (`paired`)."""
+    text, enum = split(printed, paired=True)
+    e = _tail(text or "")
+    return bool(enum and e and e.group(1) and not _paired(e)
+                and sum(counts(e.group(1))) == sum(counts(enum)))
+
+
 def two_counts(clue):
     """True when the clue's text closes on the first of two counts the source
     printed, the second being `enumeration`: "Mother's cross raised (3); (4)"
@@ -121,8 +131,12 @@ def disagrees(clue, totals=()):
     return m.group(1)
 
 
-def split(printed):
+def split(printed, paired=False):
     """A printed clue line -> (text or None, enumeration or None).
+
+    `paired`: the source prints two counts by design (the Genius's "(4,3)
+    (7)", the answer's then the entry's), so a first count with the same
+    total is no echo and stays on the text; the clue carries `pairedCount`.
 
     Only a bracket at the very end that holds counts is an enumeration; "See 5"
     and "(see 3dn.)" stay text. An empty "()" is dropped as a lost enumeration.
@@ -136,7 +150,7 @@ def split(printed):
     # A source that prints the count itself and has one appended after it
     # ("Set meal (5,1'4) (5,5)") leaves the same total twice; the echo is cut
     # with the count it repeats.
-    while enum and (e := _tail(text)) and e.group(1) and counts(e.group(1)) \
+    while enum and not paired and (e := _tail(text)) and e.group(1) and counts(e.group(1)) \
             and not _paired(e) and sum(counts(e.group(1))) == sum(counts(enum)):
         text = text[:e.start()].rstrip()
     return (text or None), enum
@@ -267,7 +281,7 @@ def clue(printed, **keys):
     """A clue object from a printed line plus its other keys (separators,
     italics, missing, ...); empty values are left out. A run of spaces in
     the words is cut to one (collapse_spaces)."""
-    text, enumeration = split(printed)
+    text, enumeration = split(printed, paired=bool(keys.get("pairedCount")))
     text, italics = collapse_spaces(text, keys.get("italics"))
     if "italics" in keys:
         keys = {**keys, "italics": italics}
@@ -330,7 +344,7 @@ def unsplit(clue, totals=()):
     over "5,5". A bracket whose numbers are no such total is the clue's own
     words ("... (1917)", "... (500)") and stays."""
     m = _tail(clue.get("text") or "")
-    if m and m.group(1) and _paired(m) and "enumeration" in clue:
+    if m and m.group(1) and (_paired(m) or clue.get("pairedCount")) and "enumeration" in clue:
         return False
     enum = split(clue.get("text", ""))[1]
     if enum is None:

@@ -259,7 +259,7 @@ ALTERED = re.compile(r"(?i)before (?:entry|being entered|entering)|(?:entry|ente
                      r"not be entered|non-words|entries are all|required entry|\bmodified\b|\bclash")
 #: The competition's small print, which is not the preamble.
 SMALL_PRINT = re.compile(r"(?i)register\s*once|\b(?:deadline|closing date|register\s*once|sign\s*(?:in|on)\s*to|"
-                         r"online competition|competition (?:closes|not open)|monthly prize|one entry only|alternate winner|privacy policy|terms and conditions|promoter|name or location|eligible|prize draw|entries received|email you|£\d+|(?:one |the )?winners?|personal data|don[’']t respond)\b")
+                         r"online competition|enter the competition|this grid was updated|click here for (?:the )?printable version|valid email address|resubmit your entry|competition (?:closes|not open)|monthly prize|one entry only|alternate winner|privacy policy|terms and conditions|promoter|name or location|eligible|prize draw|entries received|email you|£\d+|(?:one |the )?winners?|personal data|don[’']t respond)\b")
 #: A section's heading, as the PDFs case it ("ACross", "DoWN" too).
 SECTION_AT = {"across": re.compile(r"\b(?:ACROSS|A[Cc]ross)\b(?=\s*\d)"),
               "down": re.compile(r"\b(?:DOWN|D[Oo][Ww]N|Down)\b(?=\s*\d)")}
@@ -444,7 +444,10 @@ def read_pdf(path):
 
 #: Where an article's own text runs: its standfirst, then its body up to
 #: the topic links that follow every article.
-ARTICLE_PARTS = re.compile(r'data-gu-name="(?:standfirst|body)"(.*?)(?=data-gu-name="|Explore more on these topics|</article>)', re.S)
+#: The capture starts past the opening tag's close: from the attribute alone
+#: its rest (` class="dcr-47amn7">`) has no "<" for the tag strip to take,
+#: and was filed as the preamble of every Genius read off its article page.
+ARTICLE_PARTS = re.compile(r'data-gu-name="(?:standfirst|body)"[^>]*>(.*?)(?=<[^<>]*data-gu-name="|Explore more on these topics|</article>)', re.S)
 
 
 def article_text(body):
@@ -475,7 +478,7 @@ def read_article(number):
         except OSError:
             continue
     grid = grid_of_images(images, out["clues"])
-    out.update(grid=grid, kind="image" if grid else None, text=bool(text),
+    out.update(grid=grid, kind="image" if grid else None, text=bool(text), article=True,
                origin="the Guardian's article page and its grid picture")
     if grid:
         turn_links(out["clues"], set(rg.light_cells(grid)))
@@ -613,9 +616,12 @@ def assemble(number, pdf, post, date, url):
         if listed < lights:
             return None, ("lights left unclued", why)
         return None, ("grid numbering differs from clue list", why)
-    if not pdf["preamble"]:
+    # An article page (No 135 and before) prints no preamble in its text: what
+    # the puzzle says is on the grid picture alone, which is not OCRed. Its
+    # clues and grid are read all the same, and it files with no preamble.
+    if not pdf["preamble"] and not pdf.get("article"):
         return None, ("preamble unread", "")
-    if ALTERED.search(pdf["preamble"]):
+    if pdf["preamble"] and ALTERED.search(pdf["preamble"]):
         return None, ("preamble alters entries (needs an alteration per answer)", "")
     if post is None:
         return None, ("no fifteensquared post", "")
@@ -629,7 +635,7 @@ def assemble(number, pdf, post, date, url):
            "date": post["date"][:10], "series": CATEGORY, "number": number,
            "setter": pdf["setter"], "entries": entries}
     row = {"grid": pdf["grid"], "number": number, "how": pdf["origin"]}
-    puzzle, why = file_blog_puzzles.build(rec, row, SERIES, date, pdf["setter"])
+    puzzle, why = file_blog_puzzles.build(rec, row, SERIES, date, pdf["setter"], pairs=True)
     if why:
         if why == "answers disagree with the grid":
             return None, ("answers cross wrongly (entries altered)", why)
@@ -791,8 +797,12 @@ def assemble_altered(number, pdf, post, date, url):
     preamble's rule (ALTERED_BY) makes of its answer, and the grid takes exactly one
     choice of them with every crossing agreeing. An entry not its answer
     carries the answer as `alteration.from`."""
-    if post is None or not pdf["preamble"]:
+    # An article page printing no preamble (assemble) may still take the
+    # post's words where its layout hides them from blog_answers, but with no
+    # rule to read, every entry must be a word the post prints for it.
+    if post is None or not (pdf["preamble"] or pdf.get("article")):
         return None, "no post or no preamble"
+    preamble = pdf["preamble"] or ""
     lights = rg.light_cells(pdf["grid"])
     clued = [c for c in pdf["clues"] if c["enumeration"]]
     listed = {l for c in pdf["clues"] for l in c["lights"]}
@@ -801,7 +811,7 @@ def assemble_altered(number, pdf, post, date, url):
     # A numbered light the clue list leaves out is unclued: it takes a word
     # the post prints beside its number, else its crossings' letters.
     unclued = [l for l in lights if l not in listed]
-    if unclued and not re.search(r"(?i)\bunclued|not clued|no clues?\b|without (?:a )?clues?", pdf["preamble"]):
+    if unclued and not re.search(r"(?i)\bunclued|not clued|no clues?\b|without (?:a )?clues?", preamble):
         return None, f"{len(unclued)} lights unclued, and the preamble says none is"
     if len(unclued) > MOST_UNCLUED:
         return None, f"{len(unclued)} lights unclued: more than a preamble leaves, so the clue list is misread"
@@ -854,7 +864,9 @@ def assemble_altered(number, pdf, post, date, url):
             return None, f"{k[0]} {k[1]}: no {'/'.join(sorted(ops)) or 'alteration the preamble allows'} turns what the post prints ({', '.join(said[k][:3])}) into {w}"
         if frm != w:
             altered[k] = frm
-    if not altered and ALTERED.search(pdf["preamble"]):
+    if altered and not preamble:
+        return None, "an entry is not its answer, and no preamble printed says how"
+    if not altered and ALTERED.search(preamble):
         return None, "the post prints entries alone: no answer before its alteration"
     entries = fpp.entries_of(pdf, {k: w for k, w in fill.items() if k not in unclued}, pdf["grid"])
     entries += [{"number": n, "direction": d, "answer": fill[(n, d)], "clue": "Unclued",
@@ -863,7 +875,7 @@ def assemble_altered(number, pdf, post, date, url):
            "date": post["date"][:10], "series": CATEGORY, "number": number,
            "setter": pdf["setter"], "entries": entries}
     row = {"grid": pdf["grid"], "number": number, "how": pdf["origin"]}
-    puzzle, why = file_blog_puzzles.build(rec, row, SERIES, date, pdf["setter"])
+    puzzle, why = file_blog_puzzles.build(rec, row, SERIES, date, pdf["setter"], pairs=True)
     if why:
         return None, why
     by = {(e["number"], e["direction"]): e for e in puzzle["entries"]}
@@ -873,7 +885,8 @@ def assemble_altered(number, pdf, post, date, url):
         if len(next(c for c in clued if c["lights"][0] == k)["lights"]) > 1:
             return None, f"{k[0]} {k[1]} is a linked answer entered altered"
         by[k]["alteration"] = {"from": frm, "steps": steps_for(frm, fill[k], ops)}
-    puzzle["preamble"] = pdf["preamble"]
+    if preamble:
+        puzzle["preamble"] = preamble
     puzzle["source"] = {"url": url, "gridOrigin": "published"}
     puzzle["solutions"]["check"] = (
         f"grid and clues read from {pdf['origin']}, its numbering matching the "

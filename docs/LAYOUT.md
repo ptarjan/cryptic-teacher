@@ -2243,5 +2243,9 @@ tools/test_ctc_title_date.py                  does a CtC video title's date pin 
                                               the year is short or absent?
 tools/fetch_nation.py                         the Nation's weekly cryptic, from the magazine's
                                               own article pages
+tools/test_genius_puzzles.sh                  does tools/genius_puzzles.py read an old Guardian
+                                              article page's text without markup, keep the
+                                              Genius's printed pair of counts, and does the
+                                              write gate refuse a tag's remnant in any string?
 ```
 <!-- LAYOUT-END -->

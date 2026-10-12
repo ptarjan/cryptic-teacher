@@ -2539,7 +2539,12 @@ def check_blocks_carry_notes(entries, warnings):
                     f"is the teaching, and its absence is how an invented block hides")
 
 
-MARKUP_RE = re.compile(r"</?[a-zA-Z][^>]*>|&(?:[a-zA-Z]+|#\d+);")
+#: A tag, an entity, or a tag's remnant with its "<" lost to a reader that
+#: began mid-tag: genius's article reader filed ` class="dcr-47amn7">` as
+#: the preamble of 25 puzzles.
+MARKUP_RE = re.compile(r"</?[a-zA-Z][^>]*>|&(?:[a-zA-Z]+|#\d+);"
+                       r"|\b(?:class|style|id|href|src|data-[\w-]+)\s*=\s*[\"'][^\"']*[\"']"
+                       r"|\bdcr-[a-z0-9]{4,}\b")
 # Bytes 0x80-0x9F are punctuation in Windows-1252 and unprintable control
 # codes in Unicode, so a source decoded as latin-1 turns every dash and curly
 # quote into one of these and the browser draws a box. Some of them reached
@@ -2700,6 +2705,12 @@ def check_no_markup(puzzle, errors):
                           f"{text!r}: it keeps the print's own spelling of words in the text, so "
                           f"an edit to the text must carry it.")
 
+    text_errors(puzzle, errors)
+
+
+def text_errors(obj, errors):
+    """check_no_markup's walk: every string in `obj`, a puzzle or a
+    clues-only record, free of markup and of C1 control characters."""
     def walk(o, path):
         if isinstance(o, dict):
             for k, v in o.items():
@@ -2722,7 +2733,7 @@ def check_no_markup(puzzle, errors):
                                  f"decoded as latin-1, decode it as cp1252"
                                  if want else ", so a byte was lost in decoding")
                               + f". In {o[:70]!r}.")
-    walk(puzzle, "")
+    walk(obj, "")
 
 
 def committed_entries(path):

@@ -334,7 +334,7 @@ def worded(clue, enum):
     return with_enumeration(clue, enum)
 
 
-def build(rec, row, series, date, setter, typed=None):
+def build(rec, row, series, date, setter, typed=None, pairs=False):
     """(puzzle, None) or (None, reason it is not filed). `date` is the print
     date, or None where nothing proves one; `typed` is typed_counts()."""
     # A linked answer the post prints whole (the parser's `unsplit`) is
@@ -428,7 +428,10 @@ def build(rec, row, series, date, setter, typed=None):
         seps_of.update(seps_by_light)
     for e in out:
         seps = seps_of.get(entry_id(e))
-        e["clue"] = enumeration.clue(e["clue"], separators=seps)
+        # `pairs`: the source prints two counts by design (the Genius's
+        # "(4,3) (7)"), so both are kept, not the first cut as an echo.
+        e["clue"] = enumeration.clue(e["clue"], separators=seps,
+                                     pairedCount=pairs and enumeration.echoed(e["clue"]))
         if groups.get(entry_id(e), [None])[0] == entry_id(e):
             e["group"] = list(groups[entry_id(e)])
         solution = e.pop("solution")

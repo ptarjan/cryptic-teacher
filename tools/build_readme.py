@@ -628,6 +628,7 @@ LAYOUT = [
     ("fetching", "tools/test_gale_page_cap.sh", "is a Gale page laid out within gale_inbox.MAX_PAGE_PIXELS however small the grid it is scaled by (a crossword-centenary article's printed grid scaled the 2013-12-17 page to 363 MP), is a leaf staged before that cap shrunk to fit (its edition's input_hash moved, so its scan and read come due) and left alone the second time, and does a scan unit past its memory ceiling (edition_queue.UNIT_MEMORY_MB, RLIMIT_AS) end a failure naming it?"),
     ("fetching", "tools/test_ctc_title_date.py", "does a CtC video title's date pin its puzzle when the year is short or absent?"),
     ("fetching", "tools/fetch_nation.py", "the Nation's weekly cryptic, from the magazine's own article pages"),
+    ("fetching", "tools/test_genius_puzzles.sh", "does tools/genius_puzzles.py read an old Guardian article page's text without markup, keep the Genius's printed pair of counts, and does the write gate refuse a tag's remnant in any string?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
