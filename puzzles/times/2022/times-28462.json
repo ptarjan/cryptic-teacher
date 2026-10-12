@@ -23,6 +23,9 @@
   "date": "2022-12-01",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,50 @@
     "text": "Boxer who sat up after a clobbering",
     "enumeration": "8"
    },
-   "solution": "SOUTHPAW"
+   "solution": "SOUTHPAW",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOUTHPAW",
+    "definitions": [
+     {
+      "text": "Boxer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after a clobbering",
+      "for": "anagram",
+      "note": "something clobbered is battered out of shape, so the letters before it are knocked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "who sat up",
+      "gives": "WHOSATUP",
+      "note": "the three words taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WHOSATUP",
+       "gives": "SOUTHPAW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fighter is knocked down and only sits up once the beating is over.",
+     "definitionFit": "A southpaw is a left-handed fighter, one who leads with the right hand from a left-hand stance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clobbering"
+    }
+   }
   },
   {
    "number": 2,
@@ -50,7 +96,54 @@
     "text": "Cancel journey after a number of deliveries",
     "enumeration": "8"
    },
-   "solution": "OVERRIDE"
+   "solution": "OVERRIDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERRIDE",
+    "definitions": [
+     {
+      "text": "Cancel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one piece after another means it is placed later in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a number of deliveries",
+      "gives": "OVER",
+      "note": "in cricket an over is a set of six balls bowled"
+     },
+     {
+      "clueFragment": "journey",
+      "gives": "RIDE",
+      "note": "a ride is a trip or journey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "RIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A trip is called off after several parcels have been dropped off.",
+     "walkthrough": "'Deliveries' suggests post; in cricket a delivery is a ball bowled, six making an over.",
+     "definitionFit": "To override a decision is to cancel it by using superior authority."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "deliveries"
+    }
+   }
   },
   {
    "number": 3,
@@ -64,7 +157,44 @@
     "text": "Politician who raises the roof",
     "enumeration": "8"
    },
-   "solution": "THATCHER"
+   "solution": "THATCHER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "THATCHER",
+    "definitions": [
+     {
+      "text": "Politician",
+      "at": 0
+     },
+     {
+      "text": "who raises the roof",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Politician",
+      "note": "first meaning: Margaret ..., British prime minister 1979 to 1990"
+     },
+     {
+      "clueFragment": "who raises the roof",
+      "note": "second meaning, taken literally: a craftsman who puts up straw roofs"
+     }
+    ],
+    "explanation": {
+     "surface": "A politician who makes a lot of noise.",
+     "walkthrough": "'Raises the roof' is an idiom for being noisy, but here it is literal: building a roof of straw or reed.",
+     "definitionFit": "Margaret Thatcher was Britain's longest-serving modern prime minister, and a thatcher builds roofs of reed or straw."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "raises"
+    }
+   }
   },
   {
    "number": 4,
@@ -78,7 +208,66 @@
     "text": "Gave money to area beset by rising depression",
     "enumeration": "4"
    },
-   "solution": "PAID"
+   "solution": "PAID",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "PAID",
+    "definitions": [
+     {
+      "text": "Gave money to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down clue rising means read from bottom to top, so the word goes backwards"
+     },
+     {
+      "text": "beset by",
+      "for": "container",
+      "note": "beset means surrounded, so one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "depression",
+      "gives": "DIP",
+      "note": "a dip is a hollow in the ground"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "A",
+      "ID"
+     ],
+     "reversals": [
+      {
+       "from": "DIAP",
+       "to": "PAID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hands over cash to a region hit by a deepening economic slump.",
+     "definitionFit": "Paid is the past tense of pay, to give someone money owed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "depression"
+    }
+   }
   },
   {
    "number": 5,
@@ -92,7 +281,55 @@
     "text": "Is mixing with women attractive?",
     "enumeration": "7"
    },
-   "solution": "WINSOME"
+   "solution": "WINSOME",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WINSOME",
+    "definitions": [
+     {
+      "text": "attractive",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixing",
+      "for": "anagram",
+      "note": "things mixed are stirred together, so these letters combine in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "women",
+      "gives": "WOMEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISWOMEN",
+       "gives": "WINSOME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question of whether socialising with women makes one appealing.",
+     "definitionFit": "Winsome means charming in an engaging, innocent way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mixing"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +353,44 @@
      }
     ]
    },
-   "solution": "DOWNANDOUT"
+   "solution": "DOWNANDOUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DOWN-AND-OUT",
+    "definitions": [
+     {
+      "text": "Instructions to leave a high-rise building",
+      "at": 0
+     },
+     {
+      "text": "derelict",
+      "at": 43
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Instructions to leave a high-rise building",
+      "note": "first meaning, cryptic: go down the stairs, then out of the door"
+     },
+     {
+      "clueFragment": "derelict",
+      "note": "second meaning: a destitute, homeless person"
+     }
+    ],
+    "explanation": {
+     "surface": "A tall building being evacuated has been left to decay.",
+     "walkthrough": "'Derelict' seems to describe the building; it is the noun for a vagrant.",
+     "definitionFit": "A down-and-out is a destitute person with no home or money, which is what a derelict is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "derelict"
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +404,72 @@
     "text": "Lose current agent destroyed after attempt that's lost billions",
     "enumeration": "8"
    },
-   "solution": "STAGNATE"
+   "solution": "STAGNATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "STAGNATE",
+    "definitions": [
+     {
+      "text": "Lose current",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "destroyed",
+      "for": "anagram",
+      "note": "something destroyed is broken up, so the word just before has its letters reassembled"
+     },
+     {
+      "text": "that's lost billions",
+      "for": "deletion",
+      "note": "losing billions means dropping the letter that abbreviates a billion"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one piece after another means it is placed later in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attempt",
+      "gives": "STAB",
+      "note": "to have a stab is to make an attempt"
+     },
+     {
+      "clueFragment": "agent",
+      "gives": "AGENT",
+      "note": "taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STA",
+      "GNATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AGENT",
+       "gives": "GNATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spy's failed effort costing billions wipes out his up-to-date status.",
+     "walkthrough": "B is the usual abbreviation for billion. 'Current' sounds like being up to date, but it is a flow of water.",
+     "definitionFit": "Water that stagnates stops flowing, losing its current and becoming stale."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 8,
@@ -144,7 +483,55 @@
     "text": "Note tons absorbed in needlework",
     "enumeration": "8"
    },
-   "solution": "CROTCHET"
+   "solution": "CROTCHET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CROTCHET",
+    "definitions": [
+     {
+      "text": "Note",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absorbed in",
+      "for": "container",
+      "note": "something absorbed in another is taken inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "needlework",
+      "gives": "CROCHET",
+      "note": "crochet is needlework done with a hooked needle"
+     },
+     {
+      "clueFragment": "tons",
+      "gives": "T",
+      "note": "T is the abbreviation for tons"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRO",
+      "T",
+      "CHET"
+     ]
+    },
+    "explanation": {
+     "surface": "A message mentions masses of something absorbed in sewing.",
+     "walkthrough": "'Note' looks like a written message; it is a musical note.",
+     "definitionFit": "A crotchet is a musical note lasting one beat, called a quarter note in America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Note"
+    }
+   }
   },
   {
    "number": 9,
@@ -158,7 +545,55 @@
     "text": "A figure fancier and strangely tailored",
     "enumeration": "8"
    },
-   "solution": "IDOLATER"
+   "solution": "IDOLATER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IDOLATER",
+    "definitions": [
+     {
+      "text": "A figure fancier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strangely",
+      "for": "anagram",
+      "note": "done strangely means done in an odd way, so the following word's letters come out in an unexpected order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tailored",
+      "gives": "TAILORED",
+      "note": "taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TAILORED",
+       "gives": "IDOLATER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who likes a good figure is also oddly well dressed.",
+     "walkthrough": "'Figure fancier' suggests someone admiring a shapely body; here the figure is an idol, a carved image.",
+     "definitionFit": "An idolater worships images, so is literally a lover of carved figures."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "figure"
+    }
+   }
   },
   {
    "number": 10,
@@ -172,7 +607,47 @@
     "text": "Daughter perhaps is telling stories",
     "enumeration": "8"
    },
-   "solution": "RELATION"
+   "solution": "RELATION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RELATION",
+    "definitions": [
+     {
+      "text": "Daughter perhaps",
+      "at": 0
+     },
+     {
+      "text": "telling stories",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Daughter perhaps",
+      "note": "first meaning: a family member, of which a daughter is one example"
+     },
+     {
+      "clueFragment": "telling stories",
+      "note": "second meaning: the act of narrating or recounting"
+     }
+    ],
+    "explanation": {
+     "surface": "A girl is accused of making things up.",
+     "walkthrough": "'Telling stories' hints at lying, but here it simply means recounting, as in the relation of events.",
+     "definitionFit": "A relation is a kinsman such as a daughter, and also a narration or account of events."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "telling"
+    }
+   }
   },
   {
    "number": 11,
@@ -186,7 +661,51 @@
     "text": "Ray perhaps is small and perversely heavy",
     "enumeration": "8"
    },
-   "solution": "SUNLIGHT"
+   "solution": "SUNLIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUNLIGHT",
+    "definitions": [
+     {
+      "text": "Ray perhaps",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the standard abbreviation for small"
+     },
+     {
+      "clueFragment": "perversely heavy",
+      "gives": "UNLIGHT",
+      "note": "heavy put in a contrary, roundabout way: not light"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "UNLIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Ray is described as short and oddly weighty.",
+     "walkthrough": "'Perversely' asks for heavy to be expressed back to front in sense, as the negative of its opposite.",
+     "definitionFit": "A ray of the sun is one example of the light that sunlight is made up of."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ray"
+    }
+   }
   },
   {
    "number": 12,
@@ -200,7 +719,40 @@
     "text": "What could be flyover crew's problem on the earlier road",
     "enumeration": "10"
    },
-   "solution": "HIGHWAYMAN"
+   "solution": "HIGHWAYMAN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HIGHWAYMAN",
+    "definitions": [
+     {
+      "text": "What could be flyover crew's problem on the earlier road",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What could be flyover crew's",
+      "note": "surface reading: the staff working on a raised modern road"
+     },
+     {
+      "clueFragment": "problem on the earlier road",
+      "note": "setter's reading: the danger once faced by travellers on old coaching routes, a robber who manned them"
+     }
+    ],
+    "explanation": {
+     "surface": "Workers on a modern raised road face some difficulty compared with older routes.",
+     "walkthrough": "A flyover is a raised road, so its crew could be called high-way men; the real answer is the mounted robber of old roads.",
+     "definitionFit": "Mounted robbers held up coaches on the roads of the seventeenth and eighteenth centuries, a hazard for any traveller."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flyover"
+    }
+   }
   },
   {
    "number": 13,
@@ -214,7 +766,60 @@
     "text": "Account by America — time I have a word in case that's objective",
     "enumeration": "10"
    },
-   "solution": "ACCUSATIVE"
+   "solution": "ACCUSATIVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACCUSATIVE",
+    "definitions": [
+     {
+      "text": "a word in case that's objective",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Account",
+      "gives": "ACC",
+      "note": "ACC is the abbreviation for account"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "USA",
+      "note": "the United States of America"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "I have",
+      "gives": "IVE",
+      "note": "the contraction I've"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACC",
+      "USA",
+      "T",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "An American bookkeeper takes someone aside for a quiet word about an impartial case.",
+     "walkthrough": "'Objective' reads as impartial; in grammar the objective case marks the object of a verb.",
+     "definitionFit": "In grammar, a noun in the accusative stands as the object of a verb, the objective case."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "objective"
+    }
+   }
   },
   {
    "number": 14,
@@ -228,7 +833,44 @@
     "text": "Ruin — it lies west of here",
     "enumeration": "4"
    },
-   "solution": "DASH"
+   "solution": "DASH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DASH",
+    "definitions": [
+     {
+      "text": "Ruin",
+      "at": 0
+     },
+     {
+      "text": "it lies west of here",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ruin",
+      "note": "first meaning: to wreck, as hopes are wrecked"
+     },
+     {
+      "clueFragment": "it lies west of here",
+      "note": "second meaning, cryptic: the punctuation mark printed in this clue sits to the left of these words"
+     }
+    ],
+    "explanation": {
+     "surface": "Directions to a ruined building somewhere to the west.",
+     "walkthrough": "The second half refers to the clue itself: on the page, west means to the left, and the mark printed there is the answer.",
+     "definitionFit": "To dash hopes is to ruin them, and the long horizontal stroke in the clue is a punctuation dash."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "west"
+    }
+   }
   },
   {
    "number": 15,
@@ -242,7 +884,46 @@
     "text": "Southeastern battlefield's no open aspect",
     "enumeration": "7"
    },
-   "solution": "SECRECY"
+   "solution": "SECRECY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SECRECY",
+    "definitions": [
+     {
+      "text": "no open aspect",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Southeastern",
+      "gives": "SE",
+      "note": "the compass abbreviation"
+     },
+     {
+      "clueFragment": "battlefield's",
+      "gives": "CRECY",
+      "note": "Crécy in northern France, site of the 1346 English victory"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "CRECY"
+     ]
+    },
+    "explanation": {
+     "surface": "A battlefield in the southeast has no open views.",
+     "definitionFit": "Secrecy is the condition of keeping things hidden, the absence of any openness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "aspect"
+    }
+   }
   },
   {
    "number": 15,
@@ -256,7 +937,59 @@
     "text": "Disdainful second refusal over British blunder",
     "enumeration": "8"
    },
-   "solution": "SNOBBISH"
+   "solution": "SNOBBISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SNOBBISH",
+    "definitions": [
+     {
+      "text": "Disdainful",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "refusal",
+      "gives": "NO",
+      "note": "no is a refusal"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "blunder",
+      "gives": "BISH",
+      "note": "bish is British slang for a mistake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "NO",
+      "B",
+      "BISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A haughty second rejection is made over a British gaffe.",
+     "walkthrough": "In a down clue 'over' means placed above, so the earlier pieces sit before the last one.",
+     "definitionFit": "A snobbish person looks down on those they think beneath them, holding them in disdain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 16,
@@ -270,7 +1003,58 @@
     "text": "Vessel's company reported over girl, we hear?",
     "enumeration": "8"
    },
-   "solution": "CRUCIBLE"
+   "solution": "CRUCIBLE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CRUCIBLE",
+    "definitions": [
+     {
+      "text": "Vessel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "something reported is passed on by word of mouth, so the sound of the word counts"
+     },
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is a spoken sound, so it is the pronunciation that matters"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "CRU",
+      "soundsLike": "CREW",
+      "note": "a crew is a company of workers"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "CIBLE",
+      "soundsLike": "SYBIL",
+      "note": "Sybil is a girl's name"
+     }
+    ],
+    "explanation": {
+     "surface": "A ship's crew is gossiped about over some young woman.",
+     "walkthrough": "'Vessel' suggests a ship, which fits 'company'; it is a container for melting metal.",
+     "definitionFit": "A crucible is a heat-resistant pot in which metals are melted, a container or vessel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Vessel's"
+    }
+   }
   },
   {
    "number": 17,
@@ -284,7 +1068,49 @@
     "text": "Clubs undergoing trial for competition",
     "enumeration": "7"
    },
-   "solution": "CONTEST"
+   "solution": "CONTEST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONTEST",
+    "definitions": [
+     {
+      "text": "competition",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clubs",
+      "gives": "C",
+      "note": "C is the card-suit abbreviation for clubs"
+     },
+     {
+      "clueFragment": "undergoing trial",
+      "gives": "ONTEST",
+      "note": "something being tried out is on test"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ONTEST"
+     ]
+    },
+    "explanation": {
+     "surface": "Golf clubs are being trialled ahead of a tournament.",
+     "definitionFit": "A contest is a competition between rivals for a prize or victory."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Clubs"
+    }
+   }
   },
   {
    "number": 18,
@@ -298,7 +1124,58 @@
     "text": "What takes its toll of fish dangling from reel?",
     "enumeration": "8"
    },
-   "solution": "TURNPIKE"
+   "solution": "TURNPIKE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TURNPIKE",
+    "definitions": [
+     {
+      "text": "What takes its toll",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dangling from",
+      "for": "charade",
+      "note": "in a down clue something dangling hangs below, so it comes later in the answer"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reel",
+      "gives": "TURN",
+      "note": "to reel is to spin or turn"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "PIKE",
+      "note": "the pike is a freshwater fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TURN",
+      "PIKE"
+     ]
+    },
+    "explanation": {
+     "surface": "An angler's catch hangs from the reel, and something is costing someone dearly.",
+     "walkthrough": "'Takes its toll' is an idiom for doing damage; here it is literal, collecting tolls.",
+     "definitionFit": "A turnpike is a road where travellers pay a toll, originally at a gate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "toll"
+    }
+   }
   },
   {
    "number": 19,
@@ -312,7 +1189,77 @@
     "text": "Alone around home, ending in black and hard depression",
     "enumeration": "8"
    },
-   "solution": "SINKHOLE"
+   "solution": "SINKHOLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SINKHOLE",
+    "definitions": [
+     {
+      "text": "depression",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending in",
+      "for": "letter_selection",
+      "note": "the ending of a word is its final letter only"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means encircling, so one word goes round the pieces that follow"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Alone",
+      "gives": "SOLE",
+      "note": "sole means only or alone"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "being in means being at home"
+     },
+     {
+      "clueFragment": "black",
+      "gives": "K",
+      "select": "last",
+      "note": "the last letter of black"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil-grade abbreviation for hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IN",
+      "K",
+      "H",
+      "OLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone alone at home falls into a black, hard depression.",
+     "walkthrough": "'Depression' reads as low mood; it is a hollow in the ground.",
+     "definitionFit": "A sinkhole is a hollow in the ground made where the surface collapses, a kind of depression."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "depression"
+    }
+   }
   },
   {
    "number": 20,
@@ -326,7 +1273,46 @@
     "text": "Wife putting on fleecy layer",
     "enumeration": "7"
    },
-   "solution": "WADDING"
+   "solution": "WADDING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WADDING",
+    "definitions": [
+     {
+      "text": "fleecy layer",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     },
+     {
+      "clueFragment": "putting on",
+      "gives": "ADDING",
+      "note": "to put on is to add"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ADDING"
+     ]
+    },
+    "explanation": {
+     "surface": "A wife puts on a woolly garment.",
+     "definitionFit": "Wadding is soft fibrous padding used to line or stuff, a fluffy layer of material."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "putting"
+    }
+   }
   },
   {
    "number": 21,
@@ -340,7 +1326,47 @@
     "text": "Burden — and where it might fall",
     "enumeration": "4"
    },
-   "solution": "ONUS"
+   "solution": "ONUS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ONUS",
+    "definitions": [
+     {
+      "text": "Burden",
+      "at": 0
+     },
+     {
+      "text": "where it might fall",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Burden",
+      "note": "first meaning: a responsibility or duty"
+     },
+     {
+      "clueFragment": "where it might fall",
+      "note": "second meaning, read as two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A weight, and the question of who ends up carrying it.",
+     "walkthrough": "Split the answer into two words and the second half reads naturally: a burden falls on us.",
+     "definitionFit": "An onus is a duty or responsibility, and split into two words it says the load lands on ourselves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fall"
+    }
+   }
   },
   {
    "number": 22,
@@ -354,7 +1380,47 @@
     "text": "A little son being important",
     "enumeration": "10"
    },
-   "solution": "SMATTERING"
+   "solution": "SMATTERING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SMATTERING",
+    "definitions": [
+     {
+      "text": "A little",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the genealogical abbreviation for son"
+     },
+     {
+      "clueFragment": "being important",
+      "gives": "MATTERING",
+      "note": "to matter is to be important"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "MATTERING"
+     ]
+    },
+    "explanation": {
+     "surface": "A small boy thinks himself very important.",
+     "walkthrough": "'A little son' reads as one phrase, but the definition is just the first two words.",
+     "definitionFit": "A smattering is a small amount, especially a slight knowledge of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "little"
+    }
+   }
   },
   {
    "number": 23,
@@ -368,7 +1434,50 @@
     "text": "Frustrated Christian's superior and unruly fellow",
     "enumeration": "8"
    },
-   "solution": "BLIGHTED"
+   "solution": "BLIGHTED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLIGHTED",
+    "definitions": [
+     {
+      "text": "Frustrated",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Christian's superior",
+      "gives": "BLIGH",
+      "note": "Captain Bligh of the Bounty, whose first mate Fletcher Christian led the mutiny"
+     },
+     {
+      "clueFragment": "unruly fellow",
+      "gives": "TED",
+      "note": "a Ted, short for Teddy boy, was a rowdy 1950s British youth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLIGH",
+      "TED"
+     ]
+    },
+    "explanation": {
+     "surface": "A churchgoer's boss is irritated and a troublemaker.",
+     "walkthrough": "'Christian' looks like a believer; it is Fletcher Christian, mutineer on HMS Bounty.",
+     "definitionFit": "Blighted hopes are spoiled or thwarted ones, so the word fits frustrated plans."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Christian's"
+    }
+   }
   },
   {
    "number": 24,
@@ -382,7 +1491,52 @@
     "text": "See cricket perhaps missing runs",
     "enumeration": "4"
    },
-   "solution": "SPOT"
+   "solution": "SPOT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SPOT",
+    "definitions": [
+     {
+      "text": "See",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "missing means lacking, so the letter for the next word is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cricket perhaps",
+      "gives": "SPORT",
+      "note": "cricket is one example of a sport"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket scoring abbreviation for runs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPOT"
+     ]
+    },
+    "explanation": {
+     "surface": "Watch the cricket, perhaps, with no runs being scored.",
+     "definitionFit": "To spot something is to notice or catch sight of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "See"
+    }
+   }
   },
   {
    "number": 25,
@@ -396,7 +1550,62 @@
     "text": "Shut up Zulu bands performing around king",
     "enumeration": "8"
    },
-   "solution": "IMPRISON"
+   "solution": "IMPRISON",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "IMPRISON",
+    "definitions": [
+     {
+      "text": "Shut up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means encircling, so the bands go round the ruler named straight after"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Zulu bands",
+      "gives": "IMPIS",
+      "note": "an impi is a Zulu regiment of warriors"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R for rex, Latin for king"
+     },
+     {
+      "clueFragment": "performing",
+      "gives": "ON",
+      "note": "a performer is on stage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMP",
+      "R",
+      "IS",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "An order to silence Zulu musicians playing around their king.",
+     "walkthrough": "'Bands' suggests musical groups, but these are regiments of warriors.",
+     "definitionFit": "To shut someone up can mean to lock them away, which is what imprisoning does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bands"
+    }
+   }
   },
   {
    "number": 26,
@@ -410,7 +1619,60 @@
     "text": "Tsar following dictator killing off a popular composer",
     "enumeration": "8"
    },
-   "solution": "SULLIVAN"
+   "solution": "SULLIVAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SULLIVAN",
+    "definitions": [
+     {
+      "text": "popular composer",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "killing off a",
+      "for": "deletion",
+      "note": "killing off removes something entirely, here the single letter named straight after"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "one piece following another means it is placed after it in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dictator",
+      "gives": "SULLA",
+      "note": "Sulla was a dictator of ancient Rome"
+     },
+     {
+      "clueFragment": "Tsar",
+      "gives": "IVAN",
+      "note": "Ivan the Terrible, first Tsar of Russia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SULL",
+      "IVAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A Russian ruler succeeds a dictator who kills off a well-liked musician.",
+     "walkthrough": "Arthur Sullivan wrote the music for Gilbert and Sullivan's comic operas.",
+     "definitionFit": "Sir Arthur Sullivan composed tuneful light operas that made him one of the best-loved Victorian musicians."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "killing"
+    }
+   }
   },
   {
    "number": 27,
@@ -424,7 +1686,54 @@
     "text": "One harvesting fish circling at a particular point",
     "enumeration": "8"
    },
-   "solution": "GATHERER"
+   "solution": "GATHERER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GATHERER",
+    "definitions": [
+     {
+      "text": "One harvesting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circling",
+      "for": "container",
+      "note": "circling means going round, so one word wraps around the words after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "GAR",
+      "note": "the gar is a long-snouted fish"
+     },
+     {
+      "clueFragment": "at a particular point",
+      "gives": "THERE",
+      "note": "there means in that particular place"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GA",
+      "THERE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A fish swims round and round at one spot.",
+     "definitionFit": "A gatherer collects crops or wild food, the work of anyone bringing in a harvest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "circling"
+    }
+   }
   }
  ]
 }
