@@ -103,6 +103,9 @@ def _causes():
     out[("gale", "by-hand-only")] = Cause(
         "tools/gale_inbox.py", "only a Gale page Paul downloads by hand: "
         "tools/gale_inbox.py files what lands", False, False)
+    import genius_puzzles
+    for key, words in genius_puzzles.LOST_CAUSES.items():
+        out[("guardian", key)] = Cause("tools/genius_puzzles.py", words, False, False)
     out[("none", "no-source")] = Cause(
         "tools/first_issue.py", "no source we know prints it: find one (tools/first_issue.py SOURCES)", False, False)
     import file_blog_puzzles
@@ -416,6 +419,10 @@ def build(today=None):
             claim_dated(ledgers[s], blog, dates, cause)
         elif s in numbered:
             numbered[s][2].add((n, blog, cause))
+    if "genius" in numbered:
+        import genius_puzzles
+        for n, cause in genius_puzzles.LOST.items():
+            numbered["genius"][2].add((n, "guardian", cause))
     if "azed" in numbered:
         for n, cause in andlit_rows():
             numbered["azed"][2].add((n, "andlit", cause))
