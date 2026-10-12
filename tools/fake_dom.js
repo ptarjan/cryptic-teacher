@@ -531,7 +531,7 @@ function boot(opts) {
   if (options.index) options.index(global.window.CRYPTIC_INDEX);
 
   // app.js references bare identifiers window/document/localStorage/confirm via globals above
-  const appSrc = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+  const appSrc = fs.readFileSync(options.appPath || path.join(ROOT, "app.js"), "utf8");
   // abbreviations.js declares a bare `const`, which in the browser lands in the
   // shared global lexical scope every other classic script can see. new Function
   // gives each source its own scope instead, so the two are concatenated to put

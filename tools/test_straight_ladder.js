@@ -10,10 +10,11 @@ const { boot } = require("./fake_dom.js");
 let failures = 0;
 const check = (ok, msg) => { console.log((ok ? "ok   " : "FAIL ") + msg); if (!ok) failures++; };
 
-function open(id) {
-  const d = boot({ query: "?p=" + id, storage: { "ct:nux": "9" } });
+function open(id, want, appPath) {
+  const d = boot({ query: "?p=" + id, storage: { "ct:nux": "9" }, appPath });
   const puz = global.window.CRYPTIC_PUZZLES[id];
-  const e = puz.entries.find((x) => x.annotation);
+  const e = want ? puz.entries.find((x) => x.number === want.number && x.direction === want.direction)
+                 : puz.entries.find((x) => x.annotation);
   d.registry["clue-" + e.number + "-" + e.direction].listeners.click[0]();
   return {
     row: global.CRYPTIC_INDEX.puzzles.find((p) => p.id === id),
@@ -35,5 +36,19 @@ const CRYPTIC_RUNGS = /indicator|kind of clue|building blocks/i;
   check(c.row && !c.row.style, "(mirror) times-5's index row has no style");
   check(!c.note, "(mirror) times-5 says nothing about style");
   check(c.rungs.some((t) => /kind of clue/i.test(t)), "(mirror) times-5's ladder keeps the type rung: " + c.rungs.join(" | "));
+}
+// A straight-tagged puzzle can still hold a real wordplay clue (the tag is a
+// majority). times-26 31A has indicators, so it keeps its full ladder; f2c5f11f2f
+// (the first straight cut) dropped them there.
+{
+  const want = { number: 31, direction: "across" };
+  const s = open("times-26", want);
+  check(s.row && s.row.style === "straight", "times-26's index row is straight: " + JSON.stringify(s.row && s.row.style));
+  check(s.rungs.length === 5 && s.rungs.some((t) => /indicator/i.test(t)),
+    "times-26 31A (has indicators) keeps its full 5-step ladder: " + s.rungs.join(" | "));
+  if (process.env.OLD_APP) {
+    const o = open("times-26", want, process.env.OLD_APP);
+    check(o.rungs.length === 5, "OLD_APP times-26 31A ladder has 5 steps: " + o.rungs.length);
+  }
 }
 process.exit(failures ? 1 : 0);
