@@ -1780,6 +1780,20 @@ stats_blocks = 0.9
 got, info = f.read_solution(f.page(ed, 3), sol, ["..."])
 check("...and a noisy print of the puzzle's grid gives its bounded lights", ({"1-across": "ABC"}, False),
       (got, "refused" in info))
+# solved(): read_solution kept by what it reads from, so a re-read for a
+# clue-vote change runs no solution OCR; another grid or heading reads again.
+stats_blocks = 1.0
+seen.clear()
+first = f.solved(sol, ["..."])
+again = f.solved(sol, ["..."])
+check("a solution read once is kept: the second read opens no page and runs no OCR",
+      (({"1-across": "ABC"}, {"blocks": 1.0}), 1), (again, len(seen)))
+check("...and gives what the read gave", first, again)
+f.solved(sol, [".#."])
+f.solved({**sol, "box": (100, 100, 401, 140)}, [".#."])
+check("...read again for another grid or another heading box", 3, len(seen))
+check("solved() is not in read_solution's reach: solution_key() stays the reader's",
+      False, ("file_archive_org_puzzles", "solved") in set(code_reach.reach("file_archive_org_puzzles", {"read_solution"})))
 
 # bounded_light(): a light off a grid whose blocks read unsure stands only
 # where the image ends it with blocks and no lattice read another word there
