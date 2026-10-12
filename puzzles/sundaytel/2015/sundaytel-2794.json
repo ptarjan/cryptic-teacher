@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,44 @@
     "text": "Change into suit",
     "enumeration": "6"
    },
-   "solution": "BECOME"
+   "solution": "BECOME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BECOME",
+    "definitions": [
+     {
+      "text": "Change into",
+      "at": 0
+     },
+     {
+      "text": "suit",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Change into",
+      "note": "first meaning: turn into, as a tadpole turns into a frog"
+     },
+     {
+      "clueFragment": "suit",
+      "note": "second meaning: look good on, as a colour suits someone"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone getting changed into a business suit.",
+     "walkthrough": "'Change into suit' reads as one instruction about clothes; it splits into two separate meanings of one verb.",
+     "definitionFit": "The verb means both to grow or turn into something and to flatter a wearer, as in 'that hat becomes you'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "suit"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +86,68 @@
     "text": "Fish, netting strange eels? Wrong, as a matter of fact",
     "enumeration": "8"
    },
-   "solution": "BASELESS"
+   "solution": "BASELESS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BASELESS",
+    "definitions": [
+     {
+      "text": "Wrong, as a matter of fact",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "netting",
+      "for": "container",
+      "note": "a net catches and holds things, so the fish word surrounds the rest"
+     },
+     {
+      "text": "strange",
+      "for": "anagram",
+      "note": "strange means odd or out of the ordinary, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fish",
+      "gives": "BASS",
+      "note": "a bass is a fish"
+     },
+     {
+      "clueFragment": "eels",
+      "gives": "EELS",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAS",
+      "ELES",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EELS",
+       "gives": "ELES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fish catching odd-looking eels seems factually wrong.",
+     "walkthrough": "The question mark ends the wordplay; 'wrong, as a matter of fact' means wrong in its facts rather than its morals.",
+     "definitionFit": "A claim without foundation is groundless, so it is factually wrong."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Fish"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +161,60 @@
     "text": "Opener for can with more in? It's full of beans",
     "enumeration": "7"
    },
-   "solution": "CHIPPER"
+   "solution": "CHIPPER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHIPPER",
+    "definitions": [
+     {
+      "text": "full of beans",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Opener for",
+      "for": "letter_selection",
+      "note": "the opener of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "can",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "with more in",
+      "gives": "HIPPER",
+      "note": "hipper means more in fashion, more 'in'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HIPPER"
+     ]
+    },
+    "explanation": {
+     "surface": "A tin opener working on a can that turns out to be full of beans.",
+     "walkthrough": "The beans suggest a tin; 'full of beans' is the idiom for lively and energetic.",
+     "definitionFit": "Being cheerful and lively is the meaning of the British idiom 'full of beans'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "beans"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +228,45 @@
     "text": "I had the impression it contributes to theme, though tangentially",
     "enumeration": "9"
    },
-   "solution": "METHOUGHT"
+   "solution": "METHOUGHT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "METHOUGHT",
+    "definitions": [
+     {
+      "text": "I had the impression",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contributes to",
+      "for": "hidden_word",
+      "note": "each word contributes some of its letters, the answer being formed from parts of them"
+     }
+    ],
+    "linkWords": [
+     "it"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "theme, though tangentially",
+      "gives": "METHOUGHT",
+      "note": "the end of the first word, all of the second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A writer felt something added to the theme, albeit indirectly.",
+     "definitionFit": "This archaic past tense means 'it seemed to me', the same as saying one had the impression."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tangentially"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +280,74 @@
     "text": "Retract stupid, stupid thing when PM finishes",
     "enumeration": "8"
    },
-   "solution": "MIDNIGHT"
+   "solution": "MIDNIGHT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "MIDNIGHT",
+    "definitions": [
+     {
+      "text": "when PM finishes",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Retract",
+      "for": "reversal",
+      "note": "to retract is to draw back, so the word is pulled back the other way"
+     },
+     {
+      "text": "stupid",
+      "for": "anagram",
+      "note": "the second 'stupid' describes the word after it as senseless, so its letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stupid",
+      "gives": "DIM",
+      "note": "dim means slow-witted"
+     },
+     {
+      "clueFragment": "thing",
+      "gives": "THING",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MID",
+      "NIGHT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THING",
+       "gives": "NIGHT"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "DIM",
+       "to": "MID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician being told to withdraw a foolish remark.",
+     "walkthrough": "The first 'stupid' is a synonym to be reversed; the second is an anagram signal working on 'thing'. PM here is post meridiem, not Prime Minister.",
+     "definitionFit": "The p.m. hours of the day run out at twelve o'clock at night, so this is the moment afternoon and evening end."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "PM"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +361,54 @@
     "text": "Her bland piece I trashed as not good for readers",
     "enumeration": "14"
    },
-   "solution": "INDECIPHERABLE"
+   "solution": "INDECIPHERABLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INDECIPHERABLE",
+    "definitions": [
+     {
+      "text": "not good for readers",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trashed",
+      "for": "anagram",
+      "note": "something trashed is wrecked, so the letters are broken up and reset"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Her bland piece I",
+      "gives": "HERBLANDPIECEI",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HERBLANDPIECEI",
+       "gives": "INDECIPHERABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An editor binned a dull article because readers would not enjoy it.",
+     "walkthrough": "'Not good for readers' sounds like a verdict on quality; it means impossible to read.",
+     "definitionFit": "Writing that cannot be deciphered or made out is useless to anyone trying to read it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "good"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +422,43 @@
     "text": "Magnificent, like Basie or Ellington?",
     "enumeration": "5"
    },
-   "solution": "NOBLE"
+   "solution": "NOBLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NOBLE",
+    "definitions": [
+     {
+      "text": "Magnificent",
+      "at": 0
+     },
+     {
+      "text": "like Basie or Ellington?",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Magnificent",
+      "note": "first meaning: grand, stately"
+     },
+     {
+      "clueFragment": "like Basie or Ellington?",
+      "note": "second meaning: titled, since the jazzmen were Count Basie and Duke Ellington"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Count Basie and Duke Ellington were jazz bandleaders whose nicknames are aristocratic titles; the question mark flags the jokey sense.",
+     "definitionFit": "The adjective means impressive and grand, and also belonging to the aristocracy, as counts and dukes do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Basie"
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +472,65 @@
     "text": "Source of report that's the reverse of comfortable and fashionable",
     "enumeration": "7"
    },
-   "solution": "GUNSHOT"
+   "solution": "GUNSHOT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "GUNSHOT",
+    "definitions": [
+     {
+      "text": "Source of report",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the reverse of",
+      "for": "reversal",
+      "note": "the reverse of a word is that word written backwards"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "comfortable",
+      "gives": "SNUG",
+      "note": "snug means cosy and comfortable"
+     },
+     {
+      "clueFragment": "fashionable",
+      "gives": "HOT",
+      "note": "hot means currently in fashion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUNS",
+      "HOT"
+     ],
+     "reversals": [
+      {
+       "from": "SNUG",
+       "to": "GUNS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news story uncomfortable and unfashionable comes from some source.",
+     "walkthrough": "'Report' suggests journalism; here it is the loud bang of a firearm.",
+     "definitionFit": "The sharp explosive bang of a firearm is called its report, and the firing is what makes it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "report"
+    }
+   }
   },
   {
    "number": 8,
@@ -144,7 +544,43 @@
     "text": "Number of centuries needed for MCC? 4, perhaps",
     "enumeration": "6"
    },
-   "solution": "TWELVE"
+   "solution": "TWELVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TWELVE",
+    "definitions": [
+     {
+      "text": "Number of centuries needed for MCC?",
+      "at": 0
+     },
+     {
+      "text": "4, perhaps",
+      "at": 36
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Number of centuries needed for MCC?",
+      "note": "first meaning: MCC as a Roman numeral is 1200, which takes this many hundreds"
+     },
+     {
+      "clueFragment": "4, perhaps",
+      "note": "second meaning: the answer to 4 across, the hour when the clock strikes this number"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "MCC suggests the Marylebone Cricket Club and centuries of runs; read as Roman numerals it is 1200, i.e. this many hundreds. The cross-reference is to the time 4 across, which a clock shows as this number.",
+     "definitionFit": "The number of hundreds in 1200, and the clock hour at midnight, are both this number."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "centuries"
+    }
+   }
   },
   {
    "number": 9,
@@ -168,7 +604,40 @@
      }
     ]
    },
-   "solution": "HOUSEOFCOMMONS"
+   "solution": "HOUSEOFCOMMONS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HOUSE OF COMMONS",
+    "definitions": [
+     {
+      "text": "One place for parties that's peerless",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One place for parties that's peerless",
+      "note": "surface reading: an unrivalled venue for celebrations"
+     },
+     {
+      "clueFragment": "parties that's peerless",
+      "note": "setter's reading: political parties meet in a chamber without peers, i.e. not the Lords"
+     }
+    ],
+    "explanation": {
+     "surface": "Recommending an unbeatable venue for celebrations.",
+     "walkthrough": "'Peerless' means without equal, but literally it means without peers of the realm; Parliament's other chamber is the House of Lords, where peers sit.",
+     "definitionFit": "The elected lower chamber of the UK Parliament seats political parties and has no hereditary or life peers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "peerless"
+    }
+   }
   },
   {
    "number": 10,
@@ -182,7 +651,40 @@
     "text": "Revered status of John, George, and Paul, but not Ringo",
     "enumeration": "9"
    },
-   "solution": "SAINTHOOD"
+   "solution": "SAINTHOOD",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SAINTHOOD",
+    "definitions": [
+     {
+      "text": "Revered status",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "John, George, and Paul, but not Ringo",
+      "note": "surface reading: three Beatles share some status that the drummer lacks"
+     },
+     {
+      "clueFragment": "John, George, and Paul",
+      "note": "setter's reading: these are also the names of famous Christian saints, while there is no Saint Ringo"
+     }
+    ],
+    "explanation": {
+     "surface": "Three Beatles being honoured while the drummer is left out.",
+     "walkthrough": "The Beatles are a red herring: St John, St George and St Paul are all canonised, but nobody calls Ringo a saint.",
+     "definitionFit": "The condition of being a canonised holy person is a revered status in the Church."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ringo"
+    }
+   }
   },
   {
    "number": 11,
@@ -196,7 +698,44 @@
     "text": "Take part in imbibing excessively?",
     "enumeration": "5"
    },
-   "solution": "BINGE"
+   "solution": "BINGE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "and_lit"
+    ],
+    "answer": "BINGE",
+    "definitions": [
+     {
+      "text": "Take part in imbibing excessively?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part in",
+      "for": "hidden_word",
+      "note": "the answer is just a part sitting inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "imbibing excessively",
+      "gives": "BINGE",
+      "note": "the letters run across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "An invitation to join a drinking session.",
+     "walkthrough": "The whole clue is both the instruction and the definition: to take part in excessive drinking is to go on this.",
+     "definitionFit": "A bout of heavy drinking or overindulgence is exactly what taking part in imbibing excessively means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 12,
@@ -210,7 +749,60 @@
     "text": "Observe friend returning some computers",
     "enumeration": "7"
    },
-   "solution": "LAPTOPS"
+   "solution": "LAPTOPS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LAPTOPS",
+    "definitions": [
+     {
+      "text": "some computers",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so the pair is read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Observe",
+      "gives": "SPOT",
+      "note": "to spot is to notice"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "PAL",
+      "note": "a pal is a friend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAP",
+      "TOPS"
+     ],
+     "reversals": [
+      {
+       "from": "SPOTPAL",
+       "to": "LAPTOPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone watches a friend bring back some borrowed computers.",
+     "definitionFit": "Portable computers of the kind used on one's knees are a type of computer, hence 'some'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returning"
+    }
+   }
   },
   {
    "number": 13,
@@ -224,7 +816,40 @@
     "text": "He put an uncle and three sisters on stage",
     "enumeration": "7"
    },
-   "solution": "CHEKHOV"
+   "solution": "CHEKHOV",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CHEKHOV",
+    "definitions": [
+     {
+      "text": "He put an uncle and three sisters on stage",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He put an uncle and three sisters on stage",
+      "note": "surface reading: someone casting family members in a show"
+     },
+     {
+      "clueFragment": "an uncle and three sisters",
+      "note": "setter's reading: Uncle Vanya and Three Sisters are plays by a Russian dramatist"
+     }
+    ],
+    "explanation": {
+     "surface": "A family member organising relatives to appear in a play.",
+     "walkthrough": "The relatives are play titles: Uncle Vanya and Three Sisters were both written by the same Russian playwright.",
+     "definitionFit": "The Russian writer authored the stage plays Uncle Vanya and Three Sisters, so he put both on stage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "uncle"
+    }
+   }
   },
   {
    "number": 14,
@@ -238,7 +863,50 @@
     "text": "Foolishly grips piece of holly",
     "enumeration": "5"
    },
-   "solution": "SPRIG"
+   "solution": "SPRIG",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPRIG",
+    "definitions": [
+     {
+      "text": "piece of holly",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Foolishly",
+      "for": "anagram",
+      "note": "acting foolishly means without sense or order, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grips",
+      "gives": "GRIPS",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GRIPS",
+       "gives": "SPRIG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone clumsily grabbing a prickly bit of holly.",
+     "definitionFit": "A small stem with leaves cut from a plant, such as holly at Christmas, is a small piece of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Foolishly"
+    }
+   }
   },
   {
    "number": 15,
@@ -252,7 +920,61 @@
     "text": "Circles location without double parking, in reverse",
     "enumeration": "8"
    },
-   "solution": "OPPOSITE"
+   "solution": "OPPOSITE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OPPOSITE",
+    "definitions": [
+     {
+      "text": "in reverse",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense of outside, so the circles and site go around the next letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Circles",
+      "gives": "OO",
+      "note": "two O shapes, as circles"
+     },
+     {
+      "clueFragment": "double parking",
+      "gives": "PP",
+      "note": "P is the parking symbol, doubled"
+     },
+     {
+      "clueFragment": "location",
+      "gives": "SITE",
+      "note": "a site is a location"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PP",
+      "OSITE"
+     ]
+    },
+    "explanation": {
+     "surface": "A driver circling a spot, avoiding double parking, while backing up.",
+     "walkthrough": "'Double parking' looks like a traffic offence; it simply means two Ps placed inside OOSITE after the first O.",
+     "definitionFit": "Something done the other way round is contrary, the converse; 'in reverse' and this word both mean contrary in direction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "parking"
+    }
+   }
   },
   {
    "number": 16,
@@ -266,7 +988,61 @@
     "text": "Medication in second sequence of deliveries — excess that's spread around",
     "enumeration": "9"
    },
-   "solution": "SPILLOVER"
+   "solution": "SPILLOVER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SPILLOVER",
+    "definitions": [
+     {
+      "text": "excess that's spread around",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one thing within the letters of the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "Medication",
+      "gives": "PILL",
+      "note": "a pill is a dose of medicine"
+     },
+     {
+      "clueFragment": "sequence of deliveries",
+      "gives": "OVER",
+      "note": "in cricket an over is a set of six balls bowled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PILL",
+      "OVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A pharmacy's second round of deliveries leaves excess medicine scattered about.",
+     "walkthrough": "'Deliveries' suggests the post; in cricket a delivery is a ball bowled, and six make an over.",
+     "definitionFit": "Overflow or excess that spreads beyond its original area, like an effect spreading to others, is what the word names."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "deliveries"
+    }
+   }
   },
   {
    "number": 17,
@@ -280,7 +1056,55 @@
     "text": "Change in force's related to criminal investigation",
     "enumeration": "8"
    },
-   "solution": "FORENSIC"
+   "solution": "FORENSIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FORENSIC",
+    "definitions": [
+     {
+      "text": "related to criminal investigation",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Change",
+      "for": "anagram",
+      "note": "to change something is to alter its form, so these letters take a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "force's",
+      "gives": "FORCES",
+      "note": "taken as written, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INFORCES",
+       "gives": "FORENSIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shake-up in the police force concerns its detective work.",
+     "definitionFit": "Scientific methods applied to solving crimes, such as evidence analysis, are described by this adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Change"
+    }
+   }
   },
   {
    "number": 18,
@@ -294,7 +1118,50 @@
     "text": "Item on page, very small piece",
     "enumeration": "8"
    },
-   "solution": "PARTICLE"
+   "solution": "PARTICLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARTICLE",
+    "definitions": [
+     {
+      "text": "very small piece",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "page",
+      "gives": "P",
+      "note": "P is the abbreviation for page"
+     },
+     {
+      "clueFragment": "Item",
+      "gives": "ARTICLE",
+      "note": "an article is an item"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ARTICLE"
+     ]
+    },
+    "explanation": {
+     "surface": "An item printed on a newspaper page is only a tiny piece.",
+     "walkthrough": "'On' puts the page letter first, before the item.",
+     "definitionFit": "A tiny fragment or speck of matter is a minute portion of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Item"
+    }
+   }
   },
   {
    "number": 19,
@@ -308,7 +1175,64 @@
     "text": "Fitting quality of a point, shortly followed by another",
     "enumeration": "7"
    },
-   "solution": "APTNESS"
+   "solution": "APTNESS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "APTNESS",
+    "definitions": [
+     {
+      "text": "Fitting quality",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortly",
+      "for": "deletion",
+      "note": "shortly means in brief, so the word is cut down to its abbreviation"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "PT",
+      "note": "PT is the short form of point"
+     },
+     {
+      "clueFragment": "followed by another",
+      "gives": "NESS",
+      "note": "another point, of land: a ness is a headland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PT",
+      "NESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A speaker makes one point briefly and then another, showing a sense of fitness.",
+     "walkthrough": "'Another' means another point, here a geographical one: a ness is a headland, as in Dungeness on the Kent coast.",
+     "definitionFit": "The quality of being suitable or appropriate for the occasion is fittingness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "another"
+    }
+   }
   },
   {
    "number": 20,
@@ -322,7 +1246,58 @@
     "text": "Indian oddly selected house in part of US",
     "enumeration": "5"
    },
-   "solution": "IDAHO"
+   "solution": "IDAHO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "IDAHO",
+    "definitions": [
+     {
+      "text": "part of US",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly selected",
+      "for": "letter_selection",
+      "note": "only the letters in odd positions are chosen to be kept"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Indian",
+      "gives": "IDA",
+      "select": "alternate",
+      "note": "first, third and fifth letters"
+     },
+     {
+      "clueFragment": "house",
+      "gives": "HO",
+      "note": "HO is the abbreviation for house"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDA",
+      "HO"
+     ]
+    },
+    "explanation": {
+     "surface": "An Indian person choosing an unusual house somewhere in America.",
+     "definitionFit": "This is a state in the north-western United States, so a part of the country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "oddly"
+    }
+   }
   },
   {
    "number": 21,
@@ -336,7 +1311,56 @@
     "text": "Section of stairs on side of ship where flight begins or ends",
     "enumeration": "7"
    },
-   "solution": "AIRPORT"
+   "solution": "AIRPORT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "AIRPORT",
+    "definitions": [
+     {
+      "text": "where flight begins or ends",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Section of",
+      "for": "deletion",
+      "note": "a section is only a cut-out portion, so the outer letters of the next word are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stairs",
+      "gives": "STAIRS",
+      "note": "taken as written, then trimmed to its inner part"
+     },
+     {
+      "clueFragment": "side of ship",
+      "gives": "PORT",
+      "note": "port is the left-hand side of a ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIR",
+      "PORT"
+     ]
+    },
+    "explanation": {
+     "surface": "A passenger climbing a ship's stairs on one side, ready to depart.",
+     "walkthrough": "A flight of stairs is planted in the surface, but the flight here is a journey by plane.",
+     "definitionFit": "Air journeys take off from and land at this facility, so it is where a flight begins or ends."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flight"
+    }
+   }
   },
   {
    "number": 22,
@@ -350,7 +1374,52 @@
     "text": "Abridged volume I accomplished having potential to succeed",
     "enumeration": "6"
    },
-   "solution": "VIABLE"
+   "solution": "VIABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VIABLE",
+    "definitions": [
+     {
+      "text": "having potential to succeed",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Abridged volume",
+      "gives": "V",
+      "note": "V is the short form of volume"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "accomplished",
+      "gives": "ABLE",
+      "note": "able means skilled, accomplished"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "I",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "An author shortened a book and thinks it may now sell.",
+     "definitionFit": "A plan that is workable and capable of working out has a real chance of success."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Abridged"
+    }
+   }
   },
   {
    "number": 23,
@@ -364,7 +1433,48 @@
     "text": "Put in grave situation, I am not there for ever",
     "enumeration": "7"
    },
-   "solution": "INTERIM"
+   "solution": "INTERIM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INTERIM",
+    "definitions": [
+     {
+      "text": "not there for ever",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Put in grave situation",
+      "gives": "INTER",
+      "note": "to inter is to bury, putting a body in a grave"
+     },
+     {
+      "clueFragment": "I am",
+      "gives": "IM",
+      "note": "the contraction I'm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTER",
+      "IM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in serious trouble insists they will not be around for ever.",
+     "walkthrough": "'Grave situation' suggests a crisis; it is literally a position in a grave.",
+     "definitionFit": "Something provisional or temporary is in place only for the meantime, so it will not last for ever."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "grave"
+    }
+   }
   },
   {
    "number": 24,
@@ -378,7 +1488,50 @@
     "text": "Dangerous state in East — heavens above",
     "enumeration": "5"
    },
-   "solution": "RISKY"
+   "solution": "RISKY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RISKY",
+    "definitions": [
+     {
+      "text": "Dangerous",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "above"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "state in East",
+      "gives": "RI",
+      "note": "Rhode Island, an eastern US state, abbreviated RI"
+     },
+     {
+      "clueFragment": "heavens",
+      "gives": "SKY",
+      "note": "the sky is the heavens"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "SKY"
+     ]
+    },
+    "explanation": {
+     "surface": "A perilous situation in the East, with the heavens looking down.",
+     "walkthrough": "In a down clue 'above' puts the first piece on top, so the state comes before the heavens.",
+     "definitionFit": "Something hazardous carries a risk of harm or loss, which is what dangerous means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 25,
@@ -398,7 +1551,77 @@
      }
     ]
    },
-   "solution": "ATLARGE"
+   "solution": "ATLARGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "AT LARGE",
+    "definitions": [
+     {
+      "text": "free",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "final piece in",
+      "for": "letter_selection",
+      "note": "the final piece of a word is its last letter"
+     },
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "a musical arrangement reworks material, so these letters are put in a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "concert",
+      "gives": "T",
+      "select": "last",
+      "note": "last letter"
+     },
+     {
+      "clueFragment": "Elgar",
+      "gives": "ELGAR",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "T",
+      "LARGE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ELGAR",
+       "gives": "LARGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A closing piece of Elgar at a concert, arranged and performed without charge.",
+     "walkthrough": "'Free' looks like 'no charge' in a concert setting, but here it means not captured.",
+     "definitionFit": "An escaped prisoner or animal still on the loose is described as free and uncaught."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "free"
+    }
+   }
   },
   {
    "number": 26,
@@ -412,7 +1635,50 @@
     "text": "Consecrate as bishop? Not so",
     "enumeration": "5"
    },
-   "solution": "BLESS"
+   "solution": "BLESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLESS",
+    "definitions": [
+     {
+      "text": "Consecrate",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess notation for bishop"
+     },
+     {
+      "clueFragment": "Not so",
+      "gives": "LESS",
+      "note": "not so much means less"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asking whether to consecrate a person as a bishop, and being refused.",
+     "walkthrough": "'Not so' looks like a reply of denial; it stands for less, as in 'not so big'.",
+     "definitionFit": "To make holy or sanctify something by a religious rite is to consecrate it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "so"
+    }
+   }
   },
   {
    "number": 27,
@@ -426,7 +1692,61 @@
     "text": "Unaware patent has line I inserted",
     "enumeration": "9"
    },
-   "solution": "OBLIVIOUS"
+   "solution": "OBLIVIOUS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OBLIVIOUS",
+    "definitions": [
+     {
+      "text": "Unaware",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inserted",
+      "for": "container",
+      "note": "inserted means put inside, so the line and I go into the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "patent",
+      "gives": "OBVIOUS",
+      "note": "patent as an adjective means plain to see"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "LI",
+      "VIOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "An inventor does not know their patent has had a line added.",
+     "walkthrough": "'Patent' suggests an invention; it is the adjective meaning evident.",
+     "definitionFit": "Being oblivious means having no awareness of what is going on around you."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "patent"
+    }
+   }
   },
   {
    "number": 28,
@@ -440,7 +1760,60 @@
     "text": "Influence is held by established kind of writer",
     "enumeration": "8"
    },
-   "solution": "ESSAYIST"
+   "solution": "ESSAYIST",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ESSAYIST",
+    "definitions": [
+     {
+      "text": "kind of writer",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held by",
+      "for": "container",
+      "note": "to be held by something is to be gripped inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "established",
+      "gives": "EST",
+      "note": "EST is the abbreviation for established"
+     },
+     {
+      "clueFragment": "Influence",
+      "gives": "SAY",
+      "note": "a say is influence over a decision"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ES",
+      "SAYIS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An established type of author holds sway in literary circles.",
+     "definitionFit": "A writer of short prose pieces on a subject is one particular kind of writer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Influence"
+    }
+   }
   },
   {
    "number": 29,
@@ -454,7 +1827,48 @@
     "text": "Judge can rule if that is correct, initially",
     "enumeration": "6"
    },
-   "solution": "CRITIC"
+   "solution": "CRITIC",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "CRITIC",
+    "definitions": [
+     {
+      "text": "Judge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so each word gives up its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "can rule if that is correct",
+      "gives": "CRITIC",
+      "select": "first",
+      "note": "the first letter of each of these six words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRITIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A judge may rule on a case provided it is correct to do so.",
+     "definitionFit": "A reviewer who assesses and pronounces on the merits of a work acts as a judge of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Judge"
+    }
+   }
   }
  ]
 }
