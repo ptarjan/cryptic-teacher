@@ -429,17 +429,13 @@ def builder(record):
     return BUILDERS.get(key)
 
 
-# Held ids no queue takes yet, with why: their solve could not be promoted.
-NOT_YET = {"genius-280": "8 answers are entered off the grid, which the puzzle format cannot hold yet"}
-
-
 def solvable(root=None):
     """[record] of every puzzle held under `root` (default DIR) a builder can
     promote: the only ones a solve queue may take. The rest stay held as data.
     A queue passes the clues_only/ beside the index it reads, so a queue run
     against another tree's index never takes this checkout's puzzles."""
     records = (json.loads(path.read_text(encoding="utf-8")) for path in files(root))
-    return [r for r in records if builder(r) and r["id"] not in NOT_YET]
+    return [r for r in records if builder(r)]
 
 
 def promote(record, answers):
