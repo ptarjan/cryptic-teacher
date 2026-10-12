@@ -980,14 +980,16 @@ def check_setter(puzzle, flags):
     A series whose source prints a byline on every puzzle (series.py
     `bylined`) never has a null one: null there is a parser that missed it.
     A puzzle read off a newspaper page is exempt: the print edition is not
-    that source, and older papers ran puzzles with no byline (the 1970s FT)."""
+    that source, and older papers ran puzzles with no byline (the 1970s FT).
+    So is a puzzle the series lists in `unbylined`: no source names its setter."""
     pid, setter = puzzle["id"], puzzle.get("setter")
     series = puzzle.get("series", "cryptic")
     if setter is None:
         scanned = provenance.channel_of(
             (puzzle.get("source") or {}).get("acquiredBy")) == "newspaper"
-        if (series_meta.meta(series).get("bylined") and not series_meta.is_book(series)
-                and not scanned):
+        meta = series_meta.meta(series)
+        if (meta.get("bylined") and not series_meta.is_book(series) and not scanned
+                and puzzle.get("number") not in meta.get("unbylined", {})):
             flags.append(("SETTER", pid, f"no setter, but {series} prints a byline "
                           f"on every puzzle"))
         return

@@ -977,8 +977,10 @@ def assemble_altered(number, pdf, post, date, url):
     # The clue list itself may say a light has no clue, printing "See
     # preamble" or "[unclued]" in its place (No 165's eight theme lights):
     # that is the setter's word as much as the preamble's, once the preamble
-    # it points to is read (No 112's points to a megaclue on a picture).
-    declared = bool(preamble) and set(unclued) <= pdf.get("marked", set())
+    # it points to is read. An article page never holds the preamble (No
+    # 112's "See special instructions" points to a megaclue printed beside
+    # the grid), so there the clue list's marks are the setter's word alone.
+    declared = (bool(preamble) or bool(pdf.get("article"))) and set(unclued) <= pdf.get("marked", set())
     if unclued and not declared and not re.search(
             r"(?i)\bunclued|not clued|no clues?\b|without (?:a )?clues?", preamble):
         return None, f"{len(unclued)} lights unclued, and the preamble says none is"
@@ -995,7 +997,9 @@ def assemble_altered(number, pdf, post, date, url):
         cells = [cell for l in c["lights"] for cell in lights[l]]
         said[first] = sources(wins.get(first, []), answers.get(first))
         words = {w for w in candidates(said[first], rule) if len(w) == len(cells)}
-        if first in unclued:
+        given = UNCLUED_LETTERS.get(number, {}).get(first)
+        if first in unclued and given:
+            said[first], words = [given], {given}
             if words:
                 slots[first] = (cells, words)
             continue
@@ -1068,6 +1072,16 @@ def assemble_altered(number, pdf, post, date, url):
 
 #: The most unclued lights a Genius leaves; more says the clue list was misread.
 MOST_UNCLUED = 10
+#: Unclued lights whose letters the post gives only as a quotation and the path
+#: it takes, written out per light. No 112: Groucho Marx's "I never forget a
+#: face, but in your case I'll be glad to make an exception", from square 26
+#: clockwise round the edge (up 8, along 1, down 9, back along 26), then up 22.
+#: The crossings must still agree with every clued answer.
+UNCLUED_LETTERS = {
+    112: {(1, "across"): "ACEBUTINYOURC", (8, "down"): "FATEGROFREVEN",
+          (9, "down"): "ASEILLBEGLADT", (26, "across"): "IPECXENAEKAMO",
+          (22, "down"): "NOITP"},
+}
 #: The classes assemble() leaves that the altered-entry path may file.
 ALTERABLE = {"preamble alters entries (needs an alteration per answer)",
              "answers cross wrongly (entries altered)", "enumeration is not the entry's length",
