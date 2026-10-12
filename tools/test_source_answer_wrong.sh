@@ -263,7 +263,7 @@ for (pid, eid), (served, printed, why) in fetcher.SOURCE_CLUE_WRONG.items():
     puzzle = path and fetcher.read_puzzle_file(path)
     if puzzle and puzzle["source"].get("retrievedFrom") in provenance.OCR_CHANNELS and \
             not why.startswith(V.SCAN_READ) and \
-            V.edit_distance(fetcher.clue_words(served), fetcher.clue_words(printed)) > V.OCR_MISREAD_EDITS:
+            V.ocr_misread_edits(served, printed) > V.OCR_MISREAD_EDITS:
         bad.append(f"{pid} {eid}: an OCR clue reworded, not a misread mended")
 print("BAD", "; ".join(bad) or "none")
 PY

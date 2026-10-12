@@ -536,6 +536,17 @@ def file_rows(path, pending, data=DATA):
             shown = held[0] if held else (by_id[eid]["clue"].get("text") or "")
             problems = validate_annotations.clue_row_problems(
                 "" if validate_annotations.is_blank_clue(shown) else shown, v[0], v[1])
+            # The corpus check's rule, held at filing: an OCR'd clue's row
+            # mends a misread, never rewords the clue, unless read off the scan.
+            V = validate_annotations
+            if ((puzzle.get("source") or {}).get("retrievedFrom") in provenance.OCR_CHANNELS
+                    and not v[1].startswith(V.SCAN_READ)
+                    and V.ocr_misread_edits(shown, v[0]) > V.OCR_MISREAD_EDITS):
+                problems.append(
+                    f"changes more than {V.OCR_MISREAD_EDITS} letters of the OCR's {shown!r}: "
+                    f"a misread is a letter or two (judge for fudge), not a reword; leave "
+                    f"the entry null unless the scan (tools/scan_crop.py) shows the clue "
+                    f"and the evidence opens {V.SCAN_READ!r}")
         else:
             continue
         if problems:
