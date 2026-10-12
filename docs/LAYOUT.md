@@ -2210,5 +2210,7 @@ tools/test_gale_page_cap.sh                   is a Gale page laid out within
                                               time, and does a scan unit past its memory
                                               ceiling (edition_queue.UNIT_MEMORY_MB, RLIMIT_AS)
                                               end a failure naming it?
+tools/test_ctc_title_date.py                  does a CtC video title's date pin its puzzle when
+                                              the year is short or absent?
 ```
 <!-- LAYOUT-END -->

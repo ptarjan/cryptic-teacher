@@ -66,6 +66,7 @@ series with its date or puzzle number lets a short talk-through match.
 The reasons file maps a moment id to {"reasons": [...], "quote": "..."}.
 """
 import collections
+import datetime
 import glob
 import html
 import itertools
@@ -250,38 +251,81 @@ MONTHS = {m: i + 1 for i, m in enumerate(
 #: (title words, corpus series) in the order tried: a longer name before the
 #: one it contains. A series we hold none of maps to a name with no puzzles.
 TITLE_SERIES = [("sunday times", "sundaytimes"), ("financial times", "ftcryptic"),
-                ("times quick", "timesquick"), ("guardian quick", "guardianquick"),
+                ("times quick", "timesquick"), ("quick cryptic", "timesquick"), ("guardian quick", "guardianquick"),
                 ("guardian qc", "guardianquick"), ("quiptic", "quiptic"), ("everyman", "everyman"),
                 ("times", "times"), ("guardian", "cryptic"), ("sunday telegraph", "sundaytel"),
                 ("toughie", "toughie"), ("telegraph", "telegraph"), ("independent", "independent")]
-TITLE_DATE = (re.compile(r"(\d{1,2})(?:st|nd|rd|th)?\s+([a-z]{3})[a-z]*,?\s+(20\d\d)"),
-              re.compile(r"([a-z]{3})[a-z]*\s+(\d{1,2})(?:st|nd|rd|th)?,?\s+(20\d\d)"),
+_MON = (r"(jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|june?|july?|aug(?:ust)?|"
+        r"sept?(?:ember)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?)\b")
+_YEAR = r"(?:,?\s+(20\d\d|\d\d)\b)?"
+#: day month [year] and month day [year]; the year may be two digits or absent.
+TITLE_DATE = (re.compile(r"\b(\d{1,2})(?:st|nd|rd|th)?\s+" + _MON + _YEAR),
+              re.compile(r"\b" + _MON + r"\s+(\d{1,2})(?:st|nd|rd|th)?\b" + _YEAR),
               re.compile(r"\b(\d{1,2})/(\d{1,2})/(20\d\d)\b"))
 TITLE_NUMBER = re.compile(r"\b(\d{1,3}(?:,\d{3})+|\d{3,6})\b")
 
 
-def title_facts(title):
+def read_published(subs_dir):
+    """{video id: ISO publish date} from dates.tsv (`id<TAB or space>YYYYMMDD`)
+    beside the subs directory; empty when the file is absent."""
+    f = Path(subs_dir).parent / "dates.tsv"
+    out = {}
+    if f.exists():
+        for row in f.read_text().splitlines():
+            parts = row.split()
+            if len(parts) == 2 and re.fullmatch(r"\d{8}", parts[1]):
+                out[parts[0]] = f"{parts[1][:4]}-{parts[1][4:6]}-{parts[1][6:]}"
+    return out
+
+
+def past_date(day, mon, published):
+    """The latest ISO date for day/mon on or before the day after `published`
+    (a puzzle is solved on its day or just after), or None."""
+    if not published:
+        return None
+    limit = datetime.date.fromisoformat(published) + datetime.timedelta(days=1)
+    for year in range(limit.year, limit.year - 4, -1):
+        try:
+            d = datetime.date(year, mon, day)
+        except ValueError:
+            continue
+        if d <= limit:
+            return d.isoformat()
+    return None
+
+
+def title_facts(title, published=None):
     """(series or None, ISO date or None, puzzle number or None) named in a
-    video title. A slashed date is day first (UK channels)."""
+    video title. A slashed date is day first (UK channels). A two-digit year
+    is 20xx; a missing year is the latest such date not after `published`."""
     low = title.lower()
     series = next((s for k, s in TITLE_SERIES if k in low), None)
     date = None
-    for pat in TITLE_DATE:
+    for i, pat in enumerate(TITLE_DATE):
         m = pat.search(low)
         if not m:
             continue
         a, b, y = m.groups()
-        day, mon = (a, b) if a.isdigit() else (b, a)
-        mon = int(mon) if mon.isdigit() else MONTHS.get(mon)
-        if mon and 1 <= mon <= 12:
-            date = f"{y}-{mon:02d}-{int(day):02d}"
-            low = low[:m.start()] + " " + low[m.end():]
-            break
+        if i == 1:
+            a, b = b, a      # month day -> day month
+        mon = int(b) if b.isdigit() else MONTHS.get(b[:3])
+        day = int(a)
+        if not 1 <= day <= 31 or not mon or not 1 <= mon <= 12:
+            continue
+        if y:
+            try:
+                date = datetime.date(int(y) + (2000 if len(y) == 2 else 0), mon, day).isoformat()
+            except ValueError:
+                continue
+        else:
+            date = past_date(day, mon, published)
+        low = low[:m.start()] + " " + low[m.end():]
+        break
     n = TITLE_NUMBER.search(low)
     return series, date, int(n.group(1).replace(",", "")) if n else None
 
 
-def match_puzzle(text, puzzles, index, title=""):
+def match_puzzle(text, puzzles, index, title="", published=None):
     """(share of answers spoken, puzzle id or None).
 
     The best share wins; within 0.1 of it, the series the title names wins,
@@ -289,7 +333,7 @@ def match_puzzle(text, puzzles, index, title=""):
     answers can sit in two files). A puzzle carrying the title's date and
     series, or the title's series and number, needs only DATED_SHARE: short
     vlogs talk through a few clues."""
-    t_series, t_date, t_num = title_facts(title)
+    t_series, t_date, t_num = title_facts(title, published)
     padded = " " + text + " "
     share = lambda pid: sum(1 for x in puzzles[pid]["_phrases"] if " " + x + " " in padded) / max(1, len(puzzles[pid]["_phrases"]))
     if t_series and t_num and f"{t_series}-{t_num}" in puzzles:
@@ -364,12 +408,13 @@ def entry_record(e):
 
 def extract(subs_dir, titles_tsv=None):
     titles = read_titles(subs_dir, titles_tsv)
+    published = read_published(subs_dir)
     puzzles, index = load_corpus()
     videos, moments = [], []
     for vid, f in sub_files(subs_dir).items():
         lines = parse_vtt(f)
         text = norm(" ".join(l for _, l in lines))
-        share, pid = match_puzzle(text, puzzles, index, titles.get(vid, ""))
+        share, pid = match_puzzle(text, puzzles, index, titles.get(vid, ""), published.get(vid))
         videos.append({"video": vid, "title": titles.get(vid, ""), "puzzle": pid,
                        "answers_spoken": round(share, 2), "lines": len(lines)})
         for kind, pat in (("praise", PRAISE), ("dislike", DISLIKE)):
