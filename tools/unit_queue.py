@@ -52,6 +52,7 @@ import time
 from pathlib import Path
 
 import mem_gate
+from unit_more import backlog_left as backlog_left
 
 TOOLS = Path(__file__).resolve().parent
 QUEUES = {"daily": "daily_units", "books": "book_units"}
@@ -84,15 +85,6 @@ class Unit:
     #: False: a failure is retried every `retry`, never further apart (a
     #: refusal that is news about the account, not the unit).
     doubling: bool = True
-
-
-def backlog_left():
-    """Say, from inside a unit, that it stopped with backlog left: it is due
-    again at the next tick rather than after its `every`. A no-op outside a
-    unit (run by hand)."""
-    path = os.environ.get("UNIT_MORE")
-    if path:
-        Path(path).touch()
 
 
 def log(line, out=sys.stderr):

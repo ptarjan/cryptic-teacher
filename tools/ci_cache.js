@@ -86,7 +86,7 @@ const SMOKE_DEPS = [
     // clues_only's Genius jigsaw builder (genius_puzzles.promote_jigsaw) and what it imports.
     "tools/genius_puzzles.py", "tools/ft_pdf_puzzles.py", "tools/ft_puzzles.py", "tools/file_blog_puzzles.py",
     "tools/fetch_fifteensquared.py", "tools/fetch_wp_blog.py", "tools/times_grids.py",
-    "tools/parse_timesforthetimes.py", "tools/barred_grid.py", "tools/unit_queue.py", "tools/file_times_puzzles.py",
+    "tools/parse_timesforthetimes.py", "tools/barred_grid.py", "tools/unit_queue.py", "tools/unit_more.py", "tools/file_times_puzzles.py",
 ];
 const CHECKS = {
   "tools/smoke_test.js": { deps: SMOKE_DEPS },
