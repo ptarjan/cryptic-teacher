@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,53 @@
     "text": "John departs after female's outpouring",
     "enumeration": "5"
    },
-   "solution": "FLOOD"
+   "solution": "FLOOD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLOOD",
+    "definitions": [
+     {
+      "text": "outpouring",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female's",
+      "gives": "F",
+      "note": "F is the standard abbreviation for female; the 's joins it to what follows"
+     },
+     {
+      "clueFragment": "John",
+      "gives": "LOO",
+      "note": "john is slang for a lavatory, as is loo"
+     },
+     {
+      "clueFragment": "departs",
+      "gives": "D",
+      "note": "D is the abbreviation for departs on timetables"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LOO",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman's emotional outburst after John walks out on her.",
+     "walkthrough": "'after female' places LOO and D behind F: F + LOO + D = FLOOD.",
+     "definitionFit": "A flood is a great outpouring, whether of water or of words and feeling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "John"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +95,62 @@
     "text": "Dismiss Labout supporter's first show of temper",
     "enumeration": "9"
    },
-   "solution": "FIREWORKS"
+   "solution": "FIREWORKS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "FIREWORKS",
+    "definitions": [
+     {
+      "text": "show of temper",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first asks for only the opening letter of the word it follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dismiss",
+      "gives": "FIRE",
+      "note": "to fire someone is to dismiss them from a job"
+     },
+     {
+      "clueFragment": "Labout",
+      "gives": "WORK",
+      "note": "a typo for Labour, which means work"
+     },
+     {
+      "clueFragment": "supporter's",
+      "gives": "S",
+      "select": "first",
+      "note": "opening letter of supporter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIRE",
+      "WORK",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Sacking a Labour Party backer provokes an angry outburst.",
+     "walkthrough": "The published clue has 'Labout', a typo for Labour; read as labour, not the party, it is WORK.",
+     "definitionFit": "Fireworks is an idiom for an angry outburst or heated quarrel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Labout"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +164,59 @@
     "text": "Maintain a groove holding up musical instrument",
     "enumeration": "5"
    },
-   "solution": "ORGAN"
+   "solution": "ORGAN",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ORGAN",
+    "definitions": [
+     {
+      "text": "musical instrument",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "hidden_word",
+      "note": "the phrase is said to hold the answer inside its run of letters"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the letters are read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maintain a groove",
+      "gives": "NAGRO",
+      "note": "the letters straddling maintain, a and groove"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORGAN"
+     ],
+     "reversals": [
+      {
+       "from": "NAGRO",
+       "to": "ORGAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to keep a steady rhythm while holding an instrument aloft.",
+     "definitionFit": "An organ is a keyboard instrument played with pipes or reeds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "groove"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +230,66 @@
     "text": "Set free, survive during socialist uprising",
     "enumeration": "7"
    },
-   "solution": "DELIVER"
+   "solution": "DELIVER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DELIVER",
+    "definitions": [
+     {
+      "text": "Set free",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uprising",
+      "for": "reversal",
+      "note": "a rising in a down clue sends the word upwards, so it reads backwards"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during places one word in the middle of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "socialist",
+      "gives": "RED",
+      "note": "red is a common label for a socialist"
+     },
+     {
+      "clueFragment": "survive",
+      "gives": "LIVE",
+      "note": "to survive is to live on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "LIVE",
+      "R"
+     ],
+     "reversals": [
+      {
+       "from": "RED",
+       "to": "DER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Liberating prisoners and staying alive through a left-wing revolt.",
+     "definitionFit": "To deliver someone is to rescue or release them, as in 'deliver us from evil'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uprising"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +303,45 @@
     "text": "Revealed former lover nagged",
     "enumeration": "9"
    },
-   "solution": "EXPRESSED"
+   "solution": "EXPRESSED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXPRESSED",
+    "definitions": [
+     {
+      "text": "Revealed",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former lover",
+      "gives": "EX",
+      "note": "an ex is a former partner"
+     },
+     {
+      "clueFragment": "nagged",
+      "gives": "PRESSED",
+      "note": "to press someone is to nag or urge them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "PRESSED"
+     ]
+    },
+    "explanation": {
+     "surface": "An old flame told all after being pestered.",
+     "definitionFit": "To express a feeling is to show or make it known, so expressed means made plain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -102,7 +355,50 @@
     "text": "Anger after hospital department's full",
     "enumeration": "6"
    },
-   "solution": "ENTIRE"
+   "solution": "ENTIRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENTIRE",
+    "definitions": [
+     {
+      "text": "full",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hospital department",
+      "gives": "ENT",
+      "note": "ENT is the ear, nose and throat department"
+     },
+     {
+      "clueFragment": "Anger",
+      "gives": "IRE",
+      "note": "ire is a literary word for anger"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENT",
+      "IRE"
+     ]
+    },
+    "explanation": {
+     "surface": "Fury in a hospital ward that has no spare beds.",
+     "walkthrough": "'after' puts the anger second; the 's stands for 'is', linking wordplay to definition.",
+     "definitionFit": "Entire and full are synonyms meaning whole, complete, with nothing missing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "full"
+    }
+   }
   },
   {
    "number": 5,
@@ -116,7 +412,43 @@
     "text": "Food time",
     "enumeration": "8"
    },
-   "solution": "PORRIDGE"
+   "solution": "PORRIDGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PORRIDGE",
+    "definitions": [
+     {
+      "text": "Food",
+      "at": 0
+     },
+     {
+      "text": "time",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Food",
+      "note": "first meaning: oat breakfast cooked in milk or water"
+     },
+     {
+      "clueFragment": "time",
+      "note": "second meaning: British slang for a prison sentence"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Doing porridge' is British slang for serving time in jail, supposedly from the porridge served to prisoners.",
+     "definitionFit": "Porridge is an oat dish, and in British slang a term of imprisonment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "time"
+    }
+   }
   },
   {
    "number": 6,
@@ -130,7 +462,47 @@
     "text": "Feeling base moving",
     "enumeration": "7"
    },
-   "solution": "EMOTION"
+   "solution": "EMOTION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EMOTION",
+    "definitions": [
+     {
+      "text": "Feeling",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "base",
+      "gives": "E",
+      "note": "e is the base of natural logarithms"
+     },
+     {
+      "clueFragment": "moving",
+      "gives": "MOTION",
+      "note": "motion is the act of moving"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MOTION"
+     ]
+    },
+    "explanation": {
+     "surface": "Something deeply felt and stirring at its core.",
+     "walkthrough": "'moving' looks like an anagram signal, but it is simply MOTION.",
+     "definitionFit": "An emotion is a feeling such as joy or anger."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "base"
+    }
+   }
   },
   {
    "number": 7,
@@ -144,7 +516,42 @@
     "text": "Office location",
     "enumeration": "9"
    },
-   "solution": "SITUATION"
+   "solution": "SITUATION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SITUATION",
+    "definitions": [
+     {
+      "text": "Office",
+      "at": 0
+     },
+     {
+      "text": "location",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Office",
+      "note": "first meaning: a job or post"
+     },
+     {
+      "clueFragment": "location",
+      "note": "second meaning: the place where something is"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a property listing; the two words are separate meanings of one noun.",
+     "definitionFit": "A situation can be a post of employment, as in 'situations vacant', or a site."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Office"
+    }
+   }
   },
   {
    "number": 8,
@@ -158,7 +565,55 @@
     "text": "Cold during Scandinavian trip",
     "enumeration": "5"
    },
-   "solution": "DANCE"
+   "solution": "DANCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DANCE",
+    "definitions": [
+     {
+      "text": "trip",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during puts one item inside the span of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scandinavian",
+      "gives": "DANE",
+      "note": "a Dane is from Denmark"
+     },
+     {
+      "clueFragment": "Cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold on taps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAN",
+      "C",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Catching a chill on a holiday in Norway or Sweden.",
+     "walkthrough": "'trip' is not a journey but a step, as in 'trip the light fantastic'.",
+     "definitionFit": "To trip is to dance lightly and nimbly, so the noun trip can stand for a dance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "trip"
+    }
+   }
   },
   {
    "number": 9,
@@ -172,7 +627,55 @@
     "text": "One might lay down rules, having got a ruler out",
     "enumeration": "9"
    },
-   "solution": "REGULATOR"
+   "solution": "REGULATOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REGULATOR",
+    "definitions": [
+     {
+      "text": "One might lay down rules",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out suggests the letters are put out of order"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "got a ruler",
+      "gives": "GOTARULER",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GOTARULER",
+       "gives": "REGULATOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who has pulled out a ruler, ready to set down rules.",
+     "walkthrough": "The pun is on ruler: a measuring stick in the wordplay, one who governs in the definition.",
+     "definitionFit": "A regulator is an official body or person that sets and enforces rules."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ruler"
+    }
+   }
   },
   {
    "number": 10,
@@ -186,7 +689,52 @@
     "text": "Frequently dull son is taken away",
     "enumeration": "5"
    },
-   "solution": "OFTEN"
+   "solution": "OFTEN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OFTEN",
+    "definitions": [
+     {
+      "text": "Frequently",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is taken away",
+      "for": "deletion",
+      "note": "taken away tells us to remove the named letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dull",
+      "gives": "SOFTEN",
+      "note": "to soften a sound or colour is to dull it"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFTEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A boring boy is regularly removed.",
+     "definitionFit": "Often and frequently are synonyms meaning many times."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dull"
+    }
+   }
   },
   {
    "number": 11,
@@ -206,7 +754,39 @@
      }
     ]
    },
-   "solution": "WONOVER"
+   "solution": "WONOVER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "WON OVER",
+    "definitions": [
+     {
+      "text": "Persuaded now?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Persuaded now?",
+      "note": "surface reading: asking whether someone is convinced at last"
+     },
+     {
+      "clueFragment": "now?",
+      "note": "setter's reading: the word now turned upside down describes itself"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "WON OVER means persuaded, and 'now' turned over gives WON, so the answer describes what happens to 'now'.",
+     "definitionFit": "To be won over is to be convinced or brought round to a view."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "now"
+    }
+   }
   },
   {
    "number": 12,
@@ -220,7 +800,62 @@
     "text": "Ape — I catch it in China",
     "enumeration": "7"
    },
-   "solution": "IMITATE"
+   "solution": "IMITATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "IMITATE",
+    "definitions": [
+     {
+      "text": "Ape",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the caught word inside the other one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "China",
+      "gives": "MATE",
+      "note": "rhyming slang: china plate means mate, a friend"
+     },
+     {
+      "clueFragment": "catch it",
+      "gives": "IT",
+      "note": "it is taken as written; catch describes how the friend holds it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "M",
+      "IT",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A monkey caught in the act in the Far East.",
+     "walkthrough": "China is Cockney rhyming slang: china plate means mate.",
+     "definitionFit": "To ape someone is to mimic or copy them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 13,
@@ -234,7 +869,42 @@
     "text": "Perhaps again arrange holiday destination",
     "enumeration": "6"
    },
-   "solution": "RESORT"
+   "solution": "RESORT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RESORT",
+    "definitions": [
+     {
+      "text": "Perhaps again arrange",
+      "at": 0
+     },
+     {
+      "text": "holiday destination",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps again arrange",
+      "note": "first meaning: ..., to sort once more"
+     },
+     {
+      "clueFragment": "holiday destination",
+      "note": "second meaning: a place people go for holidays"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Perhaps' flags that sort is one kind of arranging; re-sort means sort again.",
+     "definitionFit": "A resort is a holiday place, and re-sort is to sort once more."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arrange"
+    }
+   }
   },
   {
    "number": 14,
@@ -248,7 +918,59 @@
     "text": "Lotus is manufactured with no keys",
     "enumeration": "9"
    },
-   "solution": "SOLUTIONS"
+   "solution": "SOLUTIONS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOLUTIONS",
+    "definitions": [
+     {
+      "text": "keys",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "manufactured",
+      "for": "anagram",
+      "note": "manufactured means made up, so these letters are assembled anew"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lotus is",
+      "gives": "LOTUSIS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "no",
+      "gives": "NO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LOTUSISNO",
+       "gives": "SOLUTIONS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Lotus sports car built without any keys.",
+     "walkthrough": "'Lotus' looks like the car marque; 'keys' are answer keys, not car keys.",
+     "definitionFit": "A key is the list of answers to a puzzle or test, so keys are its solutions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "keys"
+    }
+   }
   },
   {
    "number": 15,
@@ -262,7 +984,60 @@
     "text": "American information cites heartless businesses",
     "enumeration": "8"
    },
-   "solution": "AGENCIES"
+   "solution": "AGENCIES",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "AGENCIES",
+    "definitions": [
+     {
+      "text": "businesses",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartless",
+      "for": "deletion",
+      "note": "without a heart, the word loses its central letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "information",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     },
+     {
+      "clueFragment": "cites",
+      "gives": "CITES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GEN",
+      "CIES"
+     ]
+    },
+    "explanation": {
+     "surface": "US intelligence quotes firms with no compassion.",
+     "definitionFit": "An agency is a business that provides a service, such as a travel or estate agency."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "information"
+    }
+   }
   },
   {
    "number": 16,
@@ -276,7 +1051,46 @@
     "text": "Give up on French covering for walls",
     "enumeration": "9"
    },
-   "solution": "SURRENDER"
+   "solution": "SURRENDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SURRENDER",
+    "definitions": [
+     {
+      "text": "Give up",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on French",
+      "gives": "SUR",
+      "note": "sur is French for on"
+     },
+     {
+      "clueFragment": "covering for walls",
+      "gives": "RENDER",
+      "note": "render is a coat of plaster or cement on a wall"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUR",
+      "RENDER"
+     ]
+    },
+    "explanation": {
+     "surface": "Abandoning a French wall-covering project.",
+     "definitionFit": "To surrender is to give up or yield to an opponent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 17,
@@ -290,7 +1104,68 @@
     "text": "Student tucking in beer belly, ultimately, in a resentful way",
     "enumeration": "8"
    },
-   "solution": "BITTERLY"
+   "solution": "BITTERLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BITTERLY",
+    "definitions": [
+     {
+      "text": "in a resentful way",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the final letter of the word before it"
+     },
+     {
+      "text": "tucking in",
+      "for": "container",
+      "note": "tucking in means slipped inside the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beer",
+      "gives": "BITTER",
+      "note": "bitter is a British style of beer"
+     },
+     {
+      "clueFragment": "belly",
+      "gives": "Y",
+      "select": "last",
+      "note": "last letter of belly"
+     },
+     {
+      "clueFragment": "Student",
+      "gives": "L",
+      "note": "L is for learner, a student driver"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BITTER",
+      "L",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A student with a beer belly, tucking into more drink and feeling sore about it.",
+     "walkthrough": "Bitter is a British draught beer. L for learner comes from the L-plates on a learner driver's car.",
+     "definitionFit": "Bitterly describes doing something with resentment or grievance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tucking"
+    }
+   }
   },
   {
    "number": 18,
@@ -304,7 +1179,72 @@
     "text": "Fantastic swims around and around lake draw to a close?",
     "enumeration": "8"
    },
-   "solution": "SPLENDID"
+   "solution": "SPLENDID",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "SPLENDID",
+    "definitions": [
+     {
+      "text": "Fantastic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "the first around turns the word to face the other way"
+     },
+     {
+      "text": "and around",
+      "for": "container",
+      "note": "the second around makes that word surround the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "swims",
+      "gives": "DIPS",
+      "note": "dips are short swims"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the abbreviation for lake"
+     },
+     {
+      "clueFragment": "draw to a close",
+      "gives": "END",
+      "note": "to end is to draw to a close"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "LEND",
+      "ID"
+     ],
+     "reversals": [
+      {
+       "from": "DIPS",
+       "to": "SPID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exclamation of delight at swimming lap after lap of a lake.",
+     "definitionFit": "Splendid and fantastic are both terms of high praise meaning excellent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "swims"
+    }
+   }
   },
   {
    "number": 19,
@@ -318,7 +1258,51 @@
     "text": "Maybe 1 mule ran off",
     "enumeration": "7"
    },
-   "solution": "NUMERAL"
+   "solution": "NUMERAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NUMERAL",
+    "definitions": [
+     {
+      "text": "Maybe 1",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off suggests something gone wrong, so the letters run in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mule ran",
+      "gives": "MULERAN",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MULERAN",
+       "gives": "NUMERAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A first-placed mule bolted.",
+     "walkthrough": "'Maybe' warns that 1 is just one example of the class defined.",
+     "definitionFit": "The figure 1 is an example of a numeral, a symbol representing a number."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "1"
+    }
+   }
   },
   {
    "number": 20,
@@ -332,7 +1316,43 @@
     "text": "Air country house broadcast",
     "enumeration": "6"
    },
-   "solution": "MANNER"
+   "solution": "MANNER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MANNER",
+    "definitions": [
+     {
+      "text": "Air",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "homophone",
+      "note": "broadcast means spoken over the airwaves, so we go by sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "country house",
+      "gives": "MANNER",
+      "soundsLike": "MANOR",
+      "note": "a manor is a large country house"
+     }
+    ],
+    "explanation": {
+     "surface": "A stately home featured on radio or television.",
+     "definitionFit": "An air is a person's bearing or demeanour, which is what manner means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Air"
+    }
+   }
   },
   {
    "number": 21,
@@ -346,7 +1366,62 @@
     "text": "A mother the guard regularly ignored? Unprofessional",
     "enumeration": "7"
    },
-   "solution": "AMATEUR"
+   "solution": "AMATEUR",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "AMATEUR",
+    "definitions": [
+     {
+      "text": "Unprofessional",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly ignored",
+      "for": "letter_selection",
+      "note": "every other letter is passed over, keeping the rest at even intervals"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "ma is an informal word for mother"
+     },
+     {
+      "clueFragment": "the guard",
+      "gives": "TEUR",
+      "select": "alternate",
+      "note": "first, third, fifth and seventh letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MA",
+      "TEUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A mother overlooked by a lax sentry: not very professional.",
+     "walkthrough": "The question mark ends the wordplay; 'Unprofessional' is the definition, used as a noun-like adjective.",
+     "definitionFit": "An amateur is not professional, and the word works adjectivally for an unpaid or unskilled effort."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "guard"
+    }
+   }
   },
   {
    "number": 22,
@@ -360,7 +1435,48 @@
     "text": "Morning spent being entertained",
     "enumeration": "6"
    },
-   "solution": "AMUSED"
+   "solution": "AMUSED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMUSED",
+    "definitions": [
+     {
+      "text": "entertained",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Morning",
+      "gives": "AM",
+      "note": "a.m. denotes morning"
+     },
+     {
+      "clueFragment": "spent",
+      "gives": "USED",
+      "note": "spent means used up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AM",
+      "USED"
+     ]
+    },
+    "explanation": {
+     "surface": "A morning passed being kept entertained.",
+     "definitionFit": "Amused means entertained, made to smile or laugh."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -380,7 +1496,74 @@
      }
     ]
    },
-   "solution": "ATTEMPT"
+   "solution": "ATTEMPT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "ATTEMPT",
+    "definitions": [
+     {
+      "text": "bid",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders of",
+      "for": "letter_selection",
+      "note": "leaders are the opening letters of the words that follow"
+     },
+     {
+      "text": "Back",
+      "for": "reversal",
+      "note": "back means the selected letters are read in reverse order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Telegraph",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of Telegraph"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter of and"
+     },
+     {
+      "clueFragment": "attract",
+      "gives": "TEMPT",
+      "note": "to tempt is to attract or lure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "TEMPT"
+     ],
+     "reversals": [
+      {
+       "from": "TA",
+       "to": "AT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Supporting the newspaper's leaders and trying to draw in readers.",
+     "walkthrough": "'and' looks like a link word, but its first letter is needed.",
+     "definitionFit": "A bid is an attempt or effort to achieve something, as in 'a bid for freedom'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "and"
+    }
+   }
   },
   {
    "number": 23,
@@ -394,7 +1577,57 @@
     "text": "Stay away from a very old fish",
     "enumeration": "5"
    },
-   "solution": "AVOID"
+   "solution": "AVOID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AVOID",
+    "definitions": [
+     {
+      "text": "Stay away from",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the abbreviation for very"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "ID",
+      "note": "the id, or ide, is a freshwater fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "V",
+      "O",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to keep clear of a stale fish.",
+     "definitionFit": "To avoid something is to keep away from it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -408,7 +1641,59 @@
     "text": "This writer is ahead of a certain standard",
     "enumeration": "7"
    },
-   "solution": "MEASURE"
+   "solution": "MEASURE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MEASURE",
+    "definitions": [
+     {
+      "text": "standard",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is ahead of",
+      "for": "charade",
+      "note": "being ahead of something means coming in front of it, fixing the order of the parts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This writer",
+      "gives": "ME",
+      "note": "the setter refers to themself as this writer"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "certain",
+      "gives": "SURE",
+      "note": "sure means certain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "A",
+      "SURE"
+     ]
+    },
+    "explanation": {
+     "surface": "An author boasts of being ahead of a fixed benchmark.",
+     "walkthrough": "'is ahead of' places ME before the rest.",
+     "definitionFit": "A measure is a standard or unit by which things are judged."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -422,7 +1707,53 @@
     "text": "Golf club quietly discarded, say",
     "enumeration": "5"
    },
-   "solution": "UTTER"
+   "solution": "UTTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UTTER",
+    "definitions": [
+     {
+      "text": "say",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discarded",
+      "for": "deletion",
+      "note": "discarded means thrown away, so that letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Golf club",
+      "gives": "PUTTER",
+      "note": "a putter is a golf club used on the green"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p is piano, the musical marking for quietly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UTTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer silently ditches a club, so to speak.",
+     "walkthrough": "'say' looks like 'for example', but it is the definition, a verb.",
+     "definitionFit": "To utter is to say or speak aloud."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 26,
@@ -436,7 +1767,46 @@
     "text": "Smell? Nothing serious",
     "enumeration": "5"
    },
-   "solution": "ODOUR"
+   "solution": "ODOUR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ODOUR",
+    "definitions": [
+     {
+      "text": "Smell",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     },
+     {
+      "clueFragment": "serious",
+      "gives": "DOUR",
+      "note": "dour means stern and serious"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "DOUR"
+     ]
+    },
+    "explanation": {
+     "surface": "Dismissing a smell as no big deal.",
+     "definitionFit": "An odour is a smell, often an unpleasant one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "serious"
+    }
+   }
   },
   {
    "number": 27,
@@ -450,7 +1820,65 @@
     "text": "Admired tree with spiced nuts? Not I",
     "enumeration": "9"
    },
-   "solution": "RESPECTED"
+   "solution": "RESPECTED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "RESPECTED",
+    "definitions": [
+     {
+      "text": "Admired",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not I",
+      "for": "deletion",
+      "note": "not I says that letter must be left out of the mix"
+     },
+     {
+      "text": "nuts",
+      "for": "anagram",
+      "note": "nuts means crazy, so these letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tree",
+      "gives": "TREE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "spiced",
+      "gives": "SPICED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TREESPCED",
+       "gives": "RESPECTED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for a tree hung with spiced nuts, perhaps at Christmas.",
+     "walkthrough": "'nuts' looks like food on the tree, but it signals the rearrangement.",
+     "definitionFit": "Respected and admired both describe someone held in high regard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nuts"
+    }
+   }
   },
   {
    "number": 28,
@@ -464,7 +1892,53 @@
     "text": "Showed Democrat is manipulated",
     "enumeration": "9"
    },
-   "solution": "DISPLAYED"
+   "solution": "DISPLAYED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISPLAYED",
+    "definitions": [
+     {
+      "text": "Showed",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Democrat",
+      "gives": "D",
+      "note": "D is the abbreviation for Democrat"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "manipulated",
+      "gives": "PLAYED",
+      "note": "to play someone is to manipulate them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IS",
+      "PLAYED"
+     ]
+    },
+    "explanation": {
+     "surface": "Revealing that a Democrat politician is being used.",
+     "walkthrough": "'manipulated' looks like an anagram signal, but it is PLAYED.",
+     "definitionFit": "Displayed and showed both mean put on view."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "manipulated"
+    }
+   }
   },
   {
    "number": 29,
@@ -478,7 +1952,43 @@
     "text": "Some deer are rather less common",
     "enumeration": "5"
    },
-   "solution": "RARER"
+   "solution": "RARER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RARER",
+    "definitions": [
+     {
+      "text": "less common",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means just a part of the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deer are rather",
+      "gives": "RARER",
+      "note": "spans the end of deer, all of are and the start of rather"
+     }
+    ],
+    "explanation": {
+     "surface": "Certain deer are becoming scarce.",
+     "walkthrough": "'rather' supplies the last letter and also sits in the surface as an intensifier.",
+     "definitionFit": "Rarer is the comparative of rare, meaning less common."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rather"
+    }
+   }
   }
  ]
 }
