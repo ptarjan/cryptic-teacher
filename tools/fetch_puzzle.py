@@ -449,7 +449,7 @@ def separator_list(locations):
 
 
 #: The keys of an entry's `clue`, in the order every writer spells them.
-CLUE_KEYS = ("text", "enumeration", "separators", "italics", "missing", "missingNote")
+CLUE_KEYS = ("text", "enumeration", "separators", "italics", "missing", "missingNote", "pairedCount")
 
 #: An enumeration separators() can read: counts joined by "," "-" or "'".
 CLUE_ENUMERATION = re.compile(r"\d+(?:[,\-']\d+)*")
