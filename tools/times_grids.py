@@ -612,6 +612,7 @@ def settle(grid, rec, vocab):
 MISSPELT = {
     (49822, 33, "down"): "IDEOLOGICAL",   # Jumbo 1756: (Iago cold lie)*, blogged IDEALOGICAL
     (56106, 5, "down"): "ANTEMERIDIEM",   # Jumbo 1798: (entered Miami)*, blogged MERIDIEN
+    ("fifteensquared-136915", 1, "down"): "PROSTATITIS",   # Azed 2482: blogged PROSTATISIS, 28 across TARANDS crosses its T
 }
 
 
