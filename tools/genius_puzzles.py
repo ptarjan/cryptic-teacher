@@ -912,10 +912,8 @@ def assemble(number, pdf, post, date, url):
 
 def unsolved(number, pdf, date, url, withheld=()):
     """(puzzle, None) or (None, why not): the grid and clues with no answers."""
-    if not pdf["setter"] and number not in series_meta.meta(SERIES).get("unbylined", {}):
-        return None, ("no post, and the page names no setter",
-                      "an article page's byline is staff; list it in series.py unbylined once "
-                      "no source names one, or find its setter")
+    # No post and a page that names nobody: "no source names a setter" is the
+    # recorded state (series.py unbylinedUnsolved), so the puzzle files without one.
     entries = fpp.entries_of(pdf, None, pdf["grid"])
     rec = {"post_id": None, "link": url, "date": None, "series": CATEGORY, "number": number,
            "setter": pdf["setter"], "entries": entries}

@@ -981,7 +981,9 @@ def check_setter(puzzle, flags):
     `bylined`) never has a null one: null there is a parser that missed it.
     A puzzle read off a newspaper page is exempt: the print edition is not
     that source, and older papers ran puzzles with no byline (the 1970s FT).
-    So is a puzzle the series lists in `unbylined`: no source names its setter."""
+    So is a puzzle the series lists in `unbylined`: no source names its setter.
+    And, where the series sets `unbylinedUnsolved`, a puzzle filed unsolved: it
+    has no post to name one, and the filer files it only once its page names none."""
     pid, setter = puzzle["id"], puzzle.get("setter")
     series = puzzle.get("series", "cryptic")
     if setter is None:
@@ -989,7 +991,9 @@ def check_setter(puzzle, flags):
             (puzzle.get("source") or {}).get("acquiredBy")) == "newspaper"
         meta = series_meta.meta(series)
         if (meta.get("bylined") and not series_meta.is_book(series) and not scanned
-                and puzzle.get("number") not in meta.get("unbylined", {})):
+                and puzzle.get("number") not in meta.get("unbylined", {})
+                and not (meta.get("unbylinedUnsolved")
+                         and (puzzle.get("solutions") or {}).get("origin") == "unsolved")):
             flags.append(("SETTER", pid, f"no setter, but {series} prints a byline "
                           f"on every puzzle"))
         return
