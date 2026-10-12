@@ -13,8 +13,9 @@ Only the clues are mandatory:
     rejoined (a word the paper hyphenated over a line end is rejoined when
     the joined word is in tools/data/cmudict.txt.gz and its halves are not).
   - A clue the OCR lost or garbled (a number read as junk, a bracket broken,
-    "(S)") is repaired from RapidOCR's reading of the page's clue columns
-    when tools/trove_clue_ocr.py has cached them beside the cache
+    "(S)") is repaired (tools/clue_repair.py) from the readings of the
+    page's clue columns that also vote on its words (below), when
+    tools/fetch_trove.py has cached the columns beside the cache
     (downloads.TROVE_CLUES), anchored on text both readings share.
   - The grid comes from grid.jpg (tools/trove_grid.py), and is used only when
     it is 180-degree symmetric and every clue the OCR kept agrees with it:
@@ -92,11 +93,11 @@ import dir_cache
 import downloads
 import edition_commit
 import enumeration
+import clue_repair
 import ocr_clues
 import reconstruct_grid as rg
 import scan_queue
 import series as series_meta
-import trove_clue_ocr
 import trove_grid
 import trove_solution_ocr
 import vlm_reader as vlm
@@ -133,7 +134,7 @@ CAUSES = [
     ("rebuilt-grid-disagrees", "pending", "the grid rebuilt from the clues disagrees with them",
      "the clue parse, then --reread", True, "tools/file_trove_puzzles.py"),
     ("lights-without-clue", "pending", "a light of the grid has no clue in the OCR",
-     "the clue repair (tools/trove_clue_ocr.py), then --reread", True, "tools/file_trove_puzzles.py"),
+     "the clue repair (tools/clue_repair.py), then --reread", True, "tools/file_trove_puzzles.py"),
     ("clues-unread", "pending", "the readings' vote leaves a clue blank",
      "the VLM: an article read while it was down is due once it answers (due_reason)", True, "tools/ocr_clues.py"),
     ("suspect-words", "pending", "a voted clue holds a word OCR made up (ocr_clues.suspect)",
@@ -827,7 +828,7 @@ def page_readings(d, zones=None):
     if not has_readings(d.name, zones or clue_zones(d)):
         return {}
     cached = readings_cached(d.name, zones or clue_zones(d))
-    images = trove_clue_ocr.zone_images(d.name, zones or clue_zones(d))
+    images = zone_images(d.name, zones or clue_zones(d))
     from PIL import Image
     out = {}
     for which, cache in cached.items():
@@ -839,6 +840,25 @@ def page_readings(d, zones=None):
     return out
 
 
+def vlm_reading(d, zones=None):
+    """{"vlm": the desktop VLM's text of the article's clue zones} when it
+    answers (its replies cached by tools/vlm_reader.py), else {}."""
+    from PIL import Image
+    images = zone_images(d.name, zones or clue_zones(d))
+    if not images or not vlm.reachable():
+        return {}
+    try:
+        return {"vlm": "\n".join(vlm.read(vlm.crop(im, (0, 0, im.width, im.height)))
+                                 for im in map(Image.open, images))}
+    except RuntimeError:
+        return {}  # gone mid-run: read as without it
+
+
+def zone_images(aid, zones):
+    """Article `aid`'s clue zone images (fetch_trove.py zones), in print order."""
+    return sorted((zones / str(aid)).glob("zone*.png"), key=lambda p: int(p.stem[4:]))
+
+
 def readings_cached(aid, zones):
     """{reader: where page_readings caches its text of article `aid`'s zones}."""
     return {which: zones / str(aid) / f"read.{ocr_clues.reader_key(which)}.txt" for which in ocr_clues.READERS}
@@ -847,7 +867,7 @@ def readings_cached(aid, zones):
 def has_readings(aid, zones):
     """Whether page_readings has anything to read for article `aid`: its zone
     images, or every reader's cached text of them."""
-    return bool(trove_clue_ocr.zone_images(aid, zones)) or all(
+    return bool(zone_images(aid, zones)) or all(
         p.exists() for p in readings_cached(aid, zones).values())
 
 
@@ -893,14 +913,10 @@ def vote(d, laid, grid, zones=None):
     lost = sorted(set(lengths) - set(laid), key=lambda k: (k.split("-")[1], int(k.split("-")[0])))
     if lost:
         return None, ("lights-without-clue", f"no clue for {', '.join(lost)}")
-    images = [Image.open(p) for p in trove_clue_ocr.zone_images(d.name, zones or clue_zones(d))]
+    images = [Image.open(p) for p in zone_images(d.name, zones or clue_zones(d))]
     # The desktop's VLM, when it answers, is one more reading, and reads
     # each clue the vote leaves blank shown every reading's text for it.
-    if images and vlm.reachable():
-        try:
-            texts["vlm"] = "\n".join(vlm.read(vlm.crop(im, (0, 0, im.width, im.height))) for im in images)
-        except RuntimeError:
-            pass  # gone mid-run: read as without it
+    texts.update(vlm_reading(d, zones))
     before = dict(laid)
     laid, blank = ocr_clues.reconcile(laid, list(texts.values()), lengths, keep_known=True)
     if blank and "vlm" in texts and vlm.reachable():
@@ -1051,13 +1067,13 @@ def already_held(laid):
 # ------------------------------------------------------------ the run
 
 def clue_zones(d):
-    """Where tools/trove_clue_ocr.py caches the clue columns of the articles
+    """Where tools/fetch_trove.py caches the clue columns of the articles
     in d's cache (zones_of)."""
     return zones_of(d.parent)
 
 
 def zones_of(cache):
-    """Where tools/trove_clue_ocr.py caches the clue columns of the articles
+    """Where tools/fetch_trove.py caches the clue columns of the articles
     in `cache`: trove-clues beside trove, as downloads.TROVE_CLUES beside downloads.TROVE."""
     return cache.parent / f"{cache.name}-clues"
 
@@ -1111,7 +1127,7 @@ def rekey_unchanged(ledger, cache=CACHE, puzzles=None):
         if h == row["inputs"] or h.endswith("+strayed") != row["inputs"].endswith("+strayed"):
             continue
         read = scan_queue.when(row["readAt"]).timestamp()
-        paths = [d / n for n in ("meta.json", "ocr.txt", "grid.jpg")] + trove_clue_ocr.zone_images(a, clue_zones(d))
+        paths = [d / n for n in ("meta.json", "ocr.txt", "grid.jpg")] + zone_images(a, clue_zones(d))
         if all(int(p.stat().st_mtime) <= read for p in paths if p.exists()):
             new[a] = h
     if not new:
@@ -1160,8 +1176,10 @@ def inputs_of(d, held=None):
 #: A cause a code change may have cured, and when it landed: an article
 #: waiting or refused for it, last read before then, is due (due_reason),
 #: so the standing full pass re-reads it and nothing else.
-REREAD_CAUSES = {cause: "2026-10-06T13:33:44+00:00"
-                 for cause in ("no-grid", "rebuilt-grid-disagrees", "clues-dont-parse")}
+REREAD_CAUSES = {"clues-dont-parse": "2026-10-06T13:33:44+00:00",
+                 # The clue repair reads the readers that vote (clue_repair).
+                 **{cause: "2026-10-12T05:58:49+00:00"
+                    for cause in ("no-grid", "rebuilt-grid-disagrees", "lights-without-clue")}}
 
 
 def due_reason(row, inputs, vlm_up, reread=None):
@@ -1203,7 +1221,12 @@ def consider(d, taken):
         parsed[direction], why = clues(text)
         if why:
             return refuse({}, "clues-dont-parse", f"{direction} clues do not parse: {why}"), None, None
-    parsed, repairs = trove_clue_ocr.repaired(d, parsed, clue_zones(d))
+    repairs = []
+    if not clue_repair.complete(parsed):
+        texts = page_readings(d)
+        if texts:
+            texts.update(vlm_reading(d))
+        parsed, repairs = clue_repair.repaired(parsed, texts.values())
     parsed, moved = renumber(parsed)
     verdict = {"clues": sum(len(v) for v in parsed.values())}
     if repairs:

@@ -1,105 +1,41 @@
 #!/usr/bin/env python3
-"""Repair the clues Trove's OCR loses by reading the page scan's clue columns.
+"""Repair a parsed clue list from another reading of the same clues.
 
-    python3 tools/trove_clue_ocr.py --show ID             # the repair, one article
+A newspaper OCR's clue list loses about one clue a puzzle: a clue number
+read as junk ("tfl" for 10) glues that clue onto the one before, a broken
+bracket ("(6,\\n4> , ,") eats an enumeration, and "(S)" reads as 5 or 8.
+Each blocks tools/reconstruct_grid.py. Both scan filers
+(tools/file_trove_puzzles.py, tools/file_archive_org_puzzles.py) hand a
+parsed list to repaired() with the other readings of the page's clue
+columns: tools/ocr_clues.py's READERS and the VLM (tools/vlm_reader.py),
+the one set of readings that also vote on every clue's words. This module
+reads nothing itself.
 
-Trove's text OCR of a Canberra Times clue list loses about one clue a puzzle:
-a clue number read as junk ("tfl" for 10) glues that clue onto the one
-before, a broken bracket ("(6,\\n4> , ,") eats an enumeration, and "(S)"
-reads as 5 or 8. Each blocks tools/reconstruct_grid.py. The page scan is
-sharp, so tools/file_trove_puzzles.py hands its parsed lists to repair() with
-RapidOCR's reading of the article's text zones (cached by `fetch_trove.py
-zones` in downloads.TROVE_CLUES/<id>/zone<N>.png at ~half the scan's top
-resolution, where the print is still ~17px tall).
-
-This module fetches nothing (it caches only RapidOCR's reading, beside the
-zones); an article whose zones are not cached waits
-(tools/file_trove_puzzles.py leaves it pending) until the fetcher caches them.
-
-RapidOCR loses things too (it often drops brackets and the bold clue
-numbers), so it never replaces a list. It is a second witness, and every
-change it makes is anchored by text both readings share:
+Another reading loses things too (RapidOCR often drops brackets and the bold
+clue numbers), so it never replaces a list. It is a second witness, and
+every change it makes is anchored by text both readings share:
 
   1. A clue number missing from the list is split off the clue before it
-     when RapidOCR reads that number in front of words that Trove's text of
-     the clue before contains.
+     when the other reading has that number in front of words that the
+     list's text of the clue before contains.
   2. A clue with no enumeration, or one read several ways, takes the counts
-     RapidOCR reads right after the clue's last words, less the next clue's
-     number. A reading Trove left ambiguous must be one of Trove's
-     readings; digits Trove kept in a broken bracket must be the same
+     the other reading has right after the clue's last words, less the next
+     clue's number. A count the list left ambiguous must be one of its
+     readings; digits the list kept in a broken bracket must be the same
      digits in the same order. RapidOCR reads a hyphen as a period, so
      counts in parts ("4.5" for 4-5) give the rebuild the light's length
      but are not printed with the clue.
-  3. A clue number read several ways takes the number RapidOCR reads
+  3. A clue number read several ways takes the number the other reading has
      right before the clue's first words, when it is one of those ways.
 """
-import argparse
 import re
-import sys
-from pathlib import Path
-import downloads
 
-
-CACHE = downloads.TROVE
-ZONES = downloads.TROVE_CLUES
 #: Letters a text anchor must share; fewer match by chance.
 ANCHOR = 12
 #: Letters at a span's edge the two readings may disagree on.
 SLIDE = 8
 #: Characters after a clue's last words searched for its enumeration.
 TAIL = 30
-
-_ENGINE = None
-
-
-def engine():
-    global _ENGINE
-    if _ENGINE is None:
-        import ocr_clues
-        import trove_solution_ocr
-        from rapidocr_onnxruntime import RapidOCR
-        extra = [m for m in trove_solution_ocr.EXTRA_MODELS if m.exists()]
-        threads = ocr_clues.engine_threads()
-        _ENGINE = RapidOCR(rec_model_path=str(extra[0]), **threads) if extra else RapidOCR(**threads)
-    return _ENGINE
-
-
-def zone_images(aid, zones=ZONES):
-    return sorted((zones / str(aid)).glob("zone*.png"), key=lambda p: int(p.stem[4:]))
-
-
-def read_text(images):
-    """RapidOCR's text of the zone image files, one printed row a line: read
-    on the desktop when tools/ocr_remote.py can (the files' bytes sent as
-    they are), else here."""
-    import ocr_remote
-    blobs = [Path(p).read_bytes() for p in images]
-    got = ocr_remote.call("trove_text", [len(b) for b in blobs], data=b"".join(blobs))
-    if got is not None:
-        return got[0]
-    with ocr_remote.local_slot():
-        return read_here(images)
-
-
-def read_here(images):
-    """read_text() of the zone images (files or file objects), read here."""
-    import numpy as np
-    from PIL import Image
-    lines = []
-    for p in images:
-        res, _ = engine()(np.asarray(Image.open(p).convert("RGB")), use_cls=False)
-        boxes = sorted(((b[0][1], b[0][0], b[2][1] - b[0][1], t) for b, t, _ in res or ()))
-        row, top, height = [], None, 0
-        for y, x, h, t in boxes:
-            if row and y > top + height / 2:
-                lines.append(" ".join(t for _, t in sorted(row)))
-                row = []
-            if not row:
-                top, height = y, h
-            row.append((x, t))
-        if row:
-            lines.append(" ".join(t for _, t in sorted(row)))
-    return "\n".join(lines)
 
 
 # ------------------------------------------------------------ the repair
@@ -163,7 +99,7 @@ def tail_enum(seg, nxt):
 
 
 def split_lost(direction, parsed, stream, s_letters, s_idx, notes):
-    """Step 1: clues RapidOCR numbers that Trove's list lacks."""
+    """Step 1: clues the other reading numbers that the list lacks."""
     import file_trove_puzzles as ftp
     out = parsed[direction]
     top = max(numbers(parsed), default=0)
@@ -186,7 +122,7 @@ def split_lost(direction, parsed, stream, s_letters, s_idx, notes):
             continue
         cut = c_idx[pos]
         before = c["text"][:cut].rstrip()
-        # The junk Trove read for the number ("tfl", "6."), then the bracket.
+        # The junk the list read for the number ("tfl", "6."), then the bracket.
         before = re.sub(rf"\s*(?:{ftp.NUM}|{ftp.JUNK_NUM}|\S{{1,3}})[.,]?$", "", before)
         enums = set()
         b = re.search(r"\(([^()]{1,12})\)[\s.,]*$", before)
@@ -195,7 +131,7 @@ def split_lost(direction, parsed, stream, s_letters, s_idx, notes):
             before = before[:b.start()].rstrip()
         split(out, k, cut, before, enums, n)
         notes.append(f"{n} {direction}: split off {c_number(c)} {direction}")
-    # Trove kept the number but a broken bracket before it hid the clue's
+    # The list kept the number but a broken bracket before it hid the clue's
     # start: "sat (6, 4> , , 6. Rumour", "'1^7). 16 Eminent", the number one
     # the list lacks.
     k = 0
@@ -209,7 +145,7 @@ def split_lost(direction, parsed, stream, s_letters, s_idx, notes):
             if len(ns) == 1 and c["see"] is None:
                 n = ns.pop()
                 split(out, k, m.end(), c["text"][:m.start(1)].rstrip(), set(), n)
-                notes.append(f"{n} {direction}: split off {c_number(c)} {direction} at Trove's own number")
+                notes.append(f"{n} {direction}: split off {c_number(c)} {direction} at the list's own number")
                 break
         k += 1
 
@@ -227,7 +163,7 @@ def c_number(c):
 
 
 def fix_enum(direction, parsed, stream, s_letters, s_idx, notes):
-    """Step 2: an enumeration Trove lost or left ambiguous."""
+    """Step 2: an enumeration the list lost or left ambiguous."""
     import file_trove_puzzles as ftp
     out = parsed[direction]
     for i, c in enumerate(out):
@@ -238,7 +174,7 @@ def fix_enum(direction, parsed, stream, s_letters, s_idx, notes):
         loose = None
         kept = re.sub(r"\D", "", broken.group(1)) if broken else ""
         bare = text[:broken.start()] if broken else text
-        # What is left of a bracket Trove broke: "warmth 0).", "nian'1^7).".
+        # What is left of a bracket the OCR broke: "warmth 0).", "nian'1^7).".
         junk = re.search(r"[^A-Za-z?!]*\d[^A-Za-z?!]*$", bare)
         if junk and not broken:
             loose = re.sub(r"\D", "", junk.group(0))
@@ -268,7 +204,7 @@ def fix_enum(direction, parsed, stream, s_letters, s_idx, notes):
         # RapidOCR reads a small hyphen as a period, so a count in parts
         # settles the light's length but is not printed with the clue.
         out[i] = dict(c, text=bare.rstrip(), enums={enum}, count_only=not enum.isdigit())
-        notes.append(f"{c_number(c)} {direction}: enumeration ({enum}), Trove read "
+        notes.append(f"{c_number(c)} {direction}: enumeration ({enum}), the list read "
                      f"{sorted(c['enums']) or repr(text[-12:])}")
 
 
@@ -285,11 +221,11 @@ def fix_number(direction, parsed, stream, s_letters, s_idx, notes):
         m = re.search(r"(?<!\d)(\d{1,2})\s*[.,]?\s*$", stream[max(0, s_idx[pos] - 8):s_idx[pos]])
         if m and int(m.group(1)) in c["tokens"][0]:
             out[i] = dict(c, tokens=[{int(m.group(1))}] + c["tokens"][1:])
-            notes.append(f"{int(m.group(1))} {direction}: number, Trove read {sorted(c['tokens'][0])}")
+            notes.append(f"{int(m.group(1))} {direction}: number, the list read {sorted(c['tokens'][0])}")
 
 
 def repair(parsed, stream):
-    """(the parsed lists with what RapidOCR's `stream` settles, [what changed])."""
+    """(the parsed lists with what the other reading `stream` settles, [what changed])."""
     parsed = {d: [dict(c) for c in v] for d, v in parsed.items()}
     s_letters, s_idx = letters(stream)
     notes = []
@@ -317,37 +253,13 @@ def complete(parsed):
     return bool(nums) and nums == set(range(1, max(nums) + 1))
 
 
-def repaired(d, parsed, zones=ZONES):
-    """repair() for article directory `d` when its zones are cached and the
-    list is not already complete; else (parsed, [])."""
-    if complete(parsed) or not (zone_images(d.name, zones) or (zones / d.name / "rapidocr.txt").exists()):
-        return parsed, []
-    return repair(parsed, stream(d.name, zones))
-
-
-def stream(aid, zones=ZONES):
-    """read_text() of article `aid`'s cached zones, itself cached beside them."""
-    path = zones / str(aid) / "rapidocr.txt"
-    if not path.exists():
-        path.write_text(read_text(zone_images(aid, zones)), encoding="utf-8")
-    return path.read_text(encoding="utf-8")
-
-
-def main(argv=None):
-    import file_trove_puzzles as ftp
-    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--show", metavar="ID")
-    args = ap.parse_args(argv)
-    if args.show:
-        d = CACHE / args.show
-        secs = ftp.sections((d / "ocr.txt").read_text(encoding="utf-8", errors="replace"))
-        parsed = {k: ftp.clues(v)[0] for k, v in secs.items()}
-        text = stream(args.show)
-        fixed, notes = repair(parsed, text)
-        print(text)
-        print("\n".join(notes) or "no change", "| complete:", complete(parsed), "->", complete(fixed))
-    return 0
-
-
-if __name__ == "__main__":
-    sys.exit(main())
+def repaired(parsed, readings):
+    """(parsed, [what changed]) with the list repaired from each reading in
+    `readings` (texts) in turn until it is complete()."""
+    notes = []
+    for text in readings:
+        if complete(parsed):
+            break
+        parsed, got = repair(parsed, text)
+        notes += got
+    return parsed, notes

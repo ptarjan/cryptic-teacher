@@ -155,12 +155,13 @@ tools/test_file_trove_puzzles.sh              files three real Trove articles: t
                                               the OCR misread held back by name, a second run
                                               touching nothing, and the clues alone filing a
                                               puzzle whose picture is missing
-tools/trove_clue_ocr.py                       repairs the clues Trove's OCR loses (a number
-                                              read as junk, a broken bracket, "(S)") from
-                                              RapidOCR's reading of the page's clue columns,
-                                              cached in downloads.TROVE_CLUES by fetch_trove.py
-                                              zones; file_trove_puzzles.py applies it, anchored
-                                              on text both readings share
+tools/clue_repair.py                          repairs the clues a newspaper OCR loses (a number
+                                              read as junk, a broken bracket, "(S)") from the
+                                              other readings of the page's clue columns
+                                              (ocr_clues.py's readers and the VLM, the ones
+                                              that vote on its words); both scan filers apply
+                                              it, anchored on text both readings share. It
+                                              reads nothing itself
 tools/fixtures/archive-org-grids/             archive.org page crops whose grid lies far under,
                                               over, left or right of its title, touches its
                                               title or has text touching its foot (cases.json:
@@ -177,9 +178,9 @@ tools/fixtures/archive-org-titles/            five archive.org page crops whose 
                                               band), the titles
                                               test_file_archive_org_puzzles.sh reads
 tools/fixtures/trove-repair/                  the 14 July 1967 cryptic, whose OCR glued 6-down
-                                              onto 5-down, with RapidOCR's reading of its clue
-                                              columns and our three readers' text of them: the
-                                              repair and vote test_file_trove_puzzles.sh checks
+                                              onto 5-down, with our three readers' text of its
+                                              clue columns: the repair and vote
+                                              test_file_trove_puzzles.sh checks
 tools/fixtures/trove-clues/                   our three OCR readers' text of the 1 June 1972
                                               article's clue zones, the other voters
                                               test_file_trove_puzzles.sh puts Trove's text to

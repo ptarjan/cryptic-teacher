@@ -81,7 +81,7 @@ const SMOKE_DEPS = [
     "tools/showcase.py", "tools/smoke_test.js", "tools/stamp_assets.py",
     "tools/test_alert_claimed.sh", "tools/test_nightly_worktree.sh",
     "tools/test_notify_race.js", "tools/test_prereset_paths.sh", "tools/test_push_hold.js",
-    "tools/trove_clue_ocr.py", "tools/trove_grid.py", "tools/trove_solution_ocr.py",
+    "tools/clue_repair.py", "tools/trove_grid.py", "tools/trove_solution_ocr.py",
     "tools/tutorial.html", "tools/unstage_unparsable.sh", "tools/validate_annotations.py", "tools/vlm_reader.py",
 ];
 const CHECKS = {

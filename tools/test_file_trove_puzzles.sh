@@ -179,10 +179,10 @@ cells = lambda p: sorted((e['number'], e['direction'], e['position']['x'], e['po
 print(b['source']['gridOrigin'], cells(a) == cells(b))")
 check "no grid image: filed from the clues, rebuilt" "reconstructed True" "$got"
 
-# A lost clue repaired from RapidOCR's reading of the clue columns: in the
+# A lost clue repaired from the readings of the clue columns: in the
 # 14 July 1967 cryptic Trove read 5-down's "(6, 4)" as "(6,\n4> , ," and
-# glued 6-down onto it. The reading (tools/fixtures/trove-repair/cache-clues,
-# cached as tools/trove_clue_ocr.py leaves it) gives 6-down back and 5-down
+# glued 6-down onto it. The readings (tools/fixtures/trove-repair/cache-clues,
+# cached as page_readings leaves them) give 6-down back and 5-down
 # its length, so the clues agree with the picture and the puzzle files,
 # 5-down with the "(6, 4)" every reading prints (ocr_clues.as_printed);
 # without it 6-down is split off at its number (unglued()) and the grid
