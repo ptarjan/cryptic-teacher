@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,45 @@
     "text": "Twelve, possibly, feeling less",
     "enumeration": "6"
    },
-   "solution": "NUMBER"
+   "solution": "NUMBER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NUMBER",
+    "definitions": [
+     {
+      "text": "Twelve, possibly",
+      "at": 0
+     },
+     {
+      "text": "feeling less",
+      "at": 18,
+      "note": "adjective, comparative of numb"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Twelve, possibly",
+      "note": "first meaning: twelve is an example of a numeral"
+     },
+     {
+      "clueFragment": "feeling less",
+      "note": "second meaning: more numb, having less sensation"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone at twelve, perhaps midnight or a twelfth birthday, finding their emotions dulled.",
+     "walkthrough": "Read the answer two ways: NUMber, a figure, and NUMB-ER, more numb. The pronunciation changes but the spelling does not.",
+     "definitionFit": "Twelve is one example of a numeral, and a body part with less sensation is comparatively more numb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "feeling"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +88,56 @@
     "text": "Handle rising demand to some extent",
     "enumeration": "4"
    },
-   "solution": "NAME"
+   "solution": "NAME",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "NAME",
+    "definitions": [
+     {
+      "text": "Handle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to some extent",
+      "for": "hidden_word",
+      "note": "only to some extent means just a portion of the next word is used"
+     },
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down light, rising means the letters are read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "demand",
+      "gives": "EMAN",
+      "note": "the middle letters of this word"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "EMAN",
+       "to": "NAME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Coping with demand that is growing, at least partly.",
+     "definitionFit": "A handle is informal slang for a person's name, as in a CB radio handle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Handle"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +151,50 @@
     "text": "Men got a confused picture",
     "enumeration": "7"
    },
-   "solution": "MONTAGE"
+   "solution": "MONTAGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MONTAGE",
+    "definitions": [
+     {
+      "text": "picture",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "confused letters are jumbled out of their proper order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Men got a",
+      "gives": "MENGOTA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MENGOTA",
+       "gives": "MONTAGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some men were given a baffling image to look at.",
+     "definitionFit": "A montage is a composite picture made by combining several separate images."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "confused"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +208,61 @@
     "text": "Discharged soldier in 'ot surroundings",
     "enumeration": "8"
    },
-   "solution": "EMANATED"
+   "solution": "EMANATED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EMANATED",
+    "definitions": [
+     {
+      "text": "Discharged",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one part sits inside another, which surrounds it"
+     },
+     {
+      "text": "surroundings",
+      "for": "container",
+      "note": "surroundings are what encloses something, so the second part goes round the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldier",
+      "gives": "MAN",
+      "note": "a man is a private soldier, as in officers and men"
+     },
+     {
+      "clueFragment": "'ot",
+      "gives": "EATED",
+      "note": "the apostrophe drops the H, so heated becomes 'eated, as a Cockney would say it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MAN",
+      "ATED"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier dismissed from service while stationed somewhere hot.",
+     "walkthrough": "'ot is 'hot' with its H dropped, telling you to drop the H from a word meaning hot too: heated loses its H.",
+     "definitionFit": "Emanated means issued or flowed out from a source, the same as being discharged."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Discharged"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +276,42 @@
     "text": "Phoney overcome by emotion",
     "enumeration": "8"
    },
-   "solution": "AFFECTED"
+   "solution": "AFFECTED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AFFECTED",
+    "definitions": [
+     {
+      "text": "Phoney",
+      "at": 0
+     },
+     {
+      "text": "overcome by emotion",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Phoney",
+      "note": "first meaning: artificial, put on for show"
+     },
+     {
+      "clueFragment": "overcome by emotion",
+      "note": "second meaning: moved, touched"
+     }
+    ],
+    "explanation": {
+     "surface": "A fake person suddenly overwhelmed by feeling, perhaps genuinely this time.",
+     "definitionFit": "An affected manner is pretentious and false, while being affected also means being emotionally moved."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Phoney"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +331,39 @@
      }
     ]
    },
-   "solution": "FALSEBOTTOM"
+   "solution": "FALSEBOTTOM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FALSE BOTTOM",
+    "definitions": [
+     {
+      "text": "In case this is used for hiding something?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In case",
+      "note": "surface reading: just in case, as a precaution"
+     },
+     {
+      "clueFragment": "In case this is used for hiding something?",
+      "note": "setter's reading: a concealed compartment inside a case or box"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'In case' reads as the idiom 'as a precaution'; it actually means literally inside a suitcase or box.",
+     "definitionFit": "A false base fitted inside a container hides a secret space underneath, as used by smugglers and magicians."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +377,68 @@
     "text": "Smallholder turning back horse in the shade",
     "enumeration": "6"
    },
-   "solution": "EGGCUP"
+   "solution": "EGGCUP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "EGGCUP",
+    "definitions": [
+     {
+      "text": "Smallholder",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning back",
+      "for": "reversal",
+      "note": "turning back means reading the shade's word from right to left"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the horse goes inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horse",
+      "gives": "GG",
+      "note": "gee-gee is a child's word for a horse"
+     },
+     {
+      "clueFragment": "the shade",
+      "gives": "PUCE",
+      "note": "puce is a purplish-brown colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "GG",
+      "CUP"
+     ],
+     "reversals": [
+      {
+       "from": "PUCE",
+       "to": "ECUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small farmer leading their horse back into the shade.",
+     "walkthrough": "'Smallholder' suggests a farmer; it is literally something that holds a small item, a boiled egg.",
+     "definitionFit": "An eggcup is a small container that holds a single boiled egg upright, so it is jokingly a small holder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Smallholder"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +452,55 @@
     "text": "Completely unconvincing part in play",
     "enumeration": "7"
    },
-   "solution": "TOTALLY"
+   "solution": "TOTALLY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TOTALLY",
+    "definitions": [
+     {
+      "text": "Completely",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part in",
+      "for": "container",
+      "note": "taking part in something means being within it, so one word is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "play",
+      "gives": "TOY",
+      "note": "to toy is to play with something"
+     },
+     {
+      "clueFragment": "unconvincing",
+      "gives": "TALL",
+      "note": "a tall story is an unconvincing one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "TALL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An actor giving a thoroughly unbelievable performance in a stage play.",
+     "walkthrough": "'Part in play' looks like a role in a drama; play is the verb toy, with the unconvincing word placed inside it.",
+     "definitionFit": "Totally and completely are synonyms, both meaning entirely or wholly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +514,54 @@
     "text": "Guide outspoken politician when his leader's absent",
     "enumeration": "9"
    },
-   "solution": "DIRECTORY"
+   "solution": "DIRECTORY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "DIRECTORY",
+    "definitions": [
+     {
+      "text": "Guide",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when his leader's absent",
+      "for": "deletion",
+      "note": "the leader of a word is its first letter, which is to be left off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outspoken",
+      "gives": "DIRECT",
+      "note": "outspoken and direct both mean frank"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "TORY",
+      "note": "a Tory is a member of the UK Conservative Party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIRECT",
+      "ORY"
+     ]
+    },
+    "explanation": {
+     "surface": "A blunt politician steering things while their party leader is away.",
+     "definitionFit": "A directory is a reference book or listing that guides people to names, addresses or files."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader's"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +581,39 @@
      }
     ]
    },
-   "solution": "MANDAY"
+   "solution": "MANDAY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MAN-DAY",
+    "definitions": [
+     {
+      "text": "Work unit that excludes women?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "excludes women",
+      "note": "surface reading: a sexist workplace team"
+     },
+     {
+      "clueFragment": "Work unit",
+      "note": "setter's reading: a measure of one person's labour for a day, whose name has only the male word in it"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A 'work unit' sounds like a team; it is a unit of measurement whose name happens to contain only 'man'.",
+     "definitionFit": "A man-day is the amount of work one person does in a day, used to measure labour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "unit"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +627,50 @@
     "text": "British barge makes it to the cove",
     "enumeration": "8"
    },
-   "solution": "BLIGHTER"
+   "solution": "BLIGHTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLIGHTER",
+    "definitions": [
+     {
+      "text": "cove",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "makes it to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "standard abbreviation for British"
+     },
+     {
+      "clueFragment": "barge",
+      "gives": "LIGHTER",
+      "note": "a lighter is a flat-bottomed barge for loading ships"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LIGHTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A British boat reaching a little bay on the coast.",
+     "walkthrough": "'Cove' looks like a bay; here it is old British slang for a man or fellow.",
+     "definitionFit": "Blighter is informal British slang for a person, especially a rascal, the same as an old-fashioned cove."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cove"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +690,39 @@
      }
     ]
    },
-   "solution": "BANANAREPUBLIC"
+   "solution": "BANANAREPUBLIC",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BANANA REPUBLIC",
+    "definitions": [
+     {
+      "text": "Land short of income despite abundance of hands",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "abundance of hands",
+      "note": "surface reading: a country with plenty of workers yet still poor"
+     },
+     {
+      "clueFragment": "hands",
+      "note": "setter's reading: a hand is a bunch of bananas, the crop such a country depends on"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Hands' seems to mean labourers; it is the word for a bunch of bananas.",
+     "definitionFit": "A banana republic is a poor, politically unstable country reliant on a single export crop such as bananas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hands"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +736,47 @@
     "text": "What follows natural disaster? Sweet drinks?",
     "enumeration": "11"
    },
-   "solution": "AFTERSHOCKS"
+   "solution": "AFTERSHOCKS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AFTERSHOCKS",
+    "definitions": [
+     {
+      "text": "What follows natural disaster?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sweet",
+      "gives": "AFTERS",
+      "note": "afters is British slang for dessert"
+     },
+     {
+      "clueFragment": "drinks",
+      "gives": "HOCKS",
+      "note": "hock is German white wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AFTERS",
+      "HOCKS"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking what comes after an earthquake, then whether sugary drinks are on offer.",
+     "walkthrough": "Afters is the British informal word for pudding; hock is a German Rhine wine.",
+     "definitionFit": "Aftershocks are the smaller tremors that follow a major earthquake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sweet"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +790,67 @@
     "text": "Arresting incident in jail — shilling missing",
     "enumeration": "10"
    },
-   "solution": "PREVENTION"
+   "solution": "PREVENTION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "PREVENTION",
+    "definitions": [
+     {
+      "text": "Arresting",
+      "at": 0,
+      "note": "a verbal noun, the act of arresting"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "missing means something is taken out and left absent"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one word goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "incident",
+      "gives": "EVENT",
+      "note": "an incident is an event"
+     },
+     {
+      "clueFragment": "jail",
+      "gives": "PRISON",
+      "note": "synonym"
+     },
+     {
+      "clueFragment": "shilling",
+      "gives": "S",
+      "note": "abbreviation of the old British coin, once 12 pence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "EVENT",
+      "ION"
+     ]
+    },
+    "explanation": {
+     "surface": "A prison incident in which a shilling goes missing and someone is arrested.",
+     "walkthrough": "'Arresting' suggests police detaining someone; here it means stopping something happening.",
+     "definitionFit": "To arrest a process is to stop it, so arresting something is preventing it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Arresting"
+    }
+   }
   },
   {
    "number": 13,
@@ -253,7 +870,37 @@
      }
     ]
    },
-   "solution": "PACKDRILL"
+   "solution": "PACKDRILL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PACK DRILL",
+    "definitions": [
+     {
+      "text": "Punishment only for named persons",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "only for named persons",
+      "note": "surface reading: a penalty applied only to people who have been identified"
+     },
+     {
+      "clueFragment": "Punishment only for named persons",
+      "note": "setter's reading: the old army saying 'no names, no ...', meaning nobody is punished unless someone names them"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It relies on the British military saying 'no names, no pack drill': keep quiet about who did it and nobody gets punished.",
+     "definitionFit": "Pack drill was a military punishment of marching in full kit, given only to soldiers identified as offenders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 14,
@@ -267,7 +914,62 @@
     "text": "Sort \"O\" instead of \"E\", creating mistake",
     "enumeration": "4"
    },
-   "solution": "TYPO"
+   "solution": "TYPO",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "TYPO",
+    "definitions": [
+     {
+      "text": "mistake",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "instead of",
+      "for": "substitution",
+      "note": "one letter takes the place of another in the word"
+     }
+    ],
+    "linkWords": [
+     "creating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sort",
+      "gives": "TYPE",
+      "note": "a sort or kind"
+     },
+     {
+      "clueFragment": "\"O\"",
+      "gives": "O",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "\"E\"",
+      "gives": "E",
+      "note": "taken as written; the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TYP",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A typesetter putting the wrong letter in and so making an error.",
+     "walkthrough": "'Sort' is also a piece of printer's type, which makes the surface an apt printing scene.",
+     "definitionFit": "A typo is a typographical error, a slip in typing or printing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sort"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +983,45 @@
     "text": "Mystery writer whose output is enlightening!",
     "enumeration": "8"
    },
-   "solution": "CHANDLER"
+   "solution": "CHANDLER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHANDLER",
+    "definitions": [
+     {
+      "text": "Mystery writer",
+      "at": 0
+     },
+     {
+      "text": "whose output is enlightening",
+      "at": 15,
+      "note": "a descriptive phrase for a person, not a noun"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mystery writer",
+      "note": "first meaning: Raymond, the American crime novelist"
+     },
+     {
+      "clueFragment": "whose output is enlightening",
+      "note": "second meaning: a candle maker, whose products give light"
+     }
+    ],
+    "explanation": {
+     "surface": "Praise for a detective novelist whose books shed light on things.",
+     "walkthrough": "Raymond Chandler wrote detective novels; the trade word also means a maker or seller of candles, which literally light things up.",
+     "definitionFit": "The surname of the crime novelist Raymond Chandler is also the old trade name for a candle maker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "enlightening"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1035,67 @@
     "text": "Morse, possibly, puts new heart into police department before end of case",
     "enumeration": "4"
    },
-   "solution": "CODE"
+   "solution": "CODE",
+   "annotation": {
+    "type": [
+     "substitution",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CODE",
+    "definitions": [
+     {
+      "text": "Morse, possibly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "puts new heart into",
+      "for": "substitution",
+      "note": "a new heart means the middle letter is swapped for a different one"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "police department",
+      "gives": "CID",
+      "note": "Criminal Investigation Department, the British detective branch"
+     },
+     {
+      "clueFragment": "case",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of case"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "O",
+      "D",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Inspector Morse revitalising a police department before wrapping up a case.",
+     "walkthrough": "The clue does not say what the new heart is; the I of CID becomes O, which the crossing letters confirm. 'Morse' tempts you towards the detective, but it is Morse code.",
+     "definitionFit": "Morse is a code of dots and dashes, so it is one example of a code."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Morse"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1109,41 @@
     "text": "Takes in summaries",
     "enumeration": "7"
    },
-   "solution": "DIGESTS"
+   "solution": "DIGESTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DIGESTS",
+    "definitions": [
+     {
+      "text": "Takes in",
+      "at": 0
+     },
+     {
+      "text": "summaries",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Takes in",
+      "note": "first meaning: absorbs, food or information"
+     },
+     {
+      "clueFragment": "summaries",
+      "note": "second meaning: condensed accounts"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone absorbing a series of short précis.",
+     "definitionFit": "To digest is to absorb food or ideas, and a digest is also a compilation or abridged summary."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1157,50 @@
     "text": "The lewd cry broke in a shocking manner",
     "enumeration": "10"
    },
-   "solution": "WRETCHEDLY"
+   "solution": "WRETCHEDLY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WRETCHEDLY",
+    "definitions": [
+     {
+      "text": "in a shocking manner",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broke",
+      "for": "anagram",
+      "note": "something broken falls apart and its bits end up in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The lewd cry",
+      "gives": "THELEWDCRY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THELEWDCRY",
+       "gives": "WRETCHEDLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An obscene shout broke out, scandalising everyone.",
+     "definitionFit": "Wretchedly means very badly or deplorably, which is doing something in a shocking way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broke"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1220,47 @@
      }
     ]
    },
-   "solution": "DIEHARD"
+   "solution": "DIEHARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIE-HARD",
+    "definitions": [
+     {
+      "text": "hardliner",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Peter out",
+      "gives": "DIE",
+      "note": "to peter out is to fade and die away"
+     },
+     {
+      "clueFragment": "baffling",
+      "gives": "HARD",
+      "note": "a hard problem is baffling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIE",
+      "HARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzling sense of Peter going out, perhaps a man called Peter.",
+     "walkthrough": "'Peter' looks like a name, but 'peter out' is a phrasal verb meaning to dwindle.",
+     "definitionFit": "A die-hard is a stubborn person who refuses to give up their position, a hardliner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Peter"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1274,64 @@
     "text": "Heartless pacemen forced to put up with canvas",
     "enumeration": "6"
    },
-   "solution": "ENCAMP"
+   "solution": "ENCAMP",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ENCAMP",
+    "definitions": [
+     {
+      "text": "put up with canvas",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heartless",
+      "for": "deletion",
+      "note": "without a heart means the central letter is removed"
+     },
+     {
+      "text": "forced",
+      "for": "anagram",
+      "note": "forced suggests being pushed out of shape into a new order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pacemen",
+      "gives": "PACEMEN",
+      "note": "fast bowlers in cricket"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENCAMP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PACMEN",
+       "gives": "ENCAMP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cricket's fast bowlers, worn out, made to put up with something.",
+     "walkthrough": "'Put up with' looks like 'tolerate'; read literally it means pitching tents. Pacemen are fast bowlers in cricket.",
+     "definitionFit": "To encamp is to set up a camp, putting up tents made of canvas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "put"
+    }
+   }
   },
   {
    "number": 21,
@@ -385,7 +1359,62 @@
      }
     ]
    },
-   "solution": "DOGINTHEMANGER"
+   "solution": "DOGINTHEMANGER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DOG IN THE MANGER",
+    "definitions": [
+     {
+      "text": "the killjoy",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the word is read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "God",
+      "gives": "GOD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the location where Jesus was away",
+      "gives": "INTHEMANGER",
+      "note": "from the carol 'Away in a Manger'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOG",
+      "INTHEMANGER"
+     ],
+     "reversals": [
+      {
+       "from": "GOD",
+       "to": "DOG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grumble that God was dismissed while Jesus was absent, spoiling the fun.",
+     "walkthrough": "'Away' points to the Christmas carol 'Away in a Manger', which names where the infant Jesus lay.",
+     "definitionFit": "A dog in the manger is someone who spitefully stops others enjoying what they cannot use, a killjoy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "away"
+    }
+   }
   },
   {
    "number": 22,
@@ -399,7 +1428,42 @@
     "text": "Just water",
     "enumeration": "4"
    },
-   "solution": "MERE"
+   "solution": "MERE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MERE",
+    "definitions": [
+     {
+      "text": "Just",
+      "at": 0
+     },
+     {
+      "text": "water",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Just",
+      "note": "first meaning: only, nothing more than"
+     },
+     {
+      "clueFragment": "water",
+      "note": "second meaning: a lake or pond"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as 'only water'; the two words are separate meanings.",
+     "definitionFit": "Mere means nothing more than, and a mere is also a poetic or dialect word for a lake."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Just"
+    }
+   }
   },
   {
    "number": 23,
@@ -413,7 +1477,53 @@
     "text": "Nine acts in play, for example",
     "enumeration": "8"
    },
-   "solution": "INSTANCE"
+   "solution": "INSTANCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INSTANCE",
+    "definitions": [
+     {
+      "text": "example",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in play",
+      "for": "anagram",
+      "note": "letters in play are moved around freely into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nine acts",
+      "gives": "NINEACTS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NINEACTS",
+       "gives": "INSTANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drama with nine acts given as an illustration of something.",
+     "definitionFit": "An instance is a single case or example of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 24,
@@ -427,7 +1537,54 @@
     "text": "Cut up sticks after college",
     "enumeration": "6"
    },
-   "solution": "CLEAVE"
+   "solution": "CLEAVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLEAVE",
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the leaving phrase's word behind the college abbreviation in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "college",
+      "gives": "C",
+      "note": "abbreviation for college"
+     },
+     {
+      "clueFragment": "up sticks",
+      "gives": "LEAVE",
+      "note": "to up sticks is to move away, to leave"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LEAVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Students dropping out and moving away after their time at college.",
+     "walkthrough": "'Up sticks' is a British idiom for moving house or leaving; the college abbreviation comes first because the leaving is 'after' it.",
+     "definitionFit": "To cleave is to split or chop through something with a heavy blow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sticks"
+    }
+   }
   },
   {
    "number": 25,
@@ -447,7 +1604,45 @@
      }
     ]
    },
-   "solution": "LASTPOST"
+   "solution": "LASTPOST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LAST POST",
+    "definitions": [
+     {
+      "text": "Collection",
+      "at": 0
+     },
+     {
+      "text": "forming part of Remembrance Day service",
+      "at": 11,
+      "note": "a descriptive phrase rather than a noun"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Collection",
+      "note": "first meaning: the final mail pickup of the day"
+     },
+     {
+      "clueFragment": "forming part of Remembrance Day service",
+      "note": "second meaning: the bugle call sounded at memorial services"
+     }
+    ],
+    "explanation": {
+     "surface": "Money is gathered as part of the November ceremony honouring the war dead.",
+     "walkthrough": "'Collection' suggests passing round a plate at the service; it is the last pickup from a postbox. Remembrance Day commemorates Britain's war dead each November.",
+     "definitionFit": "The final daily mail collection and the bugle call played at military funerals and memorials share this name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Collection"
+    }
+   }
   },
   {
    "number": 26,
@@ -461,7 +1656,46 @@
     "text": "Take exception to wedding, we''re told",
     "enumeration": "6"
    },
-   "solution": "BRIDLE"
+   "solution": "BRIDLE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BRIDLE",
+    "definitions": [
+     {
+      "text": "Take exception",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we''re told",
+      "for": "homophone",
+      "note": "what we are told is heard, so the sound matters not the spelling"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wedding",
+      "gives": "BRIDLE",
+      "soundsLike": "BRIDAL",
+      "note": "bridal means relating to a wedding"
+     }
+    ],
+    "explanation": {
+     "surface": "Objecting to a marriage, according to what people say.",
+     "definitionFit": "To bridle is to show resentment or anger, much like taking offence at something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exception"
+    }
+   }
   }
  ]
 }
