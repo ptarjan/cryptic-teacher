@@ -157,5 +157,28 @@ check "the solved file is back and the clues-only file gone" '{"clues": "solved"
   "$(cat "$tree/puzzles/s/2026/s-h.json") $([ -e "$tree/clues_only/s/s-h.json" ] && echo there || echo gone)"
 check "its kind and fill survive" "solve FILL" "$(worker_kind "$runs/s-h.sid") $(cat "$runs/s-h.fill")"
 
+echo "the API flagging a conversation (safeguards): forgotten, fresh next; twice fresh: a failed input"
+printf 'import sys\nopen("%s/recorded","a").write(" ".join(sys.argv[1:4]) + "\\n")\n' "$t" >"$tree/tools/failed_inputs.py"
+printf 'API Error: Opus 5.5 safeguards flagged this message (x)\n' >"$t/flagged.txt"
+printf 'an ordinary failure\n' >"$t/plain.txt"
+fl() { (cd "$tree" && worker_flagged s-e "$t/gnote" "$runs/s-e.sid" "$t/$1" 2>&1); }
+start_run "$tree" s-e >/dev/null
+echo 'stale note' >"$t/gnote"
+echo '{"clues": "half"}' >"$tree/puzzles/s/2026/s-e.json"
+fl plain.txt >/dev/null; rc=$?
+check "an ordinary failure is not a flag, and keeps its session" "1 yes" "$rc $([ -s "$runs/s-e.sid" ] && echo yes || echo no)"
+out=$(fl flagged.txt); rc=$?
+check "a flagged resume: handled, session and note forgotten, one line logged" "0 no no 1" \
+  "$rc $([ -e "$runs/s-e.sid" ] && echo yes || echo no) $([ -e "$t/gnote" ] && echo yes || echo no) $(printf '%s\n' "$out" | grep -c 'flagged its resumed')"
+check "the flagged run's edits are put back as committed" '{"clues": "original"}' "$(cat "$tree/puzzles/s/2026/s-e.json")"
+check "a flagged resume is not charged to the puzzle" "no" "$([ -e "$t/recorded" ] && echo yes || echo no)"
+start_run "$tree" s-e >/dev/null
+fl flagged.txt >/dev/null
+check "a fresh run flagged once: forgotten, not recorded" "no no" \
+  "$([ -e "$runs/s-e.sid" ] && echo yes || echo no) $([ -e "$t/recorded" ] && echo yes || echo no)"
+start_run "$tree" s-e >/dev/null
+fl flagged.txt >/dev/null
+check "a fresh run flagged twice: recorded as a failed input" "record annotate s-e" "$(cat "$t/recorded" 2>/dev/null)"
+
 if [ "$fails" -gt 0 ]; then echo "worker resume: $fails check(s) failed"; exit 1; fi
 echo "worker resume: all checks passed"

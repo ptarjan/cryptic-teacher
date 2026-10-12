@@ -384,6 +384,41 @@ worker_await_preamble() {   # id entries
     --reason "definedByPreamble ($2), but the puzzle has no preamble" || true
 }
 
+# A run the API refused outright ("safeguards flagged this message",
+# [reasoning_extraction]) is not a limit and not a bad puzzle: the conversation
+# itself is what is flagged, so resuming it flags again at once, every run, for
+# good (10-12: 13 runs, azed-1866/1869/1876, toughie-3351...). Its session, resume
+# note, edits and fill are forgotten, so the next launch starts a fresh
+# conversation, and the caller must not treat it as a lockout to requeue and
+# resume. A fresh conversation (no resume note: the run was not a resume) that is
+# flagged a second time on the same puzzle is recorded as a failed input
+# instead of looping. The resume note's wording was checked and is not the
+# trigger: toughie-3351 was flagged on resume and ran clean fresh.
+# 0 when $4's output holds the refusal and it was dealt with; 1 otherwise.
+worker_flagged() {   # id notefile sidfile output
+  local id="$1" notefile="$2" sidfile="$3" out="$4" flags="${3%.sid}.flags" n resumed=""
+  grep -q "safeguards flagged this message" "$out" 2>/dev/null || return 1
+  [ -s "$notefile" ] && resumed=1
+  worker_forget "$sidfile"
+  rm -f "$notefile"
+  discard_puzzle "$id"
+  if [ -n "$resumed" ]; then
+    echo "  [$id] the API flagged its resumed conversation (safeguards) — session forgotten, the next run starts fresh"
+    return 0
+  fi
+  n=$(( $(cat "$flags" 2>/dev/null || echo 0) + 1 ))
+  if [ "$n" -ge 2 ]; then
+    rm -f "$flags"
+    echo "  [$id] the API flagged a fresh conversation twice (safeguards) — recorded as a failed input"
+    python3 tools/failed_inputs.py record annotate "$id" --judged \
+      --reason "the API's safeguards flagged two fresh conversations on this puzzle ([reasoning_extraction])" || true
+  else
+    echo "$n" >"$flags"
+    echo "  [$id] the API flagged a fresh conversation (safeguards, $n of 2) — session forgotten, the next run starts fresh"
+  fi
+  return 0
+}
+
 # A run that failed or was stopped. One cut off by a lockout usually leaves
 # real work behind: some clues annotated, the rest untouched. That file fails
 # validation (its blank clues), so validation cannot be the test: throwing it
