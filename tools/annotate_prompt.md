@@ -25,7 +25,9 @@ does not, the parse is wrong, so rethink it rather than stretch it. The exceptio
 a solution marked `(MODEL)`, a cold solve's guess: if no parse gives it and the clue
 plainly gives another word, set `answer` to that word. The check accepts it only if
 it agrees with every crossing and printed answer; correct a crossing `(MODEL)`
-answer the same way if its clue gives that letter.
+answer the same way if its clue gives that letter. Never ship a hedged hint for a
+`(MODEL)` answer ("unconfirmed", "placeholder", "usually spelt" a near-twin): the
+check refuses it and the answer is solved again, so leave the clue null instead.
 
 The clue text is the source's, with one exception. When your copy's
 `source.retrievedFrom` is `newspaper` or `book`, its clues are OCR of a scan, and a
