@@ -7,7 +7,8 @@
 A themed puzzle filed from a blog post often lacks the preamble the paper
 printed ("five detectives and their creators are undefined"): the post
 paraphrases it at most. Its annotator marks those answers definedByPreamble,
-and the validator refuses that on a puzzle with no preamble. Another run fails
+or gives a block the letters the preamble supplies with no clue words, and the
+validator refuses both on a puzzle with no preamble. Another run fails
 the same way, and no change to the clues mends it, so the verdict is kept on
 the puzzle: `awaitsPreamble`. puzzle_integrity.awaits_preamble reads it, the
 index row carries it, and both annotation pickers leave the puzzle out until a
@@ -30,10 +31,14 @@ STAND_IN = "The paper's preamble, which we do not hold."
 
 
 def left_to_preamble(puzzle):
-    """The tags of the entries whose annotation says the preamble defines them."""
+    """The tags of the entries whose annotation leans on the preamble: it
+    defines them, or a block takes letters no clue word gives (Genius 135's
+    body parts, which the preamble says the wordplay leaves out)."""
     return [f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
             for e in puzzle.get("entries") or []
-            if (e.get("annotation") or {}).get("definedByPreamble") is True]
+            if (e.get("annotation") or {}).get("definedByPreamble") is True
+            or any(b.get("gives") and not b.get("clueFragment")
+                   for b in (e.get("annotation") or {}).get("blocks") or [])]
 
 
 def which(path, puzzle):
