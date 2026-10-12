@@ -19,8 +19,14 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "unsolved"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-12",
+  "check": "30 entries, 58 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,6 +39,74 @@
    "clue": {
     "text": "Buddy, heading west with newlywed, takes in German university town",
     "enumeration": "9"
+   },
+   "solution": "CAMBRIDGE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "CAMBRIDGE",
+    "definitions": [
+     {
+      "text": "university town",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading west",
+      "for": "reversal",
+      "note": "in an across clue, travelling west means reading right to left, so the buddy word runs backwards"
+     },
+     {
+      "text": "takes in",
+      "for": "container",
+      "note": "to take something in is to hold it inside, so the newlywed word wraps around the German abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Buddy",
+      "gives": "MAC",
+      "note": "Mac is an American informal address for a buddy or pal"
+     },
+     {
+      "clueFragment": "newlywed",
+      "gives": "BRIDE",
+      "note": "a bride is a woman just married"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is the standard abbreviation for German"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAM",
+      "BRID",
+      "G",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "MAC",
+       "to": "CAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pal and a new spouse travel west into a German university town.",
+     "walkthrough": "'German university town' looks like the definition, but 'German' only supplies one letter; the definition is just 'university town', CAMBRIDGE, the English home of the university.",
+     "definitionFit": "Cambridge, England, is famous chiefly as the seat of one of the oldest universities, a classic example of a college town."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "German"
+    }
    }
   },
   {
@@ -46,6 +120,65 @@
    "clue": {
     "text": "Lampoon Fleischer and pet in therapy",
     "enumeration": "10"
+   },
+   "solution": "CARICATURE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CARICATURE",
+    "definitions": [
+     {
+      "text": "Lampoon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placing something in another puts it inside, so the press secretary and pet go within the therapy word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fleischer",
+      "gives": "ARI",
+      "note": "Ari Fleischer was White House press secretary under George W. Bush"
+     },
+     {
+      "clueFragment": "pet",
+      "gives": "CAT",
+      "note": "a cat is a common pet"
+     },
+     {
+      "clueFragment": "therapy",
+      "gives": "CURE",
+      "note": "a cure is a remedy or treatment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ARI",
+      "CAT",
+      "URE"
+     ]
+    },
+    "explanation": {
+     "surface": "Mock Fleischer and his pet during a therapy session.",
+     "walkthrough": "Ari Fleischer was a well-known US political spokesman, a plausible target for satire.",
+     "definitionFit": "A caricature is an exaggerated satirical portrait, and to caricature someone is to lampoon them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "therapy"
+    }
    }
   },
   {
@@ -65,6 +198,78 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "MYGOODNESS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "MY GOODNESS",
+    "definitions": [
+     {
+      "text": "Gosh",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking up",
+      "for": "reversal",
+      "note": "in a down clue, taking something up lifts it so it reads bottom to top"
+     },
+     {
+      "text": "exercises",
+      "for": "anagram",
+      "note": "exercising works something over and moves it about, so those letters are rearranged"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the rearranged letters following the reversed piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "PE",
+      "gives": "GYM",
+      "note": "PE (physical education) is the school subject also called gym"
+     },
+     {
+      "clueFragment": "son does",
+      "gives": "OODNESS",
+      "note": "son (as written) plus does, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MYG",
+      "OODNESS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SONDOES",
+       "gives": "OODNESS"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "GYM",
+       "to": "MYG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A parent exclaims as their son works out after taking up phys ed.",
+     "walkthrough": "'Exercises' looks like the son's workout; it is the signal to rearrange 'son does'.",
+     "definitionFit": "My goodness is a mild exclamation of surprise, used just like gosh."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exercises"
+    }
    }
   },
   {
@@ -78,6 +283,55 @@
    "clue": {
     "text": "Deserter has to be in French asylum",
     "enumeration": "7"
+   },
+   "solution": "RETREAT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RETREAT",
+    "definitions": [
+     {
+      "text": "asylum",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has",
+      "for": "container",
+      "note": "to have something is to hold it, so the deserter word holds the French verb"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deserter",
+      "gives": "RAT",
+      "note": "a rat is one who deserts, as rats leave a sinking ship"
+     },
+     {
+      "clueFragment": "to be in French",
+      "gives": "ETRE",
+      "note": "être is the French infinitive meaning to be"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ETRE",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "A deserter must be locked in a French asylum.",
+     "walkthrough": "'In French' reads as the asylum's location, but it tells you to translate 'to be'.",
+     "definitionFit": "A retreat is a place of refuge and safety, the older sense of asylum as a sanctuary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "asylum"
+    }
    }
   },
   {
@@ -91,6 +345,58 @@
    "clue": {
     "text": "It could be boring to support medical professional with slow, elongated manner of speech",
     "enumeration": "5"
+   },
+   "solution": "DRAWL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRAWL",
+    "definitions": [
+     {
+      "text": "slow, elongated manner of speech",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to support",
+      "for": "charade",
+      "note": "in a down clue a supporting piece sits underneath, so the tool comes after the doctor"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "medical professional",
+      "gives": "DR",
+      "note": "Dr is the abbreviation for doctor"
+     },
+     {
+      "clueFragment": "It could be boring",
+      "gives": "AWL",
+      "note": "an awl is a pointed tool for boring holes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "AWL"
+     ]
+    },
+    "explanation": {
+     "surface": "A dull speaker props up a doctor with a slow, stretched-out way of talking.",
+     "walkthrough": "'Boring' suggests tedium, but it means making holes.",
+     "definitionFit": "A drawl is a slow, lazy way of talking in which vowels are lengthened."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boring"
+    }
    }
   },
   {
@@ -104,6 +410,56 @@
    "clue": {
     "text": "Hugged Aunt Bee and ran",
     "enumeration": "8"
+   },
+   "solution": "EMBRACED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EMBRACED",
+    "definitions": [
+     {
+      "text": "Hugged",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aunt",
+      "gives": "EM",
+      "note": "Aunt Em is Dorothy's aunt in The Wizard of Oz"
+     },
+     {
+      "clueFragment": "Bee",
+      "gives": "B",
+      "note": "bee is the spelt-out name of the letter B"
+     },
+     {
+      "clueFragment": "ran",
+      "gives": "RACED",
+      "note": "to race is to run fast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "B",
+      "RACED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hugged Aunt Bee from The Andy Griffith Show and then ran off.",
+     "walkthrough": "'Aunt Bee' reads as the TV character, but split it: the aunt is Aunt Em, and bee is the letter's name.",
+     "definitionFit": "To embrace someone is to hold them closely in your arms, which is to hug them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bee"
+    }
    }
   },
   {
@@ -117,6 +473,53 @@
    "clue": {
     "text": "Mailer avoiding northern holiday celebration",
     "enumeration": "5"
+   },
+   "solution": "SEDER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SEDER",
+    "definitions": [
+     {
+      "text": "holiday celebration",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "avoiding",
+      "for": "deletion",
+      "note": "avoiding something means doing without it, so one letter is dropped from the sender word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mailer",
+      "gives": "SENDER",
+      "note": "one who mails something is its sender"
+     },
+     {
+      "clueFragment": "northern",
+      "gives": "N",
+      "note": "N is the abbreviation for northern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEDER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sending things by post stays away from a holiday party up north.",
+     "walkthrough": "'Mailer' tempts toward Norman Mailer the novelist, but here it is simply one who mails.",
+     "definitionFit": "The Seder is the ritual feast held on the first night or nights of the Jewish holiday of Passover."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mailer"
+    }
    }
   },
   {
@@ -130,6 +533,59 @@
    "clue": {
     "text": "Composer's garment covering fabrication",
     "enumeration": "7"
+   },
+   "solution": "SALIERI",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SALIERI",
+    "definitions": [
+     {
+      "text": "Composer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "a garment covering something wraps around it, so the dress word encloses the falsehood"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "garment",
+      "gives": "SARI",
+      "note": "a sari is a draped garment worn in South Asia"
+     },
+     {
+      "clueFragment": "fabrication",
+      "gives": "LIE",
+      "note": "a fabrication is an invented story"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "LIE",
+      "RI"
+     ]
+    },
+    "explanation": {
+     "surface": "A composer's clothing hides a piece of fiction.",
+     "walkthrough": "'Fabrication' plays on cloth beside 'garment', but it means a falsehood.",
+     "definitionFit": "Antonio Salieri was an Italian classical composer, famous as Mozart's supposed rival in Amadeus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fabrication"
+    }
    }
   },
   {
@@ -143,6 +599,53 @@
    "clue": {
     "text": "Mammal turning over 8",
     "enumeration": "4"
+   },
+   "solution": "DEER",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "DEER",
+    "definitions": [
+     {
+      "text": "Mammal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning over",
+      "for": "reversal",
+      "note": "turning something over flips it end to end, so the answer to 8 reads backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "8",
+      "gives": "REED",
+      "note": "the answer to 8-down, a grass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEER"
+     ],
+     "reversals": [
+      {
+       "from": "REED",
+       "to": "DEER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An animal flips over onto the item at number 8.",
+     "walkthrough": "7-down and 8-down are each other read backwards.",
+     "definitionFit": "A deer is a hoofed ruminant, an example of a mammal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
    }
   },
   {
@@ -156,6 +659,53 @@
    "clue": {
     "text": "7 growing grass",
     "enumeration": "4"
+   },
+   "solution": "REED",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "REED",
+    "definitions": [
+     {
+      "text": "grass",
+      "at": 10
+     }
+    ],
+    "indicators": [
+     {
+      "text": "growing",
+      "for": "reversal",
+      "note": "a growing plant rises upward, so in a down clue the answer to 7 is read from the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "7",
+      "gives": "DEER",
+      "note": "the answer to 7-down, a mammal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REED"
+     ],
+     "reversals": [
+      {
+       "from": "DEER",
+       "to": "REED"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The mirror of 7-down: growing reads the mammal upwards.",
+     "definitionFit": "A reed is a tall grass of marshes and wetlands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "growing"
+    }
    }
   },
   {
@@ -169,6 +719,67 @@
    "clue": {
     "text": "Sporting event where you'd see boats tear wildly around rod",
     "enumeration": "7"
+   },
+   "solution": "REGATTA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "REGATTA",
+    "definitions": [
+     {
+      "text": "Sporting event where you'd see boats",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wildly",
+      "for": "anagram",
+      "note": "acting wildly means behaving without order, so the letters of tear are thrown into a new arrangement"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "going around something encloses it, so the rearranged letters surround the word for rod"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tear",
+      "gives": "RETA",
+      "note": "the four letters of tear, rearranged"
+     },
+     {
+      "clueFragment": "rod",
+      "gives": "GAT",
+      "note": "rod and gat are both old American slang for a gun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "GAT",
+      "TA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEAR",
+       "gives": "RETA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At a boating event, someone rips wildly round a fishing rod.",
+     "walkthrough": "'Rod' reads as a fishing rod beside the boats, but it is gangster slang for a pistol.",
+     "definitionFit": "A regatta is a series of boat races, typically rowing or sailing, held as a single sporting occasion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rod"
+    }
    }
   },
   {
@@ -182,6 +793,65 @@
    "clue": {
     "text": "Good grade the night before, securing Yale student's credit",
     "enumeration": "7"
+   },
+   "solution": "BELIEVE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BELIEVE",
+    "definitions": [
+     {
+      "text": "credit",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "securing",
+      "for": "container",
+      "note": "to secure something is to hold it fast, so the grade and the evening together grip the student between them"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good grade",
+      "gives": "B",
+      "note": "a B is a good mark, though not the top one"
+     },
+     {
+      "clueFragment": "Yale student",
+      "gives": "ELI",
+      "note": "Eli is the nickname for a Yale student, after Elihu Yale"
+     },
+     {
+      "clueFragment": "the night before",
+      "gives": "EVE",
+      "note": "the eve is the evening before an event"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ELI",
+      "EVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A student earns a good mark the night before an exam, adding to their course credits.",
+     "walkthrough": "'Credit' looks like an academic credit, but it is the verb meaning to accept as true.",
+     "definitionFit": "To credit a story is to accept it as true, which is exactly what believing it means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "credit"
+    }
    }
   },
   {
@@ -195,6 +865,60 @@
    "clue": {
     "text": "Interchanges tragic ending with what might happen during a breakup",
     "enumeration": "12"
+   },
+   "solution": "CLOVERLEAVES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CLOVERLEAVES",
+    "definitions": [
+     {
+      "text": "Interchanges",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending",
+      "for": "letter_selection",
+      "note": "the ending of a word is its final letter, so only the last letter of tragic is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tragic",
+      "gives": "C",
+      "select": "last",
+      "note": "the final letter of tragic"
+     },
+     {
+      "clueFragment": "what might happen during a breakup",
+      "gives": "LOVERLEAVES",
+      "note": "when a couple breaks up, one lover leaves"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LOVERLEAVES"
+     ]
+    },
+    "explanation": {
+     "surface": "A tragic ending gets swapped for whatever happens when a relationship ends.",
+     "walkthrough": "'Interchanges' reads as a verb about swapping, but it is a plural noun for highway junctions.",
+     "definitionFit": "A cloverleaf is a highway junction whose looping ramps form a four-leaf shape, so cloverleaves are road interchanges."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Interchanges"
+    }
    }
   },
   {
@@ -214,6 +938,74 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "INADDITION",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "IN ADDITION",
+    "definitions": [
+     {
+      "text": "too",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blithering",
+      "for": "anagram",
+      "note": "blithering means babbling senselessly, so the letters of idiot are jumbled"
+     },
+     {
+      "text": "occupying",
+      "for": "container",
+      "note": "to occupy a building is to be inside it, so the notice and jumbled word go inside the hotel"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Notice",
+      "gives": "AD",
+      "note": "an ad is a notice advertising something"
+     },
+     {
+      "clueFragment": "idiot",
+      "gives": "DITIO",
+      "note": "the letters of idiot, rearranged"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "INN",
+      "note": "an inn is a small hotel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "AD",
+      "DITIO",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IDIOT",
+       "gives": "DITIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Spot a raving fool who has taken over the hotel as well.",
+     "walkthrough": "'Too' at the end looks like a throwaway, but it is the definition.",
+     "definitionFit": "In addition and too are both adverbs meaning as well or also."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "too"
+    }
    }
   },
   {
@@ -227,6 +1019,50 @@
    "clue": {
     "text": "Sin, to Reverend Spooner: Nana's hair",
     "enumeration": "10"
+   },
+   "solution": "TRANSGRESS",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "TRANSGRESS",
+    "definitions": [
+     {
+      "text": "Sin",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to Reverend Spooner",
+      "for": "spoonerism",
+      "note": "Spooner was famous for swapping the opening sounds of words, so the starts of the phrase are traded"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nana's hair",
+      "gives": "TRANSGRESS",
+      "soundsLike": "GRAN'S TRESS",
+      "note": "a nana is a gran, and a tress is a lock of hair; swap their opening sounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRANSGRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "The Reverend Spooner is asked what wrongdoing a grandmother's hair amounts to.",
+     "walkthrough": "Swapping GR and TR in gran's tress gives TRANSGRESS.",
+     "definitionFit": "To transgress is to break a moral or religious law, which is to sin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Nana's"
+    }
    }
   },
   {
@@ -240,6 +1076,40 @@
    "clue": {
     "text": "Principles of an alien minyan?",
     "enumeration": "6"
+   },
+   "solution": "TENETS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TENETS",
+    "definitions": [
+     {
+      "text": "Principles",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Principles",
+      "note": "the straight definition: beliefs or doctrines held as true"
+     },
+     {
+      "clueFragment": "of an alien minyan?",
+      "note": "a minyan is the quorum of ten Jewish adults needed for public prayer; ten aliens would be ten extraterrestrials"
+     }
+    ],
+    "explanation": {
+     "surface": "What would an extraterrestrial prayer quorum believe in?",
+     "walkthrough": "Read the answer as TEN ETS: a minyan has ten members, and an alien is an ET, so ten aliens are TEN ETS.",
+     "definitionFit": "Tenets are the doctrines or core beliefs a group holds, which is what principles are."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "minyan"
+    }
    }
   },
   {
@@ -253,6 +1123,54 @@
    "clue": {
     "text": "Creator of 24 in 7",
     "enumeration": "8"
+   },
+   "solution": "DESIGNER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DESIGNER",
+    "definitions": [
+     {
+      "text": "Creator",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing set in another sits inside it, so the answer to 24 goes inside the answer to 7"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "7",
+      "gives": "DEER",
+      "note": "the answer to 7-down, a mammal"
+     },
+     {
+      "clueFragment": "24",
+      "gives": "SIGN",
+      "note": "the answer to 24-down, communicate silently"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "SIGN",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "The maker of one numbered thing hidden inside another.",
+     "walkthrough": "Cross-references: a number in a clue stands for that entry's answer, here 24-down and 7-down.",
+     "definitionFit": "A designer is the person who devises and creates a product, garment or plan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
    }
   },
   {
@@ -266,6 +1184,67 @@
    "clue": {
     "text": "Arnold doubled over, clutching crooked dice",
     "enumeration": "8"
+   },
+   "solution": "BENEDICT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BENEDICT",
+    "definitions": [
+     {
+      "text": "Arnold",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crooked",
+      "for": "anagram",
+      "note": "crooked means twisted out of shape, so the letters of dice are scrambled"
+     },
+     {
+      "text": "clutching",
+      "for": "container",
+      "note": "to clutch is to grip, so the doubled-over word holds the scrambled letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doubled over",
+      "gives": "BENT",
+      "note": "doubled over means bent at the waist"
+     },
+     {
+      "clueFragment": "dice",
+      "gives": "EDIC",
+      "note": "the letters of dice, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEN",
+      "EDIC",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DICE",
+       "gives": "EDIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Arnold, bent over in a game, holding loaded dice.",
+     "walkthrough": "Benedict Arnold was the American Revolutionary general who defected to the British; 'crooked' fits a traitor too.",
+     "definitionFit": "Benedict was the first name of Arnold, the American general whose name became a byword for treason."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Arnold"
+    }
    }
   },
   {
@@ -279,6 +1258,54 @@
    "clue": {
     "text": "Quit 24 in 8",
     "enumeration": "8"
+   },
+   "solution": "RESIGNED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RESIGNED",
+    "definitions": [
+     {
+      "text": "Quit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing set in another sits inside it, so the answer to 24 goes inside the answer to 8"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "8",
+      "gives": "REED",
+      "note": "the answer to 8-down, a grass"
+     },
+     {
+      "clueFragment": "24",
+      "gives": "SIGN",
+      "note": "the answer to 24-down, communicate silently"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "SIGN",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gave up, with one numbered thing tucked inside another.",
+     "walkthrough": "A companion to 15-across: the same 24-down answer, now housed in 8-down's answer rather than 7-down's.",
+     "definitionFit": "To have resigned from a job is to have left it voluntarily, the past tense of quit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
    }
   },
   {
@@ -292,6 +1319,60 @@
    "clue": {
     "text": "Discharge last one in accounting and rehire?",
     "enumeration": "7"
+   },
+   "solution": "GUNFIRE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GUNFIRE",
+    "definitions": [
+     {
+      "text": "Discharge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last one in",
+      "for": "letter_selection",
+      "note": "the last one in a word is its final letter, so only the end of accounting is kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "accounting",
+      "gives": "G",
+      "select": "last",
+      "note": "the final letter of accounting"
+     },
+     {
+      "clueFragment": "rehire?",
+      "gives": "UNFIRE",
+      "note": "to rehire someone is, playfully, to undo firing them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "UNFIRE"
+     ]
+    },
+    "explanation": {
+     "surface": "Fire the newest hire in the accounting department, then hire them back?",
+     "walkthrough": "The question mark flags the invented word: rehiring someone 'un-fires' them. 'Last one in' sounds like the junior employee, but it picks a letter.",
+     "definitionFit": "Gunfire is the discharge of guns, the firing of shots."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Discharge"
+    }
    }
   },
   {
@@ -305,6 +1386,50 @@
    "clue": {
     "text": "Shiny and grand, from a bygone era",
     "enumeration": "6"
+   },
+   "solution": "GOLDEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GOLDEN",
+    "definitions": [
+     {
+      "text": "Shiny",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grand",
+      "gives": "G",
+      "note": "G is slang for a grand, a thousand dollars"
+     },
+     {
+      "clueFragment": "from a bygone era",
+      "gives": "OLDEN",
+      "note": "olden means belonging to former times, as in olden days"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "OLDEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Something gleaming and magnificent, from a lost age.",
+     "walkthrough": "'Shiny and grand' reads as one description, but 'and' splits definition from wordplay.",
+     "definitionFit": "Golden describes the bright, gleaming colour of gold, so it serves as a synonym for shiny."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grand"
+    }
    }
   },
   {
@@ -318,6 +1443,58 @@
    "clue": {
     "text": "Brazilian city consumed by cheers for ball team",
     "enumeration": "7"
+   },
+   "solution": "ORIOLES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ORIOLES",
+    "definitions": [
+     {
+      "text": "ball team",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "consumed by",
+      "for": "container",
+      "note": "something consumed by another is swallowed up inside it, so the city goes within the cheers"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheers",
+      "gives": "OLES",
+      "note": "olés are shouts of approval, as at a bullfight"
+     },
+     {
+      "clueFragment": "Brazilian city",
+      "gives": "RIO",
+      "note": "Rio de Janeiro, the Brazilian city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "RIO",
+      "LES"
+     ]
+    },
+    "explanation": {
+     "surface": "A Brazilian city is swept up in cheers for its football team.",
+     "walkthrough": "The surface suggests Brazilian football; the team is Baltimore's baseball club.",
+     "definitionFit": "The Baltimore Orioles are a Major League Baseball team, a ball club."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Brazilian"
+    }
    }
   },
   {
@@ -331,6 +1508,44 @@
    "clue": {
     "text": "Assuming liability for a footnote?",
     "enumeration": "12"
+   },
+   "solution": "UNDERWRITING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UNDERWRITING",
+    "definitions": [
+     {
+      "text": "Assuming liability",
+      "at": 0
+     },
+     {
+      "text": "for a footnote?",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Assuming liability",
+      "note": "first meaning: guaranteeing to cover a financial risk, as an insurer does"
+     },
+     {
+      "clueFragment": "for a footnote?",
+      "note": "second, playful meaning: a footnote sits below the main text on the page"
+     }
+    ],
+    "explanation": {
+     "surface": "Who takes responsibility for a footnote?",
+     "walkthrough": "The question mark flags the whimsical second reading: split the answer as UNDER WRITING.",
+     "definitionFit": "Underwriting is the insurance or finance practice of accepting a risk in exchange for a fee."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "footnote"
+    }
    }
   },
   {
@@ -344,6 +1559,50 @@
    "clue": {
     "text": "Crazy World War II soldier with a decisive blow",
     "enumeration": "5"
+   },
+   "solution": "WACKO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WACKO",
+    "definitions": [
+     {
+      "text": "Crazy",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "World War II soldier",
+      "gives": "WAC",
+      "note": "a WAC was a member of the Women's Army Corps in World War II"
+     },
+     {
+      "clueFragment": "a decisive blow",
+      "gives": "KO",
+      "note": "KO is a knockout, the decisive blow in boxing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAC",
+      "KO"
+     ]
+    },
+    "explanation": {
+     "surface": "A mad wartime soldier lands a knockout punch.",
+     "walkthrough": "'World War II soldier' suggests GI, but the soldier is from the women's corps.",
+     "definitionFit": "Wacko is informal American slang meaning mad or eccentric."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "soldier"
+    }
    }
   },
   {
@@ -357,6 +1616,51 @@
    "clue": {
     "text": "Shoot Ford model with hairpiece",
     "enumeration": "4"
+   },
+   "solution": "TWIG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TWIG",
+    "definitions": [
+     {
+      "text": "Shoot",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ford model",
+      "gives": "T",
+      "note": "the Model T was Ford's famous early car"
+     },
+     {
+      "clueFragment": "hairpiece",
+      "gives": "WIG",
+      "note": "a wig is a hairpiece"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "WIG"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion model from the Ford agency is photographed wearing a wig.",
+     "walkthrough": "'Ford model' suggests the Ford modelling agency; it is the Model T car.",
+     "definitionFit": "A shoot is a young branch growing from a plant, which is what a twig is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "model"
+    }
    }
   },
   {
@@ -370,6 +1674,53 @@
    "clue": {
     "text": "Sing off-key or communicate silently",
     "enumeration": "4"
+   },
+   "solution": "SIGN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SIGN",
+    "definitions": [
+     {
+      "text": "communicate silently",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off-key",
+      "for": "anagram",
+      "note": "singing off-key puts the notes wrong, so the letters of sing land in the wrong order"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sing",
+      "gives": "SING",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SING",
+       "gives": "SIGN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Either sing out of tune or say it without words.",
+     "definitionFit": "To sign is to use sign language, conveying meaning by gestures without speaking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "off-key"
+    }
    }
   },
   {
@@ -383,6 +1734,61 @@
    "clue": {
     "text": "Discussed reason at critical island beach in the Pacific",
     "enumeration": "7"
+   },
+   "solution": "WAIKIKI",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "WAIKIKI",
+    "definitions": [
+     {
+      "text": "beach in the Pacific",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Discussed",
+      "for": "homophone",
+      "note": "something discussed is spoken about, so the words that follow are heard rather than spelt"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reason",
+      "gives": "WAI",
+      "soundsLike": "WHY",
+      "note": "a reason answers the question why"
+     },
+     {
+      "clueFragment": "critical",
+      "gives": "KI",
+      "soundsLike": "KEY",
+      "note": "critical in the sense of crucial or key"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "KI",
+      "soundsLike": "KEY",
+      "note": "a key is a low island, as in the Florida Keys"
+     }
+    ],
+    "explanation": {
+     "surface": "A heated debate about motives at a vital island beach in the Pacific.",
+     "walkthrough": "Said aloud, why-key-key gives WAIKIKI; a key (or cay) is a small low island.",
+     "definitionFit": "Waikiki is the famous beach and neighbourhood of Honolulu on the Hawaiian island of Oahu."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Discussed"
+    }
    }
   },
   {
@@ -396,6 +1802,62 @@
    "clue": {
     "text": "Dog limits onset of dot-com crash",
     "enumeration": "7"
+   },
+   "solution": "COLLIDE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "COLLIDE",
+    "definitions": [
+     {
+      "text": "crash",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "limits",
+      "for": "container",
+      "note": "a boundary limits what lies within it, so the dog surrounds the selected letter"
+     },
+     {
+      "text": "onset",
+      "for": "letter_selection",
+      "note": "the onset of something is its beginning, so only the first letter of dot-com is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dog",
+      "gives": "COLLIE",
+      "note": "a collie is a sheepdog breed"
+     },
+     {
+      "clueFragment": "dot-com",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of dot-com"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COLLI",
+      "D",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog sets bounds on the beginning of the dot-com crash.",
+     "walkthrough": "'Dot-com crash' sounds like the 2000 market collapse, but 'crash' alone is the definition, a verb.",
+     "definitionFit": "To collide is to strike violently into something, which is what crashing into it means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crash"
+    }
    }
   },
   {
@@ -409,6 +1871,50 @@
    "clue": {
     "text": "Ugly green type",
     "enumeration": "5"
+   },
+   "solution": "GENRE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GENRE",
+    "definitions": [
+     {
+      "text": "type",
+      "at": 11
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ugly",
+      "for": "anagram",
+      "note": "an ugly arrangement is a misshapen one, so the letters of green are put into a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "green",
+      "gives": "GREEN",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GREEN",
+       "gives": "GENRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unattractive shade of green typeface.",
+     "definitionFit": "A genre is a category or kind, especially of artistic work, so it means a type."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "type"
+    }
    }
   },
   {
@@ -422,6 +1928,50 @@
    "clue": {
     "text": "Huge crowd you once encountered at defunct Las Vegas casino",
     "enumeration": "9"
+   },
+   "solution": "THOUSANDS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THOUSANDS",
+    "definitions": [
+     {
+      "text": "Huge crowd",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "encountered at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "you once",
+      "gives": "THOU",
+      "note": "thou is the archaic form of you"
+     },
+     {
+      "clueFragment": "defunct Las Vegas casino",
+      "gives": "SANDS",
+      "note": "the Sands was a famous Las Vegas casino, demolished in 1996"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THOU",
+      "SANDS"
+     ]
+    },
+    "explanation": {
+     "surface": "A huge crowd you once met at a Las Vegas casino that has since closed.",
+     "walkthrough": "The Sands, home of the Rat Pack era, closed and was demolished in 1996.",
+     "definitionFit": "Thousands is used loosely to mean a very large number of people, a vast multitude."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "once"
+    }
    }
   }
  ]
