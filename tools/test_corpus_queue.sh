@@ -16,6 +16,7 @@ import fcntl, json, os, sys, time
 sys.path.insert(0, "tools")
 from pathlib import Path
 import corpus_queue as q
+q.LEASE = Path(os.environ["HOME"]) / "tree.lock"  # not the checkout's real lease
 import archive_coverage as cov
 
 import signal, subprocess
@@ -136,6 +137,40 @@ assert begin() == 3, "another live pass: this one does not start"
 assert json.loads(q.RUNNING.read_text())["pid"] == live.pid
 live.kill(); live.wait()
 q.RUNNING.unlink()
+# launch() keeps the record `begin` wrote for another live pass (a bridge
+# relaunch that won the race, which this launch's `begin` stood down for)
+# rather than writing over it with its own dead pid.
+live = subprocess.Popen(["sleep", "30"], start_new_session=True)
+racer = Path(os.environ["HOME"]) / "racer.sh"
+racer.write_text(f"""#!/bin/bash
+echo '{{"name": "full_pass", "pid": {live.pid}, "start": "{q.proc_start(live.pid)}"}}' > {q.RUNNING}
+setsid sleep 5 > /dev/null 2>&1 < /dev/null & echo $!
+""")
+racer.chmod(0o755)
+q.TRACK_JOB, tj_real = str(racer), q.TRACK_JOB
+assert q.launch(False)
+assert json.loads(q.RUNNING.read_text())["pid"] == live.pid, "the live pass's record stands"
+q.TRACK_JOB = tj_real
+live.kill(); live.wait()
+q.RUNNING.unlink()
+# A live pass running.json lost still holds its tree lease: a tick adopts it
+# instead of starting one that would find the lease taken and end at once.
+q.LEASE.touch()
+assert q.lease_holder() is None, "a free lease has no holder"
+holder = subprocess.Popen(["flock", str(q.LEASE), "sleep", "30"], start_new_session=True)
+for _ in range(50):
+    if q.lease_holder():
+        break
+    time.sleep(0.1)
+assert q.lease_holder() == holder.pid, q.lease_holder()
+assert q.tick(False) == "running"
+assert json.loads(q.RUNNING.read_text())["pid"] == holder.pid
+assert q.tick(False) == "running", "and it is the running pass from then on"
+holder.kill(); holder.wait()
+q.end_session(holder.pid, grace=2)
+assert q.lease_holder() is None
+q.reap(q.load_state(), False)
+q.main(["release"])  # its kill counted as a dead launch
 # A pass that finished having fetched starts the next at once; one that
 # fetched nothing, or did not finish, leaves it to the hourly tick.
 st = run_pass(f"echo edition >> {q.FETCHED[0]}; exit 0")
