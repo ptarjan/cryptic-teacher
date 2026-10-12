@@ -14,6 +14,16 @@ The phases, each a count of one series' puzzles on one day:
   filed     puzzle files (puzzle_paths.puzzle_files)
   solved    files with every answer (the index's hasSolutions)
   hinted    files with every clue annotated (the index's annotated)
+  downloaded  scans on the media disk a read queue reads: archive.org and
+            Gale editions (file_archive_org_puzzles' papers), Gale Listener
+            pages, Trove articles
+  queued    of those, the ones never read (no ledger row holding a read)
+
+downloaded and queued count puzzles: one per newspaper edition or Listener
+page (each prints one cryptic), and a Trove article times the share of read
+articles that filed a puzzle (tools/edition_backlog.py). The queue's daily
+inflow is downloaded's gain, its outflow that gain less queued's. They are
+null before the first night progress_record.py counted them.
 
 known and acquired are null on a day no ledger was saved, and for a series the
 ledger does not count. The site is built from a one-commit checkout, so the
@@ -33,22 +43,32 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 HISTORY = ROOT / "tools" / "data" / "progress.json"
-PHASES = ("known", "acquired", "filed", "solved", "hinted")
-KNOWN, ACQUIRED, FILED, SOLVED, HINTED = range(len(PHASES))
+PHASES = ("known", "acquired", "filed", "solved", "hinted", "downloaded", "queued")
+KNOWN, ACQUIRED, FILED, SOLVED, HINTED, DOWNLOADED, QUEUED = range(len(PHASES))
 
 
 def load(path=None):
-    """{day: {series: [count per PHASES]}}, days in order."""
+    """{day: {series: [count per PHASES]}}, days in order; a row saved
+    before a phase existed reads None for it."""
     path = path or HISTORY
     if not path.exists():
         return {}
-    return dict(sorted(json.loads(path.read_text(encoding="utf-8")).items()))
+    days = json.loads(path.read_text(encoding="utf-8"))
+    return {d: {s: c + [None] * (len(PHASES) - len(c)) for s, c in days[d].items()} for d in sorted(days)}
+
+
+def _trimmed(c):
+    while c and c[-1] is None:
+        c = c[:-1]
+    return c
 
 
 def save(days, path=None):
-    """One day a line, so a night's row is a one-line diff."""
+    """One day a line, so a night's row is a one-line diff; trailing nulls
+    are left off (load() puts them back)."""
     path = path or HISTORY
-    lines = [f" {json.dumps(d)}: {json.dumps(days[d], sort_keys=True, separators=(',', ':'))}"
+    lines = [f" {json.dumps(d)}: "
+             f"{json.dumps({s: _trimmed(c) for s, c in days[d].items()}, sort_keys=True, separators=(',', ':'))}"
              for d in sorted(days)]
     path.write_text("{\n" + ",\n".join(lines) + "\n}\n", encoding="utf-8")
 
@@ -64,14 +84,17 @@ def file_counts(rows):
     return dict(out)
 
 
-def day_row(files, ledger):
+def day_row(files, ledger, backlog=None):
     """One day's {series: [count per PHASES]}: files is file_counts(), ledger
-    is a saved coverage ledger or None."""
+    is a saved coverage ledger or None, backlog edition_backlog.counts()'s
+    {series: [downloaded, queued]} or None."""
     led = (ledger or {}).get("series", {})
+    backlog = backlog or {}
     return {s: [led[s]["exist"] if s in led else None,
                 led[s]["filed"] if s in led else None,
-                *files.get(s, [0, 0, 0])]
-            for s in sorted(files.keys() | led.keys())}
+                *files.get(s, [0, 0, 0]),
+                *backlog.get(s, [None, None])]
+            for s in sorted(files.keys() | led.keys() | backlog.keys())}
 
 
 # ------------------------------------------------------------ what the page reads
@@ -88,21 +111,23 @@ def totals(row):
 
 def with_today(days, files, today):
     """days with today's file phases replaced by files (file_counts() of the
-    index being built), and known/acquired carried from the newest day that
-    has them, so the page shows the build's own corpus."""
+    index being built), and known/acquired and downloaded/queued each carried
+    from the newest day that has them, so the page shows the build's own corpus."""
     days = dict(days)
-    carried = {}
+    carried, queue = {}, {}
     for d in sorted(days):
         if d < today:
             for s, c in days[d].items():
                 if c[KNOWN] is not None:
                     carried[s] = c[:2]
+                if c[QUEUED] is not None:
+                    queue[s] = c[DOWNLOADED:]
     row = {s: list(c) for s, c in days.get(today, {}).items()}
-    for s in files.keys() | carried.keys() | row.keys():
-        old = row.get(s, carried.get(s, [None, None]) + [0, 0, 0])
-        if old[KNOWN] is None and s in carried:
-            old = carried[s] + old[2:]
-        row[s] = old[:2] + list(files.get(s, [0, 0, 0]))
+    for s in files.keys() | carried.keys() | queue.keys() | row.keys():
+        old = row.get(s, [None] * len(PHASES))
+        head = old[:2] if old[KNOWN] is not None else carried.get(s, [None, None])
+        tail = old[DOWNLOADED:] if old[QUEUED] is not None else queue.get(s, [None, None])
+        row[s] = head + list(files.get(s, [0, 0, 0])) + tail
     days[today] = dict(sorted(row.items()))
     return dict(sorted(days.items()))
 

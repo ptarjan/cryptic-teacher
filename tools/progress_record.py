@@ -41,11 +41,20 @@ def ledger_on(day):
         return None
 
 
+def backlog():
+    """edition_backlog.counts()'s per series, or None with no media disk here."""
+    import downloads
+    if not downloads.ROOT.is_dir():
+        return None
+    import edition_backlog
+    return edition_backlog.counts()[0]
+
+
 def record(today=None):
     today = today or datetime.date.today().isoformat()
     files = progress.file_counts((s, solved, hinted) for _, s, _, solved, hinted in corpus())
     days = progress.load()
-    days[today] = progress.day_row(files, ledger_on(today))
+    days[today] = progress.day_row(files, ledger_on(today), backlog())
     progress.save(days)
     return days[today]
 
