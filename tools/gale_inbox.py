@@ -719,8 +719,21 @@ def stage(inbox=MIRROR, cache=CACHE, out=sys.stdout, unmatched=UNMATCHED, matche
 SSH_SECONDS = 120
 
 
+#: ssh exits 255 when the connection itself fails (the Mac busy past
+#: ConnectTimeout, a dropped hatch); that is retried a few times before the
+#: tick fails, and a remote command's own failure is not.
+SSH_ATTEMPTS = 3
+
+
 def ssh(command, **kw):
-    return subprocess.run(SSH + [HOST, command], check=True, capture_output=True, timeout=SSH_SECONDS, **kw)
+    for attempt in range(1, SSH_ATTEMPTS + 1):
+        try:
+            return subprocess.run(SSH + [HOST, command], check=True, capture_output=True,
+                                  timeout=SSH_SECONDS, **kw)
+        except subprocess.CalledProcessError as err:
+            if err.returncode != 255 or attempt == SSH_ATTEMPTS:
+                raise
+            time.sleep(10 * attempt)
 
 
 def mirror(out=sys.stdout, host_inbox=HOST_INBOX, into=MIRROR):
