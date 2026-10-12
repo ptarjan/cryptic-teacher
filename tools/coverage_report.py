@@ -148,10 +148,9 @@ STALE_AFTER_DAYS = {
     "azed": 40 + 7,      # monthly from 2026, first Sunday; blogged a week on
     "timesclub": 40,     # the Times Crossword Club's monthly
     "tls": 17,           # fortnightly since 2025 (tools/tls_puzzles.py)
-    # Weekly, but its clues are printed only behind the Times' paywall and
-    # nothing fetches it (daily_units.SLOW_FETCHERS): this alerts until Paul
-    # chooses a source. Not "nation": its weekly cryptic ended 2020-04-13.
-    "listener": 10,
+    # No "listener": archive-only by Paul's choice (2026-10-12), no paid Times
+    # Puzzle Club, so it has no live source and a threshold would alert every
+    # night. Not "nation" either: its weekly cryptic ended 2020-04-13.
     "genius": 40,        # monthly; filed unsolved before its answers post
 }
 
