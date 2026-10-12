@@ -1964,6 +1964,23 @@ check("gutter between the columns, right edge before the next column", (True, Tr
 check("clues-above columns: the title read as ACROSS, specks and the next column left out",
       "ACROSS\n1 Plumber who puts on airs in\nScotland (5)\nDOWN\n1 Local trader providing people\n(8)",
       f.column_text(f.columns(lines, grid, None, 15, (top, split, right))))
+# The 1970s Telegraph (Gale 1975-03-05) indents its grid under the clues,
+# the Quick crossword's clues in the gap: the across column starts at the
+# title's left edge, not the grid's, or every across number is cut off.
+grid = (421, 4160, 1196, 4935)
+title = (237, 3247, 533, 3283)
+lines = [line("No. 15,302 ACROSS", 237, 3247), line("DOWN", 898, 3249),
+         line("1 & 9 Fortified ruler of un-", 245, 3290), line("2 One on a Scot of Greek", 733, 3282),
+         line("washed scamps (4, 2, 3, 6)", 280, 3325), line("origin (6)", 757, 3313)]
+x0 = f.clues_left(grid, title, 15)
+top = title[1] - 10
+span = (x0 + 15 + 0.3 * (grid[2] - x0 - 15), x0 + 15 + 0.75 * (grid[2] - x0 - 15))
+split = f.gutter(lines, grid, top, *span)
+right = f.gutter(lines, grid, top, grid[2] - f.OVERHANG, grid[2] + f.OVERHANG)
+check("clues-above columns start at a title left of an indented grid; elsewhere at the grid",
+      (222, 385, "ACROSS\n1 & 9 Fortified ruler of un-\nwashed scamps (4, 2, 3, 6)\nDOWN\n2 One on a Scot of Greek\norigin (6)"),
+      (x0, f.clues_left((400, 0, 900, 0), (410, 0, 600, 0), 15),
+       f.column_text(f.columns(lines, grid, None, 15, (top, split, right, x0)))))
 check("a 1 read as I or l at a clue's start, '<' for '(', specks after a count, a count left open at a list's end",
       "ACROSS\n1 A fruitful cause (5)\n17 More than two (5-8)\n29 Swallows (5)\nDOWN\n1 Some (5-\n4)",
       f.tidy("ACROSS\nIA fruitful cause <5)'\nI7 More than two (5-8).\n29 Swallows (5r\nDOWN\n1 Some (5-\n4)"))
