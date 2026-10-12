@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,52 @@
     "text": "Drink a litre in all",
     "enumeration": "5"
    },
-   "solution": "TOTAL"
+   "solution": "TOTAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOTAL",
+    "definitions": [
+     {
+      "text": "in all",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drink",
+      "gives": "TOT",
+      "note": "a tot is a small measure of spirits"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "litre",
+      "gives": "L",
+      "note": "L is the standard abbreviation for litre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOT",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tallying how much they drank: a litre altogether.",
+     "definitionFit": "Something counted 'in all' gives the overall sum, the grand total."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 1,
@@ -65,7 +113,51 @@
    "group": [
     "1-down",
     "2-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TELL THAT TO THE MARINES",
+    "definitions": [
+     {
+      "text": "I don't believe you",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "false",
+      "for": "anagram",
+      "note": "a false statement is not genuine, so the letters before it are not in their true order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Statement hitherto all",
+      "gives": "STATEMENTHITHERTOALL",
+      "note": "all twenty letters are rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STATEMENTHITHERTOALL",
+       "gives": "TELLTHATTOTHEMARINES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sceptic suspecting every claim made so far was untrue, and saying so.",
+     "walkthrough": "The surface itself is the scoffing reaction the answer expresses, which makes the anagram neatly apt.",
+     "definitionFit": "The phrase is an idiomatic retort of disbelief, saying a claim is only fit for gullible listeners."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "false"
+    }
+   }
   },
   {
    "number": 2,
@@ -98,7 +190,64 @@
     "text": "Drop of Scotch in Cornish town is free!",
     "enumeration": "5"
    },
-   "solution": "LOOSE"
+   "solution": "LOOSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LOOSE",
+    "definitions": [
+     {
+      "text": "free",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Drop of",
+      "for": "letter_selection",
+      "note": "a drop is only a tiny bit, so just the opening letter of the word is taken"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece sits inside the other, placed within the town's name"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cornish town",
+      "gives": "LOOE",
+      "note": "Looe is a fishing town on the south coast of Cornwall"
+     },
+     {
+      "clueFragment": "Scotch",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of Scotch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOO",
+      "S",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An advert: a free dram of whisky on offer in a Cornish resort.",
+     "definitionFit": "Loose means not held or tied, unconfined, which is the sense of free here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Drop"
+    }
+   }
   },
   {
    "number": 4,
@@ -118,7 +267,68 @@
      }
     ]
    },
-   "solution": "GUMARABIC"
+   "solution": "GUMARABIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "GUM ARABIC",
+    "definitions": [
+     {
+      "text": "glue",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocked over",
+      "for": "reversal",
+      "note": "something knocked over ends up the wrong way round, so the word for fool is read backwards"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "places the language later in the answer than the other piece"
+     }
+    ],
+    "linkWords": [
+     "used"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fool",
+      "gives": "MUG",
+      "note": "a mug is a gullible person"
+     },
+     {
+      "clueFragment": "Language",
+      "gives": "ARABIC",
+      "note": "the language of the Arab world"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUM",
+      "ARABIC"
+     ],
+     "reversals": [
+      {
+       "from": "MUG",
+       "to": "GUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clumsy person tipping over a pot of glue while speaking some language.",
+     "definitionFit": "Gum arabic is a natural tree gum long used as an adhesive, so it is a kind of glue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "knocked"
+    }
+   }
   },
   {
    "number": 4,
@@ -132,7 +342,59 @@
     "text": "Explosive piece? 100 found under bed",
     "enumeration": "9"
    },
-   "solution": "GUNCOTTON"
+   "solution": "GUNCOTTON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GUNCOTTON",
+    "definitions": [
+     {
+      "text": "Explosive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found under",
+      "for": "charade",
+      "note": "in a down answer what is under something comes after it, fixing the order of the last two pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piece",
+      "gives": "GUN",
+      "note": "piece is slang for a gun"
+     },
+     {
+      "clueFragment": "bed",
+      "gives": "COT",
+      "note": "a cot is a small bed"
+     },
+     {
+      "clueFragment": "100",
+      "gives": "TON",
+      "note": "a ton is slang for a hundred"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUN",
+      "COT",
+      "TON"
+     ]
+    },
+    "explanation": {
+     "surface": "A bomb-maker's find: one explosive device and a hundred more stashed under a bed.",
+     "definitionFit": "Guncotton is nitrocellulose, a high explosive made by treating cotton with acids."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piece"
+    }
+   }
   },
   {
    "number": 5,
@@ -146,7 +408,63 @@
     "text": "Tooth, ancient but incomplete, discovered in ruin",
     "enumeration": "5"
    },
-   "solution": "MOLAR"
+   "solution": "MOLAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "MOLAR",
+    "definitions": [
+     {
+      "text": "Tooth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "incomplete",
+      "for": "deletion",
+      "note": "incomplete means the word lacks its final letter"
+     },
+     {
+      "text": "discovered in",
+      "for": "container",
+      "note": "one piece is found lying inside the other"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ruin",
+      "gives": "MAR",
+      "note": "to mar is to spoil or ruin"
+     },
+     {
+      "clueFragment": "ancient",
+      "gives": "OLD",
+      "note": "ancient means old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "OL",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "An archaeologist unearthing a broken old tooth among ruins.",
+     "definitionFit": "A molar is one of the broad grinding teeth at the back of the mouth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ruin"
+    }
+   }
   },
   {
    "number": 6,
@@ -166,7 +484,76 @@
      }
     ]
    },
-   "solution": "RASTAFARI"
+   "solution": "RASTAFARI",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "RAS TAFARI",
+    "definitions": [
+     {
+      "text": "name of an Ethiopian prince",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Twinkling",
+      "for": "anagram",
+      "note": "twinkling light flickers and shifts, so the letters of the word beside it are moved about"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "star",
+      "gives": "STAR",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "distant",
+      "gives": "FAR",
+      "note": "distant means far away"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAST",
+      "A",
+      "FAR",
+      "I"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STAR",
+       "gives": "RAST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stargazing: a faraway star twinkling, named after an Ethiopian prince.",
+     "walkthrough": "Ras is an Ethiopian title meaning prince or duke; Tafari Makonnen took the name Haile Selassie when crowned emperor in 1930.",
+     "definitionFit": "Ras Tafari was the title and given name of the Ethiopian nobleman later crowned Haile Selassie."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Twinkling"
+    }
+   }
   },
   {
    "number": 7,
@@ -184,7 +571,69 @@
    "group": [
     "7-down",
     "8-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BOOKCASE",
+    "definitions": [
+     {
+      "text": "Item of furniture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "something new is made afresh, so the letters of the following word are rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "places the rearranged letters inside the word for headquarters"
+     }
+    ],
+    "linkWords": [
+     "used by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "HQ",
+      "gives": "BASE",
+      "note": "a base is a headquarters"
+     },
+     {
+      "clueFragment": "cook",
+      "gives": "COOK",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "OOKC",
+      "ASE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COOK",
+       "gives": "OOKC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new army cook at headquarters being given some furniture to use.",
+     "definitionFit": "A bookcase is a set of shelves for holding books, a standard piece of furniture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cook"
+    }
+   }
   },
   {
    "number": 8,
@@ -217,7 +666,54 @@
      }
     ]
    },
-   "solution": "LIEDOWN"
+   "solution": "LIEDOWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIE DOWN",
+    "definitions": [
+     {
+      "text": "Rest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "says the untruth-telling piece comes ahead of the other one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "told untruths",
+      "gives": "LIED",
+      "note": "lied means told untruths"
+     },
+     {
+      "clueFragment": "have",
+      "gives": "OWN",
+      "note": "to own is to have"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIED",
+      "OWN"
+     ]
+    },
+    "explanation": {
+     "surface": "An accusation: the remaining people have lied in the past.",
+     "walkthrough": "'Rest' looks like a noun meaning the others; it is the verb meaning to relax.",
+     "definitionFit": "To lie down is to recline and rest, so the verbs match."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rest"
+    }
+   }
   },
   {
    "number": 10,
@@ -231,7 +727,53 @@
     "text": "Lioness treated for injuries",
     "enumeration": "7"
    },
-   "solution": "LESIONS"
+   "solution": "LESIONS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LESIONS",
+    "definitions": [
+     {
+      "text": "injuries",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "treated",
+      "for": "anagram",
+      "note": "something treated has been worked on and changed, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lioness",
+      "gives": "LIONESS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LIONESS",
+       "gives": "LESIONS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vet caring for a big cat that has been wounded.",
+     "definitionFit": "Lesions are areas of damaged tissue, such as wounds, so they are injuries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "treated"
+    }
+   }
   },
   {
    "number": 11,
@@ -251,7 +793,89 @@
      }
     ]
    },
-   "solution": "TRADEJOURNAL"
+   "solution": "TRADEJOURNAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "TRADE JOURNAL",
+    "definitions": [
+     {
+      "text": "Periodical",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outskirts of",
+      "for": "letter_selection",
+      "note": "the outskirts are the edges, so only the outermost letters of the town are kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the girl and the vase are placed inside the word for wood"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "the remaining pieces are set on the edge letters, which therefore lead the answer"
+     }
+    ],
+    "linkWords": [
+     "shows"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tredegar",
+      "gives": "TR",
+      "select": "outer",
+      "note": "the first and last letters of Tredegar, a town in south Wales"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "wood",
+      "gives": "DEAL",
+      "note": "deal is pine or fir timber"
+     },
+     {
+      "clueFragment": "little girl",
+      "gives": "JO",
+      "note": "Jo is a short form of a girl's name such as Joanna"
+     },
+     {
+      "clueFragment": "vase",
+      "gives": "URN",
+      "note": "an urn is a vase-shaped vessel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "A",
+      "DE",
+      "JO",
+      "URN",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A magazine story about a small girl holding a vase in a wood near a Welsh town.",
+     "walkthrough": "Deal is timber, especially pine; the girl's name and the vase go inside it, after TR and A.",
+     "definitionFit": "A trade journal is a magazine published for people in a particular industry, a kind of periodical."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wood"
+    }
+   }
   },
   {
    "number": 12,
@@ -287,7 +911,52 @@
    "group": [
     "12-down",
     "13-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AT THE END OF ONE'S TETHER",
+    "definitions": [
+     {
+      "text": "Had enough?",
+      "at": 0,
+      "note": "the answer is an adjectival phrase meaning having had enough"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly signals one possible rearrangement of the preceding letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Those often threatened",
+      "gives": "THOSEOFTENTHREATENED",
+      "note": "all twenty letters are rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THOSEOFTENTHREATENED",
+       "gives": "ATTHEENDOFONESTETHER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "People who are always under threat might well be fed up.",
+     "walkthrough": "The surface fits the answer neatly: constant threats would leave anyone exasperated.",
+     "definitionFit": "Being at the end of one's tether is an idiom for having no patience left, so one has had enough."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "threatened"
+    }
+   }
   },
   {
    "number": 13,
@@ -320,7 +989,52 @@
     "text": "Supplying food item Allan ordered",
     "enumeration": "9"
    },
-   "solution": "ALIMENTAL"
+   "solution": "ALIMENTAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALIMENTAL",
+    "definitions": [
+     {
+      "text": "Supplying food",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "ordered means put into a fresh arrangement, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "item Allan",
+      "gives": "ITEMALLAN",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITEMALLAN",
+       "gives": "ALIMENTAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Allan in a restaurant ordering a dish from the menu.",
+     "walkthrough": "'Ordered' reads as Allan choosing from a menu, but it signals rearranging letters.",
+     "definitionFit": "Alimental means nourishing, relating to aliment, an old word for nourishment or food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ordered"
+    }
+   }
   },
   {
    "number": 15,
@@ -334,7 +1048,67 @@
     "text": "Group of attendants cheer, having little time for head of college",
     "enumeration": "9"
    },
-   "solution": "ENTOURAGE"
+   "solution": "ENTOURAGE",
+   "annotation": {
+    "type": [
+     "substitution",
+     "letter_selection"
+    ],
+    "answer": "ENTOURAGE",
+    "definitions": [
+     {
+      "text": "Group of attendants",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having",
+      "for": "substitution",
+      "note": "having one thing for another means swapping in the first where the second was"
+     },
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "'head of' keeps only the first letter of 'college'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheer",
+      "gives": "ENCOURAGE",
+      "note": "to cheer someone on is to encourage them"
+     },
+     {
+      "clueFragment": "little time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "college",
+      "gives": "C",
+      "select": "first",
+      "note": "the leading letter of college"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "T",
+      "OURAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Staff cheering because the head of college gives them a little time off.",
+     "walkthrough": "The C of the verb is swapped for a T.",
+     "definitionFit": "An entourage is the retinue of people accompanying an important person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 16,
@@ -348,7 +1122,42 @@
     "text": "Ludicrous comic",
     "enumeration": "9"
    },
-   "solution": "LAUGHABLE"
+   "solution": "LAUGHABLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LAUGHABLE",
+    "definitions": [
+     {
+      "text": "Ludicrous",
+      "at": 0
+     },
+     {
+      "text": "comic",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ludicrous",
+      "note": "first meaning: absurd enough to be mocked"
+     },
+     {
+      "clueFragment": "comic",
+      "note": "second meaning: funny, provoking amusement"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two words look like one phrase about a silly comedian, but each is a separate sense of the answer.",
+     "definitionFit": "Something absurd invites ridicule while something funny raises mirth; the answer covers both senses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "comic"
+    }
+   }
   },
   {
    "number": 17,
@@ -362,7 +1171,55 @@
     "text": "Girl engaging to Chekhov?",
     "enumeration": "5"
    },
-   "solution": "ANTON"
+   "solution": "ANTON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ANTON",
+    "definitions": [
+     {
+      "text": "Chekhov?",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "engaging",
+      "for": "container",
+      "note": "engaging means taking in or holding, so the girl's name surrounds the small word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "ANN",
+      "note": "a girl's name"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "TO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a girl is getting engaged to the Russian writer.",
+     "walkthrough": "The question mark marks a definition by example: Chekhov is one person with this first name.",
+     "definitionFit": "Anton was the first name of the Russian playwright Chekhov, author of The Cherry Orchard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "engaging"
+    }
+   }
   },
   {
    "number": 18,
@@ -376,7 +1233,58 @@
     "text": "Article by newspaper initially exposing robbery",
     "enumeration": "5"
    },
-   "solution": "THEFT"
+   "solution": "THEFT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "THEFT",
+    "definitions": [
+     {
+      "text": "robbery",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to initials, so the paper is reduced to the first letters of its name"
+     }
+    ],
+    "linkWords": [
+     "exposing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "newspaper",
+      "gives": "FT",
+      "select": "first",
+      "note": "the initials of the Financial Times, a London daily"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "FT"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper article that first broke the story of a robbery.",
+     "definitionFit": "Theft is the act of stealing, and robbery is theft by force, close enough to stand as a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "initially"
+    }
+   }
   },
   {
    "number": 19,
@@ -390,7 +1298,66 @@
     "text": "Feeds one sushi, worried about recipe",
     "enumeration": "9"
    },
-   "solution": "NOURISHES"
+   "solution": "NOURISHES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NOURISHES",
+    "definitions": [
+     {
+      "text": "Feeds",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worried",
+      "for": "anagram",
+      "note": "worried suggests agitation, so the letters before it are thrown into disorder"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the rearranged letters go round the remaining piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one sushi",
+      "gives": "ONESUSHI",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "recipe",
+      "gives": "R",
+      "note": "R is the abbreviation for recipe, from Latin, as on prescriptions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOU",
+      "R",
+      "ISHES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONESUSHI",
+       "gives": "NOUISHES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chef serving someone sushi while fretting over the recipe.",
+     "definitionFit": "To nourish someone is to provide them with food, so nourishes means feeds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worried"
+    }
+   }
   },
   {
    "number": 20,
@@ -414,7 +1381,64 @@
      }
     ]
    },
-   "solution": "JUMPTHEQUEUE"
+   "solution": "JUMPTHEQUEUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JUMP THE QUEUE",
+    "definitions": [
+     {
+      "text": "Get ahead of one's turn",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "afterwards",
+      "for": "charade",
+      "note": "afterwards puts the word for row at the end of the answer"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "disregard",
+      "gives": "JUMP",
+      "note": "to jump is to skip or pass over"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "row",
+      "gives": "QUEUE",
+      "note": "a queue is a row of waiting people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JUMP",
+      "THE",
+      "QUEUE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pushing in ahead and ignoring the argument that follows.",
+     "walkthrough": "'Row' looks like a quarrel, but here it is a line of people.",
+     "definitionFit": "To jump the queue is the idiom for taking a place ahead of others who were waiting their turn."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 21,
@@ -428,7 +1452,55 @@
     "text": "Vitality plus nervous energy",
     "enumeration": "5"
    },
-   "solution": "PULSE"
+   "solution": "PULSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PULSE",
+    "definitions": [
+     {
+      "text": "Vitality",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nervous",
+      "for": "anagram",
+      "note": "nervous suggests jittery movement, so the letters around it are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plus",
+      "gives": "PLUS",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PLUSE",
+       "gives": "PULSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Describing a lively person: vitality combined with nervous energy.",
+     "definitionFit": "A pulse is a throb of life or energy, so it stands for liveliness and vitality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plus"
+    }
+   }
   },
   {
    "number": 22,
@@ -442,7 +1514,54 @@
     "text": "Eccentric short monarch, king",
     "enumeration": "5"
    },
-   "solution": "QUEER"
+   "solution": "QUEER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "QUEER",
+    "definitions": [
+     {
+      "text": "Eccentric",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut off, so the word loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "monarch",
+      "gives": "QUEEN",
+      "note": "a queen is a monarch"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R is short for rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUEE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "An odd little ruler, and a king to boot.",
+     "definitionFit": "Queer in its older sense means strange or odd, as an eccentric person is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 23,
@@ -466,7 +1585,68 @@
    "group": [
     "23-down",
     "24-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "and_lit",
+     "letter_selection"
+    ],
+    "answer": "LEAP YEAR",
+    "definitions": [
+     {
+      "text": "Ignoring third of debt, what could be repayable in 2008?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ignoring",
+      "for": "deletion",
+      "note": "ignoring a letter means leaving it out of the longer word"
+     },
+     {
+      "text": "could be",
+      "for": "anagram",
+      "note": "could be suggests the letters might become something else once rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "repayable",
+      "gives": "REPAYABLE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "debt",
+      "gives": "B",
+      "select": 3,
+      "note": "the third letter of debt, to be removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEAPYEAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REPAYALE",
+       "gives": "LEAPYEAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering which debt falls due in 2008, setting part of it aside.",
+     "walkthrough": "Remove B from the long word and rearrange what remains. The whole clue also defines: 2008 had 366 days.",
+     "definitionFit": "A leap year has an extra day in February, and 2008 was one, being divisible by four."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "debt"
+    }
+   }
   },
   {
    "number": 24,
@@ -493,7 +1673,49 @@
     "text": "Stare at notice at dance",
     "enumeration": "7"
    },
-   "solution": "EYEBALL"
+   "solution": "EYEBALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EYEBALL",
+    "definitions": [
+     {
+      "text": "Stare at",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "notice",
+      "gives": "EYE",
+      "note": "to eye something is to look at or notice it"
+     },
+     {
+      "clueFragment": "dance",
+      "gives": "BALL",
+      "note": "a ball is a formal dance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EYE",
+      "BALL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone noticing and staring at another person at a dance.",
+     "definitionFit": "To eyeball someone is informally to look hard at them, to stare them down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "notice"
+    }
+   }
   },
   {
    "number": 26,
@@ -507,7 +1729,64 @@
     "text": "Extent of life around deserts originally",
     "enumeration": "7"
    },
-   "solution": "BREADTH"
+   "solution": "BREADTH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BREADTH",
+    "definitions": [
+     {
+      "text": "Extent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to the first letter, where the word begins"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so one word wraps the other piece"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "life",
+      "gives": "BREATH",
+      "note": "breath stands for life itself, as in 'while there's breath in me'"
+     },
+     {
+      "clueFragment": "deserts",
+      "gives": "D",
+      "select": "first",
+      "note": "the opening letter of deserts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BREA",
+      "D",
+      "TH"
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering how far life can extend around desert areas.",
+     "definitionFit": "Breadth is width, the extent of something from side to side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "deserts"
+    }
+   }
   },
   {
    "number": 27,
@@ -521,7 +1800,53 @@
     "text": "Soldier on exercises runs hard",
     "enumeration": "9"
    },
-   "solution": "PERSEVERE"
+   "solution": "PERSEVERE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PERSEVERE",
+    "definitions": [
+     {
+      "text": "Soldier on",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exercises",
+      "gives": "PE",
+      "note": "PE is physical education, school exercise"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket scoring abbreviation for runs"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "SEVERE",
+      "note": "severe means harsh or hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "R",
+      "SEVERE"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier on exercise whose training runs are tough.",
+     "walkthrough": "'Soldier' looks like a noun on manoeuvres; the definition is the phrasal verb meaning to keep going.",
+     "definitionFit": "To soldier on is to keep going despite difficulty, which is what persevering means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Soldier"
+    }
+   }
   },
   {
    "number": 28,
@@ -535,7 +1860,43 @@
     "text": "Pass either way",
     "enumeration": "5"
    },
-   "solution": "REFER"
+   "solution": "REFER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "REFER",
+    "definitions": [
+     {
+      "text": "Pass either way",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pass",
+      "note": "surface reading: a pass in sport, played in either direction"
+     },
+     {
+      "clueFragment": "either way",
+      "note": "setter's reading: a verb meaning hand on, whose spelling is the same forwards and backwards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REFER"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Pass' means hand a matter on, and 'either way' hints that the word reads identically in both directions.",
+     "definitionFit": "To refer something to another person is to hand it on to them for attention."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   }
  ]
 }
