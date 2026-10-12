@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,43 @@
     "text": "Take it from chum — our lesson's not funny",
     "enumeration": "10"
    },
-   "solution": "HUMOURLESS"
+   "solution": "HUMOURLESS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HUMOURLESS",
+    "definitions": [
+     {
+      "text": "not funny",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Take it from",
+      "for": "hidden_word",
+      "note": "the solver is told to lift the word straight out of the run of letters that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chum — our lesson's",
+      "gives": "HUMOURLESS",
+      "note": "the letters run on across the words after the C of chum and before the apostrophe"
+     }
+    ],
+    "explanation": {
+     "surface": "A pupil grumbles to a friend that today's lesson was a joyless slog.",
+     "walkthrough": "The dash and apostrophe are ignored; the hidden run spans three words.",
+     "definitionFit": "Something humourless lacks any comedy, so it is plainly not funny."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chum"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +85,47 @@
     "text": "Pay attention to four-letter word included by the editor",
     "enumeration": "4"
    },
-   "solution": "HEED"
+   "solution": "HEED",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HEED",
+    "definitions": [
+     {
+      "text": "Pay attention to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "included by",
+      "for": "hidden_word",
+      "note": "the wanted word is held inside the following words, sitting across their join"
+     }
+    ],
+    "linkWords": [
+     "four-letter word"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the editor",
+      "gives": "HEED",
+      "note": "the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "An editor is warned about a swear word slipping into print.",
+     "walkthrough": "'Four-letter word' suggests something rude, but it simply announces the length of the word hidden in 'the editor'.",
+     "definitionFit": "To heed someone is to listen and take notice of what they say, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "four-letter"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +139,52 @@
     "text": "French officer post-war planner listened to or cut short",
     "enumeration": "7"
    },
-   "solution": "MARSHAL"
+   "solution": "MARSHAL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MARSHAL",
+    "definitions": [
+     {
+      "text": "French officer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut short",
+      "for": "deletion",
+      "note": "something cut short loses its tail, so the final letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "post-war planner",
+      "gives": "MARSHALL",
+      "note": "George Marshall, the US statesman behind the Marshall Plan for rebuilding Europe after 1945"
+     },
+     {
+      "clueFragment": "listened to or",
+      "note": "surface padding offering an alternative route: the planner's name heard aloud already matches the answer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARSHAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A historian describes a military man and an American planner after the war.",
+     "walkthrough": "'Listened to or' offers a second route: the name heard aloud is the same as the answer. Either way the double L becomes one.",
+     "definitionFit": "Marshal of France is the highest military rank in the French army, so a French officer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "planner"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +198,61 @@
     "text": "Covered by and contained within smart agreement",
     "enumeration": "13"
    },
-   "solution": "UNDERSTANDING"
+   "solution": "UNDERSTANDING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "UNDERSTANDING",
+    "definitions": [
+     {
+      "text": "agreement",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contained within",
+      "for": "container",
+      "note": "something contained within another sits inside it, so one piece goes into the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Covered by",
+      "gives": "UNDER",
+      "note": "to be covered by something is to be under it"
+     },
+     {
+      "clueFragment": "smart",
+      "gives": "STING",
+      "note": "to smart is to sting with pain"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNDER",
+      "ST",
+      "AND",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A neat deal is said to be both covered by and held within a clever agreement.",
+     "definitionFit": "An understanding is an informal arrangement between parties, so another word for agreement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "smart"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +266,42 @@
     "text": "Awkwardly move unwanted furniture etc",
     "enumeration": "6"
    },
-   "solution": "LUMBER"
+   "solution": "LUMBER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LUMBER",
+    "definitions": [
+     {
+      "text": "Awkwardly move",
+      "at": 0
+     },
+     {
+      "text": "unwanted furniture etc",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Awkwardly move",
+      "note": "first meaning: to walk heavily and clumsily"
+     },
+     {
+      "clueFragment": "unwanted furniture etc",
+      "note": "second meaning: British for disused household items stored away"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone struggles to shift old furniture nobody wants.",
+     "walkthrough": "In British usage lumber is junk such as old furniture kept in a lumber room, not just timber.",
+     "definitionFit": "The verb describes a heavy clumsy gait, and the British noun names discarded household clutter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +315,64 @@
     "text": "Namely, object about note that's extremely critical",
     "enumeration": "8"
    },
-   "solution": "SCATHING"
+   "solution": "SCATHING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SCATHING",
+    "definitions": [
+     {
+      "text": "extremely critical",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so the outer pieces wrap the note"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Namely",
+      "gives": "SC",
+      "note": "abbreviation of scilicet, Latin for namely"
+     },
+     {
+      "clueFragment": "object",
+      "gives": "THING",
+      "note": "an object is a thing"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "A",
+      "note": "A is a musical note"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SC",
+      "A",
+      "THING"
+     ]
+    },
+    "explanation": {
+     "surface": "A reviewer's note on some object is described as harshly critical.",
+     "walkthrough": "SC is the dictionary abbreviation for scilicet, 'namely'; the note slips in between it and the object.",
+     "definitionFit": "A scathing remark is bitterly severe and wounding, so extremely critical."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "object"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +386,51 @@
     "text": "Identify bird in swamp, initially, as wader",
     "enumeration": "4"
    },
-   "solution": "IBIS"
+   "solution": "IBIS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "IBIS",
+    "definitions": [
+     {
+      "text": "wader",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of each word in the run"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Identify bird in swamp",
+      "gives": "IBIS",
+      "select": "first",
+      "note": "the leading letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IBIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A birdwatcher is told to spot a bird standing in a marsh.",
+     "definitionFit": "The ibis is a long-legged, curved-billed bird that feeds in shallow water, so a wader."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Identify"
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +444,49 @@
     "text": "Aristocrat, with a single exception, is on time",
     "enumeration": "7"
    },
-   "solution": "BARONET"
+   "solution": "BARONET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BARONET",
+    "definitions": [
+     {
+      "text": "Aristocrat",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with a single exception",
+      "gives": "BARONE",
+      "note": "'bar one' means except for one"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BARONE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "All the nobility are punctual, apart from one.",
+     "definitionFit": "A baronet holds a hereditary British title ranking below a baron, so a minor aristocrat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exception"
+    }
+   }
   },
   {
    "number": 8,
@@ -144,7 +500,55 @@
     "text": "Thus illuminated sign for people living alone",
     "enumeration": "10"
    },
-   "solution": "SOLITARIES"
+   "solution": "SOLITARIES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOLITARIES",
+    "definitions": [
+     {
+      "text": "people living alone",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thus",
+      "gives": "SO",
+      "note": "so means thus"
+     },
+     {
+      "clueFragment": "illuminated",
+      "gives": "LIT",
+      "note": "illuminated means lit up"
+     },
+     {
+      "clueFragment": "sign",
+      "gives": "ARIES",
+      "note": "a sign of the zodiac, the ram"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "LIT",
+      "ARIES"
+     ]
+    },
+    "explanation": {
+     "surface": "A lit-up sign seems to advertise for single people.",
+     "definitionFit": "A solitary is a recluse or hermit, so solitaries are people who live on their own."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sign"
+    }
+   }
   },
   {
    "number": 9,
@@ -158,7 +562,50 @@
     "text": "Title that could make me a lord",
     "enumeration": "7"
    },
-   "solution": "EARLDOM"
+   "solution": "EARLDOM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EARLDOM",
+    "definitions": [
+     {
+      "text": "Title",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that could make",
+      "for": "anagram",
+      "note": "these words say the letters could be made into something else by rearranging"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "me a lord",
+      "gives": "MEALORD",
+      "note": "the fodder letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MEALORD",
+       "gives": "EARLDOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hopes an honour will turn them into a peer.",
+     "walkthrough": "The surface is neatly apt: an earldom really would make you a lord.",
+     "definitionFit": "An earldom is the rank and title held by an earl, a British peerage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -172,7 +619,58 @@
     "text": "Endlessly respect everyone, being top man on board",
     "enumeration": "7"
    },
-   "solution": "ADMIRAL"
+   "solution": "ADMIRAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ADMIRAL",
+    "definitions": [
+     {
+      "text": "top man on board",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endlessly",
+      "for": "deletion",
+      "note": "endlessly says each word loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "respect",
+      "gives": "ADMIRE",
+      "note": "to respect someone is to admire them"
+     },
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "all means everyone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADMIR",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A captain earns respect from the whole crew.",
+     "walkthrough": "'On board' means aboard a ship: an admiral commands a fleet from a flagship.",
+     "definitionFit": "An admiral is the highest-ranking naval officer, so the senior figure aboard a navy ship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 11,
@@ -186,7 +684,49 @@
     "text": "Captain being careful and expertly steering",
     "enumeration": "13"
    },
-   "solution": "MASTERMINDING"
+   "solution": "MASTERMINDING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MASTERMINDING",
+    "definitions": [
+     {
+      "text": "expertly steering",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Captain",
+      "gives": "MASTER",
+      "note": "the master is the captain of a merchant ship"
+     },
+     {
+      "clueFragment": "being careful",
+      "gives": "MINDING",
+      "note": "minding as in 'mind the step', taking care"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MASTER",
+      "MINDING"
+     ]
+    },
+    "explanation": {
+     "surface": "A ship's captain steers with care and skill.",
+     "definitionFit": "To mastermind a scheme is to plan and direct it cleverly, so expertly steering it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "steering"
+    }
+   }
   },
   {
    "number": 12,
@@ -206,7 +746,50 @@
      }
     ]
    },
-   "solution": "HORSECHESTNUT"
+   "solution": "HORSECHESTNUT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HORSE CHESTNUT",
+    "definitions": [
+     {
+      "text": "tree",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Disturbed",
+      "for": "anagram",
+      "note": "disturbed things are thrown into disorder, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thrushes etc, on",
+      "gives": "THRUSHESETCON",
+      "note": "the fodder letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THRUSHESETCON",
+       "gives": "HORSECHESTNUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Songbirds and others are startled while perched on a tree.",
+     "definitionFit": "The horse chestnut is a large tree known for its conkers, the shiny seeds children play with."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thrushes"
+    }
+   }
   },
   {
    "number": 13,
@@ -220,7 +803,64 @@
     "text": "Expressed regret in article composed about record",
     "enumeration": "10"
    },
-   "solution": "APOLOGISED"
+   "solution": "APOLOGISED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "APOLOGISED",
+    "definitions": [
+     {
+      "text": "Expressed regret",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "composed",
+      "gives": "POISED",
+      "note": "composed means calm and poised"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "LOG",
+      "note": "a log is a written record"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PO",
+      "LOG",
+      "ISED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone said sorry in a carefully written piece about a record.",
+     "definitionFit": "To apologise is to say sorry, which is to express regret for something done."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "composed"
+    }
+   }
   },
   {
    "number": 14,
@@ -234,7 +874,48 @@
     "text": "Sense of taste revealed as friend dined",
     "enumeration": "6"
    },
-   "solution": "PALATE"
+   "solution": "PALATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PALATE",
+    "definitions": [
+     {
+      "text": "Sense of taste",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "revealed as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "friend",
+      "gives": "PAL",
+      "note": "a pal is a friend"
+     },
+     {
+      "clueFragment": "dined",
+      "gives": "ATE",
+      "note": "to dine is to eat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAL",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A companion's discernment in food shows when the pair eat together.",
+     "definitionFit": "The palate is the roof of the mouth and, by extension, a person's ability to judge flavour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -248,7 +929,48 @@
     "text": "Would-be moneymaker having chest covered with gold",
     "enumeration": "8"
    },
-   "solution": "INVESTOR"
+   "solution": "INVESTOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INVESTOR",
+    "definitions": [
+     {
+      "text": "Would-be moneymaker",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "having chest covered",
+      "gives": "INVEST",
+      "note": "someone whose chest is covered is wearing a vest: 'in vest'"
+     },
+     {
+      "clueFragment": "with gold",
+      "gives": "OR",
+      "note": "or is the heraldic word for gold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INVEST",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A wealth-seeker shows off a gold-draped torso.",
+     "walkthrough": "'Chest' looks like a treasure chest full of gold, but it is the body; a vest covers it.",
+     "definitionFit": "An investor puts money into ventures hoping for a return, so someone aiming to profit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "chest"
+    }
+   }
   },
   {
    "number": 16,
@@ -268,7 +990,53 @@
      }
     ]
    },
-   "solution": "INCAMERA"
+   "solution": "INCAMERA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IN CAMERA",
+    "definitions": [
+     {
+      "text": "out of sight",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round the bend",
+      "for": "anagram",
+      "note": "round the bend means crazy, and crazy letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "AMERICAN",
+      "note": "the fodder letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AMERICAN",
+       "gives": "INCAMERA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A US driver turns a corner and disappears.",
+     "definitionFit": "In camera is a legal phrase for proceedings held in private, hidden from the public."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bend"
+    }
+   }
   },
   {
    "number": 17,
@@ -282,7 +1050,57 @@
     "text": "Second in class, deserving scholarship",
     "enumeration": "8"
    },
-   "solution": "LEARNING"
+   "solution": "LEARNING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LEARNING",
+    "definitions": [
+     {
+      "text": "scholarship",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Second in",
+      "for": "letter_selection",
+      "note": "second points to the letter in position two of the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "class",
+      "gives": "L",
+      "select": 2,
+      "note": "the letter after the C"
+     },
+     {
+      "clueFragment": "deserving",
+      "gives": "EARNING",
+      "note": "earning as in deserving praise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EARNING"
+     ]
+    },
+    "explanation": {
+     "surface": "A pupil ranked second in the class merits a scholarship.",
+     "walkthrough": "'Scholarship' looks like a grant, but here it means scholarly knowledge.",
+     "definitionFit": "Learning means acquired knowledge and erudition, which is scholarship in its academic sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "scholarship"
+    }
+   }
   },
   {
    "number": 18,
@@ -296,7 +1114,71 @@
     "text": "A sinner's behaviour, including extremes of anger or greed",
     "enumeration": "7"
    },
-   "solution": "AVARICE"
+   "solution": "AVARICE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AVARICE",
+    "definitions": [
+     {
+      "text": "greed",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremes of",
+      "for": "letter_selection",
+      "note": "extremes are the two ends, so only the outermost letters are wanted"
+     },
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including means holding inside, so the selected letters go within"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sinner's behaviour",
+      "gives": "VICE",
+      "note": "a vice is wicked conduct"
+     },
+     {
+      "clueFragment": "anger",
+      "gives": "AR",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "V",
+      "AR",
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "Sinful conduct, here framed in terms of the deadly sins of wrath or covetousness.",
+     "walkthrough": "Anger and greed are both deadly sins, so 'or' reads as part of the list but is only a link.",
+     "definitionFit": "Avarice is an extreme desire for wealth, a synonym for greed and one of the seven deadly sins."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "anger"
+    }
+   }
   },
   {
    "number": 19,
@@ -310,7 +1192,50 @@
     "text": "Child liable to be beaten with stout stick",
     "enumeration": "6"
    },
-   "solution": "IMPALE"
+   "solution": "IMPALE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPALE",
+    "definitions": [
+     {
+      "text": "stick",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Child liable to be beaten",
+      "gives": "IMP",
+      "note": "an imp is a mischievous child, the sort once likely to get a beating"
+     },
+     {
+      "clueFragment": "stout",
+      "gives": "ALE",
+      "note": "stout is a dark beer, so a kind of ale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMP",
+      "ALE"
+     ]
+    },
+    "explanation": {
+     "surface": "A naughty youngster faces a thrashing with a thick cane.",
+     "walkthrough": "'Stout stick' reads as a cudgel, but stout is the beer and stick is the verb.",
+     "definitionFit": "To impale is to pierce or stick something through with a sharp point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stout"
+    }
+   }
   },
   {
    "number": 20,
@@ -324,7 +1249,63 @@
     "text": "Menial poorly, with temperature — contracted illness",
     "enumeration": "7"
    },
-   "solution": "AILMENT"
+   "solution": "AILMENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "AILMENT",
+    "definitions": [
+     {
+      "text": "illness",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "poorly",
+      "for": "anagram",
+      "note": "poorly means badly or unwell, so these letters are disordered"
+     }
+    ],
+    "linkWords": [
+     "contracted"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Menial",
+      "gives": "MENIAL",
+      "note": "the fodder letters"
+     },
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "T is the abbreviation for temperature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AILMEN",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MENIAL",
+       "gives": "AILMEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lowly servant is unwell, running a fever after catching something.",
+     "definitionFit": "An ailment is a minor sickness or disorder, so a synonym for illness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "poorly"
+    }
+   }
   },
   {
    "number": 21,
@@ -338,7 +1319,46 @@
     "text": "Bird left, trapped",
     "enumeration": "6"
    },
-   "solution": "LINNET"
+   "solution": "LINNET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LINNET",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "trapped",
+      "gives": "INNET",
+      "note": "something trapped is 'in net'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "INNET"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird remains caught in a snare.",
+     "definitionFit": "The linnet is a small brown finch once popular as a cage bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 22,
@@ -352,7 +1372,52 @@
     "text": "Kind of field changed to a vital grain",
     "enumeration": "13"
    },
-   "solution": "GRAVITATIONAL"
+   "solution": "GRAVITATIONAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GRAVITATIONAL",
+    "definitions": [
+     {
+      "text": "Kind of field",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changed",
+      "for": "anagram",
+      "note": "changed means altered, so the letters take a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to a vital grain",
+      "gives": "TOAVITALGRAIN",
+      "note": "the fodder letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOAVITALGRAIN",
+       "gives": "GRAVITATIONAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer converts a meadow to growing an essential cereal crop.",
+     "walkthrough": "'Field' suggests farmland, which the grain supports, but it is the physics sense.",
+     "definitionFit": "A gravitational field is the region of force around a mass, so one kind of physics field."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "field"
+    }
+   }
   },
   {
    "number": 23,
@@ -366,7 +1431,46 @@
     "text": "The speaker had briefly spoken and made observations",
     "enumeration": "4"
    },
-   "solution": "EYED"
+   "solution": "EYED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EYED",
+    "definitions": [
+     {
+      "text": "made observations",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spoken",
+      "for": "homophone",
+      "note": "spoken tells the solver to go by how the words are said, not spelt"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The speaker had briefly",
+      "gives": "EYED",
+      "soundsLike": "I'D",
+      "note": "the speaker is I, and 'I had' contracted is I'd"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone had spoken briefly and then watched.",
+     "definitionFit": "To eye something is to look at it closely, so eyed means watched or made observations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "speaker"
+    }
+   }
   },
   {
    "number": 24,
@@ -380,7 +1484,54 @@
     "text": "Outside hospital, unattached piece of roof",
     "enumeration": "7"
    },
-   "solution": "SHINGLE"
+   "solution": "SHINGLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHINGLE",
+    "definitions": [
+     {
+      "text": "piece of roof",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Outside",
+      "for": "container",
+      "note": "outside places one word around the other, so the hospital letter sits within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the abbreviation for hospital, as on road signs"
+     },
+     {
+      "clueFragment": "unattached",
+      "gives": "SINGLE",
+      "note": "someone unattached is single"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "H",
+      "INGLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A loose roof tile has fallen outside a hospital.",
+     "definitionFit": "A shingle is a thin wooden or slate tile laid in overlapping rows to cover a roof."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unattached"
+    }
+   }
   },
   {
    "number": 25,
@@ -394,7 +1545,53 @@
     "text": "Unusually vain, yet showing lack of sophistication",
     "enumeration": "7"
    },
-   "solution": "NAIVETY"
+   "solution": "NAIVETY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NAIVETY",
+    "definitions": [
+     {
+      "text": "lack of sophistication",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unusually",
+      "for": "anagram",
+      "note": "unusually means not in the normal way, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vain, yet",
+      "gives": "VAINYET",
+      "note": "the fodder letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VAINYET",
+       "gives": "NAIVETY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A conceited person who still seems surprisingly unworldly.",
+     "definitionFit": "Naivety is innocence and inexperience of the world, so a want of sophistication."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Unusually"
+    }
+   }
   },
   {
    "number": 26,
@@ -408,7 +1605,51 @@
     "text": "Decrease in eating through only taking starters?",
     "enumeration": "4"
    },
-   "solution": "DIET"
+   "solution": "DIET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "DIET",
+    "definitions": [
+     {
+      "text": "Decrease in eating through only taking starters?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "only taking starters",
+      "for": "letter_selection",
+      "note": "starters are the first course, so only the opening letters are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Decrease in eating through",
+      "gives": "DIET",
+      "select": "first",
+      "note": "the leading letter of each of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIET"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cuts back on food by ordering just the first course.",
+     "walkthrough": "The definition words also form part of the fodder, and 'starters' doubles as the restaurant course.",
+     "definitionFit": "Going on a diet means restricting food intake, a reduction in how much one eats."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "starters"
+    }
+   }
   },
   {
    "number": 27,
@@ -422,7 +1663,56 @@
     "text": "Group seen playing I kept in and reprimanded",
     "enumeration": "10"
    },
-   "solution": "CASTIGATED"
+   "solution": "CASTIGATED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CASTIGATED",
+    "definitions": [
+     {
+      "text": "reprimanded",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Group seen playing",
+      "gives": "CAST",
+      "note": "the cast are the actors seen in a play"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "kept in",
+      "gives": "GATED",
+      "note": "a gated pupil is confined to school as punishment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAST",
+      "I",
+      "GATED"
+     ]
+    },
+    "explanation": {
+     "surface": "A child explains that the band were performing while they were kept at home and scolded.",
+     "walkthrough": "Gated is British school slang for being confined to the premises as a punishment.",
+     "definitionFit": "To castigate is to rebuke someone severely, so castigated means sharply reprimanded."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   }
  ]
 }
