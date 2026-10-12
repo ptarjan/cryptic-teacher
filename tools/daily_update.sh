@@ -1131,11 +1131,16 @@ todo = sorted(((puzzle_day(p) or datetime.date.min, p["id"]) for p in idx["puzzl
                if not p["annotated"] and p.get("hasSolutions")
                and not p.get("awaitsPreamble") and p["id"] not in blocked), reverse=True)
 fresh = [i for d, i in todo if d >= cutoff or i in keyed_tonight]
-# A series' first puzzle leads the rest, then a partly annotated one, which
-# costs only its missing clues.
+# The small series lead the rest, nearest to fully hinted first
+# (prereset_plan.small_series, the burn's order too), then a series' first
+# puzzle, then a partly annotated one, which costs only its missing clues.
+from prereset_plan import small_series
+small = small_series()
+series_of = {p["id"]: p.get("series") for p in idx["puzzles"]}
+rank = lambda i: small.index(series_of[i]) if series_of[i] in small else len(small)
 partial = {p["id"]: p["unannotated"] for p in idx["puzzles"] if p.get("unannotated")}
 older = sorted((i for _, i in todo if i not in fresh),
-               key=lambda i: (not is_first_issue(i), i not in partial, partial.get(i, 0)))
+               key=lambda i: (rank(i), not is_first_issue(i), i not in partial, partial.get(i, 0)))
 print(" ".join(fresh))
 print(" ".join(older[:int(sys.argv[1])]))
 EOF
@@ -1204,21 +1209,29 @@ if readable:
     print("not queued for a cold solve, too little clue text to read: "
           + ", ".join(f"{i} ({readable[i][0]}/{readable[i][1]} clues)"
                       for i in sorted(readable)), file=sys.stderr)
-# A series' first puzzle goes ahead of the newest-first order.
-todo = sorted(((is_first_issue(p["id"]), puzzle_day(p) or datetime.date.min, p["id"])
-               for p in idx["puzzles"]
-               if p["id"] in unsolved_ids and p["id"] not in unsolvable
-               and not p.get("awaitsPreamble")
-               and p["id"] not in tried), reverse=True)
+# A puzzle from the last two days goes first (a prize puzzle withholds its key
+# for a week), then the small series nearest to fully hinted
+# (prereset_plan.small_series), then a series' first puzzle, newest first.
 # Puzzles held as their clues alone (tools/clues_only.py) are solved here too,
 # those a builder can promote; the solve derives their grid. Read from the
 # clues_only/ beside puzzles/index.json, the same tree as the index. Dateless book
-# reprints, so they go last.
+# reprints, so they go last within their series' place.
 import clues_only
 from pathlib import Path
-todo += [(False, datetime.date.min, r["id"]) for r in clues_only.solvable(Path("clues_only"))
-         if r["id"] not in tried]
-print(" ".join(i for *_, i in todo[:limit]))
+from prereset_plan import small_series
+small = small_series()
+cutoff = datetime.date.today() - datetime.timedelta(days=2)
+def key(series, day, pid):
+    return (day >= cutoff, -(small.index(series) if series in small else len(small)),
+            is_first_issue(pid), day, pid)
+todo = sorted([key(p.get("series"), puzzle_day(p) or datetime.date.min, p["id"])
+               for p in idx["puzzles"]
+               if p["id"] in unsolved_ids and p["id"] not in unsolvable
+               and not p.get("awaitsPreamble")
+               and p["id"] not in tried]
+              + [key(r.get("series"), datetime.date.min, r["id"]) for r in clues_only.solvable(Path("clues_only"))
+                 if r["id"] not in tried], reverse=True)
+print(" ".join(t[-1] for t in todo[:limit]))
 EOF
 )
 # How many of both queues are held out on a recorded failure, so the log says
