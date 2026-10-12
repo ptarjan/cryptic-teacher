@@ -25,6 +25,7 @@ disk (rebuilt from the timesforthetimes blog) is never rewritten.
 import argparse
 import concurrent.futures
 import datetime
+import html
 import json
 import re
 import sys
@@ -258,7 +259,7 @@ def convert(data, date):
             if key not in lights:
                 return None, f"{key[0]} {direction} is no light in the grid"
             cells = lights[key]
-            text = re.sub(r"\s+", " ", c.get("clue") or "").strip()
+            text = re.sub(r"\s+", " ", html.unescape(c.get("clue") or "")).strip()
             if not text:
                 return None, f"{key[0]} {direction} has no clue"
             fmt = (c.get("format") or "").strip()
