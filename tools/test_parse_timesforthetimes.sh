@@ -939,5 +939,17 @@ check "short and case-slipped answers" \
   "13|across|HEMP|4|Fibre of male politician (4) 14|across||4|Fibre of male politician (4) 15|across|RESEMBLING|10|Like men, gerbils will stray (10)" \
   "$(run "$slips" | paste -sd' ')"
 
+# TLS 1138 heads its Across list "Down" too: a second Down heading over a list
+# that restarts turns the first one across, and 1 down is not lost to 1 across.
+twodown='<p><b>Down</b><br />
+1. Fibre of male politician (4)<br />
+HEMP &#8211; HE MP</p>
+<p><b>Down</b><br />
+1. Pale and ill (4)<br />
+WHEY &#8211; sounds like</p>'
+check "a misheaded Across list" \
+  "1|across|HEMP|4|Fibre of male politician (4) 1|down|WHEY|4|Pale and ill (4)" \
+  "$(run "$twodown" | paste -sd' ')"
+
 if [ "$fails" -gt 0 ]; then echo "$fails FAILURE(S)"; exit 1; fi
 echo "all checks passed"

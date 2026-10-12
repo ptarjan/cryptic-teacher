@@ -1161,6 +1161,21 @@ def read_entries(rendered):
                 unsplit.clear()
                 answered.clear()
             unanswered()
+            if (heading == "down" and direction == "down" and entries
+                    and not any(e["direction"] == "across" for e in entries)):
+                # A second Down heading over a list that restarts: the first
+                # was the Across list misheaded (TLS 1138 and 1132 both open
+                # "<b>Down</b>"). Its lights run across.
+                def turned(key):
+                    return (key[0], "across") if key[1] == "down" else key
+                for e in entries:
+                    e["direction"] = "across"
+                    e.pop("heading", None)
+                for u in unsplit:
+                    u["lights"] = [[n, "across"] for n, _ in u["lights"]]
+                answered = {turned(k) for k in answered}
+                headed = {turned(k): v for k, v in headed.items() if v != "down"}
+                linked = {g: [turned(k) for k in ls] for g, ls in linked.items()}
             direction = heading
             last = 0
             lights, clue, enum = None, None, None
@@ -1207,6 +1222,20 @@ def read_entries(rendered):
                 if (way == "across" and not headed_down and not (suffix or glued)
                         and number <= 2 < last):
                     direction, way, last = "down", "down", 0
+                other = headed.get((number, way))
+                if ((number, way) in answered and way == direction and other
+                        and other != way and (number, other) not in answered):
+                    # "1d Boat a metre in length" under Across, then "1d Safety
+                    # device" under Down (ST 2691): the light now printed under
+                    # its own heading settles it, so the earlier suffix was the
+                    # typo and that light runs the way its heading said.
+                    for e in entries:
+                        if (e["number"], e["direction"]) == (number, way) and e.get("heading") == other:
+                            e["direction"] = other
+                            e.pop("heading")
+                    answered.discard((number, way))
+                    answered.add((number, other))
+                    del headed[(number, way)]
                 if (number, way) not in answered:
                     these = [(number, way)]
         if these is not None:
