@@ -24,6 +24,9 @@
   "date": "2024-08-28",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,67 @@
     "text": "Fungus beginning to affect bulb that's left out",
     "enumeration": "6"
    },
-   "solution": "AGARIC"
+   "solution": "AGARIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "AGARIC",
+    "definitions": [
+     {
+      "text": "Fungus",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, so only that one is kept"
+     },
+     {
+      "text": "that's left out",
+      "for": "deletion",
+      "note": "left out tells us the letter standing for left is dropped from the bulb"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "affect",
+      "gives": "A",
+      "select": "first",
+      "note": "the opening letter of affect"
+     },
+     {
+      "clueFragment": "bulb",
+      "gives": "GARLIC",
+      "note": "garlic grows as a bulb"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the usual abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GARIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener notes that a fungus first attacks bulbs that were left outside.",
+     "walkthrough": "'Left out' reads as bulbs stored outdoors, but it tells you to drop the letter for left.",
+     "definitionFit": "An agaric is a gill-bearing mushroom, a common type of fungus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 2,
@@ -57,7 +120,54 @@
      }
     ]
    },
-   "solution": "GINRUMMY"
+   "solution": "GINRUMMY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GIN RUMMY",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Following",
+      "for": "charade",
+      "note": "following places the next piece behind the ones named first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a couple of drinks",
+      "gives": "GINRUM",
+      "note": "two spirits, gin and rum"
+     },
+     {
+      "clueFragment": "setter's",
+      "gives": "MY",
+      "note": "the setter speaking of themselves would say my"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GINRUM",
+      "MY"
+     ]
+    },
+    "explanation": {
+     "surface": "After a couple of drinks, the setter fancies a game.",
+     "walkthrough": "The setter's own possession is MY.",
+     "definitionFit": "Gin rummy is a two-player card game, a variety of rummy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drinks"
+    }
+   }
   },
   {
    "number": 3,
@@ -71,7 +181,39 @@
     "text": "Sporting legend briefly identified by VAR?",
     "enumeration": "8"
    },
-   "solution": "RICHARDS"
+   "solution": "RICHARDS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "RICHARDS",
+    "definitions": [
+     {
+      "text": "Sporting legend briefly identified by VAR?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sporting legend briefly identified by VAR?",
+      "note": "surface reading: a sports star caught out by the video assistant referee"
+     },
+     {
+      "clueFragment": "briefly identified by VAR",
+      "note": "setter's reading: VAR are the initials of a great West Indian cricketer's names, Vivian Alexander and surname"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "VAR is the football Video Assistant Referee, but here it is the initials of Sir Viv Richards, the West Indies batting great.",
+     "definitionFit": "Sir Isaac Vivian Alexander Richards is one of cricket's most celebrated batsmen, truly a sporting legend."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "VAR"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +227,68 @@
     "text": "Canteen cooking tips from ruby anniversary",
     "enumeration": "9"
    },
-   "solution": "CENTENARY"
+   "solution": "CENTENARY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CENTENARY",
+    "definitions": [
+     {
+      "text": "anniversary",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooking",
+      "for": "anagram",
+      "note": "cooking means mixing up, so the letters are stirred into a new order"
+     },
+     {
+      "text": "tips from",
+      "for": "letter_selection",
+      "note": "tips are the two ends of a word, its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Canteen",
+      "gives": "CENTENA",
+      "note": "the letters of canteen rearranged"
+     },
+     {
+      "clueFragment": "ruby",
+      "gives": "RY",
+      "select": "outer",
+      "note": "the first and last letters of ruby"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CENTENA",
+      "RY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CANTEEN",
+       "gives": "CENTENA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The canteen cooks a meal for a ruby wedding anniversary.",
+     "walkthrough": "A ruby anniversary is the fortieth, which tempts the solver to look for that, but 'ruby' only supplies its ends.",
+     "definitionFit": "A centenary is the hundredth anniversary of an event."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ruby"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +302,55 @@
     "text": "Careless scuttle after ladies' underwear",
     "enumeration": "8"
    },
-   "solution": "SLIPSHOD"
+   "solution": "SLIPSHOD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SLIPSHOD",
+    "definitions": [
+     {
+      "text": "Careless",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the first named item behind the second in the final word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ladies' underwear",
+      "gives": "SLIPS",
+      "note": "slips are women's undergarments"
+     },
+     {
+      "clueFragment": "scuttle",
+      "gives": "HOD",
+      "note": "a hod is a coal scuttle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLIPS",
+      "HOD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone scuttles hurriedly after a glimpse of lingerie, a careless act.",
+     "walkthrough": "'Scuttle' looks like a verb, but it is the noun: a coal scuttle, or HOD.",
+     "definitionFit": "Slipshod describes sloppy work done without proper care or attention."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "scuttle"
+    }
+   }
   },
   {
    "number": 5,
@@ -127,7 +378,69 @@
      }
     ]
    },
-   "solution": "SNAKEINTHEGRASS"
+   "solution": "SNAKEINTHEGRASS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SNAKE IN THE GRASS",
+    "definitions": [
+     {
+      "text": "Lurking danger",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "freaking out",
+      "for": "anagram",
+      "note": "freaking out means losing control, so the letters go wild into a new order"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue, on means placed above the next piece"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ken, in haste",
+      "gives": "SNAKEINTHE",
+      "note": "the letters of Ken in haste rearranged"
+     },
+     {
+      "clueFragment": "pot",
+      "gives": "GRASS",
+      "note": "pot and grass are both slang for cannabis"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNAKEINTHE",
+      "GRASS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "KENINHASTE",
+       "gives": "SNAKEINTHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ken panics in a hurry while high on drugs, a hidden danger.",
+     "walkthrough": "'Pot' looks like a container, but it is cannabis, as is grass.",
+     "definitionFit": "A snake in the grass is an idiom for a treacherous person or a hidden threat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pot"
+    }
+   }
   },
   {
    "number": 6,
@@ -141,7 +454,60 @@
     "text": "Sweet stuff to follow half a portion of seafood",
     "enumeration": "7"
    },
-   "solution": "PRALINE"
+   "solution": "PRALINE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "PRALINE",
+    "definitions": [
+     {
+      "text": "Sweet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half a portion of",
+      "for": "deletion",
+      "note": "half means only the first part of the word is kept and the rest dropped"
+     },
+     {
+      "text": "to follow",
+      "for": "charade",
+      "note": "to follow places the first piece named after the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seafood",
+      "gives": "PRAWNS",
+      "note": "prawns are a seafood"
+     },
+     {
+      "clueFragment": "stuff",
+      "gives": "LINE",
+      "note": "to line is to fill or stuff, as in lining one's pockets"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRA",
+      "LINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dessert served after a half-portion of seafood.",
+     "walkthrough": "'Stuff' looks like a noun meaning material, but it is the verb, to fill or line.",
+     "definitionFit": "Praline is a confection of nuts in caramelised sugar, a sweet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stuff"
+    }
+   }
   },
   {
    "number": 7,
@@ -161,7 +527,77 @@
      }
     ]
    },
-   "solution": "HULAHOOP"
+   "solution": "HULAHOOP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "HULA HOOP",
+    "definitions": [
+     {
+      "text": "exercise equipment?",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out suggests letters thrown out of order"
+     },
+     {
+      "text": "across",
+      "for": "container",
+      "note": "across means spanning another piece, which sits within"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Haul",
+      "gives": "HULA",
+      "note": "the letters of haul rearranged"
+     },
+     {
+      "clueFragment": "jump",
+      "gives": "HOP",
+      "note": "hop means jump"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HULA",
+      "HO",
+      "O",
+      "P"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HAUL",
+       "gives": "HULA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Get out the old gym kit and leap across it.",
+     "walkthrough": "O goes inside HOP. The question mark admits a toy hoop is only loosely exercise equipment.",
+     "definitionFit": "A hula hoop is a large ring twirled around the waist, used for fun and fitness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Haul"
+    }
+   }
   },
   {
    "number": 8,
@@ -175,7 +611,74 @@
     "text": "Deliberately damage Conservative pinned by journalist over bar",
     "enumeration": "8"
    },
-   "solution": "DESTRUCT"
+   "solution": "DESTRUCT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "DESTRUCT",
+    "definitions": [
+     {
+      "text": "Deliberately damage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "in a down clue, over means turned upside down, read bottom to top"
+     },
+     {
+      "text": "pinned by",
+      "for": "container",
+      "note": "pinned by means held fast inside another piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED is short for editor"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "STRUT",
+      "note": "a strut is a supporting bar"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "STRU",
+      "C",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "ED",
+       "to": "DE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory pinned to the bar by a reporter is deliberately harmed.",
+     "walkthrough": "'Over' is a reversal signal in a down clue, where the word is read upwards.",
+     "definitionFit": "To destruct is to destroy something deliberately, as with a rocket set to self-destruct."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 9,
@@ -189,7 +692,65 @@
     "text": "Slippery sort — American prisoner nothing holds",
     "enumeration": "8"
    },
-   "solution": "ANACONDA"
+   "solution": "ANACONDA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ANACONDA",
+    "definitions": [
+     {
+      "text": "Slippery sort",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holds",
+      "for": "container",
+      "note": "holds means one piece keeps another within it"
+     }
+    ],
+    "linkWords": [
+     "—"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the standard abbreviation for American"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "NADA",
+      "note": "nada is Spanish-derived slang for nothing"
+     },
+     {
+      "clueFragment": "prisoner",
+      "gives": "CON",
+      "note": "a con is a convict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NA",
+      "CON",
+      "DA"
+     ]
+    },
+    "explanation": {
+     "surface": "A slippery American jailbird can be held by nothing.",
+     "walkthrough": "Nada is Spanish for nothing and common in American slang.",
+     "definitionFit": "An anaconda is a large constricting snake, and snakes are proverbially slippery creatures."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sort"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +764,68 @@
     "text": "Poles drinking unusually pale port",
     "enumeration": "6"
    },
-   "solution": "NAPLES"
+   "solution": "NAPLES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NAPLES",
+    "definitions": [
+     {
+      "text": "port",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusually",
+      "for": "anagram",
+      "note": "unusually suggests letters set out in an odd, rearranged way"
+     },
+     {
+      "text": "drinking",
+      "for": "container",
+      "note": "drinking means taking something inside, so one part goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poles",
+      "gives": "NS",
+      "note": "the two poles, north and south, are N and S"
+     },
+     {
+      "clueFragment": "pale",
+      "gives": "APLE",
+      "note": "the letters of pale rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "APLE",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PALE",
+       "gives": "APLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Polish people knocking back unusually pale port wine.",
+     "walkthrough": "'Port' looks like the drink being consumed, but it means a harbour city.",
+     "definitionFit": "Naples is a major Italian seaport on the Tyrrhenian Sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +839,55 @@
     "text": "Native Scandinavians entering petition",
     "enumeration": "8"
    },
-   "solution": "SUDANESE"
+   "solution": "SUDANESE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SUDANESE",
+    "definitions": [
+     {
+      "text": "Native",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "entering means going inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "petition",
+      "gives": "SUE",
+      "note": "to sue is to petition, as in suing for peace"
+     },
+     {
+      "clueFragment": "Scandinavians",
+      "gives": "DANES",
+      "note": "Danes are people from Denmark"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "DANES",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Scandinavian visitors entering a country with a petition from local people.",
+     "walkthrough": "'Native' is a noun here: a person born in the country.",
+     "definitionFit": "A Sudanese is a person born in Sudan, so a native of that country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "petition"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +901,55 @@
     "text": "Zulu endlessly declines stringed instrument",
     "enumeration": "6"
    },
-   "solution": "ZITHER"
+   "solution": "ZITHER",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ZITHER",
+    "definitions": [
+     {
+      "text": "stringed instrument",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "endlessly asks for a word with its ends cut away at both sides"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Zulu",
+      "gives": "Z",
+      "note": "Zulu is Z in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "declines",
+      "gives": "WITHERS",
+      "note": "withers means fades or declines"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Z",
+      "ITHER"
+     ]
+    },
+    "explanation": {
+     "surface": "A Zulu musician's playing keeps fading on some stringed instrument.",
+     "walkthrough": "WITHERS loses its first and last letters to give ITHER.",
+     "definitionFit": "A zither is a flat instrument with many strings stretched over a soundbox."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Zulu"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +963,67 @@
     "text": "New garden incorporates top-notch irrigation?",
     "enumeration": "8"
    },
-   "solution": "DRAINAGE"
+   "solution": "DRAINAGE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DRAINAGE",
+    "definitions": [
+     {
+      "text": "irrigation?",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "new suggests a fresh arrangement of the letters"
+     },
+     {
+      "text": "incorporates",
+      "for": "container",
+      "note": "incorporates means takes in, so one part goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "garden",
+      "gives": "DRNAGE",
+      "note": "the letters of garden rearranged"
+     },
+     {
+      "clueFragment": "top-notch",
+      "gives": "AI",
+      "note": "A1 means first-class; written as AI"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "AI",
+      "NAGE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GARDEN",
+       "gives": "DRNAGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new garden includes a first-class watering system.",
+     "walkthrough": "A1 (top-notch) is read as the letters AI. The question mark admits that drainage is water management rather than irrigation proper.",
+     "definitionFit": "Both are systems managing water channels in land; drainage takes it away where irrigation brings it in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "New"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +1037,81 @@
     "text": "Nonsense ultimately plaguing reversal of decline in Celtic language",
     "enumeration": "9"
    },
-   "solution": "GIBBERISH"
+   "solution": "GIBBERISH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "GIBBERISH",
+    "definitions": [
+     {
+      "text": "Nonsense",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the final letter of the next word"
+     },
+     {
+      "text": "reversal of",
+      "for": "reversal",
+      "note": "reversal of asks for the word written backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside another piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plaguing",
+      "gives": "G",
+      "select": "last",
+      "note": "the last letter of plaguing"
+     },
+     {
+      "clueFragment": "Celtic language",
+      "gives": "IRISH",
+      "note": "Irish Gaelic is a Celtic language"
+     },
+     {
+      "clueFragment": "decline",
+      "gives": "EBB",
+      "note": "to ebb is to decline"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "I",
+      "BBE",
+      "RISH"
+     ],
+     "reversals": [
+      {
+       "from": "EBB",
+       "to": "BBE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nonsense ends up plaguing efforts to stop a Celtic language's decline.",
+     "walkthrough": "The decline here is the tide's: to ebb is to go out or decline.",
+     "definitionFit": "Gibberish is unintelligible or meaningless talk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "decline"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +1125,68 @@
     "text": "Finally find baby wipes absorbing last of unmentionable stains",
     "enumeration": "4"
    },
-   "solution": "DYES"
+   "solution": "DYES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DYES",
+    "definitions": [
+     {
+      "text": "stains",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of each of the following words"
+     },
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "last of points to the final letter of the next word"
+     },
+     {
+      "text": "absorbing",
+      "for": "container",
+      "note": "absorbing means soaking something up inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "find baby wipes",
+      "gives": "DYS",
+      "select": "last",
+      "note": "the final letters of the three words"
+     },
+     {
+      "clueFragment": "unmentionable",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of unmentionable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DY",
+      "E",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A parent hunts for baby wipes to deal with stains on underwear.",
+     "walkthrough": "'Unmentionables' is slang for underwear, which colours the surface. E goes between DY and S.",
+     "definitionFit": "To dye cloth is to colour or stain it, so dyes works as the verb stains."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Finally"
+    }
+   }
   },
   {
    "number": 15,
@@ -287,7 +1200,64 @@
     "text": "Relative bitten by docked wild dog — it's frightening",
     "enumeration": "8"
    },
-   "solution": "DAUNTING"
+   "solution": "DAUNTING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "DAUNTING",
+    "definitions": [
+     {
+      "text": "frightening",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "docked",
+      "for": "deletion",
+      "note": "docked like a tail, so the final letter is cut off"
+     },
+     {
+      "text": "bitten by",
+      "for": "container",
+      "note": "bitten by means held in the jaws of another piece"
+     }
+    ],
+    "linkWords": [
+     "— it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wild dog",
+      "gives": "DINGO",
+      "note": "the dingo is an Australian wild dog"
+     },
+     {
+      "clueFragment": "Relative",
+      "gives": "AUNT",
+      "note": "an aunt is a relative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "AUNT",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A relative is bitten by a wild dog with a short tail, a scary event.",
+     "walkthrough": "'Docked' is used as for a dog's tail: the end is cut off.",
+     "definitionFit": "Daunting means intimidating or discouraging, so frightening."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "docked"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +1271,73 @@
     "text": "Distinguished henna every so often on fake blonde",
     "enumeration": "8"
    },
-   "solution": "ENNOBLED"
+   "solution": "ENNOBLED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "ENNOBLED",
+    "definitions": [
+     {
+      "text": "Distinguished",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "every so often",
+      "for": "letter_selection",
+      "note": "every so often means taking letters at regular intervals, every other one"
+     },
+     {
+      "text": "fake",
+      "for": "anagram",
+      "note": "fake means not genuine, so the letters are made into something different"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue, on places one piece above the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "henna",
+      "gives": "EN",
+      "select": "alternate",
+      "note": "the second and fourth letters of henna"
+     },
+     {
+      "clueFragment": "blonde",
+      "gives": "NOBLED",
+      "note": "the letters of blonde rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "NOBLED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BLONDE",
+       "gives": "NOBLED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Using henna now and then on a fake blonde looks distinguished.",
+     "walkthrough": "'Fake blonde' reads as a person with dyed hair, but 'fake' signals reworking blonde.",
+     "definitionFit": "To be ennobled is to be raised to the nobility, hence made distinguished or dignified."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fake"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1351,47 @@
     "text": "Rush without finishing quarrel",
     "enumeration": "4"
    },
-   "solution": "SPAT"
+   "solution": "SPAT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SPAT",
+    "definitions": [
+     {
+      "text": "quarrel",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without finishing",
+      "for": "deletion",
+      "note": "without finishing means the word stops short of its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rush",
+      "gives": "SPATE",
+      "note": "a spate is a sudden rush or flood"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Rushing off without finishing a quarrel.",
+     "definitionFit": "A spat is a brief petty argument, a minor quarrel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rush"
+    }
+   }
   },
   {
    "number": 17,
@@ -329,7 +1405,61 @@
     "text": "Monk almost checks private group",
     "enumeration": "8"
    },
-   "solution": "SEPTETTE"
+   "solution": "SEPTETTE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SEPTETTE",
+    "definitions": [
+     {
+      "text": "group",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means nearly all, so the final letter is dropped"
+     },
+     {
+      "text": "checks",
+      "for": "container",
+      "note": "checks means holds back or restrains, so one piece is held inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Monk",
+      "gives": "SETTER",
+      "note": "Monk is the setter of this puzzle"
+     },
+     {
+      "clueFragment": "private",
+      "gives": "PTE",
+      "note": "Pte is the abbreviation for the army rank private"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "PTE",
+      "TTE"
+     ]
+    },
+    "explanation": {
+     "surface": "A monk nearly checks on some private group.",
+     "walkthrough": "Monk is the pseudonym of this puzzle's compiler, so the clue's 'Monk' stands for the compiler's role.",
+     "definitionFit": "A septette is a group of seven performers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Monk"
+    }
+   }
   },
   {
    "number": 18,
@@ -343,7 +1473,54 @@
     "text": "Ancient tongue from Kakinada translated",
     "enumeration": "8"
    },
-   "solution": "AKKADIAN"
+   "solution": "AKKADIAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AKKADIAN",
+    "definitions": [
+     {
+      "text": "Ancient tongue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "translated",
+      "for": "anagram",
+      "note": "translated means converted into another form, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kakinada",
+      "gives": "AKKADIAN",
+      "note": "the letters of Kakinada rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "KAKINADA",
+       "gives": "AKKADIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient language translated from Kakinada, a city in India.",
+     "walkthrough": "Kakinada is a port city in Andhra Pradesh, India.",
+     "definitionFit": "Akkadian is the extinct Semitic language of ancient Mesopotamia, written in cuneiform."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "translated"
+    }
+   }
   },
   {
    "number": 19,
@@ -367,7 +1544,65 @@
      }
     ]
    },
-   "solution": "BYTHEBYE"
+   "solution": "BYTHEBYE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BY THE BYE",
+    "definitions": [
+     {
+      "text": "incidentally",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drills",
+      "for": "container",
+      "note": "drills means bores into, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A number of bits",
+      "gives": "BYTE",
+      "note": "a byte is a group of (usually eight) bits"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil-grade abbreviation for hard"
+     },
+     {
+      "clueFragment": "extra",
+      "gives": "BYE",
+      "note": "a bye is an extra run in cricket"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BYT",
+      "H",
+      "E",
+      "BYE"
+     ]
+    },
+    "explanation": {
+     "surface": "Computer-sounding talk of bits and extra hard drills, mentioned in passing.",
+     "walkthrough": "In cricket an extra called a bye is a run scored when the ball passes the batsman untouched.",
+     "definitionFit": "By the bye is an idiom meaning by the way, introducing an incidental remark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drills"
+    }
+   }
   },
   {
    "number": 19,
@@ -381,7 +1616,59 @@
     "text": "Monarchy having sex in mind?",
     "enumeration": "7"
    },
-   "solution": "BRITAIN"
+   "solution": "BRITAIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BRITAIN",
+    "definitions": [
+     {
+      "text": "Monarchy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside another piece"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mind",
+      "gives": "BRAIN",
+      "note": "the brain is the mind"
+     },
+     {
+      "clueFragment": "sex",
+      "gives": "IT",
+      "note": "it is a euphemism for sex"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BR",
+      "IT",
+      "AIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A royal having sex on the brain.",
+     "walkthrough": "The question mark flags that the nation is defined by its form of government.",
+     "definitionFit": "Britain is a constitutional monarchy, so the country can stand as an example of one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Monarchy"
+    }
+   }
   },
   {
    "number": 20,
@@ -395,7 +1682,74 @@
     "text": "The other one swims around fine island",
     "enumeration": "6"
    },
-   "solution": "NOOKIE"
+   "solution": "NOOKIE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NOOKIE",
+    "definitions": [
+     {
+      "text": "The other",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swims",
+      "for": "anagram",
+      "note": "swims suggests letters drifting and moving about into a new order"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding another piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "NOE",
+      "note": "the letters of one rearranged"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "OK",
+      "note": "OK means fine"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "OK",
+      "I",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONE",
+       "gives": "NOE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Another person swims round a fine island.",
+     "walkthrough": "'The other' is British slang for sex; 'The other one' looks like a phrase but 'one' belongs to the wordplay.",
+     "definitionFit": "Nookie and 'a bit of the other' are both informal British euphemisms for sexual intercourse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "other"
+    }
+   }
   },
   {
    "number": 21,
@@ -415,7 +1769,74 @@
      }
     ]
    },
-   "solution": "GREATWAR"
+   "solution": "GREATWAR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "GREAT WAR",
+    "definitions": [
+     {
+      "text": "major conflict",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sadly",
+      "for": "anagram",
+      "note": "sadly suggests something gone wrong, so the letters are muddled"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding another piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King once",
+      "gives": "GR",
+      "note": "GR for Georgius Rex, a former king"
+     },
+     {
+      "clueFragment": "aware",
+      "gives": "EAWAR",
+      "note": "the letters of aware rearranged"
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammatical abbreviation for tense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GR",
+      "EA",
+      "T",
+      "WAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AWARE",
+       "gives": "EAWAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former king is sadly aware of tensions about a major war.",
+     "walkthrough": "GR stands for George Rex (King George). T goes inside the rearranged AWARE.",
+     "definitionFit": "The Great War is the old name for World War One, a huge conflict."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tense"
+    }
+   }
   },
   {
    "number": 22,
@@ -435,7 +1856,51 @@
      }
     ]
    },
-   "solution": "ILLSAY"
+   "solution": "ILLSAY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ILL SAY",
+    "definitions": [
+     {
+      "text": "Definitely",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rogue",
+      "for": "anagram",
+      "note": "rogue means wayward, so the letters stray from their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a silly",
+      "gives": "ILLSAY",
+      "note": "the letters of a silly rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASILLY",
+       "gives": "ILLSAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A silly rogue, for certain.",
+     "walkthrough": "'Rogue' reads as a noun but is the adjective signalling a rearrangement.",
+     "definitionFit": "The exclamation 'I'll say!' expresses emphatic agreement, like saying definitely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rogue"
+    }
+   }
   },
   {
    "number": 23,
@@ -449,7 +1914,50 @@
     "text": "Chap who conveys celebrity bearing?",
     "enumeration": "8"
    },
-   "solution": "ALISTAIR"
+   "solution": "ALISTAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALISTAIR",
+    "definitions": [
+     {
+      "text": "Chap",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "who conveys"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "celebrity",
+      "gives": "ALIST",
+      "note": "the A-list is the top tier of celebrities"
+     },
+     {
+      "clueFragment": "bearing",
+      "gives": "AIR",
+      "note": "air means manner or bearing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALIST",
+      "AIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A man who carries himself with a star's demeanour.",
+     "walkthrough": "A-LIST plus AIR gives the forename.",
+     "definitionFit": "Alistair is a man's name, and crosswords often define any forename as chap."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "conveys"
+    }
+   }
   },
   {
    "number": 24,
@@ -469,7 +1977,56 @@
      }
     ]
    },
-   "solution": "GODKNOWS"
+   "solution": "GODKNOWS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "homophone",
+     "charade"
+    ],
+    "answer": "GOD KNOWS",
+    "definitions": [
+     {
+      "text": "I've no idea",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means the word is read from the end"
+     },
+     {
+      "text": "being picked up",
+      "for": "homophone",
+      "note": "picked up as by a microphone or ear, so it is what we hear"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Track",
+      "gives": "DOG",
+      "note": "to dog is to track or follow"
+     },
+     {
+      "clueFragment": "scent",
+      "gives": "KNOWS",
+      "soundsLike": "NOSE",
+      "note": "a nose is a scent, as of wine"
+     }
+    ],
+    "explanation": {
+     "surface": "A tracker dog, following a scent back, admits to being stumped.",
+     "walkthrough": "A wine's nose is its smell, so scent gives NOSE, heard as KNOWS.",
+     "definitionFit": "'God knows' is an idiom for having no idea at all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Track"
+    }
+   }
   },
   {
    "number": 25,
@@ -483,7 +2040,68 @@
     "text": "Interminable moan surrounding extremely obscure gardening job",
     "enumeration": "6"
    },
-   "solution": "HOEING"
+   "solution": "HOEING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "HOEING",
+    "definitions": [
+     {
+      "text": "gardening job",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Interminable",
+      "for": "deletion",
+      "note": "interminable means without ends, so both outer letters are cut"
+     },
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes of a word, its first and last letters"
+     },
+     {
+      "text": "surrounding",
+      "for": "container",
+      "note": "surrounding means going around another piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "moan",
+      "gives": "WHINGE",
+      "note": "whinge is British slang for moan"
+     },
+     {
+      "clueFragment": "obscure",
+      "gives": "OE",
+      "select": "outer",
+      "note": "the first and last letters of obscure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "OE",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "Endless moaning about some obscure chore in the garden.",
+     "walkthrough": "Whinge is British slang for complaining or moaning.",
+     "definitionFit": "Hoeing, breaking soil and weeding with a hoe, is a routine task in a garden."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "obscure"
+    }
+   }
   }
  ]
 }
