@@ -2639,9 +2639,18 @@ def check_groups(puzzle, errors):
     by_id = {entry_id(e): e for e in puzzle["entries"]}
     held_by = {}
     for e in puzzle["entries"]:
-        group = e.get("group")
-        if group is None:
-            continue
+        also = e.get("alsoLeads") or []
+        if also and not e.get("group"):
+            errors.append(f"{entry_id(e)}: alsoLeads with no group. A light's first "
+                          f"linked answer is its own clue and group; alsoLeads holds the rest")
+        seen = [e.get("group")]
+        for item in also:
+            if item.get("group") in seen:
+                errors.append(f"{entry_id(e)}: alsoLeads repeats the group {item.get('group')}. "
+                              f"Each linked answer it starts is listed once")
+            seen.append(item.get("group"))
+    for e, holder in groups.linked(puzzle["entries"]):
+        group = holder["group"]
         if len(set(group)) < 2:
             errors.append(f"{entry_id(e)}: group {group} must name two or more "
                           f"different lights. A clue that is its own answer "
@@ -2999,10 +3008,30 @@ def check_selectors_are_indicators(puzzle, path, errors):
 
 
 def validate_puzzle(puzzle, corpus=False):
+    """(annotated, errors, warnings). A light leading more than one linked
+    answer (groups.holders) has each alsoLeads answer checked as if it were
+    the light's own clue, group and annotation (groups.as_leader); those
+    findings name it "<tag> alsoLeads[k]"."""
+    annotated, errors, warnings = _validate_puzzle(puzzle, corpus)
+    for i, e in enumerate(puzzle["entries"]):
+        for k, item in enumerate(e.get("alsoLeads") or []):
+            if not item.get("annotation"):
+                continue
+            tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
+            n, errs, warns = _validate_puzzle(groups.as_leader(puzzle, i, k), corpus, schema=False)
+            mine = (f"{tag}:", f"{entry_id(e)}:")
+            annotated += 1
+            errors += [f"{tag} alsoLeads[{k}]:{m.split(':', 1)[1]}" for m in errs if m.startswith(mine)]
+            warnings += [f"{tag} alsoLeads[{k}]:{m.split(':', 1)[1]}" for m in warns if m.startswith(mine)]
+    return annotated, errors, warnings
+
+
+def _validate_puzzle(puzzle, corpus=False, schema=True):
     errors, warnings = [], []
     # The file's shape first: tools/fetch_puzzle.write_puzzle_file refuses to
     # write anything that breaks it, and this catches a file written any other way.
-    errors.extend(f"schema: {p}" for p in puzzle_schema.validate(puzzle))
+    if schema:
+        errors.extend(f"schema: {p}" for p in puzzle_schema.validate(puzzle))
     check_no_markup(puzzle, errors)
     check_groups(puzzle, errors)
     by_id = {entry_id(e): e for e in puzzle["entries"]}

@@ -147,14 +147,16 @@ def place(definitions, clue):
 def place_puzzle(puzzle):
     """`puzzle` with every annotation's definitions placed; raises ValueError,
     naming the entry, for one `place` cannot place."""
-    for e in puzzle.get("entries", []):
-        ann = e.get("annotation")
+    # Each clue holder: an entry, and each further answer it starts (alsoLeads).
+    held = [(e, h) for e in puzzle.get("entries", []) for h in [e] + list(e.get("alsoLeads") or [])]
+    for e, h in held:
+        ann = h.get("annotation")
         if not isinstance(ann, dict) or not isinstance(ann.get("definitions"), list):
             continue
         if not all(isinstance(d, dict) for d in ann["definitions"]):
             continue
         try:
-            ann["definitions"] = place(ann["definitions"], e["clue"].get("text", ""))
+            ann["definitions"] = place(ann["definitions"], h["clue"].get("text", ""))
         except ValueError as err:
             raise ValueError(f"{puzzle.get('id')} {entry_id(e)}: {err}") from None
     return puzzle

@@ -409,6 +409,20 @@ def mend_clues(puzzle):
                 entry["clue"].pop("missingNote", None)
 
 
+def apply_also(puzzle, annotations):
+    """Write each alsoLeads answer's annotation, keyed by its clue id
+    ("22-across/2", groups.clue_id), in place: normalized as its light
+    standing as that answer's leader (groups.as_leader). Others untouched."""
+    for cid, i, k, item in groups.also_clues(puzzle["entries"]):
+        if cid not in annotations:
+            continue
+        if annotations[cid] is None:
+            item.pop("annotation", None)
+        else:
+            view = groups.as_leader(puzzle, i, k)["entries"]
+            item["annotation"] = normalize(annotations[cid], view[i], view)
+
+
 def apply(path, annotations, by=None):
     puzzle = read_puzzle_file(path)
     # The phrase a hidden-letter device spells is the puzzle's, not a clue's:
@@ -417,11 +431,15 @@ def apply(path, annotations, by=None):
     messages = annotations.pop(MESSAGES_KEY, None)
     continuations = groups.leader_of(puzzle["entries"])
     ids = [entry_id(e) for e in puzzle["entries"] if entry_id(e) not in continuations]
+    # A further answer a light starts (alsoLeads) is a clue of its own.
+    also = [cid for cid, _, _, _ in groups.also_clues(puzzle["entries"])]
+    ids += also
     only = annotate_only(path)
     if only is not None:
         current = {entry_id(e): e.get("annotation") for e in puzzle["entries"]}
+        current.update({cid: item.get("annotation") for cid, _, _, item in groups.also_clues(puzzle["entries"])})
         by_id = {entry_id(e): e for e in puzzle["entries"]}
-        kept = [k for k in ids if k in annotations and k not in only
+        kept = [k for k in ids if k in annotations and k not in only and k not in also
                 and current[k] not in (annotations[k], normalize(
                     annotations[k], by_id[k], puzzle["entries"]))]
         if kept:
@@ -482,7 +500,10 @@ def apply(path, annotations, by=None):
         puzzle = provenance.with_solution_detail(
             puzzle, {**provenance.solution_detail(puzzle), "corrected": log})
     had_hints = provenance.has_hints(puzzle)
-    before = [e.get("annotation") for e in puzzle["entries"]]
+    def written():
+        return [e.get("annotation") for e in puzzle["entries"]] + [
+            item.get("annotation") for _, _, _, item in groups.also_clues(puzzle["entries"])]
+    before = written()
     for entry in puzzle["entries"]:
         if entry_id(entry) in continuations or entry_id(entry) not in annotations:
             continue
@@ -492,6 +513,7 @@ def apply(path, annotations, by=None):
         else:
             entry["annotation"] = normalize(ann, entry, puzzle["entries"])
             move_alteration(entry)
+    apply_also(puzzle, annotations)
     if messages is not None:
         if messages:
             puzzle["messages"] = messages
@@ -499,7 +521,7 @@ def apply(path, annotations, by=None):
             puzzle.pop("messages", None)
     # Credited only for hints it changed: re-applying the file as it stands
     # writes nothing, and must not put a second name on someone else's work.
-    changed = before != [e.get("annotation") for e in puzzle["entries"]]
+    changed = before != written()
     if changed and provenance.has_hints(puzzle):
         try:
             puzzle = provenance.credit_annotator(

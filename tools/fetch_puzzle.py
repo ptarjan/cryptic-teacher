@@ -872,9 +872,11 @@ def pack_entry(e):
 def browser_puzzle(puzzle):
     """The puzzle as window.CRYPTIC_PUZZLES holds it once its shim has run."""
     out = {k: v for k, v in with_blog_facts(puzzle).items() if k not in SHIM_DROP}
+    def holder(h):
+        return ({**h, "annotation": browser_annotation(h["annotation"])}
+                if isinstance(h.get("annotation"), dict) else h)
     out["entries"] = [
-        {**e, "annotation": browser_annotation(e["annotation"])}
-        if isinstance(e.get("annotation"), dict) else e
+        {**holder(e), "alsoLeads": [holder(h) for h in e["alsoLeads"]]} if e.get("alsoLeads") else holder(e)
         for e in out["entries"]]
     return out
 

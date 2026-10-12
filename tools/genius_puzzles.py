@@ -41,8 +41,10 @@ import time
 import urllib.error
 import urllib.request
 from pathlib import Path
+import enumeration
 import fetch_fifteensquared as fsq
 import file_blog_puzzles
+import groups
 import ft_pdf_puzzles as fpp
 import puzzle_integrity
 import series as series_meta
@@ -646,7 +648,11 @@ def see_links(clues):
         way = m and m.group(2) and m.group(2).lower()
         lead = m and (next((x for x in clues if x["enumeration"] and x["lights"][0] == (int(m.group(1)), way)), None)
                       if way else leaders.get(int(m.group(1))))
-        if lead and c["lights"][0] not in lead["lights"] and not any(
+        # Two clues may start on one light (No 209's 22 across leads
+        # "22,17,3" and "22,2,5"): a stub one of them already lists is placed.
+        held = bool(m) and any(c["lights"][0][0] in [l[0] for l in x["lights"][1:]] for x in clues
+                               if x["enumeration"] and x["lights"][0][0] == int(m.group(1)))
+        if lead and not held and c["lights"][0] not in lead["lights"] and not any(
                 l[0] == c["lights"][0][0] for l in lead["lights"][1:]):
             lead["lights"].append(c["lights"][0])
     for c in clues:
@@ -788,11 +794,75 @@ DATED = {2: "2003-07-30"}  # url 2016/feb/04/genius-crossword-2; page published 
 
 #: A Genius the schema cannot hold yet, and why: assemble() reports it so
 #: rather than as the reader's first complaint about it.
-SCHEMA_GAP = {
-    209: ("a light leads two linked answers",
-          "22 across (IVOR) starts both 22,17,3 IVOR HUGH JEGO and 22,2,5 IVOR SORE BEACH BUM, "
-          "two clues; an entry holds one clue and one group, its leader first"),
-}
+SCHEMA_GAP = {}
+
+
+def split_shared_leaders(pdf, answers):
+    """Take out of pdf["clues"] each clue starting on a light an earlier clue
+    starts on (No 209: "22,17,3" and "22,2,5" both start at 22 across), and
+    stand its other lights in as one-light clues, so build() files the
+    light's first answer as usual. Returns [(clue, its answer or None)] for
+    join_shared_leaders. `answers` gains each stand-in light's letters."""
+    first, out, keep = set(), [], []
+    for c in pdf["clues"]:
+        if c["enumeration"] and c["lights"][0] in first:
+            out.append(c)
+        else:
+            keep.append(c)
+            if c["enumeration"]:
+                first.add(c["lights"][0])
+    if not out:
+        return []
+    lights = rg.light_cells(pdf["grid"])
+    taken, shared = {l for c in keep if c["enumeration"] for l in c["lights"]}, []
+    for c in out:
+        whole, at = (answers or {}).get(("shared", len(shared))), 0
+        for light in c["lights"]:
+            k = len(lights[light])
+            if light not in taken:
+                keep = [x for x in keep if x["lights"] != [light]]
+                keep.append({"lights": [light], "clue": "-", "enumeration": str(k)})
+                if whole and answers is not None:
+                    answers[light] = whole[at:at + k]
+            at += k
+        shared.append((c, whole))
+    pdf["clues"] = keep
+    return shared
+
+
+def shared_answers(rendered, clues):
+    """blog_answers, where two clues starting on one light would collide on
+    its key: each later one is read with the clues before it on that light
+    left out, and kept under ("shared", i) for split_shared_leaders."""
+    starts, later = [], []
+    for c in clues:
+        if c["enumeration"] and c["lights"][0] in starts:
+            later.append(c)
+        elif c["enumeration"]:
+            starts.append(c["lights"][0])
+    out = blog_answers(rendered, [c for c in clues if not any(c is x for x in later)])
+    for i, c in enumerate(later):
+        rest = [x for x in clues if x is c or not (x["enumeration"] and x["lights"][0] == c["lights"][0])]
+        got = blog_answers(rendered, rest).get(c["lights"][0])
+        if got:
+            out[("shared", i)] = got
+    return out
+
+
+def join_shared_leaders(puzzle, shared):
+    """Put each split_shared_leaders clue back as its leader's alsoLeads, its
+    stand-in lights back to "See N" continuations."""
+    by_id = {groups.entry_id(e): e for e in puzzle["entries"]}
+    for c, _ in shared:
+        (n, way), ids = c["lights"][0], [f"{x}-{d}" for x, d in c["lights"]]
+        lead = by_id[ids[0]]
+        lead.setdefault("alsoLeads", []).append(
+            {"clue": enumeration.clue(c["clue"]), "group": ids})
+        for x, d in c["lights"][1:]:
+            e = by_id[f"{x}-{d}"]
+            if e["clue"].get("text") == "-":
+                e["clue"] = {"text": f"See {n}" if d == way else f"See {n} {way}"}
+    return puzzle
 
 
 def place_jigsaw(number, pdf):
@@ -888,11 +958,13 @@ def assemble(number, pdf, post, date, url):
         return None, ("preamble alters entries (needs an alteration per answer)", "")
     if post is None:
         return None, ("no fifteensquared post", "")
-    answers = blog_answers(post["content"]["rendered"], pdf["clues"])
+    answers = shared_answers(post["content"]["rendered"], pdf["clues"])
+    shared = split_shared_leaders(pdf, answers)
     entries = fpp.entries_of(pdf, answers, pdf["grid"])
-    if entries is None:
+    if entries is None or not all(whole for _, whole in shared):
         missing = [c["lights"][0] for c in pdf["clues"]
                    if c["enumeration"] and c["lights"][0] not in answers]
+        missing += [c["lights"][0] for c, whole in shared if not whole]
         return None, ("a light's answer not read off the post", f"{len(missing)} missing, {missing[:3]}")
     rec = {"post_id": f"fifteensquared-{post['id']}", "link": post.get("link"),
            "date": post["date"][:10], "series": CATEGORY, "number": number,
@@ -903,6 +975,7 @@ def assemble(number, pdf, post, date, url):
         if why == "answers disagree with the grid":
             return None, ("answers cross wrongly (entries altered)", why)
         return None, (why, "")
+    join_shared_leaders(puzzle, shared)
     if pdf["preamble"]:
         puzzle["preamble"] = pdf["preamble"]
     if pdf.get("jigsaw"):
@@ -918,6 +991,7 @@ def unsolved(number, pdf, date, url, withheld=()):
     """(puzzle, None) or (None, why not): the grid and clues with no answers."""
     # No post and a page that names nobody: "no source names a setter" is the
     # recorded state (series.py unbylinedUnsolved), so the puzzle files without one.
+    shared = split_shared_leaders(pdf, None)
     entries = fpp.entries_of(pdf, None, pdf["grid"])
     rec = {"post_id": None, "link": url, "date": None, "series": CATEGORY, "number": number,
            "setter": pdf["setter"], "entries": entries}
@@ -925,6 +999,7 @@ def unsolved(number, pdf, date, url, withheld=()):
     puzzle, why = file_blog_puzzles.build(rec, row, SERIES, date, pdf["setter"])
     if why:
         return None, (why, "unsolved")
+    join_shared_leaders(puzzle, shared)
     # The stand-in counts of clues that print none come off again.
     held = {c["lights"][0] for c in withheld}
     for e in puzzle["entries"]:

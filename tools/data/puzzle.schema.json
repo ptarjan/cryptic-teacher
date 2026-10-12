@@ -539,16 +539,35 @@
      }
     },
     "group": {
-     "description": "On the leader of a linked answer only: the answer's entry ids (\"<number>-<direction>\", derived: entries store no id) in order, this entry first; an answer that repeats a light names it again. The other lights carry no group and no annotation; a light the clue says continues two answers is in both leaders' groups.",
-     "type": "array",
-     "minItems": 2,
-     "items": {
-      "type": "string",
-      "pattern": "^\\d+-(across|down)$"
-     }
+     "description": "On the leader of a linked answer only: its first (or only) linked answer, whose clue is this entry's `clue` and whose annotation is `annotation`.",
+     "$ref": "#/$defs/group"
     },
     "annotation": {
      "$ref": "#/$defs/annotation"
+    },
+    "alsoLeads": {
+     "description": "Each further linked answer that starts on this light, in the order the paper prints their clues (Genius 209's 22 across, IVOR, starts both IVOR HUGH JEGO and IVOR SORE BEACH BUM). Present only beside `group`. Each carries its own clue, group (this entry first) and annotation; the light's `solution` is shared, and the answer's other lights are continuations as for `group`.",
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "type": "object",
+      "required": [
+       "clue",
+       "group"
+      ],
+      "additionalProperties": false,
+      "properties": {
+       "clue": {
+        "$ref": "#/$defs/clue"
+       },
+       "group": {
+        "$ref": "#/$defs/group"
+       },
+       "annotation": {
+        "$ref": "#/$defs/annotation"
+       }
+      }
+     }
     }
    }
   },
@@ -763,7 +782,7 @@
        "$ref": "#/$defs/strings"
       },
       "anagrams": {
-       "description": "Each anagram in the wordplay: its fodder and the letters it becomes, `fodder` a rearrangement of `gives`. When the whole answer is an anagram, one item's `gives` is the answer's letters (A–Z, no spaces); the others are anagrams inside the wordplay.",
+       "description": "Each anagram in the wordplay: its fodder and the letters it becomes, `fodder` a rearrangement of `gives`. When the whole answer is an anagram, one item's `gives` is the answer's letters (A\u2013Z, no spaces); the others are anagrams inside the wordplay.",
        "type": "array",
        "minItems": 1,
        "items": {
@@ -1096,7 +1115,10 @@
     "printed": {
      "type": "object",
      "minProperties": 1,
-     "additionalProperties": {"type": "string", "pattern": "^[A-Z]+$"},
+     "additionalProperties": {
+      "type": "string",
+      "pattern": "^[A-Z]+$"
+     },
      "description": "Entry id -> the answer the paper printed, where a model filled around some: these stay ground truth and the grid must agree with every one (tools/provenance.py check)."
     },
     "corrected": {
@@ -1104,13 +1126,30 @@
      "minItems": 1,
      "items": {
       "type": "object",
-      "required": ["entry", "was", "now", "date"],
+      "required": [
+       "entry",
+       "was",
+       "now",
+       "date"
+      ],
       "additionalProperties": false,
       "properties": {
-       "entry": {"type": "string", "minLength": 1},
-       "was": {"type": "string", "pattern": "^[A-Z]+$"},
-       "now": {"type": "string", "pattern": "^[A-Z]+$"},
-       "date": {"type": "string", "minLength": 1}
+       "entry": {
+        "type": "string",
+        "minLength": 1
+       },
+       "was": {
+        "type": "string",
+        "pattern": "^[A-Z]+$"
+       },
+       "now": {
+        "type": "string",
+        "pattern": "^[A-Z]+$"
+       },
+       "date": {
+        "type": "string",
+        "minLength": 1
+       }
       }
      },
      "description": "Model answers the annotator replaced because the clue gives another word, each checked against every crossing and printed answer (tools/apply_annotations.py)."
@@ -1118,13 +1157,19 @@
     "reopened": {
      "type": "object",
      "minProperties": 1,
-     "additionalProperties": {"type": "string", "pattern": "^[A-Z]*$"},
+     "additionalProperties": {
+      "type": "string",
+      "pattern": "^[A-Z]*$"
+     },
      "description": "Entry id -> the model answer no parse supported, sent back to be solved again (tools/reopen_answers.py). Once per entry."
     },
     "graded": {
      "type": "object",
      "minProperties": 1,
-     "additionalProperties": {"type": "string", "pattern": "^[a-z0-9-]+(\\+[a-z0-9-]+)*$"},
+     "additionalProperties": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+(\\+[a-z0-9-]+)*$"
+     },
      "description": "Entry id -> the copy (or copies, joined by +) a model answer was graded against once it arrived with answers: a solver's blog, a scan (tools/cross_validate.py all --model). Each guess is graded once."
     }
    }
@@ -1414,6 +1459,15 @@
      "type": "integer",
      "minimum": 1
     }
+   }
+  },
+  "group": {
+   "description": "A linked answer's lights, on the light it starts on: the answer's entry ids (\"<number>-<direction>\", derived: entries store no id) in order, that light first; an answer that repeats a light names it again. The other lights carry no group and no annotation; a light the clue says continues two answers is in both leaders' groups.",
+   "type": "array",
+   "minItems": 2,
+   "items": {
+    "type": "string",
+    "pattern": "^\\d+-(across|down)$"
    }
   }
  }
