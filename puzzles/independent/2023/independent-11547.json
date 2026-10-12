@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,60 @@
     "text": "Building permit essentially overlooked following bribe",
     "enumeration": "8"
    },
-   "solution": "BUNGALOW"
+   "solution": "BUNGALOW",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "BUNGALOW",
+    "definitions": [
+     {
+      "text": "Building",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially overlooked",
+      "for": "deletion",
+      "note": "the essence of a word is its very centre, and overlooking that core means dropping its middle letter"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "coming after, so this part is placed behind the word for the bribe"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bribe",
+      "gives": "BUNG",
+      "note": "a bung is British slang for a bribe or backhander"
+     },
+     {
+      "clueFragment": "permit",
+      "gives": "ALLOW",
+      "note": "to permit is to allow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUNG",
+      "ALOW"
+     ]
+    },
+    "explanation": {
+     "surface": "A council planning permit gets waved through after someone pays a backhander.",
+     "walkthrough": "ALLOW loses its central L, leaving ALOW behind BUNG. The planning-permission story makes 'Building' feel like part of the scene rather than the definition.",
+     "definitionFit": "A bungalow is a single-storey house, so it is a kind of building."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "permit"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +103,52 @@
     "text": "Bishop administered church's local office",
     "enumeration": "6"
    },
-   "solution": "BRANCH"
+   "solution": "BRANCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRANCH",
+    "definitions": [
+     {
+      "text": "local office",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     },
+     {
+      "clueFragment": "administered",
+      "gives": "RAN",
+      "note": "to administer an organisation is to run it; past tense ran"
+     },
+     {
+      "clueFragment": "church's",
+      "gives": "CH",
+      "note": "CH is the standard abbreviation for church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RAN",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A bishop in charge of the church's district office.",
+     "definitionFit": "A branch is a local outlet of a larger organisation, such as a bank's office in one town."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "office"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +162,49 @@
     "text": "It protects diner from rampant beatnik panhandlers",
     "enumeration": "6"
    },
-   "solution": "NAPKIN"
+   "solution": "NAPKIN",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "NAPKIN",
+    "definitions": [
+     {
+      "text": "It protects diner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "the letters are taken out of the run of words that follows, not built up"
+     },
+     {
+      "text": "rampant",
+      "for": "reversal",
+      "note": "a rampant beast rears up on its hind legs, so in a down entry the letters rise and read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beatnik panhandlers",
+      "gives": "NIKPAN",
+      "note": "the tail of beatnik runs into the start of panhandlers"
+     }
+    ],
+    "explanation": {
+     "surface": "A restaurant customer fending off a pack of aggressive beatnik beggars.",
+     "walkthrough": "The run is read upwards as the entry goes down. 'Protects' sounds like a bodyguard; the thing doing the protecting is a cloth on the lap.",
+     "definitionFit": "A napkin is laid on a diner's lap to shield clothing from spills."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "protects"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +218,62 @@
     "text": "Military alliance besieging Rome discovered fundamental truths",
     "enumeration": "6"
    },
-   "solution": "AXIOMS"
+   "solution": "AXIOMS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AXIOMS",
+    "definitions": [
+     {
+      "text": "fundamental truths",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discovered",
+      "for": "letter_selection",
+      "note": "dis-covered means with its cover stripped off, so the outer letters go and only the inside stays"
+     },
+     {
+      "text": "besieging",
+      "for": "container",
+      "note": "an army besieging a city surrounds it, so one part wraps round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Military alliance",
+      "gives": "AXIS",
+      "note": "the Axis was the WWII military alliance of Germany, Italy and Japan"
+     },
+     {
+      "clueFragment": "Rome",
+      "gives": "OM",
+      "select": "middle",
+      "note": "the city's name without its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AXI",
+      "OM",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A wartime alliance laying siege to Rome uncovered some basic truths.",
+     "walkthrough": "With a wartime alliance and Rome in one sentence, the clue reads like a line of WWII history, hiding that 'discovered' strips a word.",
+     "definitionFit": "Axioms are self-evident principles taken as true without proof, the basic starting points of reasoning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "discovered"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +287,55 @@
     "text": "Superficial snobs mingled with elite",
     "enumeration": "10"
    },
-   "solution": "OSTENSIBLE"
+   "solution": "OSTENSIBLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OSTENSIBLE",
+    "definitions": [
+     {
+      "text": "Superficial",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mingled with",
+      "for": "anagram",
+      "note": "things mingled are mixed together, so the letters of both words are blended into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snobs",
+      "gives": "SNOBS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "elite",
+      "gives": "ELITE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SNOBSELITE",
+       "gives": "OSTENSIBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shallow social climbers rubbing shoulders with the upper crust.",
+     "definitionFit": "Ostensible means apparent on the surface but perhaps not real, which is what superficial describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mingled"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +349,61 @@
     "text": "Is model stuck on pack animal's back?",
     "enumeration": "6"
    },
-   "solution": "ASSIST"
+   "solution": "ASSIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASSIST",
+    "definitions": [
+     {
+      "text": "back",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuck on",
+      "for": "charade",
+      "note": "attached after something, so this part comes behind the animal"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pack animal's",
+      "gives": "ASS",
+      "note": "a donkey or ass carries packs"
+     },
+     {
+      "clueFragment": "Is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "model",
+      "gives": "T",
+      "note": "the Model T was Ford's famous car, so T can stand for model"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASS",
+      "IS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether a figure is fixed to the rear of a donkey.",
+     "walkthrough": "'back' reads as the animal's back but is a verb, the definition.",
+     "definitionFit": "To back someone is to support them, which is what assisting means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +417,73 @@
     "text": "Prompt legal disputes about detaining smuggler without foundation",
     "enumeration": "8"
    },
-   "solution": "STIMULUS"
+   "solution": "STIMULUS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "container"
+    ],
+    "answer": "STIMULUS",
+    "definitions": [
+     {
+      "text": "Prompt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turned about means facing the other way, so the word reads backwards"
+     },
+     {
+      "text": "without foundation",
+      "for": "deletion",
+      "note": "in a down entry the foundation is the bottom, so the last letter is dropped"
+     },
+     {
+      "text": "detaining",
+      "for": "container",
+      "note": "to detain someone is to hold them inside, so one part sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "legal disputes",
+      "gives": "SUITS",
+      "note": "lawsuits are legal disputes"
+     },
+     {
+      "clueFragment": "smuggler",
+      "gives": "MULE",
+      "note": "a mule is a person who smuggles drugs across a border"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STI",
+      "MUL",
+      "US"
+     ],
+     "reversals": [
+      {
+       "from": "SUITS",
+       "to": "STIUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lawsuits over holding a smuggler on flimsy grounds prompt legal action.",
+     "walkthrough": "STIUS is split after its I to take in MUL. 'Without foundation' sounds like a legal phrase for baseless charges.",
+     "definitionFit": "A stimulus is something that prompts a response, so the noun prompt is a fair synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "foundation"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +503,61 @@
      }
     ]
    },
-   "solution": "INUNISON"
+   "solution": "INUNISON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IN UNISON",
+    "definitions": [
+     {
+      "text": "simultaneously",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attending",
+      "gives": "IN",
+      "note": "someone attending is in, present"
+     },
+     {
+      "clueFragment": "college",
+      "gives": "UNI",
+      "note": "UNI is short for university"
+     },
+     {
+      "clueFragment": "society",
+      "gives": "S",
+      "note": "S is the abbreviation for society"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is working is on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "UNI",
+      "S",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A student juggling college, a club and a part-time job all at once.",
+     "definitionFit": "Acting in unison means doing things together at the same moment, hence simultaneously."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +571,56 @@
     "text": "Minister to periodically issue paper",
     "enumeration": "8"
    },
-   "solution": "TREATISE"
+   "solution": "TREATISE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TREATISE",
+    "definitions": [
+     {
+      "text": "paper",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "periodically",
+      "for": "letter_selection",
+      "note": "at regular intervals, so only every other letter of the word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Minister to",
+      "gives": "TREAT",
+      "note": "to minister to a patient is to treat them"
+     },
+     {
+      "clueFragment": "issue",
+      "gives": "ISE",
+      "select": "alternate",
+      "note": "the first, third and fifth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TREAT",
+      "ISE"
+     ]
+    },
+    "explanation": {
+     "surface": "A government minister being told to publish a regular document.",
+     "walkthrough": "'Minister' reads as a politician, but with 'to' it is the verb meaning look after.",
+     "definitionFit": "A treatise is a formal written study of a subject, the academic sense of a paper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Minister"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +634,62 @@
     "text": "Names in a post about seizing power",
     "enumeration": "8"
    },
-   "solution": "APPOINTS"
+   "solution": "APPOINTS",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "APPOINTS",
+    "definitions": [
+     {
+      "text": "Names",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seizing",
+      "for": "container",
+      "note": "to seize something is to grab hold of it, so one letter is taken inside the rest"
+     },
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "moved about means shifted around, so the letters are put in a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in a post",
+      "gives": "INAPOST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the physics symbol for power"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INAPOSTP",
+       "gives": "APPOINTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone already in office naming people while grabbing power.",
+     "walkthrough": "'in a post' looks like the job being filled; it is simply the letters to be rearranged with P.",
+     "definitionFit": "To name someone to a role is to appoint them, so names and appoints are verb synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "post"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +703,46 @@
     "text": "Shape body and character",
     "enumeration": "6"
    },
-   "solution": "FIGURE"
+   "solution": "FIGURE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FIGURE",
+    "definitions": [
+     {
+      "text": "Shape body",
+      "at": 0
+     },
+     {
+      "text": "character",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shape body",
+      "note": "first meaning: the form or outline of a person's physique"
+     },
+     {
+      "clueFragment": "character",
+      "note": "second meaning: a written numeral such as 7"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like advice on toning up and building personality; 'character' is the written symbol sense.",
+     "definitionFit": "A person's figure is their bodily outline, and a figure is also a numerical symbol or digit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +756,50 @@
     "text": "Hoarder shot on golf course by brother, say",
     "enumeration": "8"
    },
-   "solution": "CHIPMUNK"
+   "solution": "CHIPMUNK",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "CHIPMUNK",
+    "definitions": [
+     {
+      "text": "Hoarder",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say asks us to go by how the word is spoken rather than how it is spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shot on golf course",
+      "gives": "CHIP",
+      "note": "a chip is a short lofted stroke onto the green in golf"
+     },
+     {
+      "clueFragment": "brother",
+      "gives": "MUNK",
+      "soundsLike": "MONK",
+      "note": "a monk is a religious brother; the word is spoken with the vowel of 'hunk'"
+     }
+    ],
+    "explanation": {
+     "surface": "A golfer playing a shot beside their brother.",
+     "walkthrough": "'by' just places the second part next to the first.",
+     "definitionFit": "Chipmunks store nuts and seeds in burrows for winter, so the rodent is a natural hoarder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Hoarder"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +813,61 @@
     "text": "Old-fashioned designer Mary claims is half-forgotten",
     "enumeration": "6"
    },
-   "solution": "QUAINT"
+   "solution": "QUAINT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "QUAINT",
+    "definitions": [
+     {
+      "text": "Old-fashioned",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half-forgotten",
+      "for": "deletion",
+      "note": "with half of it forgotten, only the first half of the little word remains"
+     },
+     {
+      "text": "claims",
+      "for": "container",
+      "note": "to claim something is to take it for yourself, so the name wraps round the remnant"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "designer Mary",
+      "gives": "QUANT",
+      "note": "Mary Quant was the British fashion designer famous for the miniskirt"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUA",
+      "I",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A designer insisting that something dated is half-forgotten.",
+     "walkthrough": "Mary Quant was the 1960s London designer who popularised the miniskirt; 'claims' reads as her speaking but means she holds the remnant inside her surname.",
+     "definitionFit": "Quaint describes something attractively old-fashioned, charming because of its age."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "claims"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +881,74 @@
     "text": "Remarkably rotten ham sandwiches are reportedly part of range",
     "enumeration": "10"
    },
-   "solution": "MATTERHORN"
+   "solution": "MATTERHORN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "homophone",
+     "container"
+    ],
+    "answer": "MATTERHORN",
+    "definitions": [
+     {
+      "text": "part of range",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Remarkably",
+      "for": "anagram",
+      "note": "something remarkable is out of the ordinary, so the letters fall into an unusual order"
+     },
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reported speech points to what is heard, so the word stands for a letter of the same sound"
+     },
+     {
+      "text": "sandwiches",
+      "for": "container",
+      "note": "a sandwich holds a filling between slices, so one part is put inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rotten ham",
+      "gives": "MATTEHORN",
+      "note": "the two words rearranged"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "R",
+      "soundsLike": "ARE",
+      "note": "the word is spoken just like the letter R"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MATTE",
+      "R",
+      "HORN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROTTENHAM",
+       "gives": "MATTEHORN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint about off ham in the sandwiches.",
+     "walkthrough": "'range' sounds like a kitchen stove beside the ham, but it is a mountain range.",
+     "definitionFit": "The Matterhorn is a famous peak in the Pennine Alps, one mountain in that range."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "range"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +962,50 @@
     "text": "Phenomenal adaptation of our musical",
     "enumeration": "10"
    },
-   "solution": "MIRACULOUS"
+   "solution": "MIRACULOUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MIRACULOUS",
+    "definitions": [
+     {
+      "text": "Phenomenal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adaptation of",
+      "for": "anagram",
+      "note": "an adaptation reworks the original, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "our musical",
+      "gives": "OURMUSICAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OURMUSICAL",
+       "gives": "MIRACULOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rave review of a stage version of a show.",
+     "definitionFit": "Both words describe something extraordinary, so remarkable that it seems beyond nature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "adaptation"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +1019,68 @@
     "text": "Extremely juvenile Zulu insurgents initially avoided loose women",
     "enumeration": "8"
    },
-   "solution": "JEZEBELS"
+   "solution": "JEZEBELS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "deletion"
+    ],
+    "answer": "JEZEBELS",
+    "definitions": [
+     {
+      "text": "loose women",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only the first and last letters are kept"
+     },
+     {
+      "text": "initially avoided",
+      "for": "deletion",
+      "note": "avoided at the start, so the opening letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "juvenile",
+      "gives": "JE",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "Zulu",
+      "gives": "Z",
+      "note": "Zulu is Z in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "insurgents",
+      "gives": "REBELS",
+      "note": "insurgents are rebels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JE",
+      "Z",
+      "EBELS"
+     ]
+    },
+    "explanation": {
+     "surface": "A war report of young insurgents giving something a wide berth.",
+     "walkthrough": "'Zulu' reads as part of an African war story but is just the radio code letter.",
+     "definitionFit": "Jezebel, the biblical queen, gave her name to any shameless or immoral woman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Zulu"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1094,71 @@
     "text": "Slaughter 100 soldiers following Indian state uprising",
     "enumeration": "8"
    },
-   "solution": "MASSACRE"
+   "solution": "MASSACRE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "MASSACRE",
+    "definitions": [
+     {
+      "text": "Slaughter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uprising",
+      "for": "reversal",
+      "note": "rising up in a down entry means the word reads from bottom to top"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "coming after, so the troops are placed behind the state"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Indian state",
+      "gives": "ASSAM",
+      "note": "Assam is a state in north-east India"
+     },
+     {
+      "clueFragment": "100",
+      "gives": "C",
+      "note": "C is the Roman numeral for 100"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, a British Army corps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MASSA",
+      "C",
+      "RE"
+     ],
+     "reversals": [
+      {
+       "from": "ASSAM",
+       "to": "MASSA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Troops slaughtered in a rebellion in an Indian state.",
+     "definitionFit": "A massacre is the indiscriminate killing of many people, a slaughter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uprising"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1172,65 @@
     "text": "Voiced fear about morning edition supporting South Carolina",
     "enumeration": "8"
    },
-   "solution": "SCREAMED"
+   "solution": "SCREAMED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCREAMED",
+    "definitions": [
+     {
+      "text": "Voiced fear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down entry a support lies underneath, so the state's letters come first, on top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South Carolina",
+      "gives": "SC",
+      "note": "SC is the postal abbreviation for South Carolina"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "RE means concerning, about"
+     },
+     {
+      "clueFragment": "morning",
+      "gives": "AM",
+      "note": "AM is the abbreviation for morning"
+     },
+     {
+      "clueFragment": "edition",
+      "gives": "ED",
+      "note": "ED is short for edition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SC",
+      "RE",
+      "AM",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper's morning edition in South Carolina reports panic.",
+     "definitionFit": "To scream is to cry out in terror, so screamed is fear given voice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "supporting"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1250,68 @@
      }
     ]
    },
-   "solution": "EMASCULATE"
+   "solution": "EMASCULATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "EMASCULATE",
+    "definitions": [
+     {
+      "text": "Diminish power of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discontented",
+      "for": "letter_selection",
+      "note": "with its contents removed, only the shell of the word, its first and last letters, is left"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "these letters are placed inside the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mirror",
+      "gives": "EMULATE",
+      "note": "to mirror someone is to copy or emulate them"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "A is the indefinite article"
+     },
+     {
+      "clueFragment": "sceptic",
+      "gives": "SC",
+      "select": "outer",
+      "note": "just the outside letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "A",
+      "SC",
+      "ULATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cynical columnist's piece in the Mirror tabloid takes someone down a peg.",
+     "walkthrough": "The Mirror is a British tabloid newspaper, so 'article' and 'Mirror' suggest journalism; Mirror is the verb copy.",
+     "definitionFit": "To emasculate is figuratively to weaken or take away strength, so it means to diminish the power of."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mirror"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1325,42 @@
     "text": "Canal crossing sector of industrial town",
     "enumeration": "6"
    },
-   "solution": "RIALTO"
+   "solution": "RIALTO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RIALTO",
+    "definitions": [
+     {
+      "text": "Canal crossing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sector of",
+      "for": "hidden_word",
+      "note": "a sector is a section cut from a whole, so the letters are a slice of the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "industrial town",
+      "gives": "RIALTO",
+      "note": "the end of industrial runs into the start of town"
+     }
+    ],
+    "explanation": {
+     "surface": "A bridge over a waterway in a manufacturing district.",
+     "definitionFit": "The Rialto is the famous bridge spanning the Grand Canal in Venice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sector"
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1374,65 @@
     "text": "Hollowness of victory over a dumb-ass Yankee",
     "enumeration": "6"
    },
-   "solution": "VANITY"
+   "solution": "VANITY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VANITY",
+    "definitions": [
+     {
+      "text": "Hollowness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down entry over means above, so this letter sits at the top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "victory",
+      "gives": "V",
+      "note": "V for victory"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dumb-ass",
+      "gives": "NIT",
+      "note": "a nit is a fool, short for nitwit"
+     },
+     {
+      "clueFragment": "Yankee",
+      "gives": "Y",
+      "note": "Yankee is Y in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "A",
+      "NIT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An empty win against an idiotic American.",
+     "definitionFit": "Vanity can mean futility or emptiness, as in 'all is vanity', so it is hollowness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Yankee"
+    }
+   }
   },
   {
    "number": 21,
@@ -339,7 +1446,61 @@
     "text": "Controls flipping small party",
     "enumeration": "6"
    },
-   "solution": "LEVERS"
+   "solution": "LEVERS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LEVERS",
+    "definitions": [
+     {
+      "text": "Controls",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "something flipped is turned over, so the letters are read in the opposite order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "REVEL",
+      "note": "a revel is a lively party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEVER",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SREVEL",
+       "to": "LEVERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Regulations that turn a little gathering upside down.",
+     "walkthrough": "'flipping' also reads as a mild British expletive, as in a flipping party.",
+     "definitionFit": "Levers are the handles you work to operate a machine, so they are controls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1514,55 @@
     "text": "In conclusion, petition succeeded",
     "enumeration": "6"
    },
-   "solution": "ENSUED"
+   "solution": "ENSUED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ENSUED",
+    "definitions": [
+     {
+      "text": "succeeded",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "one word goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conclusion",
+      "gives": "END",
+      "note": "a conclusion is an end"
+     },
+     {
+      "clueFragment": "petition",
+      "gives": "SUE",
+      "note": "to sue is to petition a court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "SUE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A petition that got its way in the end.",
+     "walkthrough": "'In conclusion' reads as a phrase meaning finally, but In is the instruction and conclusion the outer word.",
+     "definitionFit": "To succeed in the sense of coming after is to follow on, which is what ensued means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "succeeded"
+    }
+   }
   },
   {
    "number": 23,
@@ -367,7 +1576,55 @@
     "text": "Equipment engulfed by raging water",
     "enumeration": "8"
    },
-   "solution": "IRRIGATE"
+   "solution": "IRRIGATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IRRIGATE",
+    "definitions": [
+     {
+      "text": "water",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "engulfed by",
+      "for": "container",
+      "note": "something engulfed is swallowed up and surrounded, so it sits inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "raging",
+      "gives": "IRATE",
+      "note": "raging with anger is irate"
+     },
+     {
+      "clueFragment": "Equipment",
+      "gives": "RIG",
+      "note": "a rig is a set of equipment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IR",
+      "RIG",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Gear swept away by a torrent of floodwater.",
+     "walkthrough": "'raging water' looks like one phrase; water is the verb, the definition.",
+     "definitionFit": "To irrigate is to supply land or crops with water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "raging"
+    }
+   }
   },
   {
    "number": 24,
@@ -381,7 +1638,63 @@
     "text": "Revolutionary spots politician in station",
     "enumeration": "6"
    },
-   "solution": "ENCAMP"
+   "solution": "ENCAMP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ENCAMP",
+    "definitions": [
+     {
+      "text": "station",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Revolutionary",
+      "for": "reversal",
+      "note": "a revolution is a turning round, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spots",
+      "gives": "ACNE",
+      "note": "acne is an outbreak of spots"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "MP is a Member of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENCA",
+      "MP"
+     ],
+     "reversals": [
+      {
+       "from": "ACNE",
+       "to": "ENCA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rebel recognises a politician at a railway station.",
+     "definitionFit": "To station troops is to post them somewhere, and to encamp is to settle them in a camp."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spots"
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1714,72 @@
      }
     ]
    },
-   "solution": "COALMINE"
+   "solution": "COALMINE",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram",
+     "charade"
+    ],
+    "answer": "COAL MINE",
+    "definitions": [
+     {
+      "text": "pit",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "placed about something means put around it"
+     },
+     {
+      "text": "Absurd",
+      "for": "anagram",
+      "note": "something absurd makes no sense, so the letters are jumbled into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "claim",
+      "gives": "CLAIM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "Tyneside",
+      "gives": "NE",
+      "note": "Tyneside, around Newcastle, is in the North East of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COALMI",
+      "NE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CLAIMO",
+       "gives": "COALMI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ridiculous story about a historic pit in north-east England.",
+     "walkthrough": "Tyneside was a heartland of coal mining, which makes 'pit' sit naturally in the scene.",
+     "definitionFit": "A pit is the everyday British word for a coal mine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tyneside"
+    }
+   }
   },
   {
    "number": 26,
@@ -415,7 +1793,68 @@
     "text": "Stalwart editor accepting note written in pen",
     "enumeration": "6"
    },
-   "solution": "STEADY"
+   "solution": "STEADY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STEADY",
+    "definitions": [
+     {
+      "text": "Stalwart",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "to accept something is to take it in, so the note goes inside"
+     },
+     {
+      "text": "written in",
+      "for": "container",
+      "note": "placed inside, so these letters sit within the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pen",
+      "gives": "STY",
+      "note": "a sty is a pen for pigs"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ED is short for editor"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "A",
+      "note": "A is a note of the musical scale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "E",
+      "A",
+      "D",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A loyal editor taking a memo written with a pen.",
+     "walkthrough": "'pen' plays on the writing instrument; it is the animal enclosure.",
+     "definitionFit": "A stalwart is dependable and firm, and steady describes the same reliable quality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pen"
+    }
+   }
   },
   {
    "number": 27,
@@ -429,7 +1868,57 @@
     "text": "Tragic lover starts to move shoulders up and down, say",
     "enumeration": "8"
    },
-   "solution": "ANTONYMS"
+   "solution": "ANTONYMS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ANTONYMS",
+    "definitions": [
+     {
+      "text": "up and down, say",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of words are their first letters, which are all that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tragic lover",
+      "gives": "ANTONY",
+      "note": "Mark Antony, Cleopatra's lover in Shakespeare's tragedy"
+     },
+     {
+      "clueFragment": "move shoulders",
+      "gives": "MS",
+      "select": "first",
+      "note": "first letters of the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANTONY",
+      "MS"
+     ]
+    },
+    "explanation": {
+     "surface": "A doomed romantic hero shrugging his shoulders.",
+     "walkthrough": "'up and down' sounds like the shrug; the pair are examples of opposite words, as 'say' signals.",
+     "definitionFit": "Antonyms are words of opposite meaning, and up and down is a classic example pair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "up"
+    }
+   }
   }
  ]
 }
