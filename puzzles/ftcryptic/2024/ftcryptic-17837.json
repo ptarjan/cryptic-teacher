@@ -24,6 +24,9 @@
   "date": "2024-09-09",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,67 @@
     "text": "Gathered deceived guards very gullible in the end",
     "enumeration": "8"
    },
-   "solution": "CONVENED"
+   "solution": "CONVENED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CONVENED",
+    "definitions": [
+     {
+      "text": "Gathered",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "guards",
+      "for": "container",
+      "note": "whoever guards something stands around it, so one word wraps the others"
+     },
+     {
+      "text": "in the end",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deceived",
+      "gives": "CONNED",
+      "note": "conned means tricked or deceived"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the standard abbreviation for very"
+     },
+     {
+      "clueFragment": "gullible",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of gullible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "VE",
+      "NED"
+     ]
+    },
+    "explanation": {
+     "surface": "A crowd assembles, having fooled someone extremely credulous.",
+     "walkthrough": "CONNED holds V plus E, making CON-V-E-NED.",
+     "definitionFit": "To convene is to meet or assemble, so convened is a synonym for gathered in the past tense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "guards"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +114,48 @@
     "text": "Dramatic work couples read regularly",
     "enumeration": "5"
    },
-   "solution": "OPERA"
+   "solution": "OPERA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "OPERA",
+    "definitions": [
+     {
+      "text": "Dramatic work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "at regular intervals, so every second letter is taken and the rest skipped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "couples read",
+      "gives": "OPERA",
+      "select": "alternate",
+      "note": "the second, fourth, sixth, eighth and tenth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPERA"
+     ]
+    },
+    "explanation": {
+     "surface": "Pairs of actors take turns reading a play aloud at a rehearsal.",
+     "definitionFit": "An opera is a staged musical drama, an example of a dramatic work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "couples"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +169,55 @@
     "text": "Welshman aboard ship in Portsmouth saying farewell",
     "enumeration": "11"
    },
-   "solution": "VALEDICTORY"
+   "solution": "VALEDICTORY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VALEDICTORY",
+    "definitions": [
+     {
+      "text": "saying farewell",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "aboard",
+      "for": "container",
+      "note": "someone aboard a vessel is inside it, so one word sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Welshman",
+      "gives": "ALED",
+      "note": "Aled is a Welsh man's name, as in the singer Aled Jones"
+     },
+     {
+      "clueFragment": "ship in Portsmouth",
+      "gives": "VICTORY",
+      "note": "HMS Victory, Nelson's flagship, is preserved at Portsmouth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "ALED",
+      "ICTORY"
+     ]
+    },
+    "explanation": {
+     "surface": "A Welsh sailor bids goodbye from the deck of a ship docked at the English naval port.",
+     "walkthrough": "HMS Victory is Nelson's flagship, kept in dry dock at Portsmouth, the English naval base.",
+     "definitionFit": "Valedictory describes words or speeches given on parting, so it means bidding farewell."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Welshman"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +237,61 @@
      }
     ]
    },
-   "solution": "NONDAIRY"
+   "solution": "NONDAIRY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NON-DAIRY",
+    "definitions": [
+     {
+      "text": "dietary option",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bananas",
+      "for": "anagram",
+      "note": "to go bananas is to go crazy, so the letters run wild into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nori",
+      "gives": "NORI",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "algebra uses x, y and z for unknowns"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANDNORIY",
+       "gives": "NONDAIRY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A menu listing bananas and seaweed as a mysterious diet choice.",
+     "walkthrough": "Bananas and nori look like the menu items, but bananas is the signal to rearrange.",
+     "definitionFit": "A non-dairy choice is one free of milk products, an option on a restricted diet; the adjective fits as a modifier."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bananas"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +315,50 @@
      }
     ]
    },
-   "solution": "DRESSDOWNFRIDAY"
+   "solution": "DRESSDOWNFRIDAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRESS-DOWN FRIDAY",
+    "definitions": [
+     {
+      "text": "casual affair",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rebuke",
+      "gives": "DRESSDOWN",
+      "note": "to dress down is to scold"
+     },
+     {
+      "clueFragment": "island servant",
+      "gives": "FRIDAY",
+      "note": "Man Friday is Robinson Crusoe's servant on his island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRESSDOWN",
+      "FRIDAY"
+     ]
+    },
+    "explanation": {
+     "surface": "Scolding a castaway's helper for being too relaxed about things.",
+     "walkthrough": "Friday is the servant Crusoe finds on his island in Defoe's novel.",
+     "definitionFit": "Dress-down Friday is a workplace custom of wearing informal clothes at the end of the week, hence a casual occasion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "affair"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +372,61 @@
     "text": "Happen to predict current date getting disheartened",
     "enumeration": "6"
    },
-   "solution": "BETIDE"
+   "solution": "BETIDE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "BETIDE",
+    "definitions": [
+     {
+      "text": "Happen to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting disheartened",
+      "for": "deletion",
+      "note": "losing heart means losing the middle, so only the outer letters survive"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "predict",
+      "gives": "BET",
+      "note": "to bet that something will happen is to predict it"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     },
+     {
+      "clueFragment": "date",
+      "gives": "DATE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BET",
+      "I",
+      "DE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone forecasting their next romantic outing grows downcast.",
+     "walkthrough": "DATE loses its middle letters to leave DE.",
+     "definitionFit": "Betide is an old verb meaning to befall, as in 'woe betide you', so it means happen to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +440,52 @@
     "text": "Give choice over whiskey",
     "enumeration": "6"
    },
-   "solution": "BESTOW"
+   "solution": "BESTOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BESTOW",
+    "definitions": [
+     {
+      "text": "Give",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "choice",
+      "gives": "BEST",
+      "note": "the choice item is the best one"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scorecard abbreviation for over"
+     },
+     {
+      "clueFragment": "whiskey",
+      "gives": "W",
+      "note": "whiskey is W in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEST",
+      "O",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "Offer a premium pick instead of a glass of spirits.",
+     "definitionFit": "To bestow is to present or confer as a gift, a formal synonym for give."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "whiskey"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +499,56 @@
     "text": "Raised arm to give name",
     "enumeration": "3"
    },
-   "solution": "TAG"
+   "solution": "TAG",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TAG",
+    "definitions": [
+     {
+      "text": "name",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Raised",
+      "for": "reversal",
+      "note": "in a down clue, lifting a word up makes it read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "to give"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arm",
+      "gives": "GAT",
+      "note": "gat is slang for a gun, a firearm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAG"
+     ],
+     "reversals": [
+      {
+       "from": "GAT",
+       "to": "TAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Putting a hand up to volunteer one's name in class.",
+     "definitionFit": "A tag is a label or nickname, so as a noun it serves as a synonym for name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arm"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +562,43 @@
     "text": "Bit of wisdom in a test prevails",
     "enumeration": "9"
    },
-   "solution": "DOMINATES"
+   "solution": "DOMINATES",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DOMINATES",
+    "definitions": [
+     {
+      "text": "prevails",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bit of",
+      "for": "hidden_word",
+      "note": "only a piece of the following words is wanted, a run of letters inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wisdom in a test",
+      "gives": "DOMINATES",
+      "note": "the letters run from inside wisdom through to the end of test"
+     }
+    ],
+    "explanation": {
+     "surface": "A smart remark in an exam wins the day.",
+     "walkthrough": "The answer runs from wis-DOM through IN and A to TES-t.",
+     "definitionFit": "Something that dominates holds sway or wins out, so it is a synonym for prevails."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "test"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +612,61 @@
     "text": "Fellows either side of trellis oddly overlooked bird",
     "enumeration": "6"
    },
-   "solution": "MERLIN"
+   "solution": "MERLIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MERLIN",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "either side of",
+      "for": "container",
+      "note": "a word placed on both sides of another surrounds it"
+     },
+     {
+      "text": "oddly overlooked",
+      "for": "letter_selection",
+      "note": "the odd-numbered letters are ignored, so only the even ones remain"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellows",
+      "gives": "MEN",
+      "note": "fellows are men"
+     },
+     {
+      "clueFragment": "trellis",
+      "gives": "RLI",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "RLI",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Men standing by a garden trellis fail to notice a bird perched on it.",
+     "definitionFit": "The merlin is a small falcon, a specific example of a bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "overlooked"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +686,67 @@
      }
     ]
    },
-   "solution": "EASYGAME"
+   "solution": "EASYGAME",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "EASY GAME",
+    "definitions": [
+     {
+      "text": "Piece of cake",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vacantly",
+      "for": "letter_selection",
+      "note": "emptied of its contents, a word keeps only its outer letters"
+     },
+     {
+      "text": "fed to",
+      "for": "container",
+      "note": "food fed to something goes inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "each",
+      "gives": "EA",
+      "note": "EA is the usual abbreviation for each"
+     },
+     {
+      "clueFragment": "somebody",
+      "gives": "SY",
+      "select": "outer",
+      "note": "the first and last letters of somebody"
+     },
+     {
+      "clueFragment": "duck, say",
+      "gives": "GAME",
+      "note": "duck is an example of game, wild birds hunted for food"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EA",
+      "SY",
+      "GAME"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone absent-mindedly hands out cake to every duck on the pond.",
+     "walkthrough": "'Duck, say' tempts as the definition, but the 'say' marks duck as an example of game, the hunted birds.",
+     "definitionFit": "A piece of cake is an idiom for something effortless, and easy game means a simple target or task."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +760,53 @@
     "text": "Some ignored by good-looking worker",
     "enumeration": "4"
    },
-   "solution": "HAND"
+   "solution": "HAND",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HAND",
+    "definitions": [
+     {
+      "text": "worker",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignored by",
+      "for": "deletion",
+      "note": "words ignored are left out of the longer word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Some",
+      "gives": "SOME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "good-looking",
+      "gives": "HANDSOME",
+      "note": "handsome means good-looking"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAND"
+     ]
+    },
+    "explanation": {
+     "surface": "A few people take no notice of an attractive labourer.",
+     "walkthrough": "HANDSOME without SOME leaves HAND.",
+     "definitionFit": "A hand is a manual labourer, as in farmhand or deckhand, so it is a synonym for worker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +820,67 @@
     "text": "Vanishing muscles: disadvantage eating away from home",
     "enumeration": "10"
    },
-   "solution": "ABSCONDING"
+   "solution": "ABSCONDING",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ABSCONDING",
+    "definitions": [
+     {
+      "text": "Vanishing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "away from",
+      "for": "deletion",
+      "note": "something away from a place is taken out of it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "muscles",
+      "gives": "ABS",
+      "note": "abs are abdominal muscles"
+     },
+     {
+      "clueFragment": "disadvantage",
+      "gives": "CON",
+      "note": "pros and cons: a con is a drawback"
+     },
+     {
+      "clueFragment": "eating",
+      "gives": "DINING",
+      "note": "dining means eating"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "being in means being at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABS",
+      "CON",
+      "DING"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that your six-pack fades when you keep eating in restaurants.",
+     "walkthrough": "DINING loses IN to leave DING. 'Eating away from home' reads as dining out, but it is a deletion.",
+     "definitionFit": "Absconding means running off secretly, so the person disappears; vanishing is a fair synonym in the participle form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +894,46 @@
     "text": "Lacking enthusiasm in being upright?",
     "enumeration": "11"
    },
-   "solution": "DISINCLINED"
+   "solution": "DISINCLINED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DISINCLINED",
+    "definitions": [
+     {
+      "text": "Lacking enthusiasm",
+      "at": 0
+     },
+     {
+      "text": "being upright",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lacking enthusiasm",
+      "note": "first meaning: unwilling, reluctant"
+     },
+     {
+      "clueFragment": "being upright",
+      "note": "second meaning, read as a pun: not inclined, so not leaning at all"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the joke: split as DIS-INCLINED it means un-tilted, which is standing straight.",
+     "definitionFit": "Someone reluctant is not inclined to act, and something not inclined or tilted stands vertical."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "upright"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +947,61 @@
     "text": "Piece of music playing, sure winner when in company",
     "enumeration": "8"
    },
-   "solution": "CONCERTO"
+   "solution": "CONCERTO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CONCERTO",
+    "definitions": [
+     {
+      "text": "Piece of music",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when in",
+      "for": "container",
+      "note": "being in something means being enclosed by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company"
+     },
+     {
+      "clueFragment": "playing",
+      "gives": "ON",
+      "note": "a show that is on is being performed"
+     },
+     {
+      "clueFragment": "sure winner",
+      "gives": "CERT",
+      "note": "a cert is a racing certainty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ON",
+      "CERT",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A musical work that is a guaranteed hit when performed with others.",
+     "walkthrough": "A cert is British racing slang for a horse certain to win, short for certainty.",
+     "definitionFit": "A concerto is a composition for a solo instrument with orchestra, an example of a piece of music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "company"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1021,61 @@
      }
     ]
    },
-   "solution": "OTHERHALF"
+   "solution": "OTHERHALF",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "OTHER HALF",
+    "definitions": [
+     {
+      "text": "partner",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unlimited",
+      "for": "deletion",
+      "note": "without limits means without its boundaries, the first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concerns",
+      "gives": "BOTHERS",
+      "note": "bothers are worries or concerns"
+     },
+     {
+      "clueFragment": "AI computer",
+      "gives": "HAL",
+      "note": "HAL 9000 is the artificial intelligence in 2001: A Space Odyssey"
+     },
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "f. is the abbreviation for following"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OTHER",
+      "HAL",
+      "F"
+     ]
+    },
+    "explanation": {
+     "surface": "Endless worries about an AI machine trailing one's spouse.",
+     "walkthrough": "BOTHERS loses its ends to give OTHER.",
+     "definitionFit": "One's other half is an idiom for a spouse or romantic partner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "partner"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1089,45 @@
     "text": "Hollow articulated apparatus",
     "enumeration": "4"
    },
-   "solution": "SETT"
+   "solution": "SETT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SETT",
+    "definitions": [
+     {
+      "text": "Hollow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "articulated",
+      "for": "homophone",
+      "note": "articulated means spoken, so the word is judged by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "apparatus",
+      "gives": "SETT",
+      "soundsLike": "SET",
+      "note": "a set is an apparatus, such as a television or radio set"
+     }
+    ],
+    "explanation": {
+     "surface": "A piece of jointed but hollow equipment.",
+     "walkthrough": "'Articulated' looks like it means jointed, as in an articulated lorry, but it means spoken.",
+     "definitionFit": "A sett is a badger's burrow, a hollow dug in the ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "articulated"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1141,70 @@
     "text": "Upcoming singer bathed in light is not bad",
     "enumeration": "8"
    },
-   "solution": "PASSABLE"
+   "solution": "PASSABLE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "PASSABLE",
+    "definitions": [
+     {
+      "text": "not bad",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Upcoming",
+      "for": "reversal",
+      "note": "in a down clue, coming up means read from bottom to top"
+     },
+     {
+      "text": "bathed in",
+      "for": "container",
+      "note": "something bathed in a liquid is surrounded by it"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "singer",
+      "gives": "BASS",
+      "note": "a bass is a low male singer"
+     },
+     {
+      "clueFragment": "light",
+      "gives": "PALE",
+      "note": "pale means light in colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "SSAB",
+      "LE"
+     ],
+     "reversals": [
+      {
+       "from": "BASS",
+       "to": "SSAB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rising vocalist lit by a spotlight gives a decent performance.",
+     "walkthrough": "'Upcoming singer' reads like a new star on the rise, but in a down entry it just turns the singer upward.",
+     "definitionFit": "Passable means adequate or acceptable, so it is a fair synonym for not bad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Upcoming"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1218,47 @@
     "text": "I'm disappointed by satellite's state",
     "enumeration": "4"
    },
-   "solution": "OHIO"
+   "solution": "OHIO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OHIO",
+    "definitions": [
+     {
+      "text": "state",
+      "at": 32
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'm disappointed",
+      "gives": "OH",
+      "note": "'oh' is a sigh of disappointment"
+     },
+     {
+      "clueFragment": "satellite's",
+      "gives": "IO",
+      "note": "Io is one of Jupiter's moons"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OH",
+      "IO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone let down by the condition of a satellite.",
+     "walkthrough": "'State' looks like condition, but it is the US state.",
+     "definitionFit": "Ohio is one of the fifty states of the USA."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1272,56 @@
     "text": "New senate's amended order",
     "enumeration": "8"
    },
-   "solution": "NEATNESS"
+   "solution": "NEATNESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEATNESS",
+    "definitions": [
+     {
+      "text": "order",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "amended",
+      "for": "anagram",
+      "note": "something amended has been changed, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "senate's",
+      "gives": "SENATES",
+      "note": "taken as written, with the s"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NSENATES",
+       "gives": "NEATNESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A legislature reforms its standing orders.",
+     "walkthrough": "'Order' reads as a rule the senate amends, but it is the definition meaning tidiness.",
+     "definitionFit": "Neatness is tidiness, the state of being in good order."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1335,65 @@
     "text": "Ruins of French port city bar to left",
     "enumeration": "6"
    },
-   "solution": "DEBRIS"
+   "solution": "DEBRIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "DEBRIS",
+    "definitions": [
+     {
+      "text": "Ruins",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bar",
+      "for": "deletion",
+      "note": "bar means except, so the following letters are excluded"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of French",
+      "gives": "DE",
+      "note": "de is French for of"
+     },
+     {
+      "clueFragment": "port city",
+      "gives": "BRISTOL",
+      "note": "Bristol is a port city in western England"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "BRIS"
+     ]
+    },
+    "explanation": {
+     "surface": "The wreckage of a French harbour town, with a bar on the left.",
+     "walkthrough": "BRISTOL minus TO and L leaves BRIS.",
+     "definitionFit": "Debris is the scattered remains of something destroyed, so it is a synonym for ruins as a plural noun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1407,67 @@
     "text": "Old men having Sage Derby with last of their crackers",
     "enumeration": "10"
    },
-   "solution": "GREYBEARDS"
+   "solution": "GREYBEARDS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "GREYBEARDS",
+    "definitions": [
+     {
+      "text": "Old men",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crackers",
+      "for": "anagram",
+      "note": "crackers means crazy, so the letters go wild into a new order"
+     },
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sage Derby",
+      "gives": "SAGEDERBY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "their",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of their"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SAGEDERBYR",
+       "gives": "GREYBEARDS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Elderly men eating a sage-flavoured cheese on their biscuits.",
+     "walkthrough": "Sage Derby is an English cheese flavoured with sage, and crackers looks like the biscuits it is served with.",
+     "definitionFit": "A greybeard is an old man, from the grey beard of age."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "crackers"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1481,53 @@
     "text": "Want hems of baggy trousers to be cut",
     "enumeration": "4"
    },
-   "solution": "LACK"
+   "solution": "LACK",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LACK",
+    "definitions": [
+     {
+      "text": "Want",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hems of",
+      "for": "deletion",
+      "note": "the hems are the edges of a garment, pointing at the first and last letters"
+     },
+     {
+      "text": "to be cut",
+      "for": "deletion",
+      "note": "cutting those edges off removes them from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "baggy trousers",
+      "gives": "SLACKS",
+      "note": "slacks are loose casual trousers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LACK"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wishes to have the bottoms of their loose trousers shortened.",
+     "walkthrough": "SLACKS loses its first and last letters to leave LACK.",
+     "definitionFit": "Want and lack are both nouns for an absence or shortage of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Want"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1541,55 @@
     "text": "Uncorrupted tribe defending base",
     "enumeration": "5"
    },
-   "solution": "CLEAN"
+   "solution": "CLEAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLEAN",
+    "definitions": [
+     {
+      "text": "Uncorrupted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "defending",
+      "for": "container",
+      "note": "defenders form a ring around what they protect"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tribe",
+      "gives": "CLAN",
+      "note": "a clan is a tribe or family group"
+     },
+     {
+      "clueFragment": "base",
+      "gives": "E",
+      "note": "e is the base of natural logarithms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CL",
+      "E",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "An honest tribe protects its home camp.",
+     "walkthrough": "In maths, e is the base of natural logarithms.",
+     "definitionFit": "Clean in the sense of honest or free of corruption, as in a clean record."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "base"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1603,47 @@
     "text": "Dull colour was concerning",
     "enumeration": "8"
    },
-   "solution": "MATTERED"
+   "solution": "MATTERED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MATTERED",
+    "definitions": [
+     {
+      "text": "was concerning",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dull",
+      "gives": "MATTE",
+      "note": "matte describes a dull, unshiny finish"
+     },
+     {
+      "clueFragment": "colour",
+      "gives": "RED",
+      "note": "red is a colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MATTE",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "A drab paint shade caused some worry.",
+     "walkthrough": "'Was concerning' reads as worrying, but here it means was of importance.",
+     "definitionFit": "Something that mattered was significant, and concerning in the sense of being relevant or important."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "concerning"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1657,43 @@
     "text": "Picked up Asian garment",
     "enumeration": "3"
    },
-   "solution": "TIE"
+   "solution": "TIE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TIE",
+    "definitions": [
+     {
+      "text": "garment",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Picked up",
+      "for": "homophone",
+      "note": "picked up as in heard or caught by ear"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Asian",
+      "gives": "TIE",
+      "soundsLike": "THAI",
+      "note": "a Thai is a person from Thailand"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone collected a piece of Asian clothing.",
+     "definitionFit": "A necktie is an item of clothing, so it counts as a garment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Picked"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1707,55 @@
     "text": "Messed up losing line and stopped",
     "enumeration": "6"
    },
-   "solution": "BUNGED"
+   "solution": "BUNGED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BUNGED",
+    "definitions": [
+     {
+      "text": "stopped",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing something means it is taken out"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Messed up",
+      "gives": "BUNGLED",
+      "note": "bungled means botched"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUNGED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone botched things, dropped a line and gave up.",
+     "definitionFit": "Bunged as in bunged up means blocked or plugged, so it is a synonym for stopped."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1769,42 @@
     "text": "Course where tee is found?",
     "enumeration": "6"
    },
-   "solution": "AFTERS"
+   "solution": "AFTERS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AFTERS",
+    "definitions": [
+     {
+      "text": "Course",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "where tee is found?",
+      "gives": "AFTERS",
+      "note": "tee is the letter T; its place in the alphabet is right behind S"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AFTERS"
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer asking where on the course the tee is.",
+     "walkthrough": "Tee is the letter T, which sits after S; afters is British slang for dessert.",
+     "definitionFit": "Afters is informal British for pudding, the course that comes after the main meal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tee"
+    }
+   }
   },
   {
    "number": 28,
@@ -457,7 +1818,55 @@
     "text": "Giving lie, dying to reform",
     "enumeration": "8"
    },
-   "solution": "YIELDING"
+   "solution": "YIELDING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "YIELDING",
+    "definitions": [
+     {
+      "text": "Giving",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to reform",
+      "for": "anagram",
+      "note": "to reform is to form again, so the letters are made into something new"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lie",
+      "gives": "LIE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dying",
+      "gives": "DYING",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LIEDYING",
+       "gives": "YIELDING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deathbed confession: someone telling a falsehood while dying, hoping to mend their ways.",
+     "definitionFit": "Yielding means giving way or bending under pressure, so it matches giving as a participle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reform"
+    }
+   }
   }
  ]
 }
