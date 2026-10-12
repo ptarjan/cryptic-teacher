@@ -3336,11 +3336,11 @@ def refresh_unsolved():
         if not still_worth_refreshing(p):
             continue
         if not all(e.get("solution") for e in p["entries"]) or provenance.solution_detail(p):
-            pending.append(p["number"])
+            pending.append((p["number"], p["series"]))
     filled = 0
-    for num in pending:
+    for num, series in pending:
         try:
-            puzzle, _ = fetch_number(num)
+            puzzle, _ = fetch_number(num, series)
             # A carried-over model fill fills every entry too, so "has letters
             # everywhere" is not the test — "the paper said so" is.
             if all(e.get("solution") for e in puzzle["entries"]) and not provenance.solution_detail(puzzle):
@@ -3356,6 +3356,18 @@ def refresh_unsolved():
     if pending:
         reindex()
     print(f"refresh-unsolved: {filled}/{len(pending)} puzzle(s) gained solutions")
+
+
+# How many numbers below the index's newest --latest will fill when some are
+# missing: a few weeks of a weekly series, a week of the daily.
+LATEST_GAP_FILL = 8
+
+
+def newest_held(series):
+    """The highest number of `series` on disk, or None."""
+    nums = [int(m.group(1)) for f in puzzle_paths.PUZZLE_DIR.glob(f"{series}/*/{series}-*.json")
+            if (m := re.fullmatch(rf"{series}-(\d+)", f.stem))]
+    return max(nums, default=None)
 
 
 def find_latest_number(series="cryptic"):
@@ -3426,11 +3438,23 @@ def main(argv):
             if puzzle_path(series, num).exists():
                 up_to_date.append(f"{series} {num}")
                 continue
-            try:
-                fetch_number(num)
-                got.append(str(num))
-            except Exception as err:
-                print(f"{series} {num} failed: {err}")
+            # Every number since the newest held, not only the newest: an
+            # issue missed one week (a 404 that night, a broken run) is
+            # otherwise never asked for again, since next week's max is
+            # another number. Bounded so a series we hold none of yet doesn't
+            # turn the hourly run into a backfill.
+            held = newest_held(series)
+            start = max(held + 1, num - LATEST_GAP_FILL + 1) if held else num
+            for n in range(start, num + 1):
+                if puzzle_path(series, n).exists():
+                    continue
+                try:
+                    # The series too: fetch_page asks only that series' URLs,
+                    # so a bare number is a cryptic and every quiptic 404s.
+                    fetch_number(n, series)
+                    got.append(str(n))
+                except Exception as err:
+                    print(f"{series} {n} failed: {err}")
         if up_to_date and not got:
             print("up-to-date " + ", ".join(up_to_date))
             return 3
