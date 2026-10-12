@@ -37,6 +37,13 @@ history has to be committed: `progress_record.py record` runs nightly
 (tools/daily_update.sh unit_ratings) and reads the ledger tools/coverage.sh
 saved that morning.
 
+Filed, solved and hinted are live, though: every site deploy builds the index
+from the puzzle files and with_today() lays index_counts() of it over today's
+row, so the page moves with each push. Known/acquired and downloaded/queued
+need the ledger and the media disk, which the deploy has not got, so they are
+the newest recorded night's. Recording more often would only reach the page as
+a commit an hour; it is left nightly.
+
 Its `backfill` dates each file by its source.acquiredOn, its answers by the
 later of that and solutions.date, and its hints by its first "Annotate <id>"
 commit (else acquiredOn), and takes known/acquired from the saved ledgers. A
@@ -88,6 +95,13 @@ def file_counts(rows):
         c[1] += bool(solved)
         c[2] += bool(solved and hinted)
     return dict(out)
+
+
+def index_counts(puzzles):
+    """file_counts() of index rows (puzzles/index.json's "puzzles"), whose
+    hasSolutions and annotated are the same tests progress_record.puzzle_row()
+    applies to the files (fetch_puzzle.puzzle_is_solved / puzzle_is_annotated)."""
+    return file_counts((p["series"], p.get("hasSolutions"), p.get("annotated")) for p in puzzles)
 
 
 def day_row(files, ledger, backlog=None):

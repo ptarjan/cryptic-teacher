@@ -929,7 +929,9 @@ tools/edition_backlog.py                      the read queue's size without plan
                                               records it nightly
 tools/progress_record.py                      writes that history: `record` nightly, and a
                                               one-off `backfill` from the files, the commit
-                                              history and the saved coverage ledgers
+                                              history and the saved coverage ledgers; the page
+                                              build overlays today's filed, solved and hinted
+                                              from its own index at every deploy
 tools/data/progress.json                      tools/progress.py's history, one day a line
 tools/test_progress.sh                        does /progress/ date each phase, carry the
                                               ledger's counts to today, pace by days rather

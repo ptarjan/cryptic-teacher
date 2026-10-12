@@ -2,7 +2,8 @@
 """Write tools/data/progress.json, the history /progress/ draws (see
 tools/progress.py for the phases and the backfill's dating).
 
-    python3 tools/progress_record.py record     # today's row, nightly
+    python3 tools/progress_record.py record     # today's row, nightly (the page build
+                                                # overlays live filed/solved/hinted)
     python3 tools/progress_record.py backfill   # every day before the first one held
 """
 import collections
@@ -24,8 +25,10 @@ def puzzle_row(path):
     p = fetch_puzzle.read_puzzle_file(path)
     got = p["source"]["acquiredOn"]
     sol = p.get("solutions") or {}
-    solved = max(got, sol.get("date") or got) if all(e.get("solution") for e in p["entries"]) else None
-    return p["id"], p["series"], got, solved, not fetch_puzzle.unannotated_clues(p)
+    # The index's own tests (hasSolutions, annotated), so a night's row and the
+    # page build's overlay (progress.index_counts) count the same puzzles.
+    solved = max(got, sol.get("date") or got) if fetch_puzzle.puzzle_is_solved(p) else None
+    return p["id"], p["series"], got, solved, fetch_puzzle.puzzle_is_annotated(p)
 
 
 def corpus():
