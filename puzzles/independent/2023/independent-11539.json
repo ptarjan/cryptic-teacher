@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Car exploded abruptly within earshot",
     "enumeration": "7"
    },
-   "solution": "AUDIBLE"
+   "solution": "AUDIBLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "AUDIBLE",
+    "definitions": [
+     {
+      "text": "within earshot",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abruptly",
+      "for": "deletion",
+      "note": "something stopped abruptly is cut off before it ends, so the word loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Car",
+      "gives": "AUDI",
+      "note": "a German make of car"
+     },
+     {
+      "clueFragment": "exploded",
+      "gives": "BLEW",
+      "note": "past tense of blow, as a bomb does"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUDI",
+      "BLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A car blowing up suddenly somewhere close enough to hear the bang.",
+     "walkthrough": "'Exploded abruptly' reads like an adverb on the blast, but it is BLEW with its tail docked.",
+     "definitionFit": "Something audible can be heard, which is what being within earshot means: close enough for the sound to carry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "abruptly"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,64 @@
     "text": "Angling shop's opening in a leafy part of London",
     "enumeration": "5"
    },
-   "solution": "ASKEW"
+   "solution": "ASKEW",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ASKEW",
+    "definitions": [
+     {
+      "text": "Angling",
+      "at": 0,
+      "note": "an adjective-like participle, slanting"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter, so only the start of the shop is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another sits inside it, here wedged into the London place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a leafy part of London",
+      "gives": "AKEW",
+      "note": "A taken as written plus KEW, the London district famous for its botanic gardens"
+     },
+     {
+      "clueFragment": "shop's",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of shop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "S",
+      "KEW"
+     ]
+    },
+    "explanation": {
+     "surface": "The opening of a fishing-tackle shop in a green corner of London.",
+     "walkthrough": "'Angling' pretends to be about fishing; it is the definition, meaning tilted. KEW is a leafy London suburb, home of Kew Gardens.",
+     "definitionFit": "Askew means crooked or slanting, which is what something angling off the straight is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Angling"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +179,79 @@
      }
     ]
    },
-   "solution": "DENNISTHEMENACE"
+   "solution": "DENNISTHEMENACE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DENNIS THE MENACE",
+    "definitions": [
+     {
+      "text": "terror",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rise of",
+      "for": "reversal",
+      "note": "in a down entry rising means reading from bottom to top, so the word runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Study",
+      "gives": "DEN",
+      "note": "a den is a private room for study"
+     },
+     {
+      "clueFragment": "evil",
+      "gives": "SIN",
+      "note": "a synonym for wickedness"
+     },
+     {
+      "clueFragment": "topic",
+      "gives": "THEME",
+      "note": "a subject or topic"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "N",
+      "note": "abbreviation for number"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ACE",
+      "note": "an ace is a one in cards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEN",
+      "NIS",
+      "THEME",
+      "N",
+      "ACE"
+     ],
+     "reversals": [
+      {
+       "from": "SIN",
+       "to": "NIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A study of how wickedness rises, ranked as the number one terror topic.",
+     "walkthrough": "Dennis the Menace is the unruly boy of the British comic The Beano, a byword for a little terror.",
+     "definitionFit": "A terror is a troublesome child, and the comic-strip character is the archetypal mischievous brat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Study"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +265,61 @@
     "text": "Cattle cross river in Cornwall, following drone over",
     "enumeration": "7"
    },
-   "solution": "BEEFALO"
+   "solution": "BEEFALO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEEFALO",
+    "definitions": [
+     {
+      "text": "Cattle cross",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so the river is placed after the insect rather than before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drone",
+      "gives": "BEE",
+      "note": "a drone is a male bee"
+     },
+     {
+      "clueFragment": "river in Cornwall",
+      "gives": "FAL",
+      "note": "the Fal is a Cornish river"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scorer's abbreviation for an over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEE",
+      "FAL",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Cows crossing a Cornish river while a drone hovers above.",
+     "walkthrough": "'following' puts the drone first; 'Cattle cross' looks like cows wading but is the definition, a hybrid breed.",
+     "definitionFit": "A beefalo is a hybrid bred from domestic cattle and the American buffalo, so it is a cross of cattle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +333,67 @@
     "text": "Bridge player's joke, pocketing ace and hiding jack",
     "enumeration": "4"
    },
-   "solution": "EAST"
+   "solution": "EAST",
+   "annotation": {
+    "type": [
+     "container",
+     "deletion"
+    ],
+    "answer": "EAST",
+    "definitions": [
+     {
+      "text": "Bridge player",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pocketing",
+      "for": "container",
+      "note": "to pocket something is to put it inside, so one letter goes into the other word"
+     },
+     {
+      "text": "hiding",
+      "for": "deletion",
+      "note": "what is hidden is no longer seen, so that letter is taken out"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "joke",
+      "gives": "JEST",
+      "note": "a jest is a joke"
+     },
+     {
+      "clueFragment": "ace",
+      "gives": "A",
+      "note": "A is the card abbreviation for ace"
+     },
+     {
+      "clueFragment": "jack",
+      "gives": "J",
+      "note": "J is the card abbreviation for jack"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAST"
+     ]
+    },
+    "explanation": {
+     "surface": "A bridge player cracks a joke while slipping an ace into a pocket and concealing a jack.",
+     "walkthrough": "A goes inside JEST, then the J is dropped. In bridge the four players are named North, South, East and West.",
+     "definitionFit": "East is one of the four seat positions at a bridge table, so it names a player."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pocketing"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +407,64 @@
     "text": "Ask desperately about an airline's unstructured seating",
     "enumeration": "7"
    },
-   "solution": "BEANBAG"
+   "solution": "BEANBAG",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BEANBAG",
+    "definitions": [
+     {
+      "text": "unstructured seating",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one word wraps itself round the others"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ask desperately",
+      "gives": "BEG",
+      "note": "to beg is to ask urgently"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "airline",
+      "gives": "BA",
+      "note": "British Airways"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "ANBA",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Pleading with an airline about its seats that have no fixed shape.",
+     "walkthrough": "'Ask desperately' sounds like the definition of a plea; the actual definition is the seat at the end. BA stands for British Airways.",
+     "definitionFit": "A beanbag is a floppy sack of beads used as a chair, seating with no rigid frame."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "unstructured"
+    }
+   }
   },
   {
    "number": 5,
@@ -127,7 +478,48 @@
     "text": "Give card to number one accountant",
     "enumeration": "10"
    },
-   "solution": "BOOKKEEPER"
+   "solution": "BOOKKEEPER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOOKKEEPER",
+    "definitions": [
+     {
+      "text": "accountant",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Give card to",
+      "gives": "BOOK",
+      "note": "a referee books a footballer by showing a yellow card"
+     },
+     {
+      "clueFragment": "number one",
+      "gives": "KEEPER",
+      "note": "the goalkeeper traditionally wears the number one shirt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOOK",
+      "KEEPER"
+     ]
+    },
+    "explanation": {
+     "surface": "Handing a card to the top accountant, as if at an office party.",
+     "walkthrough": "Both pieces come from football: booking a player means showing a card, and the goalkeeper is number one.",
+     "definitionFit": "A bookkeeper records a business's financial transactions, a kind of accountant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "card"
+    }
+   }
   },
   {
    "number": 6,
@@ -141,7 +533,49 @@
     "text": "Innocent cargo of vessel tracked northwards",
     "enumeration": "7"
    },
-   "solution": "ARTLESS"
+   "solution": "ARTLESS",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ARTLESS",
+    "definitions": [
+     {
+      "text": "Innocent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cargo of",
+      "for": "hidden_word",
+      "note": "cargo is what a ship carries inside, so the answer is carried within the following words"
+     },
+     {
+      "text": "northwards",
+      "for": "reversal",
+      "note": "in a down entry going north means upwards, reading the letters from the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vessel tracked",
+      "gives": "SSELTRA",
+      "note": "the run of letters inside these two words"
+     }
+    ],
+    "explanation": {
+     "surface": "An innocent shipment on a vessel being followed northwards.",
+     "walkthrough": "'vessel' and 'cargo' make a nautical picture; the letters lie in vesSEL TRAcked and read upwards.",
+     "definitionFit": "Artless means without guile or cunning, a synonym for innocent and naive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cargo"
+    }
+   }
   },
   {
    "number": 7,
@@ -165,7 +599,79 @@
      }
     ]
    },
-   "solution": "BACKSEATDRIVERS"
+   "solution": "BACKSEATDRIVERS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "BACK-SEAT DRIVERS",
+    "definitions": [
+     {
+      "text": "counselling passengers",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Overturned",
+      "for": "reversal",
+      "note": "something overturned is upside down, so in a down entry the word is read the other way"
+     },
+     {
+      "text": "wildly",
+      "for": "anagram",
+      "note": "done wildly means in disorder, so those letters are scattered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taxi",
+      "gives": "CAB",
+      "note": "a cab is a taxi"
+     },
+     {
+      "clueFragment": "skated",
+      "gives": "KSEATD",
+      "note": "these letters rearranged"
+     },
+     {
+      "clueFragment": "maybe Joan's",
+      "gives": "RIVERS",
+      "note": "Joan Rivers, the American comedian; 'maybe' marks her as one example of the surname"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACKSEATD",
+      "RIVERS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SKATED",
+       "gives": "KSEATD"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "DTAESKCAB",
+       "to": "BACKSEATD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cab flips and skids, and someone named Joan is giving advice to the people inside.",
+     "walkthrough": "Joan Rivers was an American comedian. Back-seat drivers are passengers who give the driver unwanted advice.",
+     "definitionFit": "Back-seat drivers are passengers who keep advising the driver, so they are passengers offering counsel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "counselling"
+    }
+   }
   },
   {
    "number": 8,
@@ -189,7 +695,72 @@
      }
     ]
    },
-   "solution": "GOTOPRESS"
+   "solution": "GOTOPRESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GO TO PRESS",
+    "definitions": [
+     {
+      "text": "hit the printers",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end of the word, so only its last letter is kept"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Toppling",
+      "gives": "G",
+      "select": "last",
+      "note": "the last letter of the word"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "OT",
+      "note": "OT is the Old Testament, a set of books"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is a standard abbreviation for old"
+     },
+     {
+      "clueFragment": "cupboard",
+      "gives": "PRESS",
+      "note": "a press is a cupboard, especially for linen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "OT",
+      "O",
+      "PRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "An old cupboard full of books finally toppling over and hitting the printers.",
+     "walkthrough": "'on' places the books before the old cupboard. Press for a cupboard is chiefly British and Irish.",
+     "definitionFit": "A newspaper goes to press when it is sent to be printed, which is to hit the printers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hit"
+    }
+   }
   },
   {
    "number": 9,
@@ -209,7 +780,47 @@
      }
     ]
    },
-   "solution": "KINDERSCOUT"
+   "solution": "KINDERSCOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KINDER SCOUT",
+    "definitions": [
+     {
+      "text": "location of protest march",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German children",
+      "gives": "KINDER",
+      "note": "Kinder is German for children"
+     },
+     {
+      "clueFragment": "reconnoitre",
+      "gives": "SCOUT",
+      "note": "to scout is to reconnoitre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KINDER",
+      "SCOUT"
+     ]
+    },
+    "explanation": {
+     "surface": "German children out spying on a protest march.",
+     "walkthrough": "Kinder Scout is a moorland plateau in England's Peak District, site of the 1932 Mass Trespass that helped win public access to the countryside.",
+     "definitionFit": "The 1932 Mass Trespass was a protest walk onto the private moor of Kinder Scout, so it is the place of that march."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "reconnoitre"
+    }
+   }
   },
   {
    "number": 10,
@@ -223,7 +834,55 @@
     "text": "Tango on fellow's bed",
     "enumeration": "3"
    },
-   "solution": "COT"
+   "solution": "COT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COT",
+    "definitions": [
+     {
+      "text": "bed",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across entry, placed on means written after, so the radio letter comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fellow's",
+      "gives": "CO",
+      "note": "co- is the prefix for a fellow or joint partner, as in co-worker"
+     },
+     {
+      "clueFragment": "Tango",
+      "gives": "T",
+      "note": "Tango is the radio alphabet word for T"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dancing a tango on a man's bed.",
+     "walkthrough": "In an across clue 'on' means after, so the T follows CO.",
+     "definitionFit": "A cot is a small bed, a baby's crib in Britain or a camp bed in America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Tango"
+    }
+   }
   },
   {
    "number": 11,
@@ -237,7 +896,65 @@
     "text": "Place using Enigma regularly during war?",
     "enumeration": "6"
    },
-   "solution": "WEIMAR"
+   "solution": "WEIMAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "WEIMAR",
+    "definitions": [
+     {
+      "text": "Place",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during means within the span of, so these letters go inside the other word"
+     }
+    ],
+    "linkWords": [
+     "using"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "war",
+      "gives": "WAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Enigma",
+      "gives": "EIM",
+      "select": "alternate",
+      "note": "the first, third and fifth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "EIM",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "Somewhere that used the Enigma cipher machine during wartime.",
+     "walkthrough": "Enigma suggests the Second World War, but Weimar is a German city that gave its name to the republic between the wars, hence the question mark.",
+     "definitionFit": "Weimar is a city in Thuringia, Germany, so it is a place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Enigma"
+    }
+   }
   },
   {
    "number": 12,
@@ -257,7 +974,71 @@
      }
     ]
    },
-   "solution": "KNEESUP"
+   "solution": "KNEESUP",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "KNEES-UP",
+    "definitions": [
+     {
+      "text": "party",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "squeezes",
+      "for": "container",
+      "note": "to squeeze something in is to hold it tightly inside, so one word goes within the other"
+     },
+     {
+      "text": "coming over",
+      "for": "reversal",
+      "note": "coming over suggests flipping over, so the combined letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rocker",
+      "gives": "PUNK",
+      "note": "a punk is a rock musician or fan"
+     },
+     {
+      "clueFragment": "spot",
+      "gives": "SEE",
+      "note": "to spot is to see"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KN",
+      "EES",
+      "UP"
+     ],
+     "reversals": [
+      {
+       "from": "PUSEENK",
+       "to": "KNEESUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rocker squeezing a pimple, which is hardly a party.",
+     "walkthrough": "'spot' looks like a pimple but is the verb, to see. A knees-up is British slang for a lively party.",
+     "definitionFit": "A knees-up is an informal British term for a boisterous party with dancing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spot"
+    }
+   }
   },
   {
    "number": 13,
@@ -277,7 +1058,51 @@
      }
     ]
    },
-   "solution": "BOATPEOPLE"
+   "solution": "BOATPEOPLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BOAT PEOPLE",
+    "definitions": [
+     {
+      "text": "Refugees",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be relocated",
+      "for": "anagram",
+      "note": "things relocated are moved to new positions, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aleppo to be",
+      "gives": "ALEPPOTOBE",
+      "note": "the ten letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALEPPOTOBE",
+       "gives": "BOATPEOPLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Refugees from the Syrian city of Aleppo who are to be resettled elsewhere.",
+     "walkthrough": "The surface is read entirely straight; only 'relocated' turns into the signal for reworking the letters.",
+     "definitionFit": "Boat people are refugees who flee by sea in crowded vessels, a particular kind of refugee."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "relocated"
+    }
+   }
   },
   {
    "number": 14,
@@ -291,7 +1116,74 @@
     "text": "Time-keeper came across moron moving race's finish",
     "enumeration": "9"
    },
-   "solution": "METRONOME"
+   "solution": "METRONOME",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "METRONOME",
+    "definitions": [
+     {
+      "text": "Time-keeper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving",
+      "for": "anagram",
+      "note": "letters that are moving shift out of place, so the word is rearranged"
+     },
+     {
+      "text": "finish",
+      "for": "letter_selection",
+      "note": "the finish of a word is its last letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "came across",
+      "gives": "MET",
+      "note": "to meet someone is to come across them"
+     },
+     {
+      "clueFragment": "moron",
+      "gives": "RONOM",
+      "note": "these letters rearranged"
+     },
+     {
+      "clueFragment": "race's",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of race"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MET",
+      "RONOM",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MORON",
+       "gives": "RONOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A timekeeper meets a fool wandering about at the end of a race.",
+     "walkthrough": "'Time-keeper' suggests an official at a race; it is the musician's ticking device.",
+     "definitionFit": "A metronome ticks at a set tempo to keep a musician in time, so it keeps time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Time-keeper"
+    }
+   }
   },
   {
    "number": 14,
@@ -305,7 +1197,47 @@
     "text": "Lovely-sounding honey really horrible",
     "enumeration": "9"
    },
-   "solution": "MELODIOUS"
+   "solution": "MELODIOUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MELODIOUS",
+    "definitions": [
+     {
+      "text": "Lovely-sounding",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "honey",
+      "gives": "MEL",
+      "note": "mel is Latin for honey, used in pharmacy"
+     },
+     {
+      "clueFragment": "really horrible",
+      "gives": "ODIOUS",
+      "note": "odious means hateful or repulsive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEL",
+      "ODIOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "Something that sounds sweet but is actually dreadful, like honey gone bad.",
+     "walkthrough": "MEL for honey is from Latin and turns up often in crosswords.",
+     "definitionFit": "Melodious means tuneful and pleasant to hear, which is lovely-sounding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "honey"
+    }
+   }
   },
   {
    "number": 15,
@@ -319,7 +1251,57 @@
     "text": "Bath leads to this enormous flood",
     "enumeration": "5"
    },
-   "solution": "SPATE"
+   "solution": "SPATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SPATE",
+    "definitions": [
+     {
+      "text": "flood",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leads to",
+      "for": "letter_selection",
+      "note": "the leads of words are their front letters, so only the first letter of each is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bath",
+      "gives": "SPA",
+      "note": "Bath is the English city famous as a spa"
+     },
+     {
+      "clueFragment": "this enormous",
+      "gives": "TE",
+      "select": "first",
+      "note": "the first letters of the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPA",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A bath that overflows into a vast deluge.",
+     "walkthrough": "Bath is a city in south-west England whose Roman hot springs made it the classic spa town.",
+     "definitionFit": "A spate is a sudden flood in a river, or figuratively a rush of anything."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bath"
+    }
+   }
   },
   {
    "number": 16,
@@ -339,7 +1321,47 @@
      }
     ]
    },
-   "solution": "LIEUP"
+   "solution": "LIEUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIE UP",
+    "definitions": [
+     {
+      "text": "go to bed",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Story",
+      "gives": "LIE",
+      "note": "a lie is a made-up story"
+     },
+     {
+      "clueFragment": "finished",
+      "gives": "UP",
+      "note": "time is up when it is finished"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIE",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "The bedtime story is over, so time for sleep.",
+     "walkthrough": "The surface is a parent's bedtime routine; 'Story' means a fib here.",
+     "definitionFit": "To lie up is to stay in bed or rest out of sight, close to taking to one's bed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Story"
+    }
+   }
   },
   {
    "number": 17,
@@ -353,7 +1375,39 @@
     "text": "One using both hands on bars while pedalling?",
     "enumeration": "7"
    },
-   "solution": "PIANIST"
+   "solution": "PIANIST",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PIANIST",
+    "definitions": [
+     {
+      "text": "One using both hands on bars while pedalling?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One using both hands on bars while pedalling?",
+      "note": "surface reading: a cyclist gripping the handlebars and pedalling"
+     },
+     {
+      "clueFragment": "bars",
+      "note": "setter's reading: bars of music, played with both hands while working the instrument's foot pedals"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Handlebars and pedals suggest a bicycle; the bars are musical measures and the pedals are on a keyboard instrument.",
+     "definitionFit": "A pianist plays with both hands through bars of music while pressing the sustain and soft pedals with the feet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bars"
+    }
+   }
   },
   {
    "number": 18,
@@ -377,7 +1431,65 @@
      }
     ]
    },
-   "solution": "THEMANDUS"
+   "solution": "THEMANDUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "THEM AND US",
+    "definitions": [
+     {
+      "text": "Two sides",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put in",
+      "for": "container",
+      "note": "something put in goes inside, so one letter is placed within the following word"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "Roman's hand",
+      "gives": "MANUS",
+      "note": "manus is Latin for hand"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "MAN",
+      "D",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "An article about a daughter being handed over to a Roman's keeping.",
+     "walkthrough": "'Two sides of article' looks like the outer letters of a word; it is the definition, and the article is THE.",
+     "definitionFit": "Them and us describes a divide into two opposed camps, so it names two sides."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sides"
+    }
+   }
   },
   {
    "number": 19,
@@ -391,7 +1503,67 @@
     "text": "Wonderful e-tailer exchanging ring for one grand",
     "enumeration": "7"
    },
-   "solution": "AMAZING"
+   "solution": "AMAZING",
+   "annotation": {
+    "type": [
+     "substitution",
+     "charade"
+    ],
+    "answer": "AMAZING",
+    "definitions": [
+     {
+      "text": "Wonderful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exchanging",
+      "for": "substitution",
+      "note": "exchanging one thing for another swaps them, so a letter is replaced by a different one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "e-tailer",
+      "gives": "AMAZON",
+      "note": "the online retailer"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "a ring is round, like the letter O"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "grand",
+      "gives": "G",
+      "note": "G is slang for a grand, a thousand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMAZ",
+      "I",
+      "N",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A great online shop swapping a ring for a thousand pounds' worth of something.",
+     "walkthrough": "O in AMAZON gives way to I, and G for grand is added at the end.",
+     "definitionFit": "Amazing and wonderful are synonyms, both meaning causing great wonder or delight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 20,
@@ -411,7 +1583,63 @@
      }
     ]
    },
-   "solution": "DUEDATE"
+   "solution": "DUEDATE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "DUE DATE",
+    "definitions": [
+     {
+      "text": "when extra family might come?",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cuts",
+      "for": "container",
+      "note": "to cut into something is to enter it, so the letter goes inside the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "turkey",
+      "gives": "DUD",
+      "note": "a turkey is a flop, a dud"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "consumed",
+      "gives": "ATE",
+      "note": "past tense of eat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DU",
+      "E",
+      "D",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A European carving the Christmas turkey, eaten when relatives descend.",
+     "walkthrough": "Turkey and visiting family suggest Christmas; the extra family member is a new baby arriving.",
+     "definitionFit": "A due date is the expected day of a baby's birth, when an addition to the family is likely to arrive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "turkey"
+    }
+   }
   },
   {
    "number": 21,
@@ -425,7 +1653,65 @@
     "text": "Crazed fratricide turned on mother",
     "enumeration": "6"
    },
-   "solution": "MANIAC"
+   "solution": "MANIAC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "MANIAC",
+    "definitions": [
+     {
+      "text": "Crazed",
+      "at": 0,
+      "note": "maniac used as an adjective, meaning frenzied"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned",
+      "for": "reversal",
+      "note": "something turned round faces the other way, so the name runs backwards"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "an informal word for mother"
+     },
+     {
+      "clueFragment": "fratricide",
+      "gives": "CAIN",
+      "note": "in Genesis Cain killed his brother Abel, the first fratricide"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "NIAC"
+     ],
+     "reversals": [
+      {
+       "from": "CAIN",
+       "to": "NIAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deranged brother-killer turns on his own mother.",
+     "walkthrough": "In an across clue 'on' places the reversed name after MA.",
+     "definitionFit": "Maniac as an adjective means wildly frenzied, which is crazed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 22,
@@ -439,7 +1725,45 @@
     "text": "At a lecture seeing faculty's names",
     "enumeration": "5"
    },
-   "solution": "CITES"
+   "solution": "CITES",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CITES",
+    "definitions": [
+     {
+      "text": "names",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "At a lecture",
+      "for": "homophone",
+      "note": "a lecture is heard by an audience, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seeing faculty's",
+      "gives": "CITES",
+      "soundsLike": "SIGHTS",
+      "note": "sight is the faculty of seeing"
+     }
+    ],
+    "explanation": {
+     "surface": "At a university lecture, someone notices which teaching staff are named.",
+     "walkthrough": "'faculty' suggests university staff; here it means a power of the body, sight.",
+     "definitionFit": "To cite is to name or quote as an authority, so cites means names."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "faculty's"
+    }
+   }
   },
   {
    "number": 23,
@@ -453,7 +1777,54 @@
     "text": "Rotating component plumber's fitting under the sink",
     "enumeration": "4"
    },
-   "solution": "TRAP"
+   "solution": "TRAP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TRAP",
+    "definitions": [
+     {
+      "text": "plumber's fitting under the sink",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rotating",
+      "for": "reversal",
+      "note": "rotating turns something round, so the word is read the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "component",
+      "gives": "PART",
+      "note": "a part is a component"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAP"
+     ],
+     "reversals": [
+      {
+       "from": "PART",
+       "to": "TRAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plumber fitting a spinning part beneath a sink.",
+     "walkthrough": "'Rotating component' sounds like one mechanical item; only the second word supplies letters.",
+     "definitionFit": "A trap is the U-bend in a waste pipe under a sink that holds water to block sewer smells."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rotating"
+    }
+   }
   },
   {
    "number": 24,
@@ -467,7 +1838,62 @@
     "text": "What's in roe? See answer",
     "enumeration": "3"
    },
-   "solution": "OVA"
+   "solution": "OVA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OVA",
+    "definitions": [
+     {
+      "text": "What's in roe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "What's in",
+      "for": "letter_selection",
+      "note": "what is in a word is its interior, so only the central letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "roe",
+      "gives": "O",
+      "select": "middle",
+      "note": "the middle letter"
+     },
+     {
+      "clueFragment": "See",
+      "gives": "V",
+      "note": "v. abbreviates vide, Latin for see"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the abbreviation for answer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "V",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about fish roe, with a pointer to the answer.",
+     "walkthrough": "'What's in roe' does double duty: it is the definition and also picks the middle letter of roe.",
+     "definitionFit": "Ova are eggs, and roe is the mass of eggs inside a fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "See"
+    }
+   }
   },
   {
    "number": 25,
@@ -481,7 +1907,70 @@
     "text": "Upright member on internet surprisingly rude",
     "enumeration": "11"
    },
-   "solution": "IMPERTINENT"
+   "solution": "IMPERTINENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "IMPERTINENT",
+    "definitions": [
+     {
+      "text": "rude",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surprisingly",
+      "for": "anagram",
+      "note": "surprisingly means in an unexpected way, so the letters come out in an unexpected order"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Upright",
+      "gives": "I",
+      "note": "the letter I stands upright like a post"
+     },
+     {
+      "clueFragment": "member",
+      "gives": "MP",
+      "note": "a Member of Parliament"
+     },
+     {
+      "clueFragment": "internet",
+      "gives": "ERTINENT",
+      "note": "these letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MP",
+      "ERTINENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INTERNET",
+       "gives": "ERTINENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An upstanding MP being unexpectedly rude online.",
+     "walkthrough": "'Upright member' reads as a respectable MP; the two words supply separate pieces.",
+     "definitionFit": "Impertinent means cheekily disrespectful, a synonym for rude."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Upright"
+    }
+   }
   },
   {
    "number": 26,
@@ -495,7 +1984,66 @@
     "text": "Low mount needing female climber's second rope …",
     "enumeration": "7"
    },
-   "solution": "SHELTIE"
+   "solution": "SHELTIE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SHELTIE",
+    "definitions": [
+     {
+      "text": "Low mount",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "second",
+      "for": "letter_selection",
+      "note": "second points to the letter in position two, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female",
+      "gives": "SHE",
+      "note": "the female pronoun"
+     },
+     {
+      "clueFragment": "climber's",
+      "gives": "L",
+      "select": 2,
+      "note": "the second letter of climber"
+     },
+     {
+      "clueFragment": "rope",
+      "gives": "TIE",
+      "note": "to rope something is to tie it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHE",
+      "L",
+      "TIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A climber needs a rope to get onto a low mountain.",
+     "walkthrough": "'mount' looks like a hill for climbing; it is a horse to ride. A sheltie is a Shetland pony.",
+     "definitionFit": "A sheltie, or Shetland pony, is a small horse, so it is a mount that stands low."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mount"
+    }
+   }
   },
   {
    "number": 27,
@@ -509,7 +2057,58 @@
     "text": "… gas used partly for legendarily high one?",
     "enumeration": "7"
    },
-   "solution": "PEGASUS"
+   "solution": "PEGASUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PEGASUS",
+    "definitions": [
+     {
+      "text": "legendarily high one?",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "partly",
+      "for": "deletion",
+      "note": "partly means only a portion is used, so the phrase is cut short and loses its tail"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "…",
+      "gives": "PE",
+      "note": "the ellipsis carries on from rope, the last word of 26-across, and these are its final two letters"
+     },
+     {
+      "clueFragment": "gas used",
+      "gives": "GASUSED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "GASUS"
+     ]
+    },
+    "explanation": {
+     "surface": "Gas consumed in part to send something mythically high.",
+     "walkthrough": "In effect a hidden word spanning two clues: the ellipsis joins rope at the end of 26-across to gas used here, and the answer sits in roPE GAS USed.",
+     "definitionFit": "Pegasus is the winged horse of Greek myth that flew up to the heavens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "gas"
+    }
+   }
   }
  ]
 }
