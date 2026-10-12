@@ -270,7 +270,11 @@ def build_spec(puzzle):
         for number, length, leader in pending[d]:
             hit = slots.pop(number, None)
             if hit is not None:
-                hd, i = hit
+                # Found by number now: an insertion since _redirect_slots
+                # ran may have moved it.
+                hd = hit[0]
+                i = next(k for k, lg in enumerate(parsed[hd])
+                         if lg[0] == number and lg[2] == "redirect")
                 # The redirect's OWN printed text ("See 15") stays on this
                 # slot: it is what the book prints here, and the leader keeps
                 # the full clue at its own slot.

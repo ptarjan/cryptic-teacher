@@ -59,6 +59,9 @@ TIMES_LISTING = ROOT / "times-listing"
 FIFTEENSQUARED = ROOT / "fifteensquared"
 TIMESFORTHETIMES = ROOT / "timesforthetimes"
 GEORGEHO = ROOT / "georgeho"
+# The Nation's puzzle pages, html/<slug>.html, and the sitemap's list of them
+# (tools/fetch_nation.py).
+NATION = ROOT / "nation"
 # tools/cross_validate.py's per-source report, <source>.jsonl.
 CROSS_VALIDATE = ROOT / "cross-validate"
 

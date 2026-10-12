@@ -206,6 +206,8 @@ ACQUIRED_BY = {
         "what": "observer.co.uk, where the Everyman moved in 2025"},
     "tools/fetch_metro.py": {
         "channel": "publisher", "what": "metro.co.uk's live puzzle page"},
+    "tools/fetch_nation.py": {
+        "channel": "publisher", "what": "thenation.com's puzzle article pages"},
     "tools/fetch_metro.py --wayback": {
         "channel": "wayback", "what": "a Wayback capture of metro.co.uk, which "
                                       "only serves the current day"},
@@ -345,6 +347,7 @@ ACQUISITION_BY_SOURCE = {
     ("azed", "static.guim.co.uk"): ("tools/andlit_azed.py",),
     ("azed", "uploads.guim.co.uk"): ("tools/andlit_azed.py",),
     ("genius", "www.theguardian.com"): ("tools/genius_puzzles.py",),
+    ("nation", "www.thenation.com"): ("tools/fetch_nation.py",),
     ("listener", "www.listenercrossword.com"): ("tools/listener_puzzles.py",),
     ("listener", "www.thetimes.com"): ("tools/listener_puzzles.py --wayback",),
     ("listener", "go.gale.com"): ("tools/file_gale_listener.py",),
