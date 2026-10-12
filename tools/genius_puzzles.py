@@ -251,7 +251,7 @@ HEADER = re.compile(r"Genius\W{0,4}(?:crossword\W{0,4})?No\s*\.?\s*(\d{1,3})(?:\
 #: What the entry form and page furniture leave in the preamble: a byline
 #: printed apart from the header, a form's "Traced letter: ___", a link.
 FURNITURE = re.compile(r"(?i)\bset by [A-Za-z]+\b|[A-Z][\w ]{0,30}:\s*_{2,}|click here to register\.?|"
-                       r"^\s*across\b|\bG\s?E\s?N\s?I\s?U\s?S\s+No\.?\s*\d+")
+                       r"^\s*across\b|\bG\s?E\s?N\s?I\s?U\s?S\s+(?:No\.?\s*)?\d+")
 #: A preamble that says answers change on their way into the grid: the
 #: write-up's answers are then the entries, and the clue's answer differs.
 ALTERED = re.compile(r"(?i)before (?:entry|being entered|entering)|(?:entry|entered) in the grid|"
