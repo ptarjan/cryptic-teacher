@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,85 @@
      }
     ]
    },
-   "solution": "WASHINGMACHINE"
+   "solution": "WASHINGMACHINE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "WASHING MACHINE",
+    "definitions": [
+     {
+      "text": "Spinner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head of a name is its opening letter, so only the start of the bowler's surname is kept"
+     },
+     {
+      "text": "getting out",
+      "for": "anagram",
+      "note": "letters getting out of their places scatter and can be set down again in a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shane",
+      "gives": "SHANE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Warne's",
+      "gives": "W",
+      "select": "first",
+      "note": "the first letter of the cricketer's surname"
+     },
+     {
+      "clueFragment": "aching",
+      "gives": "ACHING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "maiden",
+      "gives": "M",
+      "note": "M is the cricket scorecard abbreviation for a maiden over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WASHINGMACHINE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SHANEWACHINGIM",
+       "gives": "WASHINGMACHINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Leg-spinner Shane Warne, nursing a headache, is dismissed after bowling a maiden over.",
+     "walkthrough": "'Spinner' suggests Warne, the famous Australian spin bowler, but it is the definition. A maiden is an over in cricket from which no runs are scored.",
+     "definitionFit": "A washing machine spins clothes in its drum to wring out water, so it is jocularly a spinner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Spinner"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +134,75 @@
     "text": "Fighter, eg wrestler (not small), stopped early with wound",
     "enumeration": "12"
    },
-   "solution": "WELTERWEIGHT"
+   "solution": "WELTERWEIGHT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "WELTERWEIGHT",
+    "definitions": [
+     {
+      "text": "Fighter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not small",
+      "for": "deletion",
+      "note": "not small says the abbreviation for small must be taken away"
+     },
+     {
+      "text": "stopped early",
+      "for": "deletion",
+      "note": "something stopped early never reaches its end, so its final letter goes"
+     },
+     {
+      "text": "wound",
+      "for": "anagram",
+      "note": "wound as the past of wind means twisted round, so the letters are turned into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eg",
+      "gives": "EG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "wrestler",
+      "gives": "WRESTLER",
+      "note": "taken as written, before losing letters"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "WITH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WELTERWEIGHT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EGWRETLEWITH",
+       "gives": "WELTERWEIGHT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boxer, or perhaps a wrestler, is halted prematurely by an injury.",
+     "walkthrough": "The wrestler loses its S and its last letter to give WRETLE, then everything from 'eg' to 'with' is rearranged; 'wound' is the twisting signal, not an injury.",
+     "definitionFit": "A welterweight is a boxer in the weight class between lightweight and middleweight, so a fighter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wound"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +216,63 @@
     "text": "Extremely scared around brown bear",
     "enumeration": "5"
    },
-   "solution": "STAND"
+   "solution": "STAND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STAND",
+    "definitions": [
+     {
+      "text": "bear",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes of a word, its first and last letters"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around says one piece wraps about the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scared",
+      "gives": "SD",
+      "select": "outer",
+      "note": "the outside letters of the word"
+     },
+     {
+      "clueFragment": "brown",
+      "gives": "TAN",
+      "note": "tan is a light brown"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TAN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is terrified by a brown bear nearby.",
+     "walkthrough": "'Bear' looks like the animal, but it is the verb meaning tolerate.",
+     "definitionFit": "To stand something is to tolerate it, as in 'I can't bear him' or 'I can't stand him'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bear"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +286,52 @@
     "text": "Made-up cuties, men swell up",
     "enumeration": "9"
    },
-   "solution": "INTUMESCE"
+   "solution": "INTUMESCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INTUMESCE",
+    "definitions": [
+     {
+      "text": "swell up",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Made-up",
+      "for": "anagram",
+      "note": "something made up is invented or fabricated, so the letters are composed afresh"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cuties, men",
+      "gives": "CUTIESMEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CUTIESMEN",
+       "gives": "INTUMESCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pretty girls in make-up make the men swoon.",
+     "walkthrough": "'Made-up' reads as wearing cosmetics, but it signals the rearrangement.",
+     "definitionFit": "To intumesce is a technical verb for to enlarge or bulge, as tissue does when inflamed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Made-up"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +345,68 @@
     "text": "Good style, with profiterole initially missing chocolate filling",
     "enumeration": "7"
    },
-   "solution": "GANACHE"
+   "solution": "GANACHE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "GANACHE",
+    "definitions": [
+     {
+      "text": "chocolate filling",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "deletion",
+      "note": "initially points to the first letter of the pastry's name"
+     },
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "missing says that letter is absent from the word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "style",
+      "gives": "PANACHE",
+      "note": "panache is flamboyant style"
+     },
+     {
+      "clueFragment": "profiterole",
+      "gives": "P",
+      "note": "the first letter of the pastry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ANACHE"
+     ]
+    },
+    "explanation": {
+     "surface": "A stylish dessert, but the profiterole lacks its chocolate filling.",
+     "walkthrough": "Panache loses the P that begins profiterole, which itself belongs to the dessert scene.",
+     "definitionFit": "Ganache is a smooth mix of chocolate and cream used to fill or coat cakes and pastries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "profiterole"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +420,64 @@
     "text": "Old-fashioned spies set up meeting with chief",
     "enumeration": "7"
    },
-   "solution": "ARCHAIC"
+   "solution": "ARCHAIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ARCHAIC",
+    "definitions": [
+     {
+      "text": "Old-fashioned",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set up",
+      "for": "reversal",
+      "note": "in a down entry, set up means raised so it reads from the bottom upwards"
+     }
+    ],
+    "linkWords": [
+     "meeting with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chief",
+      "gives": "ARCH",
+      "note": "arch means chief, as in archenemy"
+     },
+     {
+      "clueFragment": "spies",
+      "gives": "CIA",
+      "note": "the CIA is the US intelligence agency"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARCH",
+      "AIC"
+     ],
+     "reversals": [
+      {
+       "from": "CIA",
+       "to": "AIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Outdated spooks arrange a meeting with their boss.",
+     "walkthrough": "'Set up' sounds like a sting or a staged meeting, but it turns the agency round.",
+     "definitionFit": "Archaic means belonging to an earlier era, hence old-fashioned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +491,55 @@
     "text": "Indicators of hours and seconds?",
     "enumeration": "5"
    },
-   "solution": "HANDS"
+   "solution": "HANDS",
+   "annotation": {
+    "type": [
+     "charade",
+     "and_lit"
+    ],
+    "answer": "HANDS",
+    "definitions": [
+     {
+      "text": "Indicators of hours and seconds?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hours",
+      "gives": "H",
+      "note": "H is the abbreviation for hours"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "seconds",
+      "gives": "S",
+      "note": "S is the abbreviation for seconds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AND",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about what shows the time on a clock face.",
+     "walkthrough": "Read as a whole, the clue defines clock pointers; read as wordplay, it spells out the abbreviation for hours, the word 'and', and the one for seconds.",
+     "definitionFit": "The hour and second hands on a clock are the pointers that indicate the time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Indicators"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +559,62 @@
      }
     ]
    },
-   "solution": "NUMBERTWO"
+   "solution": "NUMBERTWO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "homophone"
+    ],
+    "answer": "NUMBER TWO",
+    "definitions": [
+     {
+      "text": "Deputy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its final letter is kept"
+     },
+     {
+      "text": "in speech",
+      "for": "homophone",
+      "note": "in speech means as said out loud, so the word is chosen for its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gordon",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of the name"
+     },
+     {
+      "clueFragment": "Brown",
+      "gives": "UMBER",
+      "note": "umber is a brown earth pigment"
+     },
+     {
+      "clueFragment": "also",
+      "gives": "TWO",
+      "soundsLike": "TOO",
+      "note": "too means also, and sounds like the number"
+     }
+    ],
+    "explanation": {
+     "surface": "Gordon Brown's deputy, close by, is also in the speech.",
+     "walkthrough": "Gordon Brown, the former British prime minister, is split in two: his first name gives a letter and his surname a colour.",
+     "definitionFit": "A number two is someone's second-in-command, the person who deputises for the leader."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Brown"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +628,59 @@
     "text": "Did rest with skinny latte in centre",
     "enumeration": "5"
    },
-   "solution": "LEANT"
+   "solution": "LEANT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LEANT",
+    "definitions": [
+     {
+      "text": "Did rest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in centre",
+      "for": "letter_selection",
+      "note": "what sits in the centre of a word is its middle letter, so only that is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "skinny",
+      "gives": "LEAN",
+      "note": "skinny and lean both mean thin"
+     },
+     {
+      "clueFragment": "latte",
+      "gives": "T",
+      "select": "middle",
+      "note": "the middle letter of the five-letter coffee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEAN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes a break with a skimmed-milk coffee.",
+     "walkthrough": "'Skinny latte' reads as one coffee order, but skinny is a separate piece meaning thin.",
+     "definitionFit": "To lean is to rest against something for support, and leant is its past tense, matching did rest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "skinny"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +694,50 @@
     "text": "Tag and arrest somebody",
     "enumeration": "8"
    },
-   "solution": "NICKNAME"
+   "solution": "NICKNAME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NICKNAME",
+    "definitions": [
+     {
+      "text": "Tag",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arrest",
+      "gives": "NICK",
+      "note": "to nick is British slang for to arrest"
+     },
+     {
+      "clueFragment": "somebody",
+      "gives": "NAME",
+      "note": "a somebody, a famous person, is a name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NICK",
+      "NAME"
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer marks a suspect and takes someone into custody.",
+     "walkthrough": "In British slang the police nick, or arrest, a suspect; and a somebody or celebrity is a big name.",
+     "definitionFit": "A tag is an informal label for a person, which is exactly what a nickname is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tag"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +751,52 @@
     "text": "Ungenerous or liberal: perhaps one does mind job in hospital?",
     "enumeration": "12"
    },
-   "solution": "NEUROSURGEON"
+   "solution": "NEUROSURGEON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEUROSURGEON",
+    "definitions": [
+     {
+      "text": "perhaps one does mind job in hospital?",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "liberal",
+      "for": "anagram",
+      "note": "liberal means free and unconstrained, so the letters are freed to take a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ungenerous or",
+      "gives": "UNGENEROUSOR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UNGENEROUSOR",
+       "gives": "NEUROSURGEON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political jibe: is someone mean or liberal, and do they mind working in a hospital?",
+     "walkthrough": "'Liberal' sits opposite 'Ungenerous' as if they were contrasting adjectives, but it signals the rearrangement.",
+     "definitionFit": "A neurosurgeon operates on the brain, so their job, punningly, is a mind job."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "liberal"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +810,65 @@
     "text": "Nurse and medic treated disease",
     "enumeration": "7"
    },
-   "solution": "ENDEMIC"
+   "solution": "ENDEMIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ENDEMIC",
+    "definitions": [
+     {
+      "text": "disease",
+      "at": 24,
+      "note": "endemic is usually an adjective; as a noun it means an endemic disease"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "treated",
+      "for": "anagram",
+      "note": "something treated has been worked on and altered, so these letters are processed into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nurse",
+      "gives": "EN",
+      "note": "EN is an enrolled nurse"
+     },
+     {
+      "clueFragment": "medic",
+      "gives": "MEDIC",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "DEMIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MEDIC",
+       "gives": "DEMIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hospital staff, a nurse and a doctor, cared for someone's illness.",
+     "walkthrough": "'Treated' looks like the medical verb of the scene, but it signals the rearrangement of the doctor's letters.",
+     "definitionFit": "An endemic is an illness constantly present within a particular region or population, such as malaria in some tropics."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "treated"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +882,61 @@
     "text": "Simple one providing food without frills entertaining me, informally",
     "enumeration": "7"
    },
-   "solution": "AUSTERE"
+   "solution": "AUSTERE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "AUSTERE",
+    "definitions": [
+     {
+      "text": "Simple",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without frills",
+      "for": "deletion",
+      "note": "frills are trimmings at the edges, so the word loses its outer letters"
+     },
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "a host entertaining a guest has them inside the house, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one providing food",
+      "gives": "CATERER",
+      "note": "a caterer supplies food"
+     },
+     {
+      "clueFragment": "me, informally",
+      "gives": "US",
+      "note": "us is a colloquial way to say me, as in 'give us a kiss'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "US",
+      "TERE"
+     ]
+    },
+    "explanation": {
+     "surface": "A no-nonsense caterer serves plain fare to the speaker.",
+     "walkthrough": "Stripping the outer letters from the caterer leaves ATERE, and the informal 'me' goes in after its first letter.",
+     "definitionFit": "Austere describes something plain and unadorned, a close synonym of simple in style."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "frills"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +950,50 @@
     "text": "Pay women to get dates",
     "enumeration": "5"
    },
-   "solution": "WAGES"
+   "solution": "WAGES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WAGES",
+    "definitions": [
+     {
+      "text": "Pay",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "women",
+      "gives": "W",
+      "note": "W is the abbreviation for women"
+     },
+     {
+      "clueFragment": "dates",
+      "gives": "AGES",
+      "note": "dates and ages are both periods of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "AGES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pays women for romantic dates.",
+     "walkthrough": "'Dates' suggests romance, but here it means periods of history.",
+     "definitionFit": "Wages are the regular payment earned for work, a straightforward synonym of pay as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dates"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +1007,73 @@
     "text": "'Grand' and 'most ancient' describe wings of Christopher Wren?",
     "enumeration": "9"
    },
-   "solution": "GOLDCREST"
+   "solution": "GOLDCREST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "GOLDCREST",
+    "definitions": [
+     {
+      "text": "Wren?",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wings of",
+      "for": "letter_selection",
+      "note": "the wings of a word are its two outer edges, its first and last letters"
+     },
+     {
+      "text": "describe",
+      "for": "container",
+      "note": "to describe a circle is to draw round it, so these pieces go around another"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grand",
+      "gives": "G",
+      "note": "G is the abbreviation for grand, a thousand"
+     },
+     {
+      "clueFragment": "most ancient",
+      "gives": "OLDEST",
+      "note": "the superlative of old"
+     },
+     {
+      "clueFragment": "Christopher",
+      "gives": "CR",
+      "select": "outer",
+      "note": "the outside letters of the first name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "OLD",
+      "CR",
+      "EST"
+     ]
+    },
+    "explanation": {
+     "surface": "Grand and ancient words are used of Sir Christopher Wren's architecture.",
+     "walkthrough": "Christopher Wren, architect of St Paul's, is split: his first name supplies outer letters while 'Wren' is the definition. The ? flags a definition by example.",
+     "definitionFit": "The goldcrest is a tiny songbird, like the wren, so a wren-like bird is offered as an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Wren"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1087,61 @@
     "text": "Mostly screw, drinking sparkling wine: one could be at mine",
     "enumeration": "9"
    },
-   "solution": "EXCAVATOR"
+   "solution": "EXCAVATOR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "EXCAVATOR",
+    "definitions": [
+     {
+      "text": "one could be at mine",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mostly",
+      "for": "deletion",
+      "note": "mostly means not all of it, so the final letter is dropped"
+     },
+     {
+      "text": "drinking",
+      "for": "container",
+      "note": "whoever is drinking takes the liquid inside, so one piece swallows another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "screw",
+      "gives": "EXTORT",
+      "note": "to screw money out of someone is to extort it"
+     },
+     {
+      "clueFragment": "sparkling wine",
+      "gives": "CAVA",
+      "note": "cava is a Spanish sparkling wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "CAVA",
+      "TOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A drunken extortionist is at it again with the bubbly.",
+     "walkthrough": "The verb meaning screw loses its last letter, then holds the Spanish fizz after its first two letters.",
+     "definitionFit": "An excavator is a digging machine, so one may well be working at a quarry or pit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "screw"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1161,62 @@
      }
     ]
    },
-   "solution": "VICEVERSA"
+   "solution": "VICEVERSA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "VICE VERSA",
+    "definitions": [
+     {
+      "text": "the other way round",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put in",
+      "for": "container",
+      "note": "whatever is put in goes inside, so these pieces are placed within the card"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "credit card",
+      "gives": "VISA",
+      "note": "Visa is a brand of credit card"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO alphabet"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "EVER",
+      "note": "ever means always, as in ever hopeful"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "C",
+      "EVER",
+      "SA"
+     ]
+    },
+    "explanation": {
+     "surface": "Charlie keeps sliding his credit card in back to front.",
+     "walkthrough": "'The other way round' sounds like a reversal signal, but it is the definition.",
+     "definitionFit": "Vice versa is the Latin phrase meaning with the order or positions reversed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1230,50 @@
     "text": "Hurtful points in complaints",
     "enumeration": "9"
    },
-   "solution": "ILLNESSES"
+   "solution": "ILLNESSES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ILLNESSES",
+    "definitions": [
+     {
+      "text": "complaints",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hurtful",
+      "gives": "ILL",
+      "note": "ill can mean harmful, as in ill effects"
+     },
+     {
+      "clueFragment": "points",
+      "gives": "NESSES",
+      "note": "a ness is a headland or point of land"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILL",
+      "NESSES"
+     ]
+    },
+    "explanation": {
+     "surface": "Wounding remarks are made in a set of grievances.",
+     "walkthrough": "'Complaints' reads as grievances, but it means ailments. A ness is a promontory, as in Loch Ness's neighbour Inverness or Sheerness.",
+     "definitionFit": "Complaints in the medical sense are ailments, the same as illnesses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "complaints"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1293,47 @@
      }
     ]
    },
-   "solution": "SORTOUT"
+   "solution": "SORTOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SORT OUT",
+    "definitions": [
+     {
+      "text": "Deal with",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kind",
+      "gives": "SORT",
+      "note": "a kind and a sort are both a type"
+     },
+     {
+      "clueFragment": "public",
+      "gives": "OUT",
+      "note": "once news is out it is public"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SORT",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A thoughtful person handles the general public.",
+     "walkthrough": "'Kind' looks like an adjective for gentle, but it is the noun meaning type.",
+     "definitionFit": "To sort out a problem is to handle or resolve it, the phrasal equivalent of deal with."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "kind"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1347,53 @@
     "text": "Pick up heavy breathing on microphone, that's shocking",
     "enumeration": "7"
    },
-   "solution": "SEISMIC"
+   "solution": "SEISMIC",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "SEISMIC",
+    "definitions": [
+     {
+      "text": "that's shocking",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Pick up",
+      "for": "homophone",
+      "note": "to pick up is to hear and catch a sound, so the word is chosen for how it is heard"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heavy breathing",
+      "gives": "SEIS",
+      "soundsLike": "SIGHS",
+      "note": "sighs are heavy breaths, and the word sounds like 'size'"
+     },
+     {
+      "clueFragment": "microphone",
+      "gives": "MIC",
+      "note": "the common short form"
+     }
+    ],
+    "explanation": {
+     "surface": "A phone pest's heavy breathing is caught on the mic, which is shocking.",
+     "walkthrough": "'Pick up' suggests a microphone or a phone, but it signals a sound-alike. The definition is extended: something seismic is earth-shaking.",
+     "definitionFit": "Seismic relates to earthquakes, figuratively anything with enormous impact, so a shock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Pick"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1407,44 @@
     "text": "Ford hybrid",
     "enumeration": "5"
    },
-   "solution": "CROSS"
+   "solution": "CROSS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CROSS",
+    "definitions": [
+     {
+      "text": "Ford",
+      "at": 0
+     },
+     {
+      "text": "hybrid",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ford",
+      "note": "first meaning: to wade across a river"
+     },
+     {
+      "clueFragment": "hybrid",
+      "note": "second meaning: an animal or plant bred from two kinds"
+     }
+    ],
+    "explanation": {
+     "surface": "A Ford car with a hybrid engine.",
+     "walkthrough": "The capital F makes Ford look like the carmaker, but it is the verb to ford, to go across water.",
+     "definitionFit": "The word is a verb for traversing a river and a noun for the offspring of two different breeds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ford"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1458,62 @@
     "text": "Routine intruder? Inspector without lead to cross line",
     "enumeration": "7"
    },
-   "solution": "HECKLER"
+   "solution": "HECKLER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "HECKLER",
+    "definitions": [
+     {
+      "text": "Routine intruder?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without lead",
+      "for": "deletion",
+      "note": "having no lead means the front letter is lost"
+     },
+     {
+      "text": "to cross",
+      "for": "container",
+      "note": "a word stretched to cross something lies over it on both sides, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Inspector",
+      "gives": "CHECKER",
+      "note": "a checker inspects things"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HECK",
+      "L",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "An inspector, leaderless, steps over a boundary while an intruder is about.",
+     "walkthrough": "'Routine' means a comedian's act, not a daily habit, so the intruder is someone who interrupts a performance.",
+     "definitionFit": "A heckler shouts interruptions during a stand-up's act, intruding on the routine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Routine"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1527,51 @@
     "text": "Toilet: nothing is cleaner in bathroom?",
     "enumeration": "5"
    },
-   "solution": "LOOFA"
+   "solution": "LOOFA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOOFA",
+    "definitions": [
+     {
+      "text": "cleaner in bathroom?",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Toilet",
+      "gives": "LOO",
+      "note": "loo is British slang for a toilet"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "FA",
+      "note": "sweet FA is British slang for nothing at all"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOO",
+      "FA"
+     ]
+    },
+    "explanation": {
+     "surface": "Is there no cleaner for the bathroom toilet?",
+     "walkthrough": "'Cleaner' suggests a person or a product like bleach, but it is a bath sponge.",
+     "definitionFit": "A loofah is the dried fibrous gourd used as a scrubbing sponge in the bath."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cleaner"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1585,62 @@
     "text": "Concerned with duke over Virginia: Queen stands by attacker",
     "enumeration": "7"
    },
-   "solution": "INVADER"
+   "solution": "INVADER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INVADER",
+    "definitions": [
+     {
+      "text": "attacker",
+      "at": 51
+     }
+    ],
+    "linkWords": [
+     "stands by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Concerned with",
+      "gives": "IN",
+      "note": "to be in something is to be involved or concerned with it"
+     },
+     {
+      "clueFragment": "Virginia",
+      "gives": "VA",
+      "note": "VA is the postal abbreviation for the US state"
+     },
+     {
+      "clueFragment": "duke",
+      "gives": "D",
+      "note": "D is the abbreviation for duke"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina, the late Queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "VA",
+      "D",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A duke presiding over Virginia, with the Queen supporting him, faces an assailant.",
+     "walkthrough": "'Over' here means after: the duke follows Virginia. ER stands for Elizabeth Regina.",
+     "definitionFit": "An invader is one who attacks and enters territory by force, so an attacker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stands"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1654,64 @@
     "text": "Daughter at store held up jeans",
     "enumeration": "5"
    },
-   "solution": "DENIM"
+   "solution": "DENIM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DENIM",
+    "definitions": [
+     {
+      "text": "jeans",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held up",
+      "for": "reversal",
+      "note": "in a down entry, held up means lifted so it reads from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     },
+     {
+      "clueFragment": "store",
+      "gives": "MINE",
+      "note": "a mine is a store or rich supply"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ENIM"
+     ],
+     "reversals": [
+      {
+       "from": "MINE",
+       "to": "ENIM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter at the shop holds up a pair of jeans.",
+     "walkthrough": "'Store' and 'held up' suggest a shop robbery; store is a rich source and the word is turned round.",
+     "definitionFit": "Denim is the cotton twill that jeans are made of, so it stands for the jeans themselves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "held"
+    }
+   }
   },
   {
    "number": 25,
@@ -407,7 +1725,66 @@
     "text": "Romeo and Juliet, both principally drunk bottle",
     "enumeration": "8"
    },
-   "solution": "JEROBOAM"
+   "solution": "JEROBOAM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "JEROBOAM",
+    "definitions": [
+     {
+      "text": "bottle",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "principally",
+      "for": "letter_selection",
+      "note": "principally means at the start, so each word keeps only its leading letter"
+     },
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "someone drunk staggers about out of line, so these letters fall into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Romeo",
+      "gives": "ROMEO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "and Juliet, both",
+      "gives": "AJB",
+      "select": "first",
+      "note": "the opening letter of each of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JEROBOAM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROMEOAJB",
+       "gives": "JEROBOAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shakespeare's lovers, both mainly tipsy, polish off a big bottle.",
+     "walkthrough": "Romeo is used whole, while 'principally' applies only to the three words after it.",
+     "definitionFit": "A jeroboam is an oversized wine or champagne bottle, holding about four standard bottles' worth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Romeo"
+    }
+   }
   },
   {
    "number": 26,
@@ -421,7 +1798,62 @@
     "text": "Wash back of woman in spring",
     "enumeration": "5"
    },
-   "solution": "RINSE"
+   "solution": "RINSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RINSE",
+    "definitions": [
+     {
+      "text": "Wash",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back of",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter, so only that is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the one piece within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spring",
+      "gives": "RISE",
+      "note": "spring up and rise both mean to come up"
+     },
+     {
+      "clueFragment": "woman",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "N",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman washes her back in a natural spring.",
+     "walkthrough": "'Spring' suggests water, matching the washing, but it is a verb meaning to rise.",
+     "definitionFit": "To rinse is to wash lightly with clean water, a direct synonym of wash."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spring"
+    }
+   }
   },
   {
    "number": 27,
@@ -441,7 +1873,70 @@
      }
     ]
    },
-   "solution": "ATLANTICSALMON"
+   "solution": "ATLANTICSALMON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ATLANTIC SALMON",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter, so that alone is taken"
+     },
+     {
+      "text": "tricked",
+      "for": "anagram",
+      "note": "something tricked out is dressed up and remade, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "to bite"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in canal almost",
+      "gives": "INCANALALMOST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bait",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATLANTICSALMON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INCANALALMOSTT",
+       "gives": "ATLANTICSALMON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fish in a canal was nearly fooled into taking the bait.",
+     "walkthrough": "'Almost' looks like a deletion signal applied to canal, but it is part of the fodder letters. 'Fish' looks like a verb, but it is the definition.",
+     "definitionFit": "The Atlantic salmon is a large migratory species of the North Atlantic, so a fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "almost"
+    }
+   }
   }
  ]
 }
