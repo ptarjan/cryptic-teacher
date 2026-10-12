@@ -34,13 +34,16 @@ export OCR_REMOTE="${OCR_REMOTE-micro@192.168.1.198,micro@100.68.145.15}"
 export OCR_THREADS="${OCR_THREADS:-1}"
 FRESH="$(python3 -c 'import sys; sys.path.insert(0, "tools"); import gale_inbox; print(gale_inbox.FRESH)')"
 SECONDS_CAP=900
+# Downloads land at ~130 an hour and a page reads in ~2 min on one desktop
+# thread, so two workers (~60 an hour) fell behind: filing lagged 10-50 min.
+WORKERS=5
 # A unit runs at most edition_queue.READ_SECONDS past the cap.
 GRACE=1300
 mkdir -p "$HOME/.cache/archive_org_crops/unfiled"
 echo "=== Gale reads from $(date '+%F %T'), editions laid out in the last ${FRESH}s ==="
 durable_run "Gale OCR" \
   timeout "$((SECONDS_CAP + GRACE))" nice -n 19 python3 tools/edition_queue.py run --paper gale \
-  --newer-than "$FRESH" --seconds "$SECONDS_CAP" --workers 2 --out "$HOME/.cache/archive_org_crops/unfiled"
+  --newer-than "$FRESH" --seconds "$SECONDS_CAP" --workers "$WORKERS" --out "$HOME/.cache/archive_org_crops/unfiled"
 rc=$?
 durable_checkpoint "Gale OCR" || echo "commit failed for the Gale reads; the next start salvages them"
 echo "=== Gale reads done $(date '+%F %T') (rc=$rc) ==="
