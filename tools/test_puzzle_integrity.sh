@@ -191,6 +191,11 @@ other = copy.deepcopy(bare)
 next(e for e in other["entries"] if e.get("annotation")
      and not e["annotation"].get("definedByPreamble"))["annotation"].pop("answer")
 print("OTHER", "-".join(await_preamble.which(path, other)) or "none")
+supplied = copy.deepcopy(bare)
+for e in supplied["entries"]:
+    if (e.get("annotation") or {}).pop("definedByPreamble", None):
+        e["annotation"]["blocks"] = e["annotation"].get("blocks", []) + [{"gives": "EAR"}]
+print("SUPPLIED", "-".join(await_preamble.left_to_preamble(supplied)) or "none")
 flagged = dict(bare, awaitsPreamble=True)
 print("FLAGGED", pi.awaits_preamble(flagged))
 print("ARRIVED", pi.awaits_preamble(dict(flagged, preamble="Unclued answers are birds.")))
@@ -209,6 +214,7 @@ PY
 died "$out_await" "the await-preamble fixture"
 same "the run's sole failure is the missing preamble: its entries are listed" "$(field WHICH "$out_await" | grep -c '[0-9][AD]')" "1"
 same "a puzzle holding its preamble awaits none" "$(field HELD "$out_await")" "none"
+same "letters a block takes from the preamble lean on it too" "$(field SUPPLIED "$out_await" | grep -c '[0-9][AD]')" "1"
 same "a run that failed on anything else too is parked instead" "$(field OTHER "$out_await")" "none"
 same "awaitsPreamble keeps it from the annotators" "$(field FLAGGED "$out_await")" "True"
 same "until a preamble is filed" "$(field ARRIVED "$out_await")" "False"
