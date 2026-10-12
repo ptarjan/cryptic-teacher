@@ -1503,7 +1503,7 @@ def funnel_chart(row):
         note = f" · {100 * n / known:.0f}%"
         if i == 1:
             wf = width * filed / known
-            bar = (f'<rect class="ph-filed" x="{left}" y="{y + 5}" width="{wf:.1f}" height="18"/>'
+            bar = (f'<rect class="ph-queued" x="{left}" y="{y + 5}" width="{wf:.1f}" height="18"/>'
                    f'<rect class="ph-queued unread" x="{left + wf:.1f}" y="{y + 5}" width="{w - wf:.1f}" height="18"/>')
             note += f" ({unread:,} not read yet)"
         else:
@@ -1667,7 +1667,10 @@ def progress_page(idx, today=None):
         held = (datetime.fromisoformat(today) - datetime.fromisoformat(pts[0][0])).days
         share = "" if ph == progress.FILED else f"{100 * n / known:.0f}%"
         pace = "" if ph == progress.FILED else at_pace(known - n, per7)
-        rows.append(f'<tr><td><span class="key-dot ph-{progress.PHASES[ph]}"></span>{PHASE_LABEL[ph]}</td>'
+        # Acquired has no bar of its own (the funnel draws downloaded), so no
+        # colour key either: a dot would promise a colour no bar shows.
+        dot = "" if ph == progress.ACQUIRED else f'<span class="key-dot ph-{progress.PHASES[ph]}"></span>'
+        rows.append(f'<tr><td>{dot}{PHASE_LABEL[ph]}</td>'
                     f"<td>{n:,}</td><td>{share}</td><td>{per7 or 0:,.0f}</td>"
                     f"<td class=\"wide\">{per30 or 0:,.0f}{'' if held >= 30 else f' ({held} days)'}</td>"
                     f"<td>{pace}</td></tr>")
