@@ -56,7 +56,6 @@ filed (tools/durable.sh); only then is the rest of its session killed.
 """
 import argparse
 import datetime
-import fcntl
 import json
 import os
 import signal
@@ -205,6 +204,7 @@ def lock_of(ledger):
 
 def ledger_held():
     """The ledger lock a scan filer holds right now, or None."""
+    import fcntl  # not at the top: ocr_remote's serve path imports this module on the Windows desktop, which has no fcntl
     for ledger in LEDGERS:
         path = lock_of(ledger)
         if not path.exists():
