@@ -24,6 +24,9 @@
   "date": "2023-10-16",
   "check": "grid rebuilt from the blog's light list (unique after crossings); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,42 @@
     "text": "Dance in colossal saloon",
     "enumeration": "5"
    },
-   "solution": "SALSA"
+   "solution": "SALSA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SALSA",
+    "definitions": [
+     {
+      "text": "Dance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "'in' tells the solver the answer sits inside the run of letters that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "colossal saloon",
+      "gives": "SALSA",
+      "note": "the letters straddle the join between the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone dances in a huge bar.",
+     "definitionFit": "Salsa is a lively Latin American dance style, so it is one example of a dance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "colossal"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +89,47 @@
     "text": "Feature of a pirate flag from racing boat, reportedly",
     "enumeration": "5"
    },
-   "solution": "SKULL"
+   "solution": "SKULL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SKULL",
+    "definitions": [
+     {
+      "text": "Feature of a pirate flag",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "'reportedly' means as it is said out loud, so the word is chosen for its sound"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "racing boat",
+      "gives": "SKULL",
+      "soundsLike": "SCULL",
+      "note": "a scull is a light racing rowing boat"
+     }
+    ],
+    "explanation": {
+     "surface": "Pirate flag imagery borrowed from a boat used in racing.",
+     "definitionFit": "The Jolly Roger shows a skull above crossed bones, so the skull is a central emblem of the pirate flag."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "racing"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +143,52 @@
     "text": "Fail to be swimming? This may help!",
     "enumeration": "8"
    },
-   "solution": "LIFEBOAT"
+   "solution": "LIFEBOAT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "LIFEBOAT",
+    "definitions": [
+     {
+      "text": "Fail to be swimming? This may help!",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swimming",
+      "for": "anagram",
+      "note": "letters that are swimming are moving about loosely, so they are to be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fail to be",
+      "gives": "FAILTOBE",
+      "note": "taken as written, all eight letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FAILTOBE",
+       "gives": "LIFEBOAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "If you can't manage to swim, here is something that will rescue you.",
+     "walkthrough": "The whole clue is both wordplay and definition: the rearranged letters give the thing that helps someone who cannot stay afloat.",
+     "definitionFit": "A lifeboat is a rescue vessel that saves people struggling in the water, which is exactly the help the clue describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "swimming"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +202,58 @@
     "text": "Clothes from Santa regularly wear out",
     "enumeration": "6"
    },
-   "solution": "ATTIRE"
+   "solution": "ATTIRE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ATTIRE",
+    "definitions": [
+     {
+      "text": "Clothes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "'regularly' asks for letters taken at even intervals, here every second one"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Santa",
+      "gives": "AT",
+      "select": "alternate",
+      "note": "the second and fourth letters of the word"
+     },
+     {
+      "clueFragment": "wear out",
+      "gives": "TIRE",
+      "note": "to tire is to wear out or exhaust"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "TIRE"
+     ]
+    },
+    "explanation": {
+     "surface": "Father Christmas's red suit gets worn out from all those deliveries.",
+     "definitionFit": "Attire is a formal word for clothing or garments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Santa"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +267,54 @@
     "text": "Stunned a mother with last letter?",
     "enumeration": "6"
    },
-   "solution": "AMAZED"
+   "solution": "AMAZED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMAZED",
+    "definitions": [
+     {
+      "text": "Stunned",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "ma is an informal word for mother"
+     },
+     {
+      "clueFragment": "with last letter",
+      "gives": "ZED",
+      "note": "zed is the British name for Z, the last letter of the alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MA",
+      "ZED"
+     ]
+    },
+    "explanation": {
+     "surface": "A mum is shocked by the final letter she receives.",
+     "walkthrough": "'last letter' reads like a final piece of post, but it is the alphabet's last letter, called zed in Britain.",
+     "definitionFit": "Amazed means greatly surprised, the same as stunned in its sense of astonished."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "letter"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +334,46 @@
      }
     ]
    },
-   "solution": "TODO"
+   "solution": "TODO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TO-DO",
+    "definitions": [
+     {
+      "text": "Kerfuffle",
+      "at": 0
+     },
+     {
+      "text": "not yet completed",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kerfuffle",
+      "note": "first meaning: a fuss or commotion"
+     },
+     {
+      "clueFragment": "not yet completed",
+      "note": "second meaning: a task still outstanding, as on a list"
+     }
+    ],
+    "explanation": {
+     "surface": "The fuss is still unfinished business.",
+     "definitionFit": "A to-do is a fuss or commotion, and a job still to do remains unfinished, so the hyphenated phrase covers both."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Kerfuffle"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +387,61 @@
     "text": "Laid back regarding head of legal getting fired",
     "enumeration": "7"
    },
-   "solution": "RELAXED"
+   "solution": "RELAXED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RELAXED",
+    "definitions": [
+     {
+      "text": "Laid back",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter, so only that letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "regarding",
+      "gives": "RE",
+      "note": "re means concerning or regarding"
+     },
+     {
+      "clueFragment": "legal",
+      "gives": "L",
+      "select": "first",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "getting fired",
+      "gives": "AXED",
+      "note": "to be axed is to be sacked from a job"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "L",
+      "AXED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stays calm about the boss of the legal department being sacked.",
+     "definitionFit": "Laid back is an idiom for calm and easy-going, a synonym of relaxed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +461,53 @@
      }
     ]
    },
-   "solution": "TOTEMPOLE"
+   "solution": "TOTEMPOLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TOTEM POLE",
+    "definitions": [
+     {
+      "text": "native American carving",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dilapidated",
+      "for": "anagram",
+      "note": "a dilapidated building has fallen apart, so its letters are to be rebuilt in another order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Temple too",
+      "gives": "TEMPLETOO",
+      "note": "taken as written, all nine letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEMPLETOO",
+       "gives": "TOTEMPOLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crumbling place of worship is swapped for a tribal carving.",
+     "definitionFit": "Totem poles are tall wooden posts carved with emblems by Indigenous peoples of the Pacific Northwest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dilapidated"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +527,67 @@
      }
     ]
    },
-   "solution": "TABLETENNIS"
+   "solution": "TABLETENNIS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TABLE TENNIS",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "letters that are playing are at play, moving about freely into a new arrangement"
+     },
+     {
+      "text": "split by",
+      "for": "container",
+      "note": "something split by another thing has that thing driven into its middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pills",
+      "gives": "TABLETS",
+      "note": "tablets are pills"
+     },
+     {
+      "clueFragment": "nine",
+      "gives": "ENNI",
+      "note": "the four letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TABLET",
+      "ENNI",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NINE",
+       "gives": "ENNI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Medicine is divided among nine people during a match.",
+     "walkthrough": "The rearranged letters go in just before the final S of the pills word.",
+     "definitionFit": "Table tennis, or ping-pong, is an example of a game played with bats and a light ball."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +601,54 @@
     "text": "Out of shape female entering military group",
     "enumeration": "5"
    },
-   "solution": "UNFIT"
+   "solution": "UNFIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "UNFIT",
+    "definitions": [
+     {
+      "text": "Out of shape",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "something entering another goes inside it, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the standard abbreviation for female"
+     },
+     {
+      "clueFragment": "military group",
+      "gives": "UNIT",
+      "note": "a unit is a body of soldiers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "F",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman joins an army squad while not in good physical condition.",
+     "definitionFit": "Unfit means in poor physical condition, which is what being out of shape describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "female"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +662,70 @@
     "text": "Novel, say, includes a Zulu with a large weapon",
     "enumeration": "7"
    },
-   "solution": "BAZOOKA"
+   "solution": "BAZOOKA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BAZOOKA",
+    "definitions": [
+     {
+      "text": "large weapon",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "includes",
+      "for": "container",
+      "note": "a thing that includes others holds them inside itself"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Novel, say",
+      "gives": "BOOK",
+      "note": "a novel is an example of a book, hence 'say'"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Zulu",
+      "gives": "Z",
+      "note": "Zulu is Z in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "AZ",
+      "OOK",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A novel features a Zulu warrior carrying a big weapon.",
+     "walkthrough": "The first A and the Z go inside the book after its B; the second A is tacked on the end.",
+     "definitionFit": "A bazooka is a shoulder-fired anti-tank rocket launcher, a hefty weapon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Zulu"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +739,59 @@
     "text": "Defamation engulfs king and a politician",
     "enumeration": "7"
    },
-   "solution": "LIBERAL"
+   "solution": "LIBERAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LIBERAL",
+    "definitions": [
+     {
+      "text": "politician",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "engulfs",
+      "for": "container",
+      "note": "to engulf is to swallow up, so the other pieces end up inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Defamation",
+      "gives": "LIBEL",
+      "note": "libel is written defamation"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R stands for rex, Latin for king"
+     },
+     {
+      "clueFragment": "and a",
+      "gives": "A",
+      "note": "'and' joins; the A is taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIBE",
+      "RA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A slander case swallows up a monarch and a member of parliament.",
+     "definitionFit": "A Liberal is a member of the Liberal Party, an example of a politician."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "engulfs"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +805,54 @@
     "text": "Back with silly red nose",
     "enumeration": "7"
    },
-   "solution": "ENDORSE"
+   "solution": "ENDORSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENDORSE",
+    "definitions": [
+     {
+      "text": "Back",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "silly",
+      "for": "anagram",
+      "note": "silly suggests nonsense, so the letters are jumbled into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "red nose",
+      "gives": "REDNOSE",
+      "note": "taken as written, all seven letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REDNOSE",
+       "gives": "ENDORSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Supporting a cause by wearing a comic red nose, as on Comic Relief day.",
+     "walkthrough": "'Back' is the verb meaning support, not the rear of anything. Red Nose Day is a British charity telethon.",
+     "definitionFit": "To endorse a candidate or product is to back it, giving public support."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Back"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +872,49 @@
      }
     ]
    },
-   "solution": "REDCROSS"
+   "solution": "REDCROSS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RED CROSS",
+    "definitions": [
+     {
+      "text": "Charity",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "embarrassed",
+      "gives": "RED",
+      "note": "someone embarrassed goes red in the face"
+     },
+     {
+      "clueFragment": "and angry",
+      "gives": "CROSS",
+      "note": "'and' joins; cross means angry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "CROSS"
+     ]
+    },
+    "explanation": {
+     "surface": "A charitable donor feels both ashamed and annoyed.",
+     "definitionFit": "The Red Cross is a worldwide humanitarian organisation, an example of a charity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Charity"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +928,54 @@
     "text": "Word of praise about advertisement's boldness",
     "enumeration": "7"
    },
-   "solution": "BRAVADO"
+   "solution": "BRAVADO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BRAVADO",
+    "definitions": [
+     {
+      "text": "boldness",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' here means around, so one word wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Word of praise",
+      "gives": "BRAVO",
+      "note": "bravo is a cry of approval"
+     },
+     {
+      "clueFragment": "advertisement's",
+      "gives": "AD",
+      "note": "ad is short for advertisement; the 's links to the definition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRAV",
+      "AD",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A critic applauds the daring of a commercial.",
+     "definitionFit": "Bravado is a show of boldness or swagger, often intended to impress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "advertisement's"
+    }
+   }
   },
   {
    "number": 15,
@@ -277,7 +995,55 @@
      }
     ]
    },
-   "solution": "RATRACE"
+   "solution": "RATRACE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RAT RACE",
+    "definitions": [
+     {
+      "text": "Daily grind",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, which is all that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "relent",
+      "gives": "R",
+      "select": "first",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "a little",
+      "gives": "ATRACE",
+      "note": "a trace means a tiny amount"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ATRACE"
+     ]
+    },
+    "explanation": {
+     "surface": "The daily grind begins to ease off slightly.",
+     "definitionFit": "The rat race is an idiom for the exhausting competitive routine of working life."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "relent"
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +1057,44 @@
     "text": "Fear a biathlon covering hot sandy region",
     "enumeration": "6"
    },
-   "solution": "ARABIA"
+   "solution": "ARABIA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ARABIA",
+    "definitions": [
+     {
+      "text": "hot sandy region",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "hidden_word",
+      "note": "the outer words are covering the answer, holding it within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fear a biathlon",
+      "gives": "ARABIA",
+      "note": "the letters run across all three words"
+     }
+    ],
+    "explanation": {
+     "surface": "An athlete dreads a biathlon held somewhere scorching and sandy.",
+     "walkthrough": "A biathlon is usually a winter event, which makes the desert setting comic.",
+     "definitionFit": "Arabia, the peninsula in south-west Asia, is famous for its vast hot deserts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "biathlon"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1108,55 @@
     "text": "Joiner's plates smashed",
     "enumeration": "6"
    },
-   "solution": "STAPLE"
+   "solution": "STAPLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STAPLE",
+    "definitions": [
+     {
+      "text": "Joiner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "smashed",
+      "for": "anagram",
+      "note": "smashed crockery is broken into pieces, so the letters are to be reassembled"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plates",
+      "gives": "PLATES",
+      "note": "taken as written, all six letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PLATES",
+       "gives": "STAPLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A carpenter's crockery has been broken.",
+     "walkthrough": "'Joiner' suggests a carpenter, but it means anything that fastens things together; the 's is short for 'is'.",
+     "definitionFit": "A staple fastens sheets of paper together, so it is a kind of fastener."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Joiner's"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1170,51 @@
     "text": "Spots new section",
     "enumeration": "7"
    },
-   "solution": "NOTICES"
+   "solution": "NOTICES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOTICES",
+    "definitions": [
+     {
+      "text": "Spots",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "something new has been made afresh, so the letters are put into a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "section",
+      "gives": "SECTION",
+      "note": "taken as written, all seven letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SECTION",
+       "gives": "NOTICES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sees a fresh part of a document.",
+     "walkthrough": "'Spots' is the verb meaning sees, not the noun for marks.",
+     "definitionFit": "To notice something is to observe or catch sight of it, as spots does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spots"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1228,60 @@
     "text": "Initially settle on blue-green: a bargain!",
     "enumeration": "5"
    },
-   "solution": "STEAL"
+   "solution": "STEAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STEAL",
+    "definitions": [
+     {
+      "text": "a bargain",
+      "at": 32,
+      "note": "the answer is a noun used with 'a': it's a steal"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "'Initially' means at the start, so only the opening letter is wanted"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "settle",
+      "gives": "S",
+      "select": "first",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "blue-green",
+      "gives": "TEAL",
+      "note": "teal is a blue-green colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TEAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper decides on a blue-green item at a knock-down price.",
+     "walkthrough": "In a down clue, 'on' puts the first piece above the second.",
+     "definitionFit": "Something sold so cheaply it is almost taken for free is informally called a steal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "settle"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1295,54 @@
     "text": "Scoundrel at home following football team",
     "enumeration": "7"
    },
-   "solution": "VILLAIN"
+   "solution": "VILLAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VILLAIN",
+    "definitions": [
+     {
+      "text": "Scoundrel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "'following' means coming after, so the piece before it in the clue is placed second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "football team",
+      "gives": "VILLA",
+      "note": "Aston Villa is a Birmingham football club, usually called Villa"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone in is at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VILLA",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A rogue stays home watching the soccer side he supports.",
+     "walkthrough": "'following' puts the home piece after the team, though it reads like a fan following a club.",
+     "definitionFit": "A villain is a wicked person or rogue, a synonym of scoundrel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1356,45 @@
     "text": "Record composer on the radio",
     "enumeration": "4"
    },
-   "solution": "LIST"
+   "solution": "LIST",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LIST",
+    "definitions": [
+     {
+      "text": "Record",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the radio",
+      "for": "homophone",
+      "note": "radio is heard, not read, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "composer",
+      "gives": "LIST",
+      "soundsLike": "LISZT",
+      "note": "Franz Liszt was a Hungarian composer and pianist"
+     }
+    ],
+    "explanation": {
+     "surface": "A recording by a composer is played on the radio.",
+     "walkthrough": "'Record' is the verb meaning to set down in a list, not a disc.",
+     "definitionFit": "To list items is to record or enter them one after another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Record"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1408,55 @@
     "text": "Examine front of polyester garment",
     "enumeration": "5"
    },
-   "solution": "PROBE"
+   "solution": "PROBE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PROBE",
+    "definitions": [
+     {
+      "text": "Examine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front of",
+      "for": "letter_selection",
+      "note": "the front of a word is its first letter, the only one kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "polyester",
+      "gives": "P",
+      "select": "first",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "garment",
+      "gives": "ROBE",
+      "note": "a robe is a long loose garment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ROBE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone inspects the front of a synthetic piece of clothing.",
+     "definitionFit": "To probe is to investigate or examine something closely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "front"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1470,59 @@
     "text": "Gloomy when accepting one's second sacking",
     "enumeration": "9"
    },
-   "solution": "DISMISSAL"
+   "solution": "DISMISSAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DISMISSAL",
+    "definitions": [
+     {
+      "text": "sacking",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when accepting",
+      "for": "container",
+      "note": "accepting something means taking it in, so the other pieces go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gloomy",
+      "gives": "DISMAL",
+      "note": "dismal means gloomy"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "IS",
+      "note": "one is I, so one's is I'S"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISM",
+      "ISS",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A worker is downcast at being fired for the second time.",
+     "definitionFit": "Sacking is informal for being fired from a job, which is a dismissal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1536,47 @@
     "text": "Sly person is not opening art equipment",
     "enumeration": "5"
    },
-   "solution": "EASEL"
+   "solution": "EASEL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EASEL",
+    "definitions": [
+     {
+      "text": "art equipment",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is not opening",
+      "for": "deletion",
+      "note": "'not opening' means without its opening letter, so the first one goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sly person",
+      "gives": "WEASEL",
+      "note": "a weasel is a sly, untrustworthy person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EASEL"
+     ]
+    },
+    "explanation": {
+     "surface": "A crafty character refuses to open up his art supplies.",
+     "definitionFit": "An easel is the stand that holds an artist's canvas, a piece of painting equipment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   }
  ]
 }
