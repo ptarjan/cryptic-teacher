@@ -578,8 +578,10 @@ tools/genius_puzzles.py                       files the Guardian's monthly Geniu
                                               preamble read as text, the grid from its image)
                                               with fifteensquared's answers, filed only when
                                               the grid's numbering matches the clue list and
-                                              every answer crosses, so a trick that alters
-                                              entries is not filed
+                                              every answer crosses; an entry altered by the
+                                              preamble's rule carries its answer, a jigsaw's
+                                              clues are placed (JIGSAW), and a puzzle with no
+                                              post files unsolved
 tools/listener_puzzles.py                     files the Listener crossword from the Listener
                                               Team's archive PDFs (clues, bars and letters read
                                               from the vector pages) and from Wayback copies of

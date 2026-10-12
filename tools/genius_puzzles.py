@@ -45,6 +45,7 @@ import fetch_fifteensquared as fsq
 import file_blog_puzzles
 import ft_pdf_puzzles as fpp
 import puzzle_integrity
+import series as series_meta
 import downloads
 import reconstruct_grid as rg
 from fetch_puzzle import correct_source_answers, puzzle_path, write_puzzle_file
@@ -781,6 +782,15 @@ JIGSAW = {
 }
 
 
+#: A Genius the schema cannot hold yet, and why: assemble() reports it so
+#: rather than as the reader's first complaint about it.
+SCHEMA_GAP = {
+    209: ("a light leads two linked answers",
+          "22 across (IVOR) starts both 22,17,3 IVOR HUGH JEGO and 22,2,5 IVOR SORE BEACH BUM, "
+          "two clues; an entry holds one clue and one group, its leader first"),
+}
+
+
 def place_jigsaw(number, pdf):
     """None once JIGSAW's placing has moved the unnumbered clues out of the
     preamble onto their lights, else why not."""
@@ -825,6 +835,8 @@ def assemble(number, pdf, post, date, url):
     if pdf["number"] not in (None, number):
         return None, ("PDF is another puzzle", f"PDF says No {pdf['number']}")
     pdf["setter"] = pdf["setter"] or post_setter(post)
+    if number in SCHEMA_GAP:
+        return None, SCHEMA_GAP[number]
     if not pdf["clues"]:
         return None, ("clue list unread", "")
     # Clues printed with no number (No 76: "Solutions to the remaining clues
@@ -900,6 +912,10 @@ def assemble(number, pdf, post, date, url):
 
 def unsolved(number, pdf, date, url, withheld=()):
     """(puzzle, None) or (None, why not): the grid and clues with no answers."""
+    if not pdf["setter"] and number not in series_meta.meta(SERIES).get("unbylined", {}):
+        return None, ("no post, and the page names no setter",
+                      "an article page's byline is staff; list it in series.py unbylined once "
+                      "no source names one, or find its setter")
     entries = fpp.entries_of(pdf, None, pdf["grid"])
     rec = {"post_id": None, "link": url, "date": None, "series": CATEGORY, "number": number,
            "setter": pdf["setter"], "entries": entries}
