@@ -273,6 +273,11 @@ check("a letter the clue names, e.g., 'e and v are not (mirror)", [],
 check("suspect() refuses a stray clue", True, bool(oc.suspect("Turned up as new t")))
 check("an apostrophe read for an i is suspect (No 97 6D)", [("r'ddled", "an apostrophe for a letter")],
       oc.suspect("He r'ddled very prettily."))
+check("a name that lost its accented letter is suspect (TLS 1620 1D)",
+      [("Krlea,", "a letter lost from a name")],
+      oc.suspect("Miroslav Krlea, say, removing a round metal necklace"))
+check("the name read with its accent, and names English spells, stand (mirror)", [],
+      oc.suspect("Miroslav Krleža, say, with Jaques, Wolfson, Chekhov and PDFs"))
 check("a poet's elision, a contraction, a dialect word stand (mirror)", [],
       oc.suspect("Wand'ring heav'n o'er I'll it's we'll Em'ly Rob'n"))
 check("a stray letter is taken out where a reading lacks it",

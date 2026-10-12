@@ -37,6 +37,7 @@ import re
 import unicodedata
 from difflib import SequenceMatcher
 from pathlib import Path
+
 import enumeration
 import leading_quote
 import punctuation
@@ -3521,6 +3522,32 @@ def slipped(word):
     return False
 
 
+_TRIGRAMS = None
+
+
+def trigrams(word):
+    """The word's three-letter runs, with "^" and "$" for its ends."""
+    w = "^" + word.lower() + "$"
+    return {w[k:k + 3] for k in range(len(w) - 2)}
+
+
+def unspellable(word):
+    """Whether the capitalised `word` holds a run of three consonants (ends
+    counted) that no word of the lexicon or the corpus's clues holds: the
+    trace of a letter the reader dropped, mostly an accented one ("Krlea"
+    for "Krleža", "Mnchen" for "München")."""
+    global _TRIGRAMS
+    if _TRIGRAMS is None:
+        rank("the")
+        uni = clue_lm()[0]
+        _TRIGRAMS = set()
+        for w in set(_LEXICON) | {w for w, n in uni.items() if n >= CLUE_WORD_FLOOR}:
+            w = plain(w).lower()
+            if w.isalpha():
+                _TRIGRAMS |= trigrams(w)
+    return any(g not in _TRIGRAMS and not re.search("[aeiouy]", g) for g in trigrams(word))
+
+
 #: Endings and beginnings that make a known word another ("ceasefires",
 #: "redubbed", "antifeminist", "decentralization", "collaborationist",
 #: "prestidigitation"); "-er" is left out, since "scater" is "scat".
@@ -3787,6 +3814,10 @@ def suspect(text, vouched=(), printed=()):
                 break
             if slipped(flat):
                 out.append((raw, "a word misread as a name"))
+                break
+            if (bare == flat and not flat.rstrip("s").isupper() and not closed_compound(flat.lower())
+                    and unspellable(flat)):
+                out.append((raw, "a letter lost from a name"))  # an accent the reader dropped
                 break
     # A bracket the clue never closes, or never opened, is a letter or a
     # count misread ("is (this", "for ) record").
