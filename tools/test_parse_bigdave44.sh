@@ -247,4 +247,20 @@ p, why = F.build(rec, row, "toughie", None, "X")
 print(why, [e["clue"]["text"] for e in p["entries"]],
       f.SOURCE.setter({"number": 866}, "toughie"), f.SOURCE.setter({"number": 866, "setter": "Y"}, "toughie"))' 2>&1 | tail -1)"
 
+check "a grid row's correction goes in before a linked answer is split (toughie-275)" \
+  "None 1-across CAT 3-across TEA 2-down TEA" "$(PYTHONPATH="$REPO/tools" python3 -c '
+import file_blog_puzzles as F
+E = lambda n, d, a, c: {"number": n, "direction": d, "answer": a, "clue": c, "enumeration": str(len(a))}
+rec = {"post_id": 2, "link": "https://example.org/u", "slug": "u", "title": "Toughie 99998",
+       "series": "toughie", "number": 99998, "date": "2026-01-01",
+       "entries": [E(1, "down", "CAT", "Tom (3)"), E(2, "down", "TEAS", "Brews (3)")],
+       "unsplit": [{"lights": [[1, "across"], [3, "across"]], "answer": "CATTEA", "enumeration": "3,3",
+                    "answer_printed": "CAT TEA", "clue": "Pet drink (3,3)"}]}
+row = {"post_id": 2, "number": 99998, "series": "toughie", "date": "2026-01-01",
+       "grid": ["...", ".#.", "..."], "how": "unique, enumeration length",
+       "corrections": [{"number": 2, "direction": "down", "blogged": "TEAS", "answer": "TEA"}]}
+p, why = F.build(rec, row, "toughie", None, "X")
+by = {"%d-%s" % (e["number"], e["direction"]): e.get("solution") for e in (p or {}).get("entries", [])}
+print(why, *(f"{k} {by.get(k)}" for k in ("1-across", "3-across", "2-down")))' 2>&1 | tail -1)"
+
 [ $fails -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }
