@@ -418,6 +418,17 @@ blank_rec = {"entries": [{"number": 1, "direction": "across", "answer": "", "enu
 print("BLANK_LEN", T.triples(blank_rec))
 print("CLUES", T.has_clues({"entries": [dict(e, clue="Clue (2)")] * 10}),
       T.has_clues({"entries": [dict(e, clue="")] * 10}))
+
+# A grid the paper has printed decides what the search could not: one of a
+# shortlist, or the light list's only held grid when the search found none.
+OTHER = (".....", ".#.#.", ".....", ".#.#.", ".....")
+T._HELD[("Times", 5)] = {TINY: sorted(rg.lights_from_grid(list(TINY)))}
+g, w = T.held_tiebreak(rec, [list(OTHER), list(TINY)], "2 grids fit the answers")
+print("HELD_PICK", [tuple(x) for x in g] == [TINY], w)
+g, w = T.held_tiebreak(rec, [], "no grid")
+print("HELD_NONE", [tuple(x) for x in g] == [TINY], w)
+T._HELD[("Times", 5)] = {}
+print("HELD_EMPTY", T.held_tiebreak(rec, [], "no grid"))
 PY
 )
 echo "$out"
@@ -524,6 +535,11 @@ check "each search is logged under its post" True "$(field LOGGED)"
 check "a blank answer's light is its count long, or unknown with no count" \
   "[(1, 'across', 8), (2, 'down', None), (3, 'down', 3)]" "$(field BLANK_LEN)"
 check "a post that gives only the answers is not searched" "True False" "$(field CLUES)"
+
+check "a held grid picks one of a shortlist" "True unique, the held grid of 2" "$(field HELD_PICK)"
+check "the only held grid with the blog's lights is taken when the search finds none" \
+  "True unique, a held grid's lights" "$(field HELD_NONE)"
+check "no held grid leaves the result alone" "([], 'no grid')" "$(field HELD_EMPTY)"
 
 if [ "$fails" -gt 0 ]; then echo "$fails FAILURE(S)"; exit 1; fi
 echo "times_grids: all checks passed"

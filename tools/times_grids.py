@@ -897,6 +897,67 @@ def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES, thorough=True, budget=None
     return list(sols), f"answers fit none of {len(sols)}"
 
 
+_HELD = {}
+
+
+def held_grids(publisher, n):
+    """{grid: sorted light list} of every n x n blocked grid a filed puzzle of
+    this publisher prints. A paper sets from a small stock of grids (235
+    Telegraph grids across 10,292 puzzles), so a grid it has printed before
+    is the one a blog's light list most likely came from."""
+    key = (publisher, n)
+    if key not in _HELD:
+        import puzzle_paths
+        import series as series_meta
+        family = {s for s, m in series_meta.SERIES.items() if m.get("publisher") == publisher}
+        grids = {}
+        for path in puzzle_paths.puzzle_files():
+            if path.parent.parent.name not in family:
+                continue
+            try:
+                p = json.loads(path.read_text(encoding="utf-8"))
+            except (OSError, ValueError):
+                continue
+            dims = p.get("dimensions") or {}
+            if p.get("bars") or dims.get("cols") != n or dims.get("rows") != n or not p.get("entries"):
+                continue
+            g = rg.grid_of(p)
+            if g not in grids:
+                grids[g] = sorted(rg.lights_from_grid(list(g)))
+        _HELD[key] = grids
+    return _HELD[key]
+
+
+def publisher_of(rec):
+    import series as series_meta
+    return (series_meta.SERIES.get(rec.get("series")) or {}).get("publisher") or "Times"
+
+
+def held_tiebreak(rec, grids, why):
+    """(grids, why) with a held grid deciding what the search could not: of
+    several candidates the only one the paper has printed, or, with none
+    found, the only held grid whose light list is the blog's exactly. Never
+    a guess: two held candidates, or two held grids with one light list,
+    leave the result as it was. settle() still checks the answers after."""
+    if why.startswith("truncated") or why.startswith("refused") or len(grids) == 1:
+        return grids, why
+    held = held_grids(publisher_of(rec), size(rec))
+    if grids:
+        mine = [g for g in grids if tuple(g) in held]
+        if len(mine) == 1:
+            return mine, f"unique, the held grid of {len(grids)}"
+        return grids, why
+    alt = by_enumeration(rec)
+    for spec, how in ((triples(rec), "lights"), (alt[0] if alt else None, "lights at enumeration length")):
+        if not spec:
+            continue
+        want = sorted(spec)
+        mine = [g for g, lit in held.items() if lit == want]
+        if len(mine) == 1:
+            return [list(mine[0])], f"unique, a held grid's {how}"
+    return grids, why
+
+
 def solved_already(out=None):
     """post_id of every grid already written.
 
@@ -1106,6 +1167,8 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
 
     def solved(rec, made, lit, grids, why):
         fixes = []
+        if rec["series"] not in BARRED:
+            grids, why = held_tiebreak(rec, grids, why)
         if len(grids) == 1:
             fixes, refused = settle(grids[0], rec, vocab)
             if refused:
