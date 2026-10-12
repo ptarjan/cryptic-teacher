@@ -179,7 +179,15 @@ check("a Sunday Times title from No 1 on, and its solution headings; never Mephi
        [n for t in ("Solution to Cross-word Puzzle No. 1", "SOLUTION TO No 2,344")
         for n, _ in f.GALE_SUNDAY_TIMES.headings([line(t)])[1]],
        f.GALE_SUNDAY_TIMES.headings([line("Mephisto No 1,234")])[0]))
+check("a TLS title and its solution heading; never its entry address or winner line; its own run",
+      ([835], [831], [], [], "galetls"),
+      ([n for n, _, _ in f.GALE_TLS.headings([line("TLS CROSSWORD 835")])[0]],
+       [n for n, _ in f.GALE_TLS.headings([line("SOLUTION TO CROSSWORD 831")])[1]],
+       f.GALE_TLS.headings([line("TLS Crossword 835,")])[0], f.GALE_TLS.headings([line("The winner of Crossword 831 is")])[0],
+       f.filer_of("GaleTLS2010UKEnglish/d").key))
 import datetime as _d
+check("the TLS numbers its dates imply run on into our tls files", (835, 1118, 1183),
+      tuple(f.tls_expected_number(_d.date.fromisoformat(d)) for d in ("2010-06-04", "2016-03-25", "2017-07-07")))
 check("the Independent and Sunday Times numbers their dates imply run on into our independent and sundaytimes files",
       (1, 7566, 1, 4589, 5000),
       (f.independent_expected_number(_d.date(1986, 10, 7)), f.independent_expected_number(_d.date(2011, 1, 15)),
