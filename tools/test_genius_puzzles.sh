@@ -91,6 +91,17 @@ sl = [{"lights": [(12, "across")], "clue": "Heritage (3,8)", "enumeration": "3,8
       {"lights": [(12, "down")], "clue": "Jack (3)", "enumeration": "3"}]
 G.see_links(sl)
 print("see-way", sl[0]["lights"], sl[2]["lights"])
+# "1,13 ... (5,9,8)" across and a 1 down: "13 See 1" is already 1 across's (22).
+both = G.parse_text("Across 1,13 A Fonteyn ruined (5,9,8) 13 See 1 Down 1 Condition arising (7,7) 2 Outfit (7)")
+G.see_links(both["clues"])
+print("see-taken", [c["lights"] for c in both["clues"] if c["enumeration"]])
+# Unheaded "See 8" with only 8 down leading: joins it (60's GRACIE FIELDS).
+one = G.parse_text("Across 5 See 8 9 Kick (5) Down 8 Rochdale cries (6)")
+G.see_links(one["clues"])
+print("see-own", [c["lights"] for c in one["clues"] if c["enumeration"]])
+star = G.parse_text("Across 22 What Persians took (*,6) 24 Pub punch (10) Down 14 * (part 1) * (part 2) in the field (5,4)")
+print("star-count", [(c["lights"][0][0], c["enumeration"]) for c in star["clues"]])
+print("misprinted-60", sorted(G.misprinted(60)), sorted(G.misprinted(59)))
 print("unnumbered", G.unnumbered("Solutions to the remaining clues have their place About this (4,3) Anti pig (7) "
                                  "Art in tears (7) Barren function (4,5) Boy (5)"),
       G.unnumbered("8 Extremely insalubrious (8) 9 Novel (6) 10 Voyeur (13) 11 Story (9) 12 Vehicle (5)"))
@@ -172,6 +183,10 @@ check "a stray copy of a later clue is dropped (162)" "[5, 7, 19, 20]" "$(get st
 check "two clues headed by one number both read (209)" "[[(20, 'across')], [(22, 'across'), (17, 'across'), (3, 'across')], [(22, 'across'), (2, 'across'), (5, 'across')], [(23, 'across')]]" "$(get two-22s)"
 check "See special instructions with no count is a stub; with one, a clue (112, 92)" "[(1, 'See special instructions'), (10, 'Make out (9)'), (26, 'See special instructions (8)'), (2, 'One (7)')]" "$(get stub-uncounted)"
 check "See 12 across joins 12 across, not 12 down (162)" "[(12, 'across'), (2, 'down')] [(12, 'down')]" "$(get see-way)"
+check "a See stub another heading already links joins no second leader (22, 16, 58)" "[[(1, 'across'), (13, 'across')], [(1, 'down')], [(2, 'down')]]" "$(get see-taken)"
+check "an unheaded See N joins the only N leading (60)" "[[(9, 'across')], [(8, 'down'), (5, 'across')]]" "$(get see-own)"
+check "a * count (a withheld word) ends a clue (17)" "[(22, '*,6'), (24, '10'), (14, '5,4')]" "$(get star-count)"
+check "PUBLISHED_WRONG names the misprinted counts the filer lets through (60)" "[(8, 'down'), (20, 'down')] []" "$(get misprinted-60)"
 check "unnumbered clues in the preamble are counted; numbered ones are not (76, 157)" "5 0" "$(get unnumbered)"
 check "a heading behind Clues, a header without No, and World Cup winners: preamble (165)" "Eight solutions comprise the theme, supporter and World Cup winners." "$(get preamble-165)"
 check "a run under no known heading is the other way's clues (157)" "[(1, 'd'), (2, 'd'), (3, 'd'), (8, 'a'), (9, 'a'), (10, 'a')]" "$(get stranded-run)"

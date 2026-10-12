@@ -640,14 +640,29 @@ def see_links(clues):
     seen = {c["lights"][0] for c in clues if c["enumeration"] is None and len(c["lights"]) == 1}
     flip = {"across": "down", "down": "across"}
     # "23 See 26" under a clue headed "26" alone: 26's answer runs on into 23.
-    leaders = {c["lights"][0][0]: c for c in clues if c["enumeration"]}
+    # A number may lead both ways (1 across and 1 down): "13 across See 1"
+    # joins the one whose heading already names it, else the one its own
+    # way, else the only one; a light another heading already names is
+    # taken (No 22's "1,13" and 1 down; No 58's twelve-part 21 across).
+    leading = collections.defaultdict(list)
     for c in clues:
+        if c["enumeration"]:
+            leading[c["lights"][0][0]].append(c)
+    linked = {l for c in clues for l in c["lights"][1:]}
+
+    def leader_of(n, stub):
+        ways = leading.get(n, [])
+        own = [x for x in ways if x["lights"][0][1] == stub[1]]
+        return own[0] if len(own) == 1 else (ways[0] if len(ways) == 1 else None)
+    for c in clues:
+        if c["lights"][0] in linked:
+            continue
         m = c["enumeration"] is None and len(c["lights"]) == 1 and re.fullmatch(
             r"See (\d{1,2})(?:\s*(across|down))?", c["clue"], re.IGNORECASE)
         # "See 12 across" names its way: No 162 has a 12 down as well.
         way = m and m.group(2) and m.group(2).lower()
         lead = m and (next((x for x in clues if x["enumeration"] and x["lights"][0] == (int(m.group(1)), way)), None)
-                      if way else leaders.get(int(m.group(1))))
+                      if way else leader_of(int(m.group(1)), c["lights"][0]))
         # Two clues may start on one light (No 209's 22 across leads
         # "22,17,3" and "22,2,5"): a stub one of them already lists is placed.
         held = bool(m) and any(c["lights"][0][0] in [l[0] for l in x["lights"][1:]] for x in clues
@@ -951,7 +966,7 @@ def assemble(number, pdf, post, date, url):
                 and not fpp.SEE.match(c["clue"]) and c["lights"][0] in lights]
     for c in withheld:
         c["enumeration"] = str(len(lights[c["lights"][0]]))
-    why = fpp.grid_matches(pdf["grid"], pdf["clues"])
+    why = fpp.grid_matches(pdf["grid"], pdf["clues"], misprinted(number))
     if why:
         if "no enumeration" in why:
             return None, ("enumerations withheld", why)
@@ -1006,6 +1021,15 @@ def assemble(number, pdf, post, date, url):
         f"grid and clues read from {pdf['origin']}, its numbering matching "
         "the clue list; every fifteensquared answer written into it with each crossing agreeing")
     return puzzle, None
+
+
+def misprinted(number):
+    """The lights whose printed count puzzle_integrity.PUBLISHED_WRONG says the
+    paper got wrong ("8-down: clue says (6) = 6, ..."): No 60 prints (6) for
+    GRACIE FIELDS over 8 down and 5 across. Filed with the count as printed."""
+    pid = f"{SERIES}-{number}"
+    return {(int(m.group(1)), m.group(2)) for p, finding in puzzle_integrity.PUBLISHED_WRONG
+            if p == pid for m in [re.match(r"(\d+)-(across|down)\b", finding)] if m}
 
 
 def unsolved(number, pdf, date, url, withheld=()):

@@ -525,7 +525,10 @@ CLUE_HEAD = re.compile(rf"^(\d{{1,2}}(?:\s*{FULL_WAY}\b)?(?:\s*[,/&]\s*\d{{1,2}}
 #: written BEETHOVEN SEVENTH).
 #: One printed count list: "6,3,5", "4-5", "9’s 7", and the marks a trick
 #: puzzle's preamble explains: "10 and 5", "4:3", "3/5".
-COUNTS = r"\d{1,2}(?:['’]s)?(?:\s*(?:[,\-–.'’:/\s]|\band\b)\s*\d{1,2}(?:['’]s)?)*(?:\s*words?)?"
+#: A "*" stands for a word whose count the puzzle withholds, the entry
+#: being the rest (Genius No 17: "(*,6)", a theme word not entered).
+COUNTS = (r"(?:\d{1,2}(?:['’]s)?|\*)(?:\s*(?:[,\-–.'’:/\s]|\band\b)\s*(?:\d{1,2}(?:['’]s)?|\*))*"
+          r"(?<!\*)(?:\s*words?)?")
 #: A clue's closing enumeration as printed, uncaptured: one bracket; a count
 #: nested inside it ("(6,5 (9))": the lights' count, then the answer's); or
 #: two counts, in one bracket split by a semicolon ("(5;3)") or two brackets
@@ -660,9 +663,11 @@ def read_pdf(path_or_bytes):
     return out
 
 
-def grid_matches(grid, clues):
+def grid_matches(grid, clues, forgiven=()):
     """None when the grid's numbering is the clue list's, lights and lengths;
-    else why not. A linked clue's enumeration counts all its lights."""
+    else why not. A linked clue's enumeration counts all its lights, except
+    on a light in `forgiven`: a count the paper misprinted, its LENGTH
+    finding forgiven by puzzle_integrity.PUBLISHED_WRONG."""
     lights = rg.light_cells(grid)
     # "29 See 1" names a light "1, 29" already listed.
     listed = {l for c in clues for l in c["lights"]}
@@ -676,7 +681,7 @@ def grid_matches(grid, clues):
                 return f"{c['lights'][0][0]} {c['lights'][0][1]} has no enumeration"
             continue
         want = sum(int(n) for n in re.findall(r"\d+", c["enumeration"]))
-        if want != sum(len(lights[l]) for l in c["lights"]):
+        if c["lights"][0] not in forgiven and want != sum(len(lights[l]) for l in c["lights"]):
             return f"{c['lights'][0][0]} {c['lights'][0][1]}'s enumeration disagrees with the grid"
     return None
 

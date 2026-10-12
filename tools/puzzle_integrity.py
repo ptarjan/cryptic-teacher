@@ -275,6 +275,17 @@ PUBLISHED_WRONG = {
         "22-across NUMBER is already a complete (8,6) answer with no room in "
         "it for four more cells, so the number the paper printed on that "
         "pointer cannot be the one it meant",
+    # The article page prints "8, 5 across Rochdale cries ... (6)" and
+    # "20, 25 Here's rosy gore, ruining Trigger's saddle (3)": GRACIE FIELDS
+    # and ROY ROGERS, each counted only as far as its first light, while the
+    # puzzle's other linked clues (1,27,10 (6,12); 34,15 (6,5)) count them all.
+    ("genius-60", "8-down + 5-across: clue says (6) = 6, answer holds 6 alone or 12 linked"):
+        "GRACIE FIELDS (6,6) fills 8 down and 5 across, which the paper linked "
+        "itself (\"5 See 8\"), under a count printed (6) for the first word only",
+    ("genius-60", "20-down + 25-down: clue says (3) = 3, answer holds 3 alone or 9 linked"):
+        "ROY ROGERS (3,6), Trigger's rider, fills 20 down and 25 down, which the "
+        "paper linked itself (\"25 See 20\"), under a count printed (3) for the "
+        "first word only",
 }
 
 # The LENGTH findings that are a light the Guardian never linked, not a mistake in
