@@ -337,10 +337,21 @@ def write_up_date(rec, printed):
     return before if before and before >= earliest else None
 
 
-def file_all(write=True):
+def file_all(write=True, hold=False):
+    """File every post with a grid; with `hold`, hold every other post's
+    clues in clues_only/ (file_blog_puzzles.hold_clues) once it passes the
+    same checks, for the backfill to solve. Returns (filed, skipped), and
+    with `hold` the held count by series as filed's "held <series>" keys."""
+    import clues_only
     recs = {json.loads(line)["post_id"]: json.loads(line)
             for line in (CACHE / "parsed.jsonl").open(encoding="utf-8")}
     rows = [json.loads(line) for line in (CACHE / "grids.jsonl").open(encoding="utf-8")]
+    gridded = {r["post_id"] for r in rows}
+    if hold:
+        # A post no grid takes: the tolerant search (times_grids --tolerant-
+        # retry) has had it. A barred grid has no clues-only builder.
+        rows += [{"post_id": pid, "grid": None} for pid, r in recs.items()
+                 if pid not in gridded and r["series"] not in tg.BARRED]
     held = held_numbers()
     typed = fbp.typed_counts(recs.values())
     filed, skipped, compared = collections.Counter(), collections.Counter(), collections.Counter()
@@ -350,6 +361,10 @@ def file_all(write=True):
     named = other_setters(unnamed)
     for row in rows:
         rec = recs.get(row["post_id"])
+        if rec is not None and row["grid"] is None and clues_only.find(
+                series_meta.puzzle_id(rec["series"], rec["number"])):
+            skipped["held clues-only already"] += 1
+            continue
         if rec is None:
             skipped["no record"] += 1
             continue
@@ -382,6 +397,19 @@ def file_all(write=True):
         rec = {**rec, "date": posted}
         setter = (rec.get("setter") or named.get((series, number))
                   or series_meta.default_setter(series))
+        if row["grid"] is None:
+            record, problems = fbp.hold_clues(rec, series, date, setter, TOOL, tg.size(rec))
+            if problems:
+                skipped["not held: " + problems[0].split(" numbered")[0].split(" has no")[0]] += 1
+                continue
+            if write:
+                try:
+                    clues_only.write(record)
+                except Exception as e:          # puzzle_integrity.RefusedWrite
+                    skipped["not held: refused by the write path: " + str(e)[:60]] += 1
+                    continue
+            filed["held " + series] += 1
+            continue
         puzzle, why = fbp.build(rec, row, series, date, setter, typed)
         if why:
             skipped[why] += 1
@@ -430,6 +458,9 @@ def main(argv=None):
     ap.add_argument("--rebuild", action="store_true",
                     help="write the records and backsolve their grids")
     ap.add_argument("--dry-run", action="store_true", help="count, write nothing")
+    ap.add_argument("--hold-clues", action="store_true",
+                    help="also hold every post no grid takes clues-only, for the "
+                         "backfill to solve")
     a = ap.parse_args(argv)
     if a.rebuild:
         write_records()
@@ -442,7 +473,7 @@ def main(argv=None):
             if r:
                 tg.report(r)
         return 0
-    file_all(write=not a.dry_run)
+    file_all(write=not a.dry_run, hold=a.hold_clues)
     return 0
 
 

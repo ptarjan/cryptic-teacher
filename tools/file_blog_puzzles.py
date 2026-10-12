@@ -496,6 +496,107 @@ def build(rec, row, series, date, setter, typed=None, pairs=False, loose_counts=
     }, None
 
 
+# ------------------------------------------------- held as its clues alone
+
+def puzzle_name(series, number):
+    """The name build() gives a puzzle of `series`."""
+    pub, kind = series_meta.publisher(series), series_meta.kind(series).lower()
+    lead = pub if kind == pub.lower() else f"{pub} {kind}"
+    return f"{lead} crossword No {number:,}"
+
+
+def hold_clues(rec, series, date, setter, tool, n):
+    """(record, problems): a post no grid takes, even with its untrusted
+    answers left unknown (times_grids.tolerant), held in clues_only/ as its
+    clue list alone ($defs/cluesOnly), each direction in printed order with
+    the length its count gives. The backfill solves it and promote() files
+    it on the grid those answers cross in. The blog's answers go along as
+    `blogAnswer`, a cross-check on the solve (cross_check), never as truth:
+    they are what fit no grid. `n` is the grid's side (times_grids.size).
+
+    Refused when a clue is missing: a number the post skips, a linked answer
+    it prints whole, a light with no clue text. The clue is the one thing
+    no grid or solve can derive."""
+    import clues_only
+    import parse_timesforthetimes as parser
+    problems = []
+    if rec.get("unsplit"):
+        problems.append(CAUSES["unsplit-link"])
+    missing = tg.gaps(tg.triples(rec))
+    if missing:
+        problems.append("the post gives no clue numbered " + ", ".join(map(str, missing)))
+    leaders = parser.leader_numbers(rec["entries"])
+    clues = {"across": [], "down": []}
+    for e in tg.printed(rec):
+        text = worded(clean(e.get("clue")), e.get("enumeration"))
+        if not has_words(enumeration.split(text)[0]):
+            problems.append(f"{e['number']} {e['direction']} has no clue text")
+            continue
+        light = {"clue": enumeration.clue(text)}
+        cells = sum(int(x) for x in re.findall(r"\d+", e.get("enumeration") or ""))
+        if cells and e["number"] not in leaders:
+            light["length"] = cells     # a group's leader counts the whole group
+        if e.get("answer"):
+            light["blogAnswer"] = e["answer"]
+        clues[e["direction"]].append(light)
+    record = {"id": series_meta.puzzle_id(series, rec["number"]), "number": rec["number"],
+              "series": series, "name": puzzle_name(series, rec["number"]),
+              "setter": setter, "date": date.isoformat() if date else None,
+              "dimensions": {"cols": n, "rows": n},
+              "source": {"url": rec["link"], "acquiredBy": tool,
+                         "acquiredOn": datetime.date.today().isoformat()},
+              "clues": clues}
+    return {k: v for k, v in record.items() if v is not None}, problems
+
+
+def cross_check(record, answers):
+    """["3 down WORKPIECE/WORKPLACE", ...]: each light where the solve's
+    answer and the blog's (`blogAnswer`) differ. Said, never acted on: the
+    blog's answers are the ones that fit no grid."""
+    out = []
+    for d in ("across", "down"):
+        for i, (light, word) in enumerate(zip(record["clues"].get(d, ()), answers.get(d) or ())):
+            blog = light.get("blogAnswer")
+            if blog and word and blog != word:
+                out.append(f"{d} light {i + 1} {word}/{blog}")
+    return out
+
+
+def promote(record, answers):
+    """(puzzle, problems): a blog post held by hold_clues filed unsolved on
+    the one grid the solve's answers cross in (clues_only.derive_grid),
+    numbered by that grid, through build() with every check a blog grid
+    gets. tools/apply_solution.py then writes the answers in."""
+    import sys
+    import clues_only
+    grid, why = clues_only.derive_grid(record, answers)
+    if grid is None:
+        return None, [f"no single grid holds these answers: {why}"]
+    lights = {d: [[None, None, "clues-only", {"clue": light["clue"].get("text"),
+                                              "enumeration": light["clue"].get("enumeration")}]
+                  for light in record["clues"][d]] for d in clues_only.DIRECTIONS}
+    entries, problems = clues_only.entries_from_grid(grid, lights["across"], lights["down"])
+    if problems:
+        return None, problems
+    rec = {"post_id": None, "link": record["source"]["url"], "date": None,
+           "series": record["series"], "number": record["number"],
+           "entries": [{"number": e["number"], "direction": e["direction"], "answer": None,
+                        "clue": f"{e['clue']} ({e['enumeration']})" if e["enumeration"] else e["clue"],
+                        "enumeration": e["enumeration"]} for e in entries]}
+    row = {"grid": grid, "number": record["number"],
+           "how": "the grid the solve's answers cross in"}
+    date = datetime.date.fromisoformat(record["date"]) if record.get("date") else None
+    puzzle, why = build(rec, row, record["series"], date, record.get("setter"))
+    if why:
+        return None, [why]
+    differ = cross_check(record, answers)
+    if differ:
+        print(f"{record['id']}: the solve differs from the blog's answers at "
+              + ", ".join(differ), file=sys.stderr)
+    puzzle["source"] = {"url": record["source"]["url"], "gridOrigin": "reconstructed"}
+    return puzzle, []
+
+
 def blog_name(series, link):
     """The blog's own name, "bigdave44": series.py's blog for a blog series,
     else the host the post was read from."""
