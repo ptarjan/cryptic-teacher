@@ -3250,8 +3250,8 @@
   const buildingBlocks = (ann) => (ann.blocks || []).filter((b) => !senseBlock(ann, b));
   const senseBlocks = (ann) => (ann.blocks || []).filter((b) => b.note && senseBlock(ann, b));
 
-  // What an indicator actually INSTRUCTS, and how to recognise its family next
-  // time. A line like "these tell you what to do with the rest" is true of
+  // What an indicator actually INSTRUCTS in this clue. How to recognise the
+  // device next time is DEVICE_RULES', below. A line like "these tell you what to do with the rest" is true of
   // every indicator in every clue ever written — content-free, and a rung the
   // solver spends a hint on. The operation is derivable from the type we
   // already store, so this costs nothing and cannot drift from the annotation.
@@ -3261,40 +3261,23 @@
   // building-blocks rung (see `mechanics`), and naming the job is the teaching
   // content — naming the term would only be the label.
   const INDICATOR_OPS = [
-    ["anagram", "rearrange the letters it points at",
-      "Anagram indicators describe a mess rather than a meaning: disorder, drunkenness, cooking, damage, movement. If a word tells you something is broken, stirred or at sea, the letters to shuffle are probably next to it."],
-    ["container", "put one piece inside another",
-      "Containers are clued by words for holding and swallowing — in, about, around, eating, grips, hosting. The tricky ones read as ordinary prepositions."],
-    ["reversal", "write a piece backwards",
-      "Reversal words say turn or go back: recalled, returning, over, about. In a DOWN clue, anything meaning upwards does it too — up, rising, climbing — which is why the same clue can work one way and not the other."],
-    ["deletion", "drop letters from a word",
-      "Deletion words name the part to lose: endless and short take the tail, headless and beheaded the front, gutted and heartless the middle, almost and nearly one final letter."],
-    ["hidden_word", "find a run of letters already sitting in the clue",
-      "Hidden-word markers are quiet on purpose — in, some of, part of, held by, a bit of. They point at consecutive letters spanning the gap between two words."],
-    ["homophone", "take how a word sounds, not how it is spelled",
-      "Sound indicators name an ear: we hear, reportedly, on the radio, said, aloud, announced."],
-    ["spoonerism", "swap the opening sounds of two words",
-      "Spoonerisms all but announce themselves — the Reverend Spooner is named in the clue."],
-    ["alternate", "take every other letter",
-      "Alternates are signalled by oddly, evenly, regularly, alternately, or by 'every other'."],
-    ["regular", "count through the letters at a fixed step and keep the ones you land on",
-      "These say the step out loud — 'every third letter', 'each fourth' — so read them as arithmetic, not description."],
-    ["first", "take the opening letter of the words it points at",
-      "Initials come from leading words: initially, first, leaders, heads, primarily, to start."],
-    ["last", "take the final letter of the words it points at",
-      "Finals come from trailing words: finally, last, ends, tails, ultimately."],
-    ["middle", "take just the middle of a word",
-      "Middle-letter words: heart of, middle, centrally, core."],
-    ["outer", "keep only the outside letters of a word",
-      "Outside-letter words: outskirts, extremes, borders, bookends, both sides."],
-    ["cycling", "move letters from one end to the other, keeping their order",
-      "Cycling is rarer than an anagram and looks like one until you notice the order survives: cycles, rotated, circulating."],
-    ["substitution", "swap one letter or chunk for another",
-      "Substitution is clued by exchange words: for, replacing, instead of, in place of, takes over from."],
-    ["palindrome", "check that the answer reads the same in both directions",
-      "Palindrome markers talk about symmetry rather than movement: both ways, either way, back to front, whichever end you start."],
-    ["letter_selection", "keep only some of the letters of the words it points at",
-      "Selection words say which letters: initially and leaders for the first, finally and ends for the last, heart of for the middle, oddly and regularly for every other."]
+    ["anagram", "rearrange the letters it points at"],
+    ["container", "put one piece inside another"],
+    ["reversal", "write a piece backwards"],
+    ["deletion", "drop letters from a word"],
+    ["hidden_word", "find a run of letters already sitting in the clue"],
+    ["homophone", "take how a word sounds, not how it is spelled"],
+    ["spoonerism", "swap the opening sounds of two words"],
+    ["alternate", "take every other letter"],
+    ["regular", "count through the letters at a fixed step and keep the ones you land on"],
+    ["first", "take the opening letter of the words it points at"],
+    ["last", "take the final letter of the words it points at"],
+    ["middle", "take just the middle of a word"],
+    ["outer", "keep only the outside letters of a word"],
+    ["cycling", "move letters from one end to the other, keeping their order"],
+    ["substitution", "swap one letter or chunk for another"],
+    ["palindrome", "check that the answer reads the same in both directions"],
+    ["letter_selection", "keep only some of the letters of the words it points at"]
   ];
   // A clue's operations in the order its type applies them. The rows are keyed
   // by type name, except that a letter selection is keyed by what its blocks
@@ -3304,6 +3287,116 @@
     const selects = [...new Set(blocks.map((b) => b.select).filter((v) => row(v)))];
     return types.flatMap((k) => k !== "letter_selection" ? [k] : selects.length ? selects : [k])
       .map(row).filter(Boolean);
+  }
+
+  // The reusable rule for each device: what its indicator words usually mean
+  // and other words that do the same job, so a hint about one clue leaves the
+  // solver something to bring to the next. Keyed by clue type, the value an
+  // indicator's `for` holds; `learn` is the id of that device's section in
+  // tools/tutorial.html, which /learn/ renders (tools/smoke_test.js checks
+  // every one exists). The indicator rung shows the rule beside the
+  // indicators, and the finish recap links each device it counts to its section.
+  //
+  // Fixed text written once for every clue, so it is masked and filtered like
+  // the family blurbs: `also` drops any word printed in this clue (on the type
+  // rung that would point at the indicator, which is another rung's work) and
+  // the line goes through maskAnswer.
+  const DEVICE_RULES = {
+    anagram: { learn: "anagram", means: "shuffle the letters of the words beside it",
+      also: ["broken", "wild", "mixed", "novel", "drunk", "poorly", "off", "about"] },
+    charade: { learn: "charade", means: "put two pieces side by side in the order it says",
+      also: ["after", "before", "with", "by", "next to", "following", "on (in a down clue)"] },
+    container: { learn: "container", means: "put one piece inside another",
+      also: ["in", "about", "around", "holding", "eating", "embracing", "outside", "swallowing"] },
+    reversal: { learn: "reversal", means: "read a piece backwards",
+      also: ["back", "returned", "recalled", "over", "around", "up (in a down clue)", "rising (in a down clue)"] },
+    deletion: { learn: "deletion", means: "drop letters from a word",
+      also: ["headless (the first)", "endless (the last)", "heartless (the middle)", "nearly (the last)", "short", "without"] },
+    substitution: { learn: "substitution", means: "swap one letter or piece for another",
+      also: ["for", "replacing", "instead of", "in place of", "changing"] },
+    palindrome: { learn: "palindrome", means: "the answer reads the same both ways",
+      also: ["either way", "both ways", "back and forth", "from either end"] },
+    cycling: { learn: "cycling", means: "move a letter from one end of a word to the other",
+      also: ["cycling", "rotated", "circulating", "going round", "first to last"] },
+    hidden_word: { learn: "hidden-word", means: "the letters are already written inside the clue, across the word breaks",
+      also: ["in", "some", "part of", "held by", "within", "a bit of", "partly"] },
+    letter_selection: { learn: "letter-selection", means: "keep only some letters: the first, last, middle or every other one",
+      also: ["initially", "leaders", "finally", "ends", "heart of", "oddly", "regularly", "edges"] },
+    homophone: { learn: "homophone", means: "take how a word sounds, not how it is spelled",
+      also: ["we hear", "reportedly", "on the radio", "said", "aloud", "announced", "they say"] },
+    spoonerism: { learn: "spoonerism", means: "swap the opening sounds of two words",
+      also: ["Spooner", "Spooner's", "the Reverend says"] },
+    double_definition: { learn: "double-definition", means: "two meanings of one word sit side by side",
+      also: ["and", "or", "for", "is", "with"] },
+    cryptic_definition: { learn: "cryptic-definition", means: "a word is used in an odd sense",
+      also: ["a question mark at the end"] },
+    and_lit: { learn: "and-lit", means: "the whole clue is both the wordplay and the definition",
+      also: ["an exclamation mark at the end"] }
+  };
+  // The type rung names only the family, so its rule is the family's: how to
+  // spot one next time, without saying which member this clue is. `learn` is
+  // where the family's sections start in the lesson.
+  const FAMILY_RULES = {
+    definition: { learn: "double-definition",
+      spot: "suspect one when the clue is short and no word reads as an instruction; a question mark often flags the playful kind",
+      also: [] },
+    and_lit: { learn: "and-lit",
+      spot: "suspect one when the whole clue is wordplay and yet still describes a single thing; an exclamation mark often flags it",
+      also: [] },
+    anagram: { learn: "anagram",
+      spot: "look for a word suggesting mess or change beside a run of letters to shuffle",
+      also: ["broken", "wild", "mixed", "novel", "drunk"] },
+    homophone: { learn: "homophone",
+      spot: "listen for a word about hearing or speaking, and say the piece beside it aloud",
+      also: ["we hear", "reportedly", "on the radio", "said"] },
+    charade: { learn: "charade",
+      spot: "split the wordplay into short words you can swap for synonyms or abbreviations, and join them left to right",
+      also: ["with", "after", "before", "by"] },
+    change: { learn: "container",
+      spot: "look for a word that says put inside, turn back or cut short, and apply it to the piece next to it",
+      also: ["in", "eating", "returned", "up (in a down clue)", "endless", "headless"] },
+    selection: { learn: "hidden-word",
+      spot: "look for a word saying the letters are already there: hidden in the words beside it, or their first, last or alternate letters",
+      also: ["some", "part of", "held by", "initially", "finally", "oddly"] }
+  };
+  // The INDICATOR_OPS rows that are kinds of letter selection, not types.
+  const SELECT_OPS = ["alternate", "regular", "first", "last", "middle", "outer"];
+  // The words of `also` this clue does not print and that are not the answer.
+  function ruleAlso(also, clue, ann) {
+    const said = new Set((String(clue || "") + " " + String(ann.answer || ""))
+      .toLowerCase().match(/[a-z']+/g) || []);
+    return also.filter((w) => !(w.replace(/\s*\(.*\)$/, "").toLowerCase()
+      .match(/[a-z']+/g) || []).every((x) => said.has(x)));
+  }
+  function ruleHTML(text, also, learn, clue, ann) {
+    const more = ruleAlso(also, clue, ann);
+    return `<p class="device-rule"><span class="rule-tag">Rule to keep</span> ${esc(maskAnswer(
+      text + (more.length ? `; also: ${more.join(", ")}` : "") + ".", ann.answer))}
+      <a class="learn-link" href="learn/#${learn}">More in the lesson</a></p>`;
+  }
+  // The indicator rung's rules: one line per device, naming this clue's words
+  // for it. The device is the indicator's own `for`; without one, the clue's
+  // single operation, when it has exactly one.
+  function indicatorRulesHTML(ann, clue, ops) {
+    const one = ops.length === 1 ? ops[0][0] : "";
+    const fallback = SELECT_OPS.includes(one) ? "letter_selection" : one;
+    const byKind = new Map();
+    for (const i of ann.indicators || []) {
+      const kind = DEVICE_RULES[i.for] ? i.for : DEVICE_RULES[fallback] ? fallback : "";
+      if (!kind) continue;
+      if (!byKind.has(kind)) byKind.set(kind, []);
+      byKind.get(kind).push(i.text);
+    }
+    return [...byKind].map(([kind, words]) => {
+      const r = DEVICE_RULES[kind];
+      const who = words.map((w) => `“${w}”`).join(" and ");
+      return ruleHTML(`${who} usually ${words.length > 1 ? "mean" : "means"}: ${r.means}`,
+        r.also, r.learn, clue, ann);
+    }).join("");
+  }
+  function familyRuleHTML(family, clue, ann) {
+    const r = FAMILY_RULES[family.name];
+    return r ? ruleHTML(`Next time, ${r.spot}`, r.also, r.learn, clue, ann) : "";
   }
 
   // The whole answer isn't a teaching rung — it's the end of the road — but it
@@ -4001,7 +4094,8 @@
       key: "type",
       label: LABELS.type,
       html: [familyOf(t)].map((f) => `<p><strong>${esc(maskAnswer(f.label, ann.answer))}</strong>. ` +
-        `${esc(maskAnswer(f.name === "anagram" && partAnagram(ann) ? ANAGRAM_PART : f.blurb, ann.answer))}</p>`).join("")
+        `${esc(maskAnswer(f.name === "anagram" && partAnagram(ann) ? ANAGRAM_PART : f.blurb, ann.answer))}</p>` +
+        familyRuleHTML(f, clue, ann)).join("")
     });
 
     // The exact mechanism, held back until every spotting rung is behind the
@@ -4114,7 +4208,7 @@
         html = noteList;
       } else if (ops.length === 1) {
         html = `<p>${marks} — ${inds.length > 1 ? "they tell" : "it tells"} you to
-          ${ops[0][1]}.</p><p class="muted">${ops[0][2]}</p>`;
+          ${ops[0][1]}.</p>`;
       } else if (ops.length > 1) {
         // A compound type has more than one operation and usually more than one
         // indicator. The list is counted off the ops rather than written into
@@ -4130,6 +4224,8 @@
       // Where only some indicators can be explained, the generic wording carries
       // the rest and the explained ones are listed under it.
       if (written.length && written.length !== inds.length) html += noteList;
+      // Then the rule that outlives this clue, under what is true of it.
+      html += indicatorRulesHTML(ann, clue, ops);
       steps.push({
         key: "indicators",
         label: LABELS.indicators,
@@ -7457,6 +7553,33 @@
   // the minutes figure would otherwise tick over as you sat there and the
   // sentence would rewrite itself under you.
   let tallyDrawn = false;
+
+  // "What you used today": every device in a clue the solver took a hint or a
+  // letter on, with how many such clues, each linked to its lesson section, so
+  // the finish names what to go and read. Derived from the saved ladder state
+  // (hintsShown, hintsEarned, revealsUsed in ct:<id>), so it is there on a
+  // reopened finished puzzle and on every synced device without storing
+  // anything new. A clue counts each of its types once.
+  function recapCounts() {
+    const used = {}, seen = {};
+    entries.forEach((e) => {
+      const key = entryKey(e);
+      if (seen[key]) return;
+      seen[key] = true;
+      const ann = annOf(e);
+      if (!ann || !(hintsCharged(e) > 0 || revealsUsed[key] > 0)) return;
+      new Set(ann.type || []).forEach((t) => { if (DEVICE_RULES[t]) used[t] = (used[t] || 0) + 1; });
+    });
+    return Object.entries(used).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+  }
+  function recapHTML() {
+    const used = recapCounts();
+    if (!used.length) return "";
+    return `<div class="recap"><p class="recap-head">What you used today</p><ul>${used.map(([t, n]) =>
+      `<li><a class="learn-link" href="learn/#${DEVICE_RULES[t].learn}">${esc(TYPES[t].label)}</a>` +
+      ` <span class="muted">× ${n}</span></li>`).join("")}</ul></div>`;
+  }
+
   function celebrate(complete, earned) {
     const parts = celebrateParts();
     if (!parts) return;
@@ -7489,6 +7612,7 @@
     if (mins) bits.push(`<strong>${mins}</strong> minute${mins === 1 ? "" : "s"} at it`);
     parts.line.innerHTML = `<p class="shout">Finished — you completed the whole grid.</p>`
       + `<p class="tally">${bits.join(LIST_SEP)}</p>`
+      + recapHTML()
       + voteRowHTML(voteTarget(null), "How was the puzzle?", "Enjoyed it", "Not really");
     wireVotes(parts.line, () => celebrate(true, false));
     // The box sits between the title and the grid, so where it is at the moment

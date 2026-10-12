@@ -521,6 +521,9 @@ button:disabled:hover { border-color: var(--line); }
 #celebrate .shout { margin: 0 0 6px; font-size: 1.35rem; font-weight: 700; }
 #celebrate .tally { margin: 0; font-size: .95rem; color: var(--muted); }
 #celebrate .tally strong { color: var(--fg); }
+#celebrate .recap { margin: 10px 0 0; font-size: .95rem; }
+#celebrate .recap-head { margin: 0 0 2px; font-weight: 700; }
+#celebrate .recap ul { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px 16px; }
 
 /* The finish box's own shells; the page-wide canvas show (finishFireworks in
    app.js) goes off with them. Ten shells, going off once, behind the scoreline rather
@@ -891,6 +894,12 @@ button:disabled:hover { border-color: var(--line); }
 }
 .hint-step p, .hint-step ul { margin: 4px 0; }
 .hint-step ul { padding-left: 20px; }
+/* The general rule under a rung: set apart from what is true of this clue. */
+.hint-step .device-rule { margin-top: 8px; padding: 6px 10px; border-left: 3px solid var(--accent-soft);
+  background: var(--bg); font-size: .92rem; }
+.device-rule .rule-tag { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--muted); }
+.device-rule .learn-link { white-space: nowrap; }
 .hint-step .gives { font-weight: 700; font-family: -apple-system, Helvetica, sans-serif; }
 /* The precise (compound) clue type — named only once the family, definition and
    indicators have already been given away. Quieter than the prose above it. */

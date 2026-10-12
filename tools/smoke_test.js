@@ -3183,15 +3183,23 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       // generic wording cannot slip past by not being on the list — the
       // explanation has to be specific to this clue's context, never just text
       // filling space. Anything the clue type alone could have written is
-      // filler beside a sentence about this clue.
+      // filler beside a sentence about this clue. The one exception is the
+      // labelled rule to keep (DEVICE_RULES), which is general on purpose: it is
+      // what the solver takes to the next clue, so it must be there.
       const inds = (s.e.annotation.indicators || []);
       if (inds.length && inds.every((i) => i.note)) {
         const rung = (html.split('<div class="hint-step">')
           .find((sec) => sec.includes("Spot the indicator words")) || "")
           .replace(/<\/div>[\s\S]*$/, "");
+        const rules = rung.match(/<p class="device-rule">[\s\S]*?<\/p>/g) || [];
+        assert(!inds.some((i) => i.for) || rules.length,
+          `${s.id} ${entryId(s.e)}: the indicators rung ends on the rule for its device: ` + rung);
+        assert(rules.every((r) => /href="learn\/#[a-z-]+"/.test(r)),
+          `${s.id} ${entryId(s.e)}: each rule links to its lesson section: ` + rules);
         const rest = rung
           .replace(/<span class="step-label">[^<]*<\/span>/, "")
-          .replace(/<ul class="ind-notes">[\s\S]*?<\/ul>/, "").trim();
+          .replace(/<ul class="ind-notes">[\s\S]*?<\/ul>/, "")
+          .replace(/<p class="device-rule">[\s\S]*?<\/p>/g, "").trim();
         assert(!rest, `${s.id} ${entryId(s.e)}: every indicator has a note, so the rung ` +
           `should be those notes and nothing else — also found: ` + rest);
       }
@@ -7257,4 +7265,77 @@ global.realSetTimeout(() => {
   assert(lit() === before, "picking a jigsaw clue lights no square of the grid");
   assert(!/entry-tag/.test(reg["hint-clue"].innerHTML) && reg["hint-pattern"].innerHTML === "",
     "a picked jigsaw clue's panel names no number and draws no letter strip of its squares");
+}
+
+// --- every hint rule links to a section the lesson really has ---
+// The indicator and type rungs end on a general rule for the device with a
+// link into /learn/, and the finish recap links each device it counts the same
+// way. Every clue type and every family needs a rule, and every `learn` id has
+// to be an id in tools/tutorial.html, or the link lands at the top of the page.
+{
+  const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+  const tableOf = (name) => {
+    const at = src.indexOf(`const ${name} = {`);
+    assert(at >= 0, `app.js defines ${name}`);
+    return src.slice(at, src.indexOf("\n  };\n", at));
+  };
+  const keysOf = (t) => [...t.matchAll(/^ {4}(\w+): \{ learn: "([a-z-]+)"/gm)].map((m) => [m[1], m[2]]);
+  const devices = keysOf(tableOf("DEVICE_RULES")), families = keysOf(tableOf("FAMILY_RULES"));
+  const types = JSON.parse(fs.readFileSync(path.join(ROOT, "tools", "data", "clue_types.json"), "utf8"));
+  const missingT = types.types.map((t) => t.name).filter((n) => !devices.some(([k]) => k === n));
+  assert(!missingT.length, "every clue type has a rule in DEVICE_RULES — missing " + missingT);
+  const missingF = types.families.map((f) => f.name).filter((n) => !families.some(([k]) => k === n));
+  assert(!missingF.length, "every family has a rule in FAMILY_RULES — missing " + missingF);
+  const lesson = fs.readFileSync(path.join(ROOT, "tools", "tutorial.html"), "utf8");
+  const dead = [...devices, ...families].filter(([, id]) => !lesson.includes(`id="${id}"`));
+  assert(!dead.length, "every rule's lesson link has its section in tools/tutorial.html — missing "
+    + dead.map(([k, id]) => `${k} → #${id}`).join(", "));
+}
+
+// --- the finish names the devices you needed help with ---
+// Booted with a finished save planted, the way a reopened puzzle or a synced
+// device arrives: the recap has to come out of the saved ladder state alone.
+{
+  const shim = (id) => {
+    const w = { CRYPTIC_PUZZLES: {} };
+    new Function("window", fs.readFileSync(path.join(ROOT, "puzzles", id + ".js"), "utf8"))(w);
+    return w.CRYPTIC_PUZZLES[id];
+  };
+  const square = (e, i) => (e.position.x + (e.direction === "across" ? i : 0)) + ","
+    + (e.position.y + (e.direction === "across" ? 0 : i));
+  const ID = "quiptic-1397";
+  const B = shim(ID);
+  const annotated = B.entries.filter((e) => !e.group && ((e.annotation || {}).type || []).length);
+  const [b1, b2] = annotated;
+  const at = Date.now() - 3600e3;
+  const save = (solvedWith, revealsUsed) => {
+    const letters = {}, letterAt = {};
+    B.entries.forEach((e) => {
+      for (let i = 0; i < e.length; i++) { letters[square(e, i)] = e.solution[i]; letterAt[square(e, i)] = at; }
+    });
+    return JSON.stringify({ letters, letterAt, solvedWith, hintsShown: {}, hintsEarned: {},
+      revealsUsed, timing: { solvedAt: at }, updated: at });
+  };
+  const zero = Object.fromEntries(B.entries.map((e) => [entryId(e), 0]));
+  const scoreline = (stored) => {
+    const d = require("./fake_dom.js").boot({ query: "?p=" + ID, storage: { ["ct:" + ID]: stored } });
+    const box = d.registry["celebrate"];
+    assert(!box.classList.contains("hidden"), "a finished save opens on its scoreline");
+    return box.children.map((c) => c.innerHTML).join("");
+  };
+  const clean = scoreline(save(zero, {}));
+  assert(!/What you used today/.test(clean), "a puzzle finished with no hints has no recap: " + clean);
+
+  const html = scoreline(save(Object.assign({}, zero, { [entryId(b1)]: 2 }), { [entryId(b2)]: 1 }));
+  assert(/What you used today/.test(html), "a finish with hints lists what was used: " + html);
+  const want = {};
+  [b1, b2].forEach((e) => new Set(e.annotation.type).forEach((t) => { want[t] = (want[t] || 0) + 1; }));
+  const got = Object.fromEntries([...html.matchAll(/href="learn\/#([a-z-]+)">([^<]+)<\/a> <span class="muted">× (\d+)<\/span>/g)]
+    .map((m) => [m[2], +m[3]]));
+  const label = (t) => global.CRYPTIC_INDEX.clueTypes.types.find((x) => x.name === t).label;
+  for (const [t, n] of Object.entries(want)) {
+    assert(got[label(t)] === n, `the recap counts ${t} once per clue that needed help (${n}): ` + JSON.stringify(got));
+  }
+  assert(Object.keys(got).length === Object.keys(want).length,
+    "and lists nothing those two clues did not use: " + JSON.stringify(got));
 }
