@@ -1866,6 +1866,18 @@ def _neardups(conn, cached, files, paths, mine_rows):
     return sorted(found)
 
 
+def check_table_ids(held, flags):
+    """A FILED finding for each puzzle PUBLISHED_WRONG or UNLINKED_IN_SOURCE
+    forgives a finding of that is not among the filed ids `held`: a row written
+    ahead of its puzzle (or left after it went) forgives nothing, and is a
+    finding here rather than a crash in whatever reads the puzzle it names.
+    Not part of audit(): its test repos hold none of the tables' puzzles, so
+    test_puzzle_integrity.sh runs it over the real corpus instead."""
+    for name, table in (("PUBLISHED_WRONG", PUBLISHED_WRONG), ("UNLINKED_IN_SOURCE", UNLINKED_IN_SOURCE)):
+        for pid in sorted({pid for pid, _ in table} - held):
+            flags.append(("FILED", pid, f"{name} forgives findings of {pid}, which is not filed"))
+
+
 def audit(files, paths, today, only=None):
     """One flat list of (flag, puzzle id, what) plus the duplicate groups, over
     the puzzle files `paths` (published(files)) in `files` ({name: blob sha}, from listing()) and whatever
