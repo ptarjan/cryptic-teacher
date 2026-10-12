@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,54 @@
     "text": "Lock office worker in the van — she'll lead you astray",
     "enumeration": "9"
    },
-   "solution": "TEMPTRESS"
+   "solution": "TEMPTRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEMPTRESS",
+    "definitions": [
+     {
+      "text": "she'll lead you astray",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the van",
+      "for": "charade",
+      "note": "the van is the front of a column, so this piece is placed at the start rather than inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "office worker",
+      "gives": "TEMP",
+      "note": "a temp is a temporary office worker; 'in the van' puts this first"
+     },
+     {
+      "clueFragment": "Lock",
+      "gives": "TRESS",
+      "note": "a tress is a lock of hair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEMP",
+      "TRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A kidnapper bundling a secretary into a van, with a warning about a dangerous woman.",
+     "walkthrough": "'In the van' means at the front, not inside: the worker goes before the lock rather than inside it.",
+     "definitionFit": "A temptress is a seductive woman who entices people into wrongdoing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "van"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +97,44 @@
     "text": "Drum with robust interior",
     "enumeration": "5"
    },
-   "solution": "THROB"
+   "solution": "THROB",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "letter_selection"
+    ],
+    "answer": "THROB",
+    "definitions": [
+     {
+      "text": "Drum",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interior",
+      "for": "hidden_word",
+      "note": "the interior of the following words holds the letters, tucked inside across the word break"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with robust",
+      "gives": "THROB",
+      "select": "middle",
+      "note": "the letters straddle the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A sturdy drum with a strong inner frame.",
+     "definitionFit": "To drum and to throb both mean to beat rhythmically and insistently, as a pulse or a headache does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "interior"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +148,66 @@
     "text": "Ill-advised doctor takes 'is conduct to heart",
     "enumeration": "9"
    },
-   "solution": "MISGUIDED"
+   "solution": "MISGUIDED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MISGUIDED",
+    "definitions": [
+     {
+      "text": "Ill-advised",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "takes",
+      "for": "container",
+      "note": "to take something to heart is to hold it inside, so one piece is held within the other"
+     },
+     {
+      "text": "to heart",
+      "for": "container",
+      "note": "the heart is the middle, so the other words go into the centre of the doctor"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor",
+      "gives": "MD",
+      "note": "MD, Doctor of Medicine"
+     },
+     {
+      "clueFragment": "'is",
+      "gives": "IS",
+      "note": "'is (his, dropped H) read as plain IS"
+     },
+     {
+      "clueFragment": "conduct",
+      "gives": "GUIDE",
+      "note": "to conduct is to guide"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ISGUIDE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor who takes his own bad behaviour to heart, in a Cockney voice.",
+     "walkthrough": "The apostrophe marks a dropped H, Cockney style, so 'is stands for the plain word, not for his.",
+     "definitionFit": "Misguided means acting on bad judgment or poor advice, a synonym of ill-advised."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "conduct"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +221,50 @@
     "text": "Affliction Mrs Booth is suffering?",
     "enumeration": "10"
    },
-   "solution": "THROMBOSIS"
+   "solution": "THROMBOSIS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THROMBOSIS",
+    "definitions": [
+     {
+      "text": "Affliction",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suffering",
+      "for": "anagram",
+      "note": "something suffering is in a bad state, so the name and verb are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mrs Booth is",
+      "gives": "MRSBOOTHIS",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MRSBOOTHIS",
+       "gives": "THROMBOSIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking what illness a certain Mrs Booth has.",
+     "definitionFit": "Thrombosis, a blood clot in a vessel, is a serious medical condition, so an affliction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Booth"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +278,67 @@
     "text": "Energy contained in cooked green stuff",
     "enumeration": "7"
    },
-   "solution": "ENGORGE"
+   "solution": "ENGORGE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ENGORGE",
+    "definitions": [
+     {
+      "text": "stuff",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooking transforms the ingredients, so the colour word is rearranged"
+     },
+     {
+      "text": "contained in",
+      "for": "container",
+      "note": "one piece is held within the other, as the words say directly"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "green",
+      "gives": "ENRGE",
+      "note": "rearranged"
+     },
+     {
+      "clueFragment": "Energy",
+      "gives": "GO",
+      "note": "go means energy or vigour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "GO",
+      "RGE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GREEN",
+       "gives": "ENRGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cooked greens as a source of energy.",
+     "walkthrough": "Energy here is not the usual abbreviation E but GO, as in 'full of go'; it sits after the first two letters of the rearranged colour.",
+     "definitionFit": "To engorge is to gorge or cram oneself with food, a sense of the verb stuff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stuff"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +352,44 @@
     "text": "Runs through sea birds by the sound of it",
     "enumeration": "7"
    },
-   "solution": "SKEWERS"
+   "solution": "SKEWERS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SKEWERS",
+    "definitions": [
+     {
+      "text": "Runs through",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "says the word wanted is one that is spoken like the birds, not spelt like them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sea birds",
+      "gives": "SKEWERS",
+      "soundsLike": "SKUAS",
+      "note": "skuas are predatory seabirds"
+     }
+    ],
+    "explanation": {
+     "surface": "Seabirds dashing through, apparently.",
+     "definitionFit": "To skewer something is to pierce it right through with a spike, so the verb runs through fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Runs"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +403,52 @@
     "text": "Sinks wanting new bottom",
     "enumeration": "5"
    },
-   "solution": "BASIS"
+   "solution": "BASIS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BASIS",
+    "definitions": [
+     {
+      "text": "bottom",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wanting",
+      "for": "deletion",
+      "note": "wanting means lacking, so a letter is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sinks",
+      "gives": "BASINS",
+      "note": "basins are sinks"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new; this is the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BASIS"
+     ]
+    },
+    "explanation": {
+     "surface": "Kitchen sinks needing new bases.",
+     "definitionFit": "A basis is the foundation or base something rests on, its bottom layer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sinks"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +462,43 @@
     "text": "Cobbler's resting place",
     "enumeration": "4"
    },
-   "solution": "BUNK"
+   "solution": "BUNK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BUNK",
+    "definitions": [
+     {
+      "text": "Cobbler's",
+      "at": 0
+     },
+     {
+      "text": "resting place",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cobbler's",
+      "note": "first meaning: nonsense; cobblers is British slang for rubbish, and the apostrophe hides the plural"
+     },
+     {
+      "clueFragment": "resting place",
+      "note": "second meaning: a narrow bed"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a shoemaker's bed, but 'cobblers' is British slang for nonsense, which bunk also means.",
+     "definitionFit": "Bunk is short for bunkum, meaning nonsense, and is also a simple shelf-like bed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cobbler's"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +512,47 @@
     "text": "Second prune not wanted",
     "enumeration": "5"
    },
-   "solution": "SPARE"
+   "solution": "SPARE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPARE",
+    "definitions": [
+     {
+      "text": "not wanted",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "prune",
+      "gives": "PARE",
+      "note": "to pare is to trim or prune"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PARE"
+     ]
+    },
+    "explanation": {
+     "surface": "A second dried plum that nobody wants.",
+     "walkthrough": "'Prune' looks like the fruit but is the verb meaning trim.",
+     "definitionFit": "Spare means surplus or extra, left over because nobody needs it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "prune"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +566,61 @@
     "text": "Quickly leave King Edward surrounded by lumber",
     "enumeration": "9"
    },
-   "solution": "SKEDADDLE"
+   "solution": "SKEDADDLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SKEDADDLE",
+    "definitions": [
+     {
+      "text": "Quickly leave",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounded by",
+      "for": "container",
+      "note": "something surrounded by another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lumber",
+      "gives": "SADDLE",
+      "note": "to lumber someone with a task is to saddle them with it"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "K",
+      "note": "K, king in chess"
+     },
+     {
+      "clueFragment": "Edward",
+      "gives": "ED",
+      "note": "Ed is short for Edward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "KED",
+      "ADDLE"
+     ]
+    },
+    "explanation": {
+     "surface": "King Edward hemmed in by timber and needing to make a quick exit.",
+     "walkthrough": "'Lumber' suggests wood, but here it is the verb meaning to burden.",
+     "definitionFit": "Skedaddle is an informal word for running away or departing hastily."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lumber"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +634,43 @@
     "text": "He stands for part of the flight",
     "enumeration": "5"
    },
-   "solution": "RISER"
+   "solution": "RISER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RISER",
+    "definitions": [
+     {
+      "text": "He stands",
+      "at": 0
+     },
+     {
+      "text": "part of the flight",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He stands",
+      "note": "first meaning: someone who gets up"
+     },
+     {
+      "clueFragment": "part of the flight",
+      "note": "second meaning: the vertical piece of a stair step"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Flight' suggests air travel, but a flight here is a set of stairs.",
+     "definitionFit": "A riser is a person who rises from bed, and also the upright board between two treads of a staircase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flight"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +684,63 @@
     "text": "Raw measure not acceptable for fruit",
     "enumeration": "9"
    },
-   "solution": "GREENGAGE"
+   "solution": "GREENGAGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "GREENGAGE",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not here means without, so a letter standing for acceptable is dropped"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Raw",
+      "gives": "GREEN",
+      "note": "green means raw or inexperienced"
+     },
+     {
+      "clueFragment": "measure",
+      "gives": "GAUGE",
+      "note": "to gauge is to measure"
+     },
+     {
+      "clueFragment": "acceptable",
+      "gives": "U",
+      "note": "U means socially acceptable, upper-class; this is the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREEN",
+      "GAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "An unripe measure of fruit that is not fit to eat.",
+     "walkthrough": "U for upper-class or acceptable is a crossword convention.",
+     "definitionFit": "A greengage is a kind of green plum, so a fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Raw"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +760,47 @@
      }
     ]
    },
-   "solution": "BLUEMURDER"
+   "solution": "BLUEMURDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLUE MURDER",
+    "definitions": [
+     {
+      "text": "terrible commotion",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sad",
+      "gives": "BLUE",
+      "note": "feeling blue is feeling sad"
+     },
+     {
+      "clueFragment": "ending of another",
+      "gives": "MURDER",
+      "note": "killing someone is ending another's life"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLUE",
+      "MURDER"
+     ]
+    },
+    "explanation": {
+     "surface": "The unhappy conclusion of another story.",
+     "walkthrough": "'Ending of another' looks like a last-letter instruction, but it is a cryptic description of killing someone.",
+     "definitionFit": "To scream blue murder is to make a furious outcry, so the phrase means a loud uproar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ending"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +814,47 @@
     "text": "Second-rate help with head in the wrong place",
     "enumeration": "4"
    },
-   "solution": "BETA"
+   "solution": "BETA",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "BETA",
+    "definitions": [
+     {
+      "text": "Second-rate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with head in the wrong place",
+      "for": "cycling",
+      "note": "the first letter is moved from the front to the back of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "help",
+      "gives": "ABET",
+      "note": "to abet is to help"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BETA"
+     ]
+    },
+    "explanation": {
+     "surface": "Mediocre assistance from someone whose mind is elsewhere.",
+     "definitionFit": "Beta is the second letter of the Greek alphabet, used as a grade for second-class work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +874,48 @@
      }
     ]
    },
-   "solution": "SECONDHAND"
+   "solution": "SECONDHAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SECOND HAND",
+    "definitions": [
+     {
+      "text": "on watch?",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Back up",
+      "gives": "SECOND",
+      "note": "to second a proposal is to back it up"
+     },
+     {
+      "clueFragment": "assistant",
+      "gives": "HAND",
+      "note": "a hand is a helper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SECOND",
+      "HAND"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking for a reserve helper during a guard duty.",
+     "walkthrough": "'On watch' sounds like sentry duty; the question mark flags that it means a thing found on a timepiece.",
+     "definitionFit": "The second hand is the pointer on a watch or clock that counts the seconds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "watch"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +935,59 @@
      }
     ]
    },
-   "solution": "REDROSE"
+   "solution": "REDROSE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "RED ROSE",
+    "definitions": [
+     {
+      "text": "royal emblem",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "one thing for another means swapped in place of it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rudolph's trademark",
+      "gives": "REDNOSE",
+      "note": "Rudolph the reindeer is famous for his shining red nose"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R, abbreviation for right; it replaces the N"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N, abbreviation for new; the letter replaced"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "ROSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Rudolph's famous feature turned into a royal symbol.",
+     "walkthrough": "The red rose is the emblem of the royal House of Lancaster.",
+     "definitionFit": "A heraldic badge of the House of Lancaster, so a royal emblem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trademark"
+    }
+   }
   },
   {
    "number": 14,
@@ -281,7 +1007,60 @@
      }
     ]
    },
-   "solution": "RIGHTAWAY"
+   "solution": "RIGHTAWAY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RIGHT AWAY",
+    "definitions": [
+     {
+      "text": "directly",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carries",
+      "for": "container",
+      "note": "something carried is held inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Correct",
+      "gives": "RIGHT",
+      "note": "right means correct"
+     },
+     {
+      "clueFragment": "route",
+      "gives": "WAY",
+      "note": "a way is a route"
+     },
+     {
+      "clueFragment": "adult",
+      "gives": "A",
+      "note": "A, adult as a film rating"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIGHT",
+      "A",
+      "WAY"
+     ]
+    },
+    "explanation": {
+     "surface": "The right route to take a grown-up straight there.",
+     "definitionFit": "Right away means immediately, without delay, an idiomatic sense of directly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "carries"
+    }
+   }
   },
   {
    "number": 15,
@@ -295,7 +1074,71 @@
     "text": "Put off making love in outhouse when love's lost",
     "enumeration": "7"
    },
-   "solution": "SHELVED"
+   "solution": "SHELVED",
+   "annotation": {
+    "type": [
+     "container",
+     "deletion"
+    ],
+    "answer": "SHELVED",
+    "definitions": [
+     {
+      "text": "Put off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one word placed in another goes inside it"
+     },
+     {
+      "text": "lost",
+      "for": "deletion",
+      "note": "something lost is gone, so a letter is taken out"
+     }
+    ],
+    "linkWords": [
+     "making",
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outhouse",
+      "gives": "SHED",
+      "note": "a shed is an outhouse"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "LOVE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "love's",
+      "gives": "O",
+      "note": "love is zero in tennis, the letter O; this is the letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHE",
+      "LVE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Postponing a romantic tryst in the garden shed.",
+     "walkthrough": "'Love' is used twice: first as the whole word, then as zero in tennis, a round letter that is then removed.",
+     "definitionFit": "To shelve a plan is to put it aside, to postpone or put it off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 16,
@@ -309,7 +1152,50 @@
     "text": "Disorderly, naive lads wreak havoc",
     "enumeration": "9"
    },
-   "solution": "VANDALISE"
+   "solution": "VANDALISE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "VANDALISE",
+    "definitions": [
+     {
+      "text": "wreak havoc",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Disorderly",
+      "for": "anagram",
+      "note": "disorderly means out of order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "naive lads",
+      "gives": "NAIVELADS",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NAIVELADS",
+       "gives": "VANDALISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Unruly, innocent boys causing chaos.",
+     "definitionFit": "To vandalise is to deliberately damage property, causing destruction and havoc."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Disorderly"
+    }
+   }
   },
   {
    "number": 17,
@@ -323,7 +1209,50 @@
     "text": "Gang did wrong rampaging round town",
     "enumeration": "7"
    },
-   "solution": "GADDING"
+   "solution": "GADDING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GADDING",
+    "definitions": [
+     {
+      "text": "rampaging round town",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrong",
+      "for": "anagram",
+      "note": "something gone wrong is out of its proper order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gang did",
+      "gives": "GANGDID",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GANGDID",
+       "gives": "GADDING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gang misbehaving as it runs wild through the town.",
+     "definitionFit": "Gadding about means roaming from place to place in search of fun, as in a night on the town."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wrong"
+    }
+   }
   },
   {
    "number": 18,
@@ -337,7 +1266,55 @@
     "text": "Manly six-footer kept under by spite",
     "enumeration": "7"
    },
-   "solution": "GALLANT"
+   "solution": "GALLANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GALLANT",
+    "definitions": [
+     {
+      "text": "Manly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kept under by",
+      "for": "charade",
+      "note": "in a down entry, something kept under another is written below it, so it comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spite",
+      "gives": "GALL",
+      "note": "gall means bitterness or spite"
+     },
+     {
+      "clueFragment": "six-footer",
+      "gives": "ANT",
+      "note": "an insect has six legs; 'kept under' puts it below in this down entry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GALL",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A tall man held down by malice.",
+     "walkthrough": "'Six-footer' suggests a tall person, but it is an insect with six feet.",
+     "definitionFit": "Gallant means brave and chivalrous, qualities traditionally linked to manliness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "six-footer"
+    }
+   }
   },
   {
    "number": 19,
@@ -351,7 +1328,42 @@
     "text": "Guide who may get points for good work",
     "enumeration": "7"
    },
-   "solution": "BROWNIE"
+   "solution": "BROWNIE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BROWNIE",
+    "definitions": [
+     {
+      "text": "Guide",
+      "at": 0
+     },
+     {
+      "text": "who may get points for good work",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guide",
+      "note": "first meaning: a junior member of the Girl Guides"
+     },
+     {
+      "clueFragment": "who may get points for good work",
+      "note": "second meaning: one awarded ... points, credit for good deeds"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Brownies are the youngest Girl Guides, a girls' scouting group; brownie points are notional credit earned for good deeds.",
+     "definitionFit": "The same word names a young girl in the scouting movement and the figurative points given for pleasing someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Guide"
+    }
+   }
   },
   {
    "number": 19,
@@ -365,7 +1377,50 @@
     "text": "Give way with rook offering protection for knight",
     "enumeration": "7"
    },
-   "solution": "BUCKLER"
+   "solution": "BUCKLER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUCKLER",
+    "definitions": [
+     {
+      "text": "protection for knight",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "offering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Give way",
+      "gives": "BUCKLE",
+      "note": "to buckle is to collapse or give way"
+     },
+     {
+      "clueFragment": "rook",
+      "gives": "R",
+      "note": "R, rook in chess notation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUCKLE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A chess game where a rook gives way to protect the knight.",
+     "walkthrough": "Rook and knight suggest a chessboard, but the knight is a medieval warrior.",
+     "definitionFit": "A buckler is a small round shield, worn by medieval fighting men as protection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rook"
+    }
+   }
   },
   {
    "number": 20,
@@ -379,7 +1434,42 @@
     "text": "Minute mark",
     "enumeration": "4"
    },
-   "solution": "TICK"
+   "solution": "TICK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TICK",
+    "definitions": [
+     {
+      "text": "Minute",
+      "at": 0
+     },
+     {
+      "text": "mark",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Minute",
+      "note": "first meaning: a moment"
+     },
+     {
+      "clueFragment": "mark",
+      "note": "second meaning: a check mark showing something is correct"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Minute' reads as tiny (my-NEWT), but it is the noun meaning a short time.",
+     "definitionFit": "In British speech a tick is a moment, and also the check mark used to approve items."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Minute"
+    }
+   }
   },
   {
    "number": 21,
@@ -393,7 +1483,69 @@
     "text": "\"Scripture lessons in church\", diocesan leader proclaimed",
     "enumeration": "5"
    },
-   "solution": "CRIED"
+   "solution": "CRIED",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CRIED",
+    "definitions": [
+     {
+      "text": "proclaimed",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placed in another word means inside it"
+     },
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader comes first, so only the opening letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE, Church of England"
+     },
+     {
+      "clueFragment": "Scripture lessons",
+      "gives": "RI",
+      "note": "RI, religious instruction, school scripture lessons"
+     },
+     {
+      "clueFragment": "diocesan",
+      "gives": "D",
+      "select": "first",
+      "note": "the leading letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RI",
+      "E",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A bishop announcing that Bible classes will be held in church.",
+     "walkthrough": "RI is religious instruction, the old name for scripture lessons in British schools.",
+     "definitionFit": "To cry something is to call it out loudly, so cried means proclaimed or announced."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 22,
@@ -413,7 +1565,64 @@
      }
     ]
    },
-   "solution": "BLACKDEATH"
+   "solution": "BLACKDEATH",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BLACK DEATH",
+    "definitions": [
+     {
+      "text": "Old European killer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placed in a town means inside its name"
+     }
+    ],
+    "linkWords": [
+     "shows"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spa town",
+      "gives": "BATH",
+      "note": "Bath is a Roman spa town in Somerset, England"
+     },
+     {
+      "clueFragment": "need",
+      "gives": "LACK",
+      "note": "a lack is a need"
+     },
+     {
+      "clueFragment": "of French",
+      "gives": "DE",
+      "note": "de is French for of"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LACK",
+      "DE",
+      "ATH"
+     ]
+    },
+    "explanation": {
+     "surface": "A historic European murderer turning up in a spa town, needing a French connection.",
+     "definitionFit": "The Black Death was the bubonic plague pandemic of the 1340s that killed a large share of Europe's population."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "killer"
+    }
+   }
   },
   {
    "number": 23,
@@ -427,7 +1636,42 @@
     "text": "Ex-county hounds?",
     "enumeration": "5"
    },
-   "solution": "HUNTS"
+   "solution": "HUNTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HUNTS",
+    "definitions": [
+     {
+      "text": "Ex-county",
+      "at": 0
+     },
+     {
+      "text": "hounds",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ex-county",
+      "note": "first meaning: the abbreviation of Huntingdonshire, a former English county"
+     },
+     {
+      "clueFragment": "hounds",
+      "note": "second meaning: pursues relentlessly"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Huntingdonshire, a county abolished in 1974, is commonly abbreviated Hunts; 'hounds' looks like dogs but is the verb.",
+     "definitionFit": "Hunts is the short form of a vanished shire, and to hunt someone is to hound or chase them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hounds"
+    }
+   }
   },
   {
    "number": 24,
@@ -441,7 +1685,48 @@
     "text": "Chamber instrument, almost",
     "enumeration": "4"
    },
-   "solution": "CELL"
+   "solution": "CELL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CELL",
+    "definitions": [
+     {
+      "text": "Chamber",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the last letter is cut off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "instrument",
+      "gives": "CELLO",
+      "note": "a cello is a stringed instrument"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CELL"
+     ]
+    },
+    "explanation": {
+     "surface": "Nearly a chamber-music instrument.",
+     "walkthrough": "'Chamber' with 'instrument' evokes chamber music, but it is the definition.",
+     "definitionFit": "A cell is a small room, as in a prison or monastery, so a chamber."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Chamber"
+    }
+   }
   },
   {
    "number": 25,
@@ -455,7 +1740,62 @@
     "text": "Having inner clout, we lobby British government",
     "enumeration": "9"
    },
-   "solution": "WHITEHALL"
+   "solution": "WHITEHALL",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "WHITEHALL",
+    "definitions": [
+     {
+      "text": "British government",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Having inner",
+      "for": "container",
+      "note": "having something inner means holding it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "we",
+      "gives": "WE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "clout",
+      "gives": "HIT",
+      "note": "to clout is to hit"
+     },
+     {
+      "clueFragment": "lobby",
+      "gives": "HALL",
+      "note": "a hall is an entrance lobby"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HIT",
+      "E",
+      "HALL"
+     ]
+    },
+    "explanation": {
+     "surface": "Pressure groups with influence petitioning the government.",
+     "walkthrough": "'Clout' and 'lobby' suggest political influence, but they are a blow and an entrance hall.",
+     "definitionFit": "Whitehall is the London street of government ministries, used as shorthand for the British civil service and administration."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lobby"
+    }
+   }
   },
   {
    "number": 26,
@@ -469,7 +1809,57 @@
     "text": "Put straight foreigner, abandoning English for German",
     "enumeration": "5"
    },
-   "solution": "ALIGN"
+   "solution": "ALIGN",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "ALIGN",
+    "definitions": [
+     {
+      "text": "Put straight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandoning",
+      "for": "substitution",
+      "note": "abandoning one thing for another means dropping it and putting the other in its place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "foreigner",
+      "gives": "ALIEN",
+      "note": "an alien is a foreigner"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E, English; the letter dropped"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G, German; the letter put in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALIGN"
+     ]
+    },
+    "explanation": {
+     "surface": "An outsider renouncing English nationality to become German.",
+     "definitionFit": "To align things is to bring them into a straight line."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "foreigner"
+    }
+   }
   },
   {
    "number": 27,
@@ -483,7 +1873,39 @@
     "text": "Relay melody miles away?",
     "enumeration": "5"
    },
-   "solution": "YODEL"
+   "solution": "YODEL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "YODEL",
+    "definitions": [
+     {
+      "text": "Relay melody miles away?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Relay melody miles away?",
+      "note": "surface reading: broadcasting a tune to a distant audience"
+     },
+     {
+      "clueFragment": "Relay melody miles away?",
+      "note": "setter's reading: an Alpine singing style whose warbling call carries across far valleys"
+     }
+    ],
+    "explanation": {
+     "surface": "Transmitting a song to listeners far off.",
+     "walkthrough": "'Relay' suggests radio, but this song is sent across mountains by voice alone.",
+     "definitionFit": "A yodel is a song alternating chest and falsetto notes, used by Alpine herders to call across long distances."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Relay"
+    }
+   }
   },
   {
    "number": 28,
@@ -497,7 +1919,69 @@
     "text": "Strides out round the Newcastle area, causing fatigue",
     "enumeration": "9"
    },
-   "solution": "TIREDNESS"
+   "solution": "TIREDNESS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TIREDNESS",
+    "definitions": [
+     {
+      "text": "fatigue",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out means out of shape, so the letters are rearranged"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "going round something encloses it"
+     }
+    ],
+    "linkWords": [
+     "causing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Strides",
+      "gives": "TIREDSS",
+      "note": "rearranged"
+     },
+     {
+      "clueFragment": "the Newcastle area",
+      "gives": "NE",
+      "note": "NE, the North East of England, where Newcastle is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIRED",
+      "NE",
+      "SS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STRIDES",
+       "gives": "TIREDSS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A long walk around Newcastle leaving someone exhausted.",
+     "definitionFit": "Tiredness is the state of being weary, a synonym of fatigue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Strides"
+    }
+   }
   }
  ]
 }
