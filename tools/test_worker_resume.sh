@@ -81,7 +81,7 @@ put_back() {  # id -> rc, the note in $t/note
 note() { cat "$t/note" 2>/dev/null; }
 runs="$(cd "$tree" && worker_runs burn)"
 
-echo "edits that validate, master untouched: put back, kept, resumed"
+echo "edits that parse (blank clues and all), master untouched: put back, kept, resumed"
 start_run "$tree" s-a >/dev/null
 echo '{"clues": "annotated half"}' >"$tree/puzzles/s/2026/s-a.json"
 echo '{"1a": "hint"}' >"$tree/tools/_ann_s-a.json"
@@ -110,9 +110,9 @@ check "master's version stands" '{"clues": "fixed upstream"}' "$(cat "$tree/puzz
 check "the note says master changed it and the edits are gone" "1 1" \
   "$(note | grep -c 'changed it while you were stopped') $(note | grep -c 'edits you had made to it are gone')"
 
-echo "edits that do not validate: discarded, the conversation still resumes"
+echo "a file cut off mid-write (not JSON): discarded, the conversation still resumes"
 start_run "$tree" s-c >/dev/null
-echo '{"clues": "BROKEN mid-write"}' >"$tree/puzzles/s/2026/s-c.json"
+echo '{"clues": "BROKEN mid-wr' >"$tree/puzzles/s/2026/s-c.json"
 echo '{"1a": "hint"}' >"$tree/tools/_ann_s-c.json"
 restart "$tree"
 put_back s-c; rc=$?
