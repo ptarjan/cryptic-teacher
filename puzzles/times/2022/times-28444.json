@@ -23,6 +23,9 @@
   "date": "2022-11-10",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,44 @@
     "text": "Crash site potentially located in plains of Armenia",
     "enumeration": "4"
    },
-   "solution": "SOFA"
+   "solution": "SOFA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SOFA",
+    "definitions": [
+     {
+      "text": "Crash site potentially",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "located in",
+      "for": "hidden_word",
+      "note": "something located in the following words sits inside them, spanning the gap between two of them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plains of Armenia",
+      "gives": "SOFA",
+      "note": "read across the end of plains, all of of and the start of Armenia"
+     }
+    ],
+    "explanation": {
+     "surface": "An air accident investigator reports where a plane may have come down on an Armenian plain.",
+     "walkthrough": "'Crash' is slang for sleeping somewhere informally, so a crash site is where a guest might bed down.",
+     "definitionFit": "A settee is a typical spot for a visitor to sleep over when there is no spare bed, hence 'potentially'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Crash"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +90,70 @@
     "text": "Dozen chairs, one removed, thrown around with playfulness",
     "enumeration": "10"
    },
-   "solution": "SCHERZANDO"
+   "solution": "SCHERZANDO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SCHERZANDO",
+    "definitions": [
+     {
+      "text": "with playfulness",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removed",
+      "for": "deletion",
+      "note": "removed tells us to take the single letter for one out of the word chairs"
+     },
+     {
+      "text": "thrown around",
+      "for": "anagram",
+      "note": "letters that are thrown around land in a jumbled new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dozen",
+      "gives": "DOZEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "chairs",
+      "gives": "CHAIRS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral for one, the letter dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCHERZANDO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DOZENCHARS",
+       "gives": "SCHERZANDO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone playfully flings a dozen chairs about, minus one.",
+     "walkthrough": "Take I out of CHAIRS to get CHARS, then shuffle DOZEN CHARS together.",
+     "definitionFit": "Scherzando is the Italian musical direction meaning to be played in a jocular, sportive manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "thrown"
+    }
+   }
   },
   {
    "number": 2,
@@ -64,7 +167,70 @@
     "text": "Iron Duke consumes this regularly — it's foul",
     "enumeration": "5"
    },
-   "solution": "FETID"
+   "solution": "FETID",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "FETID",
+    "definitions": [
+     {
+      "text": "foul",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means taking letters at even intervals, every other one"
+     },
+     {
+      "text": "consumes",
+      "for": "container",
+      "note": "what consumes something takes it inside itself, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Iron",
+      "gives": "FE",
+      "note": "Fe is the chemical symbol for iron"
+     },
+     {
+      "clueFragment": "this",
+      "gives": "TI",
+      "select": "alternate",
+      "note": "first and third letters of this"
+     },
+     {
+      "clueFragment": "Duke",
+      "gives": "D",
+      "note": "D is the abbreviation for duke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FE",
+      "TI",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "The Iron Duke, Wellington, eats something routinely and pronounces it disgusting.",
+     "walkthrough": "'Iron Duke' reads as Wellington's nickname, but it splits into two separate abbreviations, FE and D, with TI eaten between them.",
+     "definitionFit": "Fetid means stinking or rank, the smell of something foul."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Iron"
+    }
+   }
   },
   {
    "number": 3,
@@ -78,7 +244,66 @@
     "text": "Dealing with letters, exhausted without wife to hold arm",
     "enumeration": "10"
    },
-   "solution": "EPISTOLARY"
+   "solution": "EPISTOLARY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "EPISTOLARY",
+    "definitions": [
+     {
+      "text": "Dealing with letters",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so the letter for wife must be dropped"
+     },
+     {
+      "text": "to hold",
+      "for": "container",
+      "note": "to hold something is to keep it inside, so one piece is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exhausted",
+      "gives": "WEARY",
+      "note": "synonym: tired out"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife, removed"
+     },
+     {
+      "clueFragment": "arm",
+      "gives": "PISTOL",
+      "note": "a pistol is a firearm, an arm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "PISTOL",
+      "ARY"
+     ]
+    },
+    "explanation": {
+     "surface": "A tired person, wife absent, sorts through correspondence while holding a weapon.",
+     "walkthrough": "'arm' reads as a body part, but here it is a weapon, as in firearms.",
+     "definitionFit": "An epistolary novel is told through letters; the adjective describes anything concerning correspondence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arm"
+    }
+   }
   },
   {
    "number": 4,
@@ -92,7 +317,55 @@
     "text": "Narrow piece laid into long cloth",
     "enumeration": "9"
    },
-   "solution": "PINSTRIPE"
+   "solution": "PINSTRIPE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PINSTRIPE",
+    "definitions": [
+     {
+      "text": "cloth",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "laid into",
+      "for": "container",
+      "note": "something laid into another thing is set inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "long",
+      "gives": "PINE",
+      "note": "to pine is to long for"
+     },
+     {
+      "clueFragment": "Narrow piece",
+      "gives": "STRIP",
+      "note": "a strip is a narrow piece of something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIN",
+      "STRIP",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A tailor sets a thin strip into a long length of fabric.",
+     "walkthrough": "'long' looks like an adjective for the cloth, but it is a verb meaning to yearn.",
+     "definitionFit": "Pinstripe is a fabric with very fine vertical lines, the classic suit material of bankers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "long"
+    }
+   }
   },
   {
    "number": 5,
@@ -106,7 +379,54 @@
     "text": "Small tree pessimistic French writer's climbing",
     "enumeration": "5"
    },
-   "solution": "SUMAC"
+   "solution": "SUMAC",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SUMAC",
+    "definitions": [
+     {
+      "text": "Small tree",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down entry, climbing means read upwards, from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pessimistic French writer's",
+      "gives": "CAMUS",
+      "note": "Albert Camus, French author of absurdist, bleak works; the 's means 'is'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUMAC"
+     ],
+     "reversals": [
+      {
+       "from": "CAMUS",
+       "to": "SUMAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy French author is shinning up a little tree.",
+     "walkthrough": "Camus wrote The Outsider and The Myth of Sisyphus; 'pessimistic' is a fair if loose label for his outlook.",
+     "definitionFit": "Sumac is a shrub or small tree of the cashew family, known for its red fruit used as a spice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "climbing"
+    }
+   }
   },
   {
    "number": 6,
@@ -120,7 +440,57 @@
     "text": "Material in paper, along with unknown article",
     "enumeration": "7"
    },
-   "solution": "ORGANZA"
+   "solution": "ORGANZA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORGANZA",
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in",
+     "along with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "paper",
+      "gives": "ORGAN",
+      "note": "a newspaper is an organ, a publication voicing views"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Z",
+      "note": "z is a mathematical unknown"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORGAN",
+      "Z",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A dressmaker lists fabric, paper and an unspecified item.",
+     "walkthrough": "'Organ' for a newspaper is an old sense: a publication that speaks for a party or interest.",
+     "definitionFit": "Organza is a thin, stiff, sheer fabric of silk or nylon used in evening wear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "paper"
+    }
+   }
   },
   {
    "number": 7,
@@ -134,7 +504,53 @@
     "text": "A northern city in Italy's the state capital",
     "enumeration": "9"
    },
-   "solution": "ANNAPOLIS"
+   "solution": "ANNAPOLIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANNAPOLIS",
+    "definitions": [
+     {
+      "text": "the state capital",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "northern",
+      "gives": "N",
+      "note": "N is the abbreviation for northern"
+     },
+     {
+      "clueFragment": "city in Italy's",
+      "gives": "NAPOLIS",
+      "note": "Napoli is the Italian name for Naples, plus S from the 's"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "N",
+      "NAPOLIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A city in the north of Italy is described as the capital.",
+     "walkthrough": "The surface suggests Milan or Turin, but 'northern' is just N, and the city is Naples under its Italian name.",
+     "definitionFit": "Annapolis is the seat of government of Maryland, one of the US states, home to the Naval Academy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "northern"
+    }
+   }
   },
   {
    "number": 8,
@@ -148,7 +564,61 @@
     "text": "Article in your name an incredible story",
     "enumeration": "4"
    },
-   "solution": "YARN"
+   "solution": "YARN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "YARN",
+    "definitions": [
+     {
+      "text": "an incredible story",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so one piece sits within the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "your",
+      "gives": "YR",
+      "note": "yr is the abbreviation for your"
+     },
+     {
+      "clueFragment": "Article",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "A",
+      "R",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper piece under your byline is a far-fetched tale.",
+     "walkthrough": "A goes between the Y and R of YR, with N added after.",
+     "definitionFit": "A yarn is a long, rambling tale, often exaggerated or hard to believe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Article"
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +632,47 @@
     "text": "Where footballers play and train",
     "enumeration": "6"
    },
-   "solution": "GROUND"
+   "solution": "GROUND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GROUND",
+    "definitions": [
+     {
+      "text": "Where footballers play",
+      "at": 0
+     },
+     {
+      "text": "train",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where footballers play",
+      "note": "first meaning: a sports field or stadium"
+     },
+     {
+      "clueFragment": "train",
+      "note": "second meaning: to instruct thoroughly in the basics"
+     }
+    ],
+    "explanation": {
+     "surface": "Describes the place where a football team plays matches and practises.",
+     "walkthrough": "'train' looks like more football activity, but it is a separate verb sense: to ground someone in a subject.",
+     "definitionFit": "A football club's home stadium is its ground, and to ground pupils is to teach them fundamentals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "train"
+    }
+   }
   },
   {
    "number": 10,
@@ -176,7 +686,80 @@
     "text": "Three worked on my back — one might be bowed, for example",
     "enumeration": "9"
    },
-   "solution": "HETERONYM"
+   "solution": "HETERONYM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "reversal"
+    ],
+    "answer": "HETERONYM",
+    "definitions": [
+     {
+      "text": "one might be bowed, for example",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worked",
+      "for": "anagram",
+      "note": "something worked has been shaped or kneaded into a new form"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back says to read the word in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Three",
+      "gives": "THREE",
+      "note": "the fodder for the rearrangement"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "my",
+      "gives": "MY",
+      "note": "taken as written, then turned round"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HETER",
+      "ON",
+      "YM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THREE",
+       "gives": "HETER"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "MY",
+       "to": "YM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Three people work on someone's back, and a person might be bent over for it.",
+     "walkthrough": "'bowed' can be said to rhyme with 'road' (a violin is bowed) or 'loud' (a head is bowed): same spelling, different sound and meaning.",
+     "definitionFit": "A heteronym is a word spelt like another but pronounced differently with another meaning, as bow is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bowed"
+    }
+   }
   },
   {
    "number": 11,
@@ -190,7 +773,56 @@
     "text": "Person with no future married in Greece",
     "enumeration": "5"
    },
-   "solution": "GONER"
+   "solution": "GONER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GONER",
+    "definitions": [
+     {
+      "text": "Person with no future",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one word inside the abbreviation that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greece",
+      "gives": "GR",
+      "note": "GR is the international code for Greece"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "ONE",
+      "note": "a married couple are made one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ONE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who wed in Greece is doomed.",
+     "walkthrough": "'married' as ONE comes from the idea that a wedding makes two people one.",
+     "definitionFit": "A goner is someone beyond help, certain to die or be ruined."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "married"
+    }
+   }
   },
   {
    "number": 12,
@@ -204,7 +836,65 @@
     "text": "Revolutionary determined to keep bishop in stronghold",
     "enumeration": "7"
    },
-   "solution": "REDOUBT"
+   "solution": "REDOUBT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "REDOUBT",
+    "definitions": [
+     {
+      "text": "stronghold",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to keep",
+      "for": "container",
+      "note": "to keep something is to hold it within, so a letter goes inside"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Revolutionary",
+      "gives": "RED",
+      "note": "a Red is a communist revolutionary"
+     },
+     {
+      "clueFragment": "determined",
+      "gives": "OUT",
+      "note": "out to do something means determined to do it"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "OU",
+      "B",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A rebel set on holding a churchman captive inside a fortress.",
+     "walkthrough": "'determined' gives OUT as in 'out to win'; B goes between its U and T.",
+     "definitionFit": "A redoubt is a small fortification or a last place of refuge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "determined"
+    }
+   }
   },
   {
    "number": 13,
@@ -218,7 +908,52 @@
     "text": "Does chimpanzee perhaps have the skills to bite?",
     "enumeration": "6"
    },
-   "solution": "CANAPE"
+   "solution": "CANAPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CANAPE",
+    "definitions": [
+     {
+      "text": "to bite",
+      "at": 40,
+      "note": "means 'something to bite'; the answer is a noun"
+     }
+    ],
+    "linkWords": [
+     "Does"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "have the skills",
+      "gives": "CAN",
+      "note": "to be able, as in 'can do'"
+     },
+     {
+      "clueFragment": "chimpanzee perhaps",
+      "gives": "APE",
+      "note": "a chimpanzee is an example of an ape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAN",
+      "APE"
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether a chimp is capable of biting.",
+     "walkthrough": "The question 'Does chimpanzee have the skills?' reworded is 'Can ape?', so the pieces run CAN then APE.",
+     "definitionFit": "A canapé is a small savoury on bread or pastry, a mouthful served with drinks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bite"
+    }
+   }
   },
   {
    "number": 14,
@@ -232,7 +967,72 @@
     "text": "Way horse consumes good and bad meat dish",
     "enumeration": "10"
    },
-   "solution": "STROGANOFF"
+   "solution": "STROGANOFF",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "STROGANOFF",
+    "definitions": [
+     {
+      "text": "meat dish",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "consumes",
+      "for": "container",
+      "note": "consumes means takes inside, so a letter goes into the horse"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Way",
+      "gives": "ST",
+      "note": "St is the abbreviation for street, a way"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "ROAN",
+      "note": "a roan is a horse with a mixed-colour coat"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "bad",
+      "gives": "OFF",
+      "note": "food gone bad has gone off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "RO",
+      "G",
+      "AN",
+      "OFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A horse on the road eats both good and spoiled meat.",
+     "walkthrough": "A roan is a horse whose coat mixes white hairs with a darker colour; food that has gone off is bad.",
+     "definitionFit": "Beef stroganoff is the Russian dish of sliced beef cooked in a sour-cream sauce."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Way"
+    }
+   }
   },
   {
    "number": 15,
@@ -260,7 +1060,54 @@
      }
     ]
    },
-   "solution": "ASTUDYINSCARLET"
+   "solution": "ASTUDYINSCARLET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "A STUDY IN SCARLET",
+    "definitions": [
+     {
+      "text": "detective story",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "labyrinthine",
+      "for": "anagram",
+      "note": "a labyrinthine thing is tangled and twisting, so the letters are mixed up"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saturday's Client",
+      "gives": "SATURDAYSCLIENT",
+      "note": "every letter of these words, the apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SATURDAYSCLIENT",
+       "gives": "ASTUDYINSCARLET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A weekend client's case turns out to be a convoluted crime tale.",
+     "walkthrough": "The capitalised 'Client' makes it look like a title in its own right, but these two words are just the letters to rearrange.",
+     "definitionFit": "Conan Doyle's 1887 novel A Study in Scarlet is the first Sherlock Holmes mystery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Saturday's"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +1121,50 @@
     "text": "Damaged nose parts change position",
     "enumeration": "9"
    },
-   "solution": "TRANSPOSE"
+   "solution": "TRANSPOSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRANSPOSE",
+    "definitions": [
+     {
+      "text": "change position",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Damaged",
+      "for": "anagram",
+      "note": "something damaged is broken up, so its letters come out in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nose parts",
+      "gives": "NOSEPARTS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOSEPARTS",
+       "gives": "TRANSPOSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After an injury, parts of a nose shift out of place.",
+     "definitionFit": "To transpose is to swap things round or move them to a different place or order."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nose"
+    }
+   }
   },
   {
    "number": 17,
@@ -288,7 +1178,51 @@
     "text": "Some European or habitually negligent Scot?",
     "enumeration": "9"
    },
-   "solution": "SLOVENIAN"
+   "solution": "SLOVENIAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SLOVENIAN",
+    "definitions": [
+     {
+      "text": "Some European",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "habitually negligent",
+      "gives": "SLOVEN",
+      "note": "a sloven is a habitually untidy, careless person"
+     },
+     {
+      "clueFragment": "Scot",
+      "gives": "IAN",
+      "note": "Ian is a typically Scottish first name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLOVEN",
+      "IAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether some European is really a lazy Scotsman.",
+     "walkthrough": "Crosswords often use a Scottish name such as IAN for 'Scot'.",
+     "definitionFit": "A Slovenian is a native of Slovenia, a country in central Europe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Scot"
+    }
+   }
   },
   {
    "number": 18,
@@ -320,7 +1254,75 @@
      }
     ]
    },
-   "solution": "DOASTHEROMANSDO"
+   "solution": "DOASTHEROMANSDO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DO AS THE ROMANS DO",
+    "definitions": [
+     {
+      "text": "follow local conventions",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "forced",
+      "for": "anagram",
+      "note": "forced suggests twisted out of shape, so these letters are rearranged"
+     },
+     {
+      "text": "protecting",
+      "for": "container",
+      "note": "protecting means surrounding on both sides, so the outer pieces enclose the middle"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Parties",
+      "gives": "DODO",
+      "note": "a do is a party; two of them, one on each side"
+     },
+     {
+      "clueFragment": "short",
+      "gives": "SHORT",
+      "note": "taken as written, part of the anagram fodder"
+     },
+     {
+      "clueFragment": "seaman",
+      "gives": "SEAMAN",
+      "note": "taken as written, part of the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "ASTHEROMANS",
+      "DO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SHORTSEAMAN",
+       "gives": "ASTHEROMANS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Revellers shield a small sailor who has been made to adopt local customs.",
+     "walkthrough": "'short' looks like it shortens 'seaman', but both words are taken whole and mixed together.",
+     "definitionFit": "The proverb 'When in Rome, do as the Romans do' advises adopting the customs of wherever you are."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 19,
@@ -334,7 +1336,49 @@
     "text": "Tango with side-to-side movement? That's nonsense",
     "enumeration": "7"
    },
-   "solution": "TWADDLE"
+   "solution": "TWADDLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TWADDLE",
+    "definitions": [
+     {
+      "text": "nonsense",
+      "at": 41
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tango",
+      "gives": "T",
+      "note": "Tango is T in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "side-to-side movement",
+      "gives": "WADDLE",
+      "note": "a waddle is a swaying walk from side to side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "WADDLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dancer dismisses a swaying style of tango as rubbish.",
+     "definitionFit": "Twaddle is silly, trivial talk or writing, rubbish not worth hearing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tango"
+    }
+   }
   },
   {
    "number": 20,
@@ -348,7 +1392,58 @@
     "text": "For sacred works put on holy robes in sober company",
     "enumeration": "6"
    },
-   "solution": "AVESTA"
+   "solution": "AVESTA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AVESTA",
+    "definitions": [
+     {
+      "text": "sacred works",
+      "at": 4
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in sets one piece within the letters of the other"
+     }
+    ],
+    "linkWords": [
+     "For"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sober company",
+      "gives": "AA",
+      "note": "Alcoholics Anonymous, whose members stay sober"
+     },
+     {
+      "clueFragment": "put on holy robes",
+      "gives": "VEST",
+      "note": "to vest is to dress in ecclesiastical vestments"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "VEST",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "For religious ceremonies, a priest dons vestments among teetotal companions.",
+     "walkthrough": "'sober company' is AA, Alcoholics Anonymous.",
+     "definitionFit": "The Avesta is the collection of Zoroastrian scriptures, the faith's holy texts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "company"
+    }
+   }
   },
   {
    "number": 21,
@@ -362,7 +1457,51 @@
     "text": "Trouble dogs American behind attack",
     "enumeration": "6"
    },
-   "solution": "ASSAIL"
+   "solution": "ASSAIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASSAIL",
+    "definitions": [
+     {
+      "text": "attack",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "dogs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American behind",
+      "gives": "ASS",
+      "note": "ass is the American word for the backside"
+     },
+     {
+      "clueFragment": "Trouble",
+      "gives": "AIL",
+      "note": "to ail is to trouble or afflict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASS",
+      "AIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Trouble follows an American from behind as an attack begins.",
+     "walkthrough": "'dogs' means follows closely, so the trouble word comes second. 'behind' looks like a direction but is a noun, the backside.",
+     "definitionFit": "To assail is to attack violently, physically or with criticism."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "number": 22,
@@ -376,7 +1515,48 @@
     "text": "Sound tip for virtuoso pianist",
     "enumeration": "5"
    },
-   "solution": "LISZT"
+   "solution": "LISZT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LISZT",
+    "definitions": [
+     {
+      "text": "virtuoso pianist",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sound",
+      "for": "homophone",
+      "note": "sound means we go by how the word is spoken rather than spelt"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tip",
+      "gives": "LISZT",
+      "soundsLike": "LIST",
+      "note": "to list is to tip or lean over, as a ship does"
+     }
+    ],
+    "explanation": {
+     "surface": "Sound advice offered to a brilliant concert pianist.",
+     "walkthrough": "'Sound tip' reads as good advice, but sound is the homophone signal and tip means lean.",
+     "definitionFit": "Franz Liszt was the dazzling 19th-century Hungarian pianist and composer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tip"
+    }
+   }
   },
   {
    "number": 23,
@@ -390,7 +1570,49 @@
     "text": "Clytemnestra's child chosen by hawk-headed god",
     "enumeration": "7"
    },
-   "solution": "ELECTRA"
+   "solution": "ELECTRA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELECTRA",
+    "definitions": [
+     {
+      "text": "Clytemnestra's child",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chosen",
+      "gives": "ELECT",
+      "note": "the elect are the chosen"
+     },
+     {
+      "clueFragment": "hawk-headed god",
+      "gives": "RA",
+      "note": "Ra, the Egyptian sun god, is shown with a falcon's head"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELECT",
+      "RA"
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek queen's offspring was selected by an Egyptian deity.",
+     "definitionFit": "In Greek myth Electra is the daughter of Agamemnon and Clytemnestra, who avenged her father."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chosen"
+    }
+   }
   },
   {
    "number": 24,
@@ -404,7 +1626,57 @@
     "text": "Artist leaving daily grind gives hint",
     "enumeration": "5"
    },
-   "solution": "TRACE"
+   "solution": "TRACE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TRACE",
+    "definitions": [
+     {
+      "text": "hint",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "leaving means departing, so those letters go out of the phrase"
+     }
+    ],
+    "linkWords": [
+     "gives"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Artist",
+      "gives": "RA",
+      "note": "RA, Royal Academician, a British artist"
+     },
+     {
+      "clueFragment": "daily grind",
+      "gives": "RATRACE",
+      "note": "the rat race is the relentless daily round of work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A painter quitting the office routine offers a clue about why.",
+     "walkthrough": "Remove the first RA from RAT RACE.",
+     "definitionFit": "A trace is a slight sign or suggestion of something, much like a hint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Artist"
+    }
+   }
   },
   {
    "number": 25,
@@ -418,7 +1690,60 @@
     "text": "Instrument softly accompanies regular parts in theatre",
     "enumeration": "4"
    },
-   "solution": "HARP"
+   "solution": "HARP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HARP",
+    "definitions": [
+     {
+      "text": "Instrument",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regular parts in",
+      "for": "letter_selection",
+      "note": "regular parts means letters taken at an even spacing, every other one"
+     },
+     {
+      "text": "accompanies",
+      "for": "charade",
+      "note": "accompanies means goes along with, so one piece is set beside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "theatre",
+      "gives": "HAR",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters of theatre"
+     },
+     {
+      "clueFragment": "softly",
+      "gives": "P",
+      "note": "p for piano, the musical direction for quietly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAR",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A quiet instrument plays alongside regular parts in a stage show.",
+     "definitionFit": "The harp is a stringed instrument plucked with the fingers, common in orchestra pits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "parts"
+    }
+   }
   },
   {
    "number": 26,
@@ -432,7 +1757,44 @@
     "text": "Broadcast agreed for all to hear?",
     "enumeration": "5"
    },
-   "solution": "ALOUD"
+   "solution": "ALOUD",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ALOUD",
+    "definitions": [
+     {
+      "text": "for all to hear",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Broadcast",
+      "for": "homophone",
+      "note": "what is broadcast is transmitted to listeners, so we go by sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agreed",
+      "gives": "ALOUD",
+      "soundsLike": "ALLOWED",
+      "note": "allowed means agreed to, permitted"
+     }
+    ],
+    "explanation": {
+     "surface": "An agreement announced publicly so everyone can hear.",
+     "walkthrough": "'Broadcast' looks like a verb meaning announced, but it signals that the word sounds like a synonym of agreed.",
+     "definitionFit": "Aloud means audibly, spoken so that others can hear it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Broadcast"
+    }
+   }
   },
   {
    "number": 27,
@@ -452,7 +1814,76 @@
      }
     ]
    },
-   "solution": "SAINTMALO"
+   "solution": "SAINTMALO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SAINT-MALO",
+    "definitions": [
+     {
+      "text": "walled city",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "close means end, so only the final letter of the following word is wanted"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "is not",
+      "gives": "AINT",
+      "note": "ain't is the colloquial contraction of is not"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "familiar word for mother"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "bordello",
+      "gives": "O",
+      "select": "last",
+      "note": "the last letter of bordello"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AINT",
+      "MA",
+      "L",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A son refuses to stay with his mother, having left near a brothel in a fortified town.",
+     "definitionFit": "Saint-Malo is a historic port in Brittany encircled by medieval ramparts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 28,
@@ -466,7 +1897,66 @@
     "text": "Old fashioned counsel given by good man in wood is doom",
     "enumeration": "10"
    },
-   "solution": "PREDESTINE"
+   "solution": "PREDESTINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PREDESTINE",
+    "definitions": [
+     {
+      "text": "doom",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the earlier pieces inside the word for wood"
+     }
+    ],
+    "linkWords": [
+     "given by",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wood",
+      "gives": "PINE",
+      "note": "pine is a kind of timber"
+     },
+     {
+      "clueFragment": "Old fashioned counsel",
+      "gives": "REDE",
+      "note": "rede is an archaic word for advice"
+     },
+     {
+      "clueFragment": "good man",
+      "gives": "ST",
+      "note": "St for saint, a good man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "REDE",
+      "ST",
+      "INE"
+     ]
+    },
+    "explanation": {
+     "surface": "Old-fashioned advice from a decent man in a forest foretells catastrophe.",
+     "walkthrough": "Rede is an archaic word for advice, hence 'Old fashioned'; 'doom' is a verb here, not the noun it looks like.",
+     "definitionFit": "To predestine is to fix someone's fate in advance, as to doom is to consign to a fixed end."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "doom"
+    }
+   }
   },
   {
    "number": 29,
@@ -480,7 +1970,50 @@
     "text": "Garden visitor meeting female displays muscle",
     "enumeration": "4"
    },
-   "solution": "BEEF"
+   "solution": "BEEF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEEF",
+    "definitions": [
+     {
+      "text": "muscle",
+      "at": 39
+     }
+    ],
+    "linkWords": [
+     "meeting",
+     "displays"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Garden visitor",
+      "gives": "BEE",
+      "note": "a bee visits flowers in gardens"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEE",
+      "F"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone visiting a garden meets a woman and shows off their strength.",
+     "definitionFit": "Beef is slang for muscular bulk or brawn, as in a beefy physique."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "visitor"
+    }
+   }
   }
  ]
 }
