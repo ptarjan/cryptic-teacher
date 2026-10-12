@@ -308,12 +308,12 @@ assert gf.in_window(kw["limits"], kw["fetched"], clock())[1] == 4
 #     no crossword for, or whose document is got, is left out.
 import dir_cache, gale_inbox
 D = datetime.date
-saved = {k: getattr(gale_inbox, k) for k in ("wanted", "aside_days", "staged_files", "other_wanted")}
+saved = {k: getattr(gale_inbox, k) for k in ("wanted", "aside_days", "staged_matches", "other_wanted")}
 dir_cache.load = lambda *a: None
 gale_inbox.aside_days = lambda: {}
-gale_inbox.staged_files = lambda: {}
+gale_inbox.staged_matches = lambda: {}
 gale_inbox.other_wanted = lambda prod: {"TGRH": [D(2000, 1, 4), D(2000, 1, 3)], "FTHA": [D(2010, 1, 4)]}.get(prod, [])
-docs = {"TGRH/2000-01-03": {"why": "no crossword in the issue's contents"}, "FTHA/2010-01-04": {"doc": "HS1"}}
+docs = {"TGRH/2000-01-03": {"why": "no crossword in the issue's contents", "matcher": gale_docs.MATCHER["TGRH"]}, "FTHA/2010-01-04": {"doc": "HS1"}}
 gale_docs.load = lambda *a: docs
 gale_inbox.wanted = lambda: [(D(2001, 1, 2), "no-scan")]
 assert gf.plan(set(), 0) == [("TTDA", D(2001, 1, 2), None), ("TGRH", D(2000, 1, 4), None),
@@ -321,6 +321,21 @@ assert gf.plan(set(), 0) == [("TTDA", D(2001, 1, 2), None), ("TGRH", D(2000, 1, 
 assert ("FTHA", D(2010, 1, 4), {"doc": "HS1"}) not in gf.plan({"HS1"}, 0)
 gale_inbox.wanted = lambda: [(D(2001, 1, 2) - datetime.timedelta(days=i), "no-scan") for i in range(gf.REPLAN)]
 assert {r[0] for r in gf.plan(set(), 0)} == {"TTDA"}, "other papers wait while the Times has a plan's worth"
+# A fetched page staged for a date is passed, unless an older matcher
+# picked it (gale_docs.stale): then it is looked up again, and fetched over
+# when the new pick is another document.
+day = D(2006, 5, 23)
+gale_inbox.wanted = lambda: [(day, "no-scan")]
+gale_inbox.staged_matches = lambda: {day: [{"how": "fetched", "docId": "IF1"}]}
+gale_inbox.other_wanted = lambda prod: []
+times = lambda got: gf.plan(got, 0)
+docs["TTDA/2006-05-23"] = {"doc": "IF1", "title": "Crossword Today's Weather", "page": 2}
+assert times({"IF1"}) == [("TTDA", day, None)], times({"IF1"})
+docs["TTDA/2006-05-23"] = {"doc": "IF2", "title": "The Times Crossword 23,296", "page": 87,
+                           "matcher": gale_docs.MATCHER["TTDA"]}
+assert times({"IF1"}) == [("TTDA", day, docs["TTDA/2006-05-23"])], times({"IF1"})
+docs["TTDA/2006-05-23"] = {"doc": "IF1", "title": "The Times Crossword 23,296", "page": 87}
+assert times({"IF1"}) == [], "the cryptic, fetched, is passed"
 for k, v in saved.items():
     setattr(gale_inbox, k, v)
 print("test_gale_fetch: ok")

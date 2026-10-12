@@ -127,12 +127,27 @@ check("the TLS's newest crossword, not the last one's solution under its title",
       gd.crossword("TLSH", ["TLS Crossword 604", "TLS Crossword 603", "Engrossing items"]))
 check("the report on the number asked", 1, gd.report(["Report on Crossword No. 1,308", "Report on Crossword No. 1,309"],
                                                     1309))
+# 2006's Times: the cryptic, not page 2's index entry for it, Times2's quick,
+# the Listener, or a championship report printed before it.
+check("the Times cryptic among 2006's crossword titles", [2, 1, None, 1, 1],
+      [gd.crossword("TTDA", ["Crossword Today's Weather", "Crossword 95", "The Times Crossword 23,296",
+                             "times2 Crossword No 3910"]),
+       gd.crossword("TTDA", ["Are you the next Times Crossword Champion?", "The Times Crossword 23,359",
+                             "Times2 Crossword No 3973"]),
+       gd.crossword("TTDA", ["The Listener Crossword 3890", "Crossword 67 Miscellany"]),
+       gd.crossword("TTDA", ["Crossword", "Times Crossword"]),
+       gd.crossword("TTDA", ["Crossword contest gives clue to staying young", "The Times Crossword Puzzle No 17,563"])])
+check("a Times link an older matcher picked is stale unless the cryptic's", [True, True, False, False],
+      [gd.stale("TTDA", {"doc": "x", "title": t, **m}) for t, m in [
+          ("Crossword 95", {}), ("Crossword", {}), ("The Times Crossword 23,296", {}),
+          ("Crossword 95", {"matcher": gd.MATCHER["TTDA"]})]])
+check("the other papers' links are not", False, gd.stale("LSNR", {"doc": "x", "title": "Competition"}))
 # A miss from an older matcher is asked again once; a current one is not.
 mcache = tmp / "miss.json"
 mcache.write_text('{"LSNR/1955-06-02": {"why": "no crossword in the issue\'s contents"}}')
 fake = FakeGale({lday: listener})
 check("an old miss is looked up again", 1, gd.resolve("LSNR", [(lday, 1309)], out, fake, mcache))
-mcache.write_text('{"LSNR/1955-06-02": {"why": "x", "matcher": %d}}' % gd.MATCHER)
+mcache.write_text('{"LSNR/1955-06-02": {"why": "x", "matcher": %d}}' % gd.MATCHER["LSNR"])
 check("a current miss is not", (0, []), (gd.resolve("LSNR", [(lday, 1309)], out, fake, mcache), fake.asked[1:]))
 # The report on a puzzle: in an issue some weeks after it, linked as its own row.
 rday = lday + datetime.timedelta(weeks=2)
