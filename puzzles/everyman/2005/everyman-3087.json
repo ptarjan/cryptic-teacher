@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Last in science, failing to pass",
     "enumeration": "6"
    },
-   "solution": "ELAPSE"
+   "solution": "ELAPSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ELAPSE",
+    "definitions": [
+     {
+      "text": "pass",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Last in",
+      "for": "letter_selection",
+      "note": "the last in a word is its final letter, so only the tail of the following word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "science",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of science"
+     },
+     {
+      "clueFragment": "failing",
+      "gives": "LAPSE",
+      "note": "a lapse is a failing or slip"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LAPSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A student flunks the science exam at the last moment.",
+     "definitionFit": "Time is said to pass or elapse when it goes by; the two verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pass"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +98,44 @@
     "text": "One won't knock you out in your pub?",
     "enumeration": "5"
    },
-   "solution": "LOCAL"
+   "solution": "LOCAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LOCAL",
+    "definitions": [
+     {
+      "text": "One won't knock you out",
+      "at": 0
+     },
+     {
+      "text": "your pub",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One won't knock you out",
+      "note": "first meaning: an anaesthetic that numbs one area without making the patient unconscious"
+     },
+     {
+      "clueFragment": "your pub",
+      "note": "second meaning: the British name for the pub nearest your home"
+     }
+    ],
+    "explanation": {
+     "surface": "A drinker reassures someone that the beer at their usual pub is not too strong.",
+     "walkthrough": "The pub context makes 'knock you out' sound like strong drink, but the first meaning is medical: a local anaesthetic numbs without causing unconsciousness.",
+     "definitionFit": "A local is both a regional anaesthetic, which leaves the patient awake, and the neighbourhood pub a person regularly drinks in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "knock"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +149,64 @@
     "text": "Left a piece of litter in doorway",
     "enumeration": "6"
    },
-   "solution": "PORTAL"
+   "solution": "PORTAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PORTAL",
+    "definitions": [
+     {
+      "text": "doorway",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a piece of",
+      "for": "letter_selection",
+      "note": "only a piece is taken, here the opening letter of the next word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Left",
+      "gives": "PORT",
+      "note": "port is the left-hand side of a ship"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "litter",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of litter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PORT",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dropped a bit of rubbish in the doorway.",
+     "definitionFit": "A portal is a grand entrance or doorway, a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Left"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +226,39 @@
      }
     ]
    },
-   "solution": "ELECTRICSTORM"
+   "solution": "ELECTRICSTORM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ELECTRIC STORM",
+    "definitions": [
+     {
+      "text": "What may typify shocking weather?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shocking weather",
+      "note": "surface reading: appallingly bad weather"
+     },
+     {
+      "clueFragment": "shocking",
+      "note": "setter's reading: literally giving electric shocks, as lightning does"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Shocking' usually just means dreadful, but here it is literal: weather full of lightning bolts.",
+     "definitionFit": "A thunderstorm with lightning is weather that literally carries electrical charge, so it is shocking in the electrical sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shocking"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +272,70 @@
     "text": "Foreign spy fell, cut down in thriller",
     "enumeration": "6"
    },
-   "solution": "PSYCHO"
+   "solution": "PSYCHO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "charade"
+    ],
+    "answer": "PSYCHO",
+    "definitions": [
+     {
+      "text": "thriller",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Foreign",
+      "for": "anagram",
+      "note": "something foreign looks strange and unfamiliar, so the letters come out in an altered order"
+     },
+     {
+      "text": "cut down",
+      "for": "deletion",
+      "note": "cutting something down shortens it, so the word loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spy",
+      "gives": "SPY",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "fell",
+      "gives": "CHOP",
+      "note": "to fell a tree is to chop it down"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PSY",
+      "CHO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SPY",
+       "gives": "PSY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An overseas agent is killed off in a spy film.",
+     "walkthrough": "'Fell' looks like a past tense of fall, but it is the verb meaning to cut down a tree.",
+     "definitionFit": "Psycho is Hitchcock's famous 1960 thriller film, so it is an example of the genre."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fell"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +349,64 @@
     "text": "Wisdom shown by depositing silver in large town in South Africa?",
     "enumeration": "8"
    },
-   "solution": "SAGACITY"
+   "solution": "SAGACITY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SAGACITY",
+    "definitions": [
+     {
+      "text": "Wisdom",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "depositing",
+      "for": "container",
+      "note": "depositing something in a place puts it inside, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "shown by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South Africa",
+      "gives": "SA",
+      "note": "SA is the abbreviation for South Africa"
+     },
+     {
+      "clueFragment": "silver",
+      "gives": "AG",
+      "note": "Ag is the chemical symbol for silver"
+     },
+     {
+      "clueFragment": "large town",
+      "gives": "CITY",
+      "note": "a city is a large town"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AG",
+      "A",
+      "CITY"
+     ]
+    },
+    "explanation": {
+     "surface": "A shrewd investor puts silver into a bank in a big South African city.",
+     "walkthrough": "The chemical symbol AG goes inside SA CITY.",
+     "definitionFit": "Sagacity is keen judgement and good sense, a synonym for wisdom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "depositing"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +426,58 @@
      }
     ]
    },
-   "solution": "CLEARSOUP"
+   "solution": "CLEARSOUP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLEAR SOUP",
+    "definitions": [
+     {
+      "text": "consomme, say",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so the explaining phrase wraps the other piece"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Explains",
+      "gives": "CLEARSUP",
+      "note": "clears up means explains or resolves"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "O",
+      "note": "a duck is a score of zero in cricket, shaped like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLEARS",
+      "O",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A chef explains how to make duck consomme.",
+     "walkthrough": "'Duck with consomme' suggests a dish on a menu, but the duck is a cricket score of nothing, and the explaining phrase splits to hold it.",
+     "definitionFit": "Consomme is a thin, strained soup with no solids, so it is an example of a clear soup."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 8,
@@ -143,7 +491,53 @@
     "text": "Expel Jack from contest",
     "enumeration": "4"
    },
-   "solution": "OUST"
+   "solution": "OUST",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OUST",
+    "definitions": [
+     {
+      "text": "Expel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "deletion",
+      "note": "taking one thing from another removes it, so the letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jack",
+      "gives": "J",
+      "note": "J is the abbreviation for jack in a card deck"
+     },
+     {
+      "clueFragment": "contest",
+      "gives": "JOUST",
+      "note": "a joust is a contest between knights"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUST"
+     ]
+    },
+    "explanation": {
+     "surface": "A competitor named Jack is thrown out of a competition.",
+     "walkthrough": "J is taken away from JOUST.",
+     "definitionFit": "To oust someone is to drive them out or remove them, a synonym of expel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Jack"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +551,63 @@
     "text": "Reprimand plenty, including German investors?",
     "enumeration": "13"
    },
-   "solution": "CARPETBAGGERS"
+   "solution": "CARPETBAGGERS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CARPETBAGGERS",
+    "definitions": [
+     {
+      "text": "investors?",
+      "at": 35,
+      "note": "the question mark flags a definition by example: carpetbaggers who join mutuals hoping for a windfall"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including means holding inside, so the abbreviation sits within the word for plenty"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reprimand",
+      "gives": "CARPET",
+      "note": "to carpet someone is to reprimand them"
+     },
+     {
+      "clueFragment": "plenty",
+      "gives": "BAGS",
+      "note": "bags of something is plenty of it"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "GER",
+      "note": "GER is the abbreviation for German"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARPET",
+      "BAG",
+      "GER",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A boss tells off a lot of German investors.",
+     "walkthrough": "In 1990s Britain carpetbaggers opened accounts at building societies hoping to profit when they converted to banks.",
+     "definitionFit": "Carpetbaggers are opportunist outsiders seeking quick gain, which in British usage included speculative savers in mutual societies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "plenty"
+    }
+   }
   },
   {
    "number": 10,
@@ -181,7 +631,50 @@
      }
     ]
    },
-   "solution": "BRAVENEWWORLD"
+   "solution": "BRAVENEWWORLD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRAVE NEW WORLD",
+    "definitions": [
+     {
+      "text": "a novel",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hardy",
+      "gives": "BRAVE",
+      "note": "hardy means bold and brave"
+     },
+     {
+      "clueFragment": "The Americas",
+      "gives": "NEWWORLD",
+      "note": "the New World is a name for the Americas"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRAVE",
+      "NEWWORLD"
+     ]
+    },
+    "explanation": {
+     "surface": "It looks like the title of a book by Thomas Hardy about the Americas.",
+     "walkthrough": "'Hardy' tempts you towards Thomas Hardy the novelist, but it is just the adjective meaning brave.",
+     "definitionFit": "Brave New World is Aldous Huxley's 1932 dystopian novel, so it is an example of a novel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hardy"
+    }
+   }
   },
   {
    "number": 11,
@@ -195,7 +688,59 @@
     "text": "See pig swallowing whole pasty",
     "enumeration": "6"
    },
-   "solution": "SALLOW"
+   "solution": "SALLOW",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SALLOW",
+    "definitions": [
+     {
+      "text": "pasty",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallowing",
+      "for": "container",
+      "note": "swallowing takes something inside, so the animal word goes around the other piece"
+     }
+    ],
+    "linkWords": [
+     "See"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pig",
+      "gives": "SOW",
+      "note": "a sow is a female pig"
+     },
+     {
+      "clueFragment": "whole",
+      "gives": "ALL",
+      "note": "all means the whole"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ALL",
+      "OW"
+     ]
+    },
+    "explanation": {
+     "surface": "Watch a pig gobble down an entire Cornish pasty.",
+     "walkthrough": "'Pasty' looks like the pie a pig might eat, but it is the adjective meaning pale.",
+     "definitionFit": "A sallow complexion is unhealthily pale and yellowish, which is what pasty means as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pasty"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +760,61 @@
      }
     ]
    },
-   "solution": "ATLEAST"
+   "solution": "ATLEAST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AT LEAST",
+    "definitions": [
+     {
+      "text": "if nothing else",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "receiving means taking in, so the first phrase holds the next piece"
+     },
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "just a bit is used, the opening letter of the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finally",
+      "gives": "ATLAST",
+      "note": "at last means finally"
+     },
+     {
+      "clueFragment": "encouragement",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of encouragement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "LE",
+      "AST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at last gets a little encouragement, which is better than nothing.",
+     "definitionFit": "At least is an idiom meaning as a minimum, or if nothing else is true."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Finally"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +828,50 @@
     "text": "Agree with account given by cable",
     "enumeration": "6"
    },
-   "solution": "ACCORD"
+   "solution": "ACCORD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACCORD",
+    "definitions": [
+     {
+      "text": "Agree",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with",
+     "given by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "account",
+      "gives": "AC",
+      "note": "AC is the abbreviation for account"
+     },
+     {
+      "clueFragment": "cable",
+      "gives": "CORD",
+      "note": "a cord is a cable or flex"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "CORD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone agrees with a report sent by telegram.",
+     "definitionFit": "As a verb, accord means to agree or be in harmony, a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cable"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +885,55 @@
     "text": "End of material, excellent fabric",
     "enumeration": "4"
    },
-   "solution": "LACE"
+   "solution": "LACE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LACE",
+    "definitions": [
+     {
+      "text": "fabric",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "End of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "material",
+      "gives": "L",
+      "select": "last",
+      "note": "the final letter of material"
+     },
+     {
+      "clueFragment": "excellent",
+      "gives": "ACE",
+      "note": "ace means excellent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dressmaker praises the last of a roll of cloth as fine fabric.",
+     "definitionFit": "Lace is an openwork textile, an example of a fabric."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "material"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +947,49 @@
     "text": "Talked with prisoner familiar with it",
     "enumeration": "9"
    },
-   "solution": "CONVERSED"
+   "solution": "CONVERSED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONVERSED",
+    "definitions": [
+     {
+      "text": "Talked",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prisoner",
+      "gives": "CON",
+      "note": "a con is a convict, a prisoner"
+     },
+     {
+      "clueFragment": "familiar with it",
+      "gives": "VERSED",
+      "note": "versed in something means familiar with it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "VERSED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone chatted with an inmate who knew the system.",
+     "definitionFit": "To converse is to hold a conversation, so conversed is a synonym of talked."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prisoner"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1003,67 @@
     "text": "A starter prepared in Rome nursing home?",
     "enumeration": "10"
    },
-   "solution": "MINESTRONE"
+   "solution": "MINESTRONE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MINESTRONE",
+    "definitions": [
+     {
+      "text": "A starter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "something prepared has been made up from ingredients, so the letters are worked into new order"
+     },
+     {
+      "text": "nursing",
+      "for": "container",
+      "note": "nursing means holding close, so the rearranged letters cradle the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in Rome",
+      "gives": "INROME",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "NEST",
+      "note": "a nest is a home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "NEST",
+      "RONE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INROME",
+       "gives": "MIRONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A first course is cooked in a Roman care home.",
+     "walkthrough": "'Nursing home' reads as one institution, but nursing is the container signal and home the piece held.",
+     "definitionFit": "Minestrone is an Italian vegetable soup commonly served as a first course, an example of a starter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nursing"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1077,68 @@
     "text": "Racing trainer dispensing with one for straying off course",
     "enumeration": "6"
    },
-   "solution": "ERRANT"
+   "solution": "ERRANT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ERRANT",
+    "definitions": [
+     {
+      "text": "straying off course",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dispensing with",
+      "for": "deletion",
+      "note": "dispensing with something means doing without it, so a letter is removed"
+     },
+     {
+      "text": "Racing",
+      "for": "anagram",
+      "note": "racing suggests rushing about wildly, so the letters are thrown into fresh order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trainer",
+      "gives": "TRAINER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERRANT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRANER",
+       "gives": "ERRANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A racehorse trainer who sacks someone has gone off track.",
+     "walkthrough": "Drop the I from TRAINER and rearrange what is left.",
+     "definitionFit": "Errant means wandering from the proper path, literally or morally, which is straying off course."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Racing"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1152,56 @@
     "text": "Opportunist close to county court",
     "enumeration": "8"
    },
-   "solution": "CHANCERY"
+   "solution": "CHANCERY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHANCERY",
+    "definitions": [
+     {
+      "text": "court",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its final letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Opportunist",
+      "gives": "CHANCER",
+      "note": "a chancer is an opportunist"
+     },
+     {
+      "clueFragment": "county",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of county"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHANCER",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A shady chancer lurks near a county court building.",
+     "walkthrough": "'Close to' reads as near by, but it means the final letter.",
+     "definitionFit": "Chancery is a division of the English High Court, formerly the Lord Chancellor's court, so it names a court."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1215,51 @@
     "text": "County town's victory against much more northerly one",
     "enumeration": "10"
    },
-   "solution": "WINCHESTER"
+   "solution": "WINCHESTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WINCHESTER",
+    "definitions": [
+     {
+      "text": "County town",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "against"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "victory",
+      "gives": "WIN",
+      "note": "a win is a victory"
+     },
+     {
+      "clueFragment": "much more northerly one",
+      "gives": "CHESTER",
+      "note": "Chester, county town of Cheshire, lies far to the north of the answer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIN",
+      "CHESTER"
+     ]
+    },
+    "explanation": {
+     "surface": "One county town boasts of beating a rival far to the north, like a football result.",
+     "walkthrough": "Chester is Cheshire's county town in north-west England, much further north than the answer.",
+     "definitionFit": "Winchester is the county town of Hampshire, the administrative seat of that English county."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "against"
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1273,42 @@
     "text": "Hurry up slip road",
     "enumeration": "4"
    },
-   "solution": "SPUR"
+   "solution": "SPUR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPUR",
+    "definitions": [
+     {
+      "text": "Hurry up",
+      "at": 0
+     },
+     {
+      "text": "slip road",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hurry up",
+      "note": "first meaning: to urge on, as a rider does a horse"
+     },
+     {
+      "clueFragment": "slip road",
+      "note": "second meaning: a short branch road or rail line leading off a main one"
+     }
+    ],
+    "explanation": {
+     "surface": "A driver is urged to speed up on the motorway on-ramp.",
+     "definitionFit": "To spur is to goad into going faster, and a spur is also a minor road branching off a main route."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "slip"
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1322,64 @@
     "text": "After six, girl turned up in European capital",
     "enumeration": "6"
    },
-   "solution": "VIENNA"
+   "solution": "VIENNA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "VIENNA",
+    "definitions": [
+     {
+      "text": "European capital",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turned up means read from the bottom upwards, so the name runs backwards"
+     }
+    ],
+    "linkWords": [
+     "After",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "six",
+      "gives": "VI",
+      "note": "the Roman numeral for six"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "ANNE",
+      "note": "a common girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "ENNA"
+     ],
+     "reversals": [
+      {
+       "from": "ANNE",
+       "to": "ENNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl arrived in a European city after six o'clock.",
+     "definitionFit": "Vienna is the capital city of Austria, an example of a European capital."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1399,55 @@
      }
     ]
    },
-   "solution": "LEANTO"
+   "solution": "LEANTO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LEAN-TO",
+    "definitions": [
+     {
+      "text": "type of shed",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go round",
+      "for": "container",
+      "note": "going round something encircles it, so the tempo marking surrounds the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slow",
+      "gives": "LENTO",
+      "note": "lento is the musical direction for slow"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "A",
+      "NTO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is slow to walk around a garden shed.",
+     "walkthrough": "LENTO is the Italian musical term for a slow tempo.",
+     "definitionFit": "A lean-to is a shed or outbuilding whose roof rests against an existing wall, so it is one kind of shed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Slow"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1467,47 @@
      }
     ]
    },
-   "solution": "WEIGHIN"
+   "solution": "WEIGHIN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WEIGH IN",
+    "definitions": [
+     {
+      "text": "Successful jockeys do this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is a spoken sound, so the answer matches a phrase said out loud"
+     }
+    ],
+    "linkWords": [
+     "becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "entrance",
+      "gives": "WEIGHIN",
+      "soundsLike": "WAY IN",
+      "note": "a way in is an entrance"
+     }
+    ],
+    "explanation": {
+     "surface": "Winning jockeys take a particular entrance at the racecourse.",
+     "walkthrough": "After a race the placed jockeys are weighed again with their saddles to confirm they carried the right weight.",
+     "definitionFit": "To weigh in is the racing ritual where jockeys step on the scales after a race, which the leading finishers must do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "entrance"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1521,56 @@
     "text": "Animal outside front of embassy",
     "enumeration": "5"
    },
-   "solution": "HORSE"
+   "solution": "HORSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HORSE",
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front of",
+      "for": "letter_selection",
+      "note": "the front of a word is its first letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outside",
+      "gives": "HORS",
+      "note": "hors is French for outside, as in hors d'oeuvre"
+     },
+     {
+      "clueFragment": "embassy",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of embassy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HORS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An animal is waiting outside the front door of an embassy.",
+     "walkthrough": "The embassy setting hints at a foreign word: hors is French for outside.",
+     "definitionFit": "A horse is a large hoofed mammal, an example of an animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "outside"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1584,45 @@
     "text": "Local chief is in the mire",
     "enumeration": "4"
    },
-   "solution": "EMIR"
+   "solution": "EMIR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EMIR",
+    "definitions": [
+     {
+      "text": "Local chief",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in means contained within, so the letters lie inside the following words"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the mire",
+      "gives": "EMIR",
+      "note": "found spanning the end of one word and the start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "A regional leader finds himself in deep trouble.",
+     "definitionFit": "An emir is a Muslim ruler or commander of a region, so a local chief in crossword terms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mire"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1642,74 @@
      }
     ]
    },
-   "solution": "MASTERMARINER"
+   "solution": "MASTERMARINER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MASTER MARINER",
+    "definitions": [
+     {
+      "text": "Captain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "being at sea means confused and adrift, so the letters are jumbled"
+     },
+     {
+      "text": "engaging",
+      "for": "container",
+      "note": "engaging means taking in or meshing with, so the jumbled letters hold the next piece"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stammer",
+      "gives": "STAMMER",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "rare",
+      "gives": "RARE",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "at home means in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MASTERMAR",
+      "IN",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STAMMERRARE",
+       "gives": "MASTERMARER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ship's captain has an unusual stammer when away at sea, but it charms people at home.",
+     "definitionFit": "A master mariner is a merchant-navy officer certified to command a vessel, so the captain of a ship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "engaging"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1723,63 @@
     "text": "The German returned look on overnight flight",
     "enumeration": "6"
    },
-   "solution": "REDEYE"
+   "solution": "REDEYE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "REDEYE",
+    "definitions": [
+     {
+      "text": "overnight flight",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so the word reads right to left"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The German",
+      "gives": "DER",
+      "note": "der is German for the"
+     },
+     {
+      "clueFragment": "look",
+      "gives": "EYE",
+      "note": "to eye is to look at"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "EYE"
+     ],
+     "reversals": [
+      {
+       "from": "DER",
+       "to": "RED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A German traveller looks out on a night flight home.",
+     "definitionFit": "A red-eye is an informal name for a late-night flight that leaves passengers with tired, bloodshot eyes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "German"
+    }
+   }
   },
   {
    "number": 28,
@@ -457,7 +1793,60 @@
     "text": "One signing cheque concerning care in retirement",
     "enumeration": "6"
    },
-   "solution": "DRAWER"
+   "solution": "DRAWER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DRAWER",
+    "definitions": [
+     {
+      "text": "One signing cheque",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in retirement",
+      "for": "reversal",
+      "note": "retiring means withdrawing backwards, so the combined letters run in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concerning",
+      "gives": "RE",
+      "note": "re means concerning, as in a letter heading"
+     },
+     {
+      "clueFragment": "care",
+      "gives": "WARD",
+      "note": "ward means care or guardianship, as in a child in ward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRAW",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "REWARD",
+       "to": "DRAWER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pensioner writes a cheque to pay for residential care.",
+     "definitionFit": "The drawer of a cheque is the account holder who writes and signs it, ordering the bank to pay."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retirement"
+    }
+   }
   }
  ]
 }
