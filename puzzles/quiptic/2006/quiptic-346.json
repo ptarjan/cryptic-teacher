@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "At fault over a net repair",
     "enumeration": "8"
    },
-   "solution": "RENOVATE"
+   "solution": "RENOVATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RENOVATE",
+    "definitions": [
+     {
+      "text": "repair",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "At fault",
+      "for": "anagram",
+      "note": "something at fault has gone wrong, so the letters that follow are out of their proper order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "over a net",
+      "gives": "OVERANET",
+      "note": "the three words supply the eight letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OVERANET",
+       "gives": "RENOVATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has damaged a net and must now repair it.",
+     "definitionFit": "To renovate is to restore something to good condition, a synonym of repair as a verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +93,47 @@
     "text": "Quietly conducts appeals",
     "enumeration": "6"
    },
-   "solution": "PLEADS"
+   "solution": "PLEADS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLEADS",
+    "definitions": [
+     {
+      "text": "appeals",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quietly",
+      "gives": "P",
+      "note": "p (piano) is the musical marking for quietly"
+     },
+     {
+      "clueFragment": "conducts",
+      "gives": "LEADS",
+      "note": "to conduct a group is to lead it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LEADS"
+     ]
+    },
+    "explanation": {
+     "surface": "A conductor who makes requests in a soft voice.",
+     "walkthrough": "'Conducts' suggests an orchestra, which fits the musical P, but here it simply means guides.",
+     "definitionFit": "To plead is to make an earnest request, so pleads matches the verb appeals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "conducts"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +147,58 @@
     "text": "Note: often it may be seen at a wedding",
     "enumeration": "8"
    },
-   "solution": "CONFETTI"
+   "solution": "CONFETTI",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "CONFETTI",
+    "definitions": [
+     {
+      "text": "Note: often it may be seen at a wedding",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "may be",
+      "for": "anagram",
+      "note": "may be suggests the letters could become something else when arranged differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "C",
+      "note": "C is one of the musical notes"
+     },
+     {
+      "clueFragment": "often it",
+      "gives": "OFTENIT",
+      "note": "taken as written, as letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COFTENIT",
+       "gives": "CONFETTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that something is commonly spotted at weddings.",
+     "walkthrough": "The whole clue is both the wordplay and the description: the note plus 'often it', rearranged, gives the paper scattered over newly-weds.",
+     "definitionFit": "Confetti, small pieces of coloured paper, is thrown over a bride and groom, so it is often seen at a wedding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Note"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +212,72 @@
     "text": "Prophet has spoken about key to ecstasy",
     "enumeration": "6"
    },
-   "solution": "ORACLE"
+   "solution": "ORACLE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ORACLE",
+    "definitions": [
+     {
+      "text": "Prophet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the spoken word goes round the next piece, sitting about it"
+     },
+     {
+      "text": "key to",
+      "for": "letter_selection",
+      "note": "the key to a word is its opening letter, which unlocks it"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spoken",
+      "gives": "ORAL",
+      "note": "oral means spoken rather than written"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c (circa) means about, as in a date"
+     },
+     {
+      "clueFragment": "ecstasy",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORA",
+      "C",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A seer has been talking about the secret of rapture.",
+     "walkthrough": "'About' does double work: C (circa) sits inside the word for spoken, then E follows.",
+     "definitionFit": "An oracle is a person through whom a god speaks, so a prophet or seer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +291,49 @@
     "text": "Insect the French found on vegetable",
     "enumeration": "6"
    },
-   "solution": "BEETLE"
+   "solution": "BEETLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEETLE",
+    "definitions": [
+     {
+      "text": "Insect",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "found on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vegetable",
+      "gives": "BEET",
+      "note": "beet is a root vegetable"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEET",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A bug discovered sitting on a vegetable in the garden.",
+     "walkthrough": "'Found on' places the French word after the vegetable, as in an across answer.",
+     "definitionFit": "A beetle is an insect with hard wing cases, a common example of the class."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +347,48 @@
     "text": "Beer-maker uses brown jug",
     "enumeration": "6"
    },
-   "solution": "BREWER"
+   "solution": "BREWER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BREWER",
+    "definitions": [
+     {
+      "text": "Beer-maker",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "uses"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brown",
+      "gives": "BR",
+      "note": "br is a standard abbreviation for brown"
+     },
+     {
+      "clueFragment": "jug",
+      "gives": "EWER",
+      "note": "a ewer is a large jug"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BR",
+      "EWER"
+     ]
+    },
+    "explanation": {
+     "surface": "A brewer serves his ale from a brown jug.",
+     "definitionFit": "A brewer is a person or firm that brews beer, so a beer-maker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +402,69 @@
     "text": "Old Royal Free Hospital previously used to be dreadful",
     "enumeration": "6"
    },
-   "solution": "HORRID"
+   "solution": "HORRID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HORRID",
+    "definitions": [
+     {
+      "text": "dreadful",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "previously",
+      "for": "charade",
+      "note": "previously says the last-named piece comes earlier, so it is placed at the front"
+     }
+    ],
+    "linkWords": [
+     "used to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hospital",
+      "gives": "H",
+      "note": "H is the abbreviation for hospital"
+     },
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "Royal",
+      "gives": "R",
+      "note": "R is the abbreviation for royal, as in RN"
+     },
+     {
+      "clueFragment": "Free",
+      "gives": "RID",
+      "note": "to free someone of something is to rid them of it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "O",
+      "R",
+      "RID"
+     ]
+    },
+    "explanation": {
+     "surface": "A London hospital, the Royal Free, was once a dreadful place.",
+     "walkthrough": "'Previously' puts the hospital's letter in front of the others. The Royal Free is a real London hospital, which disguises the separate abbreviations.",
+     "definitionFit": "Horrid is an informal synonym of dreadful, meaning very unpleasant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Free"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +478,62 @@
     "text": "Gloomy auditor found in dull surroundings",
     "enumeration": "6"
    },
-   "solution": "DREARY"
+   "solution": "DREARY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DREARY",
+    "definitions": [
+     {
+      "text": "Gloomy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in a place is enclosed by it, so one piece sits inside the other"
+     },
+     {
+      "text": "surroundings",
+      "for": "container",
+      "note": "surroundings are what lie all round, so the word before it wraps the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dull",
+      "gives": "DRY",
+      "note": "dry can mean dull and uninteresting"
+     },
+     {
+      "clueFragment": "auditor",
+      "gives": "EAR",
+      "note": "an auditor is a listener, and the ear is what listens"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "R",
+      "EAR",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A miserable accountant sits in drab surroundings.",
+     "walkthrough": "'Auditor' looks like an accountant, but here it means a hearer, hence the organ of hearing.",
+     "definitionFit": "Dreary means dull and depressing, a close synonym of gloomy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "auditor"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +547,56 @@
     "text": "Archers get a character reshuffle when uninvited guest makes an appearance",
     "enumeration": "11"
    },
-   "solution": "GATECRASHER"
+   "solution": "GATECRASHER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GATECRASHER",
+    "definitions": [
+     {
+      "text": "uninvited guest",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "character reshuffle",
+      "for": "anagram",
+      "note": "a reshuffle of characters means the letters themselves are moved into a new order"
+     }
+    ],
+    "linkWords": [
+     "when",
+     "makes an appearance"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Archers get a",
+      "gives": "ARCHERSGETA",
+      "note": "the three words supply the eleven letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARCHERSGETA",
+       "gives": "GATECRASHER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Archers, a long-running BBC radio soap, shakes up its cast when a newcomer turns up unannounced.",
+     "walkthrough": "The Archers is a BBC radio soap opera, so 'character reshuffle' reads as a cast change.",
+     "definitionFit": "A gatecrasher attends a party or event without an invitation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +610,69 @@
     "text": "Fellow trotted over with a hat",
     "enumeration": "6"
    },
-   "solution": "FEDORA"
+   "solution": "FEDORA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "FEDORA",
+    "definitions": [
+     {
+      "text": "hat",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "over suggests turning something round, so the word reads backwards"
+     }
+    ],
+    "linkWords": [
+     "with a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "F",
+      "note": "F is the abbreviation for fellow"
+     },
+     {
+      "clueFragment": "trotted",
+      "gives": "RODE",
+      "note": "a horse that trotted was ridden; to trot is to ride at that pace"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "EDOR",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "RODE",
+       "to": "EDOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man trotted across wearing a hat.",
+     "definitionFit": "A fedora is a soft felt hat with a creased crown, an example of a hat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +686,58 @@
     "text": "A Freddie Flintoff England century initially has Mr Dexter emotional",
     "enumeration": "8"
    },
-   "solution": "AFFECTED"
+   "solution": "AFFECTED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AFFECTED",
+    "definitions": [
+     {
+      "text": "emotional",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of each of the preceding words"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A Freddie Flintoff England century",
+      "gives": "AFFEC",
+      "select": "first",
+      "note": "the first letters of these five words"
+     },
+     {
+      "clueFragment": "Mr Dexter",
+      "gives": "TED",
+      "note": "Ted Dexter was a former England cricket captain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AFFEC",
+      "TED"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket scene: a Flintoff century for England moves Dexter.",
+     "walkthrough": "Freddie Flintoff and Ted Dexter are both England cricketers; Dexter's first name is needed, not his surname.",
+     "definitionFit": "Being affected means being moved or touched emotionally, so it fits emotional."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +751,50 @@
     "text": "Rave about girl",
     "enumeration": "4"
    },
-   "solution": "VERA"
+   "solution": "VERA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "VERA",
+    "definitions": [
+     {
+      "text": "girl",
+      "at": 11
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests moving things around, so the letters are put in a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rave",
+      "gives": "RAVE",
+      "note": "the four letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RAVE",
+       "gives": "VERA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone enthuses wildly about a young woman.",
+     "definitionFit": "Vera is a female name; in crosswords a girl often stands for any girl's name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rave"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +808,53 @@
     "text": "Reheat stew cooked for lover",
     "enumeration": "10"
    },
-   "solution": "SWEETHEART"
+   "solution": "SWEETHEART",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SWEETHEART",
+    "definitions": [
+     {
+      "text": "lover",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooking transforms ingredients, so the letters are mixed into a new form"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reheat stew",
+      "gives": "REHEATSTEW",
+      "note": "the ten letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REHEATSTEW",
+       "gives": "SWEETHEART"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Warming up a casserole for one's partner.",
+     "definitionFit": "A sweetheart is a person one loves, a term of endearment for a lover."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +874,59 @@
      }
     ]
    },
-   "solution": "TEASTRAINER"
+   "solution": "TEASTRAINER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TEA STRAINER",
+    "definitions": [
+     {
+      "text": "Leaf catcher",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the puzzle word wraps about the next piece, enclosing it"
+     }
+    ],
+    "linkWords": [
+     "solves"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "problem",
+      "gives": "TEASER",
+      "note": "a teaser is a tricky problem or puzzle"
+     },
+     {
+      "clueFragment": "locomotive",
+      "gives": "TRAIN",
+      "note": "a locomotive pulls a train, standing for it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEAS",
+      "TRAIN",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Something that catches leaves cracks a railway puzzle.",
+     "walkthrough": "'Leaf' means tea leaves, not those from trees.",
+     "definitionFit": "A tea strainer is placed over a cup to catch loose tea leaves as the tea is poured."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Leaf"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +940,40 @@
     "text": "Photos taken under the influence of strong drink?",
     "enumeration": "8"
    },
-   "solution": "SCHNAPPS"
+   "solution": "SCHNAPPS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SCHNAPPS",
+    "definitions": [
+     {
+      "text": "strong drink",
+      "at": 36
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Photos taken under the influence",
+      "note": "surface reading: pictures snapped by someone drunk"
+     },
+     {
+      "clueFragment": "Photos taken under the influence",
+      "note": "setter's reading: a slurring drinker says the word for photos with a sh sound, giving a German spirit"
+     }
+    ],
+    "explanation": {
+     "surface": "Pictures shot by a photographer who has had too much.",
+     "walkthrough": "Say the casual word for photos the way a drunk might slur it, and you get the name of a strong spirit.",
+     "definitionFit": "Schnapps is a strong alcoholic spirit, typically distilled from fruit or grain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "influence"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +987,75 @@
     "text": "Leave out climbing nonsense! Take the lift!",
     "enumeration": "8"
    },
-   "solution": "ELEVATOR"
+   "solution": "ELEVATOR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "charade"
+    ],
+    "answer": "ELEVATOR",
+    "definitions": [
+     {
+      "text": "lift",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out suggests something put out of place, so the letters are disordered"
+     },
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down answer climbing means read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "Take the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leave",
+      "gives": "LEAVE",
+      "note": "the five letters to be rearranged"
+     },
+     {
+      "clueFragment": "nonsense",
+      "gives": "ROT",
+      "note": "rot is nonsense, rubbish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELEVA",
+      "TOR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEAVE",
+       "gives": "ELEVA"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "ROT",
+       "to": "TOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stop that silly climbing and use the lift instead!",
+     "definitionFit": "Elevator is the American word for a lift carrying people between floors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "climbing"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1069,45 @@
     "text": "Child's toy can kind of rock",
     "enumeration": "6"
    },
-   "solution": "MARBLE"
+   "solution": "MARBLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MARBLE",
+    "definitions": [
+     {
+      "text": "Child's toy",
+      "at": 0
+     },
+     {
+      "text": "kind of rock",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "can"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Child's toy",
+      "note": "first meaning: a small glass ball used in children's games"
+     },
+     {
+      "clueFragment": "kind of rock",
+      "note": "second meaning: a crystalline limestone used in sculpture"
+     }
+    ],
+    "explanation": {
+     "surface": "A toy that can also be made of stone.",
+     "definitionFit": "The word names both a small glass ball children play with and a metamorphic stone prized for statues."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rock"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1127,51 @@
      }
     ]
    },
-   "solution": "BIGCAT"
+   "solution": "BIGCAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BIG CAT",
+    "definitions": [
+     {
+      "text": "Jaguar, for example",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "large",
+      "gives": "BIG",
+      "note": "big means large"
+     },
+     {
+      "clueFragment": "catalytic converter",
+      "gives": "CAT",
+      "note": "cat is the everyday short name for a catalytic converter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIG",
+      "CAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A Jaguar car needs a large exhaust part.",
+     "walkthrough": "Jaguar looks like the car, which suits the converter, but it is the animal.",
+     "definitionFit": "The jaguar is one of the large wild felines, alongside lions and tigers, an example of the group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Jaguar"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1191,54 @@
      }
     ]
    },
-   "solution": "MALTWHISKY"
+   "solution": "MALTWHISKY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MALT WHISKY",
+    "definitions": [
+     {
+      "text": "pure spirit",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "washed out, the letters lose their order and come back rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wash my kilt",
+      "gives": "WASHMYKILT",
+      "note": "the ten letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WASHMYKILT",
+       "gives": "MALTWHISKY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cleaning a Scotsman's kilt with neat spirits.",
+     "definitionFit": "Malt whisky is made from malted barley alone, sold as an unblended spirit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Wash"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1252,53 @@
     "text": "Temperature at which, allegedly, convulsion occurs",
     "enumeration": "6"
    },
-   "solution": "TWITCH"
+   "solution": "TWITCH",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "TWITCH",
+    "definitions": [
+     {
+      "text": "convulsion",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "allegedly",
+      "for": "homophone",
+      "note": "allegedly means as it is said, pointing to how the word is spoken"
+     }
+    ],
+    "linkWords": [
+     "at",
+     "occurs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Temperature",
+      "gives": "T",
+      "note": "T is the abbreviation for temperature"
+     },
+     {
+      "clueFragment": "which",
+      "gives": "WITCH",
+      "soundsLike": "WHICH",
+      "note": "which and witch are pronounced the same"
+     }
+    ],
+    "explanation": {
+     "surface": "A medical note about the temperature at which a fit happens.",
+     "definitionFit": "A twitch is a sudden involuntary jerk of a muscle, a small spasm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "allegedly"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1318,50 @@
      }
     ]
    },
-   "solution": "YESMAN"
+   "solution": "YESMAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "YES MAN",
+    "definitions": [
+     {
+      "text": "He agrees with everything",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when drunk",
+      "for": "anagram",
+      "note": "a drunk staggers about, so the letters reel into a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "men say",
+      "gives": "MENSAY",
+      "note": "the six letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MENSAY",
+       "gives": "YESMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man who goes along with whatever drunk men say.",
+     "definitionFit": "A yes-man is a sycophant who always agrees with superiors, the person described."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1375,44 @@
     "text": "Long poem is illustrated with some exquisite pictures",
     "enumeration": "4"
    },
-   "solution": "EPIC"
+   "solution": "EPIC",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EPIC",
+    "definitions": [
+     {
+      "text": "Long poem",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with some",
+      "for": "hidden_word",
+      "note": "with some means only part of the following words is used, the letters lying inside them"
+     }
+    ],
+    "linkWords": [
+     "is illustrated"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exquisite pictures",
+      "gives": "EPIC",
+      "note": "the letters run across the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A lengthy poem decorated with fine artwork.",
+     "definitionFit": "An epic is a long narrative poem about heroic deeds, such as the Iliad."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1426,66 @@
     "text": "Resign over police being in decline",
     "enumeration": "8"
    },
-   "solution": "ABDICATE"
+   "solution": "ABDICATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ABDICATE",
+    "definitions": [
+     {
+      "text": "Resign",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "over suggests turning something round, so the word is read backwards"
+     },
+     {
+      "text": "being in",
+      "for": "container",
+      "note": "being in means placed inside, so one piece is put within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "decline",
+      "gives": "ABATE",
+      "note": "to abate is to decline or lessen"
+     },
+     {
+      "clueFragment": "police",
+      "gives": "CID",
+      "note": "CID is the Criminal Investigation Department, the UK plain-clothes police"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "DIC",
+      "ATE"
+     ],
+     "reversals": [
+      {
+       "from": "CID",
+       "to": "DIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A police chief steps down as the force falls into decline.",
+     "walkthrough": "The CID is the detective branch of British police forces.",
+     "definitionFit": "To abdicate is to give up a throne or office, so to resign."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1499,49 @@
     "text": "Few would deface church",
     "enumeration": "6"
    },
-   "solution": "SCARCE"
+   "solution": "SCARCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCARCE",
+    "definitions": [
+     {
+      "text": "Few",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "would"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deface",
+      "gives": "SCAR",
+      "note": "to scar something is to mark or deface it"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCAR",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "Only a few would vandalise a church.",
+     "definitionFit": "Scarce means in short supply, so things that are scarce are few."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Few"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1555,71 @@
     "text": "He's first off at cracking pace to avoid capture",
     "enumeration": "6"
    },
-   "solution": "ESCAPE"
+   "solution": "ESCAPE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "ESCAPE",
+    "definitions": [
+     {
+      "text": "avoid capture",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first off",
+      "for": "deletion",
+      "note": "first off means the opening letter is removed"
+     },
+     {
+      "text": "cracking",
+      "for": "anagram",
+      "note": "something cracking breaks apart, so the letters are scattered and re-formed"
+     }
+    ],
+    "linkWords": [
+     "at",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He's",
+      "gives": "HES",
+      "note": "taken as written, before its first letter goes"
+     },
+     {
+      "clueFragment": "pace",
+      "gives": "PACE",
+      "note": "the four letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ES",
+      "CAPE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PACE",
+       "gives": "CAPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A runner leads at a cracking pace to get away.",
+     "walkthrough": "'Cracking pace' reads as a fast speed, but cracking is the anagram signal.",
+     "definitionFit": "To escape is to get free, so it means to avoid being caught."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cracking"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1639,40 @@
      }
     ]
    },
-   "solution": "WAYOUT"
+   "solution": "WAYOUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WAY OUT",
+    "definitions": [
+     {
+      "text": "Unusual",
+      "at": 0
+     },
+     {
+      "text": "exit",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unusual",
+      "note": "first meaning: an informal adjective for strange or unconventional"
+     },
+     {
+      "clueFragment": "exit",
+      "note": "second meaning: the way to leave a place"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The phrase is slang for bizarre and also the sign marking a door to leave by."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
