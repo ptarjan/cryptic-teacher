@@ -286,6 +286,10 @@ STUB_COUNTED = re.compile(rf"({STUB})\s*{fpp.ENUM_TEXT}", re.IGNORECASE)
 UNCLUED_MARK = re.compile(r"(?i)\[unclued\]|\(See (?:special )?instructions\)|See (?:the )?(?:special )?(?:preamble|instructions)")
 
 
+LIGATURES = str.maketrans({"\ufb00": "ff", "\ufb01": "fi", "\ufb02": "fl", "\ufb03": "ffi",
+                           "\ufb04": "ffl", "\ufb05": "st", "\ufb06": "st"})
+
+
 def flat(raw, kerned=True):
     """The PDF's text as one line: pypdf's per-word and per-line breaks are
     all spaces, a capital kerned off its word ("T earful") rejoined, and a
@@ -302,6 +306,9 @@ def flat(raw, kerned=True):
     spaces are the page's own. "Ton hill" and "Tin 5" there join to words, so
     no lexicon check can tell them apart: article text is never rejoined."""
     t = re.sub(r"[\u200b\u00ad]", "", raw)
+    # A PDF's typeset ligatures ("stu\ufb00", "e\ufb00ervescent": genius-205,
+    # 169) are letters: the write gate refuses them in clue text.
+    t = t.translate(LIGATURES)
     t = re.sub(r"\s+", " ", t).strip()
     if kerned:
         t = re.sub(r"\b([B-HJ-Z]) ([a-z]{2,})\b",
