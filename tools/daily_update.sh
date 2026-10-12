@@ -23,10 +23,13 @@
 #                      the Times and the Telegraph, rebuilt from the blogs
 #                      that solve them, the Telegraph's own bucket, and the
 #                      Globe's copies of the Times Quick Cryptic.
-#   ft, azed           the FT from fifteensquared, Azed from the Guardian's
-#                      printable copies. These and bucket:telegraph are
-#                      backfills: one that stops with backlog left runs
-#                      again at the next tick until it is drained.
+#   ft, azed           the FT from fifteensquared, Azed from fifteensquared
+#                      and the Guardian's printable copies. These and
+#                      bucket:telegraph are backfills: one that stops with
+#                      backlog left runs again at the next tick until it is
+#                      drained.
+#   genius             the Guardian's monthly Genius, PDFs plus
+#                      fifteensquared's answers.
 #   blog-facts         the blog caches re-read into the site's blog hints,
 #                      tools/data/blog_facts/, after any blog fetch.
 #   ratings, checks    the SNITCH and comment ratings and the measures built
@@ -342,7 +345,13 @@ unit_ft() {
   return $rc
 }
 
-# The Observer's Azed from the Guardian's printable copies. tools/andlit_azed.py
+# The Observer's Azed, from two sources. New issues come only from
+# fifteensquared's write-ups (tools/azed_puzzles.py rebuilds the barred grid
+# from the answers each post prints), posted about a week after the puzzle;
+# Azed is monthly from 2026, on the first Sunday. andlit.org.uk's index stops
+# at No 2,757, so the andlit leg below files old issues only: with this unit
+# reading andlit alone, no Azed after 2026-09-06 arrived (No 2,784 sat unfiled).
+# Then the Guardian's printable copies: tools/andlit_azed.py
 # fetches the next copies andlit.org.uk's index links (2s apart, oldest unfiled
 # first), starting none past AZED_FETCH_SECONDS, then files every cached copy
 # whose grid and clue list agree. One that stopped with copies left to fetch
@@ -352,8 +361,18 @@ unit_ft() {
 AZED_FETCH_SECONDS="${AZED_FETCH_SECONDS:-900}"
 AZED_SCAN_SECONDS="${AZED_SCAN_SECONDS:-1200}"
 unit_azed() {
-  local azed_out rc=0
+  local azed_out rc=0 step_rc
   azed_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-azed.XXXXXX")"
+  PYTHONUNBUFFERED=1 python3 tools/fetch_fifteensquared.py --category Azed --posts-only 2>&1 | tee "$azed_out"
+  step_rc=${PIPESTATUS[0]}
+  [ $step_rc -eq 0 ] ||
+    alert "the fifteensquared Azed fetch failed (rc=$step_rc), so Azed is filed from the posts already cached:"$'\n'"\`\`\`"$'\n'"$(tail -8 "$azed_out" | cut -c1-200)"$'\n'"\`\`\`"
+  PYTHONUNBUFFERED=1 python3 tools/azed_puzzles.py 2>&1 | tee "$azed_out"
+  step_rc=${PIPESTATUS[0]}
+  if [ $step_rc -ne 0 ]; then
+    rc=1
+    alert "tools/azed_puzzles.py failed (rc=$step_rc), so no new Azed is filed until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$azed_out" | cut -c1-200)"$'\n'"\`\`\`"
+  fi
   if OCR_REMOTE="${OCR_REMOTE-micro@192.168.1.198,micro@100.68.145.15}" \
       python3 tools/andlit_azed.py nightly --budget-seconds "$AZED_FETCH_SECONDS" \
       --scan-seconds "$AZED_SCAN_SECONDS" >"$azed_out" 2>&1; then
@@ -367,6 +386,26 @@ unit_azed() {
   return $rc
 }
 
+# The Guardian's monthly Genius: tools/genius_puzzles.py indexes the series
+# page, downloads the printable PDFs it lacks and files each one whose answers
+# fifteensquared has posted (the prize answers follow about a month on). Only
+# ever run by hand before, so No 280 (2026-10-05) had no route in.
+unit_genius() {
+  local genius_out rc=0 step_rc
+  genius_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-genius.XXXXXX")"
+  PYTHONUNBUFFERED=1 python3 tools/fetch_fifteensquared.py --category "Guardian Genius" --posts-only 2>&1 | tee "$genius_out"
+  step_rc=${PIPESTATUS[0]}
+  [ $step_rc -eq 0 ] ||
+    alert "the fifteensquared Genius fetch failed (rc=$step_rc), so Genius is filed from the posts already cached:"$'\n'"\`\`\`"$'\n'"$(tail -8 "$genius_out" | cut -c1-200)"$'\n'"\`\`\`"
+  PYTHONUNBUFFERED=1 python3 tools/genius_puzzles.py all 2>&1 | tee "$genius_out"
+  step_rc=${PIPESTATUS[0]}
+  if [ $step_rc -ne 0 ]; then
+    rc=1
+    alert "tools/genius_puzzles.py failed (rc=$step_rc), so no new Genius is filed until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$genius_out" | cut -c1-200)"$'\n'"\`\`\`"
+  fi
+  rm -f "$genius_out"
+  return $rc
+}
 
 # Blog hints, re-read off the caches the blog units just topped up.
 # tools/blog_facts.py joins every cached write-up to the puzzle it explains and
@@ -1039,6 +1078,7 @@ if [ "${1:-}" = unit ]; then
     xval:globe) unit_xval_globe ;;
     ft) unit_ft ;;
     azed) unit_azed ;;
+    genius) unit_genius ;;
     blog-facts) unit_blog_facts ;;
     ratings) unit_ratings ;;
     checks) unit_checks ;;
