@@ -1612,12 +1612,13 @@ tools/file_archive_org_puzzles.py             files the daily Times, FT, Guardia
                                               archive.org's OCR, RapidOCR's two recognisers,
                                               Tesseract, the desktop VLM and the Canberra Times
                                               reprint's readings (the Times pages saved by hand
-                                              from Gale, staged by gale_inbox.py, read the same
-                                              way), the grid read off the scan or rebuilt,
-                                              answers off the next edition's solution grid;
-                                              every reading kept for cross_validate.py's
-                                              archiveorg adapter; names the Times puzzle each
-                                              canberra file reprints
+                                              from Gale, staged by gale_inbox.py, and the
+                                              Telegraph, FT, Independent and Sunday Times pages
+                                              gale_fetch.py lays out, read the same way), the
+                                              grid read off the scan or rebuilt, answers off
+                                              the next edition's solution grid; every reading
+                                              kept for cross_validate.py's archiveorg adapter;
+                                              names the Times puzzle each canberra file reprints
 tools/test_file_archive_org_puzzles.sh        does tools/file_archive_org_puzzles.py find the
                                               Times cryptic's title and not its neighbours',
                                               read the clue columns in order, keep only the
@@ -1890,14 +1891,17 @@ tools/gale_inbox.py                           every 1930-2019 Times edition with
                                               archives' unfiled dates (OTHERS, other_wanted:
                                               Telegraph to 2000, FT 1966-2010, Independent
                                               1986-2016, Sunday Times to 2006) as
-                                              Gale<Paper><year>UKEnglish editions no filer
-                                              reads yet, publishes the Times progress page, and
-                                              for pages saved by hand sweeps each Gale download
-                                              out of the desktop's and Mac's Downloads into its
-                                              paper's inbox on the Media share, mirrors the
-                                              Times one over the ssh hatch, matches and stages
-                                              it, and starts the full pass when a page is laid
-                                              out while none runs (kick)
+                                              Gale<Paper><year>UKEnglish editions
+                                              file_archive_org_puzzles.py reads (the Telegraph
+                                              and FT in those papers' runs, --paper
+                                              galeindependent and galesundaytimes), publishes
+                                              the Times progress page, and for pages saved by
+                                              hand sweeps each Gale download out of the
+                                              desktop's and Mac's Downloads into its paper's
+                                              inbox on the Media share, mirrors the Times one
+                                              over the ssh hatch, matches and stages it, and
+                                              starts the full pass when a page is laid out
+                                              while none runs (kick)
 tools/gale_inbox.sh                           the scheduled entry point for gale_inbox.py sync,
                                               every minute, from a worktree
 tools/gale_listener.py                        the Listener crosswords of 1930-91, read from the
