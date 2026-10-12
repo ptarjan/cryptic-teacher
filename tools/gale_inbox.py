@@ -568,16 +568,19 @@ def match_there(data, name, held):
 FETCHED_HOW = "fetched"
 
 
-def lay_out_fetched(day, doc, data, entry, cache=CACHE):
+def lay_out_fetched(day, doc, data, entry, cache=CACHE, prod="TTDA"):
     """Lay out the page PDF `data` tools/gale_fetch.py downloaded for `day`
-    (Gale document `doc`, gale_docs cache `entry`) as that date's edition,
+    (Gale document `doc` of product `prod`, gale_docs cache `entry`) as that
+    date's edition of the Times' ITEM or the OTHERS paper's item,
     as stage does a matched file, its match taken from what the download
     already knew. Returns the edition dir. It is laid out in a hidden dir
     beside the year dirs, not in one, so a sync's stage running meanwhile
     (which clears a year dir's strays) never sees it half done; the rename
     moves it in whole."""
     import tempfile
-    d = cache / ITEM.format(day.year) / day.isoformat()
+    item = ITEM if prod == "TTDA" else OTHERS[prod].item
+    url = DOC_URL.format(doc) if prod == "TTDA" else gale_docs.PERMALINK.format(doc=doc, prod=prod)
+    d = cache / item.format(day.year) / day.isoformat()
     name = f"GALE_{doc}.pdf"
     with tempfile.TemporaryDirectory() as t:
         (Path(t) / name).write_bytes(data)
@@ -596,8 +599,8 @@ def lay_out_fetched(day, doc, data, entry, cache=CACHE):
     m = {"file": name, "date": day.isoformat(), "how": FETCHED_HOW, "docId": doc,
          "cited": (entry.get("title") or "").strip().rstrip(". ") or None, "page": entry.get("page"), "grid": grid}
     (tmp / "pages.json").write_text(json.dumps({
-        "item": ITEM.format(day.year), "edition": day.isoformat(), "date": day.isoformat(), "leaves": len(leaves),
-        "crossword_pages": leaves, "url": DOC_URL.format(doc)}, indent=1))
+        "item": item.format(day.year), "edition": day.isoformat(), "date": day.isoformat(), "leaves": len(leaves),
+        "crossword_pages": leaves, "url": url}, indent=1))
     (tmp / f"sources-{hashlib.sha256(data).hexdigest()[:16]}.json").write_text(json.dumps([m], indent=1))
     if d.exists():
         shutil.rmtree(d)
@@ -1101,6 +1104,62 @@ def wanted(today=None):
     return [(datetime.date.fromisoformat(d), cls)
             for d, cls, _ in archive_coverage.unfiled(fa.TIMES, today, scanned=False, scans_as=SCAN_UNFILED)
             if cls and int(d[:4]) in YEARS]
+
+
+class Other(collections.namedtuple("Other", "series years printed folder item")):
+    """Another paper the portal's Gale archives hold: its series, the years
+    Gale holds its crossword in, its printed (weekdays, first day) when
+    archive_coverage.PRINTED has no row for it, its folder under GALE_ROOT
+    and its edition item under CACHE."""
+
+
+#: The other papers, fetched by tools/gale_fetch.py once no Times row is
+#: left, in this order: the biggest gaps whose pages a filer's headings
+#: read (file_archive_org_puzzles' TELEGRAPH, FT) first, then those with
+#: none. No filer reads these items yet. Each archive's years are its
+#: issuesForMonth's (read 2026-10-11): TGRH ends with 2000, FTHA (its
+#: crossword from 1966) with 2010, INDA with 2016, STHA with 2006.
+OTHERS = {
+    "TGRH": Other("telegraph", range(1925, 2001), None, "Telegraph", "GaleTelegraph{}UKEnglish"),
+    "FTHA": Other("ftcryptic", range(1966, 2011), None, "FT", "GaleFT{}UKEnglish"),
+    "INDA": Other("independent", range(1986, 2017), (range(6), "1986-10-07"), "Independent",
+                  "GaleIndependent{}UKEnglish"),
+    "STHA": Other("sundaytimes", range(1924, 2007), ((6,), "1924-12-28"), "Sunday Times",
+                  "GaleSundayTimes{}UKEnglish"),
+}
+
+
+def printed(other, until):
+    """The dates `other` printed through `until`: archive_coverage's, or
+    its own printed days (Christmas Day never)."""
+    if other.printed is None:
+        yield from (datetime.date.fromisoformat(d) for d in archive_coverage.printed_dates(other.series, until))
+        return
+    weekdays, first = other.printed
+    d = datetime.date.fromisoformat(first)
+    while d <= until:
+        if d.weekday() in weekdays and (d.month, d.day) != (12, 25):
+            yield d
+        d += datetime.timedelta(days=1)
+
+
+def other_wanted(prod, cache=CACHE, today=None):
+    """[date] of each edition of OTHERS[prod] in its Gale years with no
+    puzzle filed and none laid out, newest first."""
+    other = OTHERS[prod]
+    today = today or datetime.datetime.now().astimezone().date()
+    filed = archive_coverage.corpus(other.series)[0]
+    laid = {}
+    out = []
+    for d in printed(other, min(today, datetime.date(other.years[-1], 12, 31))):
+        if d.year not in other.years or d.isoformat() in filed:
+            continue
+        if d.year not in laid:
+            year = cache / other.item.format(d.year)
+            laid[d.year] = set(os.listdir(year)) if year.is_dir() else set()
+        if d.isoformat() not in laid[d.year]:
+            out.append(d)
+    return out[::-1]
 
 
 def fresh_unread(cache=CACHE, rows=None, now=None):
@@ -1687,7 +1746,8 @@ and lays it out for the reader, which files its puzzle. Updated {now:%a %d %b %H
 <p>{e(ORDER)}</p>"""]
     if got:
         out.append("<h2>Latest downloads</h2><table><tr><th>When</th><th>Edition</th><th>File</th></tr>")
-        out += [f"<tr><td>{e(v.get('at', ''))}</td><td>{e(v.get('date', ''))}</td><td>{e(doc)}</td></tr>"
+        out += [f"<tr><td>{e(v.get('at', ''))}</td><td>{e(OTHERS[v['prod']].folder + ' ' if v.get('prod') in OTHERS else '')}"
+                f"{e(v.get('date', ''))}</td><td>{e(doc)}</td></tr>"
                 for doc, v in got[:LATEST]]
         out.append("</table>")
     notes_ = notes(matches, untitled, unmatched, log, now)

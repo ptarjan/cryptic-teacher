@@ -1868,12 +1868,17 @@ tools/gale_inbox.py                           every 1930-2019 Times edition with
                                               Archive by gale_fetch.py: lays out each fetched
                                               page as a GaleTimes<year>UKEnglish edition for
                                               file_archive_org_puzzles.py --paper gale
-                                              (lay_out_fetched), publishes the Times progress
-                                              page, and for pages saved by hand sweeps each
-                                              Gale download out of the desktop's and Mac's
-                                              Downloads into its paper's inbox on the Media
-                                              share, mirrors the Times one over the ssh hatch,
-                                              matches and stages it
+                                              (lay_out_fetched), and the other papers' Gale
+                                              archives' unfiled dates (OTHERS, other_wanted:
+                                              Telegraph to 2000, FT 1966-2010, Independent
+                                              1986-2016, Sunday Times to 2006) as
+                                              Gale<Paper><year>UKEnglish editions no filer
+                                              reads yet, publishes the Times progress page, and
+                                              for pages saved by hand sweeps each Gale download
+                                              out of the desktop's and Mac's Downloads into its
+                                              paper's inbox on the Media share, mirrors the
+                                              Times one over the ssh hatch, matches and stages
+                                              it
 tools/gale_inbox.sh                           the scheduled entry point for gale_inbox.py sync,
                                               every minute, from a worktree
 tools/gale_read.sh                            reads the Gale Times pages laid out in the last
@@ -1904,23 +1909,26 @@ tools/gale_listener.py                        the Listener crosswords of 1930-91
 tools/gale_docs.py                            Gale's document and PDF Download link for a date
                                               (portal session, the month's issues, the issue's
                                               contents), cached, misses too, in
-                                              ~/.cache/gale_inbox/docs.json: the Times rows
-                                              looked up by gale_fetch.py as it goes, the
-                                              Listener checklist's next rows by a sync at most
-                                              every 3 minutes (15 a tick, 2 s apart); Paul
-                                              allowed this on 2026-10-07
+                                              ~/.cache/gale_inbox/docs.json: the Times and
+                                              other papers' rows (Telegraph, FT, Independent,
+                                              Sunday Times archives) looked up by gale_fetch.py
+                                              as it goes, the Listener checklist's next rows by
+                                              a sync at most every 3 minutes (15 a tick, 2 s
+                                              apart); Paul allowed this on 2026-10-07
 tools/gale_fetch.py                           downloads every wanted Times edition itself, in
-                                              next-up order, at a hand's pace (8-22 s apart, at
-                                              most 15 in 3 minutes) and lays each out at once
-                                              as its date's edition (no inbox, match or
-                                              set-aside), the PDF kept on the Mac; counts
-                                              downloads per window across sessions (the
-                                              browser's included; no cap until the first
-                                              refusal), retries a logged-out session at once,
-                                              records each Gale refusal with its count and pace
-                                              and probes every 30 min to time the reset
-                                              (~/.cache/gale_inbox/limits.json), learning the
-                                              cap and window from them; stops and wakes the
+                                              next-up order, then the other papers'
+                                              (gale_inbox.OTHERS) once fewer than a plan's
+                                              worth of Times rows are left, at a hand's pace
+                                              (8-22 s apart, at most 15 in 3 minutes) and lays
+                                              each out at once as its date's edition (no inbox,
+                                              match or set-aside), the PDF kept on the Mac;
+                                              counts downloads per window across sessions and
+                                              papers (the browser's included; no cap until the
+                                              first refusal), retries a logged-out session at
+                                              once, records each Gale refusal with its count
+                                              and pace and probes every 30 min to time the
+                                              reset (~/.cache/gale_inbox/limits.json), learning
+                                              the cap and window from them; stops and wakes the
                                               room at a captcha, a wrong PDF, a refusal no
                                               probe gets past, or repeated errors (Paul,
                                               2026-10-11)
@@ -1934,8 +1942,10 @@ tools/test_gale_fetch.sh                      on a fake clock: does gale_fetch k
                                               session too) and the 30-min probes until one
                                               works, stop at a captcha, short PDF, a refusal no
                                               probe gets past or repeated errors (riding out
-                                              one), skip what was got, and wait a bounded
-                                              number of times?
+                                              one), skip what was got, wait a bounded number of
+                                              times, open another paper's session through its
+                                              own portal link and count its downloads in the
+                                              one window, and plan the Times first?
 tools/test_gale_docs.sh                       with Gale stood in: is the day's crossword found
                                               in an issue's contents (not the Concise or a
                                               competition), its Download link's citation one
@@ -1994,9 +2004,10 @@ tools/test_gale_inbox.sh                      is a page saved into the Gale inbo
                                               again when a page is added or replaced for that
                                               date and no other; is a page gale_fetch.py
                                               downloaded laid out without a match and left
-                                              alone by stage; is a Gale download recognised by
-                                              its name or citation and routed to its paper's
-                                              inbox, everything else left alone; does the Times
+                                              alone by stage, another paper's under its own
+                                              item; is a Gale download recognised by its name
+                                              or citation and routed to its paper's inbox,
+                                              everything else left alone; does the Times
                                               progress page count what is wanted, fetched, read
                                               and not on Gale, with nothing to click?
 tools/test_canberra_reprint_vote.sh           does a Canberra Times reprint vote on the

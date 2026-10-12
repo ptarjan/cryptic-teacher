@@ -112,6 +112,17 @@ check("OCR'd crossword titles", [0, 0, 0, 0], [gd.crossword("LSNR", [t], n) for 
     ("Grossword No. 630", 630), ("Crossward No. 607", 607), ("No. 360. 'Cross-number XIV'. By Afrit", 360),
     ("Crossnumber No. 793", 793)]])
 check("a report is not the crossword", None, gd.crossword("LSNR", ["Report on Crossword No. 81"], 83))
+# The other papers' titles, as their archives' contents give them.
+check("the Telegraph's clue heading names its cryptic, not the Quick's", [1, 0, None],
+      [gd.crossword("TGRH", ["Quick Crossword across", "No. 12,212 across"]),
+       gd.crossword("TGRH", ["Crossword / 21,502", "Quick crossword"]),
+       gd.crossword("TTDA", ["No. 12,212 across"])])
+check("the Sunday Times' cryptic, not its Mephisto or French one", [1, 1],
+      [gd.crossword("STHA", ["Mephisto Crossword", "Crossword"]),
+       gd.crossword("STHA", ['"Sunday Times" French Cross-Word No. 15', '"Sunday Times" Cross-Word Puzzle No. 792'])])
+check("FT and Independent titles", [0, 1, 1],
+      [gd.crossword("FTHA", ["F. T. Crossword Puzzle No. 2,718"]), gd.crossword("INDA", ["Concise crossword #9171",
+       "Cryptic crossword #9172"]), gd.crossword("INDA", ["BritishRedCross", "The Tuesday Crossword"])])
 check("the report on the number asked", 1, gd.report(["Report on Crossword No. 1,308", "Report on Crossword No. 1,309"],
                                                     1309))
 # A miss from an older matcher is asked again once; a current one is not.
