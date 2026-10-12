@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,52 @@
     "text": "Concern to kill mother?",
     "enumeration": "6"
    },
-   "solution": "DOMAIN"
+   "solution": "DOMAIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DOMAIN",
+    "definitions": [
+     {
+      "text": "Concern",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kill",
+      "gives": "DOIN",
+      "note": "to do in is slang for to kill"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "an informal word for mother"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "MA",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A grim question: is the worry here a plot to murder one's own mother?",
+     "walkthrough": "The phrasal verb splits around its object: you kill someone by doing them in, so mother lands between the two halves.",
+     "definitionFit": "A domain is a field or area of responsibility, the business that is someone's affair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Concern"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +95,49 @@
     "text": "Censure dishonest enterprise purchasing land on rural estate originally",
     "enumeration": "7"
    },
-   "solution": "DEPLORE"
+   "solution": "DEPLORE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "DEPLORE",
+    "definitions": [
+     {
+      "text": "Censure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to how each word starts, so only the opening letter of every word in the run counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dishonest enterprise purchasing land on rural estate",
+      "gives": "DEPLORE",
+      "select": "first",
+      "note": "the initial letters of these seven words in turn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEPLORE"
+     ]
+    },
+    "explanation": {
+     "surface": "Condemn a crooked business that buys up land on a country estate.",
+     "walkthrough": "The surface invites hunting for a word meaning a scam; instead every word from 'dishonest' to 'estate' gives its initial.",
+     "definitionFit": "To deplore is to condemn or express strong disapproval, which is what censuring someone does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dishonest"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +151,47 @@
     "text": "Current in French hands",
     "enumeration": "5"
    },
-   "solution": "MAINS"
+   "solution": "MAINS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MAINS",
+    "definitions": [
+     {
+      "text": "Current",
+      "at": 0
+     },
+     {
+      "text": "French hands",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Current",
+      "note": "first meaning: the household electricity supply"
+     },
+     {
+      "clueFragment": "French hands",
+      "note": "second meaning: the French word for hands"
+     }
+    ],
+    "explanation": {
+     "surface": "Something present or flowing within the hands of the French.",
+     "walkthrough": "In Britain the mains is the domestic electricity supply; in French, mains is the plural of main, a hand.",
+     "definitionFit": "Mains electricity is the current supplied to homes, and the French plural noun for hands is spelt identically."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Current"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +205,78 @@
     "text": "Cold developed since I overcame first symptom",
     "enumeration": "7"
    },
-   "solution": "ICINESS"
+   "solution": "ICINESS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ICINESS",
+    "definitions": [
+     {
+      "text": "Cold",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "developed",
+      "for": "anagram",
+      "note": "something that has developed has changed form, so the letters take a new order"
+     },
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first asks only for the opening letter of the following word"
+     },
+     {
+      "text": "overcame",
+      "for": "charade",
+      "note": "in a down entry, coming over something means sitting above it, so one part is placed on top of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "since",
+      "gives": "SINCE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "symptom",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of symptom"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICINES",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SINCEI",
+       "gives": "ICINES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sufferer reports a cold that came on after they had beaten the first sign of illness.",
+     "walkthrough": "'Cold' looks like an illness in this surface, but it is the definition in its sense of chilliness.",
+     "definitionFit": "Iciness is the noun for the state of being freezing, so it matches cold used as a noun for low temperature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cold"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +290,75 @@
     "text": "Strange article that's first removed from pastry",
     "enumeration": "6"
    },
-   "solution": "ECLAIR"
+   "solution": "ECLAIR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ECLAIR",
+    "definitions": [
+     {
+      "text": "pastry",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Strange",
+      "for": "anagram",
+      "note": "strange suggests something out of its normal shape, so the letters are jumbled"
+     },
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first asks for just the opening letter of the word before it"
+     },
+     {
+      "text": "removed",
+      "for": "deletion",
+      "note": "removed means that letter is taken away from the word it sits in"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "ARTICLE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "that's",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of that"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ECLAIR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARICLE",
+       "gives": "ECLAIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An odd item whose initial part has been taken out of a pastry.",
+     "walkthrough": "Drop the T from ARTICLE and rearrange the remaining six letters to make ECLAIR.",
+     "definitionFit": "An eclair is a finger-shaped choux bun filled with cream, a classic example of a pastry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +372,56 @@
     "text": "Is able, as thanks, to produce game",
     "enumeration": "7"
    },
-   "solution": "CANASTA"
+   "solution": "CANASTA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CANASTA",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "to produce"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is able",
+      "gives": "CAN",
+      "note": "can means is able"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "thanks",
+      "gives": "TA",
+      "note": "ta is informal British for thanks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAN",
+      "AS",
+      "TA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who is capable, and grateful, sets up a game.",
+     "walkthrough": "TA is everyday British slang for thank you.",
+     "definitionFit": "Canasta is a rummy-style card game played with two packs, so it is an instance of a game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thanks"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +435,53 @@
     "text": "Intact car recovered from frigid zone",
     "enumeration": "9"
    },
-   "solution": "ANTARCTIC"
+   "solution": "ANTARCTIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANTARCTIC",
+    "definitions": [
+     {
+      "text": "frigid zone",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recovered",
+      "for": "anagram",
+      "note": "re-covered suggests being wrapped up afresh, so the letters are put into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Intact car",
+      "gives": "INTACTCAR",
+      "note": "the nine letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INTACTCAR",
+       "gives": "ANTARCTIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An undamaged vehicle has been retrieved from a polar region.",
+     "definitionFit": "The Antarctic is the icy region around the South Pole, one of the coldest zones on Earth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recovered"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +495,68 @@
     "text": "One in flower above a resort area",
     "enumeration": "7"
    },
-   "solution": "RIVIERA"
+   "solution": "RIVIERA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "RIVIERA",
+    "definitions": [
+     {
+      "text": "resort area",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one item inside another"
+     },
+     {
+      "text": "above",
+      "for": "charade",
+      "note": "in a down entry, above means the earlier part sits on top of the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flower",
+      "gives": "RIVER",
+      "note": "a flower here is something that flows, a crossword favourite for a river"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIV",
+      "I",
+      "ER",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A single bloom sitting over something in a holiday spot.",
+     "walkthrough": "'Flower' wants to be a bloom; read it as flow-er, something that flows. The Riviera is the Mediterranean coast of France and Italy.",
+     "definitionFit": "The Riviera is a coastal strip famous for its seaside holiday towns, so it is a resort area."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flower"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +570,69 @@
     "text": "Have enough of a very noisy duck over the way",
     "enumeration": "6"
    },
-   "solution": "AFFORD"
+   "solution": "AFFORD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AFFORD",
+    "definitions": [
+     {
+      "text": "Have enough",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down entry, over puts what comes before it on top of what follows"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "very noisy",
+      "gives": "FF",
+      "note": "fortissimo, the musical marking for very loud"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "O",
+      "note": "a duck is a score of nothing in cricket, shaped like zero"
+     },
+     {
+      "clueFragment": "the way",
+      "gives": "RD",
+      "note": "the abbreviation for road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "FF",
+      "O",
+      "RD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is fed up with a loud duck crossing the road.",
+     "walkthrough": "FF is fortissimo in music; a duck is a zero score in cricket.",
+     "definitionFit": "To afford something is to have sufficient money or means for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +652,40 @@
      }
     ]
    },
-   "solution": "SPLITINFINITIVE"
+   "solution": "SPLITINFINITIVE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SPLIT INFINITIVE",
+    "definitions": [
+     {
+      "text": "an awkward sentence construction",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "To radically change",
+      "note": "surface reading: an instruction to transform something drastically"
+     },
+     {
+      "clueFragment": "an awkward sentence construction",
+      "note": "setter's reading: the opening phrase is itself an example, with an adverb wedged between 'to' and its verb"
+     }
+    ],
+    "explanation": {
+     "surface": "A call to overhaul a clumsy sentence completely.",
+     "walkthrough": "The clue's first three words demonstrate the answer: 'radically' sits between 'to' and 'change', a construction traditionalists frown on.",
+     "definitionFit": "Placing a word inside a to-verb pairing is a grammatical construction that pedants consider awkward style."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "radically"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +699,40 @@
     "text": "Edible hairdressing preparation?",
     "enumeration": "6"
    },
-   "solution": "MOUSSE"
+   "solution": "MOUSSE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MOUSSE",
+    "definitions": [
+     {
+      "text": "Edible hairdressing preparation",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Edible hairdressing preparation",
+      "note": "surface reading: a styling product you could eat"
+     },
+     {
+      "clueFragment": "hairdressing preparation",
+      "note": "setter's reading: a word that names both a styling foam for hair and a light whipped dessert"
+     }
+    ],
+    "explanation": {
+     "surface": "A hair product that is safe to eat.",
+     "walkthrough": "The same word names a frothy dessert and a frothy styling foam.",
+     "definitionFit": "Mousse is both a whipped pudding and a foam applied to hair, so it is literally a styling product that is also food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Edible"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +746,46 @@
     "text": "One looking at a Sunday newspaper",
     "enumeration": "8"
    },
-   "solution": "OBSERVER"
+   "solution": "OBSERVER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OBSERVER",
+    "definitions": [
+     {
+      "text": "One looking",
+      "at": 0
+     },
+     {
+      "text": "a Sunday newspaper",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One looking",
+      "note": "first meaning: a person watching"
+     },
+     {
+      "clueFragment": "a Sunday newspaper",
+      "note": "second meaning: a British weekly paper published on Sundays"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone reading through a weekend paper.",
+     "walkthrough": "The Observer is a long-running British Sunday newspaper.",
+     "definitionFit": "An observer is a watcher or onlooker, and The Observer is the title of a UK Sunday paper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "at"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +799,53 @@
     "text": "Embarrassed, admitting error having slipped back",
     "enumeration": "8"
    },
-   "solution": "RELAPSED"
+   "solution": "RELAPSED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RELAPSED",
+    "definitions": [
+     {
+      "text": "having slipped back",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "admitting means letting something in, so one part goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Embarrassed",
+      "gives": "RED",
+      "note": "red-faced with embarrassment"
+     },
+     {
+      "clueFragment": "error",
+      "gives": "LAPSE",
+      "note": "a lapse is a slip or mistake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "LAPSE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A red-faced person owns up to a mistake after backsliding.",
+     "definitionFit": "To relapse is to fall back into a former bad state, so relapsed means having regressed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +859,78 @@
     "text": "Upside-down bra's improper attire for judge",
     "enumeration": "9"
    },
-   "solution": "ARBITRATE"
+   "solution": "ARBITRATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "ARBITRATE",
+    "definitions": [
+     {
+      "text": "judge",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Upside-down",
+      "for": "reversal",
+      "note": "in a down entry, turning a word upside down reads it from the bottom up, backwards"
+     },
+     {
+      "text": "improper",
+      "for": "anagram",
+      "note": "improper suggests something not in its right order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bra",
+      "gives": "BRA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "attire",
+      "gives": "ATTIRE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARB",
+      "ITRATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ATTIRE",
+       "gives": "ITRATE"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "BRA",
+       "to": "ARB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An inverted brassiere makes unsuitable clothing for a court official.",
+     "walkthrough": "'Judge' looks like a noun for the wearer, but it is the verb.",
+     "definitionFit": "To arbitrate is to settle a dispute impartially, which is what judging between two parties means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "judge"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +944,60 @@
     "text": "Authentic performance, you say, by Jolson",
     "enumeration": "6"
    },
-   "solution": "ACTUAL"
+   "solution": "ACTUAL",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "ACTUAL",
+    "definitions": [
+     {
+      "text": "Authentic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say asks for how the preceding word is spoken, not how it is written"
+     },
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "by means next to, so the parts are set side by side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "performance",
+      "gives": "ACT",
+      "note": "an act is a performance"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "soundsLike": "YOU",
+      "note": "the letter sounds like the pronoun"
+     },
+     {
+      "clueFragment": "Jolson",
+      "gives": "AL",
+      "note": "Al Jolson was an American singer and film star"
+     }
+    ],
+    "explanation": {
+     "surface": "A genuine show, you might say, by the old-time entertainer Al Jolson.",
+     "walkthrough": "Al Jolson starred in The Jazz Singer, the first talkie.",
+     "definitionFit": "Actual means real or genuine, which is what authentic means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Authentic"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +1011,59 @@
     "text": "Seaman in infamous prison will survive",
     "enumeration": "6"
    },
-   "solution": "VIABLE"
+   "solution": "VIABLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VIABLE",
+    "definitions": [
+     {
+      "text": "will survive",
+      "at": 26,
+      "note": "verb phrase for an adjective meaning able to survive"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prison",
+      "for": "container",
+      "note": "a prison holds someone inside it, so the sailor is locked within the other word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "infamous",
+      "gives": "VILE",
+      "note": "vile means wicked, notorious"
+     },
+     {
+      "clueFragment": "Seaman",
+      "gives": "AB",
+      "note": "an able-bodied seaman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "AB",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor locked up in a notorious jail will come through it alive.",
+     "walkthrough": "The infamous word acts as the jail around the sailor; AB stands for able seaman.",
+     "definitionFit": "Something viable is capable of living or continuing to work, so it is expected to last."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "prison"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1077,53 @@
     "text": "Perhaps pals aim to find antelopes",
     "enumeration": "7"
    },
-   "solution": "IMPALAS"
+   "solution": "IMPALAS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IMPALAS",
+    "definitions": [
+     {
+      "text": "antelopes",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Perhaps",
+      "for": "anagram",
+      "note": "perhaps hints that the words may be arranged differently, so the letters are shuffled"
+     }
+    ],
+    "linkWords": [
+     "to find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pals aim",
+      "gives": "PALSAIM",
+      "note": "the seven letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PALSAIM",
+       "gives": "IMPALAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Friends might set out to track down some antelopes.",
+     "definitionFit": "Impalas are graceful African antelopes known for their leaping."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Perhaps"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1137,50 @@
     "text": "Give a reason for once being homely",
     "enumeration": "7"
    },
-   "solution": "EXPLAIN"
+   "solution": "EXPLAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXPLAIN",
+    "definitions": [
+     {
+      "text": "Give a reason for",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "once",
+      "gives": "EX",
+      "note": "ex means former, once"
+     },
+     {
+      "clueFragment": "homely",
+      "gives": "PLAIN",
+      "note": "homely in the sense of unglamorous, plain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "PLAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Justify why someone used to be unattractive.",
+     "walkthrough": "Homely is used here in its sense of plain-looking.",
+     "definitionFit": "To explain something is to account for it or justify it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "homely"
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1194,56 @@
     "text": "Chap I save from beautician's treatment",
     "enumeration": "8"
    },
-   "solution": "MANICURE"
+   "solution": "MANICURE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MANICURE",
+    "definitions": [
+     {
+      "text": "beautician's treatment",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chap",
+      "gives": "MAN",
+      "note": "a chap is a man"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "save",
+      "gives": "CURE",
+      "note": "to cure food is to preserve it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "I",
+      "CURE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man asks to be rescued from a beauty salon session.",
+     "walkthrough": "'save' means preserve, as you cure ham.",
+     "definitionFit": "A manicure is a cosmetic treatment of the hands and nails, given in a salon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "save"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1257,63 @@
     "text": "Accident to unnamed foreign shipman",
     "enumeration": "6"
    },
-   "solution": "MISHAP"
+   "solution": "MISHAP",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "MISHAP",
+    "definitions": [
+     {
+      "text": "Accident",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unnamed",
+      "for": "deletion",
+      "note": "unnamed means without a name, so name's abbreviation is dropped"
+     },
+     {
+      "text": "foreign",
+      "for": "anagram",
+      "note": "foreign suggests something strange and unfamiliar, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shipman",
+      "gives": "SHIPMAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MISHAP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SHIPMA",
+       "gives": "MISHAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unidentified sailor from abroad has had an accident.",
+     "walkthrough": "N is the standard abbreviation for name; remove it from SHIPMAN before rearranging.",
+     "definitionFit": "A mishap is an unlucky incident, a minor accident."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unnamed"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1327,50 @@
     "text": "Found in Bath, not Cheddar, artefact is jagged",
     "enumeration": "7"
    },
-   "solution": "NOTCHED"
+   "solution": "NOTCHED",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NOTCHED",
+    "definitions": [
+     {
+      "text": "jagged",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Found in",
+      "for": "hidden_word",
+      "note": "found in says the letters are discovered inside the words that follow"
+     }
+    ],
+    "linkWords": [
+     "artefact is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bath",
+      "note": "surface padding: a Somerset city setting the scene"
+     },
+     {
+      "clueFragment": "not Cheddar",
+      "gives": "NOTCHED",
+      "note": "the run of letters within these two words"
+     }
+    ],
+    "explanation": {
+     "surface": "An archaeological find from Bath rather than Cheddar has a serrated edge.",
+     "walkthrough": "Bath and Cheddar are both places in Somerset, England, which makes the surface feel like a dig report.",
+     "definitionFit": "Notched means having V-shaped cuts along an edge, so it is serrated or jagged."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cheddar"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1384,74 @@
     "text": "Decision of loser to go back and collect five euro",
     "enumeration": "7"
    },
-   "solution": "RESOLVE"
+   "solution": "RESOLVE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "RESOLVE",
+    "definitions": [
+     {
+      "text": "Decision",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go back",
+      "for": "reversal",
+      "note": "going back means the word is read in the opposite direction"
+     },
+     {
+      "text": "and collect",
+      "for": "charade",
+      "note": "collecting means picking more up, so further parts are added on after"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loser",
+      "gives": "LOSER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "five",
+      "gives": "V",
+      "note": "the Roman numeral for five"
+     },
+     {
+      "clueFragment": "euro",
+      "gives": "E",
+      "note": "the abbreviation for euro"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RESOL",
+      "V",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "LOSER",
+       "to": "RESOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A beaten player decides to return and pick up a five-euro note.",
+     "definitionFit": "Resolve as a noun means a firm decision or determination to do something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "loser"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1465,53 @@
     "text": "Possibly happiest of eulogies",
     "enumeration": "8"
    },
-   "solution": "EPITAPHS"
+   "solution": "EPITAPHS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EPITAPHS",
+    "definitions": [
+     {
+      "text": "eulogies",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Possibly",
+      "for": "anagram",
+      "note": "possibly hints at one possible arrangement among many, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "happiest",
+      "gives": "HAPPIEST",
+      "note": "the eight letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HAPPIEST",
+       "gives": "EPITAPHS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Perhaps the most cheerful among tributes to the dead.",
+     "definitionFit": "Epitaphs are short tributes to someone who has died, often inscribed on gravestones, so they are a kind of eulogy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "happiest"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1525,48 @@
     "text": "First cockney to experience dryness",
     "enumeration": "6"
    },
-   "solution": "THIRST"
+   "solution": "THIRST",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "THIRST",
+    "definitions": [
+     {
+      "text": "dryness",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cockney",
+      "for": "homophone",
+      "note": "a cockney accent famously turns a th sound into an f, so the word is heard as a Londoner says it"
+     }
+    ],
+    "linkWords": [
+     "to experience"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "First",
+      "gives": "THIRST",
+      "soundsLike": "FIRST",
+      "note": "a cockney pronounces the dryness word with an f sound at its start"
+     }
+    ],
+    "explanation": {
+     "surface": "The first Londoner to feel parched.",
+     "walkthrough": "Cockney is the working-class East London accent, in which th is pronounced f.",
+     "definitionFit": "Thirst is the sensation of needing to drink, a parched feeling in the mouth and throat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "First"
+    }
+   }
   },
   {
    "number": 23,
@@ -375,7 +1580,40 @@
     "text": "Publication that's big on the street",
     "enumeration": "5"
    },
-   "solution": "ISSUE"
+   "solution": "ISSUE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ISSUE",
+    "definitions": [
+     {
+      "text": "Publication",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Publication that's big on the street",
+      "note": "surface reading: a magazine popular with passers-by"
+     },
+     {
+      "clueFragment": "big on the street",
+      "note": "setter's reading: completes the title of a well-known magazine sold by homeless vendors on the pavement"
+     }
+    ],
+    "explanation": {
+     "surface": "A magazine that is a hit with people out and about.",
+     "walkthrough": "The Big Issue is a UK magazine sold by homeless people on the street; the answer is the second word of its title.",
+     "definitionFit": "An issue is a single edition of a magazine or newspaper, so it is a publication."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "big"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1641,54 @@
      }
     ]
    },
-   "solution": "CLEANASAWHISTLE"
+   "solution": "CLEANASAWHISTLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CLEAN AS A WHISTLE",
+    "definitions": [
+     {
+      "text": "comparatively spotless",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "ordered means put into a fresh arrangement, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "His was a neat cell",
+      "gives": "HISWASANEATCELL",
+      "note": "the fifteen letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HISWASANEATCELL",
+       "gives": "CLEANASAWHISTLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tidy prisoner kept his cell orderly and gleaming.",
+     "walkthrough": "'ordered' sits naturally with 'neat cell' but is the anagram signal.",
+     "definitionFit": "The simile is an idiom meaning perfectly clean, and its 'as a' form is a comparison, hence comparatively."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "ordered"
+    }
+   }
   },
   {
    "number": 25,
@@ -417,7 +1702,44 @@
     "text": "Understanding one in five, in a sense",
     "enumeration": "6"
    },
-   "solution": "SEEING"
+   "solution": "SEEING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SEEING",
+    "definitions": [
+     {
+      "text": "Understanding",
+      "at": 0
+     },
+     {
+      "text": "one in five, in a sense",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Understanding",
+      "note": "first meaning: grasping"
+     },
+     {
+      "clueFragment": "one in five, in a sense",
+      "note": "second meaning: sight, one of the five senses"
+     }
+    ],
+    "explanation": {
+     "surface": "Grasping that one of five is meant in a certain sense.",
+     "walkthrough": "'in a sense' sounds like a hedge but literally means one of the senses.",
+     "definitionFit": "Seeing can mean comprehending, and it is also vision, one of the five human senses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sense"
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +1753,70 @@
     "text": "Having made but lost a thousand, she came in for stick",
     "enumeration": "6"
    },
-   "solution": "ADHERE"
+   "solution": "ADHERE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ADHERE",
+    "definitions": [
+     {
+      "text": "stick",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost",
+      "for": "deletion",
+      "note": "lost means something has gone missing from the word before"
+     },
+     {
+      "text": "came in",
+      "for": "container",
+      "note": "coming in means entering, so one part goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "Having",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "made",
+      "gives": "MADE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a thousand",
+      "gives": "M",
+      "note": "the Roman numeral for a thousand"
+     },
+     {
+      "clueFragment": "she",
+      "gives": "HER",
+      "note": "the object form of she"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "HER",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "After making and then losing a fortune, she was criticised.",
+     "walkthrough": "'came in for stick' wants to be one phrase meaning criticised; split it, as 'came in' is the insertion and 'stick' the definition.",
+     "definitionFit": "To adhere is to cling or remain attached, which is to stick."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stick"
+    }
+   }
   }
  ]
 }
