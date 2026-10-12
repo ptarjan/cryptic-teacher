@@ -170,6 +170,46 @@ for name, text in (("glued-count", "Mineral in(3,2words"), ("glued-count-mirror"
     print(name, A.assemble(1800, got, "u", None, None, "Plain")[1], got["clues"][(2, "down")])
 print("dropped-g", A.run_together("climbin'"), A.run_together("climbin"))
 
+# A rotated page reads like the upright one: by /Rotate, or (No 2482) by a cm
+# matrix that draws the whole landscape page sideways with no /Rotate. The
+# grid's lines are filled four-corner polygons there, not `re`.
+import io, pypdf
+from pypdf.generic import DecodedStreamObject, DictionaryObject, NameObject, NumberObject
+
+def fixture(wrap="", rotate=0):
+    body = ["0.25 w"]
+    for i in range(7):
+        body.append(f"{100 + 20 * i} 500 m {100 + 20 * i} 620 l S 100 {500 + 20 * i} m 220 {500 + 20 * i} l S")
+    # the bar right of cell (1, 2): a filled quad, 2.5pt thick
+    body.append("159 600 m 159 580 l 161.5 580 l 161.5 600 l h f")
+    body.append("BT /F1 12 Tf 100 700 Td (Azed No. 1800 Plain) Tj ET BT /F1 5 Tf 102 616 Td (1) Tj ET")
+    body.append("BT /F1 8 Tf 100 480 Td (ACROSS) Tj ET BT /F1 8 Tf 100 470 Td (1 Some clue \\(2\\)) Tj ET")
+    writer = pypdf.PdfWriter()
+    page = writer.add_blank_page(595, 842)
+    font = DictionaryObject({NameObject("/Type"): NameObject("/Font"), NameObject("/Subtype"): NameObject("/Type1"),
+                             NameObject("/BaseFont"): NameObject("/Helvetica")})
+    page[NameObject("/Resources")] = DictionaryObject({NameObject("/Font"): DictionaryObject({NameObject("/F1"): font})})
+    stream = DecodedStreamObject()
+    stream.set_data((wrap + "\n".join(body) + ("\nQ" if wrap else "")).encode())
+    page[NameObject("/Contents")] = writer._add_object(stream)
+    if rotate:
+        page[NameObject("/Rotate")] = NumberObject(rotate)
+    out = io.BytesIO()
+    writer.write(out)
+    return out.getvalue()
+
+def look(data):
+    r = A.read_pdf(data)
+    return r["number"], "/".join(r["grid"] or ["none"]), sorted(r["printed"].items()), r["lines"]
+
+upright_read = look(fixture())
+print("rot-upright", upright_read[0], upright_read[1], upright_read[2])
+# a page turned 90 degrees clockwise by its content, and 90 / 180 / 270 by /Rotate
+print("rot-cm", look(fixture("q 0 -1 1 0 0 842 cm\n")) == upright_read)
+print("rot-cm-ccw", look(fixture("q 0 1 -1 0 595 0 cm\n")) == upright_read)
+print("rot-cm-half", look(fixture("q -1 0 0 -1 595 842 cm\n")) == upright_read)
+print("rot-flag", [look(fixture(rotate=r)) == upright_read for r in (90, 180, 270)])
+
 # A PDF that is one page image goes to the scan reader, not "not text".
 import io, pathlib, tempfile
 from PIL import Image
@@ -223,6 +263,11 @@ check "a compound is no words run together" "None" "$(line not-ran-together)"
 check "real words run_together once held are words" "[None, None, None, None]" "$(line real-words)"
 check "a rare word whose pair the corpus prints, or a small notus, is still two (mirror)" "['under time', 'not us']" "$(line real-words-mirror)"
 check "a dropped g is none either, though its letters are" "None climb in" "$(line dropped-g)"
+check "the upright fixture reads its grid, bar and number" "1800 ....../..r.../....../....../....../...... [((0, 0), '1')]" "$(line rot-upright)"
+check "a page drawn sideways by a cm matrix reads like the upright one" "True" "$(line rot-cm)"
+check "a page drawn the other way up reads the same" "True" "$(line rot-cm-ccw)"
+check "a page drawn upside down reads the same" "True" "$(line rot-cm-half)"
+check "a page with /Rotate reads the same" "[True, True, True]" "$(line rot-flag)"
 check "an image-only PDF is a scan, not not-text" "scan (40, 40)" "$(line scan-routed)"
 
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }

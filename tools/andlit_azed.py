@@ -294,9 +294,14 @@ def segments(ops):
                     if op in (b"S", b"s", b"B", b"B*", b"b", b"b*"):
                         for a, b in itertools.pairwise(pts):
                             add_stroke(a, b, width * scale)
-                    if op in (b"f", b"F", b"f*", b"B", b"B*", b"b", b"b*") and is_rect:
+                    if op in (b"f", b"F", b"f*", b"B", b"B*", b"b", b"b*"):
                         xs, ys = [p[0] for p in pts], [p[1] for p in pts]
-                        add_rect(min(xs), min(ys), max(xs), max(ys))
+                        # A rectangle drawn as `re`, or as four corners (the
+                        # sideways 2482 draws every grid line so).
+                        if is_rect or (4 <= len(pts) <= 5 and all(
+                                min(abs(x - min(xs)), abs(x - max(xs))) < 0.05
+                                and min(abs(y - min(ys)), abs(y - max(ys))) < 0.05 for x, y in pts)):
+                            add_rect(min(xs), min(ys), max(xs), max(ys))
                 path = []
     walk(ops, [1, 0, 0, 1, 0, 0])
     return out
@@ -399,9 +404,80 @@ def column_lines(runs, size, skip):
     return out
 
 
+def text_turn(page, reader):
+    """Quarter turns (0-3, counterclockwise) the page's text is set at in its
+    content stream: the direction of each shown string's baseline, weighted
+    by its length, ctm and text matrix together."""
+    from pypdf.generic import ContentStream
+    contents = page.get_contents()
+    if contents is None:
+        return 0
+    votes = collections.Counter()
+    ctm, stack, tm = [1, 0, 0, 1, 0, 0], [], [1, 0, 0, 1, 0, 0]
+    for operands, op in ContentStream(contents, reader).operations:
+        try:
+            if op == b"q":
+                stack.append(ctm)
+            elif op == b"Q" and stack:
+                ctm = stack.pop()
+            elif op == b"cm":
+                ctm = fpp._mul([float(v) for v in operands], ctm)
+            elif op == b"BT":
+                tm = [1, 0, 0, 1, 0, 0]
+            elif op == b"Tm":
+                tm = [float(v) for v in operands]
+            elif op in (b"Tj", b"TJ", b"'", b'"'):
+                parts = operands[0] if op == b"TJ" else [operands[-1]]
+                n = sum(len(str(v)) for v in parts if not (isinstance(v, (int, float)) or hasattr(v, "as_numeric")))
+                dx = tm[0] * ctm[0] + tm[1] * ctm[2]
+                dy = tm[0] * ctm[1] + tm[1] * ctm[3]
+                if n and (dx or dy):
+                    votes[round(math.atan2(dy, dx) / (math.pi / 2)) % 4] += n
+        except (ValueError, TypeError, IndexError):
+            continue
+    return votes.most_common(1)[0][0] if votes else 0
+
+
+def upright(data):
+    """The PDF with its page turned so the text reads left to right: the
+    page's /Rotate applied to the content, then any quarter turn the text is
+    set at (2482's landscape page is drawn sideways by a cm matrix, with no
+    /Rotate at all, so its glyph sizes and positions read nonsense). The
+    same bytes when it is already upright."""
+    import pypdf
+    from pypdf.generic import RectangleObject
+    reader = pypdf.PdfReader(io.BytesIO(data))
+    if not reader.pages:
+        return data
+    page = reader.pages[0]
+    spun = int(page.get("/Rotate") or 0) % 360
+    if spun:
+        page.transfer_rotation_to_content()
+    turn = text_turn(page, reader)
+    if not turn and not spun:
+        return data
+    if turn:
+        box = page.mediabox
+        w, h = float(box.width), float(box.height)
+        # turn the content clockwise by `turn` quarter turns, back to upright
+        a, b, c, d = [(1, 0, 0, 1), (0, -1, 1, 0), (-1, 0, 0, -1), (0, 1, -1, 0)][turn]
+        e = {0: 0, 1: 0, 2: w, 3: h}[turn]
+        f = {0: 0, 1: w, 2: h, 3: 0}[turn]
+        page.add_transformation(pypdf.Transformation((a, b, c, d, e, f)))
+        nw, nh = (h, w) if turn % 2 else (w, h)
+        for key in ("mediabox", "cropbox", "trimbox", "bleedbox", "artbox"):
+            setattr(page, key, RectangleObject([0, 0, nw, nh]))
+    out = io.BytesIO()
+    writer = pypdf.PdfWriter()
+    writer.add_page(page)
+    writer.write(out)
+    return out.getvalue()
+
+
 def read_pdf(data):
     """{"number", "preamble", "grid", "printed", "lines"} of a printable PDF."""
     logging.getLogger("pypdf").setLevel(logging.CRITICAL)
+    data = upright(data)
     text, ops = fpp.ops_of(data)
     if not text.strip():
         return None     # a scan: the page is one image
