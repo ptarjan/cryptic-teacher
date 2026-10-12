@@ -19,8 +19,14 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "unsolved"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-12",
+  "check": "30 entries, 56 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,6 +39,51 @@
    "clue": {
     "text": "They promote 28 nuts",
     "enumeration": "11"
+   },
+   "solution": "ADVERTISERS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ADVERTISERS",
+    "definitions": [
+     {
+      "text": "They promote",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nuts",
+      "for": "anagram",
+      "note": "nuts means crazy, so the letters of the cross-referenced answer go wild and land in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "28",
+      "gives": "DRIVERSSEAT",
+      "note": "the answer to 28 Across supplies the letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DRIVERSSEAT",
+       "gives": "ADVERTISERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slogan-like line saying some crazy folk are behind the promotion of entry 28.",
+     "walkthrough": "DRIVER'S SEAT (28 Across) and ADVERTISERS share all eleven letters; the two clues lean on each other.",
+     "definitionFit": "Advertisers are the businesses and agencies that publicize products, which is to promote them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nuts"
+    }
    }
   },
   {
@@ -46,6 +97,83 @@
    "clue": {
     "text": "Essentially, Paul quit taking Introduction to Toxicology and went to class without receiving credit",
     "enumeration": "7"
+   },
+   "solution": "AUDITED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "AUDITED",
+    "definitions": [
+     {
+      "text": "went to class without receiving credit",
+      "at": 61
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its core, so only the central letters are kept"
+     },
+     {
+      "text": "Introduction to",
+      "for": "letter_selection",
+      "note": "an introduction comes at the start, so only the first letter is used"
+     },
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking something in holds it within"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paul",
+      "gives": "AU",
+      "select": "middle",
+      "note": "the two central letters of Paul"
+     },
+     {
+      "clueFragment": "quit",
+      "gives": "DI",
+      "note": "first part of died, as in quit living"
+     },
+     {
+      "clueFragment": "Toxicology",
+      "gives": "T",
+      "select": "first",
+      "note": "initial letter of Toxicology"
+     },
+     {
+      "clueFragment": "quit",
+      "gives": "ED",
+      "note": "end of died"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AU",
+      "DI",
+      "T",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A student named Paul drops out of a toxicology course and sits in on lectures instead.",
+     "walkthrough": "'Quit' gives DIED (as in quit this life), which takes the T of Toxicology inside.",
+     "definitionFit": "To audit a course in US colleges is to attend it without earning academic credit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "quit"
+    }
    }
   },
   {
@@ -59,6 +187,73 @@
    "clue": {
     "text": "Mean to acquire a bit of rationality through someone else's experience",
     "enumeration": "9"
+   },
+   "solution": "VICARIOUS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "VICARIOUS",
+    "definitions": [
+     {
+      "text": "through someone else's experience",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to acquire",
+      "for": "container",
+      "note": "acquiring something means taking it in, so the extra letters go inside"
+     },
+     {
+      "text": "a bit of",
+      "for": "letter_selection",
+      "note": "a bit is a small piece, here just the first letter of the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mean",
+      "gives": "VIC",
+      "note": "first part of vicious, meaning nasty"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rationality",
+      "gives": "R",
+      "select": "first",
+      "note": "initial letter of rationality"
+     },
+     {
+      "clueFragment": "Mean",
+      "gives": "IOUS",
+      "note": "rest of vicious"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIC",
+      "A",
+      "R",
+      "IOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A philosophical claim about gaining sense by learning from others' lives.",
+     "walkthrough": "'Mean' looks like 'intend to'; here it is the adjective, VICIOUS, which takes in A and R.",
+     "definitionFit": "Vicarious feelings are experienced secondhand by imagining another person's experience."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mean"
+    }
    }
   },
   {
@@ -72,6 +267,56 @@
    "clue": {
     "text": "Update equipment when thief returns",
     "enumeration": "6"
+   },
+   "solution": "RETOOL",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "RETOOL",
+    "definitions": [
+     {
+      "text": "Update equipment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returns",
+      "for": "reversal",
+      "note": "returning means coming back the way one went, so the word runs backwards"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thief",
+      "gives": "LOOTER",
+      "note": "a looter is a thief"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RETOOL"
+     ],
+     "reversals": [
+      {
+       "from": "LOOTER",
+       "to": "RETOOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Buying new gear for the shop after a burglar comes back.",
+     "definitionFit": "To retool is to replace or upgrade the machinery and tools of a workplace."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returns"
+    }
    }
   },
   {
@@ -85,6 +330,75 @@
    "clue": {
     "text": "Josh interrupts since failing to write",
     "enumeration": "8"
+   },
+   "solution": "INSCRIBE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "INSCRIBE",
+    "definitions": [
+     {
+      "text": "write",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupts",
+      "for": "container",
+      "note": "something that interrupts breaks into the middle of another piece"
+     },
+     {
+      "text": "failing",
+      "for": "anagram",
+      "note": "something failing falls apart, so its letters collapse into a new order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "since",
+      "gives": "INSC",
+      "note": "first part of the rearranged letters of since"
+     },
+     {
+      "clueFragment": "Josh",
+      "gives": "RIB",
+      "note": "to josh or rib someone is to tease them"
+     },
+     {
+      "clueFragment": "since",
+      "gives": "E",
+      "note": "last letter of the rearranged since"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INSC",
+      "RIB",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SINCE",
+       "gives": "INSCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone named Josh breaking in to explain why a writer has stalled.",
+     "walkthrough": "'Josh' reads as a name; here it is the verb meaning to tease.",
+     "definitionFit": "To inscribe is to write or carve words on a surface."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Josh"
+    }
    }
   },
   {
@@ -98,6 +412,48 @@
    "clue": {
     "text": "Aims to dispatch top to bottom",
     "enumeration": "4"
+   },
+   "solution": "ENDS",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "ENDS",
+    "definitions": [
+     {
+      "text": "Aims",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top to bottom",
+      "for": "cycling",
+      "note": "in a down entry the top is the first letter, moved here to the base of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dispatch",
+      "gives": "SEND",
+      "note": "to dispatch a letter is to send it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENDS"
+     ]
+    },
+    "explanation": {
+     "surface": "Targets set for shipping the top item to the bottom of the pile.",
+     "walkthrough": "SEND with its first letter moved to the end.",
+     "definitionFit": "Ends in the sense of goals or purposes, as in 'means to an end', are aims."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
    }
   },
   {
@@ -111,6 +467,61 @@
    "clue": {
     "text": "Renée Fleming, for one, hurried inside to absorb love",
     "enumeration": "7"
+   },
+   "solution": "SOPRANO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SOPRANO",
+    "definitions": [
+     {
+      "text": "Renée Fleming, for one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "the hurried piece goes inside the pair that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to absorb",
+      "gives": "SOP",
+      "note": "to sop up liquid is to absorb it"
+     },
+     {
+      "clueFragment": "hurried",
+      "gives": "RAN",
+      "note": "ran means hurried"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOP",
+      "RAN",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An opera star rushing in to soak up the audience's adoration.",
+     "walkthrough": "'Hurried inside' means the hurried word sits between the other two pieces. Renée Fleming is a celebrated American opera singer.",
+     "definitionFit": "Renée Fleming sings the highest female voice part, so she is an example of a soprano."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
    }
   },
   {
@@ -130,6 +541,39 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "WARPAINT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "WAR PAINT",
+    "definitions": [
+     {
+      "text": "Tina's makeup",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tina's makeup",
+      "note": "surface reading: the cosmetics a woman called Tina wears"
+     },
+     {
+      "clueFragment": "Tina's makeup",
+      "note": "setter's reading: the composition of the name, its four letters, which the answer read as an instruction would produce"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read the answer as wordplay: WARP 'AINT' and the four letters make TINA, so the answer describes Tina's letter makeup. War paint is also slang for cosmetics.",
+     "definitionFit": "War paint is a jokey term for a woman's heavy cosmetics, so it is her makeup."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "makeup"
+    }
    }
   },
   {
@@ -143,6 +587,53 @@
    "clue": {
     "text": "Bad time for a romantic couple",
     "enumeration": "4"
+   },
+   "solution": "ITEM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ITEM",
+    "definitions": [
+     {
+      "text": "romantic couple",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bad",
+      "for": "anagram",
+      "note": "something bad is spoiled, so the letters are broken up and reordered"
+     }
+    ],
+    "linkWords": [
+     "for a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "TIME",
+      "note": "the four letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TIME",
+       "gives": "ITEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lovers going through a rough patch.",
+     "definitionFit": "A pair who are an item are publicly known to be in a relationship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bad"
+    }
    }
   },
   {
@@ -156,6 +647,88 @@
    "clue": {
     "text": "Wild beast takes LSD the wrong way and steps down",
     "enumeration": "9"
+   },
+   "solution": "ABDICATES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "container"
+    ],
+    "answer": "ABDICATES",
+    "definitions": [
+     {
+      "text": "steps down",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Wild",
+      "for": "anagram",
+      "note": "something wild is untamed and disordered, so the letters of the animal are scrambled"
+     },
+     {
+      "text": "the wrong way",
+      "for": "reversal",
+      "note": "going the wrong way means running backwards, so the drug's name is read right to left"
+     },
+     {
+      "text": "takes",
+      "for": "container",
+      "note": "to take something in is to hold it, so one piece sits inside the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beast",
+      "gives": "AB",
+      "note": "first part of the scrambled letters of beast"
+     },
+     {
+      "clueFragment": "LSD",
+      "gives": "ACID",
+      "note": "acid is the street name for LSD"
+     },
+     {
+      "clueFragment": "beast",
+      "gives": "TES",
+      "note": "rest of the scrambled letters of beast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "DICA",
+      "TES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BEAST",
+       "gives": "ABTES"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "ACID",
+       "to": "DICA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rampaging animal swallowing a hallucinogen and then walking down some stairs.",
+     "walkthrough": "BEAST rearranged gives AB...TES, and ACID backwards (DICA) goes into the gap.",
+     "definitionFit": "A monarch who abdicates gives up the throne, which is stepping down from office."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "steps"
+    }
    }
   },
   {
@@ -169,6 +742,51 @@
    "clue": {
     "text": "Storage site to get rid of marijuana?",
     "enumeration": "5"
+   },
+   "solution": "DEPOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEPOT",
+    "definitions": [
+     {
+      "text": "Storage site",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "get rid of",
+      "gives": "DE",
+      "note": "the prefix de- means to remove, as in de-ice"
+     },
+     {
+      "clueFragment": "marijuana",
+      "gives": "POT",
+      "note": "pot is slang for marijuana"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "POT"
+     ]
+    },
+    "explanation": {
+     "surface": "A wry suggestion that a warehouse is where you go to dispose of your cannabis.",
+     "walkthrough": "The question mark flags the whimsical reading: DE-POT, as if 'de-pot' meant removing the pot.",
+     "definitionFit": "A depot is a warehouse or yard where goods or vehicles are kept."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "marijuana"
+    }
    }
   },
   {
@@ -188,6 +806,70 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "PETERLORRE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "PETER LORRE",
+    "definitions": [
+     {
+      "text": "an old-time movie star",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Small leaves",
+      "for": "deletion",
+      "note": "small is the abbreviation S, and 'leaves' says that letter departs from the next word"
+     },
+     {
+      "text": "repel",
+      "for": "reversal",
+      "note": "to repel is to drive back, so the name is turned round"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "annoy",
+      "gives": "PETER",
+      "note": "pester (to annoy) with its S dropped"
+     },
+     {
+      "clueFragment": "Mr. Flynn",
+      "gives": "ERROL",
+      "note": "Errol Flynn, the swashbuckling film actor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PETER",
+      "LORRE"
+     ],
+     "reversals": [
+      {
+       "from": "ERROL",
+       "to": "LORRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tale of someone pestering and fending off Errol Flynn, framed as a Hollywood-history aside.",
+     "walkthrough": "'Small leaves' looks like foliage but means S departs: PESTER loses S. Peter Lorre starred in Casablanca and The Maltese Falcon.",
+     "definitionFit": "Peter Lorre was a Hungarian-born Hollywood actor famous in films of the 1930s and 1940s."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leaves"
+    }
    }
   },
   {
@@ -201,6 +883,43 @@
    "clue": {
     "text": "Critical mass requires serenity",
     "enumeration": "4"
+   },
+   "solution": "CALM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CALM",
+    "definitions": [
+     {
+      "text": "serenity",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "requires",
+      "for": "hidden_word",
+      "note": "the phrase before it requires, or contains, the needed letters within its run of text"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Critical mass",
+      "gives": "CALM",
+      "note": "letters running across the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A physics-meets-meditation line: reaching critical mass apparently demands inner peace.",
+     "definitionFit": "Calm as a noun is a state of tranquility, the same as serenity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "requires"
+    }
    }
   },
   {
@@ -214,6 +933,75 @@
    "clue": {
     "text": "Oranges, enclosed by bruised rind and protected from the elements",
     "enumeration": "6"
+   },
+   "solution": "INDOOR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "INDOOR",
+    "definitions": [
+     {
+      "text": "protected from the elements",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bruised",
+      "for": "anagram",
+      "note": "bruised fruit is damaged and knocked out of shape, so the letters are battered into a new order"
+     },
+     {
+      "text": "enclosed by",
+      "for": "container",
+      "note": "something enclosed by another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rind",
+      "gives": "IND",
+      "note": "first part of the rearranged letters of rind"
+     },
+     {
+      "clueFragment": "Oranges",
+      "gives": "OO",
+      "note": "orange abbreviated O, twice for the plural"
+     },
+     {
+      "clueFragment": "rind",
+      "gives": "R",
+      "note": "last letter of the rearranged rind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IND",
+      "OO",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RIND",
+       "gives": "INDR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Oranges wrapped in damaged peel and kept out of the weather, like fruit in storage.",
+     "walkthrough": "O for orange is a colour abbreviation; two of them make the plural.",
+     "definitionFit": "Something indoor is inside a building, sheltered from wind and rain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bruised"
+    }
    }
   },
   {
@@ -227,6 +1015,80 @@
    "clue": {
     "text": "\"Tito, drunk, walks into a bar…\"—that'll slay 'em",
     "enumeration": "8"
+   },
+   "solution": "ABATTOIR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "ABATTOIR",
+    "definitions": [
+     {
+      "text": "that'll slay 'em",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "a drunk person is unsteady and muddled, so the letters stagger into another order"
+     },
+     {
+      "text": "walks into",
+      "for": "container",
+      "note": "walking into a place puts one inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "BA",
+      "note": "first two letters of bar, split around the inserted piece"
+     },
+     {
+      "clueFragment": "Tito",
+      "gives": "TTOI",
+      "note": "Tito rearranged"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "R",
+      "note": "last letter of bar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BA",
+      "TTOI",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TITO",
+       "gives": "TTOI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The opening of a classic bar joke, promising it will kill the audience.",
+     "walkthrough": "'That'll slay 'em' sounds like a comic's boast but literally describes a slaughterhouse.",
+     "definitionFit": "An abattoir is a slaughterhouse, where animals are killed for meat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "slay"
+    }
    }
   },
   {
@@ -240,6 +1102,58 @@
    "clue": {
     "text": "Hardwood veneer stripped from something that stings and something that whistles",
     "enumeration": "9"
+   },
+   "solution": "TEAKETTLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TEAKETTLE",
+    "definitions": [
+     {
+      "text": "something that whistles",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "veneer stripped from",
+      "for": "deletion",
+      "note": "stripping the veneer removes the thin outer layer, so the word loses its outermost first letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hardwood",
+      "gives": "TEAK",
+      "note": "teak is a dense tropical hardwood"
+     },
+     {
+      "clueFragment": "something that stings",
+      "gives": "ETTLE",
+      "note": "a nettle stings; its outer first letter is removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEAK",
+      "ETTLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A woodworking scene: sanding a hardwood surface near insects and bird-like whistles.",
+     "walkthrough": "NETTLE without its outer N follows TEAK.",
+     "definitionFit": "A teakettle whistles through its spout when the water boils."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "veneer"
+    }
    }
   },
   {
@@ -253,6 +1167,60 @@
    "clue": {
     "text": "Local torn about viewpoint",
     "enumeration": "8"
+   },
+   "solution": "RESIDENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RESIDENT",
+    "definitions": [
+     {
+      "text": "Local",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one word wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "torn",
+      "gives": "RE",
+      "note": "first part of rent, meaning torn"
+     },
+     {
+      "clueFragment": "viewpoint",
+      "gives": "SIDE",
+      "note": "a side of an argument is a viewpoint"
+     },
+     {
+      "clueFragment": "torn",
+      "gives": "NT",
+      "note": "end of rent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "SIDE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A neighbourhood person conflicted about a matter of opinion.",
+     "walkthrough": "'Local' looks like an adjective; it is the noun for someone who lives there.",
+     "definitionFit": "A local is a person who lives in an area, which is a resident."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Local"
+    }
    }
   },
   {
@@ -266,6 +1234,74 @@
    "clue": {
     "text": "Ex-wife in disreputable tavern hiding broken core",
     "enumeration": "8"
+   },
+   "solution": "DIVORCEE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DIVORCEE",
+    "definitions": [
+     {
+      "text": "Ex-wife",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding",
+      "for": "container",
+      "note": "to hide something is to keep it inside, out of sight"
+     },
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "a broken object has its parts disordered, so these letters are reassembled differently"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "disreputable tavern",
+      "gives": "DIV",
+      "note": "first part of dive, a seedy bar"
+     },
+     {
+      "clueFragment": "core",
+      "gives": "ORCE",
+      "note": "core rearranged"
+     },
+     {
+      "clueFragment": "disreputable tavern",
+      "gives": "E",
+      "note": "last letter of dive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIV",
+      "ORCE",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CORE",
+       "gives": "ORCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former spouse in a seedy bar, hiding her heartbreak.",
+     "definitionFit": "A divorcee is a person whose marriage has been legally ended, such as an ex-wife."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "core"
+    }
    }
   },
   {
@@ -279,6 +1315,62 @@
    "clue": {
     "text": "Thailand's capital has trendy administrative district",
     "enumeration": "8"
+   },
+   "solution": "TOWNSHIP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TOWNSHIP",
+    "definitions": [
+     {
+      "text": "administrative district",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capital",
+      "for": "letter_selection",
+      "note": "a capital letter is the one at the head of a word, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thailand's",
+      "gives": "T",
+      "select": "first",
+      "note": "initial letter of Thailand"
+     },
+     {
+      "clueFragment": "has",
+      "gives": "OWNS",
+      "note": "to have something is to own it"
+     },
+     {
+      "clueFragment": "trendy",
+      "gives": "HIP",
+      "note": "hip means fashionable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OWNS",
+      "HIP"
+     ]
+    },
+    "explanation": {
+     "surface": "A travel note: Bangkok contains a fashionable government district.",
+     "walkthrough": "'Thailand's capital' wants to be Bangkok; it is just the letter at the front of Thailand.",
+     "definitionFit": "A township is a local government division, especially of a US county."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
    }
   },
   {
@@ -292,6 +1384,44 @@
    "clue": {
     "text": "Outspoken command made a continuous noise",
     "enumeration": "7"
+   },
+   "solution": "WHIRRED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WHIRRED",
+    "definitions": [
+     {
+      "text": "made a continuous noise",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Outspoken",
+      "for": "homophone",
+      "note": "outspoken here means spoken out, so what is heard counts, not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "command",
+      "gives": "WHIRRED",
+      "soundsLike": "WORD",
+      "note": "a word is an order, as in 'just say the word'"
+     }
+    ],
+    "explanation": {
+     "surface": "A blunt order that kept droning on.",
+     "walkthrough": "In American speech the answer and WORD sound alike.",
+     "definitionFit": "Whirred describes a steady humming or buzzing sound, like a fan running."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Outspoken"
+    }
    }
   },
   {
@@ -305,6 +1435,49 @@
    "clue": {
     "text": "Stop playing in winter outerwear",
     "enumeration": "6"
+   },
+   "solution": "PARKAS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARKAS",
+    "definitions": [
+     {
+      "text": "winter outerwear",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stop",
+      "gives": "PARK",
+      "note": "to park is to stop a vehicle"
+     },
+     {
+      "clueFragment": "playing",
+      "gives": "AS",
+      "note": "an actor playing a role is appearing as that character"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARK",
+      "AS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone told to quit their game while bundled up in coats.",
+     "definitionFit": "Parkas are hooded, insulated coats worn in cold weather."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
    }
   },
   {
@@ -318,6 +1491,42 @@
    "clue": {
     "text": "Legislature gripped by weakness eternally",
     "enumeration": "7"
+   },
+   "solution": "KNESSET",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "KNESSET",
+    "definitions": [
+     {
+      "text": "Legislature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gripped by",
+      "for": "hidden_word",
+      "note": "something gripped by a phrase is held within it, buried among its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weakness eternally",
+      "gives": "KNESSET",
+      "note": "letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A parliament forever held in the grip of its own feebleness.",
+     "definitionFit": "The Knesset is Israel's parliament, its national legislative body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gripped"
+    }
    }
   },
   {
@@ -331,6 +1540,50 @@
    "clue": {
     "text": "Proclaims \"toss-up\" is doubtful",
     "enumeration": "6"
+   },
+   "solution": "SPOUTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPOUTS",
+    "definitions": [
+     {
+      "text": "Proclaims",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is doubtful",
+      "for": "anagram",
+      "note": "being doubtful means unsettled, so the letters are not fixed in their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "toss-up",
+      "gives": "TOSSUP",
+      "note": "the six letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOSSUP",
+       "gives": "SPOUTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pundit declaring that a close contest is uncertain.",
+     "definitionFit": "To spout is to declaim at length, a loose synonym of proclaiming."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "doubtful"
+    }
    }
   },
   {
@@ -344,6 +1597,57 @@
    "clue": {
     "text": "Western singer is enthusiastic",
     "enumeration": "4"
+   },
+   "solution": "AVID",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "AVID",
+    "definitions": [
+     {
+      "text": "enthusiastic",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Western",
+      "for": "reversal",
+      "note": "in an across entry, heading west means travelling right to left, the reverse of normal reading"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "singer",
+      "gives": "DIVA",
+      "note": "a diva is a celebrated female singer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVID"
+     ],
+     "reversals": [
+      {
+       "from": "DIVA",
+       "to": "AVID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cowboy crooner described as keen.",
+     "walkthrough": "'Western singer' suggests country and western; 'Western' instead turns the singer round.",
+     "definitionFit": "Avid means eager or keen, a close synonym of enthusiastic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Western"
+    }
    }
   },
   {
@@ -357,6 +1661,63 @@
    "clue": {
     "text": "For the most part, sound of a fall when climbing mountains",
     "enumeration": "4"
+   },
+   "solution": "ALPS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "ALPS",
+    "definitions": [
+     {
+      "text": "mountains",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "For the most part",
+      "for": "deletion",
+      "note": "most but not all means the final letter is dropped"
+     },
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down entry, climbing means reading upward, bottom to top"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sound of a fall",
+      "gives": "SPLAT",
+      "note": "splat is the noise of something hitting the ground"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALPS"
+     ],
+     "reversals": [
+      {
+       "from": "SPLA",
+       "to": "ALPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A climber's warning about the noise of a tumble on a mountain.",
+     "walkthrough": "SPLAT loses its T, then reads upward.",
+     "definitionFit": "The Alps are the great mountain range of south-central Europe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fall"
+    }
    }
   },
   {
@@ -370,6 +1731,50 @@
    "clue": {
     "text": "Grasp tangled hempen cord",
     "enumeration": "10"
+   },
+   "solution": "COMPREHEND",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COMPREHEND",
+    "definitions": [
+     {
+      "text": "Grasp",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tangled",
+      "for": "anagram",
+      "note": "a tangled cord is twisted out of its proper line, so its letters are knotted into a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hempen cord",
+      "gives": "HEMPENCORD",
+      "note": "the ten letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HEMPENCORD",
+       "gives": "COMPREHEND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to take hold of a snarled length of hemp rope.",
+     "definitionFit": "To grasp an idea is to understand it fully, which is what comprehend means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Grasp"
+    }
    }
   },
   {
@@ -383,6 +1788,49 @@
    "clue": {
     "text": "Some knights joust expertly, despite intermittently using their heads",
     "enumeration": "4"
+   },
+   "solution": "JEDI",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "JEDI",
+    "definitions": [
+     {
+      "text": "Some knights",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "using their heads",
+      "for": "letter_selection",
+      "note": "a word's head is its first letter, so only the leading letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "joust expertly, despite intermittently",
+      "gives": "JEDI",
+      "select": "first",
+      "note": "initial letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JEDI"
+     ]
+    },
+    "explanation": {
+     "surface": "Jousting knights who fight well though they only sometimes think.",
+     "walkthrough": "'Intermittently' looks like an instruction to take alternate letters; it is just one of the four words whose initials are used.",
+     "definitionFit": "Jedi are the lightsaber-wielding knights of the Star Wars films."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "intermittently"
+    }
    }
   },
   {
@@ -396,6 +1844,55 @@
    "clue": {
     "text": "Eliminate hint of prurient desire",
     "enumeration": "5"
+   },
+   "solution": "PURGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PURGE",
+    "definitions": [
+     {
+      "text": "Eliminate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hint of",
+      "for": "letter_selection",
+      "note": "a hint is only a small first taste, so just the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prurient",
+      "gives": "P",
+      "select": "first",
+      "note": "initial letter of prurient"
+     },
+     {
+      "clueFragment": "desire",
+      "gives": "URGE",
+      "note": "an urge is a strong desire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "URGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to stamp out any trace of lustful longing.",
+     "definitionFit": "To purge is to get rid of something completely, so it means eliminate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hint"
+    }
    }
   },
   {
@@ -409,6 +1906,77 @@
    "clue": {
     "text": "Our group getting back in sack with a prostitute",
     "enumeration": "9"
+   },
+   "solution": "COURTESAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "COURTESAN",
+    "definitions": [
+     {
+      "text": "prostitute",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting back",
+      "for": "reversal",
+      "note": "getting back suggests a return trip, so the group word runs backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the combined pieces go inside the word for sack"
+     }
+    ],
+    "linkWords": [
+     "with a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sack",
+      "gives": "CAN",
+      "note": "to can someone is to fire or sack them"
+     },
+     {
+      "clueFragment": "Our",
+      "gives": "OUR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "SET",
+      "note": "a set is a group"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OUR",
+      "TES",
+      "AN"
+     ],
+     "reversals": [
+      {
+       "from": "SET",
+       "to": "TES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gang returning to bed with a sex worker, rather seedily.",
+     "walkthrough": "'Sack' suggests a bed, which suits the surface; here it is the verb to dismiss.",
+     "definitionFit": "A courtesan was a high-class prostitute, often attached to wealthy or courtly clients."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sack"
+    }
    }
   },
   {
@@ -428,6 +1996,51 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "DRIVERSSEAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DRIVER'S SEAT",
+    "definitions": [
+     {
+      "text": "Where managers are",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after putting things in order",
+      "for": "anagram",
+      "note": "putting things in order means rearranging them, so the cross-referenced letters are re-sorted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "1A",
+      "gives": "ADVERTISERS",
+      "note": "the answer to 1 Across supplies the letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ADVERTISERS",
+       "gives": "DRIVERSSEAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An office remark that bosses become promoters once they tidy up.",
+     "walkthrough": "This pairs with 1 Across: each answer is the other's letters rearranged.",
+     "definitionFit": "Being in the driver's seat is an idiom for being in control, which is where managers sit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "order"
+    }
    }
   }
  ]
