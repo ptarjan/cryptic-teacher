@@ -270,7 +270,7 @@ SECTION_AT = {"across": re.compile(r"\b(?:ACROSS|A[Cc]ross)\b(?=\s*\d)"),
 #: ("1 (6) 2 (6)": a light the puzzle leaves without a clue; one with words
 #: after it, "5 (2) What gets...", is a clue opening on a cross-reference).
 STUB = (r"(?:See\s+\d{1,2}(?:\s*(?:across|down))?(?![\w(])"
-        r"|\[unclued\]|\(See (?:special )?instructions\))")
+        r"|\[unclued\]|\(See (?:special )?instructions\)|See (?:the )?preamble\b)")
 CLUE_AT = re.compile(
     r"\s*(?P<head>\d{1,2}(?:\s*(?:across|down))?(?:\s*[,/&]\s*\d{1,2}(?:\s*(?:across|down))?)*)"
     rf"(?P<star>\*)?\s+(?P<text>{STUB}(?:\s*{fpp.ENUM_TEXT})?|{fpp.ENUM_TEXT}(?=\s*(?:\d|Down\b|$))|\S.*?{fpp.ENUM_TEXT})",
@@ -279,7 +279,7 @@ CLUE_AT = re.compile(
 STUB_COUNTED = re.compile(rf"({STUB})\s*{fpp.ENUM_TEXT}", re.IGNORECASE)
 
 
-UNCLUED_MARK = re.compile(r"(?i)\[unclued\]|\(See (?:special )?instructions\)")
+UNCLUED_MARK = re.compile(r"(?i)\[unclued\]|\(See (?:special )?instructions\)|See (?:the )?preamble")
 
 
 def flat(raw):
@@ -325,14 +325,38 @@ def parse_text(text):
     if not out["setter"]:
         by = re.search(r"\bSet by ([A-Z][a-z]+)\b", text)
         out["setter"] = by and by.group(1)
-    clues, used = [], []
+    clues, used, ends = [], [], {}
+    # Both headings printed together over the clues ("Across Down 1 ..."): the
+    # first run is the first heading's, the second the other's (No 202).
+    both = re.search(r"\b(ACROSS|A[Cc]ross|DOWN|D[Oo][Ww]N|Down)\s+(ACROSS|A[Cc]ross|DOWN|D[Oo][Ww]N|Down)\b(?=\s*\d)", text)
+    if both and both.group(1).lower() != both.group(2).lower():
+        first, second = both.group(1).lower(), both.group(2).lower()
+        got, end = section(text, both.end(), first)
+        more, end2 = section(text, end, second) if got else ([], end)
+        if got and more:
+            clues, used, ends = got + more, [(both.start(), end2)], {first: end, second: end2}
+    paired = bool(ends)
     for direction, rx in SECTION_AT.items():
+        if paired:
+            break
         for h in rx.finditer(text):
             got, end = section(text, h.end(), direction)
             if got:
                 clues += got
                 used.append((h.start(), end))
+                ends[direction] = end
                 break
+    # A section whose heading is printed but heads no clue ("Across Down 1
+    # ...", or "ACross" above the preamble) is the run that follows the other
+    # section, its numbers starting again: No 202 and No 165's layouts.
+    for direction, other in (("across", "down"), ("down", "across")):
+        if direction not in ends and other in ends and re.search(
+                rf"(?i)\b{direction}\b", text):
+            got, end = section(text, ends[other], direction)
+            if got:
+                clues += got
+                used.append((ends[other], end))
+                ends[direction] = end
     out["clues"] = clues
     rest, at = [], 0
     spans = sorted(used + [(h.start(), h.end()) for h in HEADER.finditer(text)])

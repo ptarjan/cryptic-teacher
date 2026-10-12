@@ -42,6 +42,14 @@ small = G.parse_text("In order to enter the competition, entries must be submitt
                      "Across 1 Clue words here (5)")
 print("small-print-cut", small["preamble"])
 
+both = G.parse_text("Fill in the blanks. Across Down 1 Swiss bank (8) 5 Guardian setters (6) "
+                    "1 Arm supporter (6) 2 Just a little (9)")
+print("headings-together", [(c["lights"][0][0], c["lights"][0][1][0]) for c in both["clues"]])
+tail = G.parse_text("Clues ACross Instructions Eight solutions comprise the theme. GENIUS 165 SET BY VLAD "
+                    "Down 1 Work for two (3,5) 3 See preamble 4 Open land (4) "
+                    "1 See preamble 6 With money (3,2,1,4)")
+print("unheaded-run", [(c["lights"][0][0], c["lights"][0][1][0], c["clue"]) for c in tail["clues"]])
+
 print("split-echo", E.split("Set meal (5,1'4) (5,5)"))
 print("split-paired", E.split("Leaves disappear (4,3) (7)", paired=True))
 print("echoed", E.echoed("Leaves disappear (4,3) (7)"), E.echoed("Words (3) (7)"), E.echoed("Words (7)"))
@@ -72,6 +80,8 @@ check "article text carries no tag remnant" "True" "$(get text-no-markup)"
 check "an empty standfirst is no preamble" "None" "$(get empty-standfirst-no-preamble)"
 check "the reader keeps both counts on the clue" "Leaves disappear (4,3) (7) | 7" "$(get pair-read)"
 check "competition small print and grid notes are cut" "In 11 clues the wordplay produces a letter." "$(get small-print-cut)"
+check "headings printed together: first run is the first heading's" "[(1, 'a'), (5, 'a'), (1, 'd'), (2, 'd')]" "$(get headings-together)"
+check "an unheaded run after Down is Across; See preamble is a stub" "[(1, 'd', 'Work for two (3,5)'), (3, 'd', 'See preamble'), (4, 'd', 'Open land (4)'), (1, 'a', 'See preamble'), (6, 'a', 'With money (3,2,1,4)')]" "$(get unheaded-run)"
 check "an echo of one total is still cut by default" "('Set meal', '5,5')" "$(get split-echo)"
 check "a paired split keeps the first count" "('Leaves disappear (4,3)', '7')" "$(get split-paired)"
 check "echoed: same totals only" "True False False" "$(get echoed)"
