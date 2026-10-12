@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,72 @@
     "text": "Produce information time and time again at the finish",
     "enumeration": "8"
    },
-   "solution": "GENERATE"
+   "solution": "GENERATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "GENERATE",
+    "definitions": [
+     {
+      "text": "Produce",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finish",
+      "for": "letter_selection",
+      "note": "the finish of a word is its final letter, so only the end of the next word is kept"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "information",
+      "gives": "GEN",
+      "note": "gen is informal British slang for information"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "ERA",
+      "note": "an era is a period of time"
+     },
+     {
+      "clueFragment": "time again",
+      "gives": "T",
+      "note": "time once more, this time as its abbreviation T"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEN",
+      "ERA",
+      "T",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone churns out data over and over until the end.",
+     "walkthrough": "GEN + ERA + T + E: time is used twice, first as a period, then as its one-letter abbreviation.",
+     "definitionFit": "To generate something is to produce or create it, a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "information"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +115,43 @@
     "text": "A contemporary look",
     "enumeration": "4"
    },
-   "solution": "PEER"
+   "solution": "PEER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PEER",
+    "definitions": [
+     {
+      "text": "A contemporary",
+      "at": 0
+     },
+     {
+      "text": "look",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A contemporary",
+      "note": "first meaning: someone of the same age or standing"
+     },
+     {
+      "clueFragment": "look",
+      "note": "second meaning: to gaze closely"
+     }
+    ],
+    "explanation": {
+     "surface": "A modern-looking appearance.",
+     "walkthrough": "The surface reads 'contemporary' as an adjective describing a look; it is a noun for a person.",
+     "definitionFit": "The word serves as a noun for an equal of the same age group and as a verb meaning to stare or squint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "contemporary"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +165,55 @@
     "text": "Bad-tempered inspector keeps ring",
     "enumeration": "6"
    },
-   "solution": "MOROSE"
+   "solution": "MOROSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MOROSE",
+    "definitions": [
+     {
+      "text": "Bad-tempered",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeps",
+      "for": "container",
+      "note": "to keep something is to hold it within, so one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inspector",
+      "gives": "MORSE",
+      "note": "Inspector Morse, the Oxford detective of novels and television"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "a ring is round like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOR",
+      "O",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A grumpy police inspector is holding on to a ring, perhaps as evidence.",
+     "walkthrough": "MOR(O)SE. Inspector Morse is a famously grumpy fictional detective, which suits the surface.",
+     "definitionFit": "Morose means sullen and gloomy, a close synonym of bad-tempered."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +227,50 @@
     "text": "Send two men to church",
     "enumeration": "8"
    },
-   "solution": "DESPATCH"
+   "solution": "DESPATCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DESPATCH",
+    "definitions": [
+     {
+      "text": "Send",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two men",
+      "gives": "DESPAT",
+      "note": "two short men's names, Des and Pat"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the standard abbreviation for church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DESPAT",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to dispatch a pair of men off to church.",
+     "walkthrough": "DES + PAT + CH. The clue doesn't say which two men; short names like these are common crossword fodder.",
+     "definitionFit": "To despatch (a variant spelling of dispatch) is to send off, as with a letter or messenger."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "men"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +290,48 @@
      }
     ]
    },
-   "solution": "BOTTOMLINE"
+   "solution": "BOTTOMLINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOTTOM LINE",
+    "definitions": [
+     {
+      "text": "Essential truth",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "behind",
+      "gives": "BOTTOM",
+      "note": "one's behind is one's bottom; Bottom is also the weaver-actor in A Midsummer Night's Dream"
+     },
+     {
+      "clueFragment": "Shakespearean actor's words",
+      "gives": "LINE",
+      "note": "an actor's words are lines"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOTTOM",
+      "LINE"
+     ]
+    },
+    "explanation": {
+     "surface": "Looking for the real meaning behind a Shakespearean actor's speech.",
+     "walkthrough": "'Essential truth behind' looks like one phrase; 'behind' is the start of the wordplay. Bottom is the amateur actor in A Midsummer Night's Dream, which makes 'Shakespearean actor' doubly apt.",
+     "definitionFit": "The bottom line is an idiom for the fundamental point or final reckoning of a matter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +351,44 @@
      }
     ]
    },
-   "solution": "SETOUT"
+   "solution": "SETOUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SET OUT",
+    "definitions": [
+     {
+      "text": "Arrange",
+      "at": 0
+     },
+     {
+      "text": "make a start",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arrange",
+      "note": "first meaning: to lay out or display in order"
+     },
+     {
+      "clueFragment": "make a start",
+      "note": "second meaning: to begin a journey or undertaking"
+     }
+    ],
+    "explanation": {
+     "surface": "Making plans to get going.",
+     "definitionFit": "The phrasal verb means both to lay things out in order and to set off on a journey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +408,50 @@
      }
     ]
    },
-   "solution": "PETEROUT"
+   "solution": "PETEROUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PETER OUT",
+    "definitions": [
+     {
+      "text": "Die",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man's",
+      "gives": "PETER",
+      "note": "a man's name, Peter; the 's stands for 'is'"
+     },
+     {
+      "clueFragment": "away",
+      "gives": "OUT",
+      "note": "someone away from home is out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PETER",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Things fall apart when the man of the house is absent.",
+     "walkthrough": "Read 'man's away' as 'Peter is out'.",
+     "definitionFit": "To peter out is to dwindle and fade away, as an idiom for a thing dying gradually."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Die"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +465,64 @@
     "text": "Manoeuvre animal back with a jerk",
     "enumeration": "6"
    },
-   "solution": "TACTIC"
+   "solution": "TACTIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TACTIC",
+    "definitions": [
+     {
+      "text": "Manoeuvre",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the letters of the animal run in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "animal",
+      "gives": "CAT",
+      "note": "a cat is an animal"
+     },
+     {
+      "clueFragment": "a jerk",
+      "gives": "TIC",
+      "note": "a tic is an involuntary twitch or jerk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAC",
+      "TIC"
+     ],
+     "reversals": [
+      {
+       "from": "CAT",
+       "to": "TAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Steering an animal backwards with a sharp tug on the lead.",
+     "walkthrough": "'jerk' looks like part of the manoeuvre in the surface, but it defines its own short piece.",
+     "definitionFit": "A tactic is a planned move or manoeuvre to gain an advantage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jerk"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +536,55 @@
     "text": "Elicits girl's agreement to go in",
     "enumeration": "6"
    },
-   "solution": "EVOKES"
+   "solution": "EVOKES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EVOKES",
+    "definitions": [
+     {
+      "text": "Elicits",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go in",
+      "for": "container",
+      "note": "one piece goes inside the other, so it is placed within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl's",
+      "gives": "EVES",
+      "note": "Eve is a girl's name; the possessive gives Eve's"
+     },
+     {
+      "clueFragment": "agreement",
+      "gives": "OK",
+      "note": "OK signals agreement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EV",
+      "OK",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone draws out a girl's consent to enter.",
+     "walkthrough": "EV(OK)ES: the possessive 's supplies the final S.",
+     "definitionFit": "To evoke is to call forth or draw out a response, so it is a synonym of elicits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "girl's"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +598,42 @@
     "text": "Listen to judge",
     "enumeration": "4"
    },
-   "solution": "HEAR"
+   "solution": "HEAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HEAR",
+    "definitions": [
+     {
+      "text": "Listen to",
+      "at": 0
+     },
+     {
+      "text": "judge",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Listen to",
+      "note": "first meaning: to take in sounds"
+     },
+     {
+      "clueFragment": "judge",
+      "note": "second meaning: to try a case in court"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to pay attention to the judge.",
+     "definitionFit": "The verb covers perceiving sounds and also a court's formal trying of a case, as in hearing evidence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "judge"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +647,45 @@
     "text": "Foreign control of one's profession",
     "enumeration": "10"
    },
-   "solution": "OCCUPATION"
+   "solution": "OCCUPATION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OCCUPATION",
+    "definitions": [
+     {
+      "text": "Foreign control",
+      "at": 0
+     },
+     {
+      "text": "profession",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "of one's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Foreign control",
+      "note": "first meaning: rule of a territory by an invading power"
+     },
+     {
+      "clueFragment": "profession",
+      "note": "second meaning: one's job or trade"
+     }
+    ],
+    "explanation": {
+     "surface": "Outsiders take charge of someone's line of work.",
+     "definitionFit": "The noun covers military seizure of a country by another power and also a person's job."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Foreign"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +699,50 @@
     "text": "Bet it's good to walk slowly",
     "enumeration": "6"
    },
-   "solution": "GAMBLE"
+   "solution": "GAMBLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GAMBLE",
+    "definitions": [
+     {
+      "text": "Bet",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "it's",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the standard abbreviation for good"
+     },
+     {
+      "clueFragment": "walk slowly",
+      "gives": "AMBLE",
+      "note": "to amble is to stroll at a leisurely pace"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "AMBLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A wager that a slow stroll is beneficial.",
+     "definitionFit": "A gamble is a risky wager, so it can stand for a bet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bet"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +756,55 @@
     "text": "Bribe supporter to accept part",
     "enumeration": "10"
    },
-   "solution": "BACKHANDER"
+   "solution": "BACKHANDER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BACKHANDER",
+    "definitions": [
+     {
+      "text": "Bribe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to accept",
+      "for": "container",
+      "note": "to accept something is to take it in, so one piece is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "supporter",
+      "gives": "BACKER",
+      "note": "a backer is a supporter, especially a financial one"
+     },
+     {
+      "clueFragment": "part",
+      "gives": "HAND",
+      "note": "a hand is a part or share, as in having a hand in something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACK",
+      "HAND",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Paying off a supporter so that they will take on a role.",
+     "walkthrough": "BACK(HAND)ER.",
+     "definitionFit": "A backhander is British slang for a bribe, money slipped secretly to someone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +818,55 @@
     "text": "Not too late to go outside at close",
     "enumeration": "8"
    },
-   "solution": "INTIMATE"
+   "solution": "INTIMATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INTIMATE",
+    "definitions": [
+     {
+      "text": "close",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go outside",
+      "for": "container",
+      "note": "one piece goes around the other, wrapping it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not too late",
+      "gives": "INTIME",
+      "note": "arriving 'in time' means not being too late"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTIM",
+      "AT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A reminder that there is still time to step outside at the end of the day.",
+     "walkthrough": "IN TIM(AT)E. 'close' is the adjective, as in a close friend, not the verb or the end.",
+     "definitionFit": "Intimate describes a very close personal relationship or friend, so the two adjectives are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +880,43 @@
     "text": "Tax cut",
     "enumeration": "6"
    },
-   "solution": "EXCISE"
+   "solution": "EXCISE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EXCISE",
+    "definitions": [
+     {
+      "text": "Tax",
+      "at": 0
+     },
+     {
+      "text": "cut",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tax",
+      "note": "first meaning: a duty levied on goods"
+     },
+     {
+      "clueFragment": "cut",
+      "note": "second meaning: to remove surgically"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a tax reduction; the two words are separate meanings.",
+     "definitionFit": "Excise is a duty charged on certain goods, and also a verb meaning to cut out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +930,61 @@
     "text": "Hot tea's ruined some china",
     "enumeration": "8"
    },
-   "solution": "STEAMING"
+   "solution": "STEAMING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "STEAMING",
+    "definitions": [
+     {
+      "text": "Hot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ruined",
+      "for": "anagram",
+      "note": "something ruined is wrecked out of shape, so its letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea's",
+      "gives": "TEAS",
+      "note": "taken as written, ignoring the apostrophe"
+     },
+     {
+      "clueFragment": "some china",
+      "gives": "MING",
+      "note": "Ming porcelain is a famous kind of Chinese china"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEA",
+      "MING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEAS",
+       "gives": "STEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Spilt hot tea has damaged some valuable crockery.",
+     "walkthrough": "'china' looks like the cups; Ming is a dynasty whose porcelain is called Ming.",
+     "definitionFit": "Steaming means very hot, giving off vapour, as a hot drink does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "china"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +998,58 @@
     "text": "Get depressed within an hour? See a psychiatrist!",
     "enumeration": "6"
    },
-   "solution": "SHRINK"
+   "solution": "SHRINK",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHRINK",
+    "definitions": [
+     {
+      "text": "psychiatrist",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "within",
+      "for": "container",
+      "note": "one piece sits within the other, so it is placed inside"
+     }
+    ],
+    "linkWords": [
+     "See a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get depressed",
+      "gives": "SINK",
+      "note": "to sink is to fall into low spirits"
+     },
+     {
+      "clueFragment": "an hour",
+      "gives": "HR",
+      "note": "HR is the abbreviation for hour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HR",
+      "INK"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice that anyone feeling low within the hour should get professional help.",
+     "walkthrough": "S(HR)INK. 'Shrink' is informal for a psychiatrist, short for headshrinker.",
+     "definitionFit": "Shrink is slang for a psychiatrist, from the jocular term headshrinker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "depressed"
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1069,54 @@
      }
     ]
    },
-   "solution": "KNOCKOFF"
+   "solution": "KNOCKOFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KNOCK OFF",
+    "definitions": [
+     {
+      "text": "finish",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "placed before means the second-named piece comes first in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "setback",
+      "gives": "KNOCK",
+      "note": "a knock is a setback or blow"
+     },
+     {
+      "clueFragment": "Rotten",
+      "gives": "OFF",
+      "note": "food that has gone off is rotten"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KNOCK",
+      "OFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A miserable blow just before the end.",
+     "walkthrough": "'Rotten' reads as an adjective on 'setback', but it is its own piece and comes last.",
+     "definitionFit": "To knock off is an informal phrasal verb for stopping work at the end of the day."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rotten"
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +1130,70 @@
     "text": "Swing with unusual ease between two points",
     "enumeration": "6"
    },
-   "solution": "SEESAW"
+   "solution": "SEESAW",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SEESAW",
+    "definitions": [
+     {
+      "text": "Swing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusual",
+      "for": "anagram",
+      "note": "unusual suggests out of the ordinary order, so the letters are rearranged"
+     },
+     {
+      "text": "between",
+      "for": "container",
+      "note": "something between two things is set inside them"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two points",
+      "gives": "SW",
+      "note": "two compass points, south and west"
+     },
+     {
+      "clueFragment": "ease",
+      "gives": "EASE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EESA",
+      "W"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EASE",
+       "gives": "EESA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Swinging with surprising ease from one point to another.",
+     "walkthrough": "S + (EASE)* + W. Points in crosswords are usually compass points.",
+     "definitionFit": "Seesaw works as a verb meaning to swing or move back and forth, as a playground seesaw does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "points"
+    }
+   }
   },
   {
    "number": 20,
@@ -323,7 +1207,53 @@
     "text": "With money, it's simple to get expensive stuff",
     "enumeration": "8"
    },
-   "solution": "CASHMERE"
+   "solution": "CASHMERE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CASHMERE",
+    "definitions": [
+     {
+      "text": "expensive stuff",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "With",
+     "it's",
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "money",
+      "gives": "CASH",
+      "note": "cash is money"
+     },
+     {
+      "clueFragment": "simple",
+      "gives": "MERE",
+      "note": "mere means simple or nothing more than"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CASH",
+      "MERE"
+     ]
+    },
+    "explanation": {
+     "surface": "If you have cash, buying luxury goods is easy.",
+     "walkthrough": "'stuff' here means fabric.",
+     "definitionFit": "Cashmere is a costly fine wool fabric, so it is a pricey material."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stuff"
+    }
+   }
   },
   {
    "number": 21,
@@ -337,7 +1267,55 @@
     "text": "Excitement one found in west London",
     "enumeration": "6"
    },
-   "solution": "ACTION"
+   "solution": "ACTION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ACTION",
+    "definitions": [
+     {
+      "text": "Excitement",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in a place is located inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "west London",
+      "gives": "ACTON",
+      "note": "Acton is a district of west London"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACT",
+      "I",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A thrill found in the western part of London.",
+     "walkthrough": "ACT(I)ON. Acton is a suburb in west London.",
+     "definitionFit": "Action means lively activity and excitement, as in 'where the action is'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "west"
+    }
+   }
   },
   {
    "number": 22,
@@ -351,7 +1329,45 @@
     "text": "Agitation as some felt remorse",
     "enumeration": "6"
    },
-   "solution": "TREMOR"
+   "solution": "TREMOR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TREMOR",
+    "definitions": [
+     {
+      "text": "Agitation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "only some of the following letters are used, a run lifted from inside the words"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "felt remorse",
+      "gives": "TREMOR",
+      "note": "the run spans the end of felt and the start of remorse"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone trembles with guilt as they feel regret.",
+     "definitionFit": "A tremor is a shaking or quiver, a physical sign of agitation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "some"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1381,58 @@
     "text": "Twist in story is no good",
     "enumeration": "6"
    },
-   "solution": "TANGLE"
+   "solution": "TANGLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TANGLE",
+    "definitions": [
+     {
+      "text": "Twist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece goes in the other, so it is placed inside"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "story",
+      "gives": "TALE",
+      "note": "a tale is a story"
+     },
+     {
+      "clueFragment": "no good",
+      "gives": "NG",
+      "note": "NG is the abbreviation for no good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "NG",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A plot twist that ruins the story.",
+     "walkthrough": "TA(NG)LE.",
+     "definitionFit": "To tangle is to twist together in a muddle, so the two verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Twist"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1446,70 @@
     "text": "Craftsman notes unusual mother and child",
     "enumeration": "10"
    },
-   "solution": "STONEMASON"
+   "solution": "STONEMASON",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "STONEMASON",
+    "definitions": [
+     {
+      "text": "Craftsman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusual",
+      "for": "anagram",
+      "note": "something unusual is out of the normal order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "notes",
+      "gives": "NOTES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "ma is an informal word for mother"
+     },
+     {
+      "clueFragment": "child",
+      "gives": "SON",
+      "note": "a son is a child"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STONE",
+      "MA",
+      "SON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOTES",
+       "gives": "STONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An artisan observes an odd mother-and-child pair.",
+     "walkthrough": "'notes' reads as a verb in the surface; it is the anagram fodder.",
+     "definitionFit": "A stonemason is a skilled worker who cuts and dresses stone, a kind of craftsman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "notes"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1523,43 @@
     "text": "Capture bear",
     "enumeration": "4"
    },
-   "solution": "TAKE"
+   "solution": "TAKE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TAKE",
+    "definitions": [
+     {
+      "text": "Capture",
+      "at": 0
+     },
+     {
+      "text": "bear",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Capture",
+      "note": "first meaning: to seize"
+     },
+     {
+      "clueFragment": "bear",
+      "note": "second meaning: to endure or put up with"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface pictures catching a bear; 'bear' is the verb meaning endure.",
+     "definitionFit": "The verb means both to seize and to tolerate, as in 'I can't take any more'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bear"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1573,64 @@
     "text": "Instruct student to put up rent",
     "enumeration": "4"
    },
-   "solution": "TELL"
+   "solution": "TELL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TELL",
+    "definitions": [
+     {
+      "text": "Instruct",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put up",
+      "for": "reversal",
+      "note": "in a down entry, putting something up means its letters read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L for learner, as on a learner driver's plate"
+     },
+     {
+      "clueFragment": "rent",
+      "gives": "LET",
+      "note": "to let a property is to rent it out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEL",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "LLET",
+       "to": "TELL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Telling a student to raise their rent.",
+     "walkthrough": "L + LET read upwards gives the answer. L-plates mark learner drivers in Britain.",
+     "definitionFit": "To tell someone to do something is to instruct or order them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rent"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1644,56 @@
     "text": "Navy follows fashion to be up-to-date",
     "enumeration": "6"
    },
-   "solution": "MODERN"
+   "solution": "MODERN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MODERN",
+    "definitions": [
+     {
+      "text": "up-to-date",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "follows",
+      "for": "charade",
+      "note": "one piece follows another, so it comes after it in the answer"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fashion",
+      "gives": "MODE",
+      "note": "a mode is a fashion or style"
+     },
+     {
+      "clueFragment": "Navy",
+      "gives": "RN",
+      "note": "RN is the Royal Navy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MODE",
+      "RN"
+     ]
+    },
+    "explanation": {
+     "surface": "The navy keeps up with trends to stay current.",
+     "definitionFit": "Modern means current or contemporary, a synonym for up-to-date."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fashion"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1707,49 @@
     "text": "Animals with unrestricted energy",
     "enumeration": "8"
    },
-   "solution": "WILDLIFE"
+   "solution": "WILDLIFE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WILDLIFE",
+    "definitions": [
+     {
+      "text": "Animals",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unrestricted",
+      "gives": "WILD",
+      "note": "wild means untamed or unrestrained"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "LIFE",
+      "note": "life means vitality or energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WILD",
+      "LIFE"
+     ]
+    },
+    "explanation": {
+     "surface": "Creatures bursting with boundless vigour.",
+     "definitionFit": "Wildlife is the collective term for animals living in their natural state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "energy"
+    }
+   }
   }
  ]
 }
