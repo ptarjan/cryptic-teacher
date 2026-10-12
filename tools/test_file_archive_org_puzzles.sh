@@ -1795,6 +1795,24 @@ check("...read again for another grid or another heading box", 3, len(seen))
 check("solved() is not in read_solution's reach: solution_key() stays the reader's",
       False, ("file_archive_org_puzzles", "solved") in set(code_reach.reach("file_archive_org_puzzles", {"read_solution"})))
 
+# rapid_lines(): a reader's clue reading is kept per crop, so a re-read after a
+# post-processing change runs no clue OCR; a moved grid (new scan, locate fix)
+# reads again.
+_read_words, reads = f.read_words, []
+f.read_words = lambda crop, which: reads.append((crop.size, which)) or [(5, 5, 60, 20, "1 Clue (4)")]
+clue_page = Image.new("L", (1200, 1600), 255)
+rp = Path(os.environ["TMP"]) / "rapid" / "1990-01-01_1.en5.json"
+first = f.rapid_lines(clue_page, (200, 300, 700, 800), "en5", rp)
+again = f.rapid_lines(clue_page, (200, 300, 700, 800), "en5", rp)
+check("a clue reading is kept: the second identical read runs no OCR and gives the first's words",
+      (1, first), (len(reads), again))
+f.rapid_lines(clue_page, (200, 300, 700, 800), "en5", rp, above=120.5, x0=180.25)
+f.rapid_lines(clue_page, (200, 300, 700, 800), "en5", rp, above=120.5, x0=180.25)
+check("...a fractional `above` crop round-trips its JSON key: read once", 2, len(reads))
+f.rapid_lines(clue_page, (204, 300, 704, 800), "en5", rp)
+check("...and a moved grid is read again", 3, len(reads))
+f.read_words = _read_words
+
 # bounded_light(): a light off a grid whose blocks read unsure stands only
 # where the image ends it with blocks and no lattice read another word there
 # (times-19371 read off 19271's grid: TRACTA ran on into a letter).
