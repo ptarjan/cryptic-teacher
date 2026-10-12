@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,44 @@
     "text": "In part, is trusting model employer?",
     "enumeration": "6"
    },
-   "solution": "ARTIST"
+   "solution": "ARTIST",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ARTIST",
+    "definitions": [
+     {
+      "text": "model employer",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "'In' tells the solver the letters sit inside the run of words that follows, spanning the word breaks"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part, is trusting",
+      "gives": "ARTIST",
+      "note": "the letters run across the end of part, all of is and the start of trusting"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about whether someone who trusts people is a good boss.",
+     "walkthrough": "'Model employer' reads as an ideal boss, but it means someone who hires a model to sit for them.",
+     "definitionFit": "A painter or sculptor pays a sitter to pose, so they literally employ models."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +86,46 @@
     "text": "Formal meeting for people in house",
     "enumeration": "8"
    },
-   "solution": "AUDIENCE"
+   "solution": "AUDIENCE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AUDIENCE",
+    "definitions": [
+     {
+      "text": "Formal meeting",
+      "at": 0
+     },
+     {
+      "text": "people in house",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Formal meeting",
+      "note": "first meaning: an official interview, as with a monarch or pope"
+     },
+     {
+      "clueFragment": "people in house",
+      "note": "second meaning: the spectators filling a theatre"
+     }
+    ],
+    "explanation": {
+     "surface": "A formal meeting arranged for the members of a parliamentary house.",
+     "walkthrough": "'House' suggests parliament, but it is the theatre auditorium, as in a full house.",
+     "definitionFit": "One is granted an audience with royalty, and a theatre's paying crowd is also its audience."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "house"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +139,70 @@
     "text": "Old craft of European pursuing unusual métier",
     "enumeration": "7"
    },
-   "solution": "TRIREME"
+   "solution": "TRIREME",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TRIREME",
+    "definitions": [
+     {
+      "text": "Old craft",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusual",
+      "for": "anagram",
+      "note": "something unusual is out of its normal form, so the word beside it has its letters rearranged"
+     },
+     {
+      "text": "pursuing",
+      "for": "charade",
+      "note": "to pursue is to come after, so the European piece is placed behind the other"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "métier",
+      "gives": "METIRR",
+      "note": "the word as printed, but the parse needs an R where it has its second E: the setter's slip"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the standard abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRIREM",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "METIER",
+       "gives": "TRIREM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A European who has taken up an odd old craft or trade.",
+     "walkthrough": "The setter slipped: métier rearranged cannot give the needed letters, as it has an E where an R is wanted. 'Craft' means a vessel, not a skill.",
+     "definitionFit": "A trireme was an ancient Greek or Roman warship with three banks of oars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "craft"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +216,67 @@
     "text": "Modern pirate runs after sailor within island",
     "enumeration": "9"
    },
-   "solution": "SKYJACKER"
+   "solution": "SKYJACKER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SKYJACKER",
+    "definitions": [
+     {
+      "text": "Modern pirate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "within",
+      "for": "container",
+      "note": "'within' places the sailor inside the island's name"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "'after' sets the runs abbreviation behind the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "island",
+      "gives": "SKYE",
+      "note": "Skye is an island of the Scottish Hebrides"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "JACK",
+      "note": "jack, or jack tar, is an old word for a sailor"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket scoring abbreviation for runs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKY",
+      "JACK",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor on an island who goes running, perhaps in a pirate tale.",
+     "walkthrough": "The sailor sits inside the island, giving SKYJACKE, and the runs letter goes on the end.",
+     "definitionFit": "A skyjacker hijacks an aircraft, which is piracy of the air, a modern version of seizing ships."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +290,40 @@
     "text": "Mike, Charlie, Oscar, and Victor appear in it on radio",
     "enumeration": "8"
    },
-   "solution": "ALPHABET"
+   "solution": "ALPHABET",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ALPHABET",
+    "definitions": [
+     {
+      "text": "Mike, Charlie, Oscar, and Victor appear in it on radio",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mike, Charlie, Oscar, and Victor appear in it on radio",
+      "note": "surface reading: four men are cast members in some radio drama"
+     },
+     {
+      "clueFragment": "Mike, Charlie, Oscar, and Victor",
+      "note": "setter's reading: these are code words for the letters M, C, O and V used in radio communication"
+     }
+    ],
+    "explanation": {
+     "surface": "Four named actors share billing in a radio show.",
+     "walkthrough": "The names are entries in the NATO phonetic system, where each letter has a code word for clear radio speech.",
+     "definitionFit": "The NATO phonetic list assigns a word to every letter, so those names stand for letters within it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "appear"
+    }
+   }
   },
   {
    "number": 5,
@@ -108,7 +343,40 @@
      }
     ]
    },
-   "solution": "LIMITEDEDITION"
+   "solution": "LIMITEDEDITION",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LIMITED EDITION",
+    "definitions": [
+     {
+      "text": "It's bound to be available for a few people",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It's bound to be available for a few people",
+      "note": "surface reading: something that is certain to be on offer only to a small group"
+     },
+     {
+      "clueFragment": "bound",
+      "note": "setter's reading: bound as in a book with a binding, printed in small numbers"
+     }
+    ],
+    "explanation": {
+     "surface": "Something guaranteed to be on offer to only a select few.",
+     "walkthrough": "'Bound to' reads as 'certain to', but it means a book that has been bound.",
+     "definitionFit": "A book printed in a restricted number of copies is a rare run that only a few buyers can own."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bound"
+    }
+   }
   },
   {
    "number": 6,
@@ -122,7 +390,54 @@
     "text": "In coastal resort, left poor accommodation",
     "enumeration": "5"
    },
-   "solution": "HOVEL"
+   "solution": "HOVEL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HOVEL",
+    "definitions": [
+     {
+      "text": "poor accommodation",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "'In' places the left abbreviation inside the resort's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coastal resort",
+      "gives": "HOVE",
+      "note": "Hove is a seaside town beside Brighton on England's south coast"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOVE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone left behind in a seaside town with only shabby lodgings.",
+     "walkthrough": "The letter goes inside at the very end of the resort's name, so the result simply appends it.",
+     "definitionFit": "A hovel is a small squalid dwelling, the poorest kind of housing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 7,
@@ -136,7 +451,60 @@
     "text": "String player in Beethoven's first needing help",
     "enumeration": "7"
    },
-   "solution": "BASSIST"
+   "solution": "BASSIST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BASSIST",
+    "definitions": [
+     {
+      "text": "String player",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "'first' takes only the opening letter of the composer's name"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beethoven's",
+      "gives": "B",
+      "select": "first",
+      "note": "the opening letter of the composer's name"
+     },
+     {
+      "clueFragment": "help",
+      "gives": "ASSIST",
+      "note": "to assist is to help"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ASSIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A string player struggling with Beethoven's First Symphony needs some help.",
+     "walkthrough": "Beethoven's First sounds like the symphony, but it is just his initial.",
+     "definitionFit": "A bassist plays the double bass or bass guitar, both instruments with strings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 8,
@@ -150,7 +518,40 @@
     "text": "Coaches in one part of speech or another",
     "enumeration": "6"
    },
-   "solution": "TRAINS"
+   "solution": "TRAINS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TRAINS",
+    "definitions": [
+     {
+      "text": "Coaches",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coaches in one part of speech or another",
+      "note": "surface reading: someone tutors pupils in grammar, one word class or another"
+     },
+     {
+      "clueFragment": "one part of speech or another",
+      "note": "setter's reading: the answer is a verb meaning coaches, and as a noun it means sets of railway coaches"
+     }
+    ],
+    "explanation": {
+     "surface": "A tutor coaches students on one grammatical word class or another.",
+     "walkthrough": "Take 'coaches' as a verb and the answer is a synonym; take it as a noun and the answer is what the carriages make up.",
+     "definitionFit": "To coach is to instruct, a synonym as a verb; as a noun, linked railway carriages form a locomotive-drawn set."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "speech"
+    }
+   }
   },
   {
    "number": 9,
@@ -170,7 +571,60 @@
      }
     ]
    },
-   "solution": "CAULIFLOWEREAR"
+   "solution": "CAULIFLOWEREAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CAULIFLOWER EAR",
+    "definitions": [
+     {
+      "text": "As result of fighting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ruined",
+      "for": "anagram",
+      "note": "something ruined is wrecked out of shape, so the letters before it are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "there's",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O, the round figure zero, is nothing"
+     },
+     {
+      "clueFragment": "life a cruel war",
+      "gives": "LIFEACRUELWAR",
+      "note": "the words themselves as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OLIFEACRUELWAR",
+       "gives": "CAULIFLOWEREAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grim reflection that a brutal war leaves nothing in life intact.",
+     "walkthrough": "'Fighting' fits the war picture, but it means boxing or wrestling.",
+     "definitionFit": "Repeated blows to the ear cause swollen, lumpy cartilage, a common injury among boxers and rugby forwards."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fighting"
+    }
+   }
   },
   {
    "number": 10,
@@ -190,7 +644,67 @@
      }
     ]
    },
-   "solution": "DAIRYFARM"
+   "solution": "DAIRYFARM",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DAIRY FARM",
+    "definitions": [
+     {
+      "text": "part of country",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back, so the word for host is read from end to start"
+     },
+     {
+      "text": "having traversed",
+      "for": "container",
+      "note": "to traverse is to stretch across, so the reversed host spans around the distant word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Host",
+      "gives": "MYRIAD",
+      "note": "a host is a great number, a myriad"
+     },
+     {
+      "clueFragment": "distant",
+      "gives": "FAR",
+      "note": "far means distant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAIRY",
+      "FAR",
+      "M"
+     ],
+     "reversals": [
+      {
+       "from": "MYRIAD",
+       "to": "DAIRYM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A host comes back from a trip across a remote region of the country.",
+     "walkthrough": "'Host' looks like someone entertaining guests, but here it is a multitude. 'Country' means the countryside, not a nation.",
+     "definitionFit": "A dairy farm is a piece of rural land given over to milk production, a portion of the countryside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Host"
+    }
+   }
   },
   {
    "number": 11,
@@ -204,7 +718,55 @@
     "text": "Through crossing street, what's seen down avenue",
     "enumeration": "5"
    },
-   "solution": "VISTA"
+   "solution": "VISTA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VISTA",
+    "definitions": [
+     {
+      "text": "what's seen down avenue",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "crossing means lying across, so the first word spans around the street abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Through",
+      "gives": "VIA",
+      "note": "via means by way of, through"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "ST",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Directions for the view you get walking through a junction down a street.",
+     "walkthrough": "The street words all seem part of the picture, but only one is wordplay.",
+     "definitionFit": "A vista is a long narrow view, especially one framed by trees or buildings along a road."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Through"
+    }
+   }
   },
   {
    "number": 12,
@@ -218,7 +780,44 @@
     "text": "Where pupil is placed, subject to examination",
     "enumeration": "7"
    },
-   "solution": "EYEBALL"
+   "solution": "EYEBALL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EYEBALL",
+    "definitions": [
+     {
+      "text": "Where pupil is placed",
+      "at": 0
+     },
+     {
+      "text": "subject to examination",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where pupil is placed",
+      "note": "first meaning: the organ that holds the pupil, the dark opening of the eye"
+     },
+     {
+      "clueFragment": "subject to examination",
+      "note": "second meaning: a verb, to stare at closely"
+     }
+    ],
+    "explanation": {
+     "surface": "A school pupil is seated where exams are held.",
+     "walkthrough": "'Pupil' and 'examination' suggest school, but the pupil belongs to the eye.",
+     "definitionFit": "The pupil is part of the eye's globe, and to inspect something closely is, informally, to stare hard at it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pupil"
+    }
+   }
   },
   {
    "number": 13,
@@ -232,7 +831,52 @@
     "text": "Not like unusually well-read Oxford professor",
     "enumeration": "7"
    },
-   "solution": "TOLKIEN"
+   "solution": "TOLKIEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TOLKIEN",
+    "definitions": [
+     {
+      "text": "well-read Oxford professor",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusually",
+      "for": "anagram",
+      "note": "unusually means not in the ordinary way, so the letters are set in a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not like",
+      "gives": "NOTLIKE",
+      "note": "the words themselves as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOTLIKE",
+       "gives": "TOLKIEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone unlike the typical bookish Oxford academic.",
+     "walkthrough": "'Well-read' suggests erudition, but it means widely read by the public.",
+     "definitionFit": "J R R Tolkien was a professor of Anglo-Saxon at Oxford whose novels have huge readerships."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "well-read"
+    }
+   }
   },
   {
    "number": 14,
@@ -246,7 +890,44 @@
     "text": "Rebuff queen may deliver, but never king",
     "enumeration": "5"
    },
-   "solution": "CHECK"
+   "solution": "CHECK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHECK",
+    "definitions": [
+     {
+      "text": "Rebuff",
+      "at": 0
+     },
+     {
+      "text": "queen may deliver, but never king",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rebuff",
+      "note": "first meaning: a repulse or setback that halts something"
+     },
+     {
+      "clueFragment": "queen may deliver, but never king",
+      "note": "second meaning: the chess attack on a king, which any piece but a king can give"
+     }
+    ],
+    "explanation": {
+     "surface": "A royal snub that a queen hands out but a king never would.",
+     "walkthrough": "In chess a king can never attack the opposing king, since it may not move next to it.",
+     "definitionFit": "A check is a stopping or restraint, and in chess it is a threat to capture the enemy king."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "queen"
+    }
+   }
   },
   {
    "number": 15,
@@ -260,7 +941,44 @@
     "text": "Accuracy in copying not shown by cheater",
     "enumeration": "8"
    },
-   "solution": "FIDELITY"
+   "solution": "FIDELITY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FIDELITY",
+    "definitions": [
+     {
+      "text": "Accuracy in copying",
+      "at": 0
+     },
+     {
+      "text": "not shown by cheater",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Accuracy in copying",
+      "note": "first meaning: faithfulness of a reproduction"
+     },
+     {
+      "clueFragment": "not shown by cheater",
+      "note": "second meaning: faithfulness in a relationship, which an unfaithful partner lacks"
+     }
+    ],
+    "explanation": {
+     "surface": "An exam cheater who copies accurately without being spotted.",
+     "walkthrough": "'Copying' and 'cheater' suggest an exam, but the cheater is an unfaithful partner.",
+     "definitionFit": "The word means faithfulness, both of a reproduction to its original and of a partner to a spouse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cheater"
+    }
+   }
   },
   {
    "number": 16,
@@ -280,7 +998,50 @@
      }
     ]
    },
-   "solution": "LEMONSOLE"
+   "solution": "LEMONSOLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEMON SOLE",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fruit",
+      "gives": "LEMON",
+      "note": "a lemon is a citrus fruit"
+     },
+     {
+      "clueFragment": "only",
+      "gives": "SOLE",
+      "note": "sole means only, as in sole survivor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEMON",
+      "SOLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper choosing between fish and fruit and nothing else.",
+     "walkthrough": "'Or' sounds like a choice, but it only links the definition to the wordplay.",
+     "definitionFit": "Lemon sole is a European flatfish of the plaice family, widely eaten."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "or"
+    }
+   }
   },
   {
    "number": 17,
@@ -294,7 +1055,40 @@
     "text": "Contributor to person's descent or ascent, possibly",
     "enumeration": "8"
    },
-   "solution": "ANCESTOR"
+   "solution": "ANCESTOR",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ANCESTOR",
+    "definitions": [
+     {
+      "text": "Contributor to person's descent or ascent, possibly",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Contributor to person's descent or ascent, possibly",
+      "note": "surface reading: someone helping a climber go down or up a mountain"
+     },
+     {
+      "clueFragment": "descent or ascent",
+      "note": "setter's reading: descent means lineage, and ascent recalls the evolutionary Ascent of Man"
+     }
+    ],
+    "explanation": {
+     "surface": "A helper aiding a mountaineer's climb or descent.",
+     "walkthrough": "Darwin's 'Descent of Man' and Bronowski's 'Ascent of Man' both describe human lineage, hence 'possibly'.",
+     "definitionFit": "A forebear is one from whom a person is descended, so is part of their family line."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "descent"
+    }
+   }
   },
   {
    "number": 18,
@@ -308,7 +1102,71 @@
     "text": "Exaggerated merits of old solver, wrecked by end of crossword",
     "enumeration": "8"
    },
-   "solution": "OVERSOLD"
+   "solution": "OVERSOLD",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "OVERSOLD",
+    "definitions": [
+     {
+      "text": "Exaggerated merits of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrecked",
+      "for": "anagram",
+      "note": "something wrecked is broken up, so the letters gathered here are rearranged"
+     },
+     {
+      "text": "end of",
+      "for": "charade",
+      "note": "'end of' picks the last letter of crossword to add to the mix"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "solver",
+      "gives": "SOLVER",
+      "note": "the word itself as fodder"
+     },
+     {
+      "clueFragment": "crossword",
+      "gives": "D",
+      "select": "last",
+      "note": "the final letter of crossword"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OSOLVERD",
+       "gives": "OVERSOLD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old solver hyped up the merits of a crossword that then defeated him.",
+     "definitionFit": "To oversell something is to praise its qualities beyond what they deserve."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "solver"
+    }
+   }
   },
   {
    "number": 19,
@@ -322,7 +1180,62 @@
     "text": "Produce some rhyming slang, initially kept in check",
     "enumeration": "7"
    },
-   "solution": "VERSIFY"
+   "solution": "VERSIFY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "VERSIFY",
+    "definitions": [
+     {
+      "text": "Produce some rhyming",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "'initially' takes only the opening letter of the word before it"
+     },
+     {
+      "text": "kept in",
+      "for": "container",
+      "note": "'kept in' means held inside, so that letter goes inside the word for check"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "check",
+      "gives": "VERIFY",
+      "note": "to verify is to check"
+     },
+     {
+      "clueFragment": "slang",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of slang"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VER",
+      "S",
+      "IFY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone composes Cockney rhyming slang while keeping themselves restrained.",
+     "walkthrough": "'Rhyming slang' is a phrase in the surface, but the definition ends at 'rhyming'.",
+     "definitionFit": "To versify is to put into verse, writing lines that rhyme."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "slang"
+    }
+   }
   },
   {
    "number": 20,
@@ -336,7 +1249,63 @@
     "text": "Chap embracing openings provided by secret organization?",
     "enumeration": "5"
    },
-   "solution": "MASON"
+   "solution": "MASON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "and_lit"
+    ],
+    "answer": "MASON",
+    "definitions": [
+     {
+      "text": "Chap embracing openings provided by secret organization?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "openings",
+      "for": "letter_selection",
+      "note": "openings are starts, so the first letters of the following two words are taken"
+     },
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "to embrace is to hold in one's arms, so the chap's word goes around those letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chap",
+      "gives": "MAN",
+      "note": "a chap is a man"
+     },
+     {
+      "clueFragment": "secret organization",
+      "gives": "SO",
+      "select": "first",
+      "note": "the first letters of secret and organization"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "SO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A man accepts the opportunities a secretive society offers him.",
+     "walkthrough": "The whole clue also describes the answer: a man taken into a secretive fraternity. The question mark flags the loose definition.",
+     "definitionFit": "A Freemason belongs to a fraternal society famous for its secret rituals and signs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "openings"
+    }
+   }
   },
   {
    "number": 21,
@@ -350,7 +1319,66 @@
     "text": "Relative is upset over superficially attractive stuff",
     "enumeration": "7"
    },
-   "solution": "SIBLING"
+   "solution": "SIBLING",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SIBLING",
+    "definitions": [
+     {
+      "text": "Relative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue upset means turned upside down, so the word is read bottom to top"
+     },
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down clue 'over' puts the first piece above the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "SI",
+      "note": "the word is, turned round"
+     },
+     {
+      "clueFragment": "superficially attractive stuff",
+      "gives": "BLING",
+      "note": "bling is showy, flashy jewellery"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "BLING"
+     ],
+     "reversals": [
+      {
+       "from": "IS",
+       "to": "SI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A family member gets cross about someone's flashy taste.",
+     "walkthrough": "'Upset' reads as an emotion, but it turns the little word over.",
+     "definitionFit": "A sibling is a brother or sister, a close family member."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 22,
@@ -364,7 +1392,63 @@
     "text": "Without reason, brought up request for material",
     "enumeration": "6"
    },
-   "solution": "DAMASK"
+   "solution": "DAMASK",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DAMASK",
+    "definitions": [
+     {
+      "text": "material",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought up",
+      "for": "reversal",
+      "note": "in a down clue brought up means raised from bottom to top, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Without reason",
+      "gives": "MAD",
+      "note": "someone mad has lost their reason"
+     },
+     {
+      "clueFragment": "request",
+      "gives": "ASK",
+      "note": "to ask is to request"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAM",
+      "ASK"
+     ],
+     "reversals": [
+      {
+       "from": "MAD",
+       "to": "DAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A demand for cloth raised unreasonably.",
+     "definitionFit": "Damask is a reversible patterned fabric, originally silk from Damascus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "brought"
+    }
+   }
   },
   {
    "number": 23,
@@ -378,7 +1462,56 @@
     "text": "Article by poet laureate cut short? Just so",
     "enumeration": "7"
    },
-   "solution": "ABRIDGE"
+   "solution": "ABRIDGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "and_lit"
+    ],
+    "answer": "ABRIDGE",
+    "definitions": [
+     {
+      "text": "Article by poet laureate cut short? Just so",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut short",
+      "for": "deletion",
+      "note": "something cut short loses its end, so the poet's name drops its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     },
+     {
+      "clueFragment": "by poet laureate",
+      "gives": "BRIDGES",
+      "note": "Robert Bridges was Britain's Poet Laureate from 1913 to 1930"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BRIDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer asks whether a laureate's article was trimmed, and is told yes.",
+     "walkthrough": "'Just so' confirms the wordplay is also the meaning: the answer is a verb meaning cut short, and the name is itself cut short.",
+     "definitionFit": "To abridge a text is to shorten it, condensing it while keeping its sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Article"
+    }
+   }
   },
   {
    "number": 24,
@@ -392,7 +1525,43 @@
     "text": "Wild animal seen in feeding orgy and covered in gore",
     "enumeration": "5"
    },
-   "solution": "DINGO"
+   "solution": "DINGO",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "and_lit"
+    ],
+    "answer": "DINGO",
+    "definitions": [
+     {
+      "text": "Wild animal seen in feeding orgy and covered in gore",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen in",
+      "for": "hidden_word",
+      "note": "'seen in' says the letters are visible inside the run of words that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "feeding orgy",
+      "gives": "DINGO",
+      "note": "the letters span the end of feeding and the start of orgy"
+     }
+    ],
+    "explanation": {
+     "surface": "A predator spotted at a blood-soaked feast on a carcass.",
+     "walkthrough": "The whole clue paints the animal at a kill, while the hidden letters sit across the word break.",
+     "definitionFit": "The dingo is Australia's wild dog, a pack hunter that tears into its prey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 25,
@@ -406,7 +1575,50 @@
     "text": "With half of score accomplished, it's okay to defend",
     "enumeration": "7"
    },
-   "solution": "TENABLE"
+   "solution": "TENABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TENABLE",
+    "definitions": [
+     {
+      "text": "okay to defend",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "half of score",
+      "gives": "TEN",
+      "note": "a score is twenty, half of which is ten"
+     },
+     {
+      "clueFragment": "accomplished",
+      "gives": "ABLE",
+      "note": "able means skilled, accomplished"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEN",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports team that has already scored half its points thinks it can sit back.",
+     "walkthrough": "A score is the old English word for twenty.",
+     "definitionFit": "A tenable position or argument is one that can be held or maintained against attack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "score"
+    }
+   }
   },
   {
    "number": 26,
@@ -420,7 +1632,67 @@
     "text": "Like the majority of people, wrong about answer after answer",
     "enumeration": "5"
    },
-   "solution": "ASIAN"
+   "solution": "ASIAN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ASIAN",
+    "definitions": [
+     {
+      "text": "Like the majority of people",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' means surrounding, so the wrong word goes around a letter"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "'after' places that whole piece behind a second answer letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the standard abbreviation for answer"
+     },
+     {
+      "clueFragment": "wrong",
+      "gives": "SIN",
+      "note": "a sin is a wrong"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A again for answer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SI",
+      "A",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Most people get it wrong, answer after answer.",
+     "walkthrough": "The second answer letter sits inside the wrong, and that comes after the first one.",
+     "definitionFit": "Asia holds well over half the world's population, so most humans are from that continent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "majority"
+    }
+   }
   },
   {
    "number": 27,
@@ -434,7 +1706,69 @@
     "text": "Record one's temperature, following author and environmental expert",
     "enumeration": "9"
    },
-   "solution": "ECOLOGIST"
+   "solution": "ECOLOGIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ECOLOGIST",
+    "definitions": [
+     {
+      "text": "environmental expert",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "'following' puts the author's name before the rest, since the rest follows it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "author",
+      "gives": "ECO",
+      "note": "Umberto Eco was the Italian author of The Name of the Rose"
+     },
+     {
+      "clueFragment": "Record",
+      "gives": "LOG",
+      "note": "to log is to record"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "IS",
+      "note": "one is I, so one's becomes I'S"
+     },
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "T is the abbreviation for temperature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ECO",
+      "LOG",
+      "IS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A green campaigner takes their temperature after the writer does.",
+     "walkthrough": "Roman numeral one is I, and the apostrophe-s is kept as an S.",
+     "definitionFit": "An ecologist studies how organisms relate to their surroundings, an expert on the natural world."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Record"
+    }
+   }
   },
   {
    "number": 28,
@@ -448,7 +1782,40 @@
     "text": "Where all the pieces of poetry you write are in a row",
     "enumeration": "8"
    },
-   "solution": "KEYBOARD"
+   "solution": "KEYBOARD",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "KEYBOARD",
+    "definitions": [
+     {
+      "text": "Where all the pieces of poetry you write are in a row",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where all the pieces of poetry you write are in a row",
+      "note": "surface reading: a place where a poet's works are lined up, as on a shelf"
+     },
+     {
+      "clueFragment": "pieces of poetry you write",
+      "note": "setter's reading: every letter of those three words lies along the top line of the typing layout"
+     }
+    ],
+    "explanation": {
+     "surface": "A shelf where every poem you have composed is lined up.",
+     "walkthrough": "The letters of 'poetry', 'you' and 'write' are all found in the top row QWERTYUIOP.",
+     "definitionFit": "A typing board lays out letter keys in rows, and the top row holds every letter of those words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pieces"
+    }
+   }
   },
   {
    "number": 29,
@@ -462,7 +1829,66 @@
     "text": "Some work secured by the writer with right business deal",
     "enumeration": "6"
    },
-   "solution": "MERGER"
+   "solution": "MERGER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MERGER",
+    "definitions": [
+     {
+      "text": "business deal",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "secured by",
+      "for": "container",
+      "note": "to be secured by something is to be held fast by it, so the work unit sits inside the writer"
+     },
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "'with' adds the right abbreviation alongside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Some work",
+      "gives": "ERG",
+      "note": "the erg is a small unit of work in physics"
+     },
+     {
+      "clueFragment": "the writer",
+      "gives": "ME",
+      "note": "the writer of a clue refers to themselves as me"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ERG",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer secures some work and gets the right business agreement.",
+     "definitionFit": "A merger is the combining of two companies into one, a type of corporate transaction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   }
  ]
 }
