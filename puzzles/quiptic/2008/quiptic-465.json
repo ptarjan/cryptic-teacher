@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Consecrated small area of land to dead",
     "enumeration": "6"
    },
-   "solution": "SACRED"
+   "solution": "SACRED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SACRED",
+    "definitions": [
+     {
+      "text": "Consecrated",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the standard abbreviation for small, as on clothing labels"
+     },
+     {
+      "clueFragment": "area of land",
+      "gives": "ACRE",
+      "note": "an acre is a unit of land area"
+     },
+     {
+      "clueFragment": "dead",
+      "gives": "D",
+      "note": "D is the abbreviation for dead, as in genealogies"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ACRE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A little plot of ground blessed for burying the dead, like a churchyard.",
+     "definitionFit": "Something consecrated has been made holy, and sacred is a direct synonym meaning set apart for worship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dead"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,55 @@
     "text": "Meagreness of local shops takes character away from town",
     "enumeration": "8"
    },
-   "solution": "SPARSITY"
+   "solution": "SPARSITY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SPARSITY",
+    "definitions": [
+     {
+      "text": "Meagreness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "takes character away from",
+      "for": "deletion",
+      "note": "taking a character away means one letter is removed from the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "local shops",
+      "gives": "SPARS",
+      "note": "Spar is a chain of small neighbourhood convenience stores in Britain, so several local shops are Spars"
+     },
+     {
+      "clueFragment": "town",
+      "gives": "CITY",
+      "note": "a large town, loosely a city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPARS",
+      "ITY"
+     ]
+    },
+    "explanation": {
+     "surface": "A town's lack of corner shops shows how thin its amenities are.",
+     "walkthrough": "Spar is a British chain of convenience stores. The character taken away is the town's own first letter.",
+     "definitionFit": "Sparsity is thinness or scantiness of supply, a close synonym for meagreness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +160,74 @@
     "text": "Increasing gloom caught couple climbing amidst heather",
     "enumeration": "8"
    },
-   "solution": "CLOUDING"
+   "solution": "CLOUDING",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "CLOUDING",
+    "definitions": [
+     {
+      "text": "Increasing gloom",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down clue, climbing means the word is read from bottom to top"
+     },
+     {
+      "text": "amidst",
+      "for": "container",
+      "note": "amidst places one piece in the middle of another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "heather",
+      "gives": "LING",
+      "note": "ling is another name for common heather"
+     },
+     {
+      "clueFragment": "couple",
+      "gives": "DUO",
+      "note": "a duo is a couple, a pair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "L",
+      "OUD",
+      "ING"
+     ],
+     "reversals": [
+      {
+       "from": "DUO",
+       "to": "OUD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A walker caught on the moor as the weather closes in over the heather.",
+     "walkthrough": "Ling is a less familiar name for heather; the couple climbs because this is a down clue, then sits amidst it, with the cricket abbreviation in front.",
+     "definitionFit": "Clouding over describes a sky or mood growing darker, so it is gloom on the increase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "couple"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +241,43 @@
     "text": "Often nuisance calls are made out of boredom",
     "enumeration": "5"
    },
-   "solution": "ENNUI"
+   "solution": "ENNUI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ENNUI",
+    "definitions": [
+     {
+      "text": "boredom",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "calls are made out of",
+      "for": "hidden_word",
+      "note": "made out of says the answer is built from the run of letters in the preceding words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Often nuisance",
+      "gives": "ENNUI",
+      "note": "the letters run across the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Cold callers who pester people are often just bored themselves.",
+     "walkthrough": "The letters sit across oftEN NUIsance; 'calls' is part of the hiding phrase rather than the fodder.",
+     "definitionFit": "Ennui is a French loanword for listless weariness, the same as boredom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "calls"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +291,53 @@
     "text": "Angry suitor reported to have weapon",
     "enumeration": "8"
    },
-   "solution": "CROSSBOW"
+   "solution": "CROSSBOW",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "CROSSBOW",
+    "definitions": [
+     {
+      "text": "weapon",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "reported means said aloud, so the word is chosen for its sound rather than spelling"
+     }
+    ],
+    "linkWords": [
+     "to have"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Angry",
+      "gives": "CROSS",
+      "note": "cross means annoyed or angry"
+     },
+     {
+      "clueFragment": "suitor",
+      "gives": "BOW",
+      "soundsLike": "BEAU",
+      "note": "a beau is a suitor, and is said like the archer's bow"
+     }
+    ],
+    "explanation": {
+     "surface": "A furious rejected admirer is said to be armed.",
+     "definitionFit": "A crossbow is a mechanical bow firing bolts, an example of a weapon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "suitor"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +357,49 @@
      }
     ]
    },
-   "solution": "ROLLERCOASTER"
+   "solution": "ROLLERCOASTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROLLER COASTER",
+    "definitions": [
+     {
+      "text": "Ride",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wave",
+      "gives": "ROLLER",
+      "note": "a roller is a long heavy sea wave"
+     },
+     {
+      "clueFragment": "merchant ship",
+      "gives": "COASTER",
+      "note": "a coaster is a trading vessel that sails along the coast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROLLER",
+      "COASTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Riding a big wave aboard a cargo vessel.",
+     "definitionFit": "A rollercoaster is a fairground attraction, an example of a ride."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ride"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +413,77 @@
     "text": "Terrible crew first killed after vessel caused disaster at sea",
     "enumeration": "9"
    },
-   "solution": "SHIPWRECK"
+   "solution": "SHIPWRECK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SHIPWRECK",
+    "definitions": [
+     {
+      "text": "disaster at sea",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Terrible",
+      "for": "anagram",
+      "note": "terrible suggests a mess, so these letters are jumbled"
+     },
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first picks out the opening letter of the next word"
+     }
+    ],
+    "linkWords": [
+     "caused"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vessel",
+      "gives": "SHIP",
+      "note": "a ship is a vessel"
+     },
+     {
+      "clueFragment": "crew",
+      "gives": "WREC",
+      "note": "the letters of crew rearranged"
+     },
+     {
+      "clueFragment": "killed",
+      "gives": "K",
+      "select": "first",
+      "note": "the opening letter of killed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHIP",
+      "WREC",
+      "K"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CREW",
+       "gives": "WREC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A useless crew got sailors killed when their boat foundered.",
+     "walkthrough": "'After vessel' puts SHIP in front of the rest.",
+     "definitionFit": "A shipwreck is the destruction of a vessel at sea, the classic maritime disaster."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Terrible"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +497,66 @@
     "text": "Crash is end of fine run for old car",
     "enumeration": "6"
    },
-   "solution": "BANGER"
+   "solution": "BANGER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BANGER",
+    "definitions": [
+     {
+      "text": "old car",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "end of takes only the last letter of the word that follows"
+     }
+    ],
+    "linkWords": [
+     "is",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crash",
+      "gives": "BANG",
+      "note": "a bang is the noise of a crash"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of fine"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BANG",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A collision ends an old car's good stretch of driving.",
+     "walkthrough": "In British slang a banger is a battered old car (it is also a sausage).",
+     "definitionFit": "Banger is informal British slang for a dilapidated old motor car."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +570,69 @@
     "text": "Wife managed tear at husband's funeral tribute",
     "enumeration": "6"
    },
-   "solution": "WREATH"
+   "solution": "WREATH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "WREATH",
+    "definitions": [
+     {
+      "text": "funeral tribute",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "managed",
+      "for": "anagram",
+      "note": "managed suggests handled and rearranged, so the letters are reorganised"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     },
+     {
+      "clueFragment": "tear",
+      "gives": "REAT",
+      "note": "the letters of tear rearranged"
+     },
+     {
+      "clueFragment": "husband's",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "REAT",
+      "H"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEAR",
+       "gives": "REAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A widow holds back only a single tear at her husband's burial.",
+     "definitionFit": "A wreath of flowers is laid at a funeral as a tribute to the dead."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "managed"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +646,52 @@
     "text": "Trouble with sailors on deck",
     "enumeration": "5"
    },
-   "solution": "ADORN"
+   "solution": "ADORN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADORN",
+    "definitions": [
+     {
+      "text": "deck",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "with",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trouble",
+      "gives": "ADO",
+      "note": "ado is fuss or trouble"
+     },
+     {
+      "clueFragment": "sailors",
+      "gives": "RN",
+      "note": "RN is the Royal Navy, Britain's sailors"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADO",
+      "RN"
+     ]
+    },
+    "explanation": {
+     "surface": "Sailors having bother up on the ship's deck.",
+     "walkthrough": "'Deck' looks like a ship's floor, but it is the verb meaning to decorate.",
+     "definitionFit": "To deck something out is to decorate it, which is what adorn means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "deck"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +705,50 @@
     "text": "Flirtation is key to marriage",
     "enumeration": "9"
    },
-   "solution": "DALLIANCE"
+   "solution": "DALLIANCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DALLIANCE",
+    "definitions": [
+     {
+      "text": "Flirtation",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "key",
+      "gives": "D",
+      "note": "D is a musical key"
+     },
+     {
+      "clueFragment": "marriage",
+      "gives": "ALLIANCE",
+      "note": "a marriage is an alliance between two people or families"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ALLIANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A wry claim that a little flirting is the secret of a happy marriage.",
+     "definitionFit": "A dalliance is a casual romantic involvement, the same idea as a flirtation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +762,56 @@
     "text": "Rosetta died in storm at sea",
     "enumeration": "13"
    },
-   "solution": "DISORIENTATED"
+   "solution": "DISORIENTATED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DISORIENTATED",
+    "definitions": [
+     {
+      "text": "at sea",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in storm",
+      "for": "anagram",
+      "note": "a storm tosses things about, so the letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rosetta died",
+      "gives": "ROSETTADIED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written; it also serves in the signal"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROSETTADIEDIN",
+       "gives": "DISORIENTATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman named Rosetta was lost when a storm struck her ship.",
+     "walkthrough": "'At sea' is part of the shipwreck picture but means confused.",
+     "definitionFit": "To be at sea is an idiom for being bewildered, which is being disorientated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sea"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +831,47 @@
      }
     ]
    },
-   "solution": "SIDEISSUE"
+   "solution": "SIDEISSUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SIDE ISSUE",
+    "definitions": [
+     {
+      "text": "distracts from main point",
+      "at": 15,
+      "note": "a verb phrase describing what the noun answer does"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Border",
+      "gives": "SIDE",
+      "note": "a side is an edge or border"
+     },
+     {
+      "clueFragment": "dispute",
+      "gives": "ISSUE",
+      "note": "an issue is a matter in dispute"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIDE",
+      "ISSUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A frontier quarrel diverts attention from the real matter.",
+     "definitionFit": "A side issue is a secondary topic that pulls attention away from the central question."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Border"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +885,49 @@
     "text": "Force woman to take break",
     "enumeration": "5"
    },
-   "solution": "WREST"
+   "solution": "WREST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WREST",
+    "definitions": [
+     {
+      "text": "Force",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to take"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "woman",
+      "gives": "W",
+      "note": "W is the abbreviation for woman"
+     },
+     {
+      "clueFragment": "break",
+      "gives": "REST",
+      "note": "a rest is a break"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "REST"
+     ]
+    },
+    "explanation": {
+     "surface": "Making a woman stop for a breather.",
+     "definitionFit": "To wrest is to obtain by force, twisting something away from someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Force"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +947,48 @@
      }
     ]
    },
-   "solution": "TENNISRACKET"
+   "solution": "TENNISRACKET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TENNIS RACKET",
+    "definitions": [
+     {
+      "text": "Players tackle",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wimbledon",
+      "gives": "TENNIS",
+      "note": "Wimbledon is the famous London tennis championship"
+     },
+     {
+      "clueFragment": "crowd noise",
+      "gives": "RACKET",
+      "note": "a racket is a din, like a noisy crowd"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TENNIS",
+      "RACKET"
+     ]
+    },
+    "explanation": {
+     "surface": "Players dealing with a rowdy crowd at the All England Club.",
+     "walkthrough": "'Tackle' looks like a verb but is the noun for equipment; the question mark flags the loose Wimbledon-for-tennis substitution.",
+     "definitionFit": "Tackle means gear or equipment, and a racket is the gear tennis players use."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tackle"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +1002,74 @@
     "text": "Landlord in Newcastle has to live off beer",
     "enumeration": "9"
    },
-   "solution": "INNKEEPER"
+   "solution": "INNKEEPER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "deletion"
+    ],
+    "answer": "INNKEEPER",
+    "definitions": [
+     {
+      "text": "Landlord",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "deletion",
+      "note": "off means a piece is taken away from the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Newcastle",
+      "gives": "N",
+      "select": "first",
+      "note": "the opening letter of Newcastle"
+     },
+     {
+      "clueFragment": "has",
+      "gives": "KEEP",
+      "note": "to keep something is to have it"
+     },
+     {
+      "clueFragment": "to live",
+      "gives": "BE",
+      "note": "to be is to live, to exist"
+     },
+     {
+      "clueFragment": "beer",
+      "gives": "BEER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "N",
+      "KEEP",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A Geordie pub landlord is reduced to drinking his own stock.",
+     "walkthrough": "BE (to live) comes off BEER, leaving ER. A loose parse: Newcastle supplies only its initial.",
+     "definitionFit": "A landlord in Britain also means a pub keeper, and an innkeeper runs an inn."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "live"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1083,64 @@
     "text": "Utter a sob when moved by old instrument",
     "enumeration": "8"
    },
-   "solution": "ABSOLUTE"
+   "solution": "ABSOLUTE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ABSOLUTE",
+    "definitions": [
+     {
+      "text": "Utter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when moved",
+      "for": "anagram",
+      "note": "moved means shifted about, so the letters change places"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a sob",
+      "gives": "ABSO",
+      "note": "the letters of 'a sob' rearranged"
+     },
+     {
+      "clueFragment": "old instrument",
+      "gives": "LUTE",
+      "note": "the lute is an early stringed instrument"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABSO",
+      "LUTE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ASOB",
+       "gives": "ABSO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone emotionally moved by early music lets out a sob.",
+     "walkthrough": "'Utter' reads as a verb but is the adjective meaning complete.",
+     "definitionFit": "Utter as an adjective means complete or total, a synonym of absolute."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Utter"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1154,80 @@
     "text": "Chose Leeds building to accommodate city culture centre",
     "enumeration": "8"
    },
-   "solution": "SELECTED"
+   "solution": "SELECTED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SELECTED",
+    "definitions": [
+     {
+      "text": "Chose",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "building",
+      "for": "anagram",
+      "note": "building means constructing anew, so these letters are rearranged"
+     },
+     {
+      "text": "centre",
+      "for": "letter_selection",
+      "note": "centre takes just the middle letter of the word before it"
+     },
+     {
+      "text": "to accommodate",
+      "for": "container",
+      "note": "to accommodate is to house, so the other pieces go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leeds",
+      "gives": "SELED",
+      "note": "the letters of Leeds rearranged"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "EC",
+      "note": "EC is the postcode area of the City of London"
+     },
+     {
+      "clueFragment": "culture",
+      "gives": "T",
+      "select": "middle",
+      "note": "the middle letter of culture"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEL",
+      "EC",
+      "T",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEEDS",
+       "gives": "SELED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Leeds development making room for a city arts centre.",
+     "walkthrough": "EC and T go into the middle of the rearranged Leeds; the City is London's financial district, postcode EC.",
+     "definitionFit": "To have selected something is to have chosen it, an exact synonym in the past tense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "building"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1241,70 @@
     "text": "Translation of rune symbol by expert reveals nothing special",
     "enumeration": "12"
    },
-   "solution": "UNREMARKABLE"
+   "solution": "UNREMARKABLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "UNREMARKABLE",
+    "definitions": [
+     {
+      "text": "nothing special",
+      "at": 45,
+      "note": "the answer is an adjective; read as 'is nothing special'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Translation of",
+      "for": "anagram",
+      "note": "translation turns words into another form, so the letters are converted into a new order"
+     }
+    ],
+    "linkWords": [
+     "reveals"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rune",
+      "gives": "UNRE",
+      "note": "the letters of rune rearranged"
+     },
+     {
+      "clueFragment": "symbol",
+      "gives": "MARK",
+      "note": "a mark is a symbol or sign"
+     },
+     {
+      "clueFragment": "expert",
+      "gives": "ABLE",
+      "note": "able means skilled, expert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNRE",
+      "MARK",
+      "ABLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RUNE",
+       "gives": "UNRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A specialist deciphers an ancient runic inscription and finds it says nothing much.",
+     "definitionFit": "Something unremarkable is ordinary and not worth comment, with nothing special about it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Translation"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1318,55 @@
     "text": "Restaurant cooked ribs to order",
     "enumeration": "6"
    },
-   "solution": "BISTRO"
+   "solution": "BISTRO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BISTRO",
+    "definitions": [
+     {
+      "text": "Restaurant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooked suggests mixing up, so the letters are altered"
+     },
+     {
+      "text": "order",
+      "for": "anagram",
+      "note": "putting things into a new order underlines the rearrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ribs to",
+      "gives": "RIBSTO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RIBSTO",
+       "gives": "BISTRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner where ribs are prepared fresh when you ask.",
+     "definitionFit": "A bistro is a small, informal restaurant, originally French."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1380,61 @@
     "text": "Young scout's first off into Scandinavian river",
     "enumeration": "6"
    },
-   "solution": "DANUBE"
+   "solution": "DANUBE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "DANUBE",
+    "definitions": [
+     {
+      "text": "river",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first off",
+      "for": "deletion",
+      "note": "first off means the opening letter is removed"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into places one piece inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scandinavian",
+      "gives": "DANE",
+      "note": "a Dane is someone from Denmark"
+     },
+     {
+      "clueFragment": "Young scout's",
+      "gives": "CUB",
+      "note": "a Cub is a junior member of the Scouts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAN",
+      "UB",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A young scout falling into a river in Scandinavia.",
+     "walkthrough": "Cub is the name for a junior Scout, and 'first off' removes its opening letter before the remainder sits inside the Scandinavian.",
+     "definitionFit": "The Danube is a major European river flowing to the Black Sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Scandinavian"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1448,64 @@
     "text": "Angry tirade spoiled day out",
     "enumeration": "5"
    },
-   "solution": "IRATE"
+   "solution": "IRATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "IRATE",
+    "definitions": [
+     {
+      "text": "Angry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "out means a letter leaves the word"
+     },
+     {
+      "text": "spoiled",
+      "for": "anagram",
+      "note": "spoiled means ruined, so the letters are disordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tirade",
+      "gives": "TIRADE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D is the abbreviation for day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TIRAE",
+       "gives": "IRATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A furious rant ruined a family outing.",
+     "definitionFit": "Irate means very angry, a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1525,66 @@
      }
     ]
    },
-   "solution": "TITLEROLE"
+   "solution": "TITLEROLE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TITLE ROLE",
+    "definitions": [
+     {
+      "text": "Lead part",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "takes",
+      "for": "container",
+      "note": "takes means the word holds another piece inside it"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of roof",
+      "gives": "TILE",
+      "note": "a tile is one piece of a roof"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "position",
+      "gives": "ROLE",
+      "note": "a role is a position or function"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "T",
+      "LE",
+      "ROLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Lead sheeting on part of a roof is slow to fit into place.",
+     "walkthrough": "'Lead' looks like the metal used on roofs; it is the leading part in a play.",
+     "definitionFit": "The title role is the character a play or film is named after, usually the lead part."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lead"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1598,41 @@
     "text": "More mature tree",
     "enumeration": "5"
    },
-   "solution": "ELDER"
+   "solution": "ELDER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ELDER",
+    "definitions": [
+     {
+      "text": "More mature",
+      "at": 0
+     },
+     {
+      "text": "tree",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "More mature",
+      "note": "first meaning: older"
+     },
+     {
+      "clueFragment": "tree",
+      "note": "second meaning: a small tree bearing elderflowers and berries"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word is both the comparative of old in family senses and the name of a small tree with dark berries."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mature"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1646,57 @@
     "text": "Don't start to play guitar, Mr Gabriel — be a brass player!",
     "enumeration": "9"
    },
-   "solution": "TRUMPETER"
+   "solution": "TRUMPETER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TRUMPETER",
+    "definitions": [
+     {
+      "text": "brass player",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Don't start",
+      "for": "deletion",
+      "note": "not starting means the opening letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "be a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to play guitar",
+      "gives": "STRUM",
+      "note": "to strum is to play a guitar by sweeping the strings"
+     },
+     {
+      "clueFragment": "Mr Gabriel",
+      "gives": "PETER",
+      "note": "Peter Gabriel is the English rock singer, once of Genesis"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRUM",
+      "PETER"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to the rock star Peter Gabriel to drop guitar for the horn section.",
+     "definitionFit": "A trumpeter plays the trumpet, a brass instrument."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Gabriel"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1710,67 @@
     "text": "Alarm a bit over peacekeepers being brought in",
     "enumeration": "5"
    },
-   "solution": "DAUNT"
+   "solution": "DAUNT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DAUNT",
+    "definitions": [
+     {
+      "text": "Alarm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "over means turned back, so the word reads right to left"
+     },
+     {
+      "text": "being brought in",
+      "for": "container",
+      "note": "brought in means one piece is put inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a bit",
+      "gives": "TAD",
+      "note": "a tad is a little bit"
+     },
+     {
+      "clueFragment": "peacekeepers",
+      "gives": "UN",
+      "note": "UN troops are international peacekeepers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DA",
+      "UN",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "TAD",
+       "to": "DAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A little worry about UN troops arriving.",
+     "walkthrough": "'Alarm' could be a noun, but here it is the verb.",
+     "definitionFit": "To daunt is to intimidate or dishearten, so to alarm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1784,62 @@
     "text": "Disregard mistake in Roman poet's English",
     "enumeration": "8"
    },
-   "solution": "OVERRIDE"
+   "solution": "OVERRIDE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "OVERRIDE",
+    "definitions": [
+     {
+      "text": "Disregard",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roman poet's",
+      "gives": "OVID",
+      "note": "Ovid is the Roman poet of the Metamorphoses"
+     },
+     {
+      "clueFragment": "mistake",
+      "gives": "ERR",
+      "note": "to err is to make a mistake"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OV",
+      "ERR",
+      "ID",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Ignoring an error in an English version of a Latin poet.",
+     "walkthrough": "The apostrophe-s in 'poet's' links the poet to the English that follows him.",
+     "definitionFit": "To override is to set aside or overrule, which is to disregard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "English"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1853,56 @@
     "text": "Father and I meet close mate",
     "enumeration": "6"
    },
-   "solution": "FRIEND"
+   "solution": "FRIEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FRIEND",
+    "definitions": [
+     {
+      "text": "mate",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "meet"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Father",
+      "gives": "FR",
+      "note": "Fr is the title abbreviation for a priest, Father"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "close",
+      "gives": "END",
+      "note": "the close is the end"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FR",
+      "I",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "A priest and the speaker get together with a close pal.",
+     "walkthrough": "'Close' reads as an adjective with mate but is the noun meaning end.",
+     "definitionFit": "Mate is informal British for a pal, which is a friend."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   }
  ]
 }
