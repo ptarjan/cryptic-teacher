@@ -187,6 +187,9 @@ MIN_LIGHT = 3
 #: Blog slugs put the puzzle number first: times-29572-…, qc-1255-by-hurley,
 #: monthly-club-special-20231-…. The title is the fallback when it does not.
 NUMBER_IN = re.compile(r"(\d{3,5})")
+#: A month and its year, which a slug or title may print before the number:
+#: april-2015-club-monthly-20175. The year is not the puzzle's number.
+MONTH_YEAR = re.compile(r"(?i)\b(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?[\W_]+(?:19|20)\d\d\b")
 #: The Quick Cryptic's first 99 have one or two digits, too short for
 #: NUMBER_IN, so a slug or title with no longer number reads the one that
 #: follows "Quick Cryptic" or "QC": "quick-cryptic-number-3-…",
@@ -291,9 +294,9 @@ def puzzle_number(post):
     number is one slip from the slug's (one_slip). With no number of three
     digits or more in either, a Quick Cryptic's short number (QUICK_NUMBER).
     """
-    m = NUMBER_IN.search(post.get("slug", ""))
+    m = NUMBER_IN.search(MONTH_YEAR.sub("", post.get("slug", "")))
     title = html.unescape(post.get("title", {}).get("rendered", ""))
-    t = NUMBER_IN.search(re.sub(r"(?<=\d),(?=\d{3}\b)", "", title))
+    t = NUMBER_IN.search(MONTH_YEAR.sub("", re.sub(r"(?<=\d),(?=\d{3}\b)", "", title)))
     if (not m or int(m.group(1)) == post.get("id")
             or (t and one_slip(m.group(1), t.group(1)))):
         m = t
