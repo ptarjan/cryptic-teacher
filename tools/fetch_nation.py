@@ -236,8 +236,44 @@ def reprint_date(number, known):
     return (day + datetime.timedelta(weeks=number - near[0])).isoformat()
 
 
-def build(page, url, known=None):
-    """(puzzle, None) or (None, why not)."""
+def linked_groups(lists, across, down):
+    """reconstruct_grid's `groups` for the linked answers: ([(direction,
+    index)], total) per leader. The leader's printed number field names its
+    lights ("8,1" for "8 and 1 down"), its enumeration the total (the sum of
+    its words: 28 for "5,6,3,5,1,3,5"). Each continuation is the linked light
+    of that number printing no enumeration of its own ("See 8"), in either
+    direction; a group whose lights cannot all be told apart is left out, so
+    its lengths stay free as before."""
+    lights = {"across": across, "down": down}
+    groups, used = [], set()
+    for direction in ("across", "down"):
+        for row in lists[direction]:
+            nums = [int(x) for x in re.findall(r"\d+", str(row.get("number") or ""))]
+            total = sum(int(t) for t in re.findall(r"\d+", row.get("enumeration") or ""))
+            if len(nums) < 2 or not total:
+                continue
+            lead = [(direction, i) for i, lg in enumerate(lights[direction])
+                    if lg[0] == nums[0] and lg[2].startswith("linked")
+                    and (lg[3] or {}).get("enumeration")]
+            members = lead if len(lead) == 1 else None
+            for n in nums[1:]:
+                if members is None:
+                    break
+                hit = [(d, i) for d in ("across", "down")
+                       for i, lg in enumerate(lights[d])
+                       if lg[0] == n and lg[2].startswith("linked")
+                       and not (lg[3] or {}).get("enumeration")
+                       and (d, i) not in used]
+                members = members + hit if len(hit) == 1 else None
+            if members and not used & set(members):
+                used.update(members)
+                groups.append((members, total))
+    return groups
+
+
+def read_page(page, known=None):
+    """((meta, head, across, down, groups), None) or (None, why not): the
+    page's clue list as light_spec lights, before any grid search."""
     m = meta(page)
     if m["number"] and m["number"] < REPRINTS_BELOW and not m["original"]:
         m["date"] = reprint_date(m["number"], known or {})
@@ -258,18 +294,83 @@ def build(page, url, known=None):
     for lg in across + down:
         if lg[2].startswith("linked"):
             lg[1] = None
+    # ...but the group's total is printed, and which lights make it up.
+    groups = linked_groups(lists, across, down)
+    if any(lg[0] is None for lg in across + down):
+        return None, "a light with no number"
+    return (m, head, across, down, groups), None
+
+
+def search_grid(across, down, groups):
+    """(grid, None) or (None, why not). A size whose search ran out of budget
+    is the reason given, even if a smaller size then finished empty."""
     spec = [(lg[0], d, lg[1]) for d, lights in (("across", across), ("down", down))
             for lg in lights]
-    if any(n is None for n, _, _ in spec):
-        return None, "a light with no number"
     longest = max((n for _, _, n in spec if n), default=0)
-    grid, why = None, "no size tried"
+    grid, why, first = None, "no size tried", None
     for size in SIZES:
         if size < longest:
             continue
-        grid, why = rg.unique_grid(spec, cols=size, rows=size, max_nodes=MAX_NODES)
+        grid, why = rg.unique_grid(spec, cols=size, rows=size, max_nodes=MAX_NODES,
+                                   groups=groups)
         if grid is not None or "grids fit" in (why or ""):
+            return grid, why
+        if first is None or "budget" in why and "budget" not in first:
+            first = why
+    return None, first or why
+
+
+def clues_record(page, url, known=None):
+    """The clues_only/ record (tools/clues_only.py) for a page whose clue list
+    reads but whose grid did not rebuild, or None: only the clues are
+    mandatory, so the backfill's answers derive the grid (promote())."""
+    read, _ = read_page(page, known)
+    if read is None:
+        return None
+    m, _, across, down, _ = read
+    import clues_only
+    clues, problems = clues_only.lights_from_spec(across, down)
+    if problems:
+        return None
+    n = m["number"]
+    return {"id": puzzle_id(SERIES, n), "number": n, "series": SERIES,
+            "name": f"The Nation cryptic crossword No {n}", "setter": m["setter"],
+            "date": m["date"], "dimensions": {"cols": SIZES[0], "rows": SIZES[0]},
+            "source": {"url": url, "acquiredBy": TOOL,
+                       "acquiredOn": datetime.date.today().isoformat()},
+            "clues": clues}
+
+
+def promote(record, answers):
+    """clues_only.BUILDERS' entry for this filer: (puzzle, problems) from the
+    grid the backfill's answers cross in, built from the held page exactly as
+    a page whose grid rebuilt at filing time."""
+    import clues_only
+    grid, why = None, "no size tried"
+    for size in SIZES:
+        grid, why = clues_only.derive_grid(
+            {**record, "dimensions": {"cols": size, "rows": size}}, answers)
+        if grid is not None:
             break
+    if grid is None:
+        return None, [f"no single grid holds these answers: {why}"]
+    url = record["source"]["url"]
+    path = page_path(url)
+    if not path.is_file():
+        return None, [f"the page {path} is no longer held"]
+    puzzle, why = build(path.read_text(), url, original_dates(), grid=grid)
+    return (puzzle, []) if puzzle else (None, [why])
+
+
+def build(page, url, known=None, grid=None):
+    """(puzzle, None) or (None, why not). `grid`, when given, is used instead
+    of searching for one (promote())."""
+    read, why = read_page(page, known)
+    if read is None:
+        return None, why
+    m, head, across, down, groups = read
+    if grid is None:
+        grid, why = search_grid(across, down, groups)
     if grid is None:
         return None, f"grid did not rebuild: {why}"
     entries, problems = entries_from_grid(grid, across, down)
@@ -331,11 +432,20 @@ def _build_one(path):
         puzzle, reason = build(page, url, _build_one.known)
     except Exception as e:  # one bad page never stops the rest
         puzzle, reason = None, f"{type(e).__name__}: {e}"
-    return number or path.stem, puzzle, reason
+    held = None
+    if puzzle is None and reason.startswith("grid did not rebuild"):
+        held = clues_record(page, url, _build_one.known)
+    return number or path.stem, puzzle, reason, held
 
 
-def file_all(numbers=None, workers=4):
+def file_all(numbers=None, workers=None):
+    """File every held page not yet in puzzles/ (or just `numbers`). A page
+    whose grid does not rebuild is held in clues_only/ for the backfill."""
     import multiprocessing
+    import os
+    import clues_only
+    import puzzle_paths
+    workers = workers or int(os.environ.get("NATION_WORKERS", "4"))
     _build_one.urls = {page_path(u).name: u for u in json.loads(URLS.read_text())}
     _build_one.known = original_dates()
     paths = sorted(PAGES.glob("*.html"))
@@ -346,11 +456,22 @@ def file_all(numbers=None, workers=4):
                      and re.sub(r"-\d\.html$", ".html", p.name) in names)]
     if numbers:
         paths = [p for p in paths if meta(p.read_text())["number"] in numbers]
-    filed, why, seen = 0, {}, set()
+    else:
+        paths = [p for p in paths if not (meta(p.read_text())["number"] and puzzle_paths.find(
+            puzzle_id(SERIES, meta(p.read_text())["number"])))]
+    filed, held, why, seen = 0, 0, {}, set()
     with multiprocessing.Pool(workers) as pool:
-        for number, puzzle, reason in pool.imap_unordered(_build_one, paths):
+        for number, puzzle, reason, record in pool.imap_unordered(_build_one, paths):
             if puzzle is None:
                 why.setdefault(re.sub(r"\d+", "N", reason)[:90], []).append(number)
+                if record is not None and record["id"] not in seen:
+                    seen.add(record["id"])
+                    try:
+                        clues_only.write(record)
+                        held += 1
+                    except Exception as e:
+                        key = f"clues-only refused: {type(e).__name__}: {str(e)[:70]}"
+                        why.setdefault(re.sub(r"\d+", "N", key), []).append(number)
                 continue
             if puzzle["id"] in seen:  # a page printed twice ("puzzle-no-1588-0")
                 continue
@@ -361,7 +482,7 @@ def file_all(numbers=None, workers=4):
             except Exception as e:
                 key = f"write refused: {type(e).__name__}: {str(e)[:70]}"
                 why.setdefault(re.sub(r"\d+", "N", key), []).append(number)
-    print(f"filed {filed} of {len(paths)} pages")
+    print(f"filed {filed} of {len(paths)} pages; {held} held clues-only")
     for key, ids in sorted(why.items(), key=lambda kv: -len(kv[1])):
         print(f"  {len(ids):4d}  {key}  e.g. {sorted(map(str, ids))[:6]}")
 
