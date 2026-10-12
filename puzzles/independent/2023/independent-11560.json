@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,60 @@
     "text": "Tin cans recycled by European, for example",
     "enumeration": "8"
    },
-   "solution": "INSTANCE"
+   "solution": "INSTANCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INSTANCE",
+    "definitions": [
+     {
+      "text": "example",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recycled",
+      "for": "anagram",
+      "note": "recycled material is broken down and made into something new, so these letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tin cans",
+      "gives": "TINCANS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the standard abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TINCANSE",
+       "gives": "INSTANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Old tin cans being recycled by a European, as an illustration of green living.",
+     "walkthrough": "'For example' reads as a single phrase, but only 'example' defines; 'for' just joins it to the wordplay.",
+     "definitionFit": "An instance is a single case cited as an illustration, a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +103,47 @@
     "text": "Better cut performance that's had no rehearsal",
     "enumeration": "6"
    },
-   "solution": "IMPROV"
+   "solution": "IMPROV",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "IMPROV",
+    "definitions": [
+     {
+      "text": "performance that's had no rehearsal",
+      "at": 11
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "cutting a word shortens it by trimming off its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Better",
+      "gives": "IMPROVE",
+      "note": "to better something is to make it better"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMPROV"
+     ]
+    },
+    "explanation": {
+     "surface": "A performance that would be better cut, having never been rehearsed.",
+     "definitionFit": "Improv is short for improvisation, theatre made up on the spot without a script or practice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Better"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +163,63 @@
      }
     ]
    },
-   "solution": "SKIWEAR"
+   "solution": "SKIWEAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SKI-WEAR",
+    "definitions": [
+     {
+      "text": "sports clothing",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contracted",
+      "for": "deletion",
+      "note": "something contracted is shortened, so the word loses its last letter"
+     },
+     {
+      "text": "to expand",
+      "for": "container",
+      "note": "expanding something by pushing a piece into its middle stretches it around that piece"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brand",
+      "gives": "SEAR",
+      "note": "to brand cattle is to sear them with a hot iron"
+     },
+     {
+      "clueFragment": "New Zealander",
+      "gives": "KIWI",
+      "note": "Kiwi is the informal name for a New Zealander"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "KIW",
+      "EAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A New Zealand athlete signed up to grow a sportswear label.",
+     "definitionFit": "Skiwear is clothing designed for skiing, a kind of sports clothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brand"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +233,68 @@
     "text": "Familiar defendant admits to murder, initially",
     "enumeration": "10"
    },
-   "solution": "ACCUSTOMED"
+   "solution": "ACCUSTOMED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ACCUSTOMED",
+    "definitions": [
+     {
+      "text": "Familiar",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word before it"
+     },
+     {
+      "text": "admits",
+      "for": "container",
+      "note": "admitting someone lets them inside, so the other pieces go within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "defendant",
+      "gives": "ACCUSED",
+      "note": "the accused is the defendant in a trial"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "murder",
+      "gives": "M",
+      "select": "first",
+      "note": "first letter of murder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACCUS",
+      "TO",
+      "M",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-known defendant first owns up to a murder.",
+     "walkthrough": "'Admits to murder' reads as a confession; 'to' is used as written.",
+     "definitionFit": "Accustomed means used to or habitual, so as an adjective it matches familiar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "admits"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +308,65 @@
     "text": "Warm French cheese cut by hand on Hebridean island",
     "enumeration": "13"
    },
-   "solution": "COMPASSIONATE"
+   "solution": "COMPASSIONATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "COMPASSIONATE",
+    "definitions": [
+     {
+      "text": "Warm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut by",
+      "for": "container",
+      "note": "a word cut by something is split open with that thing sitting in the gap"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French cheese",
+      "gives": "COMTE",
+      "note": "Comté is a hard French cheese"
+     },
+     {
+      "clueFragment": "hand",
+      "gives": "PASS",
+      "note": "to hand something over is to pass it"
+     },
+     {
+      "clueFragment": "Hebridean island",
+      "gives": "IONA",
+      "note": "Iona is an island in the Inner Hebrides off Scotland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COM",
+      "PASS",
+      "IONA",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "Warm French cheese sliced by hand on a Scottish island.",
+     "walkthrough": "'Warm' looks like the cheese's temperature; it means kind-hearted.",
+     "definitionFit": "Compassionate means showing sympathy and care, and warm describes the same kindly nature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Warm"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +380,61 @@
     "text": "Ready for money, empty pocket",
     "enumeration": "6"
    },
-   "solution": "PROMPT"
+   "solution": "PROMPT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PROMPT",
+    "definitions": [
+     {
+      "text": "Ready",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "emptying a word removes its contents, leaving only the outside letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "PRO",
+      "note": "pro is Latin-derived 'for', as in pros and cons"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "M",
+      "note": "M is a standard abbreviation for money"
+     },
+     {
+      "clueFragment": "pocket",
+      "gives": "PT",
+      "select": "outer",
+      "note": "the first and last letters of pocket"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "M",
+      "PT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone ready to pay out for something, only to find their pocket empty.",
+     "definitionFit": "Prompt and ready are adjective synonyms for quick to act without delay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +448,49 @@
     "text": "Go by bike using free energy",
     "enumeration": "4"
    },
-   "solution": "RIDE"
+   "solution": "RIDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RIDE",
+    "definitions": [
+     {
+      "text": "Go by bike",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "using"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "free",
+      "gives": "RID",
+      "note": "to rid is to free of something"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RID",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Cycling on a bike is a way of travelling on free energy.",
+     "definitionFit": "To ride is to travel on a bicycle or horse, sitting astride it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "free"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +504,66 @@
     "text": "Drink that's carroty regularly getting into wee",
     "enumeration": "7"
    },
-   "solution": "MARTINI"
+   "solution": "MARTINI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MARTINI",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "taking letters regularly means every other one, at even spacing"
+     },
+     {
+      "text": "getting into",
+      "for": "container",
+      "note": "getting into something puts one piece inside another"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wee",
+      "gives": "MINI",
+      "note": "wee is Scottish for small, as is mini"
+     },
+     {
+      "clueFragment": "carroty",
+      "gives": "ART",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ART",
+      "INI"
+     ]
+    },
+    "explanation": {
+     "surface": "An orange-coloured drink making its way into someone's urine.",
+     "walkthrough": "'Wee' suggests urine; it is the Scottish word for small.",
+     "definitionFit": "A martini is a cocktail of gin or vodka with vermouth, so a drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "wee"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +577,48 @@
     "text": "Dry place for golfer to stand on every shot he takes",
     "enumeration": "8"
    },
-   "solution": "TEETOTAL"
+   "solution": "TEETOTAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEETOTAL",
+    "definitions": [
+     {
+      "text": "Dry",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "place for golfer to stand on",
+      "gives": "TEE",
+      "note": "the tee is the area a golfer stands on to start each hole"
+     },
+     {
+      "clueFragment": "every shot he takes",
+      "gives": "TOTAL",
+      "note": "a golfer's total is the sum of every stroke played"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEE",
+      "TOTAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A dry spot on the course where a golfer stands to take every shot.",
+     "walkthrough": "'Dry' looks like weather on the course; it means alcohol-free, and 'shot' hints at drinks.",
+     "definitionFit": "Teetotal means abstaining from alcohol, and dry is the informal word for the same."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dry"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +632,51 @@
     "text": "Letter from Greece in local newspaper",
     "enumeration": "3"
    },
-   "solution": "PHI"
+   "solution": "PHI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PHI",
+    "definitions": [
+     {
+      "text": "Letter from Greece",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "local",
+      "gives": "PH",
+      "note": "a local is a pub, abbreviated PH for public house"
+     },
+     {
+      "clueFragment": "newspaper",
+      "gives": "I",
+      "note": "the i is a British newspaper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PH",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A letter sent from Greece printed in the local paper.",
+     "walkthrough": "A local is your neighbourhood pub, marked PH on maps; the i is a UK national newspaper.",
+     "definitionFit": "Phi is the twenty-first character of the Greek alphabet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Letter"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +690,63 @@
     "text": "Fellow feeling readier for coding with a Mac",
     "enumeration": "11"
    },
-   "solution": "CAMARADERIE"
+   "solution": "CAMARADERIE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CAMARADERIE",
+    "definitions": [
+     {
+      "text": "Fellow feeling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coding",
+      "for": "anagram",
+      "note": "coding scrambles a message into a disguised arrangement"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "readier",
+      "gives": "READIER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Mac",
+      "gives": "MAC",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "READIERAMAC",
+       "gives": "CAMARADERIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Programmers feel more prepared to write code when working on an Apple Mac.",
+     "definitionFit": "Camaraderie is the mutual trust and friendship among companions, which is fellow feeling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coding"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +766,67 @@
      }
     ]
    },
-   "solution": "RHODESSCHOLAR"
+   "solution": "RHODESSCHOLAR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RHODES SCHOLAR",
+    "definitions": [
+     {
+      "text": "Funded foreign student",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bespoke",
+      "for": "anagram",
+      "note": "bespoke tailoring is cut and made up to order, so these letters are refashioned"
+     },
+     {
+      "text": "clothing",
+      "for": "container",
+      "note": "clothing wraps around something, so the rearranged letters go around the single piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chose Harrods",
+      "gives": "CHOSEHARRODS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is an abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RHODESSCHO",
+      "L",
+      "AR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHOSEHARRODS",
+       "gives": "RHODESSCHOAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student picks a tailored clothing line at Harrods, the London department store.",
+     "walkthrough": "Harrods is the luxury Knightsbridge store; 'clothing line' looks like a fashion range but splits into two jobs.",
+     "definitionFit": "A Rhodes Scholar studies at Oxford on a scholarship endowed by Cecil Rhodes, usually from abroad."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clothing"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +846,60 @@
      }
     ]
    },
-   "solution": "OPENSEASON"
+   "solution": "OPENSEASON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPEN SEASON",
+    "definitions": [
+     {
+      "text": "killing time",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clear",
+      "gives": "OPEN",
+      "note": "clear, as of a road, means open"
+     },
+     {
+      "clueFragment": "ocean",
+      "gives": "SEA",
+      "note": "a synonym"
+     },
+     {
+      "clueFragment": "thus",
+      "gives": "SO",
+      "note": "a synonym"
+     },
+     {
+      "clueFragment": "navy",
+      "gives": "N",
+      "note": "N is an abbreviation for navy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPEN",
+      "SEA",
+      "SO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "With the ocean clear, the navy is merely passing the time.",
+     "walkthrough": "'Killing time' looks like idling; here it is the period when hunting a quarry is allowed.",
+     "definitionFit": "Open season is the legal period for hunting game, literally a time for killing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "killing"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +913,47 @@
     "text": "Cover over swimming pool",
     "enumeration": "4"
    },
-   "solution": "LIDO"
+   "solution": "LIDO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIDO",
+    "definitions": [
+     {
+      "text": "swimming pool",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cover",
+      "gives": "LID",
+      "note": "a lid covers a container"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scorer's abbreviation for an over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LID",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Putting a cover over the swimming pool.",
+     "walkthrough": "An over is a set of six balls in cricket.",
+     "definitionFit": "A lido is a public open-air swimming pool, especially in Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +973,65 @@
      }
     ]
    },
-   "solution": "ROSEWINDOW"
+   "solution": "ROSEWINDOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROSE WINDOW",
+    "definitions": [
+     {
+      "text": "Lovely light",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wine",
+      "gives": "ROSE",
+      "note": "rosé is a pink wine"
+     },
+     {
+      "clueFragment": "women",
+      "gives": "W",
+      "note": "W is an abbreviation for women"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "being in means being at home"
+     },
+     {
+      "clueFragment": "cook",
+      "gives": "DO",
+      "note": "to do food is to cook it"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is an abbreviation for with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROSE",
+      "W",
+      "IN",
+      "DO",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "A light, lovely wine for women to cook with at home.",
+     "walkthrough": "'Light' reads as a light wine; in architecture a light is a window.",
+     "definitionFit": "A rose window is a circular stained-glass window in a church, a beautiful source of light."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1045,67 @@
     "text": "Infantry heading for trap track back",
     "enumeration": "6"
    },
-   "solution": "TROOPS"
+   "solution": "TROOPS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "TROOPS",
+    "definitions": [
+     {
+      "text": "Infantry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "the heading of a word is its opening letter"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the word is read from its end to its start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trap",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of trap"
+     },
+     {
+      "clueFragment": "track",
+      "gives": "SPOOR",
+      "note": "a spoor is the track left by an animal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ROOPS"
+     ],
+     "reversals": [
+      {
+       "from": "SPOOR",
+       "to": "ROOPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Foot soldiers heading off to lay a trap retrace the trail back.",
+     "definitionFit": "Troops are soldiers collectively, and infantry are the foot soldiers of an army."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "track"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1119,67 @@
     "text": "Blue material one ripped from behind roughly",
     "enumeration": "7"
    },
-   "solution": "EROTICA"
+   "solution": "EROTICA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EROTICA",
+    "definitions": [
+     {
+      "text": "Blue material",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from behind",
+      "for": "reversal",
+      "note": "read from behind, words are taken from their last letter to their first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "ripped",
+      "gives": "TORE",
+      "note": "past tense of tear"
+     },
+     {
+      "clueFragment": "roughly",
+      "gives": "CA",
+      "note": "ca is the abbreviation of circa, roughly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EROTI",
+      "CA"
+     ],
+     "reversals": [
+      {
+       "from": "ITORE",
+       "to": "EROTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's blue fabric trousers torn roughly at the back.",
+     "walkthrough": "'One ripped' is a little sentence, I TORE, which is then read backwards; blue here means smutty.",
+     "definitionFit": "Blue means sexually explicit, and erotica is literature or art of that sexual kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Blue"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1193,70 @@
     "text": "Fresh sardine sandwiches left for a Sardinian?",
     "enumeration": "8"
    },
-   "solution": "ISLANDER"
+   "solution": "ISLANDER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ISLANDER",
+    "definitions": [
+     {
+      "text": "a Sardinian?",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fresh",
+      "for": "anagram",
+      "note": "fresh means new, so these letters are made into a new arrangement"
+     },
+     {
+      "text": "sandwiches",
+      "for": "container",
+      "note": "a sandwich holds its filling between two slices, so the letters enclose the single piece"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sardine",
+      "gives": "SARDINE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "L",
+      "ANDER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SARDINE",
+       "gives": "ISANDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fresh sardine sandwiches left out for someone from Sardinia.",
+     "walkthrough": "The question mark flags a definition by example: a Sardinian is one kind of island-dweller.",
+     "definitionFit": "Sardinia is a Mediterranean island, so a native of it is an inhabitant of an island."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "sandwiches"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1270,71 @@
     "text": "Leader seeing champ's behind in guaranteed second",
     "enumeration": "7"
    },
-   "solution": "SUPREMO"
+   "solution": "SUPREMO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "SUPREMO",
+    "definitions": [
+     {
+      "text": "Leader",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "letter_selection",
+      "note": "a word's behind is its tail end, its final letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "seeing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guaranteed",
+      "gives": "SURE",
+      "note": "a synonym"
+     },
+     {
+      "clueFragment": "champ's",
+      "gives": "P",
+      "select": "last",
+      "note": "the last letter of champ"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "MO",
+      "note": "a mo is a moment, a second"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "P",
+      "RE",
+      "MO"
+     ]
+    },
+    "explanation": {
+     "surface": "The leader watches a champion's backside, sure of second place.",
+     "definitionFit": "A supremo is a person in overall charge, an informal word for a boss or chief."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1354,52 @@
      }
     ]
    },
-   "solution": "PICKSUP"
+   "solution": "PICKSUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PICKS UP",
+    "definitions": [
+     {
+      "text": "purchases",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elite",
+      "gives": "PICK",
+      "note": "the pick of the bunch is the elite"
+     },
+     {
+      "clueFragment": "'s",
+      "gives": "S",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "more expensive",
+      "gives": "UP",
+      "note": "prices that are up are higher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PICK",
+      "S",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "The rich buy pricier things.",
+     "definitionFit": "To pick up something is an informal way to buy it, so it matches the verb purchases."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "purchases"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1413,48 @@
     "text": "Son pooped, always shitting?",
     "enumeration": "6"
    },
-   "solution": "SWEARY"
+   "solution": "SWEARY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SWEARY",
+    "definitions": [
+     {
+      "text": "always shitting?",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "pooped",
+      "gives": "WEARY",
+      "note": "pooped is slang for exhausted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WEARY"
+     ]
+    },
+    "explanation": {
+     "surface": "A toddler son keeps soiling himself, apparently all the time.",
+     "walkthrough": "'Pooped' and 'shitting' push towards the toilet; pooped means tired, and the definition is someone who keeps saying 'shit'.",
+     "definitionFit": "Sweary describes someone given to frequent swearing, constantly saying words like 'shit', hence the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pooped"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1474,50 @@
      }
     ]
    },
-   "solution": "REDTAPE"
+   "solution": "REDTAPE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RED TAPE",
+    "definitions": [
+     {
+      "text": "Tiresome procedure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exercising",
+      "for": "anagram",
+      "note": "exercising gets something moving about, so these letters are stirred into new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dear pet",
+      "gives": "DEARPET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DEARPET",
+       "gives": "REDTAPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Walking a beloved dog is a tedious daily chore.",
+     "definitionFit": "Red tape is excessive bureaucratic formality, a wearisome set of official rules."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exercising"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1531,44 @@
     "text": "A little boy's terrified being swallowed alive",
     "enumeration": "6"
    },
-   "solution": "OYSTER"
+   "solution": "OYSTER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OYSTER",
+    "definitions": [
+     {
+      "text": "being swallowed alive",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "A little",
+      "for": "hidden_word",
+      "note": "only a little of the phrase is taken, a stretch of letters sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boy's terrified",
+      "gives": "OYSTER",
+      "note": "the letters straddling the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A small boy terrified of being eaten alive.",
+     "walkthrough": "The definition describes the answer's fate: these shellfish are traditionally eaten raw and still living.",
+     "definitionFit": "Raw oysters are customarily swallowed whole while still alive, so the creature is one being swallowed alive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "terrified"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1582,48 @@
     "text": "Bend over with cramp partly returning",
     "enumeration": "4"
    },
-   "solution": "ARCH"
+   "solution": "ARCH",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ARCH",
+    "definitions": [
+     {
+      "text": "Bend over",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "partly",
+      "for": "hidden_word",
+      "note": "only part of the phrase is used, a run of letters inside it"
+     },
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way you came, so the letters run right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with cramp",
+      "gives": "HCRA",
+      "note": "the letters straddling the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Doubling over in pain as a cramp comes back.",
+     "definitionFit": "To arch is to curve the body or a structure over into a bowed shape."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returning"
+    }
+   }
   },
   {
    "number": 24,
@@ -415,7 +1647,40 @@
      }
     ]
    },
-   "solution": "BADHAIRDAY"
+   "solution": "BADHAIRDAY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BAD HAIR DAY",
+    "definitions": [
+     {
+      "text": "Trouble solved by changing your locks?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trouble solved by changing your locks?",
+      "note": "surface reading: a security problem fixed by having a locksmith change the locks on your door"
+     },
+     {
+      "clueFragment": "changing your locks",
+      "note": "setter's reading: locks are tresses of hair, so the trouble is a day when your hairstyle won't behave"
+     }
+    ],
+    "explanation": {
+     "surface": "Fixing a break-in scare by getting new locks fitted on the door.",
+     "walkthrough": "Locks suggest doors and keys; they are strands of hair.",
+     "definitionFit": "The idiom names a day when one's hair looks unmanageable, and by extension any day where everything goes wrong."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "locks"
+    }
+   }
   },
   {
    "number": 25,
@@ -429,7 +1694,50 @@
     "text": "5-1 to the Germans produces mood",
     "enumeration": "4"
    },
-   "solution": "VEIN"
+   "solution": "VEIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VEIN",
+    "definitions": [
+     {
+      "text": "mood",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "produces"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "5",
+      "gives": "V",
+      "note": "V is the Roman numeral for five"
+     },
+     {
+      "clueFragment": "1 to the Germans",
+      "gives": "EIN",
+      "note": "ein is German for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "EIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Betting odds of five to one leave the Germans in a certain frame of mind.",
+     "walkthrough": "'5-1' looks like odds; it is two numbers translated separately.",
+     "definitionFit": "Vein can mean a mood or tone, as in speaking in a humorous vein."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "5-1"
+    }
+   }
   },
   {
    "number": 26,
@@ -443,7 +1751,58 @@
     "text": "Untidy ruin flattened when clearing the West End",
     "enumeration": "11"
    },
-   "solution": "DISHEVELLED"
+   "solution": "DISHEVELLED",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "DISHEVELLED",
+    "definitions": [
+     {
+      "text": "Untidy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clearing the West End",
+      "for": "deletion",
+      "note": "in a down-to-across reading the west end of a word is its left-hand end, and clearing it removes that letter"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ruin",
+      "gives": "DISH",
+      "note": "to dish someone's hopes is to ruin them"
+     },
+     {
+      "clueFragment": "flattened",
+      "gives": "LEVELLED",
+      "note": "made flat, a synonym"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISH",
+      "EVELLED"
+     ]
+    },
+    "explanation": {
+     "surface": "A ruined building flattened while London's West End was cleared.",
+     "walkthrough": "The West End sounds like the London theatre district; it is just the left-hand letter of a word.",
+     "definitionFit": "Dishevelled describes an untidy, messy appearance, especially of hair or clothes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "West"
+    }
+   }
   },
   {
    "number": 27,
@@ -457,7 +1816,43 @@
     "text": "Scenes of comedy, perhaps, which parliament provides",
     "enumeration": "3"
    },
-   "solution": "ACT"
+   "solution": "ACT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ACT",
+    "definitions": [
+     {
+      "text": "Scenes of comedy, perhaps",
+      "at": 0
+     },
+     {
+      "text": "which parliament provides",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scenes of comedy, perhaps",
+      "note": "first meaning: a main division of a play, made up of scenes"
+     },
+     {
+      "clueFragment": "which parliament provides",
+      "note": "second meaning: a law passed by a legislature"
+     }
+    ],
+    "explanation": {
+     "surface": "Parliament providing comic scenes, a familiar jibe at politicians.",
+     "definitionFit": "A play is divided into these units containing scenes, and parliament passes statutes of the same name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "comedy"
+    }
+   }
   },
   {
    "number": 28,
@@ -471,7 +1866,47 @@
     "text": "Soldiers in prison show remorse",
     "enumeration": "6"
    },
-   "solution": "REPENT"
+   "solution": "REPENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REPENT",
+    "definitions": [
+     {
+      "text": "show remorse",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldiers",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, a British army corps"
+     },
+     {
+      "clueFragment": "in prison",
+      "gives": "PENT",
+      "note": "pent means shut in or confined"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "PENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Imprisoned soldiers expressing regret for their crimes.",
+     "walkthrough": "'In prison' looks like a container signal, but it is a single piece meaning confined.",
+     "definitionFit": "To repent is to feel and express sorrow for wrongdoing, which is showing remorse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 29,
@@ -491,7 +1926,55 @@
      }
     ]
    },
-   "solution": "DRAWNEAR"
+   "solution": "DRAWNEAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DRAW NEAR",
+    "definitions": [
+     {
+      "text": "approach",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrong",
+      "for": "anagram",
+      "note": "something wrong is out of its proper order, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rwanda",
+      "gives": "RWANDA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "er",
+      "gives": "ER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RWANDAER",
+       "gives": "DRAWNEAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hesitant speaker admitting a mistaken policy towards Rwanda.",
+     "definitionFit": "To draw near is a phrasal verb for coming closer, a synonym of approach."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "approach"
+    }
+   }
   }
  ]
 }
