@@ -109,7 +109,7 @@ check "the night's own change survived" \
   "$(grep -c "the night's own work" APP.md)" "1"
 check "no markers left in the README" "$(grep -c '^<<<<<<< ' README.md)" "0"
 check "the corpus line was rebuilt, not picked" \
-  "$(grep -c '^\*\*Corpus\*\* — [0-9,]* puzzles across' README.md)" "1"
+  "$(grep -c '^\*\*Corpus\*\* — \(about \)\?[0-9,]* puzzles across' README.md)" "1"
 check "nothing left uncommitted" "$(git status --porcelain)" ""
 # index.html is stored unstamped and stamped only by the deploy workflow, so
 # the rebuild that resolves a conflict must not write a stamp into the commit.
