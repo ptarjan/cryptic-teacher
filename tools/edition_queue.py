@@ -10,14 +10,16 @@ edition's read and filing (read_unit), run in a process of its own, started
 as `python3 tools/edition_queue.py unit ...` (never forked from this one), so
 it runs the code its tree holds when it starts, with its own time limit (SCAN_SECONDS, READ_SECONDS) and its
 own lock on the edition (scan_queue.source_lock), adding its own ledger row
-(scan_queue.append). So one slow edition holds up only its own slot, and two
-queues (tools/ocr_full_pass.sh's and tools/gale_read.sh's) never read one
-edition twice.
+(scan_queue.append). So one slow edition holds up only its own slot, and no
+two units read one edition at once.
 
 What is due comes from file_archive_org_puzzles.plan(), every paper's, made
-again every REPLAN seconds, so an edition that lands mid-run (a Gale page
-Paul saved, an archive.org fetch) is started within about a minute. The
-most urgent first (plan's RANKS): Gale pages saved by hand, then never-read
+again every REPLAN seconds on a thread (a plan takes one to six minutes on
+the media mount). An edition just laid out (a Gale page Paul saved, an
+archive.org fetch: fresh) is found apart from it, every FRESH_POLL seconds
+on the dispatch loop, and its scan and read start ahead of everything
+planned, so it is read within minutes whatever the planner is doing. Then
+the most urgent first (plan's RANKS): Gale pages saved by hand, then never-read
 editions and the re-reads annotation asked for (tools/scan_queue.py), then
 the re-reads that can change what was filed (inputs moved, a fix for a
 refusal cause), then the whole-corpus ones (a scan-code change, --reread
@@ -74,6 +76,7 @@ A fetch unit loads only its source's module and that module's MODULES
 (FETCH_UNITS; under the same lock), what its fetch_unit reaches.
 """
 import argparse
+import datetime
 import hashlib
 import importlib
 import importlib.util
@@ -312,7 +315,9 @@ if _snapshot is not None:
 #: Listener pages Paul saves from Gale (tools/gale_listener.py), read one at
 #: a time (LISTENER_WORKERS: this host's Tesseract) within LISTENER_SECONDS.
 PAPERS = ["gale", "listener", "times", "telegraph", "guardian", "ft", "trove"]
-WORKERS = 20
+#: Reads at once: mostly waits on the desktop (mem_gate and desktop_room
+#: hold the rest back when either host is short of memory).
+WORKERS = 25
 TROVE_WORKERS = 6
 LISTENER_WORKERS = 1
 LISTENER_SECONDS = 1800
@@ -324,6 +329,9 @@ SCAN_SECONDS = 1200
 READ_SECONDS = 1200
 #: How often (seconds) the queue is planned again.
 REPLAN = 60
+#: How often (seconds) the dispatch loop looks for editions just laid out
+#: (fresh): a listing of the cache and a stat of each item dir, ~0.3s.
+FRESH_POLL = 30
 #: How long a stop waits for the units it TERMed before it KILLs them.
 STOP_GRACE = 30
 #: A unit's exit status: what read_unit/scan_unit/a fetcher's unit returned.
@@ -352,19 +360,18 @@ def log(line):
     print(f"{time.strftime('%H:%M:%S')} {line}", file=sys.stderr, flush=True)
 
 
-def plan(papers, cache=fa.CACHE, reread=None, newer=None, out=None):
+def plan(papers, cache=fa.CACHE, reread=None, out=None):
     """(scan units, read units) of every paper, each list most urgent
     first: by rank, then the paper's place in `papers`, then plan's order.
     A paper whose ledger a batch run holds throughout is left out (its units
-    could not add their rows). `newer` (a time.time()) keeps only the reads
-    of editions laid out since then and the scans they need."""
+    could not add their rows)."""
     if not _LOADED:
         dir_cache.load(DIR_CACHE)
         fa.load_held(HELD_CACHE)
         fa.load_likely(LIKELY_CACHE)
         _LOADED.append(True)
     try:
-        return _plan(papers, cache, reread, newer, out)
+        return _plan(papers, cache, reread, out)
     finally:
         dir_cache.save(DIR_CACHE)
         fa.save_held(HELD_CACHE)
@@ -386,7 +393,7 @@ LIKELY_CACHE = Path(os.path.expanduser("~/.cache/corpus_queue/likely.pickle"))
 _LOADED = []
 
 
-def _plan(papers, cache, reread, newer, out):
+def _plan(papers, cache, reread, out):
     asked = {}
     try:
         for req in scan_queue.all_open_requests():
@@ -401,9 +408,8 @@ def _plan(papers, cache, reread, newer, out):
     scans, reads = [], []
     for k, key in enumerate(papers):
         if key == "listener":
-            if newer is None:
-                reads += [(u["rank"], k, n, {**u, "kind": "read", "paper": "listener"})
-                          for n, u in enumerate(gale_listener.plan())]
+            reads += [(u["rank"], k, n, {**u, "kind": "read", "paper": "listener"})
+                      for n, u in enumerate(gale_listener.plan())]
             continue
         if key == "trove":
             led = ftp.CACHE / "filed.jsonl"
@@ -411,8 +417,7 @@ def _plan(papers, cache, reread, newer, out):
                 if out is not None:
                     out.append(f"trove: a run holds {led.with_suffix('.lock')}; left out")
                 continue
-            if newer is None:
-                reads += [(u["rank"], k, n, u) for n, u in enumerate(trove_plan(reread, asked.get("trove", ())))]
+            reads += [(u["rank"], k, n, u) for n, u in enumerate(trove_plan(reread, asked.get("trove", ())))]
             continue
         paper = fa.FILERS[key]
         if scan_queue.held(fa.ledger_of(cache, paper)):
@@ -420,13 +425,72 @@ def _plan(papers, cache, reread, newer, out):
                 out.append(f"{key}: a run holds {fa.ledger_of(cache, paper).with_suffix('.lock')}; left out")
             continue
         sc, rd = fa.plan(paper, cache, reread=reread, asked=asked.get(key, ()))
-        if newer is not None:
-            rd = [u for u in rd if fa.staged_at(Path(cache) / u["rel"]) >= newer]
-            need = {rel for u in rd for rel in u["needs"]}
-            sc = [u for u in sc if u["rel"] in need]
         scans += [(u["rank"], k, n, u) for n, u in enumerate(sc)]
         reads += [(u["rank"], k, n, u) for n, u in enumerate(rd)]
     return by_urgency(scans), by_urgency(reads)
+
+
+def fresh(papers, cache=fa.CACHE, now=None):
+    """(scan units, read units) of the editions of `papers` laid out in the
+    last fa.FRESH seconds with no reading of their current files, each the
+    latest laid out first, ranked fa.RANKS["just laid out"]; found without a
+    plan, so dispatch starts them ahead of everything planned however long
+    the planner takes. An edition is laid out by a rename or a mkdir in its
+    item dir, which moves the item, so only items moved within FRESH are
+    looked in. A read needs its own scan and those of the fresh editions
+    dated SOLUTION_DAYS after it (where its solution prints)."""
+    now = time.time() if now is None else now
+    cache = Path(cache)
+    try:
+        names = os.listdir(cache)
+    except OSError:
+        return [], []
+    rank = fa.RANKS["just laid out"]
+    scans, reads = [], []
+    for key in papers:
+        paper = fa.FILERS.get(key)
+        if paper is None:
+            continue
+        found, rows = [], None
+        for name in names:
+            if not any(p.item.match(name) for p in (paper, *paper.also)):
+                continue
+            try:
+                if now - (cache / name).stat().st_mtime > fa.FRESH:
+                    continue
+                editions = os.listdir(cache / name)
+            except OSError:
+                continue
+            for e in editions:
+                d = cache / name / e
+                try:
+                    staged = fa.staged_at(d)
+                except OSError:
+                    continue
+                if now - staged > fa.FRESH:
+                    continue
+                rows = fa.standing(paper, cache) if rows is None else rows
+                row = rows.get(f"{name}/{e}") or {}
+                if "inputs" not in row or row.get("filesHash") != fa.input_hash(d):
+                    found.append((staged, d))
+        found.sort(key=lambda t: t[0], reverse=True)
+        dirs = [d for _, d in found]
+        planned = fa._PLANNED_DIRS.get((str(cache), key))
+        if planned is not None and not set(dirs) <= set(planned):
+            # A read prepared here (brief) finds its solution among them.
+            fa._PLANNED_DIRS[(str(cache), key)] = [*planned, *(d for d in dirs if d not in set(planned))]
+        rel = {d: f"{d.parent.name}/{d.name}" for d in dirs}
+
+        def needs(d, dirs=dirs, rel=rel):
+            day = fa.edition_date(d)
+            after = [o for o in dirs if day and fa.edition_date(o)
+                     and day < fa.edition_date(o) <= day + datetime.timedelta(days=fa.SOLUTION_DAYS)]
+            return [rel[d]] + [rel[o] for o in after]
+        scans += [{"kind": "scan", "paper": key, "rel": rel[d], "rank": rank, "date": fa.day_of(d),
+                   "reason": "just laid out"} for d in dirs]
+        reads += [{"kind": "read", "paper": key, "rel": rel[d], "rank": rank, "date": fa.day_of(d),
+                   "reason": "just laid out", "needs": needs(d), "force": False} for d in dirs]
+    return scans, reads
 
 
 def by_urgency(units):
@@ -676,7 +740,7 @@ def desktop_room(reading, opened):
 
 
 def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=None, workers=WORKERS,
-             scan_workers=SCAN_WORKERS, newer=None, beside=None, read_seconds=READ_SECONDS,
+             scan_workers=SCAN_WORKERS, beside=None, read_seconds=READ_SECONDS,
              scan_seconds=SCAN_SECONDS, replan=REPLAN, fetch=(), trove_workers=TROVE_WORKERS, handoff=None,
              resume=None, fetch_replan=None, upkeep=None):
     """Run the queue until nothing due is left to start (or `seconds` have
@@ -708,6 +772,10 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     losses = {}  # key_of(unit): times it ended lost (EXITS["lost"])
     beside = [Beside(argv) for argv in beside or ()]
     scans = reads = fetches = []
+    # The editions just laid out (fresh), looked for every FRESH_POLL
+    # seconds on this loop, not the planner's thread, and started first.
+    fresh_scans = fresh_reads = []
+    fresh_at = None
     first = []  # scan units of reads whose own scan was stale when they were to start (start)
     planned = None  # when the plan in force was begun
     plan_done = None  # when it was made
@@ -715,7 +783,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     # The last plan is kept beside the hand-over, so a re-exec or the next
     # slice starts units from it at once while its own plan is made.
     plan_file = Path(f"{handoff or resume or f'/tmp/edition-queue-{os.getpid()}.json'}.plan")
-    plan_key = [list(papers), str(cache), reread and reread.isoformat(), newer, sorted(fetch)]
+    plan_key = [list(papers), str(cache), reread and reread.isoformat(), sorted(fetch)]
     plan_at = None  # when the plan in force was made (wall clock), once one is kept
     if handoff or resume:
         kept, plan_at = last_plan(plan_file, plan_key)
@@ -745,7 +813,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
     fetch_made = {}  # source: (when its plan was made, its units)
 
     def replan_all(notes=None):
-        sc, rd = plan(papers, cache, reread, newer, notes)
+        sc, rd = plan(papers, cache, reread, notes)
         live = [s for s in fetch if s not in stopped]
         for src in live:
             if src not in fetch_made or time.monotonic() - fetch_made[src][0] >= (
@@ -890,6 +958,9 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             code_checked = time.monotonic()
             if not any(b.busy() for b in beside) and any(digest(f) != h for f, h in code.items()):
                 reexec()
+        if may_start() and (fresh_at is None or time.monotonic() - fresh_at >= min(replan, FRESH_POLL)):
+            fresh_at = time.monotonic()
+            fresh_scans, fresh_reads = fresh(papers, cache)
         if may_start() and planner is None and (plan_done is None or time.monotonic() - plan_done >= replan):
             box = {"begun": time.monotonic(), "notes": []}
 
@@ -907,7 +978,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 # the thread at once after.
                 while upkept:
                     upkept.pop()()
-                box["plan"], box["partial"] = (*plan(papers, cache, reread, newer, box["notes"]), []), True
+                box["plan"], box["partial"] = (*plan(papers, cache, reread, box["notes"]), []), True
             elif planned is None:
                 make()
             else:
@@ -936,7 +1007,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         # was killed leaves the read for the next run); a days-after scan
         # still queued behind a full scan pool stands as last scanned.
         scanning = {(p, r) for k, p, r in busy if k == "scan"}
-        unscanned = {(u["paper"], u["rel"]) for u in scans + first} - scanned
+        unscanned = {(u["paper"], u["rel"]) for u in fresh_scans + scans + first} - scanned
         free = dict(pools)
         for _, (u, _) in units_running():
             free[slot_of(u)] = free.get(slot_of(u), 0) - 1
@@ -960,7 +1031,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         # The whole-corpus re-reads (fa.BLANKET) wait until nothing more
         # urgent is left to start, in any pool: new and fixed work first.
         urgent = any(u["rank"] < fa.BLANKET and key_of(u) not in tried and pools.get(slot_of(u))
-                     for u in scans + reads)
+                     for u in fresh_scans + fresh_reads + scans + reads)
         # A pass with no free slot starts nothing; and once a gate holds
         # one unit back it holds every later one (begun_now only grows), so
         # the gates are read at most once a unit begun, not once a unit due.
@@ -981,11 +1052,12 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             since the plan."""
             return (any((u["paper"], r) in scanning for r in u["needs"]) or (u["paper"], u["rel"]) in unscanned
                     or (u["reason"] in fa.STALE_SCAN and any((u["paper"], r) in rescanned for r in u["needs"])))
-        firsts = {key_of(u) for u in first}
+        # A fresh scan is never held for a backlog's reads (fed).
+        firsts = {key_of(u) for u in first + fresh_scans}
         ready = []
         heads = {}  # rank: the scans the next full read pool at that rank needs, or None (not full)
 
-        def fed(u, ready=ready, reads=reads, busy=busy, waits=waits, heads=heads):
+        def fed(u, ready=ready, reads=fresh_reads + reads, busy=busy, waits=waits, heads=heads):
             """Whether scan `u` only feeds a backlog: the next full read pool
             of ready reads ranked as it or more urgent, in the queue's order,
             are there and none needs it. Then its desktop CPU (scans run above
@@ -1000,7 +1072,8 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                                     if len(nxt) >= pools["read"] else None)
             needed = heads[u["rank"]]
             return needed is not None and (u["paper"], u["rel"]) not in needed
-        for u in first + scans + reads + fetches if any(v > 0 for v in free.values()) else ():
+        queue = first + fresh_scans + fresh_reads + scans + reads + fetches
+        for u in queue if any(v > 0 for v in free.values()) else ():
             if not may_start() or free[slot_of(u)] <= 0 or key_of(u) in tried:
                 continue
             if urgent and u["kind"] != "fetch" and u["rank"] >= fa.BLANKET:
@@ -1068,7 +1141,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
         if stop:
             break
         if handoff and not may_start() and not any(b.busy() for b in beside):
-            left = sum(key_of(u) not in tried for u in first + scans + reads + fetches) + len(running) + len(adopted)
+            left = sum(key_of(u) not in tried for u in queue) + len(running) + len(adopted)
             hand_over(handoff, units_running())
             keep_untried()
             log(f"slice over: {len(running) + len(adopted)} unit(s) handed over to the next run, still running")
@@ -1076,7 +1149,7 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
             adopted.clear()
             break
         if not running and not adopted and planner is None and not any(b.busy() for b in beside):
-            untried = sum(key_of(u) not in tried for u in first + scans + reads + fetches)
+            untried = sum(key_of(u) not in tried for u in queue)
             if not may_start():
                 left = untried + sum(b.again and not b.done for b in beside)
                 break
@@ -1086,9 +1159,11 @@ def dispatch(papers=PAPERS, cache=fa.CACHE, puzzles=None, reread=None, seconds=N
                 if plan_done is not None and any(digest(f) != h for f, h in code.items()):
                     reexec()
                 scans, reads, fetches = replan_all()
+                fresh_scans, fresh_reads = fresh(papers, cache)
+                fresh_at = time.monotonic()
                 fetches = [u for u in fetches if u["paper"] not in stopped]
                 planned = time.monotonic()
-                if all(key_of(u) in tried for u in first + scans + reads + fetches) and not any(b.again and not b.done
+                if all(key_of(u) in tried for u in first + fresh_scans + fresh_reads + scans + reads + fetches) and not any(b.again and not b.done
                                                                              for b in beside):
                     break
                 continue
@@ -1217,8 +1292,6 @@ def main(argv=None):
         p.add_argument("--paper", action="append", choices=PAPERS, help="default: every paper, in PAPERS order")
         p.add_argument("--cache", type=Path, default=fa.CACHE)
         p.add_argument("--reread", metavar="BEFORE", help="re-read every edition last read before BEFORE (ISO)")
-        p.add_argument("--newer-than", type=float, metavar="SECONDS",
-                       help="only the editions laid out in the last SECONDS (and the scans they need)")
         p.add_argument("--fetch", action="append", default=[], choices=sorted(FETCHERS),
                        help="this source's fetch units too, each source in a pool of its own")
     r = sub.choices["run"]
@@ -1241,12 +1314,12 @@ def main(argv=None):
         return unit_main(json.loads(os.environ["CT_EDITION_UNIT"]))
     papers = args.paper or PAPERS
     reread = scan_queue.when(args.reread)
-    newer = None if args.newer_than is None else time.time() - args.newer_than
     if args.cmd == "plan":
         notes = []
-        scans, reads = plan(papers, args.cache, reread, newer, notes)
+        scans, reads = plan(papers, args.cache, reread, notes)
         for n in notes:
             print(n)
+        print(f"{len(fresh(papers, args.cache)[1])} reads just laid out, started before any of these")
         for kind, units in (("scans", scans), ("reads", reads)):
             counts = {}
             for u in units:
@@ -1271,7 +1344,7 @@ def main(argv=None):
         for (src, reason), n in sorted(counts.items()):
             print(f"  {src:11s} {reason:22s} {n:6d}")
         return 0
-    return dispatch(papers, args.cache, args.out, reread, args.seconds, args.workers, args.scan_workers, newer,
+    return dispatch(papers, args.cache, args.out, reread, args.seconds, args.workers, args.scan_workers,
                     [shlex.split(b) for b in args.beside], fetch=args.fetch, trove_workers=args.trove_workers,
                     handoff=args.handoff, resume=args.resume,
                     # A re-exec onto new code keeps its slice's ledgers: their upkeep ran at the slice's start.

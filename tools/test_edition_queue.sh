@@ -6,7 +6,8 @@
 # only after the scans its solution needs, and a scan held while a read
 # pool of reads is ready; a slow unit killed at its own
 # limit without holding up the rest; a capped run saying what it left; and
-# a TERM passed on to the units?
+# a TERM passed on to the units; an edition just laid out (fresh) found
+# without a plan and started before every planned unit, even mid-plan?
 #
 #     bash tools/test_edition_queue.sh
 #
@@ -215,15 +216,43 @@ f.edition_dirs, f.input_hash, f.linked_solutions, f.text_headings = real[:4]
 f._HELD_PATH.clear()
 f._HELD_PATH.update(real[4])
 
-# ---- the queue's order across papers, and --newer-than
+# ---- the queue's order across papers
 os.utime(g2 / "pages.json", (time.time(), time.time()))
 scans, reads = eq.plan(["gale", "times"], cache, before)
 check("rank 0 first (Gale by hand), then never read, then the rest",
       ["1987-03-03", "1987-03-02", "1980-03-01_3", "1980-01-02_2", "1980-01-01_1"],
       [u["rel"].split("/")[1] for u in reads])
-scans, reads = eq.plan(["gale", "times"], cache, before, newer=time.time() - 60)
-check("--newer-than: only what was laid out since, and the scans it needs", (["1987-03-03"], ["1987-03-03"]),
-      ([u["rel"].split("/")[1] for u in reads], [u["rel"].split("/")[1] for u in scans]))
+check("edition_queue takes no --newer-than: one queue, the fresh ones first", False,
+      "--newer-than" in Path(eq.__file__).read_text())
+
+# ---- fresh(): the editions just laid out, found without a plan
+fc = T / "fresh-cache"
+now = time.time()
+def laid(item, name, staged):
+    d = fc / item / name
+    d.mkdir(parents=True)
+    (d / "pages.json").write_text("{}")
+    os.utime(d / "pages.json", (staged, staged))
+    return d
+gi = "GaleTimes1990UKEnglish"
+laid(gi, "1990-01-02", now - 10)
+laid(gi, "1990-01-03", now - 5)
+laid(gi, "1990-01-01", now - f.FRESH - 10)  # laid out before FRESH: the plan's
+done = laid(gi, "1990-01-04", now - 20)  # read with its current files
+q.append(fc / f.LEDGER_NAMES["gale"], [{"edition": f"{gi}/1990-01-04", "inputs": "x", "filesHash": f.input_hash(done)}])
+laid("NewsUK1980UKEnglish", "1980-01-05_1", now - 30)
+laid("NewsUK1981UKEnglish", "1981-01-05_1", now - 30)
+os.utime(fc / "NewsUK1981UKEnglish", (now - f.FRESH - 10, now - f.FRESH - 10))  # an item unmoved: not looked in
+fs, fr = eq.fresh(["gale", "listener", "times", "trove"], fc, now)
+check("fresh: never-read editions laid out within FRESH, any paper, latest laid out first",
+      [f"{gi}/1990-01-03", f"{gi}/1990-01-02", "NewsUK1980UKEnglish/1980-01-05_1"], [u["rel"] for u in fr])
+check("each a scan too, ranked just laid out (0), ahead of the never read",
+      ([u["rel"] for u in fr], {0}, {"just laid out"}, True),
+      ([u["rel"] for u in fs], {u["rank"] for u in fs + fr}, {u["reason"] for u in fs + fr},
+       f.RANKS["just laid out"] < f.RANKS["never read"]))
+check("a fresh read needs its own scan and the fresh days after it", [f"{gi}/1990-01-02", f"{gi}/1990-01-03"],
+      fr[1]["needs"])
+check("nothing once past FRESH", ([], []), eq.fresh(["gale", "times"], fc, now + f.FRESH + 60))
 with q.lock(cache / "filed-gale.jsonl"):
     notes = []
     scans, reads = eq.plan(["gale", "times"], cache, before, out=notes)
@@ -367,8 +396,9 @@ sys.exit({eq.EXITS!r}.get(outcome, 1))
 def fake(**kw):
     behaviour.write_text(json.dumps(kw))
 fake(sleep={"slow": 30})
+eq.fresh = lambda papers, cache=None: ([], [])  # the tests' temp editions are no fresh downloads
 def units(scans, reads):
-    return lambda papers, cache=None, reread=None, newer=None, out=None: (
+    return lambda papers, cache=None, reread=None, out=None: (
         [{"kind": "scan", "paper": "times", "rel": r, "rank": 1, "reason": "scan stale"} for r in scans],
         [{"kind": "read", "paper": "times", "rel": r, "rank": 1, "reason": "never read", "needs": n} for r, n in reads])
 eq.plan = units(["s1"], [("r1", ["s1"]), ("slow", []), ("r2", [])])
@@ -383,7 +413,7 @@ check("a unit past its limit is killed, the others not held up", (False, True, T
       (["end", "read", "slow"] in ev, ["end", "read", "r2"] in ev, time.monotonic() - t0 < 15))
 log.unlink()
 fake(sleep={"n1": 1.0})
-eq.plan = lambda papers, cache=None, reread=None, newer=None, out=None: (
+eq.plan = lambda papers, cache=None, reread=None, out=None: (
     [{"kind": "scan", "paper": "times", "rel": "b1", "rank": 3, "reason": "scan stale"}],
     [{"kind": "read", "paper": "times", "rel": r, "rank": 1, "reason": "never read", "needs": []} for r in ("n1", "n2")])
 with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
@@ -439,7 +469,7 @@ f.input_hash = hashes
 log.unlink()
 fake()
 calls = []
-def slow_replan(papers, cache=None, reread=None, newer=None, out=None):
+def slow_replan(papers, cache=None, reread=None, out=None):
     calls.append(time.monotonic())
     if len(calls) == 2:
         time.sleep(3)
@@ -453,12 +483,31 @@ starts = [float(line.split()[0]) for line in log.read_text().splitlines() if lin
 check("a slow replan does not hold up starts from the plan before it", (3, True),
       (len(starts), max(starts) - starts[0] < 2.5))
 log.unlink()
+fresh_unit = {"kind": "read", "paper": "times", "rel": "f1", "rank": 0, "reason": "just laid out", "needs": []}
+eq.plan = units([], [("b1", []), ("b2", [])])
+eq.fresh = lambda papers, cache=None: ([], [fresh_unit])
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=1, replan=0.2)
+starts = [line.split()[3] for line in log.read_text().splitlines() if line.split()[1] == "start"]
+check("an edition just laid out starts before the planned backlog, once", ["f1", "b1", "b2"], starts)
+log.unlink()
+calls = []
+eq.plan = slow_replan
+t_fresh = time.monotonic() + 0.5
+eq.fresh = lambda papers, cache=None: ([], [fresh_unit] if time.monotonic() > t_fresh else [])
+with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
+    eq.dispatch(["times"], cache, workers=1, replan=0.1)
+starts = {line.split()[3]: float(line.split()[0]) for line in log.read_text().splitlines() if line.split()[1] == "start"}
+check("one laid out mid-plan starts while the planner thread is still at it", (True, True),
+      ("f1" in starts, starts.get("f1", 99) < calls[1] + 3))
+eq.fresh = lambda papers, cache=None: ([], [])
+log.unlink()
 kept_ho = Path(os.environ["TMP"]) / "kept-handoff.json"
 eq.plan = units([], [("k1", []), ("k2", [])])
 with contextlib.redirect_stderr(io.StringIO()), contextlib.redirect_stdout(io.StringIO()):
     eq.dispatch(["times"], cache, workers=2, replan=0.1, handoff=kept_ho)
 log.unlink()
-def stalled(papers, cache=None, reread=None, newer=None, out=None):
+def stalled(papers, cache=None, reread=None, out=None):
     time.sleep(3)
     return [], []
 eq.plan = stalled
@@ -610,7 +659,7 @@ print(f"parent {{VERSION}} {{os.getpid()}}", file=sys.stderr, flush=True)
 eq.cpu_gate_reader = lambda: 0.0
 eq.mem_gate_reader = lambda: 1 << 40
 eq.UNIT_SCRIPT = {str(eq.UNIT_SCRIPT)!r}
-eq.plan = lambda papers, cache=None, reread=None, newer=None, out=None: (
+eq.plan = lambda papers, cache=None, reread=None, out=None: (
     [], [{{"kind": "read", "paper": "times", "rel": r, "rank": 1, "reason": "never read", "needs": []}}
          for r in ("long", "r1", "r2")])
 resume = sys.argv[sys.argv.index("--resume") + 1] if "--resume" in sys.argv else None

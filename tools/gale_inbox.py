@@ -37,10 +37,10 @@ scan's grid size; its sources-<key>.json is named for what the inbox holds
 for that date, so a file added or replaced changes the edition's files
 (input_hash, the first part of file_archive_org_puzzles.inputs_of) and makes
 that edition, and no other, due. An edition laid out in the last FRESH
-seconds is read within minutes: sync starts tools/gale_read.sh for it
-(fresh_unread), which files it under the Gale pages' own ledger
-(file_archive_org_puzzles.GALE); the full pass reads the rest, the Gale
-slices first.
+seconds is read within minutes by the full pass (tools/ocr_full_pass.sh),
+whose queue starts it ahead of everything planned (edition_queue.fresh) and
+files it under the Gale pages' own ledger (file_archive_org_puzzles.GALE);
+when no pass runs, sync starts one for it (kick).
 """
 import argparse
 import bisect
@@ -122,12 +122,12 @@ LOCK = MIRROR.parent / "sync.lock"
 #: A tick re-renders the checklist when the inbox moved, else this often,
 #: so a puzzle the full pass filed leaves it.
 RENDER_EVERY = 3600
-#: An edition laid out this recently is read by tools/gale_read.sh (READ_JOB),
-#: started by the tick that sees it unread; one laid out before is the full
-#: pass's. An hour covers a run that ended early or a host that was down.
-FRESH = 3600
-READ_JOB = TOOLS / "gale_read.sh"
-READ_LOG = Path(os.path.expanduser("~/.cache/gale_read.log"))
+#: An edition laid out this recently and unread is one the full pass's queue
+#: reads first (edition_queue.fresh); a tick that finds one while no pass
+#: runs starts the pass (kick) with TICK, from its own worktree.
+FRESH = fa.FRESH
+TICK = TOOLS / "corpus_queue.sh"
+TICK_LOG = Path(os.path.expanduser("~/.cache/corpus_queue/kick.log"))
 CACHE = fa.CACHE
 ITEM = "GaleTimes{}UKEnglish"
 #: An edition dir's name under ITEM.
@@ -634,7 +634,7 @@ def relink(pages, url):
     """Set a laid-out edition's pages.json "url" to `url` (an edition laid out
     before its document was named off its file), whole or not at all, its
     mtime kept: that is when the edition was laid out (staged_at), and an
-    edition only relinked is no fresh page for tools/gale_read.sh."""
+    edition only relinked is no fresh page (edition_queue.fresh)."""
     row = json.loads(pages.read_text())
     if row.get("url") == url:
         return
@@ -1181,21 +1181,31 @@ def fresh_unread(cache=CACHE, rows=None, now=None):
     return sorted(out)
 
 
-def start_reads(out=sys.stdout, job=READ_JOB, log=READ_LOG):
-    """Start `job` detached when a fresh edition waits to be read; a run
-    already reading keeps its tree's lease and the new start exits at once."""
+def kick(out=sys.stdout, tick=TICK, log=TICK_LOG):
+    """Start the full pass (`tick` tick, detached: corpus_queue.py tick from
+    its own worktree) when a fresh edition waits to be read and no pass
+    runs, so a page laid out between passes waits minutes, not for the
+    hourly tick. A running pass reads it first by itself; a held one stays
+    held (corpus_queue.py stop holds these reads too)."""
     waiting = fresh_unread()
     if not waiting:
         return None
+    import corpus_queue
+    if corpus_queue.running():
+        return None
+    if corpus_queue.load_state().get("held"):
+        print(f"{len(waiting)} fresh edition(s) wait, but the full pass is held "
+              "(corpus_queue.py release lets it start)", file=out)
+        return None
     log.parent.mkdir(parents=True, exist_ok=True)
-    # Without this tick's worktree marks, so the job takes a worktree of its
-    # own (tools/nightly_worktree.sh): this tree is reset every tick.
+    # Without this tick's worktree marks, so the tick takes its own worktree
+    # (tools/nightly_worktree.sh): this tree is reset every tick.
     env = {k: v for k, v in os.environ.items() if k not in ("CT_IN_WORKTREE", "CT_MAIN_CHECKOUT")}
     with open(log, "a") as f:
-        p = subprocess.Popen(["bash", str(job)], stdout=f, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL,
-                             start_new_session=True, close_fds=True, env=env)
-    print(f"started {job.name} (pid {p.pid}) for {len(waiting)} fresh edition(s): {', '.join(waiting[:5])}; "
-          f"log {log}", file=out)
+        p = subprocess.Popen(["bash", str(tick), "tick"], stdout=f, stderr=subprocess.STDOUT,
+                             stdin=subprocess.DEVNULL, start_new_session=True, close_fds=True, env=env)
+    print(f"no full pass runs: started {tick.name} tick (pid {p.pid}) for {len(waiting)} fresh edition(s): "
+          f"{', '.join(waiting[:5])}; log {log}", file=out)
     return p
 
 
@@ -1820,9 +1830,9 @@ def sync(out=sys.stdout, force=False):
     """One tick: sweep hand-downloaded Gale files into their inboxes;
     mirror the Times inbox and, when it moved, holds a file not matched yet
     (unread) or RENDER_EVERY passed, stage it and publish the progress
-    page; then the Listener's (gale_listener.tick); then start the reads of
-    the editions just laid out, by stage or tools/gale_fetch.py
-    (start_reads), and keep the Mac's arrival watcher installed
+    page; then the Listener's (gale_listener.tick); then start the full
+    pass if none runs to read the editions just laid out, by stage or
+    tools/gale_fetch.py (kick), and keep the Mac's arrival watcher installed
     (install_watcher). Skipped when another sync is running."""
     import gale_listener  # imports this module, so not at the top
     with locked(wait=False) as mine:
@@ -1838,7 +1848,7 @@ def sync(out=sys.stdout, force=False):
         finally:
             _TICK_HELD.clear()
             dir_cache.save(DIR_CACHE)
-    start_reads(out)
+    kick(out)
     install_watcher(out)
 
 

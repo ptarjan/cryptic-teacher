@@ -103,7 +103,7 @@ under "SOLUTION No. 18,339". Its numbers run on into our telegraph series
 
 --paper gale reads the Times pages Paul saves from Gale's Times Digital
 Archive (tools/gale_inbox.py lays each date out as
-GaleTimes<year>UKEnglish/<date>; tools/gale_read.sh reads them minutes
+GaleTimes<year>UKEnglish/<date>; tools/edition_queue.py reads them minutes
 after they land), under a ledger of its own (downloads.GALE_LEDGER). A Gale
 page has no archive.org text, so READERS read its whole ink for the title
 (ocr_headings); each solution heading is read again in its own band
@@ -3908,10 +3908,19 @@ def staged_at(d):
     return (d / "pages.json").stat().st_mtime
 
 
+#: An edition laid out this recently (staged_at) with no reading of its
+#: current files is "just laid out": a download or a Gale page Paul saved,
+#: which tools/edition_queue.py finds without a plan (fresh) and reads before
+#: anything planned. An hour covers a queue that was down a while.
+FRESH = 3600
+
+
 # ------------------------------------------------------------ the per-edition queue
 
 #: How urgent each reason to read an edition is (tools/edition_queue.py
-#: takes the lowest first): 0 pages Paul saved by hand; 1 any other
+#: takes the lowest first): 0 pages Paul saved by hand, and any edition
+#: just laid out (edition_queue.fresh, started ahead of the rank's planned
+#: units); 1 any other
 #: never-read edition and annotation's asks; 2 a re-read that can change
 #: what it filed: its inputs or titles moved, it was read without the VLM,
 #: a fix landed for what it refused, or its solution read short by other
@@ -3921,7 +3930,7 @@ def staged_at(d):
 #: does a read by another VLM version (a model or prompt change).
 #: Within a rank, the reads likely() predicts to file the most puzzles
 #: whole go first. Every reason due_reason or plan gives is named here.
-RANKS = {"saved by hand": 0, "never read": 1, "annotation asked": 1, "inputs changed": 2, "titles changed": 2,
+RANKS = {"just laid out": 0, "saved by hand": 0, "never read": 1, "annotation asked": 1, "inputs changed": 2, "titles changed": 2,
          "solution moved": 2, "read without the VLM": 2, "solution short, read by other code": 2,
          **{f"refused {c} before its fix": 2 for c in REFUSALS}, "scan stale, answers missing": 2,
          "scan stale, answers linked": 2, "scan stale": 3, "--reread": 3,

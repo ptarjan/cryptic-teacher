@@ -10,15 +10,21 @@
 # edition's scan, an edition's or a Trove article's read and filing, an
 # archive.org edition's or a Trove article's (or its clue zones') fetch,
 # each with its own time limit and lock and its own ledger row, in pools of
-# their own, the most urgent first (Gale pages saved by hand, then the
-# never-read, then the re-reads) and planned again every minute, so new
-# input waits minutes, not behind hours of re-reads, and a slow unit holds
-# up only its own slot. A fetch never waits on a read nor a read on it.
+# their own, the most urgent first (an edition just laid out, a Gale page
+# Paul saved or an archive.org fetch, then the never-read newest first,
+# then the targeted re-reads, then the whole-corpus ones) and planned again
+# every minute, the editions just laid out looked for apart from the plan
+# (edition_queue.fresh), so new input is read within minutes, not behind
+# hours of re-reads, and a slow unit holds up only its own slot. A fetch
+# never waits on a read nor a read on it.
 #
 #     (started by: python3 tools/corpus_queue.py tick, hourly, whenever no
-#     corpus job runs; `corpus_queue.py adopt PID` claims one started by hand)
+#     corpus job runs, and by tools/gale_inbox.py sync (kick) within minutes
+#     of a Gale page laid out while none runs; `corpus_queue.py adopt PID`
+#     claims one started by hand)
 #
-# This is the one standing corpus job. It takes no edition list: the filers
+# This is the one standing corpus job and the only OCR runner: a held pass
+# (corpus_queue.py stop) holds the fresh pages' reads too. It takes no edition list: the filers
 # decide what is due, so running it again is always safe and a pass with
 # nothing due ends in minutes. A source read while the VLM was down is read
 # again by the first pass after it answers.
@@ -90,11 +96,11 @@ GRACE=1800
 # so most of each worker's time is a wait on it: this host keeps the scans'
 # headings, the Trove filer's parsing and the filing, at nice 19, one OCR
 # thread a worker. Whatever is read here (the desktop off or gaming) holds
-# one of ocr_remote's LOCAL_SLOTS (a third of the cores) host-wide, so the 20 workers
+# one of ocr_remote's LOCAL_SLOTS (a third of the cores) host-wide, so the 25 workers
 # never put 20 reads on this 4-core host.
 export OCR_REMOTE="${OCR_REMOTE-micro@192.168.1.198,micro@100.68.145.15}"
 export OCR_THREADS="${OCR_THREADS:-1}"
-WORKERS="${OCR_FULL_PASS_WORKERS:-20}"
+WORKERS="${OCR_FULL_PASS_WORKERS:-25}"
 # The last change to the scan filers that should alter past readings: a
 # printed solution grid's frame found beside a heavy edge column, and a
 # numbered cell's letter vetoed only by its read with the number blanked
@@ -209,7 +215,8 @@ finish() {  # finish <rc>: say so and exit
 # filed where grid and clues agree, and the checklist published):
 # an edition's scan, an edition's or article's read and filing, or a fetch,
 # each in a process of its own with its own time limit and lock, adding its
-# own ledger row, the most urgent first: the Gale pages Paul saved, then
+# own ledger row, the most urgent first: the editions just laid out, then
+# the Gale pages Paul saved, then
 # the never-read and the re-reads annotation asked for, then those whose
 # inputs moved, then the re-reads REREAD_BEFORE makes due. The queue is
 # planned again every minute, so a source that lands mid-slice is read

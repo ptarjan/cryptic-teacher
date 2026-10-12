@@ -1,7 +1,8 @@
 #!/bin/bash
 # The long run of tools/gale_fetch.py: every Times page the wanted list
 # (gale_inbox.wanted) still lacks, downloaded at a hand's pace and laid out
-# at once as its date's edition, which tools/gale_read.sh files. Started by
+# at once as its date's edition, which the full pass's queue files first
+# (tools/edition_queue.py fresh). Started by
 # hand through track-job (--restart: every row it already got is skipped,
 # so a restart resumes):
 #
