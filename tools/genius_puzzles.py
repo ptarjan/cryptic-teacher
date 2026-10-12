@@ -782,6 +782,10 @@ JIGSAW = {
 }
 
 
+#: A puzzle the Guardian re-posted years late, so its URL carries the re-post date:
+#: the day its article page datePublished gives instead.
+DATED = {2: "2003-07-30"}  # url 2016/feb/04/genius-crossword-2; page published 2003-07-30
+
 #: A Genius the schema cannot hold yet, and why: assemble() reports it so
 #: rather than as the reader's first complaint about it.
 SCHEMA_GAP = {
@@ -1258,7 +1262,7 @@ def file(write=True, numbers=None, log=print):
                 counts["parsed"] += 1
             if pdf["grid"] and not fpp.grid_matches(pdf["grid"], pdf["clues"]):
                 counts["grid consistent with clues"] += 1
-            date = datetime.date.fromisoformat(idx[str(n)]["date"])
+            date = datetime.date.fromisoformat(DATED.get(n, idx[str(n)]["date"]))
             puzzle, why = assemble(n, pdf, posts.get(n), date, idx[str(n)]["url"])
             if why and why[0] in ALTERABLE:
                 alt, also = assemble_altered(n, pdf, posts.get(n), date, idx[str(n)]["url"])
