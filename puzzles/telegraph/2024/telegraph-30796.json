@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,48 @@
     "text": "Sure is baffled regularly",
     "enumeration": "4"
    },
-   "solution": "SAFE"
+   "solution": "SAFE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SAFE",
+    "definitions": [
+     {
+      "text": "Sure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every second letter of the phrase is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is baffled",
+      "gives": "SAFE",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAFE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone confidently states that a person is baffled.",
+     "definitionFit": "Safe as in 'a safe bet' means certain, a synonym of sure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "baffled"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +90,50 @@
     "text": "His raft's damaged sea creature",
     "enumeration": "8"
    },
-   "solution": "STARFISH"
+   "solution": "STARFISH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STARFISH",
+    "definitions": [
+     {
+      "text": "sea creature",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "damaged",
+      "for": "anagram",
+      "note": "something damaged is knocked out of shape, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "His raft's",
+      "gives": "HISRAFTS",
+      "note": "the letters of both words, including the S"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HISRAFTS",
+       "gives": "STARFISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor's raft has been wrecked by some marine animal.",
+     "definitionFit": "A starfish is a star-shaped echinoderm living on the seabed, an example of a sea creature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "damaged"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +147,61 @@
     "text": "Habitual worry about monarch losing heart",
     "enumeration": "8"
    },
-   "solution": "FREQUENT"
+   "solution": "FREQUENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "FREQUENT",
+    "definitions": [
+     {
+      "text": "Habitual",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing heart",
+      "for": "deletion",
+      "note": "the heart of a word is its central letter, and losing it removes that letter"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one word wraps round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "worry",
+      "gives": "FRET",
+      "note": "to fret is to worry"
+     },
+     {
+      "clueFragment": "monarch",
+      "gives": "QUEN",
+      "note": "QUEEN with its middle E removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRE",
+      "QUEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A habitual worrier frets over a king who has lost courage.",
+     "walkthrough": "Monarch suggests a king, but the queen is needed; losing heart reads as despair, not a missing letter.",
+     "definitionFit": "A frequent visitor is a regular or habitual one, so the adjectives are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +215,59 @@
     "text": "Maybe koalas, kangaroos, rails and pumas mixing",
     "enumeration": "10"
    },
-   "solution": "MARSUPIALS"
+   "solution": "MARSUPIALS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MARSUPIALS",
+    "definitions": [
+     {
+      "text": "Maybe koalas, kangaroos",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixing",
+      "for": "anagram",
+      "note": "mixing stirs things together so the letters come out in a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rails",
+      "gives": "RAILS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pumas",
+      "gives": "PUMAS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RAILSPUMAS",
+       "gives": "MARSUPIALS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A list of animals — koalas, kangaroos, rails and pumas — all mingling together.",
+     "walkthrough": "'Maybe' marks koalas and kangaroos as examples; the rails (birds) and pumas are just letters to rearrange.",
+     "definitionFit": "Koalas and kangaroos are pouched mammals, examples of the group that carries young in a pouch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rails"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +281,48 @@
     "text": "Initially overlooked ship's passage",
     "enumeration": "5"
    },
-   "solution": "ALLEY"
+   "solution": "ALLEY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ALLEY",
+    "definitions": [
+     {
+      "text": "passage",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially overlooked",
+      "for": "deletion",
+      "note": "the initial letter is overlooked, that is left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ship's",
+      "gives": "ALLEY",
+      "note": "GALLEY, an oared ship, without its first letter G"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALLEY"
+     ]
+    },
+    "explanation": {
+     "surface": "A ship's passageway went unnoticed at first.",
+     "walkthrough": "A galley is an old oared ship; the 's simply joins ship to the definition.",
+     "definitionFit": "An alley is a narrow walkway between buildings, a synonym of passage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "overlooked"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +336,67 @@
     "text": "Covered frame far side of boulder supporting stone carver",
     "enumeration": "9"
    },
-   "solution": "STRETCHER"
+   "solution": "STRETCHER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STRETCHER",
+    "definitions": [
+     {
+      "text": "Covered frame",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "far side of",
+      "for": "letter_selection",
+      "note": "the far side of a word is its last letter"
+     },
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down answer, a piece supporting another sits beneath it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stone",
+      "gives": "ST",
+      "note": "st is the abbreviation for stone, the weight"
+     },
+     {
+      "clueFragment": "boulder",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of boulder"
+     },
+     {
+      "clueFragment": "carver",
+      "gives": "ETCHER",
+      "note": "an etcher carves lines into metal or glass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "R",
+      "ETCHER"
+     ]
+    },
+    "explanation": {
+     "surface": "A sculptor's covered frame stands on the far side of a boulder.",
+     "walkthrough": "A stone is a British unit of weight, 14 pounds. R goes under ST, then the carver follows.",
+     "definitionFit": "A stretcher is a wooden frame over which canvas is pulled, or a covered frame for carrying the injured."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stone"
+    }
+   }
   },
   {
    "number": 6,
@@ -122,7 +416,56 @@
      }
     ]
    },
-   "solution": "PONYEXPRESS"
+   "solution": "PONYEXPRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PONY EXPRESS",
+    "definitions": [
+     {
+      "text": "Old mail system",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Post Office",
+      "gives": "PO",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "New York",
+      "gives": "NY",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "EXPRESS",
+      "note": "to state is to express"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "NY",
+      "EXPRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A description of an old postal network run by the Post Office in New York state.",
+     "walkthrough": "'New York state' reads as one place, but state is a verb meaning put into words.",
+     "definitionFit": "The Pony Express was the 1860s American horseback relay that carried letters across the West."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 7,
@@ -136,7 +479,65 @@
     "text": "Fly advanced by using wings in time",
     "enumeration": "6"
    },
-   "solution": "AVIATE"
+   "solution": "AVIATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AVIATE",
+    "definitions": [
+     {
+      "text": "Fly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wings",
+      "for": "letter_selection",
+      "note": "the wings of a word are its two outermost letters"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "advanced",
+      "gives": "A",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "by using",
+      "gives": "VIA",
+      "note": "via means by way of or by using"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "TE",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "VIA",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to fly forward using wings at the right moment.",
+     "walkthrough": "'wings' suggests flying, but it picks the outer letters of time.",
+     "definitionFit": "To aviate is to pilot an aircraft, a formal synonym of the verb fly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wings"
+    }
+   }
   },
   {
    "number": 8,
@@ -150,7 +551,55 @@
     "text": "Land sown intermittently, bountiful place",
     "enumeration": "6"
    },
-   "solution": "SWEDEN"
+   "solution": "SWEDEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SWEDEN",
+    "definitions": [
+     {
+      "text": "Land",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "intermittently",
+      "for": "letter_selection",
+      "note": "intermittently means on and off, so only every other letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sown",
+      "gives": "SW",
+      "select": "alternate",
+      "note": "first and third letters"
+     },
+     {
+      "clueFragment": "bountiful place",
+      "gives": "EDEN",
+      "note": "the Garden of Eden, a paradise of plenty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SW",
+      "EDEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Farmland sown in patches is a place of plenty.",
+     "definitionFit": "Sweden is a Scandinavian country, and land is a common word for a nation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Land"
+    }
+   }
   },
   {
    "number": 9,
@@ -164,7 +613,42 @@
     "text": "Name of man taking part in oral exam",
     "enumeration": "4"
    },
-   "solution": "ALEX"
+   "solution": "ALEX",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ALEX",
+    "definitions": [
+     {
+      "text": "Name of man",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking part in",
+      "for": "hidden_word",
+      "note": "to take part in is to be a portion of, so the letters are a portion of the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oral exam",
+      "gives": "ALEX",
+      "note": "found across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A man's name is called during a spoken examination.",
+     "definitionFit": "Alex is a common male first name, short for Alexander."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "oral"
+    }
+   }
   },
   {
    "number": 10,
@@ -178,7 +662,62 @@
     "text": "Nice to receive teaching books from Italy",
     "enumeration": "10"
    },
-   "solution": "FLORENTINE"
+   "solution": "FLORENTINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FLORENTINE",
+    "definitions": [
+     {
+      "text": "from Italy",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to receive",
+      "for": "container",
+      "note": "to receive is to take in, so one word goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nice",
+      "gives": "FINE",
+      "note": "nice and fine both mean pleasant"
+     },
+     {
+      "clueFragment": "teaching",
+      "gives": "LORE",
+      "note": "lore is a body of teaching or knowledge"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "the New Testament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LORENT",
+      "INE"
+     ]
+    },
+    "explanation": {
+     "surface": "The French city of Nice takes in schoolbooks sent from Italy.",
+     "walkthrough": "Nice looks like the French city, which makes 'from Italy' feel like travel; here it is just the adjective.",
+     "definitionFit": "Florentine means of Florence, so it describes a person or thing from that Italian city; the definition is loose."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Nice"
+    }
+   }
   },
   {
    "number": 11,
@@ -192,7 +731,48 @@
     "text": "Factory located by railway",
     "enumeration": "7"
    },
-   "solution": "FOUNDRY"
+   "solution": "FOUNDRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FOUNDRY",
+    "definitions": [
+     {
+      "text": "Factory",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "located",
+      "gives": "FOUND",
+      "note": "to locate something is to find it"
+     },
+     {
+      "clueFragment": "railway",
+      "gives": "RY",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOUND",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A factory has been sited next to the railway line.",
+     "definitionFit": "A foundry is a works where metal is cast, a type of factory."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -206,7 +786,54 @@
     "text": "Damaging land, termite going berserk",
     "enumeration": "11"
    },
-   "solution": "DETRIMENTAL"
+   "solution": "DETRIMENTAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DETRIMENTAL",
+    "definitions": [
+     {
+      "text": "Damaging",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going berserk",
+      "for": "anagram",
+      "note": "something gone berserk is wild and disordered, so the letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "land",
+      "gives": "LAND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "termite",
+      "gives": "TERMITE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LANDTERMITE",
+       "gives": "DETRIMENTAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A termite running amok is ruining the land.",
+     "definitionFit": "Detrimental means causing harm, a synonym of damaging."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -220,7 +847,51 @@
     "text": "Temperature warm with respect to part of hospital",
     "enumeration": "7"
    },
-   "solution": "THEATRE"
+   "solution": "THEATRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THEATRE",
+    "definitions": [
+     {
+      "text": "part of hospital",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Temperature",
+      "gives": "T",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "warm",
+      "gives": "HEAT",
+      "note": "to warm is to heat"
+     },
+     {
+      "clueFragment": "with respect to",
+      "gives": "RE",
+      "note": "re means concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HEAT",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "A note about patients' temperatures and keeping warm in a hospital ward.",
+     "definitionFit": "The operating theatre is the room in a hospital where surgery is done."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -234,7 +905,61 @@
     "text": "Treason's brewing in office of governor",
     "enumeration": "11"
    },
-   "solution": "SENATORSHIP"
+   "solution": "SENATORSHIP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SENATORSHIP",
+    "definitions": [
+     {
+      "text": "office of governor",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brewing",
+      "for": "anagram",
+      "note": "brewing means stirring up, so the letters are cooked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Treason's",
+      "gives": "TREASONS",
+      "note": "the letters including the S"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "HIP",
+      "note": "in and hip both mean fashionable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SENATORS",
+      "HIP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TREASONS",
+       "gives": "SENATORS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Treachery is being plotted inside the governor's office.",
+     "walkthrough": "'in' looks like a placement word, but it is the adjective meaning trendy.",
+     "definitionFit": "A senatorship is the post of a senator, a member of a governing body, so it is loosely an office of one who governs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 15,
@@ -248,7 +973,51 @@
     "text": "New Labour's tone is freshly oriented",
     "enumeration": "9"
    },
-   "solution": "RECENTRED"
+   "solution": "RECENTRED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RECENTRED",
+    "definitions": [
+     {
+      "text": "freshly oriented",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New",
+      "gives": "RECENT",
+      "note": "new and recent are synonyms"
+     },
+     {
+      "clueFragment": "Labour's tone",
+      "gives": "RED",
+      "note": "red is the colour of Britain's Labour Party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RECENT",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "A political remark that New Labour's message has been repositioned.",
+     "walkthrough": "New Labour was Tony Blair's rebranding of the British Labour Party; here 'New' splits off as its own piece.",
+     "definitionFit": "To recentre is to move to a new centre or focus, so recentred means given a fresh orientation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "New"
+    }
+   }
   },
   {
    "number": 16,
@@ -262,7 +1031,60 @@
     "text": "Family in drama about places occupied by the French",
     "enumeration": "8"
    },
-   "solution": "CAPULETS"
+   "solution": "CAPULETS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CAPULETS",
+    "definitions": [
+     {
+      "text": "Family in drama",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occupied by",
+      "for": "container",
+      "note": "a space occupied by something has that thing sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "CA",
+      "note": "circa, abbreviated"
+     },
+     {
+      "clueFragment": "places",
+      "gives": "PUTS",
+      "note": "to place is to put"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "the French word for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "PULETS"
+     ]
+    },
+    "explanation": {
+     "surface": "A theatrical family moves round venues taken over by French people.",
+     "walkthrough": "'about' is not an indicator here but circa, abbreviated as in dates.",
+     "definitionFit": "The Capulets are Juliet's household in Shakespeare's Romeo and Juliet, the family feuding with the Montagues."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "places"
+    }
+   }
   },
   {
    "number": 17,
@@ -276,7 +1098,66 @@
     "text": "Joined fellows inside church then attend regularly",
     "enumeration": "8"
    },
-   "solution": "CEMENTED"
+   "solution": "CEMENTED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CEMENTED",
+    "definitions": [
+     {
+      "text": "Joined",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so alternate letters are kept"
+     }
+    ],
+    "linkWords": [
+     "inside",
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "Church of England"
+     },
+     {
+      "clueFragment": "fellows",
+      "gives": "MEN",
+      "note": "fellows are men"
+     },
+     {
+      "clueFragment": "attend",
+      "gives": "TED",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CE",
+      "MEN",
+      "TED"
+     ]
+    },
+    "explanation": {
+     "surface": "Men joined the church and then became regular churchgoers.",
+     "walkthrough": "'inside' is loose here: the fellows simply follow the church abbreviation rather than sitting within it.",
+     "definitionFit": "Cemented means bound firmly together, as with mortar, so it is a synonym of joined."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 18,
@@ -290,7 +1171,74 @@
     "text": "Put away at home, case keeping bow close to fiddle",
     "enumeration": "11"
    },
-   "solution": "INCARCERATE"
+   "solution": "INCARCERATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "INCARCERATE",
+    "definitions": [
+     {
+      "text": "Put away",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its ending, so only its last letter is taken"
+     },
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "something keeping another holds it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "being in means being at home"
+     },
+     {
+      "clueFragment": "bow",
+      "gives": "ARC",
+      "note": "a bow is a curve, an arc"
+     },
+     {
+      "clueFragment": "fiddle",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter"
+     },
+     {
+      "clueFragment": "case",
+      "gives": "CRATE",
+      "note": "a crate is a packing case"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "C",
+      "ARCE",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A violinist stores the instrument at home, its bow kept in a case next to the fiddle.",
+     "walkthrough": "Bow and fiddle make a violin scene, but bow is a curve here and the fiddle gives only one letter.",
+     "definitionFit": "To put away a criminal is to imprison them, and to incarcerate means to jail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bow"
+    }
+   }
   },
   {
    "number": 19,
@@ -304,7 +1252,61 @@
     "text": "Step in non-revolutionary chess openings",
     "enumeration": "6"
    },
-   "solution": "SPACES"
+   "solution": "SPACES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SPACES",
+    "definitions": [
+     {
+      "text": "openings",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "non-revolutionary",
+      "for": "deletion",
+      "note": "non- means without, and the revolutionary is crossword shorthand for Che Guevara, so his name is removed"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts one word inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Step",
+      "gives": "PACE",
+      "note": "a pace is a step"
+     },
+     {
+      "clueFragment": "chess",
+      "gives": "SS",
+      "note": "CHESS minus CHE"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PACE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice about a move within conservative chess openings.",
+     "walkthrough": "'chess openings' looks like first letters of chess, but openings is the definition and the deletion takes out CHE.",
+     "definitionFit": "Spaces are gaps or openings, so the plural nouns are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "openings"
+    }
+   }
   },
   {
    "number": 20,
@@ -318,7 +1320,62 @@
     "text": "Gas energy filling one article with another",
     "enumeration": "6"
    },
-   "solution": "ETHANE"
+   "solution": "ETHANE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ETHANE",
+    "definitions": [
+     {
+      "text": "Gas",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filling",
+      "for": "container",
+      "note": "filling one thing with another means putting the second inside the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "one article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "AN",
+      "note": "the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "TH",
+      "AN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Pumping energy into a story by mixing one article with another.",
+     "walkthrough": "E is followed by TH(AN)E: the first article is filled with the second.",
+     "definitionFit": "Ethane is a colourless flammable hydrocarbon found in natural gas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "filling"
+    }
+   }
   },
   {
    "number": 21,
@@ -332,7 +1389,64 @@
     "text": "Form of bug going round, one that flies",
     "enumeration": "7"
    },
-   "solution": "PATTERN"
+   "solution": "PATTERN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PATTERN",
+    "definitions": [
+     {
+      "text": "Form",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going round",
+      "for": "reversal",
+      "note": "going round means turning about, so the word is read the other way"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bug",
+      "gives": "TAP",
+      "note": "to bug a phone is to tap it"
+     },
+     {
+      "clueFragment": "one that flies",
+      "gives": "TERN",
+      "note": "the tern is a seabird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAT",
+      "TERN"
+     ],
+     "reversals": [
+      {
+       "from": "TAP",
+       "to": "PAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The shape of an insect circling, a flying one.",
+     "walkthrough": "'bug' wants to be an insect beside 'flies', but it means wiretap.",
+     "definitionFit": "A pattern is a shape or model, and form is a synonym in that sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bug"
+    }
+   }
   },
   {
    "number": 22,
@@ -346,7 +1460,60 @@
     "text": "Bearing uniform, soldiers on station",
     "enumeration": "7"
    },
-   "solution": "POSTURE"
+   "solution": "POSTURE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POSTURE",
+    "definitions": [
+     {
+      "text": "Bearing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across answer, one piece on another comes after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "station",
+      "gives": "POST",
+      "note": "a post is a station, as in a guard's post"
+     },
+     {
+      "clueFragment": "uniform",
+      "gives": "U",
+      "note": "U in the NATO alphabet"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "the Royal Engineers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POST",
+      "U",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "Uniformed soldiers carry themselves smartly at their station.",
+     "walkthrough": "The Royal Engineers are a British army corps, abbreviated RE.",
+     "definitionFit": "Posture is the way one holds one's body, and bearing is a synonym for carriage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uniform"
+    }
+   }
   },
   {
    "number": 22,
@@ -360,7 +1527,42 @@
     "text": "Writing experts in conversation",
     "enumeration": "5"
    },
-   "solution": "PROSE"
+   "solution": "PROSE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PROSE",
+    "definitions": [
+     {
+      "text": "Writing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in conversation",
+      "for": "homophone",
+      "note": "in conversation means as spoken, so the word is judged by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "experts",
+      "gives": "PROSE",
+      "soundsLike": "PROS",
+      "note": "pros are professionals, experts"
+     }
+    ],
+    "explanation": {
+     "surface": "Professionals talking about the craft of writing.",
+     "definitionFit": "Prose is ordinary written language as opposed to verse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -374,7 +1576,64 @@
     "text": "Alice's dining companion in cold buffet is one known to rabbit",
     "enumeration": "10"
    },
-   "solution": "CHATTERBOX"
+   "solution": "CHATTERBOX",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHATTERBOX",
+    "definitions": [
+     {
+      "text": "one known to rabbit",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one item inside the letters of the others"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "Alice's dining companion",
+      "gives": "HATTER",
+      "note": "the Mad Hatter hosts Alice at his tea party"
+     },
+     {
+      "clueFragment": "buffet",
+      "gives": "BOX",
+      "note": "to buffet is to strike, to box"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HATTER",
+      "BOX"
+     ]
+    },
+    "explanation": {
+     "surface": "Alice's tea-party guest at a cold buffet chats with the White Rabbit.",
+     "walkthrough": "Buffet looks like a meal but is the verb to strike. To rabbit is British slang (rhyming slang, rabbit and pork = talk) for talking on and on.",
+     "definitionFit": "A chatterbox talks incessantly, and to rabbit is to prattle, so one known to rabbit fits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rabbit"
+    }
+   }
   },
   {
    "number": 24,
@@ -388,7 +1647,54 @@
     "text": "Succeeding by being involved in final",
     "enumeration": "4"
    },
-   "solution": "NEXT"
+   "solution": "NEXT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NEXT",
+    "definitions": [
+     {
+      "text": "Succeeding",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being involved in",
+      "for": "container",
+      "note": "to be involved in is to be caught up inside, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "by",
+      "gives": "X",
+      "note": "by as in multiplication, the times sign"
+     },
+     {
+      "clueFragment": "final",
+      "gives": "NET",
+      "note": "net is the final figure after deductions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "X",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Winning through by taking part in the final.",
+     "definitionFit": "Next means coming immediately after, and succeeding has that sense of following on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "final"
+    }
+   }
   },
   {
    "number": 25,
@@ -402,7 +1708,60 @@
     "text": "Slept and dared to readjust device for getting up",
     "enumeration": "10"
    },
-   "solution": "STEPLADDER"
+   "solution": "STEPLADDER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STEPLADDER",
+    "definitions": [
+     {
+      "text": "device for getting up",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to readjust",
+      "for": "anagram",
+      "note": "readjusting sets things in a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slept",
+      "gives": "SLEPT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dared",
+      "gives": "DARED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SLEPTDARED",
+       "gives": "STEPLADDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone slept late and then risked fiddling with an alarm clock.",
+     "walkthrough": "'getting up' sounds like rising from bed after sleeping; it means climbing.",
+     "definitionFit": "A stepladder is a folding ladder with flat treads, used for climbing up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "getting"
+    }
+   }
   },
   {
    "number": 26,
@@ -416,7 +1775,51 @@
     "text": "Exercised having pondered scratching head",
     "enumeration": "4"
    },
-   "solution": "USED"
+   "solution": "USED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "USED",
+    "definitions": [
+     {
+      "text": "Exercised",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scratching head",
+      "for": "deletion",
+      "note": "scratching means striking out, and the head is the first letter"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pondered",
+      "gives": "USED",
+      "note": "MUSED without its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "USED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone took exercise after thinking hard and scratching their head.",
+     "walkthrough": "Head-scratching fits pondering, but it means drop the first letter.",
+     "definitionFit": "To exercise a right is to use it, so exercised and used are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scratching"
+    }
+   }
   }
  ]
 }
