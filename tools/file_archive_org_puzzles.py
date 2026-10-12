@@ -3359,8 +3359,7 @@ def read_puzzle(d, found, hit, solutions):
         puzzle["setter"] = setter
     sol = solutions.get(n)
     if sol:
-        answers, info = read_solution(page(sol["dir"], sol["leaf"]), sol, grid,
-                                      above=paper_of(sol["dir"]).solution_above)
+        answers, info = solved(sol, grid, above=paper_of(sol["dir"]).solution_above)
         verdict["solutionFrom"] = solution_source(sol)
         verdict["solution"] = info
         verdict["answers"] = trove_solution_ocr.fill(puzzle, answers)
@@ -3648,6 +3647,35 @@ def solution_key():
 
 
 _SOLUTION_KEY = []
+
+
+def solved(sol, grid, above=False):
+    """read_solution of `sol`'s page for `grid`, kept under
+    CROPS/solution_reads by everything it reads from (its code and page()'s,
+    the leaf's size, the heading's box, `above`, the grid), so a re-read for
+    a clue-vote change runs no solution OCR. Outside read_solution's reach:
+    solution_key() stays the reader's."""
+    if not _SOLVED_CODE:
+        import code_reach
+        _SOLVED_CODE.append(code_reach.key("file_archive_org_puzzles", {"read_solution", "page"},
+                                           opaque=code_reach.TRANSPORT + code_reach.SIZING))
+    d, leaf = sol["dir"], sol["leaf"]
+    key = hashlib.sha256(json.dumps([_SOLVED_CODE[0], os.stat(d / f"leaf_{leaf:04d}.jpg").st_size, leaf,
+                                     list(sol["box"]), bool(above), list(grid)]).encode()).hexdigest()[:20]
+    path = CROPS / "solution_reads" / f"{d.name}_{sol['number']}.json"
+    if path.exists():
+        kept = json.loads(path.read_text())
+        if kept.get("key") == key:
+            return kept["answers"], kept["stats"]
+    answers, stats = read_solution(page(d, leaf), sol, grid, above=above)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(f".{os.getpid()}.part")
+    tmp.write_text(json.dumps({"key": key, "answers": answers, "stats": stats}))
+    tmp.replace(path)
+    return answers, stats
+
+
+_SOLVED_CODE = []
 
 
 def input_hash(d):

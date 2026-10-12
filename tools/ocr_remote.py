@@ -1068,6 +1068,8 @@ def edition_request(d, found, solutions):
             sd = sol["dir"]
             sols[str(n)] = {**sol, "dir": f"{sd.parent.name}/{sd.name}"}
             files[f"ed/{sd.parent.name}/{sd.name}/leaf_{sol['leaf']:04d}.jpg"] = sd / f"leaf_{sol['leaf']:04d}.jpg"
+            # Its kept read (fa.solved), so a re-read there runs no solution OCR.
+            files[f"crops/solution_reads/{sd.name}_{sol['number']}.json"] = fa.CROPS / "solution_reads" / f"{sd.name}_{sol['number']}.json"
     rapid = fa.CROPS / "rapid"
     for name in os.listdir(rapid) if rapid.is_dir() else ():
         if name.startswith(f"{d.name}_"):
