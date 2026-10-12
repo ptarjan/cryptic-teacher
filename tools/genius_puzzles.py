@@ -751,6 +751,58 @@ def unnumbered(text):
     return sum(not re.match(r"\s*\d", x) for x in parts)
 
 
+#: Where each clue of a jigsaw goes: light -> the start of its clue as
+#: printed in the unnumbered list. The post prints answers by light but not
+#: the clues, so the placing is its parses' (No 76: "COATI COAT + 1" is
+#: "Carnivore's fur first", "VRAIC RA in VIC" "Boy entertaining one who
+#: paints kelp"). Each clue goes once, every unnumbered light takes one, and
+#: its count must be its light's length; the post's answers must then cross.
+JIGSAW = {
+    76: {(5, "across"): "Anti-Shakespearean pig", (9, "across"): "Eat well",
+         (10, "across"): "Stout hero", (11, "across"): "Flowers (Latin",
+         (13, "across"): "Voice on top", (14, "across"): "Barren function",
+         (23, "across"): "Boy entertaining", (25, "across"): "Mother of the nine",
+         (26, "across"): "Own up to drug", (27, "across"): "Carnivore",
+         (28, "across"): "About this French", (2, "down"): "Radio part",
+         (3, "down"): "Land of salts", (5, "down"): "Profit on drinks",
+         (6, "down"): "Straight flier", (7, "down"): "Without a bit of feeling",
+         (15, "down"): "Little letters", (17, "down"): "Model way",
+         (18, "down"): "Cupboard", (19, "down"): "Art in tears",
+         (21, "down"): "To wit unknown", (22, "down"): "Draw a distinction",
+         (24, "down"): "I hold Communist"},
+}
+
+
+def place_jigsaw(number, pdf):
+    """None once JIGSAW's placing has moved the unnumbered clues out of the
+    preamble onto their lights, else why not."""
+    table = JIGSAW.get(number)
+    if not table or pdf["grid"] is None:
+        return "no placing for its clues"
+    pre, lights = pdf["preamble"], rg.light_cells(pdf["grid"])
+    starts = {l: pre.find(t) for l, t in table.items()}
+    if min(starts.values()) < 0 or len(set(starts.values())) != len(starts):
+        return "a placed clue is not in the unnumbered list"
+    listed = {l for c in pdf["clues"] for l in c["lights"]}
+    if set(table) != set(lights) - listed:
+        return "the placing does not cover the unnumbered lights"
+    order = sorted(table, key=starts.get)
+    ends = [starts[l] for l in order[1:]] + [len(pre)]
+    for light, end in zip(order, ends):
+        text = pre[starts[light]:end].strip()
+        enum = re.findall(fpp.ENUM_TEXT, text)
+        if len(enum) != 1 or not text.endswith(enum[0].strip()):
+            return f"{light[0]} {light[1]}'s clue does not end on one count"
+        count = enum[0].strip("() ")
+        if sum(int(n) for n in re.findall(r"\d+", count)) != len(lights[light]):
+            return f"{light[0]} {light[1]}'s count is not its length"
+        pdf["clues"].append({"lights": [light], "clue": text, "enumeration": count})
+    pdf["preamble"] = pre[:min(starts.values())].strip() or None
+    pdf["clues"].sort(key=lambda c: (c["lights"][0][1] != "across", c["lights"][0][0]))
+    pdf["jigsaw"] = True
+    return None
+
+
 def assemble(number, pdf, post, date, url):
     """(puzzle, None) or (None, (class, why not))."""
     if not pdf["text"]:
@@ -765,7 +817,9 @@ def assemble(number, pdf, post, date, url):
     # numbered runs into the preamble. Their lights are the solver's to find,
     # and a post that prints answers only cannot place them.
     if unnumbered(pdf["preamble"]) >= UNNUMBERED_AT:
-        return None, ("clue list unnumbered (jigsaw)", "clues printed with no number, in the preamble's place")
+        why = place_jigsaw(number, pdf)
+        if why:
+            return None, ("clue list unnumbered (jigsaw)", why)
     if pdf["grid"] is None:
         return None, ("grid unread", "")
     # Clues that print no count and are no "See N" stub (No 233's across
@@ -820,6 +874,8 @@ def assemble(number, pdf, post, date, url):
         return None, (why, "")
     if pdf["preamble"]:
         puzzle["preamble"] = pdf["preamble"]
+    if pdf.get("jigsaw"):
+        puzzle["cluesUnplaced"] = True
     puzzle["source"] = {"url": url, "gridOrigin": "published"}
     puzzle["solutions"]["check"] = (
         f"grid and clues read from {pdf['origin']}, its numbering matching "
