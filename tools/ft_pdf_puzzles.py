@@ -523,7 +523,18 @@ FULL_WAY = r"(?:across|down)"
 CLUE_HEAD = re.compile(rf"^(\d{{1,2}}(?:\s*{FULL_WAY}\b)?(?:\s*[,/&]\s*\d{{1,2}}(?:\s*{FULL_WAY}\b)?)*)(?:\s+(\S.*))?$", re.I)
 #: "(9’s 7)": an enumeration may own an unentered "'s" (BEETHOVEN'S SEVENTH
 #: written BEETHOVEN SEVENTH).
-ENUM = re.compile(r"\(\s*(\d{1,2}(?:['’]s)?(?:\s*[,\-–.'’\s]\s*\d{1,2}(?:['’]s)?)*(?:\s*words?)?)\s*\)\s*$")
+#: One printed count list: "6,3,5", "4-5", "9’s 7", and the marks a trick
+#: puzzle's preamble explains: "10 and 5", "4:3", "3/5".
+COUNTS = r"\d{1,2}(?:['’]s)?(?:\s*(?:[,\-–.'’:/\s]|\band\b)\s*\d{1,2}(?:['’]s)?)*(?:\s*words?)?"
+#: A clue's closing enumeration as printed, uncaptured: one bracket; a count
+#: nested inside it ("(6,5 (9))": the lights' count, then the answer's); or
+#: two counts, in one bracket split by a semicolon ("(5;3)") or two brackets
+#: in a row ("(4,3) (7)", "(6,3,5); (6,3,6)"): the answer's, then the entry's.
+ENUM_TEXT = (rf"\(\s*{COUNTS}(?:\s*;\s*{COUNTS})?\s*(?:\(\s*{COUNTS}\s*\)\s*)?\)"
+             rf"(?:\s*;?\s*\(\s*{COUNTS}\s*\))?")
+#: The closing enumeration's grid count: the outer of a nested pair, the
+#: second of two.
+ENUM = re.compile(rf"\(\s*(?:{COUNTS}\s*(?:\)\s*;?\s*\(|;)\s*)?({COUNTS})\s*(?:\(\s*{COUNTS}\s*\)\s*)?\)\s*$")
 SEE = re.compile(r"^See\s+(\d+)", re.I)
 
 
