@@ -2657,6 +2657,12 @@ def puzzle_is_annotated(puzzle):
     return not unannotated_clues(puzzle)
 
 
+def puzzle_is_solved(puzzle):
+    """Every light has its answer: the index's hasSolutions, and what
+    /progress/ counts as solved (tools/progress_record.py reads it too)."""
+    return all(e.get("solution") for e in puzzle["entries"])
+
+
 def unannotated_clues(puzzle):
     """The clues puzzle_is_annotated is still waiting on."""
     continuations = groups.leader_of(puzzle["entries"])
@@ -2754,7 +2760,7 @@ def index_row(path):
         # blog's name, which it is badged "hints via" instead of "answers
         # only". Per puzzle, because nothing ties a series to one blog.
         **({"blog": blog} if blog else {}),
-        "hasSolutions": (solved := all(e.get("solution") for e in p["entries"])),
+        "hasSolutions": (solved := puzzle_is_solved(p)),
         # Written only where a light is blank and the answer key is a blog's
         # write-up (provenance.writeup_keyed): the solve queues never offer it
         # (cold_solvable), since no model fill of it can be written.

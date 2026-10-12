@@ -3,7 +3,8 @@
 # phases where tools/progress.py says, the build must replace today's file
 # phases with its own index while carrying the ledger's counts forward, the
 # paces must divide by days and not by points, and the page must draw every
-# chart with today's totals in it.
+# chart with today's totals in it. A deploy after tonight's row must show its
+# own filed/solved/hinted with the recorded known and queue, and its time.
 #
 #     bash tools/test_progress.sh
 #
@@ -113,6 +114,35 @@ assert "unread" not in main, "the downloaded bar is drawn like every other"
 solved = next(rest for c, l, n, rest in trs if l == "solved")
 assert re.sub(r"<[^>]+>", "", solved).replace("%", "").strip().isdigit(), ("solved has no pace", solved)
 assert "{" not in html.split("<main", 1)[1].split("</main>")[0], "an unfilled placeholder"
+
+# The live overlay (Paul 10-12: "The progress page should update more
+# regularly"): a deploy hours after tonight's row was recorded shows its own
+# index's filed/solved/hinted, keeps the recorded known and queue, and stays
+# nested; the page says the time it was built.
+from datetime import datetime
+night = dict(P.load(path))
+night["2026-10-09"] = {"times": [10, 3, 4, 3, 2, 30, 4], "azed": [None, None, 1, 1, 1, None, None]}
+P.save(night, path)
+idx2 = {"puzzles": [{"series": "times", "hasSolutions": True, "annotated": True}] * 6
+                   + [{"series": "times", "hasSolutions": True, "annotated": False}] * 2
+                   + [{"series": "times", "hasSolutions": False, "annotated": True}] * 2
+                   + [{"series": "azed", "hasSolutions": True, "annotated": True}]}
+live = P.with_today(P.load(path), P.index_counts(idx2["puzzles"]), "2026-10-09")["2026-10-09"]
+assert live == {"times": [10, 3, 10, 8, 6, 30, 4], "azed": [None, None, 1, 1, 1, None, None]}, live
+chain = P.nested_totals(live)
+assert chain == [11, 11, 11, 9, 7], chain   # times: known 10, downloaded 10 + min(4, 0)
+assert all(a >= b for a, b in zip(chain, chain[1:])), chain
+html = B.progress_page(idx2, now=datetime(2026, 10, 9, 14, 5))
+want = ("As of 14:05 on 9 Oct: 11 are known to exist, 11 are downloaded, 11 are filed, "
+        f"{chain[3]} are solved and 7 are hinted.")
+assert want in html, re.search(r"As of[^<]*", html).group(0)
+assert "recounted every time the site updates" in html
+assert P.load(path)["2026-10-09"]["times"][2:5] == [4, 3, 2], "the build never writes the history"
+# One counting path: a night's row and the overlay apply the index's own tests.
+import inspect, fetch_puzzle
+assert "puzzle_is_solved(p)" in inspect.getsource(fetch_puzzle.index_row)
+src = inspect.getsource(R.puzzle_row)
+assert "puzzle_is_solved(p)" in src and "puzzle_is_annotated(p)" in src, src
 print("ok")
 PY
 )

@@ -37,7 +37,9 @@ So this writes real HTML files alongside the app:
   progress/index.html      how many puzzles are known to exist, downloaded, filed, solved
                            and hinted, per series and over time, from
                            tools/data/progress.json (tools/progress.py) with
-                           this build's index as today.
+                           this build's index as today, so filed/solved/hinted
+                           are current at every deploy; known and downloaded
+                           are the newest recorded night's.
   showcase/index.html      puzzles with something unusual about them: a message
                            hidden in the grid, a jigsaw, a record. Picked by
                            tools/showcase.py from facts every puzzle page's
@@ -1658,12 +1660,17 @@ def pace_cells(pts, today):
     return c7, c30, per7
 
 
-def progress_page(idx, today=None):
+def progress_page(idx, today=None, now=None):
     """/progress/: tools/progress.py's history with today's index as its last
-    day, as totals, paces and charts."""
-    today = (today or london_today()).isoformat()
-    files = progress.file_counts((p["series"], p.get("hasSolutions"), p.get("annotated"))
-                                 for p in idx["puzzles"])
+    day, as totals, paces and charts. Filed, solved and hinted are this
+    build's (every deploy); the rest are the newest recorded night's. now is
+    the build's London time the page says it is as of."""
+    if now is None and today is None:
+        from zoneinfo import ZoneInfo
+        now = datetime.now(ZoneInfo("Europe/London"))
+    today = (today or now.date()).isoformat()
+    as_of = f"{now:%H:%M} on {short_day(today)}" if now else short_day(today)
+    files = progress.index_counts(idx["puzzles"])
     recorded = progress.load()
     days = progress.with_today(recorded, files, today)
     # One source for every number on the page: the bars, the table and the
@@ -1694,7 +1701,7 @@ def progress_page(idx, today=None):
                "url": canonical, "description": desc, "isAccessibleForFree": True}
     body = [masthead(crumbs), '<main class="static-main tutorial-static">', f"<h1>{title}</h1>",
             f"<p>The goal is every cryptic puzzle each series has printed, with every answer and a "
-            f"hint for every clue. As of {short_day(today)}: {known:,} are known to exist, "
+            f"hint for every clue. As of {as_of}: {known:,} are known to exist, "
             f"{stages[S_DOWNLOADED]:,} are downloaded, {stages[S_FILED]:,} are filed, "
             f"{stages[S_SOLVED]:,} are solved and {stages[S_HINTED]:,} are hinted.</p>",
             funnel_chart(stages), table,
@@ -1711,7 +1718,9 @@ def progress_page(idx, today=None):
             "Downloaded less filed is what is not read yet. "
             "In the bars each stage sits inside the one above, and the table shows the same "
             "numbers. A pace over fewer days than its window says how many; &mdash; is a stage "
-            "counted on one day only.</p>",
+            "counted on one day only. "
+            "Filed, solved and hinted are recounted every time the site updates (London time "
+            "above); known and downloaded are counted once a night.</p>",
             *(("<h2>The read queue</h2>", queue_table(days[today], recorded)) if queued is not None else ()),
             "<h2>Running totals</h2>", cumulative_chart(days),
             "<h2>A day at a time</h2>",
