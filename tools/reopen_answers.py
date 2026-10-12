@@ -29,6 +29,7 @@ annotations left behind. A clues-only puzzle that run promoted has no grid
 file once discarded: its grid is built again from the copy's answers
 (clues_only.promote), and writing it retires the clues-only file.
 """
+import re
 import sys
 from pathlib import Path
 
@@ -73,11 +74,38 @@ def with_runs_answers(puzzle, ran):
     return {**puzzle, "solutions": ran["solutions"]}
 
 
+def jigsaw_answers(record, ran):
+    """{"unplaced": [...]}: the run's answer to each of jigsaw `record`'s
+    clues, in the printed order. The run filed each clue on whichever light
+    its answer fitted, so a clue is found by its text, on its leader or its
+    off-grid item; a linked answer is the leader's letters, then each
+    continuation's ("See N" lights carry no clue of their own)."""
+    by_id = {entry_id(e): e for e in ran["entries"]}
+    found = {}
+    for e in ran["entries"]:
+        lights = [entry_id(e)] + [i for i in e.get("group") or [] if i != entry_id(e)]
+        found.setdefault(clue_text(e.get("clue")),
+                         "".join(by_id[i].get("solution") or "" for i in lights if i in by_id))
+    for item in ran.get("offGrid") or []:
+        found.setdefault(clue_text(item.get("clue")), item.get("solution") or "")
+    return {"unplaced": [found.get(clue_text(light["clue"]), "")
+                         for light in record["clues"]["unplaced"]]}
+
+
+def clue_text(clue):
+    """A clue's words, from a file's {"text": ...} or a string, its count dropped."""
+    text = (clue.get("text") if isinstance(clue, dict) else clue) or ""
+    return re.sub(r"\s*\([\d,\-\s]+\)$", "", text).strip()
+
+
 def promoted(record, ran):
     """Clues-only `record`'s grid, unsolved, as the run `ran` promoted it."""
-    answers = {d: [e.get("solution") or "" for e in sorted(
-        (e for e in ran["entries"] if e["direction"] == d), key=lambda e: e["number"])]
-        for d in clues_only.DIRECTIONS}
+    if "unplaced" in record["clues"]:
+        answers = jigsaw_answers(record, ran)
+    else:
+        answers = {d: [e.get("solution") or "" for e in sorted(
+            (e for e in ran["entries"] if e["direction"] == d), key=lambda e: e["number"])]
+            for d in clues_only.DIRECTIONS}
     puzzle, problems = clues_only.promote(record, answers)
     if problems:
         raise SystemExit(f"reopen_answers: {record['id']}: the run's answers do not rebuild "

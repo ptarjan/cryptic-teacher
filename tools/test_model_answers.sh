@@ -225,6 +225,13 @@ try:
     check("a key that agrees with the model needs no miss", flags == [])
 finally:
     V.blind_misses = real_misses
+# --- a jigsaw run's answers go back in printed order (genius-234, 10-12) ---
+import puzzle_paths
+jig = fetch_puzzle.read_puzzle_file(puzzle_paths.find("genius-250"))
+printed_order = list(reversed([{"clue": e["clue"]} for e in jig["entries"]]))
+got = R.jigsaw_answers({"clues": {"unplaced": printed_order}}, jig)["unplaced"]
+check("a jigsaw's answers are found by clue text, in the printed order",
+      got == [e["solution"] for e in reversed(jig["entries"])])
 sys.exit(fails)
 PY
 rc=$?
