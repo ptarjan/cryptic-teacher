@@ -1043,6 +1043,9 @@ def read_entries(rendered):
                       == "down" for ln in rendered)
     last, answered = 0, set()
     headed = {}
+    # A linked group's lights and letters, so a second head naming the same
+    # lights for the same answer is known for what it is.
+    linked = {}
 
     def flush(printed):
         nonlocal last, clue, enum
@@ -1070,6 +1073,16 @@ def read_entries(rendered):
             enum = words
             m = ENUM.search(clue or "")
             clue = f"{clue[:m.start()]}({enum})" if m else clue
+        if len(lights) > 1:
+            # Toughie 172 clues FAIR GAME twice, "10a & 7d" under Across and
+            # "7d & 10a" under Down ("two clues for the price of one"): the
+            # same lights holding the same answer. The second head is another
+            # clue to the group already read, not a new group running the
+            # other way, which would put FAIR at 7d and GAME at 10a too.
+            group = (frozenset(lights), re.sub(r"[^A-Z]", "", printed))
+            if group in linked:
+                return
+            linked[group] = lights
         if lights[0][1] == (direction or "across"):  # a linked group sits at its leader
             last = max(last, lights[0][0])
         if len(lights) == 1:
