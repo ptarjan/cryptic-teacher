@@ -123,6 +123,14 @@ if f:
     z = json.load(open(f[0]))
     print("filed-76", z.get("cluesUnplaced"), z.get("preamble"),
           next(e["clue"]["text"] for e in z["entries"] if (e["number"], e["direction"]) == (27, "across")))
+f = glob.glob("puzzles/genius/*/genius-250.json")
+if f:
+    z = json.load(open(f[0]))
+    hd = next(e for e in z["entries"] if (e["number"], e["direction"]) == (1, "down"))
+    print("filed-250", z.get("cluesUnplaced"), sum("alteration" in e for e in z["entries"]),
+          hd["solution"], hd["alteration"]["from"], hd["clue"]["enumeration"], z["preamble"].startswith("Normal") and "Twelve clues" in z["preamble"])
+print("placed-words", G.placed_words("<p>\u2013 SA CAUTION / CAU SA TION Heading away from Quantico, criminal gives warning (7)</p>",
+                                     "Heading away from Quantico, criminal gives warning (7)"))
 f = glob.glob("puzzles/genius/*/genius-233.json")
 if f:
     z = json.load(open(f[0]))
@@ -167,6 +175,8 @@ check "stranded clues, spaced byline and grid numbers leave only the preamble (1
 check "a post opening 'X is a setter' names the setter; none otherwise (103, 84)" "Lavatch None" "$(get body-setter)"
 check "a stretched grid is squared before it is read (157)" "17.6" "$(get unstretched)"
 [ -z "$(get filed-76)" ] || check "genius-76 files as a jigsaw: its unnumbered clues placed, the instruction its preamble" "True Solutions to the remaining clues have their indicated place at the table Carnivore's fur first" "$(get filed-76)"
+[ -z "$(get filed-250)" ] || check "genius-250: jigsaw, twelve answers entered with a pair inserted, printed counts kept, instructions after the list kept" "True 12 HANDLE HALE 4 True" "$(get filed-250)"
+check "a jigsaw clue's answer and entry come off the post row printing it (250)" "['CAUTION', 'CAUSATION']" "$(get placed-words)"
 [ -z "$(get filed-233)" ] || check "genius-233 files unsolved with no post, its 14 across clues printed without counts" "unsolved 14 14" "$(get filed-233)"
 [ -z "$(get filed-112)" ] || check "genius-112's quotation lights file unclued, their letters the post's quotation (article marks, no preamble)" "28 5" "$(get filed-112)"
 [ -z "$(get filed-108)" ] || check "genius-108's six marked lights file unclued off the article page" "30 6" "$(get filed-108)"
