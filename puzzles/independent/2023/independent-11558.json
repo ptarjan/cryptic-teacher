@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "Party leads to a long time dressing",
     "enumeration": "7"
    },
-   "solution": "BANDAGE"
+   "solution": "BANDAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BANDAGE",
+    "definitions": [
+     {
+      "text": "dressing",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "leads to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Party",
+      "gives": "BAND",
+      "note": "a band is a group or party of people"
+     },
+     {
+      "clueFragment": "a long time",
+      "gives": "AGE",
+      "note": "an age is a very long time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAND",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A celebration drags on for ages before anyone gets round to dressing.",
+     "walkthrough": "'Leads to' simply puts the party first and the long time after it.",
+     "definitionFit": "A bandage is a strip of material used as a wound dressing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dressing"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +93,54 @@
     "text": "Spiteful comments about book, reference book",
     "enumeration": "5"
    },
-   "solution": "BIBLE"
+   "solution": "BIBLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BIBLE",
+    "definitions": [
+     {
+      "text": "reference book",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about here means around, so the comments surround the abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spiteful comments",
+      "gives": "BILE",
+      "note": "bile is bitterness or spiteful talk"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BI",
+      "B",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A reviewer writes nasty things about a book that is meant for reference.",
+     "definitionFit": "A bible is an authoritative handbook for a subject, as in the gardener's bible."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "book"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +154,74 @@
     "text": "No railway covering the start of route towards the Arctic",
     "enumeration": "9"
    },
-   "solution": "NORTHERLY"
+   "solution": "NORTHERLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "NORTHERLY",
+    "definitions": [
+     {
+      "text": "towards the Arctic",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter"
+     },
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "covering means lying over and around, so the railway abbreviation wraps the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "railway",
+      "gives": "RLY",
+      "note": "RLY is the abbreviation for railway"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "route",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "R",
+      "THE",
+      "R",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "There is no train line going anywhere near the route north.",
+     "definitionFit": "Northerly means heading north, which is the direction of the Arctic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "covering"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +235,50 @@
     "text": "Using few words in a variety of rich patois",
     "enumeration": "10"
    },
-   "solution": "APHORISTIC"
+   "solution": "APHORISTIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "APHORISTIC",
+    "definitions": [
+     {
+      "text": "Using few words",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in a variety of",
+      "for": "anagram",
+      "note": "a variety is a different form, so the letters appear in another arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rich patois",
+      "gives": "RICHPATOIS",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RICHPATOIS",
+       "gives": "APHORISTIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is terse even while speaking a colourful local dialect.",
+     "definitionFit": "Aphoristic speech is pithy, packed into short maxims, so it is concise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rich"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +298,74 @@
      }
     ]
    },
-   "solution": "EVENAS"
+   "solution": "EVENAS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "EVEN AS",
+    "definitions": [
+     {
+      "text": "Just when",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the letter inside the compass points"
+     },
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down answer, supporting means sitting beneath, so this part comes after the woman"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "First Lady",
+      "gives": "EVE",
+      "note": "Eve was the first woman in Genesis"
+     },
+     {
+      "clueFragment": "points",
+      "gives": "NS",
+      "note": "N and S, compass points north and south"
+     },
+     {
+      "clueFragment": "adjudicate",
+      "gives": "A",
+      "select": "first",
+      "note": "the opening letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVE",
+      "N",
+      "A",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Just as a dispute about points is to be judged, the President's wife steps in.",
+     "walkthrough": "'First Lady' suggests a president's spouse; in crosswords it is usually Eve.",
+     "definitionFit": "Even as means at the very moment that, just when something else is happening."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "First"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +379,73 @@
     "text": "Recalled story I'd encountered in church music event",
     "enumeration": "7"
    },
-   "solution": "CEILIDH"
+   "solution": "CEILIDH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "CEILIDH",
+    "definitions": [
+     {
+      "text": "music event",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Recalled",
+      "for": "reversal",
+      "note": "something recalled is called back, so the word for story runs backwards"
+     },
+     {
+      "text": "encountered in",
+      "for": "container",
+      "note": "the pieces are met inside the church abbreviation, so they sit within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "story",
+      "gives": "LIE",
+      "note": "a lie is a made-up story"
+     },
+     {
+      "clueFragment": "I'd",
+      "gives": "ID",
+      "note": "taken as written, without the apostrophe"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the standard abbreviation for church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "EIL",
+      "ID",
+      "H"
+     ],
+     "reversals": [
+      {
+       "from": "LIE",
+       "to": "EIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recalls a tale they came across during a church concert.",
+     "definitionFit": "A ceilidh is a Scottish or Irish social gathering with folk music and dancing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "story"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +459,62 @@
     "text": "Unfortunate account after scoundrel gets American car",
     "enumeration": "8"
    },
-   "solution": "CADILLAC"
+   "solution": "CADILLAC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CADILLAC",
+    "definitions": [
+     {
+      "text": "American car",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places what precedes it behind the scoundrel word in the answer"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scoundrel",
+      "gives": "CAD",
+      "note": "a cad is a dishonourable man"
+     },
+     {
+      "clueFragment": "Unfortunate",
+      "gives": "ILL",
+      "note": "ill as in ill luck means unfortunate"
+     },
+     {
+      "clueFragment": "account",
+      "gives": "AC",
+      "note": "AC is the abbreviation for account"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAD",
+      "ILL",
+      "AC"
+     ]
+    },
+    "explanation": {
+     "surface": "A rogue gets a flashy American car, which turns out to be a bad deal.",
+     "definitionFit": "Cadillac is the American luxury car brand owned by General Motors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "account"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +528,60 @@
     "text": "Plan falling short, keeping fifty out of work",
     "enumeration": "4"
    },
-   "solution": "IDLE"
+   "solution": "IDLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "IDLE",
+    "definitions": [
+     {
+      "text": "out of work",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "falling short",
+      "for": "deletion",
+      "note": "falling short means not quite complete, so the last letter is dropped"
+     },
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping means holding within, so the shortened word surrounds the numeral"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plan",
+      "gives": "IDEA",
+      "note": "an idea is a plan or scheme"
+     },
+     {
+      "clueFragment": "fifty",
+      "gives": "L",
+      "note": "L is the Roman numeral for fifty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ID",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A scheme fails, leaving fifty people jobless.",
+     "definitionFit": "Idle means not working or unemployed, with nothing to do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fifty"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +595,47 @@
     "text": "Mediterranean locale not initially in a chilly way",
     "enumeration": "5"
    },
-   "solution": "ICILY"
+   "solution": "ICILY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ICILY",
+    "definitions": [
+     {
+      "text": "in a chilly way",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not initially",
+      "for": "deletion",
+      "note": "not initially means without its opening, so the first letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mediterranean locale",
+      "gives": "SICILY",
+      "note": "Sicily is the large Italian island in the Mediterranean"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICILY"
+     ]
+    },
+    "explanation": {
+     "surface": "A sunny southern spot is, at first, oddly cold.",
+     "definitionFit": "Icily means coldly, either in temperature or in an unfriendly manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "locale"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +649,65 @@
     "text": "Romeo in different items of footwear? That's a lucky thing",
     "enumeration": "9"
    },
-   "solution": "HORSESHOE"
+   "solution": "HORSESHOE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HORSESHOE",
+    "definitions": [
+     {
+      "text": "a lucky thing",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the radio code letter inside the first item of clothing"
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "different items of footwear",
+      "gives": "HOSE",
+      "note": "hose are stockings, one kind of legwear"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "Romeo is R in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "different items of footwear",
+      "gives": "SHOE",
+      "note": "a shoe is the other kind of footwear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "R",
+      "SE",
+      "SHOE"
+     ]
+    },
+    "explanation": {
+     "surface": "A romantic hero wears odd shoes, which might bring him luck.",
+     "walkthrough": "'Different items' asks for two distinct things worn on the feet, hose and shoe, not an anagram.",
+     "definitionFit": "A horseshoe hung over a door is a traditional good-luck charm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Romeo"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +721,65 @@
     "text": "Simple dwelling, on reflection, hard to flog",
     "enumeration": "5"
    },
-   "solution": "BIRCH"
+   "solution": "BIRCH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "BIRCH",
+    "definitions": [
+     {
+      "text": "flog",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on reflection",
+      "for": "reversal",
+      "note": "a reflection shows things the other way round, so the dwelling word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Simple dwelling",
+      "gives": "CRIB",
+      "note": "a crib is a humble hut or hovel"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil-grading abbreviation for hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIRC",
+      "H"
+     ],
+     "reversals": [
+      {
+       "from": "CRIB",
+       "to": "BIRC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hopes to sell off a basic home after some thought, but it proves a hard sell.",
+     "walkthrough": "'Flog' looks like British slang for sell, but here it means to beat.",
+     "definitionFit": "To birch someone is to beat them with a bundle of birch twigs, a flogging."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flog"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +803,50 @@
      }
     ]
    },
-   "solution": "EIDALFITR"
+   "solution": "EIDALFITR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EID AL-FITR",
+    "definitions": [
+     {
+      "text": "festival",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rocks",
+      "for": "anagram",
+      "note": "rocks as a verb means shakes about, so the letters are jolted into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Airlifted",
+      "gives": "AIRLIFTED",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AIRLIFTED",
+       "gives": "EIDALFITR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Supplies are flown in, perhaps boulders, ready for a celebration.",
+     "definitionFit": "Eid al-Fitr is the Muslim feast marking the end of the Ramadan fast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rocks"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +860,55 @@
     "text": "In a heavenly way energy is brought to article — are you sure?",
     "enumeration": "10"
    },
-   "solution": "ETHEREALLY"
+   "solution": "ETHEREALLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ETHEREALLY",
+    "definitions": [
+     {
+      "text": "In a heavenly way",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is brought to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "are you sure?",
+      "gives": "REALLY",
+      "note": "'really?' is a way of asking someone whether they are sure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "THE",
+      "REALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A sceptic doubts a claim that some divine energy is being applied to an object.",
+     "definitionFit": "Ethereal means delicate and otherworldly, as if of the heavens, so the adverb describes a celestial manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +922,59 @@
     "text": "Heavily promote, even though lacking in content",
     "enumeration": "4"
    },
-   "solution": "HYPE"
+   "solution": "HYPE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "HYPE",
+    "definitions": [
+     {
+      "text": "Heavily promote",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking in content",
+      "for": "letter_selection",
+      "note": "with the content gone only the shell is left, so each word keeps just its first and last letters"
+     }
+    ],
+    "linkWords": [
+     "even though"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Heavily",
+      "gives": "HY",
+      "select": "outer",
+      "note": "the two ends of this word"
+     },
+     {
+      "clueFragment": "promote",
+      "gives": "PE",
+      "select": "outer",
+      "note": "the two ends of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HY",
+      "PE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cynic's view of marketing: push something hard even when there is nothing in it.",
+     "walkthrough": "The same two words serve as definition and as wordplay: emptied of their insides they leave the answer. The surface also defines it, since hype is promotion without substance.",
+     "definitionFit": "To hype something is to publicise it intensively and often extravagantly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "content"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +988,55 @@
     "text": "Wretched kid wanting newspaper and a cake",
     "enumeration": "10"
    },
-   "solution": "RAGAMUFFIN"
+   "solution": "RAGAMUFFIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAGAMUFFIN",
+    "definitions": [
+     {
+      "text": "Wretched kid",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "wanting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "newspaper",
+      "gives": "RAG",
+      "note": "a rag is a low-quality newspaper"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cake",
+      "gives": "MUFFIN",
+      "note": "a muffin is a small cake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAG",
+      "A",
+      "MUFFIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A poor child asks for a paper and a bun.",
+     "definitionFit": "A ragamuffin is a scruffy, ragged child."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "newspaper"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +1050,61 @@
     "text": "Infatuation about Rector, one in church area",
     "enumeration": "6"
    },
-   "solution": "PARISH"
+   "solution": "PARISH",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PARISH",
+    "definitions": [
+     {
+      "text": "church area",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding here, so the infatuation word wraps round the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Infatuation",
+      "gives": "PASH",
+      "note": "a pash is old British slang for a schoolgirl crush"
+     },
+     {
+      "clueFragment": "Rector",
+      "gives": "R",
+      "note": "R is the abbreviation for Rector"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "R",
+      "I",
+      "SH"
+     ]
+    },
+    "explanation": {
+     "surface": "A crush on the local vicar, felt by one member of the congregation.",
+     "definitionFit": "A parish is the district served by its own church and clergy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Infatuation"
+    }
+   }
   },
   {
    "number": 14,
@@ -279,7 +1124,56 @@
      }
     ]
    },
-   "solution": "PAPEROVER"
+   "solution": "PAPEROVER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PAPER OVER",
+    "definitions": [
+     {
+      "text": "Pretend there are no problems",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "father",
+      "gives": "PA",
+      "note": "pa is an informal word for father"
+     },
+     {
+      "clueFragment": "exercising",
+      "gives": "PE",
+      "note": "PE is physical education, exercise at school"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "ROVER",
+      "note": "Rover is a stock name for a dog"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "PE",
+      "ROVER"
+     ]
+    },
+    "explanation": {
+     "surface": "Dad walks the dog and acts as if nothing is wrong.",
+     "walkthrough": "'Exercising' reads as walking the dog but supplies the school abbreviation for exercise.",
+     "definitionFit": "To paper over the cracks is to hide difficulties rather than solve them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exercising"
+    }
+   }
   },
   {
    "number": 15,
@@ -293,7 +1187,80 @@
     "text": "Right call from muezzin rebounding near the bustling Israeli-Arab city",
     "enumeration": "8"
    },
-   "solution": "NAZARETH"
+   "solution": "NAZARETH",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "anagram"
+    ],
+    "answer": "NAZARETH",
+    "definitions": [
+     {
+      "text": "Israeli-Arab city",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rebounding",
+      "for": "reversal",
+      "note": "something that rebounds bounces back the way it came, so these letters are read in reverse"
+     },
+     {
+      "text": "bustling",
+      "for": "anagram",
+      "note": "bustling suggests busy jostling movement, so the little word is jumbled"
+     }
+    ],
+    "linkWords": [
+     "near"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "call from muezzin",
+      "gives": "AZAN",
+      "note": "the azan is the Islamic call to prayer given by a muezzin"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAZAR",
+      "ETH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THE",
+       "gives": "ETH"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "RAZAN",
+       "to": "NAZAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A muezzin's call echoes back across a busy Arab town in Israel.",
+     "definitionFit": "Nazareth, in northern Israel, is the country's largest Arab-majority city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "near"
+    }
+   }
   },
   {
    "number": 16,
@@ -307,7 +1274,69 @@
     "text": "Harangue under inverted flag and disappear",
     "enumeration": "9"
    },
-   "solution": "EVAPORATE"
+   "solution": "EVAPORATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "EVAPORATE",
+    "definitions": [
+     {
+      "text": "disappear",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inverted",
+      "for": "reversal",
+      "note": "inverted means turned upside down, which in a down answer reads it bottom to top"
+     },
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down answer under places this part below, so it comes second"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flag",
+      "gives": "PAVE",
+      "note": "to flag a path is to pave it with flagstones"
+     },
+     {
+      "clueFragment": "Harangue",
+      "gives": "ORATE",
+      "note": "to orate is to speak pompously, to harangue"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVAP",
+      "ORATE"
+     ],
+     "reversals": [
+      {
+       "from": "PAVE",
+       "to": "EVAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A speaker rants beneath an upside-down banner and then vanishes.",
+     "walkthrough": "'Flag' looks like a banner, but it is the verb meaning to lay paving stones.",
+     "definitionFit": "To evaporate is to turn to vapour and vanish, or figuratively to disappear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flag"
+    }
+   }
   },
   {
    "number": 17,
@@ -321,7 +1350,66 @@
     "text": "Disciplinary team I have after opening of prison",
     "enumeration": "8"
    },
-   "solution": "PUNITIVE"
+   "solution": "PUNITIVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PUNITIVE",
+    "definitions": [
+     {
+      "text": "Disciplinary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening of",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the team and I have behind the letter from prison"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prison",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter of this word"
+     },
+     {
+      "clueFragment": "team",
+      "gives": "UNIT",
+      "note": "a unit is a team or group"
+     },
+     {
+      "clueFragment": "I have",
+      "gives": "IVE",
+      "note": "I've, the contraction, without its apostrophe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "UNIT",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A disciplinary squad is installed once the jail opens.",
+     "definitionFit": "Punitive means inflicting punishment, which is what disciplinary action does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 18,
@@ -335,7 +1423,73 @@
     "text": "Equips differently, taking on board extremes of hardy construction",
     "enumeration": "8"
    },
-   "solution": "PHYSIQUE"
+   "solution": "PHYSIQUE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "PHYSIQUE",
+    "definitions": [
+     {
+      "text": "construction",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremes of",
+      "for": "letter_selection",
+      "note": "extremes are the far ends, so only the first and last letters are used"
+     },
+     {
+      "text": "differently",
+      "for": "anagram",
+      "note": "arranged differently means set out in another order"
+     },
+     {
+      "text": "taking on board",
+      "for": "container",
+      "note": "taking something aboard carries it inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hardy",
+      "gives": "HY",
+      "select": "outer",
+      "note": "first and last letters of the word"
+     },
+     {
+      "clueFragment": "Equips",
+      "gives": "EQUIPS",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "HY",
+      "SIQUE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EQUIPS",
+       "gives": "PSIQUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone kits out a ship in a new way, loading on board a tough build.",
+     "definitionFit": "Physique is a person's bodily build, the way their body is constructed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "construction"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1503,57 @@
     "text": "Woman accepting silver — what's the cost?",
     "enumeration": "6"
    },
-   "solution": "DAMAGE"
+   "solution": "DAMAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DAMAGE",
+    "definitions": [
+     {
+      "text": "what's the cost?",
+      "at": 25,
+      "note": "the whole question stands for the colloquial 'what's the damage?'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "accepting means taking in, so the woman's title holds the metal inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Woman",
+      "gives": "DAME",
+      "note": "a dame is a woman, especially a titled one"
+     },
+     {
+      "clueFragment": "silver",
+      "gives": "AG",
+      "note": "Ag is the chemical symbol for silver"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAM",
+      "AG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A lady takes some silver and asks what she owes.",
+     "walkthrough": "The definition works only inside the idiom: 'What's the damage?' is a jokey way of asking for the bill.",
+     "definitionFit": "Damage is informal slang for the price or bill, as in the stock question about what you owe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "silver"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1567,60 @@
     "text": "No source of success in mindlessly following Liberal",
     "enumeration": "6"
    },
-   "solution": "LAVISH"
+   "solution": "LAVISH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "LAVISH",
+    "definitions": [
+     {
+      "text": "Liberal",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "No",
+      "for": "deletion",
+      "note": "no here means without, so a letter is taken away from the phrase that follows"
+     },
+     {
+      "text": "source of",
+      "for": "letter_selection",
+      "note": "the source of a word is where it starts, its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "success",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of this word"
+     },
+     {
+      "clueFragment": "mindlessly following",
+      "gives": "SLAVISH",
+      "note": "slavish means copying or obeying without thought"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAVISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A Liberal politician blindly toeing the line never meets with success.",
+     "walkthrough": "'Liberal' looks like the party but is the definition; the source of success is removed from the front of the slavish word.",
+     "definitionFit": "Lavish and liberal both mean generous or given in abundance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Liberal"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1634,51 @@
     "text": "Concert with piano at the end is a lot of fun",
     "enumeration": "4"
    },
-   "solution": "ROMP"
+   "solution": "ROMP",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "ROMP",
+    "definitions": [
+     {
+      "text": "a lot of fun",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with piano at the end",
+      "for": "cycling",
+      "note": "the musical abbreviation for soft is shifted from the front of the word to its tail"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Concert",
+      "gives": "PROM",
+      "note": "a prom is a promenade concert, as at the BBC Proms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROMP"
+     ]
+    },
+    "explanation": {
+     "surface": "A concert finishing with a piano piece turns out to be great fun.",
+     "walkthrough": "Piano is P, the music marking for soft; it leaves the front of the concert word and goes to the end.",
+     "definitionFit": "A romp is a lively, boisterous bit of fun or an easy, enjoyable piece of entertainment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "piano"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1692,60 @@
     "text": "The reverse of drab, I'm one associated with gold",
     "enumeration": "5"
    },
-   "solution": "MIDAS"
+   "solution": "MIDAS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MIDAS",
+    "definitions": [
+     {
+      "text": "one associated with gold",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "The reverse of",
+      "for": "reversal",
+      "note": "the reverse means the opposite order, so the two parts are read back to front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drab",
+      "gives": "SAD",
+      "note": "sad can mean dull or dreary"
+     },
+     {
+      "clueFragment": "I'm",
+      "gives": "IM",
+      "note": "taken as written, without the apostrophe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "DAS"
+     ],
+     "reversals": [
+      {
+       "from": "SADIM",
+       "to": "MIDAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boastful speaker says they are the opposite of dull, a golden figure.",
+     "definitionFit": "Midas was the mythical king whose touch turned everything to gold."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reverse"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1759,50 @@
     "text": "Extraordinary restaging of our musical",
     "enumeration": "10"
    },
-   "solution": "MIRACULOUS"
+   "solution": "MIRACULOUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MIRACULOUS",
+    "definitions": [
+     {
+      "text": "Extraordinary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restaging of",
+      "for": "anagram",
+      "note": "a restaging puts a show on afresh in a new form, so the letters are set out anew"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "our musical",
+      "gives": "OURMUSICAL",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OURMUSICAL",
+       "gives": "MIRACULOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A theatre company's revival of their musical is a triumph.",
+     "definitionFit": "Miraculous means so remarkable as to seem like a miracle, i.e. extraordinary."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "restaging"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1816,56 @@
     "text": "Express heading for Swansea at the busiest time",
     "enumeration": "5"
    },
-   "solution": "SPEAK"
+   "solution": "SPEAK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SPEAK",
+    "definitions": [
+     {
+      "text": "Express",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "the heading of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swansea",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of this word"
+     },
+     {
+      "clueFragment": "at the busiest time",
+      "gives": "PEAK",
+      "note": "peak as in peak hours, the busiest period"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PEAK"
+     ]
+    },
+    "explanation": {
+     "surface": "An express train bound for Swansea runs at rush hour.",
+     "walkthrough": "'Express' looks like a train; it is the verb meaning to say.",
+     "definitionFit": "To speak a thought is to express it in words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Express"
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1879,58 @@
     "text": "Bishop, in recess, has pet project",
     "enumeration": "4"
    },
-   "solution": "BABY"
+   "solution": "BABY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BABY",
+    "definitions": [
+     {
+      "text": "pet project",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the clerical abbreviation inside the word for recess"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "recess",
+      "gives": "BAY",
+      "note": "a bay is an alcove or recess"
+     },
+     {
+      "clueFragment": "Bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "B",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A bishop on holiday is busy with a favourite scheme.",
+     "walkthrough": "'Recess' suggests a break, but it is an alcove.",
+     "definitionFit": "Someone's baby is informally their own pet project or responsibility, as in 'this scheme is her baby'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "recess"
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +1944,69 @@
     "text": "Bond's cocktail? Avoid it, kid, not initially shaken",
     "enumeration": "9"
    },
-   "solution": "VODKATINI"
+   "solution": "VODKATINI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "VODKATINI",
+    "definitions": [
+     {
+      "text": "Bond's cocktail?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letter of each of the two words before it"
+     },
+     {
+      "text": "shaken",
+      "for": "anagram",
+      "note": "shaken, like Bond's drinks, means the letters are jumbled about"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Avoid it",
+      "gives": "AVOIDIT",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "kid",
+      "gives": "K",
+      "select": "first",
+      "note": "the opening letter of this word"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "N",
+      "select": "first",
+      "note": "the opening letter of this word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AVOIDITKN",
+       "gives": "VODKATINI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to a youngster to steer clear of James Bond's drink, not stirred but shaken.",
+     "walkthrough": "'Not initially shaken' looks like a twist on Bond's 'shaken, not stirred', but 'initially' takes the first letters of kid and not.",
+     "definitionFit": "A vodkatini, a martini made with vodka, is the drink James Bond orders in Ian Fleming's novels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "not"
+    }
+   }
   },
   {
    "number": 27,
@@ -461,7 +2020,54 @@
     "text": "Distress signal? Get on securing line",
     "enumeration": "5"
    },
-   "solution": "FLARE"
+   "solution": "FLARE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FLARE",
+    "definitions": [
+     {
+      "text": "Distress signal?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "securing",
+      "for": "container",
+      "note": "securing means holding firmly, so the outer word clasps the other inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get on",
+      "gives": "FARE",
+      "note": "to fare is to get on or manage, as in how did you fare?"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "L",
+      "ARE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in trouble at sea sends up a signal and is told to grab a rope.",
+     "definitionFit": "A flare is a bright pyrotechnic light fired as a signal of distress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 28,
@@ -475,7 +2081,63 @@
     "text": "Offer new term for others going to American university, but not American",
     "enumeration": "7"
    },
-   "solution": "RESTYLE"
+   "solution": "RESTYLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "RESTYLE",
+    "definitions": [
+     {
+      "text": "Offer new term for",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but not",
+      "for": "deletion",
+      "note": "but not tells us to leave something out of what came before"
+     }
+    ],
+    "linkWords": [
+     "going to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "others",
+      "gives": "REST",
+      "note": "the rest means the others"
+     },
+     {
+      "clueFragment": "American university",
+      "gives": "YALE",
+      "note": "Yale is an Ivy League university in Connecticut"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is a standard abbreviation for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REST",
+      "YLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A US university course is renamed for students heading off elsewhere.",
+     "walkthrough": "'Term' looks like a university semester, but it means a word or name.",
+     "definitionFit": "To restyle something is to give it a new name or designation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "term"
+    }
+   }
   },
   {
    "number": 29,
@@ -489,7 +2151,57 @@
     "text": "Nag putting space between husband and kiss",
     "enumeration": "7"
    },
-   "solution": "HENPECK"
+   "solution": "HENPECK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HENPECK",
+    "definitions": [
+     {
+      "text": "Nag",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "putting",
+     "between"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     },
+     {
+      "clueFragment": "space",
+      "gives": "EN",
+      "note": "an en is a printer's unit of space"
+     },
+     {
+      "clueFragment": "kiss",
+      "gives": "PECK",
+      "note": "a peck is a quick kiss"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "EN",
+      "PECK"
+     ]
+    },
+    "explanation": {
+     "surface": "A wife insists on some distance between her husband and a kiss.",
+     "walkthrough": "'Between' just places the space piece in the middle, after husband and before kiss.",
+     "definitionFit": "To henpeck is to nag and boss a partner, typically a husband, persistently."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "space"
+    }
+   }
   }
  ]
 }
