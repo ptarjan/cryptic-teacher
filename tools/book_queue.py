@@ -40,6 +40,7 @@ import re
 import sys
 
 import downloads
+from json_merge import dump_lines
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 POSITIONS_PER_VOLUME = 1000
@@ -78,7 +79,7 @@ def record_read(identifier, found, filed):
     now = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
     rows[identifier] = {"on": now,
                         "found": found, "filed": filed}
-    READS.write_text(json.dumps(dict(sorted(rows.items())), indent=1) + "\n",
+    READS.write_text(dump_lines(rows),
                      encoding="utf-8")
 
 
@@ -91,7 +92,7 @@ def record_not_lendable(identifier, reason):
     rows = reads()
     now = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
     rows[identifier] = {"on": now, "not_lendable": reason}
-    READS.write_text(json.dumps(dict(sorted(rows.items())), indent=1) + "\n",
+    READS.write_text(dump_lines(rows),
                      encoding="utf-8")
 
 
@@ -104,7 +105,7 @@ def record_no_puzzles(identifier, reason):
     rows = reads()
     now = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
     rows[identifier] = {"on": now, "found": 0, "filed": 0, "no_puzzles": reason}
-    READS.write_text(json.dumps(dict(sorted(rows.items())), indent=1) + "\n",
+    READS.write_text(dump_lines(rows),
                      encoding="utf-8")
 
 

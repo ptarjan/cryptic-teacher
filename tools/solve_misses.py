@@ -29,6 +29,7 @@ import time
 from pathlib import Path
 from fetch_puzzle import read_puzzle_file, resolve_puzzle
 from groups import entry_id
+from json_merge import dump_lines
 from solve_packet import crossing_map, label
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -98,8 +99,7 @@ def record(pid, eid, verdict, note):
         "note": note,
         "date": datetime.datetime.now(datetime.timezone.utc).date().isoformat(),
     }
-    DIAGNOSED.write_text(json.dumps(data, indent=1, sort_keys=True, ensure_ascii=False) + "\n",
-                         encoding="utf-8")
+    DIAGNOSED.write_text(dump_lines(data), encoding="utf-8")
 
 
 def keep_log(pid, src):

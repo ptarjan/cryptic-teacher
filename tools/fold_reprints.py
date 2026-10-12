@@ -116,8 +116,8 @@ def rekey(pairs):
         rows = json.loads(sub(path.read_text(encoding="utf-8")), object_pairs_hook=unique_keys)
         path.write_text(dump_lines(rows), encoding="utf-8")
     ninas = root / "tools" / "data" / "ninas.json"
-    ninas.write_text(json.dumps(json.loads(sub(ninas.read_text(encoding="utf-8"))),
-                                indent=1, sort_keys=True) + "\n", encoding="utf-8")
+    ninas.write_text(dump_lines(json.loads(sub(ninas.read_text(encoding="utf-8")))),
+                     encoding="utf-8")
     backlog = json.loads(sub(va.BACKLOG_PATH.read_text(encoding="utf-8")))
     va.BACKLOG_PATH.write_text(json.dumps(
         {k: v if k == "_why" else dict(sorted(v.items(), key=va._sort_key))

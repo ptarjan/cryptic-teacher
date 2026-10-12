@@ -110,6 +110,63 @@ git rebase -q master >/dev/null 2>&1
 check "unparseable side is left as a conflict" "$([ -n "$(git ls-files -u)" ] && echo conflict)" conflict
 git rebase --abort 2>/dev/null
 
+# Two daily units diagnosing misses of one puzzle (listener-3 6-across and
+# 40-down, 10-12) each add a row under the same puzzle key, from the same
+# base. The second one's push_puzzle_commit.sh conflicted line by line when
+# diagnosed_misses.json was not on the driver; now both rows land.
+diag() { python3 - "$@" <<'PY'
+import sys
+sys.path.insert(0, "tools")
+import solve_misses
+solve_misses.record(*sys.argv[1:])
+PY
+}
+(
+  set -e
+  cd "$tmp"
+  git init -q --bare -b master origin.git
+  git clone -q origin.git a 2>/dev/null && cd a || exit 1
+  git config user.email nobody@example.com; git config user.name test
+  mkdir -p tools/data
+  cp "$ROOT/tools/json_merge.py" "$ROOT/tools/puzzle_schema.py" "$ROOT/tools/push_puzzle_commit.sh" tools/
+  cp "$ROOT/tools/data/puzzle.schema.json" tools/data/
+  cp "$ROOT/.gitattributes" .
+  # solve_misses.record, standing in for the daily unit's writer, without the
+  # puzzle-reading half of solve_misses.py it does not need.
+  printf '%s\n' 'import datetime, json' 'from pathlib import Path' 'from json_merge import dump_lines' \
+    "$(sed -n '/^ROOT = /p;/^MISSES = /p;/^DIAGNOSED = /p;/^def load(/,/^$/p;/^def record(/,/^$/p' "$ROOT/tools/solve_misses.py")" \
+    > tools/solve_misses.py
+  diag everyman-4168 15-across fixed "base row"
+  git add -A && git commit -qm base && git push -q origin master
+  git clone -q "$tmp/origin.git" "$tmp/b"
+  for c in "$tmp/a" "$tmp/b"; do
+    git -C "$c" config user.email nobody@example.com; git -C "$c" config user.name test
+    _ct_cfg() { git -C "$c" config "$1" "$2"; }
+    eval "$(grep -E "^_ct_cfg (merge|filter)\.(json-keys|puzzle-json)" "$ROOT/tools/nightly_worktree.sh")"
+  done
+  diag listener-3 6-across nothing-generalises "first unit"; git commit -qam "daily miss:listener-3:6-across"
+  cd "$tmp/b" || exit 1
+  diag listener-3 40-down nothing-generalises "second unit"; git commit -qam "daily miss:listener-3:40-down"
+  git -C "$tmp/a" push -q origin master
+  rc=0; bash tools/push_puzzle_commit.sh HEAD 2>&1 || rc=$?; echo "rc=$rc"
+) > "$tmp/push.out" 2>&1
+check "second diagnosis pushes through push_puzzle_commit.sh" "$(tail -1 "$tmp/push.out")" "rc=0"
+git -C "$tmp/origin.git" cat-file -e master:tools/data/diagnosed_misses.json 2>/dev/null ||
+  sed 's/^/       /' "$tmp/push.out"
+check "origin keeps both units' rows under listener-3, and the base row" \
+  "$(git -C "$tmp/origin.git" show master:tools/data/diagnosed_misses.json | python3 -c 'import json,sys; d=json.load(sys.stdin); print(sorted(d), sorted(d.get("listener-3", {})))')" \
+  "['everyman-4168', 'listener-3'] ['40-down', '6-across']"
+check "origin's diagnosed_misses.json is one line per key" \
+  "$(git -C "$tmp/origin.git" show master:tools/data/diagnosed_misses.json | canonical)" True
+
+# Every keyed table more than one job writes is on the driver: the per-puzzle
+# tables (tools/puzzle_rows.py TABLES) and the book reads every acquire_book run
+# records. A new table added to puzzle_rows without a .gitattributes line fails here.
+for t in $(cd "$ROOT/tools" && python3 -c 'import puzzle_rows; print(*puzzle_rows.TABLES)') book_reads; do
+  check "tools/data/$t.json is merged per key" \
+    "$(git -C "$ROOT" check-attr merge -- "tools/data/$t.json" | awk '{print $NF}')" json-keys
+done
+
 # What is committed: every json-keys file in its one-line-per-key layout, which
 # is what lets the merge and the filter be no-ops on it.
 for f in $(sed -n 's/^\([^#][^ ]*\) .*merge=json-keys.*/\1/p' "$ROOT/.gitattributes"); do

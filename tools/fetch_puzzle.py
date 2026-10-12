@@ -2643,8 +2643,8 @@ def record_misses(pid, wrong, marked=None):
     else:
         data.pop(pid, None)
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, indent=1, sort_keys=True) + "\n",
-                    encoding="utf-8")
+    from json_merge import dump_lines
+    path.write_text(dump_lines(data), encoding="utf-8")
 
 
 def print_grade(puzzle, graded, marked=None, against="the published answers"):
