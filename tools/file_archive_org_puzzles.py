@@ -724,14 +724,24 @@ def grid_box(img, title):
 def grid_under_clues(img, title):
     """Where the grid is when the clues are printed over it: the largest ink
     in the CLUES_ABOVE_SPAN under the title, which is the left column's
-    head."""
-    x0, _, _, y1 = title
+    head. When that ink is no grid (the ~1995 Gale Telegraph centres its
+    "CROSSWORD / 21,502" banner over both columns, so the span starts mid
+    ACROSS column and takes in the solution grid), the nearest grid-shaped
+    ink under the title within the span either side of it."""
+    x0, _, x1, y1 = title
     crop = (max(0, x0 - 80), y1, min(img.width, x0 + CLUES_ABOVE_SPAN[0]),
             min(img.height, y1 + CLUES_ABOVE_SPAN[1]))
     box = ink_box(img.crop(crop))
     if box is None:
         return None
-    return (crop[0] + box[0], crop[1] + box[1], crop[0] + box[2], crop[1] + box[3])
+    box = (crop[0] + box[0], crop[1] + box[1], crop[0] + box[2], crop[1] + box[3])
+    if shaped_on(img, box):
+        return box
+    reach = CLUES_ABOVE_SPAN[0] * img.width / SCAN_WIDTH
+    under = [g for g in grids_on(img, shaped=lambda b: shaped_on(img, b))
+             if y1 <= g[1] <= y1 + CLUES_ABOVE_SPAN[1] * img.width / SCAN_WIDTH
+             and g[0] >= x0 - reach and g[2] <= x1 + reach]
+    return min(under, key=lambda g: g[1]) if under else box
 
 
 #: How far right of and below the title of a clues-above puzzle its grid
