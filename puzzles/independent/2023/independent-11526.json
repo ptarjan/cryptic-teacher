@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,52 @@
     "text": "Belle used to be that woman's cleaner",
     "enumeration": "10"
    },
-   "solution": "DISHWASHER"
+   "solution": "DISHWASHER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISHWASHER",
+    "definitions": [
+     {
+      "text": "cleaner",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Belle",
+      "gives": "DISH",
+      "note": "a dish is slang for an attractive person, as a belle is"
+     },
+     {
+      "clueFragment": "used to be",
+      "gives": "WAS",
+      "note": "past tense of 'is'"
+     },
+     {
+      "clueFragment": "that woman's",
+      "gives": "HER",
+      "note": "possessive pronoun for a woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISH",
+      "WAS",
+      "HER"
+     ]
+    },
+    "explanation": {
+     "surface": "A gossip remarks that a former beauty is now someone's cleaning lady.",
+     "definitionFit": "A dishwasher is a machine or person that cleans plates, so it is a kind of cleaner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Belle"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +95,66 @@
     "text": "Event in which Paul's last, he can't do jumps",
     "enumeration": "9"
    },
-   "solution": "DECATHLON"
+   "solution": "DECATHLON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "DECATHLON",
+    "definitions": [
+     {
+      "text": "Event",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "last points to the final letter of the preceding name"
+     },
+     {
+      "text": "jumps",
+      "for": "anagram",
+      "note": "the letters leap about and land in a new order"
+     }
+    ],
+    "linkWords": [
+     "in which"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paul's",
+      "gives": "L",
+      "select": "last",
+      "note": "the final letter of the name"
+     },
+     {
+      "clueFragment": "he can't do",
+      "gives": "HECANTDO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LHECANTDO",
+       "gives": "DECATHLON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An athlete called Paul finishes last in a contest because he can't manage the jumping events.",
+     "walkthrough": "'last' selects the end letter of Paul; 'jumps' looks like the high jump or long jump of the event itself.",
+     "definitionFit": "A decathlon is a ten-part athletics competition, a single sporting event on the programme."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "jumps"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +168,56 @@
     "text": "Quiet European repeated phrase for judge",
     "enumeration": "7"
    },
-   "solution": "SHERIFF"
+   "solution": "SHERIFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHERIFF",
+    "definitions": [
+     {
+      "text": "judge",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quiet",
+      "gives": "SH",
+      "note": "the hushing sound asking for quiet"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "repeated phrase",
+      "gives": "RIFF",
+      "note": "a riff is a short musical phrase played over and over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "E",
+      "RIFF"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes a quiet European's catchphrase used to address a judge.",
+     "walkthrough": "In Scotland a sheriff is a judge who presides over the local court, which is what makes the definition fair.",
+     "definitionFit": "A Scottish sheriff is a judicial officer who tries cases in a sheriff court."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "repeated"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +231,56 @@
     "text": "Tied to the bed, housework with shackles",
     "enumeration": "8"
    },
-   "solution": "ANCHORED"
+   "solution": "ANCHORED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ANCHORED",
+    "definitions": [
+     {
+      "text": "Tied to the bed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shackles",
+      "for": "container",
+      "note": "to shackle is to bind around, so one piece is clamped on either side of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "'and' means together with"
+     },
+     {
+      "clueFragment": "housework",
+      "gives": "CHORE",
+      "note": "a chore is a household task"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "CHORE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A kinky scene: someone tied to the bed, doing housework in shackles.",
+     "walkthrough": "The bed is the seabed, not a bedroom: a ship anchored is held fast to the bottom.",
+     "definitionFit": "An anchored vessel is fastened by its anchor to the seabed, so it is tied to the bed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +304,51 @@
      }
     ]
    },
-   "solution": "HALLOFRESIDENCE"
+   "solution": "HALLOFRESIDENCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HALL OF RESIDENCE",
+    "definitions": [
+     {
+      "text": "fresher block",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fresh",
+      "for": "anagram",
+      "note": "something made fresh is remade, so the letters are formed anew"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "roll and if cheese",
+      "gives": "ROLLANDIFCHEESE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROLLANDIFCHEESE",
+       "gives": "HALLOFRESIDENCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student's lunch order: a fresh roll, and some cheese if there is any.",
+     "walkthrough": "A fresher is a first-year university student, and their block is the building they live in.",
+     "definitionFit": "A hall of residence is university accommodation, typically the housing block for first-year students."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Fresh"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +362,64 @@
     "text": "Elaborate golden flip-flops on clown",
     "enumeration": "6"
    },
-   "solution": "ROCOCO"
+   "solution": "ROCOCO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ROCOCO",
+    "definitions": [
+     {
+      "text": "Elaborate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flip-flops",
+      "for": "reversal",
+      "note": "to flip-flop is to turn round to face the other way"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "golden",
+      "gives": "OR",
+      "note": "or is the heraldic word for gold"
+     },
+     {
+      "clueFragment": "clown",
+      "gives": "COCO",
+      "note": "Coco was a famous circus clown"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "COCO"
+     ],
+     "reversals": [
+      {
+       "from": "OR",
+       "to": "RO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clown is wearing fancy gold flip-flop sandals.",
+     "walkthrough": "In a down clue 'on' puts the first piece above the second. Coco the Clown was a famous Russian-born circus clown in Britain.",
+     "definitionFit": "Rococo is an ornate eighteenth-century decorative style, so the word describes anything highly ornamented."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flip-flops"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +433,48 @@
     "text": "Narrowly defeat second seeds",
     "enumeration": "4"
    },
-   "solution": "PIPS"
+   "solution": "PIPS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PIPS",
+    "definitions": [
+     {
+      "text": "seeds",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Narrowly defeat",
+      "gives": "PIP",
+      "note": "to pip someone is to beat them by a tiny margin"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "standard abbreviation for second"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIP",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "In a tennis tournament, a player narrowly beats the second seed.",
+     "walkthrough": "'seeds' reads like tournament seedings, but it means fruit pips.",
+     "definitionFit": "Pips are the small seeds found inside fruit such as apples and oranges."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "seeds"
+    }
+   }
   },
   {
    "number": 6,
@@ -141,7 +488,40 @@
     "text": "Tube occasionally seen on the surface, but never underground",
     "enumeration": "9"
    },
-   "solution": "PERISCOPE"
+   "solution": "PERISCOPE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PERISCOPE",
+    "definitions": [
+     {
+      "text": "Tube occasionally seen on the surface, but never underground",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tube occasionally seen on the surface, but never underground",
+      "note": "surface reading: a London Tube line that sometimes runs above ground but is not an underground railway"
+     },
+     {
+      "clueFragment": "Tube occasionally seen on the surface",
+      "note": "setter's reading: a viewing tube from a submarine that pokes above the sea's surface, and is never used underground"
+     }
+    ],
+    "explanation": {
+     "surface": "A puzzling remark about a London Tube line that runs above ground and is never underground.",
+     "walkthrough": "The Tube is London's Underground, so 'never underground' sounds paradoxical; here the tube is an optical one rising above the surface of the sea.",
+     "definitionFit": "This optical instrument is a long tube with mirrors that a submerged submarine raises above the water to look around."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tube"
+    }
+   }
   },
   {
    "number": 7,
@@ -155,7 +535,52 @@
     "text": "Average teacher son tolerates",
     "enumeration": "7"
    },
-   "solution": "PARDONS"
+   "solution": "PARDONS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARDONS",
+    "definitions": [
+     {
+      "text": "tolerates",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Average",
+      "gives": "PAR",
+      "note": "par is the normal or average level"
+     },
+     {
+      "clueFragment": "teacher",
+      "gives": "DON",
+      "note": "a don is a university teacher"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "standard abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "DON",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "An ordinary teacher puts up with a boy's behaviour.",
+     "definitionFit": "To pardon a fault is to forgive or overlook it, which is to tolerate it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Average"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +594,72 @@
     "text": "American boards heaving Circle Line for the office",
     "enumeration": "8"
    },
-   "solution": "CLERICAL"
+   "solution": "CLERICAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CLERICAL",
+    "definitions": [
+     {
+      "text": "for the office",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heaving",
+      "for": "anagram",
+      "note": "heaving means tossing and lurching, so the letters are thrown into disorder"
+     },
+     {
+      "text": "boards",
+      "for": "container",
+      "note": "to board is to get on and go inside, as a passenger does a train"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Circle",
+      "gives": "CIRCLE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Line",
+      "gives": "L",
+      "note": "standard abbreviation for line"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "standard abbreviation for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLERIC",
+      "A",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CIRCLEL",
+       "gives": "CLERICL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American tourist squeezes onto a packed Circle Line train to get to work.",
+     "walkthrough": "The Circle Line is a London Underground route. The definition is adjectival: clerical work is the work done for an office.",
+     "definitionFit": "Clerical describes office work such as filing and typing, the duties of a clerk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heaving"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +673,50 @@
     "text": "Poison not often seen by copper",
     "enumeration": "6"
    },
-   "solution": "CURARE"
+   "solution": "CURARE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CURARE",
+    "definitions": [
+     {
+      "text": "Poison",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     },
+     {
+      "clueFragment": "not often seen",
+      "gives": "RARE",
+      "note": "something rare is seldom found"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CU",
+      "RARE"
+     ]
+    },
+    "explanation": {
+     "surface": "A detective notes an unusual poison spotted by a police officer.",
+     "walkthrough": "'copper' looks like a policeman but is the metal's chemical symbol.",
+     "definitionFit": "Curare is a plant-derived paralysing toxin used by South American hunters on arrow tips."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +730,52 @@
     "text": "Gaunt muse with potassium deficiency",
     "enumeration": "4"
    },
-   "solution": "THIN"
+   "solution": "THIN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "THIN",
+    "definitions": [
+     {
+      "text": "Gaunt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with potassium deficiency",
+      "for": "deletion",
+      "note": "a deficiency means something is lacking, so that element's symbol is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "muse",
+      "gives": "THINK",
+      "note": "to muse is to ponder"
+     },
+     {
+      "clueFragment": "potassium",
+      "gives": "K",
+      "note": "K is the chemical symbol for potassium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A wasted poet's muse looks gaunt from lack of potassium in her diet.",
+     "definitionFit": "Gaunt means lean and haggard, which is a strong form of being slender or skinny."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "muse"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +795,71 @@
      }
     ]
    },
-   "solution": "ONOCCASION"
+   "solution": "ONOCCASION",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ON OCCASION",
+    "definitions": [
+     {
+      "text": "Sometimes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "detains",
+      "for": "container",
+      "note": "to detain is to hold someone in, so one piece surrounds the following ones"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "showing",
+      "gives": "ON",
+      "note": "a show that is on is being shown"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is on is operating"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO alphabet"
+     },
+     {
+      "clueFragment": "calculator",
+      "gives": "CASIO",
+      "note": "Casio is a well-known maker of pocket calculators"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "O",
+      "C",
+      "CASIO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A maths teacher sometimes keeps Charlie behind for showing his working on a calculator.",
+     "walkthrough": "'showing working' looks like maths homework, but each word stands alone; Casio is a calculator brand, a proper name rather than a dictionary word.",
+     "definitionFit": "The phrase means from time to time, now and then, which is a synonym of sometimes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "detains"
+    }
+   }
   },
   {
    "number": 12,
@@ -237,7 +879,68 @@
      }
     ]
    },
-   "solution": "LIFEPEERS"
+   "solution": "LIFEPEERS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "container"
+    ],
+    "answer": "LIFE PEERS",
+    "definitions": [
+     {
+      "text": "Lords",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "something made brief is cut short, so the final letter is dropped"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means placed on both sides of something"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "raise",
+      "gives": "LIFT",
+      "note": "to lift is to raise"
+     },
+     {
+      "clueFragment": "swords",
+      "gives": "EPEES",
+      "note": "épées are fencing swords"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R for rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIF",
+      "EPEE",
+      "R",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Members of the nobility raise their swords around the monarch in a ceremony.",
+     "walkthrough": "Life peers are members of the UK House of Lords whose titles cannot be inherited.",
+     "definitionFit": "Life peers sit in the House of Lords, so they are lords appointed for their lifetime."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raise"
+    }
+   }
   },
   {
    "number": 13,
@@ -251,7 +954,54 @@
     "text": "Before long home cracks seriously",
     "enumeration": "9"
    },
-   "solution": "EARNESTLY"
+   "solution": "EARNESTLY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EARNESTLY",
+    "definitions": [
+     {
+      "text": "seriously",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cracks",
+      "for": "container",
+      "note": "to crack something is to break into it, so one piece pushes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Before long",
+      "gives": "EARLY",
+      "note": "early means ahead of time"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "NEST",
+      "note": "a nest is a bird's home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAR",
+      "NEST",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A grim prediction that the house will soon start cracking badly.",
+     "definitionFit": "Earnestly means in a sincere, solemn and serious manner, so it is an adverb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cracks"
+    }
+   }
   },
   {
    "number": 14,
@@ -265,7 +1015,55 @@
     "text": "Group of boarders posh in stockings",
     "enumeration": "5"
    },
-   "solution": "HOUSE"
+   "solution": "HOUSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HOUSE",
+    "definitions": [
+     {
+      "text": "Group of boarders",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stockings",
+      "gives": "HOSE",
+      "note": "hose is an old word for stockings or tights"
+     },
+     {
+      "clueFragment": "posh",
+      "gives": "U",
+      "note": "U means upper-class"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "U",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A boarding-school crowd who wear smart stockings.",
+     "walkthrough": "In British boarding schools, pupils are split into houses where they live and compete as teams.",
+     "definitionFit": "A house in a British boarding school is a residence and team of pupils who board together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "posh"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +1077,61 @@
     "text": "Set aside each exam result ringed with red",
     "enumeration": "9"
    },
-   "solution": "EARMARKED"
+   "solution": "EARMARKED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EARMARKED",
+    "definitions": [
+     {
+      "text": "Set aside",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ringed with",
+      "for": "container",
+      "note": "to be ringed with is to be encircled, so one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "each",
+      "gives": "EA",
+      "note": "standard abbreviation for each"
+     },
+     {
+      "clueFragment": "red",
+      "gives": "RED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "exam result",
+      "gives": "MARK",
+      "note": "a mark is a score in an exam"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EA",
+      "R",
+      "MARK",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A teacher puts aside each test where the score has been circled in red ink.",
+     "definitionFit": "To earmark something is to reserve it for a particular purpose, a synonym of setting it aside."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ringed"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1145,63 @@
     "text": "Thanks accepted by parent at home for support",
     "enumeration": "8"
    },
-   "solution": "MAINTAIN"
+   "solution": "MAINTAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAINTAIN",
+    "definitions": [
+     {
+      "text": "support",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "by",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parent",
+      "gives": "MA",
+      "note": "Ma is mother"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     },
+     {
+      "clueFragment": "Thanks",
+      "gives": "TA",
+      "note": "ta is informal British for thanks"
+     },
+     {
+      "clueFragment": "accepted",
+      "gives": "IN",
+      "note": "something accepted or fashionable is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "IN",
+      "TA",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A grown child at home thanks their parent for continued backing.",
+     "walkthrough": "'by' sets the first pair beside the second, so the parent and home pieces come first in the answer.",
+     "definitionFit": "To maintain someone is to provide for them financially, which is to support them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "accepted"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1215,59 @@
     "text": "Silver candlestick from the east inlaid with mother-of-pearl",
     "enumeration": "5"
    },
-   "solution": "NACRE"
+   "solution": "NACRE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "NACRE",
+    "definitions": [
+     {
+      "text": "mother-of-pearl",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inlaid",
+      "for": "hidden_word",
+      "note": "something inlaid is set into a surface, so the answer is embedded within the words"
+     },
+     {
+      "text": "from the east",
+      "for": "reversal",
+      "note": "reading from the east in an across clue means reading right to left"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Silver candlestick",
+      "gives": "ERCAN",
+      "note": "the letters spanning the two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ERCAN",
+       "to": "NACRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An oriental silver candlestick decorated with inlaid mother-of-pearl.",
+     "definitionFit": "Nacre is the iridescent lining of mollusc shells, the material also called mother-of-pearl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inlaid"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1281,56 @@
     "text": "Shellfish bachelor tucks into on his own",
     "enumeration": "7"
    },
-   "solution": "ABALONE"
+   "solution": "ABALONE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ABALONE",
+    "definitions": [
+     {
+      "text": "Shellfish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tucks into",
+      "for": "container",
+      "note": "to tuck into is to slip inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on his own",
+      "gives": "ALONE",
+      "note": "alone means by oneself"
+     },
+     {
+      "clueFragment": "bachelor",
+      "gives": "BA",
+      "note": "BA, Bachelor of Arts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BA",
+      "LONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A single man eats a seafood dinner on his own.",
+     "walkthrough": "'tucks into' suggests eating, but here it means slipping inside.",
+     "definitionFit": "The abalone is an edible sea mollusc, a type of shellfish with an ear-shaped shell."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tucks"
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1350,68 @@
      }
     ]
    },
-   "solution": "ESTATECAR"
+   "solution": "ESTATECAR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ESTATE CAR",
+    "definitions": [
+     {
+      "text": "Big wheels",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spinning",
+      "for": "reversal",
+      "note": "something spinning turns round to face the other way"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "say",
+      "gives": "STATE",
+      "note": "to state is to say"
+     },
+     {
+      "clueFragment": "competition",
+      "gives": "RACE",
+      "note": "a race is a competition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "STATE",
+      "CAR"
+     ],
+     "reversals": [
+      {
+       "from": "RACE",
+       "to": "ECAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spinning-wheel contest featuring giant wheels.",
+     "walkthrough": "'Big wheels' is slang for a vehicle; an estate car is the British name for a station wagon.",
+     "definitionFit": "Wheels is slang for a car, and an estate car is a large one with an extended rear load space."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spinning"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1425,54 @@
     "text": "Walking stick supporting Greek character bends",
     "enumeration": "7"
    },
-   "solution": "CHICANE"
+   "solution": "CHICANE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHICANE",
+    "definitions": [
+     {
+      "text": "bends",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down clue a support sits underneath, so the stick goes below the Greek letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek character",
+      "gives": "CHI",
+      "note": "chi is a letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "Walking stick",
+      "gives": "CANE",
+      "note": "a cane is a walking stick"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHI",
+      "CANE"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly Greek man leans on his walking stick and stoops.",
+     "walkthrough": "In a down clue, the stick supporting the letter sits beneath it, so it comes second.",
+     "definitionFit": "A chicane is a sequence of tight artificial bends on a racing circuit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1486,53 @@
     "text": "Sailor on voyage told to come down a rope",
     "enumeration": "6"
    },
-   "solution": "ABSEIL"
+   "solution": "ABSEIL",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "ABSEIL",
+    "definitions": [
+     {
+      "text": "come down a rope",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "told",
+      "for": "homophone",
+      "note": "told means spoken out, so the word is taken by its sound"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailor",
+      "gives": "AB",
+      "note": "AB, able seaman"
+     },
+     {
+      "clueFragment": "voyage",
+      "gives": "SEIL",
+      "soundsLike": "SAIL",
+      "note": "a sail is a trip by boat"
+     }
+    ],
+    "explanation": {
+     "surface": "A sailor on a trip is ordered to slide down a rope.",
+     "walkthrough": "Only the second piece is heard rather than read; in British speech the answer is said 'ab-sail'.",
+     "definitionFit": "To abseil is to descend a steep face by sliding down a fixed rope."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "told"
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1552,68 @@
      }
     ]
    },
-   "solution": "BADENBADEN"
+   "solution": "BADENBADEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BADEN-BADEN",
+    "definitions": [
+     {
+      "text": "spa",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back for",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Naughty",
+      "gives": "BAD",
+      "note": "naughty means badly behaved"
+     },
+     {
+      "clueFragment": "nurse",
+      "gives": "EN",
+      "note": "EN, enrolled nurse"
+     },
+     {
+      "clueFragment": "invited",
+      "gives": "BADE",
+      "note": "bade is the past tense of bid, to invite"
+     },
+     {
+      "clueFragment": "afternoon",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAD",
+      "EN",
+      "BADE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky nurse asks someone round for an afternoon at a health spa.",
+     "walkthrough": "'invited back' looks like a phrase, but 'back for afternoon' is the selector. Baden-Baden is a famous German spa town.",
+     "definitionFit": "Baden-Baden is a German town famed for its thermal baths, a classic spa resort."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1627,63 @@
     "text": "Permission to enter when returning after six",
     "enumeration": "4"
    },
-   "solution": "VISA"
+   "solution": "VISA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "VISA",
+    "definitions": [
+     {
+      "text": "Permission to enter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way it came"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "six",
+      "gives": "VI",
+      "note": "Roman numeral six"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as can mean when"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "SA"
+     ],
+     "reversals": [
+      {
+       "from": "AS",
+       "to": "SA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks permission to come in when they return home after six o'clock.",
+     "definitionFit": "A visa is an official endorsement in a passport allowing the holder into a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "six"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1697,64 @@
     "text": "Jack stole bananas for shake",
     "enumeration": "6"
    },
-   "solution": "JOSTLE"
+   "solution": "JOSTLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "JOSTLE",
+    "definitions": [
+     {
+      "text": "shake",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bananas",
+      "for": "anagram",
+      "note": "going bananas is going crazy, so the letters run wild"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jack",
+      "gives": "J",
+      "note": "J for jack in playing cards"
+     },
+     {
+      "clueFragment": "stole",
+      "gives": "STOLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "OSTLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STOLE",
+       "gives": "OSTLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Jack pinched some bananas to make a milkshake.",
+     "definitionFit": "To jostle is to push and shove roughly, which shakes people about."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bananas"
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1774,53 @@
      }
     ]
    },
-   "solution": "NOAHSARK"
+   "solution": "NOAHSARK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOAHS ARK",
+    "definitions": [
+     {
+      "text": "Ship alone on the sea?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wrong",
+      "gives": "NO",
+      "note": "'no' is the reply to a wrong statement"
+     },
+     {
+      "clueFragment": "I see",
+      "gives": "AH",
+      "note": "ah is an exclamation of understanding"
+     },
+     {
+      "clueFragment": "a small island",
+      "gives": "SARK",
+      "note": "Sark is one of the smaller Channel Islands"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "AH",
+      "SARK"
+     ]
+    },
+    "explanation": {
+     "surface": "A lookout reports a lone ship, then corrects himself: it is actually a small island.",
+     "walkthrough": "The question mark flags a definition by example: during the Flood this vessel was the only one afloat.",
+     "definitionFit": "In Genesis the ark was the sole boat on the floodwaters covering the whole earth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "island"
+    }
+   }
   },
   {
    "number": 26,
@@ -451,7 +1834,51 @@
     "text": "Bank, see, by river",
     "enumeration": "4"
    },
-   "solution": "RELY"
+   "solution": "RELY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RELY",
+    "definitions": [
+     {
+      "text": "Bank",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "standard abbreviation for river"
+     },
+     {
+      "clueFragment": "see",
+      "gives": "ELY",
+      "note": "Ely is a cathedral city, and a see is a bishop's diocese"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ELY"
+     ]
+    },
+    "explanation": {
+     "surface": "A tourist points out a riverbank that can be seen by the water.",
+     "walkthrough": "'Bank' looks like a riverside but is the verb, as in bank on.",
+     "definitionFit": "To bank on someone is to depend on them, the same verb as rely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bank"
+    }
+   }
   },
   {
    "number": 27,
@@ -471,7 +1898,55 @@
      }
     ]
    },
-   "solution": "LEEENFIELD"
+   "solution": "LEEENFIELD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LEE-ENFIELD",
+    "definitions": [
+     {
+      "text": "Tommy's arm",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Distorting",
+      "for": "anagram",
+      "note": "distorting means twisting out of shape, so the letters are bent into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "life, needle",
+      "gives": "LIFENEEDLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LIFENEEDLE",
+       "gives": "LEEENFIELD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier's life is warped by an injection needle in his arm.",
+     "walkthrough": "Tommy is slang for a British soldier, and 'arm' is a weapon, not a limb.",
+     "definitionFit": "The Lee-Enfield was the standard British army rifle of both World Wars, the weapon of the ordinary soldier."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "arm"
+    }
+   }
   }
  ]
 }
