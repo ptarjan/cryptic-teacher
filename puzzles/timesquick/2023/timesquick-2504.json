@@ -24,6 +24,9 @@
   "date": "2023-10-13",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -43,7 +46,67 @@
      }
     ]
    },
-   "solution": "SKINDEEP"
+   "solution": "SKINDEEP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SKIN-DEEP",
+    "definitions": [
+     {
+      "text": "Superficial",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to sort",
+      "for": "anagram",
+      "note": "to sort something is to rearrange it, so the preceding word's letters get put in a new order"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside tells us the reworked letters sit within the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "refuse container",
+      "gives": "SKIP",
+      "note": "a skip is a large open bin for rubbish, here split open to take the middle letters"
+     },
+     {
+      "clueFragment": "need",
+      "gives": "NEED",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKI",
+      "NDEE",
+      "P"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEED",
+       "gives": "NDEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shallow person feels the urge to tidy up the inside of a rubbish bin.",
+     "walkthrough": "A skip is the British name for a large builder's rubbish container; the rearranged letters of 'need' go inside it to give SKIN-DEEP.",
+     "definitionFit": "Something skin-deep goes no further than the outer layer, which is exactly what superficial means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "refuse"
+    }
+   }
   },
   {
    "number": 1,
@@ -57,7 +120,43 @@
     "text": "The sea on the shore slave listened to",
     "enumeration": "4"
    },
-   "solution": "SURF"
+   "solution": "SURF",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SURF",
+    "definitions": [
+     {
+      "text": "The sea on the shore",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "listened to",
+      "for": "homophone",
+      "note": "something listened to is heard rather than read, so we want a word that sounds like the slave"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slave",
+      "gives": "SURF",
+      "soundsLike": "SERF",
+      "note": "a serf was a medieval bonded labourer, close to a slave"
+     }
+    ],
+    "explanation": {
+     "surface": "A slave by the coast listens to the waves.",
+     "definitionFit": "Surf is the foaming water of waves as they break against the beach."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "slave"
+    }
+   }
   },
   {
    "number": 2,
@@ -77,7 +176,61 @@
      }
     ]
    },
-   "solution": "INFUN"
+   "solution": "INFUN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "IN FUN",
+    "definitions": [
+     {
+      "text": "for a laugh",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so we keep every other letter of the word before it"
+     },
+     {
+      "text": "visiting",
+      "for": "container",
+      "note": "a visitor goes into a place, so these letters go inside the word for a drinking house"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "INN",
+      "note": "an inn is a pub, opened up to take the selected letters"
+     },
+     {
+      "clueFragment": "Four",
+      "gives": "FU",
+      "select": "alternate",
+      "note": "first and third letters of the number word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "FU",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A group of four drop in on the local pub just for fun.",
+     "definitionFit": "Saying something was done 'in fun' means it was meant as a joke, not seriously, so for a laugh."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Four"
+    }
+   }
   },
   {
    "number": 3,
@@ -101,7 +254,39 @@
      }
     ]
    },
-   "solution": "DUTYFREESHOP"
+   "solution": "DUTYFREESHOP",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DUTY-FREE SHOP",
+    "definitions": [
+     {
+      "text": "Retail outlet where staff have nothing to do?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Retail outlet where staff have nothing to do?",
+      "note": "surface reading: a lazy shop whose workers are idle"
+     },
+     {
+      "clueFragment": "where staff have nothing to do?",
+      "note": "setter's reading: staff free of any duty, i.e. the airport shop selling goods free of tax"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Duty' means both an obligation and an import tax; an airport shop selling goods exempt from tax is read as one whose staff are exempt from work.",
+     "definitionFit": "It is a shop, usually at an airport, selling goods on which no customs tax is charged."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nothing"
+    }
+   }
   },
   {
    "number": 4,
@@ -115,7 +300,68 @@
     "text": "Bring me up part of tree to make board",
     "enumeration": "6"
    },
-   "solution": "EMBARK"
+   "solution": "EMBARK",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "EMBARK",
+    "definitions": [
+     {
+      "text": "board",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, bringing a word up means writing it from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bring",
+      "note": "surface padding that pairs with 'up' to make the instruction read naturally"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written, then read upwards"
+     },
+     {
+      "clueFragment": "part of tree",
+      "gives": "BARK",
+      "note": "bark is the outer covering of a tree trunk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "BARK"
+     ],
+     "reversals": [
+      {
+       "from": "ME",
+       "to": "EM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks to have a piece of a tree brought up so a plank can be made.",
+     "walkthrough": "'Board' looks like a noun for a wooden plank, but it is the verb meaning to get on a ship.",
+     "definitionFit": "To embark is to go aboard a ship or aircraft, the same as boarding it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +375,52 @@
     "text": "Keen to put name forward for bender",
     "enumeration": "4"
    },
-   "solution": "KNEE"
+   "solution": "KNEE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "KNEE",
+    "definitions": [
+     {
+      "text": "bender",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to put name forward",
+      "for": "anagram",
+      "note": "the instruction moves the letter standing for name earlier in the word, a small rearrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Keen",
+      "gives": "KEEN",
+      "note": "taken as written; its N (name) is shifted forward two places"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "KEEN",
+       "gives": "KNEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone eager to nominate a person for a drinking spree.",
+     "walkthrough": "N is the standard abbreviation for name; move it from fourth place to second in KEEN. 'Bender' looks like a drinking binge but is something that bends.",
+     "definitionFit": "The knee is the joint that lets the leg flex, so it is literally a thing that bends."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bender"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +434,48 @@
     "text": "Square leg, that bowler may aim at?",
     "enumeration": "7"
    },
-   "solution": "NINEPIN"
+   "solution": "NINEPIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NINEPIN",
+    "definitions": [
+     {
+      "text": "that bowler may aim at?",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Square",
+      "gives": "NINE",
+      "note": "nine is a square number, three times three"
+     },
+     {
+      "clueFragment": "leg",
+      "gives": "PIN",
+      "note": "pins is informal for legs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NINE",
+      "PIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket fielding position at square leg, a natural target for the bowler.",
+     "walkthrough": "Square leg is a cricket fielding position, but the words split: a square number and a slang word for a leg. The bowler is at a skittle alley, not a cricket ground.",
+     "definitionFit": "A ninepin is one of the skittles a player bowls a ball to knock down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Square"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +489,50 @@
     "text": "Pharaoh for one training tiny page",
     "enumeration": "8"
    },
-   "solution": "EGYPTIAN"
+   "solution": "EGYPTIAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EGYPTIAN",
+    "definitions": [
+     {
+      "text": "Pharaoh for one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "training",
+      "for": "anagram",
+      "note": "training knocks something into a new shape, so the following letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tiny page",
+      "gives": "TINYPAGE",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TINYPAGE",
+       "gives": "EGYPTIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pharaoh coaches a little page boy at court.",
+     "definitionFit": "A pharaoh was a ruler of ancient Egypt, so he is an example of a native of that country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "training"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +546,50 @@
     "text": "Very precise mail that came to be translated",
     "enumeration": "12"
    },
-   "solution": "MATHEMATICAL"
+   "solution": "MATHEMATICAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MATHEMATICAL",
+    "definitions": [
+     {
+      "text": "Very precise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be translated",
+      "for": "anagram",
+      "note": "translating turns words into another form, so these letters must be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mail that came",
+      "gives": "MAILTHATCAME",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MAILTHATCAME",
+       "gives": "MATHEMATICAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Letters arriving from abroad need a very exact translation.",
+     "definitionFit": "Mathematical is used loosely for anything done with rigorous, numerical exactness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "translated"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +603,49 @@
     "text": "Judge information technology leads to renovation",
     "enumeration": "5"
    },
-   "solution": "REFIT"
+   "solution": "REFIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REFIT",
+    "definitions": [
+     {
+      "text": "renovation",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "leads to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Judge",
+      "gives": "REF",
+      "note": "a ref (referee) judges a match"
+     },
+     {
+      "clueFragment": "information technology",
+      "gives": "IT",
+      "note": "the usual abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REF",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A judge's computer expertise prompts a makeover of the court.",
+     "definitionFit": "A refit is a restoration or overhaul, typically of a ship or shop, so a renovation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Judge"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +659,55 @@
     "text": "Times covering Antrim town in flattering speech",
     "enumeration": "7"
    },
-   "solution": "BLARNEY"
+   "solution": "BLARNEY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BLARNEY",
+    "definitions": [
+     {
+      "text": "flattering speech",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "covering means wrapping around, so the first word surrounds the town"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Times",
+      "gives": "BY",
+      "note": "as in three by four, meaning multiplied by"
+     },
+     {
+      "clueFragment": "Antrim town",
+      "gives": "LARNE",
+      "note": "Larne is a port town in County Antrim, Northern Ireland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LARNE",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper's report on a town in Northern Ireland is full of flattery.",
+     "walkthrough": "'Times' looks like the newspaper but means the multiplication sign, read as 'by'. Blarney Stone, the source of the word, is in County Cork.",
+     "definitionFit": "Blarney is smooth, flattering talk meant to charm or persuade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Times"
+    }
+   }
   },
   {
    "number": 11,
@@ -227,7 +735,43 @@
      }
     ]
    },
-   "solution": "ONEFORTHEPOT"
+   "solution": "ONEFORTHEPOT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ONE FOR THE POT",
+    "definitions": [
+     {
+      "text": "Extra tea",
+      "at": 0
+     },
+     {
+      "text": "that's earned by sinking a red?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Extra tea",
+      "note": "first meaning: the extra spoonful added to the teapot beyond one per person"
+     },
+     {
+      "clueFragment": "that's earned by sinking a red?",
+      "note": "second meaning: in snooker, potting a red ball scores a single point"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In snooker each red ball potted scores one point, so a red sunk earns 'one' for the pot. The tea custom is a British habit when brewing in a teapot.",
+     "definitionFit": "The phrase names the traditional extra spoonful of tea leaves added for the pot itself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sinking"
+    }
+   }
   },
   {
    "number": 12,
@@ -241,7 +785,61 @@
     "text": "Support His Excellency? Extremely silly to predict",
     "enumeration": "8"
    },
-   "solution": "PROPHESY"
+   "solution": "PROPHESY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PROPHESY",
+    "definitions": [
+     {
+      "text": "to predict",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes of the next word, its first and last letters only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Support",
+      "gives": "PROP",
+      "note": "a prop holds something up"
+     },
+     {
+      "clueFragment": "His Excellency",
+      "gives": "HE",
+      "note": "the abbreviation used for an ambassador's title"
+     },
+     {
+      "clueFragment": "silly",
+      "gives": "SY",
+      "select": "outer",
+      "note": "the outside letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROP",
+      "HE",
+      "SY"
+     ]
+    },
+    "explanation": {
+     "surface": "Backing an ambassador might seem a foolish way to forecast the future.",
+     "definitionFit": "To prophesy is to foretell future events, as a prophet does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Support"
+    }
+   }
   },
   {
    "number": 13,
@@ -255,7 +853,46 @@
     "text": "Rugby dropped, not having enough time",
     "enumeration": "6"
    },
-   "solution": "RUSHED"
+   "solution": "RUSHED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RUSHED",
+    "definitions": [
+     {
+      "text": "not having enough time",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rugby",
+      "gives": "RU",
+      "note": "RU is short for Rugby Union"
+     },
+     {
+      "clueFragment": "dropped",
+      "gives": "SHED",
+      "note": "to shed is to drop or cast off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "SHED"
+     ]
+    },
+    "explanation": {
+     "surface": "A rugby player was left out of the side because there was no time.",
+     "definitionFit": "Feeling rushed means being hurried and pressed, lacking the time one needs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dropped"
+    }
+   }
   },
   {
    "number": 14,
@@ -269,7 +906,43 @@
     "text": "Spy ring",
     "enumeration": "7"
    },
-   "solution": "SLEEPER"
+   "solution": "SLEEPER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SLEEPER",
+    "definitions": [
+     {
+      "text": "Spy",
+      "at": 0
+     },
+     {
+      "text": "ring",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spy",
+      "note": "first meaning: an agent placed long in advance and left inactive until needed"
+     },
+     {
+      "clueFragment": "ring",
+      "note": "second meaning: a small hoop earring worn to keep a pierced hole open"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together, 'spy ring' suggests an espionage network; the two words define separately.",
+     "definitionFit": "A sleeper is both a dormant secret agent and a plain hoop earring kept in a piercing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 15,
@@ -283,7 +956,57 @@
     "text": "A chap with daughter, a girl",
     "enumeration": "6"
    },
-   "solution": "AMANDA"
+   "solution": "AMANDA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMANDA",
+    "definitions": [
+     {
+      "text": "girl",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "chap",
+      "gives": "MAN",
+      "note": "a chap is a man"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter in family trees"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MAN",
+      "D",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A man and his daughter, with the daughter being a young girl.",
+     "definitionFit": "Amanda is a female first name, so an example of a girl's name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -297,7 +1020,47 @@
     "text": "A fat book put into words",
     "enumeration": "6"
    },
-   "solution": "BUTTER"
+   "solution": "BUTTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUTTER",
+    "definitions": [
+     {
+      "text": "A fat",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is a standard abbreviation for book"
+     },
+     {
+      "clueFragment": "put into words",
+      "gives": "UTTER",
+      "note": "to utter is to say aloud, express in speech"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "UTTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A thick volume finally written up.",
+     "walkthrough": "'A fat book' reads as a thick volume, but 'A fat' is the definition and the book is just a letter.",
+     "definitionFit": "Butter is a dairy fat churned from cream."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fat"
+    }
+   }
   },
   {
    "number": 17,
@@ -317,7 +1080,39 @@
      }
     ]
    },
-   "solution": "PRESSCUTTING"
+   "solution": "PRESSCUTTING",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PRESS CUTTING",
+    "definitions": [
+     {
+      "text": "A piece of paper worth keeping",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A piece of paper worth keeping",
+      "note": "surface reading: any valuable document, like a certificate"
+     },
+     {
+      "clueFragment": "piece of paper",
+      "note": "setter's reading: paper means a newspaper, and the piece is an article clipped out of it and saved"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Paper' looks like a sheet of stationery but means a newspaper; a piece of it kept is an item snipped out.",
+     "definitionFit": "A press cutting is an article clipped from a newspaper or magazine and kept for reference."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "paper"
+    }
+   }
   },
   {
    "number": 18,
@@ -331,7 +1126,51 @@
     "text": "Generous founder of prize putting English last",
     "enumeration": "5"
    },
-   "solution": "NOBLE"
+   "solution": "NOBLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOBLE",
+    "definitions": [
+     {
+      "text": "Generous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "putting English last",
+      "for": "anagram",
+      "note": "the instruction moves the letter for English to the end of the word, a small rearrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "founder of prize",
+      "gives": "NOBEL",
+      "note": "Alfred Nobel founded the Nobel Prizes; his E (English) is moved to the end"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOBEL",
+       "gives": "NOBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A generous benefactor endows a prize, with English coming last.",
+     "walkthrough": "E is the usual abbreviation for English; shift it from fourth place to the end of the surname.",
+     "definitionFit": "Noble can mean high-minded and magnanimous, showing generosity of spirit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "English"
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1184,53 @@
     "text": "I'd to abandon Crusoe's man in brawl",
     "enumeration": "4"
    },
-   "solution": "FRAY"
+   "solution": "FRAY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "FRAY",
+    "definitions": [
+     {
+      "text": "brawl",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to abandon",
+      "for": "deletion",
+      "note": "abandoning means leaving behind, so those letters come out of the name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'd",
+      "gives": "ID",
+      "note": "the contraction, its letters to be removed"
+     },
+     {
+      "clueFragment": "Crusoe's man",
+      "gives": "FRIDAY",
+      "note": "Man Friday is Robinson Crusoe's companion in Defoe's novel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FR",
+      "AY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone longs to desert Robinson Crusoe's servant in the middle of a fight.",
+     "definitionFit": "A fray is a noisy fight or scuffle, as in 'joining the fray'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "abandon"
+    }
+   }
   },
   {
    "number": 20,
@@ -359,7 +1244,61 @@
     "text": "Old conspiracy includes one daring feat",
     "enumeration": "7"
    },
-   "solution": "EXPLOIT"
+   "solution": "EXPLOIT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "EXPLOIT",
+    "definitions": [
+     {
+      "text": "daring feat",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "includes",
+      "for": "container",
+      "note": "something that includes another holds it inside, so the plot wraps around the numeral"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "EX",
+      "note": "ex means former"
+     },
+     {
+      "clueFragment": "conspiracy",
+      "gives": "PLOT",
+      "note": "a plot is a secret scheme"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "PLO",
+      "I",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An old conspiracy had at its heart one daring act.",
+     "definitionFit": "An exploit is a bold or adventurous deed, the noun sense of the word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Old"
+    }
+   }
   },
   {
    "number": 21,
@@ -373,7 +1312,39 @@
     "text": "This Highlander may give a toss",
     "enumeration": "5"
    },
-   "solution": "CABER"
+   "solution": "CABER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CABER",
+    "definitions": [
+     {
+      "text": "This Highlander may give a toss",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This Highlander may give a toss",
+      "note": "surface reading: a Scot who, for once, actually cares, as in 'not give a toss'"
+     },
+     {
+      "clueFragment": "Highlander may give a toss",
+      "note": "setter's reading: a long wooden pole thrown end over end at Highland games"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Give a toss' is British slang for caring; here the toss is literal, at the Scottish Highland games, and the Highlander is a Highland object, not a person.",
+     "definitionFit": "The caber is the heavy tree-trunk pole flung in a traditional Scottish athletic event."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Highlander"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1358,39 @@
     "text": "This garden ridiculously short?",
     "enumeration": "4"
    },
-   "solution": "YARD"
+   "solution": "YARD",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "YARD",
+    "definitions": [
+     {
+      "text": "This garden ridiculously short?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This garden ridiculously short?",
+      "note": "surface reading: a garden that is absurdly small"
+     },
+     {
+      "clueFragment": "garden ridiculously short?",
+      "note": "setter's reading: a garden word that is also a unit of three feet, absurdly short for any plot"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The word is the American term for a garden and also a length of just three feet, so a garden measured by its own name would be tiny.",
+     "definitionFit": "In American usage the ground around a house is called by this word, which is also a three-foot measure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 23,
@@ -401,7 +1404,63 @@
     "text": "Jokiness of orderly convulsed with laughter at first",
     "enumeration": "8"
    },
-   "solution": "DROLLERY"
+   "solution": "DROLLERY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "DROLLERY",
+    "definitions": [
+     {
+      "text": "Jokiness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "convulsed",
+      "for": "anagram",
+      "note": "convulsed means thrown into spasms, so the letters are jumbled"
+     },
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of the word just before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "orderly",
+      "gives": "ORDERLY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "laughter",
+      "gives": "L",
+      "select": "first",
+      "note": "its opening letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ORDERLYL",
+       "gives": "DROLLERY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hospital orderly doubled up with laughter at a joke.",
+     "walkthrough": "'Orderly' looks like an adjective or a hospital attendant, but it is just letters to be mixed.",
+     "definitionFit": "Drollery is dry, quaint humour, so it amounts to jokiness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "orderly"
+    }
+   }
   }
  ]
 }
