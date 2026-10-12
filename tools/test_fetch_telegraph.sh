@@ -108,6 +108,30 @@ same("a linked answer is one group on its first light",
 same("its other light says See and carries no enumeration",
      (e[(3, "across")]["clue"], e[(3, "across")]["solution"]), ({"text": "See 1"}, "BEE"))
 
+# Toughie 2888/2907: the leader has no `links`; the continuation says only
+# "See 1 across" with no format, and the leader's answer is the whole phrase.
+bare = doc("Toughie Crossword No 2888", "Friday, 15 July 2022", "Elgar")
+across = bare["json"]["copy"]["clues"][0]["clues"]
+across[0].update(format="3,3", answer="cat bee")
+across[1].update(clue="See 1 across", format="")
+e = {(x["number"], x["direction"]): x for x in ft.parse(bare, "toughie-crossword")["entries"]}
+same("a See clue with no links on its leader is still linked",
+     (e[(1, "across")].get("group"), e[(1, "across")]["clue"]["enumeration"], e[(3, "across")]["clue"]),
+     (["1-across", "3-across"], "3,3", {"text": "See 1"}))
+same("a See clue with a real enumeration is a clue, not a link",
+     [x.get("group") for x in ft.parse(doc("Toughie Crossword No 1", "Friday, 15 July 2022", "X"),
+                                       "toughie-crossword")["entries"] if x.get("group")], [])
+
+# A Toughie with no byline is refused unless no source records one.
+import puzzle_integrity as pi
+flags = []
+pi.check_setter({"id": "toughie-2874", "series": "toughie", "number": 2874}, flags)
+same("a Toughie with no setter is flagged", [f[0] for f in flags], ["SETTER"])
+flags = []
+pi.check_setter({"id": "toughie-2875", "series": "toughie", "number": 2875}, flags)
+same("one whose byline no source records is not", flags, [])
+same("a byline the crawl missed comes from BYLINES", ft.BYLINES[("toughie", 2489)][0], "Elgar")
+
 # The bucket can list a continuation before the light that prints the clue.
 first = doc("Cryptic Crossword No 3", "Monday, 03 August 2026")
 down = first["json"]["copy"]["clues"][1]["clues"]
