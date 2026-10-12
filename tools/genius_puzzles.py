@@ -809,7 +809,15 @@ DATED = {2: "2003-07-30"}  # url 2016/feb/04/genius-crossword-2; page published 
 
 #: A Genius the schema cannot hold yet, and why: assemble() reports it so
 #: rather than as the reader's first complaint about it.
-SCHEMA_GAP = {}
+SCHEMA_GAP = {
+    # No 280 (2026-10-05, Enigmatist) prints every clue unnumbered ("In
+    # pieces, like 35 of the clues?"), so no numbered run is read and there
+    # is no JIGSAW placing: it wants filing clues-only as cluesUnplaced
+    # (clues_only.py's jigsaw builder, b813ef080b), or placing off its
+    # fifteensquared post once that lands.
+    280: ("clue list unnumbered (jigsaw)", "every clue printed without a number; "
+          "file clues-only (cluesUnplaced) or place off the post"),
+}
 
 
 def split_shared_leaders(pdf, answers):
@@ -1023,13 +1031,22 @@ def assemble(number, pdf, post, date, url):
     return puzzle, None
 
 
+#: Lights whose printed count the paper got short, filed with the count as
+#: printed. No 60's article page prints "8, 5 across Rochdale cries ... (6)"
+#: and "20, 25 Here's rosy gore, ruining Trigger's saddle (3)": GRACIE FIELDS
+#: and ROY ROGERS, each counted only as far as its first light, while its
+#: other linked clues (1,27,10 (6,12); 34,15 (6,5)) count them all. Filed,
+#: the count fits its own light, which puzzle_integrity.check_length accepts
+#: for a linked head, so no PUBLISHED_WRONG row is needed there.
+MISPRINTED = {
+    60: {(8, "down"): "GRACIE FIELDS (6,6) over 8 down + 5 across, printed (6)",
+         (20, "down"): "ROY ROGERS (3,6) over 20 down + 25 down, printed (3)"},
+}
+
+
 def misprinted(number):
-    """The lights whose printed count puzzle_integrity.PUBLISHED_WRONG says the
-    paper got wrong ("8-down: clue says (6) = 6, ..."): No 60 prints (6) for
-    GRACIE FIELDS over 8 down and 5 across. Filed with the count as printed."""
-    pid = f"{SERIES}-{number}"
-    return {(int(m.group(1)), m.group(2)) for p, finding in puzzle_integrity.PUBLISHED_WRONG
-            if p == pid for m in [re.match(r"(\d+)-(across|down)\b", finding)] if m}
+    """The lights of `number` whose printed count MISPRINTED says is short."""
+    return set(MISPRINTED.get(number, {}))
 
 
 def unsolved(number, pdf, date, url, withheld=()):

@@ -186,7 +186,7 @@ check "See 12 across joins 12 across, not 12 down (162)" "[(12, 'across'), (2, '
 check "a See stub another heading already links joins no second leader (22, 16, 58)" "[[(1, 'across'), (13, 'across')], [(1, 'down')], [(2, 'down')]]" "$(get see-taken)"
 check "an unheaded See N joins the only N leading (60)" "[[(9, 'across')], [(8, 'down'), (5, 'across')]]" "$(get see-own)"
 check "a * count (a withheld word) ends a clue (17)" "[(22, '*,6'), (24, '10'), (14, '5,4')]" "$(get star-count)"
-check "PUBLISHED_WRONG names the misprinted counts the filer lets through (60)" "[(8, 'down'), (20, 'down')] []" "$(get misprinted-60)"
+check "MISPRINTED names the misprinted counts the filer lets through (60)" "[(8, 'down'), (20, 'down')] []" "$(get misprinted-60)"
 check "unnumbered clues in the preamble are counted; numbered ones are not (76, 157)" "5 0" "$(get unnumbered)"
 check "a heading behind Clues, a header without No, and World Cup winners: preamble (165)" "Eight solutions comprise the theme, supporter and World Cup winners." "$(get preamble-165)"
 check "a run under no known heading is the other way's clues (157)" "[(1, 'd'), (2, 'd'), (3, 'd'), (8, 'a'), (9, 'a'), (10, 'a')]" "$(get stranded-run)"
