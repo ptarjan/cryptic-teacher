@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,63 @@
     "text": "Animal from mountain, a tailless cat",
     "enumeration": "6"
    },
-   "solution": "ALPACA"
+   "solution": "ALPACA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ALPACA",
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tailless",
+      "for": "deletion",
+      "note": "without a tail means the final letter of the following word is cut off"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mountain",
+      "gives": "ALP",
+      "note": "an alp is a high mountain"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cat",
+      "gives": "CAT",
+      "note": "taken as written, before its tail goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALP",
+      "A",
+      "CA"
+     ]
+    },
+    "explanation": {
+     "surface": "A zoo label noting that a mountain beast is a cat missing its tail.",
+     "definitionFit": "The alpaca is a South American mammal related to the llama, so it is an animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cat"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +106,60 @@
     "text": "A comic paper to be published",
     "enumeration": "6"
    },
-   "solution": "APPEAR"
+   "solution": "APPEAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "APPEAR",
+    "definitions": [
+     {
+      "text": "to be published",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "comic",
+      "for": "anagram",
+      "note": "something comic is funny or absurd, so these letters are played around with into a silly order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "paper",
+      "gives": "PAPER",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PPEAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PAPER",
+       "gives": "PPEAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Describes a humorous newspaper about to come out.",
+     "definitionFit": "A book or article that appears is issued in print, so the verb matches the infinitive phrase of publication."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "comic"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +179,63 @@
      }
     ]
    },
-   "solution": "PANAMAHAT"
+   "solution": "PANAMAHAT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PANAMA HAT",
+    "definitions": [
+     {
+      "text": "Headgear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not quite",
+      "for": "deletion",
+      "note": "not quite all of the word is used, so its last letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "provided by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "airline",
+      "gives": "PANAM",
+      "note": "Pan Am was a famous American airline"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "detest",
+      "gives": "HATE",
+      "note": "a synonym, before it is shortened"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PANAM",
+      "A",
+      "HAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Seems to ask whether an airline's hat is something to loathe.",
+     "definitionFit": "A Panama hat is a lightweight straw hat, so it is a type of headgear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "detest"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +249,41 @@
     "text": "Shake large milk can",
     "enumeration": "5"
    },
-   "solution": "CHURN"
+   "solution": "CHURN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHURN",
+    "definitions": [
+     {
+      "text": "Shake",
+      "at": 0
+     },
+     {
+      "text": "large milk can",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shake",
+      "note": "first meaning: to agitate or stir violently, as when making butter"
+     },
+     {
+      "clueFragment": "large milk can",
+      "note": "second meaning: the big metal container in which milk is carried from a farm"
+     }
+    ],
+    "explanation": {
+     "surface": "Reads like an instruction to shake a big milk can.",
+     "definitionFit": "The word is both a verb for agitating cream into butter and a noun for the large dairy vessel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +297,48 @@
     "text": "Relatively expensive in cheerful bazaar",
     "enumeration": "8"
    },
-   "solution": "UPMARKET"
+   "solution": "UPMARKET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPMARKET",
+    "definitions": [
+     {
+      "text": "Relatively expensive",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheerful",
+      "gives": "UP",
+      "note": "feeling up means feeling happy"
+     },
+     {
+      "clueFragment": "bazaar",
+      "gives": "MARKET",
+      "note": "a bazaar is a market"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "MARKET"
+     ]
+    },
+    "explanation": {
+     "surface": "Remarks that things are pricey in a lively bazaar.",
+     "definitionFit": "Upmarket goods are aimed at wealthier buyers, so they cost more than the ordinary range."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +358,50 @@
      }
     ]
    },
-   "solution": "PERSONALSTEREO"
+   "solution": "PERSONALSTEREO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PERSONAL STEREO",
+    "definitions": [
+     {
+      "text": "portable cassette player",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "something new has been made afresh, so the letters are put into a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reason peer lost",
+      "gives": "PERSONALSTEREO",
+      "note": "these fourteen letters, rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REASONPEERLOST",
+       "gives": "PERSONALSTEREO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Suggests a nobleman lost his reason, perhaps over a new gadget.",
+     "definitionFit": "A personal stereo, like the Walkman, was a small portable device for playing cassettes through headphones."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "new"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +415,88 @@
     "text": "A bit of rural info — article on it turned up in country",
     "enumeration": "9"
    },
-   "solution": "ARGENTINA"
+   "solution": "ARGENTINA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "ARGENTINA",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "A bit of",
+      "for": "letter_selection",
+      "note": "a bit of the word means just its first letter is taken"
+     },
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turning something up reads it from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rural",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter"
+     },
+     {
+      "clueFragment": "info",
+      "gives": "GEN",
+      "note": "gen is informal British slang for information"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written; 'on' places the article above it in the down entry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "GEN",
+      "TINA"
+     ],
+     "reversals": [
+      {
+       "from": "ANIT",
+       "to": "TINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Like a fragment of farming news turning up abroad.",
+     "walkthrough": "The opening A is doing double duty in the surface as the start of 'A bit of', but the A itself is also a letter of the answer.",
+     "definitionFit": "Argentina is a nation in South America, so it is a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "info"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +510,55 @@
     "text": "Bake spicy British meat dish",
     "enumeration": "5"
    },
-   "solution": "KEBAB"
+   "solution": "KEBAB",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "KEBAB",
+    "definitions": [
+     {
+      "text": "meat dish",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spicy",
+      "for": "anagram",
+      "note": "spicy suggests something hot and lively, so the letters are livened up into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bake",
+      "gives": "BAKE",
+      "note": "taken as written, as fodder"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the standard abbreviation for British"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BAKEB",
+       "gives": "KEBAB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cooking instruction for a hot British meat recipe.",
+     "definitionFit": "A kebab is pieces of grilled meat, often on a skewer, so it is a meat dish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spicy"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +572,44 @@
     "text": "Locks in fortress, essential",
     "enumeration": "7"
    },
-   "solution": "TRESSES"
+   "solution": "TRESSES",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TRESSES",
+    "definitions": [
+     {
+      "text": "Locks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer sits inside the run of letters that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fortress, essential",
+      "gives": "TRESSES",
+      "note": "hiding in the letters spanning both words"
+     }
+    ],
+    "explanation": {
+     "surface": "Sounds like securing a fortress with essential locks.",
+     "walkthrough": "'Locks' suggests the bolts of a castle, but here it means hair.",
+     "definitionFit": "Tresses are long locks of hair, so the two are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Locks"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +629,50 @@
      }
     ]
    },
-   "solution": "SHERRYCOBBLERS"
+   "solution": "SHERRYCOBBLERS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHERRY-COBBLERS",
+    "definitions": [
+     {
+      "text": "Drinks",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "made by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "SHERRY",
+      "note": "Sherry is a girl's name"
+     },
+     {
+      "clueFragment": "Nonsense",
+      "gives": "COBBLERS",
+      "note": "cobblers is British slang for nonsense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHERRY",
+      "COBBLERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether a girl's drink-making is all rubbish.",
+     "walkthrough": "Cobblers is a British slang word for rubbish or nonsense.",
+     "definitionFit": "A sherry cobbler is a cocktail of sherry, sugar and citrus over ice, so the plural names drinks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "girl"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +686,50 @@
     "text": "Clerk in prison with drug dealer",
     "enumeration": "9"
    },
-   "solution": "PENPUSHER"
+   "solution": "PENPUSHER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PEN-PUSHER",
+    "definitions": [
+     {
+      "text": "Clerk",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prison",
+      "gives": "PEN",
+      "note": "pen is short for penitentiary"
+     },
+     {
+      "clueFragment": "drug dealer",
+      "gives": "PUSHER",
+      "note": "a pusher sells illegal drugs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEN",
+      "PUSHER"
+     ]
+    },
+    "explanation": {
+     "surface": "An office worker locked up alongside a dealer.",
+     "definitionFit": "A pen-pusher is a dismissive term for an office worker doing routine paperwork, such as a clerk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +743,57 @@
     "text": "US actor's book covered by girl",
     "enumeration": "5"
    },
-   "solution": "GABLE"
+   "solution": "GABLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GABLE",
+    "definitions": [
+     {
+      "text": "US actor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covered by",
+      "for": "container",
+      "note": "being covered by something means being enclosed within it"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "GALE",
+      "note": "Gale is a girl's name"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GA",
+      "B",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Suggests a film star's book has a girl on its cover.",
+     "definitionFit": "Clark Gable was an American film star, best known for Gone with the Wind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "covered"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +807,68 @@
     "text": "Social worker, without equal, runs round rear of sanatorium",
     "enumeration": "7"
    },
-   "solution": "ALMONER"
+   "solution": "ALMONER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ALMONER",
+    "definitions": [
+     {
+      "text": "Social worker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rear of",
+      "for": "letter_selection",
+      "note": "the rear of a word is its last letter"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "going round something means surrounding it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "without equal",
+      "gives": "ALONE",
+      "note": "alone as in unrivalled, standing alone"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     },
+     {
+      "clueFragment": "sanatorium",
+      "gives": "M",
+      "select": "last",
+      "note": "the final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "M",
+      "ONER"
+     ]
+    },
+    "explanation": {
+     "surface": "Praises a peerless social worker doing rounds at a sanatorium.",
+     "walkthrough": "The ALONE plus R combination wraps round the single letter, splitting after its first two letters.",
+     "definitionFit": "An almoner was a hospital social worker in Britain who dealt with patients' welfare."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +882,45 @@
     "text": "Coach with collection of books",
     "enumeration": "7"
    },
-   "solution": "OMNIBUS"
+   "solution": "OMNIBUS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OMNIBUS",
+    "definitions": [
+     {
+      "text": "Coach",
+      "at": 0
+     },
+     {
+      "text": "collection of books",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coach",
+      "note": "first meaning: an old word for a bus"
+     },
+     {
+      "clueFragment": "collection of books",
+      "note": "second meaning: a volume reprinting several works together"
+     }
+    ],
+    "explanation": {
+     "surface": "A bus carrying a library's worth of books.",
+     "definitionFit": "The word names both a large passenger vehicle and a single volume combining several works by one author."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Coach"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +940,51 @@
      }
     ]
    },
-   "solution": "HAPPYFAMILIES"
+   "solution": "HAPPYFAMILIES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HAPPY FAMILIES",
+    "definitions": [
+     {
+      "text": "Card game",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pleased",
+      "gives": "HAPPY",
+      "note": "a synonym"
+     },
+     {
+      "clueFragment": "generations?",
+      "gives": "FAMILIES",
+      "note": "generations of relatives make up families; the question mark flags the loose fit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAPPY",
+      "FAMILIES"
+     ]
+    },
+    "explanation": {
+     "surface": "A card game that keeps several generations content.",
+     "walkthrough": "Happy Families is a children's card game, popular in Britain, where players collect sets of four family members.",
+     "definitionFit": "The phrase is the title of a traditional children's card game played with illustrated family cards."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "generations"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +998,46 @@
     "text": "Gradually sample ground grain",
     "enumeration": "9"
    },
-   "solution": "PIECEMEAL"
+   "solution": "PIECEMEAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PIECEMEAL",
+    "definitions": [
+     {
+      "text": "Gradually",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sample",
+      "gives": "PIECE",
+      "note": "a piece is a sample or portion"
+     },
+     {
+      "clueFragment": "ground grain",
+      "gives": "MEAL",
+      "note": "meal is coarsely ground grain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIECE",
+      "MEAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone slowly tasting milled grain.",
+     "definitionFit": "Doing something piecemeal means doing it bit by bit, which is the adverbial sense of gradually."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sample"
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +1061,57 @@
      }
     ]
    },
-   "solution": "ILLATEASE"
+   "solution": "ILLATEASE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ILL AT EASE",
+    "definitions": [
+     {
+      "text": "uncomfortable",
+      "at": 50
+     }
+    ],
+    "linkWords": [
+     "on",
+     "may make one"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Italian article",
+      "gives": "IL",
+      "note": "il is the Italian for 'the'"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LA",
+      "note": "la is a French word for 'the'"
+     },
+     {
+      "clueFragment": "badger",
+      "gives": "TEASE",
+      "note": "to badger is to pester or tease"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IL",
+      "LA",
+      "TEASE"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper piece in Italy about a French badger that unsettles readers.",
+     "walkthrough": "'Badger' suggests the animal but it is the verb for pestering.",
+     "definitionFit": "Being ill at ease is an idiom for feeling awkward or uneasy, so it means uncomfortable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "badger"
+    }
+   }
   },
   {
    "number": 17,
@@ -311,7 +1131,54 @@
      }
     ]
    },
-   "solution": "DOTHEBOYSHALL"
+   "solution": "DOTHEBOYSHALL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DOTHEBOYS HALL",
+    "definitions": [
+     {
+      "text": "Boarding school",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fantastic",
+      "for": "anagram",
+      "note": "fantastic means fanciful or bizarre, so the letters are put into a strange new arrangement"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shady bolthole",
+      "gives": "DOTHEBOYSHALL",
+      "note": "these thirteen letters, rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SHADYBOLTHOLE",
+       "gives": "DOTHEBOYSHALL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Describes a boarding school as a wonderful but dodgy hideaway.",
+     "walkthrough": "Dotheboys Hall is the cruel Yorkshire boarding school run by Wackford Squeers in Dickens's Nicholas Nickleby.",
+     "definitionFit": "In Dickens's novel the place is a boys' boarding academy, so it is a literary example of one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fantastic"
+    }
+   }
   },
   {
    "number": 17,
@@ -325,7 +1192,66 @@
     "text": "Down payment raised is accepted by store",
     "enumeration": "7"
    },
-   "solution": "DEPOSIT"
+   "solution": "DEPOSIT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DEPOSIT",
+    "definitions": [
+     {
+      "text": "Down payment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down entry, raising a word reads it upwards, so backwards"
+     },
+     {
+      "text": "is accepted by",
+      "for": "container",
+      "note": "being accepted by something means being taken inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "store",
+      "gives": "DEPOT",
+      "note": "a depot is a storehouse"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written, then turned upwards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEPO",
+      "SI",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "IS",
+       "to": "SI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shop taking a down payment that has been collected.",
+     "definitionFit": "A deposit is an initial part-payment made to secure a purchase, which is what a down payment is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "store"
+    }
+   }
   },
   {
    "number": 18,
@@ -339,7 +1265,63 @@
     "text": "Herb in bog boy pulled up",
     "enumeration": "6"
    },
-   "solution": "FENNEL"
+   "solution": "FENNEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "FENNEL",
+    "definitions": [
+     {
+      "text": "Herb",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pulled up",
+      "for": "reversal",
+      "note": "in a down entry, pulling a word up reads it from the bottom, so backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bog",
+      "gives": "FEN",
+      "note": "a fen is marshy land"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "LEN",
+      "note": "Len is a boy's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FEN",
+      "NEL"
+     ],
+     "reversals": [
+      {
+       "from": "LEN",
+       "to": "NEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boy hauled out of a marsh where herbs grow.",
+     "definitionFit": "Fennel is an aniseed-flavoured plant used in cooking, so it is a herb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "boy"
+    }
+   }
   },
   {
    "number": 19,
@@ -353,7 +1335,55 @@
     "text": "Saw Venture Scout in lead",
     "enumeration": "7"
    },
-   "solution": "PROVERB"
+   "solution": "PROVERB",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PROVERB",
+    "definitions": [
+     {
+      "text": "Saw",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lead",
+      "gives": "PB",
+      "note": "Pb is the chemical symbol for lead"
+     },
+     {
+      "clueFragment": "Venture Scout",
+      "gives": "ROVER",
+      "note": "Rover Scouts were the older section later renamed Venture Scouts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ROVER",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "A senior Scout was seen taking the lead.",
+     "walkthrough": "'Saw' looks like the past tense of see, but it is a noun meaning an old saying.",
+     "definitionFit": "A saw is an old saying or maxim, so it is a synonym for a proverb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Saw"
+    }
+   }
   },
   {
    "number": 20,
@@ -367,7 +1397,46 @@
     "text": "Smell coming from river, it's said",
     "enumeration": "5"
    },
-   "solution": "ODOUR"
+   "solution": "ODOUR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ODOUR",
+    "definitions": [
+     {
+      "text": "Smell",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "it's said",
+      "for": "homophone",
+      "note": "something said is spoken, so we want a word that is pronounced like another"
+     }
+    ],
+    "linkWords": [
+     "coming from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "ODOUR",
+      "soundsLike": "ODER",
+      "note": "the Oder is a central European river on the German-Polish border"
+     }
+    ],
+    "explanation": {
+     "surface": "A whiff rising from a river.",
+     "definitionFit": "An odour is a smell, especially a noticeable one, so the two are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "river"
+    }
+   }
   },
   {
    "number": 21,
@@ -381,7 +1450,53 @@
     "text": "Letter from pile, set reviewed",
     "enumeration": "7"
    },
-   "solution": "EPISTLE"
+   "solution": "EPISTLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EPISTLE",
+    "definitions": [
+     {
+      "text": "Letter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reviewed",
+      "for": "anagram",
+      "note": "reviewed suggests being looked over and reworked, so the letters are reorganised"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pile, set",
+      "gives": "PILESET",
+      "note": "these letters, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PILESET",
+       "gives": "EPISTLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A letter pulled out of a stack of post that has been read over.",
+     "definitionFit": "An epistle is a formal or literary letter, as in the New Testament epistles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reviewed"
+    }
+   }
   },
   {
    "number": 22,
@@ -395,7 +1510,47 @@
     "text": "Bury or Milan team?",
     "enumeration": "5"
    },
-   "solution": "INTER"
+   "solution": "INTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INTER",
+    "definitions": [
+     {
+      "text": "Bury",
+      "at": 0
+     },
+     {
+      "text": "Milan team",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bury",
+      "note": "first meaning: to place a body in a grave"
+     },
+     {
+      "clueFragment": "Milan team",
+      "note": "second meaning: Internazionale, the Milan football club"
+     }
+    ],
+    "explanation": {
+     "surface": "Asks which football club is meant: Bury, an English team, or one from Milan.",
+     "walkthrough": "Bury is also an English football club, which makes the surface a choice between two teams.",
+     "definitionFit": "The word is a verb meaning to place in a grave and the short name of Inter Milan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bury"
+    }
+   }
   },
   {
    "number": 23,
@@ -409,7 +1564,42 @@
     "text": "Record music for a film",
     "enumeration": "5"
    },
-   "solution": "SCORE"
+   "solution": "SCORE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCORE",
+    "definitions": [
+     {
+      "text": "Record",
+      "at": 0
+     },
+     {
+      "text": "music for a film",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Record",
+      "note": "first meaning: to keep a tally, as of points in a game"
+     },
+     {
+      "clueFragment": "music for a film",
+      "note": "second meaning: the soundtrack written for a movie"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to record a soundtrack for a movie.",
+     "definitionFit": "The word means both to note down points and the composed music accompanying a film."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Record"
+    }
+   }
   },
   {
    "number": 24,
@@ -423,7 +1613,63 @@
     "text": "Last piece in paper — see it any differently? The reason, perhaps",
     "enumeration": "9"
    },
-   "solution": "EYESTRAIN"
+   "solution": "EYESTRAIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "EYESTRAIN",
+    "definitions": [
+     {
+      "text": "The reason, perhaps",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Last piece in",
+      "for": "letter_selection",
+      "note": "the last piece of a word is its final letter"
+     },
+     {
+      "text": "differently",
+      "for": "anagram",
+      "note": "arranged differently means the letters are put into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "paper",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter"
+     },
+     {
+      "clueFragment": "see it any",
+      "gives": "SEEITANY",
+      "note": "these letters, to be mixed with the one above"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RSEEITANY",
+       "gives": "EYESTRAIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wonders whether the small print at the end of a newspaper makes you see things oddly.",
+     "walkthrough": "The definition plays on the clue itself: eyestrain could be why you see things differently.",
+     "definitionFit": "Eyestrain is tiredness of the eyes, a plausible cause of blurred or altered vision."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "paper"
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1683,69 @@
     "text": "Criminal yet to be spotted round parts of Alpine region",
     "enumeration": "8"
    },
-   "solution": "TYROLESE"
+   "solution": "TYROLESE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TYROLESE",
+    "definitions": [
+     {
+      "text": "of Alpine region",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Criminal",
+      "for": "anagram",
+      "note": "criminal suggests something crooked, so the letters are twisted out of order"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "to go round something is to surround it"
+     }
+    ],
+    "linkWords": [
+     "to be spotted"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "yet",
+      "gives": "TYE",
+      "note": "these three letters, rearranged"
+     },
+     {
+      "clueFragment": "parts",
+      "gives": "ROLES",
+      "note": "actors' parts are roles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TY",
+      "ROLES",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "YET",
+       "gives": "TYE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A villain still at large in a mountainous area.",
+     "definitionFit": "Tyrolese means belonging to the Tyrol, the Alpine region of Austria and northern Italy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "parts"
+    }
+   }
   },
   {
    "number": 26,
@@ -451,7 +1759,49 @@
     "text": "Novelist from Oregon? Very probably",
     "enumeration": "6"
    },
-   "solution": "ORWELL"
+   "solution": "ORWELL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORWELL",
+    "definitions": [
+     {
+      "text": "Novelist",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oregon",
+      "gives": "OR",
+      "note": "OR is the postal abbreviation for Oregon"
+     },
+     {
+      "clueFragment": "Very probably",
+      "gives": "WELL",
+      "note": "as in 'it may well rain', meaning very probably"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "WELL"
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether a writer most likely comes from Oregon.",
+     "definitionFit": "George Orwell wrote the novels Animal Farm and Nineteen Eighty-Four, so he is a novelist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Oregon"
+    }
+   }
   }
  ]
 }
