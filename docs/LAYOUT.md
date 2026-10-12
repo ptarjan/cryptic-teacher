@@ -2212,5 +2212,7 @@ tools/test_gale_page_cap.sh                   is a Gale page laid out within
                                               end a failure naming it?
 tools/test_ctc_title_date.py                  does a CtC video title's date pin its puzzle when
                                               the year is short or absent?
+tools/fetch_nation.py                         the Nation's weekly cryptic, from the magazine's
+                                              own article pages
 ```
 <!-- LAYOUT-END -->

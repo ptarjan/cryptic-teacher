@@ -623,6 +623,7 @@ LAYOUT = [
     ("fetching", "tools/gale_http.py", "the Chrome-like browsing of Gale and its portal, shared by gale_fetch.py"),
     ("fetching", "tools/test_gale_page_cap.sh", "is a Gale page laid out within gale_inbox.MAX_PAGE_PIXELS however small the grid it is scaled by (a crossword-centenary article's printed grid scaled the 2013-12-17 page to 363 MP), is a leaf staged before that cap shrunk to fit (its edition's input_hash moved, so its scan and read come due) and left alone the second time, and does a scan unit past its memory ceiling (edition_queue.UNIT_MEMORY_MB, RLIMIT_AS) end a failure naming it?"),
     ("fetching", "tools/test_ctc_title_date.py", "does a CtC video title's date pin its puzzle when the year is short or absent?"),
+    ("fetching", "tools/fetch_nation.py", "the Nation's weekly cryptic, from the magazine's own article pages"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
@@ -698,6 +699,7 @@ SERIES_NAMES = {
     "independent": "Independent daily",
     "indysunday": "Independent Sunday",
     "cyclops": "Private Eye Cyclops",
+    "nation": "The Nation cryptic",
     "metro": "Metro cryptic",
     "globeandmail": "Globe and Mail cryptic",
     "times": "Times cryptic",

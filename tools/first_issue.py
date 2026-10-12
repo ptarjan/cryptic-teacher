@@ -51,7 +51,10 @@ SOURCES = {
     "ftcryptic": (None, "fifteensquared.net's FT posts start in 2009, the FT PDFs "
                         "Wayback holds in 2006 (tools/ft_pdf_puzzles.py index), and the "
                         "archive.org FT scans in 1971 (tools/file_archive_org_puzzles.py)"),
-    "genius": (None, "the Guardian's Genius PDFs start around No 147 in 2016 (tools/genius_puzzles.py)"),
+    "nation": (None, "thenation.com's article pages hold Nos 3197-3529 (2011-20) and some "
+                     "Lewis reprints back to the 200s; earlier issues are only in the "
+                     "subscriber archive's page scans (tools/fetch_nation.py)"),
+    "genius": (None,"the Guardian's Genius PDFs start around No 147 in 2016 (tools/genius_puzzles.py)"),
     "azed": (None, ("the Guardian's copies andlit.org.uk's index links start at No 1734 in 2005 "
                     "(tools/andlit_azed.py), fifteensquared.net's posts in 2006 (tools/azed_puzzles.py)")),
     "listener": (None, "filed from the Listener Team's archive by tools/listener_puzzles.py"),

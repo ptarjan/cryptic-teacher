@@ -124,6 +124,17 @@ SERIES = {
         # (fetch_puzzle.PER_LIGHT_ENUMERATION).
         "perLightEnumeration": True,
     },
+    # The Nation's weekly cryptic (US), 1943 to April 2020: Frank W. Lewis set
+    # it for over sixty years, Joshua Kosman and Henri Picciotto from No 3197
+    # (2011) to the last, No 3529. Clues from the magazine's article pages,
+    # which also reprinted Lewis puzzles under their original numbers; the
+    # grid rebuilt from the clue list, no answers (tools/fetch_nation.py).
+    "nation": {
+        "kind": "Cryptic",
+        "publisher": "The Nation",
+        "bylined": True,
+        "badge": "nation",
+    },
     "globeandmail": {
         # The Globe and Mail prints it, but the byline arrives stamped
         # "©News Licensing/Times Media Limited" — it is a Times of London
