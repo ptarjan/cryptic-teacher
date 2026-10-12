@@ -105,6 +105,22 @@ _, problems = fbp.hold_clues(blank_clue, "sundaytel", date, None, TOOL, 15)
 if not any("no clue text" in p for p in problems):
     fails.append(f"a light with no clue text was held: {problems}")
 
+# A linked answer the post prints whole is held as its lights: the clue on
+# the first, "See N" on the rest, with no lengths.
+whole = blog_record()
+a, b = whole["entries"][0], whole["entries"][1]
+whole["entries"] = whole["entries"][2:]
+whole["unsplit"] = [{"lights": [[a["number"], a["direction"]], [b["number"], b["direction"]]],
+                     "answer": a["answer"] + b["answer"], "clue": "Linked clue (7,5)",
+                     "enumeration": "7,5"}]
+held_whole, problems = fbp.hold_clues(whole, "sundaytel", date, None, TOOL, 15)
+firsts = [held_whole["clues"][a["direction"]][0]["clue"]["text"],
+          [l["clue"]["text"] for l in held_whole["clues"][b["direction"]] if l["clue"]["text"].startswith("See")]]
+if problems or firsts[0] != "Linked clue" or len(firsts[1]) != 1 \
+        or not firsts[1][0].startswith(f"See {a['number']}") \
+        or "length" in held_whole["clues"][a["direction"]][0]:
+    fails.append(f"a linked answer printed whole was not held as its lights: {problems} {firsts}")
+
 if fails:
     print("FAIL test_blog_clues_only:\n  " + "\n  ".join(fails))
     sys.exit(1)
