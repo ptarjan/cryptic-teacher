@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "Style of service, nearly ready to fight",
     "enumeration": "8"
    },
-   "solution": "UNDERARM"
+   "solution": "UNDERARM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNDERARM",
+    "definitions": [
+     {
+      "text": "Style of service",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nearly",
+      "gives": "UNDER",
+      "note": "just under a figure is nearly that figure"
+     },
+     {
+      "clueFragment": "ready to fight",
+      "gives": "ARM",
+      "note": "to arm is to make ready for battle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNDER",
+      "ARM"
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis server whose style is almost combative.",
+     "walkthrough": "The comma breaks the definition off; 'nearly' and 'ready to fight' are two separate pieces read in order.",
+     "definitionFit": "Serving with the hand below shoulder level is a recognised way of delivering a ball in tennis or cricket."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +90,47 @@
     "text": "Clever, taking top off table",
     "enumeration": "4"
    },
-   "solution": "ABLE"
+   "solution": "ABLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ABLE",
+    "definitions": [
+     {
+      "text": "Clever",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking top off",
+      "for": "deletion",
+      "note": "removing the top of a word drops its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "table",
+      "gives": "TABLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A clever person clearing the top of a table.",
+     "definitionFit": "Someone capable and skilled can be described as clever, a common synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +144,58 @@
     "text": "Auntie's son keeps us in small change",
     "enumeration": "6"
    },
-   "solution": "COUSIN"
+   "solution": "COUSIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COUSIN",
+    "definitions": [
+     {
+      "text": "Auntie's son",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one word placed inside another sits within it"
+     }
+    ],
+    "linkWords": [
+     "keeps"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small change",
+      "gives": "COIN",
+      "note": "a coin is a piece of small change"
+     },
+     {
+      "clueFragment": "us",
+      "gives": "US",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "US",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A relative who keeps the family short of money.",
+     "walkthrough": "'Keeps' looks like the container signal but only links; the insertion is signalled by 'in'.",
+     "definitionFit": "The son of one's aunt is a first cousin, a family relationship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "keeps"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +209,56 @@
     "text": "Coarser king not going to the bank",
     "enumeration": "8"
    },
-   "solution": "KNOTTIER"
+   "solution": "KNOTTIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KNOTTIER",
+    "definitions": [
+     {
+      "text": "Coarser",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "going to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the bank",
+      "gives": "TIER",
+      "note": "a tier is a bank or row, as of seats"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "NOT",
+      "TIER"
+     ]
+    },
+    "explanation": {
+     "surface": "A rough-mannered king who avoids the bank.",
+     "walkthrough": "'Bank' suggests money or a river, but here it is a raised row, as in banks of seats.",
+     "definitionFit": "Wood with more knots has a rougher, less fine grain, so knottier timber is coarser."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +272,45 @@
     "text": "Had winter fun and got bigger quickly",
     "enumeration": "10"
    },
-   "solution": "SNOWBALLED"
+   "solution": "SNOWBALLED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SNOWBALLED",
+    "definitions": [
+     {
+      "text": "Had winter fun",
+      "at": 0
+     },
+     {
+      "text": "got bigger quickly",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Had winter fun",
+      "note": "first meaning: threw balls of packed snow"
+     },
+     {
+      "clueFragment": "got bigger quickly",
+      "note": "second meaning: grew rapidly, like a rolling ball of snow"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone enjoyed a snowy day and grew fast.",
+     "definitionFit": "The verb covers both pelting people with packed snow and escalating rapidly, from a ball growing as it rolls."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +330,64 @@
      }
     ]
    },
-   "solution": "ATEASE"
+   "solution": "ATEASE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "AT EASE",
+    "definitions": [
+     {
+      "text": "Relaxed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with a bit missing",
+      "for": "deletion",
+      "note": "a bit missing means a word loses a letter, here its end"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "TEA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "set",
+      "gives": "SET",
+      "note": "taken as written; its final letter goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TEA",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "Feeling easy with an incomplete tea service.",
+     "walkthrough": "The surface suggests a chipped tea set; in fact 'set' simply drops its last letter.",
+     "definitionFit": "To stand at ease is to be relaxed, an idiom from the military command."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +411,40 @@
      }
     ]
    },
-   "solution": "ONEBYONE"
+   "solution": "ONEBYONE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ONE BY ONE",
+    "definitions": [
+     {
+      "text": "in succession",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eleven",
+      "note": "surface reading: a team or the number after ten"
+     },
+     {
+      "clueFragment": "Eleven in succession?",
+      "note": "setter's reading: written as numerals, eleven is a one followed by another one"
+     }
+    ],
+    "explanation": {
+     "surface": "A cricket eleven coming out to bat in order.",
+     "walkthrough": "The figures 11 are literally one digit beside another.",
+     "definitionFit": "The phrase means singly and in turn, each following the last."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Eleven"
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +458,67 @@
     "text": "Eric keeps turning to aphrodisiac",
     "enumeration": "6"
    },
-   "solution": "EROTIC"
+   "solution": "EROTIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "EROTIC",
+    "definitions": [
+     {
+      "text": "aphrodisiac",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning a word round makes it read backwards"
+     },
+     {
+      "text": "keeps",
+      "for": "container",
+      "note": "a word that keeps another holds it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eric",
+      "gives": "ERIC",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "OT",
+      "note": "the little word read backwards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "OT",
+      "IC"
+     ],
+     "reversals": [
+      {
+       "from": "TO",
+       "to": "OT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Eric resorting to a love potion.",
+     "walkthrough": "'Aphrodisiac' is usually a noun, but it also works as an adjective meaning arousing.",
+     "definitionFit": "An aphrodisiac arouses sexual desire, so as an adjective it is close to sexually stimulating."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 9,
@@ -161,7 +532,62 @@
     "text": "A number I ensnare in New York",
     "enumeration": "6"
    },
-   "solution": "NINETY"
+   "solution": "NINETY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "NINETY",
+    "definitions": [
+     {
+      "text": "A number",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something placed in another word sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New York",
+      "gives": "NY",
+      "note": "NY is the abbreviation for New York"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ensnare",
+      "gives": "NET",
+      "note": "to net is to catch or ensnare"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "I",
+      "NET",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone trapping something in New York City.",
+     "walkthrough": "I and NET together sit between the N and Y.",
+     "definitionFit": "Ninety is a figure, nine tens, so it is an example of a number."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 10,
@@ -175,7 +601,58 @@
     "text": "Her early start is at this point",
     "enumeration": "4"
    },
-   "solution": "HERE"
+   "solution": "HERE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HERE",
+    "definitions": [
+     {
+      "text": "at this point",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter alone"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Her",
+      "gives": "HER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "early",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HER",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman who starts early arriving at a particular moment.",
+     "definitionFit": "The adverb indicates this place or this stage, a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "early"
+    }
+   }
   },
   {
    "number": 11,
@@ -189,7 +666,50 @@
     "text": "Casual clothes will make a good loser curse",
     "enumeration": "10"
    },
-   "solution": "SPORTSWEAR"
+   "solution": "SPORTSWEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPORTSWEAR",
+    "definitions": [
+     {
+      "text": "Casual clothes",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "will make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a good loser",
+      "gives": "SPORT",
+      "note": "a good sport takes defeat gracefully"
+     },
+     {
+      "clueFragment": "curse",
+      "gives": "SWEAR",
+      "note": "to swear is to curse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPORT",
+      "SWEAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A bad loser's oath turned into an outfit.",
+     "walkthrough": "The surface implies a gracious loser would never curse; the two are simply joined.",
+     "definitionFit": "Clothing made for athletic activity is widely worn as informal everyday dress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "loser"
+    }
+   }
   },
   {
    "number": 12,
@@ -203,7 +723,53 @@
     "text": "Sponsor wants no part altered",
     "enumeration": "6"
    },
-   "solution": "PATRON"
+   "solution": "PATRON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PATRON",
+    "definitions": [
+     {
+      "text": "Sponsor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "altered",
+      "for": "anagram",
+      "note": "altered letters are changed into a new order"
+     }
+    ],
+    "linkWords": [
+     "wants"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no part",
+      "gives": "NOPART",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOPART",
+       "gives": "PATRON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A backer insists on no changes to any section.",
+     "definitionFit": "A patron gives financial support to an artist or cause, much as a sponsor does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "altered"
+    }
+   }
   },
   {
    "number": 13,
@@ -223,7 +789,44 @@
      }
     ]
    },
-   "solution": "REDHERRING"
+   "solution": "REDHERRING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RED HERRING",
+    "definitions": [
+     {
+      "text": "Colourful fish",
+      "at": 0
+     },
+     {
+      "text": "will not deceive Hercule Poirot",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Colourful fish",
+      "note": "first meaning: literally a herring dyed by smoking"
+     },
+     {
+      "clueFragment": "will not deceive Hercule Poirot",
+      "note": "second meaning: a false clue planted to mislead, which the detective always sees through"
+     }
+    ],
+    "explanation": {
+     "surface": "A fish that fails to fool Agatha Christie's detective.",
+     "walkthrough": "Hercule Poirot is Agatha Christie's Belgian sleuth, whom no false trail fools.",
+     "definitionFit": "Literally a smoked kipper, and figuratively a misleading lead in a mystery story."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fish"
+    }
+   }
   },
   {
    "number": 14,
@@ -237,7 +840,50 @@
     "text": "Looks like meat; is it stew?",
     "enumeration": "8"
    },
-   "solution": "IMITATES"
+   "solution": "IMITATES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IMITATES",
+    "definitions": [
+     {
+      "text": "Looks like",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stew",
+      "for": "anagram",
+      "note": "a stew mixes its ingredients together, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meat; is it",
+      "gives": "MEATISIT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MEATISIT",
+       "gives": "IMITATES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something resembles meat, so is it a stew?",
+     "definitionFit": "To copy or resemble something is to look like it, a loose synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stew"
+    }
+   }
   },
   {
    "number": 15,
@@ -251,7 +897,62 @@
     "text": "Mr North is suppressing an ode, not very old",
     "enumeration": "6"
    },
-   "solution": "MODERN"
+   "solution": "MODERN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MODERN",
+    "definitions": [
+     {
+      "text": "not very old",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is suppressing",
+      "for": "container",
+      "note": "pressing down on something holds it within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mr",
+      "gives": "MR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "North",
+      "gives": "N",
+      "note": "N is the abbreviation for north"
+     },
+     {
+      "clueFragment": "an ode",
+      "gives": "ODE",
+      "note": "an ode is a lyric poem"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ODE",
+      "R",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called North censoring a poem.",
+     "walkthrough": "'Mr North' reads as a person's name, but splits into a title and a compass point.",
+     "definitionFit": "Something recent or current is the opposite of ancient, so it is up to date."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "North"
+    }
+   }
   },
   {
    "number": 16,
@@ -265,7 +966,53 @@
     "text": "\"Need gear changing?\" asks this deserter",
     "enumeration": "8"
    },
-   "solution": "RENEGADE"
+   "solution": "RENEGADE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RENEGADE",
+    "definitions": [
+     {
+      "text": "deserter",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changing",
+      "for": "anagram",
+      "note": "changing the letters puts them in a different order"
+     }
+    ],
+    "linkWords": [
+     "asks this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Need gear",
+      "gives": "NEEDGEAR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NEEDGEAR",
+       "gives": "RENEGADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A runaway asking whether the car's gears need shifting.",
+     "definitionFit": "A renegade abandons a cause or side, the same as a traitor or turncoat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gear"
+    }
+   }
   },
   {
    "number": 17,
@@ -279,7 +1026,55 @@
     "text": "By restraining thunder, it'll keep you dry",
     "enumeration": "6"
    },
-   "solution": "BROLLY"
+   "solution": "BROLLY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BROLLY",
+    "definitions": [
+     {
+      "text": "it'll keep you dry",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restraining",
+      "for": "container",
+      "note": "a word that restrains another holds it in"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "By",
+      "gives": "BY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "thunder",
+      "gives": "ROLL",
+      "note": "a roll of thunder is its rumble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ROLL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Holding back a thunderstorm keeps you from getting wet.",
+     "walkthrough": "A brolly is British slang for an umbrella.",
+     "definitionFit": "An umbrella shields you from rain, which is a cryptic description rather than a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "thunder"
+    }
+   }
   },
   {
    "number": 18,
@@ -293,7 +1088,60 @@
     "text": "Fancy gaining at the end of the day",
     "enumeration": "8"
    },
-   "solution": "YEARNING"
+   "solution": "YEARNING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "YEARNING",
+    "definitions": [
+     {
+      "text": "Fancy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is just its final letter"
+     }
+    ],
+    "linkWords": [
+     "at the",
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "day",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of this word"
+     },
+     {
+      "clueFragment": "gaining",
+      "gives": "EARNING",
+      "note": "earning is gaining money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "EARNING"
+     ]
+    },
+    "explanation": {
+     "surface": "Imagining a profit at close of business.",
+     "walkthrough": "'Fancy' reads as a verb about imagining, but is the noun for desire.",
+     "definitionFit": "A fancy is a liking or longing, so yearning is a synonym for it as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fancy"
+    }
+   }
   },
   {
    "number": 19,
@@ -307,7 +1155,46 @@
     "text": "Secures one hundred lights",
     "enumeration": "6"
    },
-   "solution": "CLAMPS"
+   "solution": "CLAMPS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLAMPS",
+    "definitions": [
+     {
+      "text": "Secures",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one hundred",
+      "gives": "C",
+      "note": "C is the Roman numeral for a hundred"
+     },
+     {
+      "clueFragment": "lights",
+      "gives": "LAMPS",
+      "note": "lamps are lights"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LAMPS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fixing a hundred lamps in place.",
+     "definitionFit": "To clamp something is to fasten or hold it firmly, so the verb matches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lights"
+    }
+   }
   },
   {
    "number": 20,
@@ -321,7 +1208,52 @@
     "text": "Alter man to become loving?",
     "enumeration": "8"
    },
-   "solution": "MATERNAL"
+   "solution": "MATERNAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MATERNAL",
+    "definitions": [
+     {
+      "text": "loving?",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to become",
+      "for": "anagram",
+      "note": "becoming something else means a change of form, so letters rearrange"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Alter man",
+      "gives": "ALTERMAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALTERMAN",
+       "gives": "MATERNAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Can a man be changed to become more caring?",
+     "walkthrough": "'Alter' looks like the anagram signal but is fodder; the question mark flags that loving is only one sense of motherly.",
+     "definitionFit": "Motherly feeling is typically warm and caring, so loving is an example of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Alter"
+    }
+   }
   },
   {
    "number": 21,
@@ -335,7 +1267,40 @@
     "text": "Accepts embraces",
     "enumeration": "6"
    },
-   "solution": "ADOPTS"
+   "solution": "ADOPTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ADOPTS",
+    "definitions": [
+     {
+      "text": "Accepts",
+      "at": 0
+     },
+     {
+      "text": "embraces",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Accepts",
+      "note": "first meaning: takes on, as a child or an idea"
+     },
+     {
+      "clueFragment": "embraces",
+      "note": "second meaning: takes up a cause or belief"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To adopt a plan or a child is to take it on as one's own, both accepting and embracing it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -349,7 +1314,58 @@
     "text": "Aide-de-camp cuts up map, being reckless",
     "enumeration": "6"
    },
-   "solution": "MADCAP"
+   "solution": "MADCAP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MADCAP",
+    "definitions": [
+     {
+      "text": "reckless",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cuts up",
+      "for": "container",
+      "note": "a word that cuts another splits it open and sits in the gap"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "map",
+      "gives": "MAP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Aide-de-camp",
+      "gives": "ADC",
+      "note": "ADC is the standard abbreviation for aide-de-camp"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ADC",
+      "AP"
+     ]
+    },
+    "explanation": {
+     "surface": "An officer's assistant slicing a map in a rash moment.",
+     "walkthrough": "An aide-de-camp is an officer assisting a senior commander; 'up' only helps the surface.",
+     "definitionFit": "A madcap scheme or person is wildly impulsive, so the adjective means rash."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cuts"
+    }
+   }
   },
   {
    "number": 22,
@@ -363,7 +1379,59 @@
     "text": "Sam gets hip broken in accident",
     "enumeration": "6"
    },
-   "solution": "MISHAP"
+   "solution": "MISHAP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MISHAP",
+    "definitions": [
+     {
+      "text": "accident",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken is in pieces that can be put back differently"
+     }
+    ],
+    "linkWords": [
+     "gets",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sam",
+      "gives": "SAM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hip",
+      "gives": "HIP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SAMHIP",
+       "gives": "MISHAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sam fractures a hip in a fall.",
+     "definitionFit": "A mishap is an unlucky incident, a minor misfortune, close in meaning to an accident."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broken"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1451,44 @@
      }
     ]
    },
-   "solution": "BOARDGAMES"
+   "solution": "BOARDGAMES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOARD GAMES",
+    "definitions": [
+     {
+      "text": "Chess etc",
+      "at": 0
+     },
+     {
+      "text": "between top directors?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chess etc",
+      "note": "first meaning: games played on a board"
+     },
+     {
+      "clueFragment": "between top directors?",
+      "note": "second meaning, whimsically: contests within a company's board"
+     }
+    ],
+    "explanation": {
+     "surface": "Executives playing chess against each other.",
+     "walkthrough": "The question mark flags the playful second reading, where the board is a company's directors.",
+     "definitionFit": "Chess, draughts and the like are tabletop pastimes played on a marked surface."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "directors"
+    }
+   }
   },
   {
    "number": 24,
@@ -397,7 +1502,58 @@
     "text": "Fib about short name, which is the rule",
     "enumeration": "4"
    },
-   "solution": "LINE"
+   "solution": "LINE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LINE",
+    "definitions": [
+     {
+      "text": "rule",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one word wrapped about another surrounds it"
+     }
+    ],
+    "linkWords": [
+     "which is the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fib",
+      "gives": "LIE",
+      "note": "a fib is a small lie"
+     },
+     {
+      "clueFragment": "short name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "N",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Lying about an abbreviated name is customary.",
+     "walkthrough": "N goes inside LIE, before its last letter.",
+     "definitionFit": "A rule is a straight stroke drawn with a ruler, the same as a drawn line."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1567,45 @@
     "text": "The airplane is visible only half way",
     "enumeration": "4"
    },
-   "solution": "LANE"
+   "solution": "LANE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LANE",
+    "definitions": [
+     {
+      "text": "way",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is visible only half",
+      "for": "hidden_word",
+      "note": "only part of a word being on view means some of its letters show inside it"
+     }
+    ],
+    "linkWords": [
+     "The"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "airplane",
+      "gives": "LANE",
+      "note": "the back half of this word"
+     }
+    ],
+    "explanation": {
+     "surface": "A plane seen only partly, perhaps through cloud.",
+     "walkthrough": "'Half way' reads as one phrase, but 'way' is the definition and 'half' goes with the indicator.",
+     "definitionFit": "A lane is a narrow road or route, so it is a way in the sense of a path."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1619,50 @@
     "text": "Being drunk, give gem to daughter",
     "enumeration": "6"
    },
-   "solution": "STONED"
+   "solution": "STONED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STONED",
+    "definitions": [
+     {
+      "text": "Being drunk",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "give",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gem",
+      "gives": "STONE",
+      "note": "a gem is a precious stone"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STONE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Tipsy, someone hands a jewel to their daughter.",
+     "definitionFit": "Stoned is slang for heavily intoxicated, whether by drink or drugs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 26,
@@ -439,7 +1676,58 @@
     "text": "Someone starts preserving and checking",
     "enumeration": "8"
    },
-   "solution": "SCANNING"
+   "solution": "SCANNING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCANNING",
+    "definitions": [
+     {
+      "text": "checking",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts",
+      "for": "letter_selection",
+      "note": "where a word starts is its opening letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Someone",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of this word"
+     },
+     {
+      "clueFragment": "preserving",
+      "gives": "CANNING",
+      "note": "canning preserves food in tins"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CANNING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone begins making preserves and inspecting them.",
+     "definitionFit": "Scanning is looking over something closely or quickly, a synonym for checking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "preserving"
+    }
+   }
   }
  ]
 }
