@@ -629,6 +629,7 @@ LAYOUT = [
     ("fetching", "tools/test_ctc_title_date.py", "does a CtC video title's date pin its puzzle when the year is short or absent?"),
     ("fetching", "tools/fetch_nation.py", "the Nation's weekly cryptic, from the magazine's own article pages"),
     ("fetching", "tools/test_genius_puzzles.sh", "does tools/genius_puzzles.py read an old Guardian article page's text without markup, keep the Genius's printed pair of counts, and does the write gate refuse a tag's remnant in any string?"),
+    ("fetching", "tools/test_linked_group_sums.sh", "does the grid search use a linked answer's printed total?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

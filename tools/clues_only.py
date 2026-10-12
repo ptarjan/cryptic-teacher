@@ -250,7 +250,17 @@ def _book_build(record, answers):
 # a solve (solvable): its answers could never become a grid. A Listener book is
 # "barred", and derive_grid places black squares, so it waits on a barred
 # builder.
-BUILDERS = {("tools/acquire_book.py", "blocked"): _book_build}
+def _nation_build(record, answers):
+    """The Nation's (tools/fetch_nation.py): its held page rebuilt on the
+    grid the answers cross in. Imported late: that filer imports this module."""
+    import fetch_nation
+    return fetch_nation.promote(record, answers)
+
+
+# A series with no grid kind (grid_kind() None) keys on None: its filer's
+# builder knows its own grids (the Nation's are blocked 15x15 or 13x13).
+BUILDERS = {("tools/acquire_book.py", "blocked"): _book_build,
+            ("tools/fetch_nation.py", None): _nation_build}
 
 
 def grid_kind(record):

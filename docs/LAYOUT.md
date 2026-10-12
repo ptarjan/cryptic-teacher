@@ -2247,5 +2247,7 @@ tools/test_genius_puzzles.sh                  does tools/genius_puzzles.py read 
                                               article page's text without markup, keep the
                                               Genius's printed pair of counts, and does the
                                               write gate refuse a tag's remnant in any string?
+tools/test_linked_group_sums.sh               does the grid search use a linked answer's
+                                              printed total?
 ```
 <!-- LAYOUT-END -->

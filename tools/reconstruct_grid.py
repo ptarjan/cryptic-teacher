@@ -155,7 +155,7 @@ def _sequence_bounds(nums):
 class _Solver:
     def __init__(self, across, down, anum, dnum, cols, rows,
                  limit, symmetry, max_nodes, strict=True, words=None,
-                 max_black_run=None):
+                 max_black_run=None, groups=None):
         self.across, self.down = across, down
         # Numbers are always a per-light list from here on, `None` standing for
         # "not known" light by light -- the single generalisation that makes a
@@ -189,6 +189,26 @@ class _Solver:
         self.solutions = []
         self.nodes = 0
         self.hit_cap = False
+
+        # Linked groups: lights whose lengths are each unknown but whose sum
+        # is printed (a clue "8 and 1 down (5,6,3,5,1,3,5)" is 28 letters
+        # over two lights, split any way). Light k (across i is k = i, down
+        # i is k = na + i) belongs to group gof[k]; a placed light's length
+        # goes on the trail as 2 * ncell + k, so undo takes it back too.
+        self.gof = [-1] * (self.na + self.nd)
+        self.gtotal, self.gsum, self.gleft = [], [], []
+        self.glen = [0] * (self.na + self.nd)
+        for g, (members, total) in enumerate(groups or ()):
+            ks = sorted({(i if d == "across" else self.na + i)
+                         for d, i in members})
+            for k in ks:
+                if self.gof[k] != -1:
+                    raise ValueError(f"light {k} is in two linked groups")
+                self.gof[k] = g
+            self.gtotal.append(int(total))
+            self.gsum.append(0)
+            self.gleft.append(len(ks))
+        self.longest = max(cols, rows)
 
         # Tail cursors: one past the last light the mirrored bottom rows have
         # already claimed. They walk down as the top rows are fixed, and the
@@ -247,9 +267,39 @@ class _Solver:
         for i in trail[mark:]:
             if i < ncell:
                 cells[i] = None
-            else:
+            elif i < 2 * ncell:
                 letters[i - ncell] = None
+            else:
+                k = i - 2 * ncell
+                g = self.gof[k]
+                self.gsum[g] -= self.glen[k]
+                self.gleft[g] += 1
+                self.glen[k] = 0
         del trail[mark:]
+
+    def take(self, k, length, trail):
+        """Light k is placed with `length` cells: False when its linked
+        group can no longer reach its printed total (each light still to come
+        takes two cells at least and a whole side at most)."""
+        g = self.gof[k]
+        if g < 0:
+            return True
+        self.glen[k] = length
+        self.gsum[g] += length
+        self.gleft[g] -= 1
+        trail.append(2 * self.ncell + k)
+        got, left, total = self.gsum[g], self.gleft[g], self.gtotal[g]
+        return got + 2 * left <= total <= got + self.longest * left
+
+    def peek(self, k, length):
+        """Could light k be `length` cells, its group's placed lights as they
+        stand? The mirror claim's check: the head walks the mirrored rows
+        again after the middle and places (take()s) those lights then."""
+        g = self.gof[k]
+        if g < 0 or self.glen[k]:
+            return True
+        got, left, total = self.gsum[g] + length, self.gleft[g] - 1, self.gtotal[g]
+        return got + 2 * left <= total <= got + self.longest * left
 
     def write(self, word, x, y, dx, dy, trail):
         """Write an answer from (x, y) along (dx, dy); False on a clash."""
@@ -376,8 +426,9 @@ class _Solver:
             if not self.number_ok(self.alo, self.ahi, ai, n):
                 return
             mark = len(trail)
-            if self.awords is None or self.write(self.awords[ai], x, y, 1, 0,
-                                                 trail):
+            if self.take(ai, length, trail) and (
+                    self.awords is None
+                    or self.write(self.awords[ai], x, y, 1, 0, trail)):
                 self.branch_down(y, x, length, i, ai + 1, di, n, top_blocked,
                                  numbered=True, trail=trail)
             self.undo(trail, mark)
@@ -414,7 +465,8 @@ class _Solver:
             spans = [want] if want is not None else range(2, self.rows - y + 1)
             for down_len in spans:
                 mark = len(trail)
-                if self.commit_down(x, y, down_len, trail) and (
+                if self.commit_down(x, y, down_len, trail) \
+                        and self.take(self.na + di, down_len, trail) and (
                         self.dwords is None
                         or self.write(self.dwords[di], x, y, 0, 1, trail)):
                     self.in_run(y, x0, length, i + 1, ai, di + 1, n + 1, trail)
@@ -533,6 +585,8 @@ class _Solver:
                 self.at -= 1
                 if self.at < ai or self.across[self.at] not in (None, run):
                     return False
+                if not self.peek(self.at, run):
+                    return False
                 if self.awords is not None and not self.write(
                         self.awords[self.at], cols - 1 - x, my, 1, 0, trail):
                     return False
@@ -543,6 +597,8 @@ class _Solver:
                 if k >= 2:
                     self.dt -= 1
                     if self.dt < di or self.down[self.dt] not in (None, k):
+                        return False
+                    if not self.peek(self.na + self.dt, k):
                         return False
                     if self.dwords is not None and not self.write(
                             self.dwords[self.dt], cols - 1 - x, my, 0, 1, trail):
@@ -833,7 +889,7 @@ def split_words(spec, words):
 
 def reconstruct(spec, cols=15, rows=15, limit=DEFAULT_LIMIT, symmetry=True,
                 max_nodes=DEFAULT_MAX_NODES, fallback=False, strict=True,
-                words=None, max_black_run=None):
+                words=None, max_black_run=None, groups=None):
     """Every grid whose numbering would print these lights.
 
     Returns (solutions, info). Each solution is a tuple of row strings, '#'
@@ -862,6 +918,11 @@ def reconstruct(spec, cols=15, rows=15, limit=DEFAULT_LIMIT, symmetry=True,
     is the caller's, for a series it has been counted on. It is what makes a
     23x23 finish: without it the search's first move is a top row of sixteen
     blocks, legal and hopeless, and the budget goes on refuting that.
+
+    `groups`, a list of ([(direction, index), ...], total), ties lights of
+    unknown length together: a linked answer whose enumeration counts words,
+    not lights, so only the sum of its lights' lengths is printed. `index`
+    is the light's place in its direction's list (the order `spec` gives).
     """
     across, down, anum, dnum = parse_lights(spec)
     if not across and not down:
@@ -875,21 +936,23 @@ def reconstruct(spec, cols=15, rows=15, limit=DEFAULT_LIMIT, symmetry=True,
     sys.setrecursionlimit(max(sys.getrecursionlimit(), 8 * cols * rows + 200))
     solver = _Solver(across, down, anum, dnum, cols, rows,
                      limit, bool(symmetry), max_nodes, strict, split,
-                     max_black_run)
+                     max_black_run, groups)
     found = solver.run()
     info = {"symmetric": bool(symmetry), "nodes": solver.nodes,
             "truncated": solver.hit_cap or len(found) >= limit}
     if found or not (symmetry and fallback) or info["truncated"]:
         return found, info
     loose = _Solver(across, down, anum, dnum, cols, rows,
-                    limit, False, max_nodes, strict, split, max_black_run)
+                    limit, False, max_nodes, strict, split, max_black_run,
+                    groups)
     found = loose.run()
     return found, {"symmetric": False, "nodes": solver.nodes + loose.nodes,
                    "truncated": loose.hit_cap or len(found) >= limit}
 
 
 def unique_grid(spec, cols=15, rows=15, words=None, max_nodes=DEFAULT_MAX_NODES,
-                max_black_run=None, pick=None, limit=DEFAULT_LIMIT, search=None):
+                max_black_run=None, pick=None, limit=DEFAULT_LIMIT, search=None,
+                groups=None):
     """(grid, None) when exactly one grid prints these lights and the search
     finished, else (None, why not): a filer backsolving a grid from its clue
     list files it only then. `pick`, given every grid of a finished search
@@ -900,7 +963,8 @@ def unique_grid(spec, cols=15, rows=15, words=None, max_nodes=DEFAULT_MAX_NODES,
         found, info = (search or reconstruct)(spec, cols=cols, rows=rows,
                                   limit=limit if pick else 2,
                                   max_nodes=max_nodes, words=words,
-                                  max_black_run=max_black_run)
+                                  max_black_run=max_black_run,
+                                  **({"groups": groups} if groups else {}))
     except ValueError as e:
         return None, f"clue list unusable: {e}"
     if info.get("gaps"):

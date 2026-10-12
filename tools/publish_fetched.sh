@@ -18,7 +18,8 @@
 # stderr and returns 3.
 set -uo pipefail
 
-dirty() { git ls-files -m -o -d --exclude-standard -- puzzles/ | sort -u; }
+# clues_only/ too: a filer holds a puzzle there when its grid did not rebuild.
+dirty() { git ls-files -m -o -d --exclude-standard -- puzzles/ clues_only/ | sort -u; }
 
 before=$(dirty)
 "$@"
