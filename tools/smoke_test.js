@@ -14,6 +14,9 @@ const CTQuotes = require("../quotes.js");
 const clueText = (e) => e.clue.text || "";
 // An entry's id, "<number>-<direction>": the puzzle file stores none.
 const entryId = (e) => e.number + "-" + e.direction;
+// Every linked group an entry leads: its own `group`, then one per further
+// answer that starts on the same light (`alsoLeads`).
+const groupsOf = (e) => [e.group, ...(e.alsoLeads || []).map((l) => l.group)].filter(Boolean);
 // The line a solver reads: the words curled, then "(enumeration)" (app.js enumHTML).
 const printedClue = (e) => CTQuotes.curl(clueText(e)) + (e.clue.enumeration
   ? (clueText(e) ? " " : "") + "(" + e.clue.enumeration + ")" : "");
@@ -3964,8 +3967,8 @@ registry["reset-puzzle"].onclick();
   for (let i = 0; i < 40 && !solo; i++) {
     kd(ev("Tab"));
     const e = currentEntry();
-    if (e && e.solution && !e.group
-      && !openPuz.entries.some((g) => (g.group || []).includes(entryId(e)))) solo = e;
+    if (e && e.solution && !e.group && !e.alsoLeads
+      && !openPuz.entries.some((g) => groupsOf(g).some((grp) => grp.includes(entryId(e))))) solo = e;
   }
   assert(solo, "found an unlinked entry with a published answer to solve");
   assert(registry["hint-next"].children.some((b) => b.disabled),
@@ -4241,7 +4244,7 @@ registry["reset-puzzle"].onclick();
     // A puzzle whose only gaps are blank clues has to count as done, or it sits in the
     // backlog forever.
     if (annotatedInIndex.has(puz.id)) {
-      const continuations = new Set(puz.entries.flatMap((e) => (e.group || []).slice(1)));
+      const continuations = new Set(puz.entries.flatMap((e) => groupsOf(e).flatMap((grp) => grp.slice(1))));
       const answerable = puz.entries.filter((e) => hasWords(clueText(e)) && !continuations.has(entryId(e)));
       assert(annotatedInIndex.get(puz.id) === answerable.every((e) => e.annotation),
         `${puz.id}: index 'annotated' should count only the clues that can be annotated`);
@@ -7120,8 +7123,10 @@ global.realSetTimeout(() => {
       revealsUsed: {}, timing: { solvedAt: at }, updated: at }, extra));
   };
   // Clues, counted the way the scorebar counts them: a linked group is one.
+  // A further answer a light leads (alsoLeads) is a clue of its own.
   const clueCount = (puz) => puz.entries.filter((e) => !puz.entries.some((l) =>
-    l !== e && (l.group || []).slice(1).includes(entryId(e)))).length;
+    l !== e && groupsOf(l).some((grp) => grp.slice(1).includes(entryId(e))))).length
+    + puz.entries.reduce((n, e) => n + (e.alsoLeads || []).length, 0);
   const A = shim("cryptic-30066"), B = shim("quiptic-1397"), D = shim("quiptic-1398");
   const [b1, b2] = B.entries.filter((e) => !e.group);
   const planted = {
@@ -7358,4 +7363,77 @@ global.realSetTimeout(() => {
   }
   assert(Object.keys(got).length === Object.keys(want).length,
     "and lists nothing those two clues did not use: " + JSON.stringify(got));
+}
+
+// --- one light leads two linked answers (alsoLeads) ---
+// Genius 209's 22-across starts both IVOR HUGH JEGO and IVOR SORE BEACH BUM:
+// one light, two clues. The second is a row of its own straight after the
+// first; picking it, or one of its continuations, puts ITS clue in front of
+// you; and the light's squares still belong to the real entry, so a tap on
+// one picks the first clue and typing fills the grid.
+{
+  const ID = "smoke-alsoleads";
+  const E = (number, direction, x, y, solution, clue, extra) => Object.assign(
+    { number, direction, position: { x, y }, length: solution.length, solution, clue }, extra || {});
+  const puz = {
+    id: ID, number: 1, series: "quiptic", name: "Also-leads fixture", setter: "Smoke", date: "2026-01-01",
+    dimensions: { cols: 5, rows: 5 }, solutions: true,
+    entries: [
+      E(1, "across", 0, 0, "ABCDE", { text: "First lead", enumeration: "5,5" },
+        { group: ["1-across", "3-down"],
+          alsoLeads: [{ clue: { text: "Second lead", enumeration: "5,5" }, group: ["1-across", "2-down"] }] }),
+      E(4, "across", 0, 4, "IRMSQ", { text: "Bottom row", enumeration: "5" }),
+      E(1, "down", 0, 0, "AFGHI", { text: "Left column", enumeration: "5" }),
+      E(2, "down", 2, 0, "CJKLM", { text: "See 1 across" }),
+      E(3, "down", 4, 0, "ENOPQ", { text: "See 1 across" }),
+    ],
+  };
+  const d = require("./fake_dom.js").boot({
+    query: "?p=" + ID,
+    storage: { "ct:seen": JSON.stringify({ last: "2000-01-01", days: 5 }) },
+    index: (ix) => {
+      ix.puzzles.push({ id: ID, number: 1, series: "quiptic", name: puz.name, setter: puz.setter,
+                        date: puz.date, file: ID + ".js", hasSolutions: true, annotated: false });
+      global.window.CRYPTIC_PUZZLES = Object.assign(global.window.CRYPTIC_PUZZLES || {}, { [ID]: puz });
+    },
+  });
+  const reg = d.registry;
+  const hintText = () => reg["hint-clue"].innerHTML.replace(/<[^>]*>/g, "");
+  const across = reg["clues-across"].children.map((li) => li.id);
+  assert(String(across) === "clue-1-across,clue-1-across~2,clue-4-across",
+    "a light leading two answers lists both clues, the second straight after the first: " + across);
+  const text = (id) => (reg[id] ? reg[id].querySelector(".clue-text").innerHTML : "");
+  assert(/First lead/.test(text("clue-1-across")) && /Second lead/.test(text("clue-1-across~2")),
+    "each row prints its own clue: " + text("clue-1-across") + " | " + text("clue-1-across~2"));
+  assert(/Solved <strong>0\/4<\/strong>/.test(reg["scorebar"].innerHTML),
+    "the second answer counts as a clue; its continuation does not: " + reg["scorebar"].innerHTML);
+  const cols = puz.dimensions.cols;
+  const cellEl = (x, y) => reg["grid"].children[y * cols + x];
+  const lit = (x, y) => cellEl(x, y).classList.contains("hl") || cellEl(x, y).classList.contains("sel");
+  const active = () => reg["clues-across"].children.concat(reg["clues-down"].children)
+    .filter((li) => li.classList.contains("active")).map((li) => li.id).sort();
+
+  // A continuation of the second answer: that answer's clue, its rows lit.
+  reg["clue-2-down"].listeners.click[0]();
+  assert(/Second lead/.test(hintText()),
+    "picking 2-down shows the clue it continues, the second lead: " + reg["hint-clue"].innerHTML);
+  assert(String(active()) === "clue-1-across~2,clue-2-down",
+    "the second answer's rows are active, not the first's: " + active());
+  assert([0, 1, 2, 3, 4].every((y) => lit(2, y)), "2-down's squares are highlighted");
+
+  // The second answer's own row: its clue, on the light's squares.
+  if (reg["clue-1-across~2"]) reg["clue-1-across~2"].listeners.click[0]();
+  assert(/Second lead/.test(hintText()),
+    "picking the second lead's row shows its clue: " + reg["hint-clue"].innerHTML);
+  assert(String(active()) === "clue-1-across~2,clue-2-down", "and lights its own group: " + active());
+  assert([0, 1, 2, 3, 4].every((x) => lit(x, 0)), "on the light's own squares");
+
+  // The squares are the real entry's: a tap picks the first clue, and typing fills the grid.
+  cellEl(1, 0).listeners.mousedown[0]({ preventDefault() {} });
+  assert(/First lead/.test(hintText()),
+    "a tap on the light picks the entry that owns its squares: " + reg["hint-clue"].innerHTML);
+  assert(String(active()) === "clue-1-across,clue-3-down", "and its group: " + active());
+  d.docListeners["keydown"][0]({ key: "B", preventDefault() {}, shiftKey: false, target: reg["kbd"] });
+  assert(cellEl(1, 0).querySelector(".letter").textContent === "B",
+    "typing on the light fills its square: " + JSON.stringify(cellEl(1, 0).querySelector(".letter").textContent));
 }

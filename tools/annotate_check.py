@@ -68,7 +68,8 @@ from groups import entry_id
 import series
 import validate_annotations
 from apply_annotations import (
-    annotate_only, current_view, default_input, move_alteration, normalize, view_path, with_assembly)
+    annotate_only, apply_also, current_view, default_input, move_alteration, normalize, view_path,
+    with_assembly)
 from fetch_puzzle import clued, read_puzzle_file, resolve_puzzle
 from json_merge import dump_lines
 from validate_annotations import letters
@@ -120,10 +121,15 @@ def unsolved(puzzle):
     continuation, not a clue the setter left blank, and not a blind run's miss (validate_annotations decides both)."""
     misses = validate_annotations.blind_misses(puzzle["id"])
     continuations = groups.leader_of(puzzle["entries"])
+    # A further answer its light starts (alsoLeads) is a clue of its own,
+    # seen as its light standing as that answer's leader.
+    also = [groups.as_leader(puzzle, i, k)["entries"][i]
+            for cid, i, k, item in groups.also_clues(puzzle["entries"])
+            if not item.get("annotation") and cid not in misses]
     return [e for e in puzzle["entries"]
             if not e.get("annotation") and entry_id(e) not in misses
             and entry_id(e) not in continuations
-            and not validate_annotations.is_blank_clue(e["clue"].get("text", ""))]
+            and not validate_annotations.is_blank_clue(e["clue"].get("text", ""))] + also
 
 
 def is_blind(puzzle):
@@ -159,6 +165,8 @@ def to_write(puzzle, before):
         readable |= {entry_id(e) for e in clues if validate_annotations.is_blank_clue(e["clue"].get("text", ""))}
     only = [entry_id(e) for e in clues if entry_id(e) in (before or ())
             or (not e.get("annotation") and entry_id(e) in readable)]
+    only += [cid for cid, _, _, item in groups.also_clues(puzzle["entries"])
+             if cid in (before or ()) or not item.get("annotation")]
     if before is None and (not only or not any(e.get("annotation") for e in clues)):
         return None
     return only
@@ -255,6 +263,12 @@ def write_view(path):
     model = ({entry_id(e) for e in puzzle["entries"] if entry_id(e) not in printed}
              if provenance.solution_origin_from_file(puzzle) == "model" else set())
     view["entries"] = [view_line(e, leaders, model) for e in puzzle["entries"]]
+    # Each further answer a light starts (alsoLeads) is its own line, keyed
+    # "22-across/2": annotate it under that key.
+    for cid, i, k, _ in groups.also_clues(puzzle["entries"]):
+        line = view_line(groups.as_leader(puzzle, i, k)["entries"][i], leaders, model)
+        view["entries"].insert(view["entries"].index(view_line(puzzle["entries"][i], leaders, model)) + 1 + k,
+                               cid + line[len(entry_id(puzzle["entries"][i])):])
     # A (MODEL) answer may be corrected only to one its crossings agree with.
     if model:
         grid = grid_rows(puzzle)
@@ -262,6 +276,8 @@ def write_view(path):
             view["grid"] = grid
     kept = {entry_id(e): e["annotation"] for e in puzzle["entries"]
             if e.get("annotation") and only is not None and entry_id(e) not in only}
+    kept.update({cid: item["annotation"] for cid, _, _, item in groups.also_clues(puzzle["entries"])
+                 if item.get("annotation") and only is not None and cid not in only})
     if kept:
         view["existingAnnotations"] = kept
     scan = scan_path(puzzle)
@@ -597,6 +613,8 @@ def fill_missing(path, pending):
     missing = [entry_id(e) for e in entries
                if entry_id(e) not in continuations and entry_id(e) not in ann
                and (only is None or entry_id(e) in only)]
+    missing += [cid for cid, _, _, _ in groups.also_clues(entries)
+                if cid not in ann and (only is None or cid in only)]
     if missing:
         ann.update(dict.fromkeys(missing))
         write_pending(pending, ann)
@@ -924,6 +942,7 @@ def preview(path, pending):
             else:
                 e["annotation"] = normalize(ann[entry_id(e)], e, puzzle["entries"])
                 move_alteration(e)
+        apply_also(puzzle, ann)
         try:
             definitions.place_puzzle(puzzle)
         except ValueError as err:

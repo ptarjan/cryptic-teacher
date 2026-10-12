@@ -874,6 +874,7 @@
   let unclued = [];      // per P.unclued light, its cells in reading order
   let leaderOf = {};     // continuation id -> its linked group's leader id (buildLeaderOf)
   let cur = { x: 0, y: 0, dir: "across" };
+  let leadPick = null;   // a virtual lead's id picked off the list (expandEntries)
   // A jigsaw (tools/puzzle_tags.is_jigsaw) withholds where each answer goes, so
   // the clue chosen off the list is held apart from the cursor: `pick` is the
   // clue the hint panel teaches, `cur` the square being typed into, and nothing
@@ -942,7 +943,21 @@
   // the puzzle's entry order whose group lists it.
   // An entry's id, "<number>-<direction>": what `group` lists. Derived; the
   // puzzle file stores none.
-  const entryId = (e) => e.number + "-" + e.direction;
+  // A virtual lead (expandEntries) carries its own id, "22-across~2".
+  const entryId = (e) => e.vid || (e.number + "-" + e.direction);
+  // A light that starts more than one linked answer (`alsoLeads`) leads each
+  // further one as a virtual entry: the light's geometry and solution, that
+  // answer's clue, group and annotation, and an id of its own that heads its
+  // group, so its continuations' holder is it. It owns no square: the grid's
+  // squares belong to the real entry (`base`).
+  const expandEntries = (list) => (list || []).flatMap((e) => [e, ...(e.alsoLeads || []).map((l, k) => {
+    const vid = entryId(e) + "~" + (k + 2);
+    const v = { number: e.number, direction: e.direction, position: e.position, length: e.length,
+                solution: e.solution, clue: l.clue, vid, base: entryId(e),
+                group: [vid, ...(l.group || []).slice(1)] };
+    if (l.annotation) v.annotation = l.annotation;
+    return v;
+  })]);
   const buildLeaderOf = (list) => {
     const out = {};
     list.forEach((e) => (e.group || []).slice(1).forEach((id) => { if (id !== entryId(e) && !(id in out)) out[id] = entryId(e); }));
@@ -1832,12 +1847,13 @@
   function buildModel() {
     const { rows, cols } = P.dimensions;
     cells = Array.from({ length: rows }, () => Array(cols).fill(null));
-    entries = P.entries.slice().sort((a, b) =>
+    entries = expandEntries(P.entries).sort((a, b) =>
       (a.direction === b.direction) ? a.number - b.number : (a.direction === "across" ? -1 : 1));
     byId = {};
     entries.forEach((e) => { byId[entryId(e)] = e; });
-    leaderOf = buildLeaderOf(P.entries);
+    leaderOf = buildLeaderOf(entries);
     entries.forEach((e) => {
+      if (e.vid) return;
       for (let i = 0; i < e.length; i++) {
         const x = e.position.x + (e.direction === "across" ? i : 0);
         const y = e.position.y + (e.direction === "down" ? i : 0);
@@ -1950,6 +1966,7 @@
     // word-separator marks; a barred grid has none, as a thick line there
     // would read as a bar
     if (!P.bars) entries.forEach((e) => {
+      if (e.vid) return;   // a virtual lead's squares are its base's
       (e.clue.separators || []).forEach(({ at: pos, mark }) => {
         if (pos <= 0 || pos >= e.length) return;
         const x = e.position.x + (e.direction === "across" ? pos - 1 : 0);
@@ -2337,7 +2354,10 @@
     const c = cells[cur.y] && cells[cur.y][cur.x];
     if (!c) return null;
     const id = c[cur.dir] || c[cur.dir === "across" ? "down" : "across"];
-    return id ? byId[id] : null;
+    const e = id ? byId[id] : null;
+    // On a light that leads two answers, the one picked off the clue list.
+    const v = leadPick && byId[leadPick];
+    return v && e && v.base === id ? v : e;
   }
 
   // Choosing a clue should put the clue in front of you. On a phone the layout
@@ -2625,6 +2645,7 @@
   // panel is fully in the visible band. A tap is a deliberate act; treat every
   // one the same.
   function onCellClick(c) {
+    leadPick = null;
     if (cur.x === c.x && cur.y === c.y) {
       const other = cur.dir === "across" ? "down" : "across";
       if (c[other]) cur.dir = other;
@@ -2655,6 +2676,7 @@
 
   function moveToEntry(e, jumpToStart) {
     hintFocus = null;
+    leadPick = e.vid || null;
     cur.dir = e.direction;
     if (jumpToStart || !cellInEntry(cur.x, cur.y, e)) {
       // jump to first empty cell of the entry, else its start
@@ -6071,9 +6093,10 @@
       const puz = window.CRYPTIC_PUZZLES[id];
       if (!puz || !puz.entries) return;
       const s = (fitsGrid(saves[id], puz) && saves[id]) || {}, letters = s.letters || {}, stamps = s.letterAt || {};
-      const lead = buildLeaderOf(puz.entries);
+      const all = expandEntries(puz.entries);
+      const lead = buildLeaderOf(all);
       const legs = {};
-      puz.entries.forEach((e) => {
+      all.forEach((e) => {
         const key = lead[entryId(e)] || entryId(e);
         (legs[key] = legs[key] || []).push(e);
       });
@@ -7501,6 +7524,7 @@
     linkedClueSpent = true;
     const first = entries.find((e) => tag(e) === asked) || entries[0];
     cur = { x: first.position.x, y: first.position.y, dir: first.direction };
+    leadPick = null;
     $("app").classList.remove("hidden");
     // The day spelled out in full here, where there is room for it, and where a
     // solver about to start wants to know whether they picked a Monday or a

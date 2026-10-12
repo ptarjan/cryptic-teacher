@@ -1015,6 +1015,18 @@ def check_puzzle_text(puzzle, flags):
     errors = []
     validate_annotations.check_no_markup(bare, errors)
     validate_annotations.check_groups(bare, errors)
+    # A further linked answer a light starts (alsoLeads) counts its own
+    # group: the checks above that read an entry's enumeration see only the
+    # light's first answer.
+    by_id = {entry_id(e): e for e in bare["entries"]}
+    for e in bare["entries"]:
+        for k, item in enumerate(e.get("alsoLeads") or []):
+            total = sum(enumeration.counts((item.get("clue") or {}).get("enumeration")))
+            cells = sum((by_id.get(g) or {}).get("length") or 0 for g in item.get("group") or [])
+            if total and total != cells:
+                errors.append(f"{entry_id(e)}: alsoLeads[{k}] enumeration "
+                              f"({item['clue']['enumeration']}) counts {total} letters, "
+                              f"its group {item.get('group')} holds {cells}")
     flags.extend(("SHAPE", puzzle["id"], err) for err in errors)
 
 
