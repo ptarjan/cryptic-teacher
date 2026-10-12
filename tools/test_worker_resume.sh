@@ -36,8 +36,10 @@ mkdir -p "$main/tools/data" "$main/puzzles/s/2026" "$main/clues_only/s"
 printf 'SOURCE_LIGHT_WRONG = {\n}\n' >"$main/tools/fetch_puzzle.py"
 cp "$REPO/tools/own_rows.py" "$REPO/tools/json_merge.py" "$REPO/tools/puzzle_schema.py" "$main/tools/"
 cp "$REPO/tools/data/puzzle.schema.json" "$main/tools/data/"
-for f in setter_error source_answer_wrong source_clue_wrong; do
-  printf '{\n "z-1/1-across": ["x", "Y", "a sibling\x27s row"]\n}\n' >"$main/tools/data/$f.json"
+# Every table own_rows.py owns rows of, named by it, so a table added there is
+# in this repo too.
+for rel in $(cd "$REPO/tools" && python3 -c 'import own_rows; print(*own_rows.DATA_RELS)'); do
+  printf '{\n "z-1/1-across": ["x", "Y", "a sibling\x27s row"]\n}\n' >"$main/$rel"
 done
 cat >"$main/tools/puzzle_paths.py" <<'PY'
 import glob, sys
