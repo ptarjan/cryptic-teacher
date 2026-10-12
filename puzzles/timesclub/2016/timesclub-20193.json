@@ -23,6 +23,9 @@
   "date": "2016-10-28",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,55 @@
     "text": "Dying tissue effectively consumes radius",
     "enumeration": "7"
    },
-   "solution": "INFARCT"
+   "solution": "INFARCT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INFARCT",
+    "definitions": [
+     {
+      "text": "Dying tissue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "consumes",
+      "for": "container",
+      "note": "what consumes something takes it inside itself, so one piece swallows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "effectively",
+      "gives": "INFACT",
+      "note": "'in fact' means effectively, in reality"
+     },
+     {
+      "clueFragment": "radius",
+      "gives": "R",
+      "note": "R is the standard abbreviation for radius"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INFA",
+      "R",
+      "CT"
+     ]
+    },
+    "explanation": {
+     "surface": "A medical note: dying tissue is in effect eating into a bone of the forearm.",
+     "walkthrough": "The radius is a forearm bone, which keeps the medical surface going, but here it is only the abbreviation R, set inside IN FACT to make INFARCT.",
+     "definitionFit": "An infarct is a localised area of dead tissue caused by a blocked blood supply."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "radius"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +101,69 @@
     "text": "Dutch river needing not so much sail trimmed, hoisted?",
     "enumeration": "6"
    },
-   "solution": "IJSSEL"
+   "solution": "IJSSEL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "reversal"
+    ],
+    "answer": "IJSSEL",
+    "definitions": [
+     {
+      "text": "Dutch river",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trimmed",
+      "for": "deletion",
+      "note": "trimmed means cut at the edge, so the last letter is cut off"
+     },
+     {
+      "text": "hoisted",
+      "for": "reversal",
+      "note": "in a down clue, hoisting lifts the letters so they read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not so much",
+      "gives": "LESS",
+      "note": "less means not so much"
+     },
+     {
+      "clueFragment": "sail",
+      "gives": "JIB",
+      "note": "a jib is a triangular sail at the front of a boat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IJSSEL"
+     ],
+     "reversals": [
+      {
+       "from": "LESSJI",
+       "to": "IJSSEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A barge on a Dutch river needs less sail, so the canvas is trimmed and raised.",
+     "walkthrough": "Hoisting in a down clue sends the letters upward. The IJ at the start counts as a single letter in Dutch, which is why the name looks so strange.",
+     "definitionFit": "The IJssel is a branch of the Rhine flowing north through the Netherlands into the IJsselmeer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hoisted"
+    }
+   }
   },
   {
    "number": 2,
@@ -70,7 +183,61 @@
      }
     ]
    },
-   "solution": "FRIGHTWIG"
+   "solution": "FRIGHTWIG",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "FRIGHT WIG",
+    "definitions": [
+     {
+      "text": "shock of shocks",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overlooked in",
+      "for": "deletion",
+      "note": "something overlooked in a word is left out of it, so that letter is missed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "conservative",
+      "gives": "RIGHTWING",
+      "note": "right-wing means politically conservative"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RIGHTWIG"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman is passed over by a conservative party, which comes as the greatest shock of all.",
+     "walkthrough": "N comes out of RIGHT WING. In the definition a 'shock' of hair stands up as if shocked.",
+     "definitionFit": "A fright wig is a wig with hair standing on end, as worn by clowns, so it is a shock of hair styled like a fright."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shock"
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +251,75 @@
     "text": "Head of Rolling Stone welcoming a funny staff writer",
     "enumeration": "7"
    },
-   "solution": "RASTRUM"
+   "solution": "RASTRUM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "RASTRUM",
+    "definitions": [
+     {
+      "text": "staff writer",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     },
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "the outer letters welcome the next piece in, taking it inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rolling",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of Rolling"
+     },
+     {
+      "clueFragment": "Stone",
+      "gives": "ST",
+      "note": "st is the abbreviation for stone, the British weight of fourteen pounds"
+     },
+     {
+      "clueFragment": "funny",
+      "gives": "RUM",
+      "note": "rum means odd, funny-peculiar"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "A",
+      "ST",
+      "RUM"
+     ]
+    },
+    "explanation": {
+     "surface": "The editor of Rolling Stone magazine takes on a humorous member of the writing staff.",
+     "walkthrough": "'Staff writer' sounds like a journalist on Rolling Stone, but the staff is the five-line musical stave.",
+     "definitionFit": "A rastrum is a five-pointed pen used to rule the lines of a musical stave in one stroke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "staff"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +333,61 @@
     "text": "Slips with religious texts mostly working round NT book",
     "enumeration": "9"
    },
-   "solution": "TEPHILLIN"
+   "solution": "TEPHILLIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TEPHILLIN",
+    "definitions": [
+     {
+      "text": "Slips with religious texts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the last letter is lost"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "one piece goes round the other, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "working",
+      "gives": "TILLING",
+      "note": "tilling means working the soil"
+     },
+     {
+      "clueFragment": "NT book",
+      "gives": "EPH",
+      "note": "Eph is the abbreviation for Ephesians, a New Testament book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "EPH",
+      "ILLIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone makes errors while busy with scripture, mostly in the New Testament.",
+     "walkthrough": "'Slips' looks like a verb about mistakes, but it is the definition, slips of parchment carrying scripture.",
+     "definitionFit": "Tephillin are the small leather boxes containing parchment slips of Torah verses, worn by observant Jewish men at prayer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Slips"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +401,55 @@
     "text": "Critically alter modern concert repertoire, consistently cutting finishing time",
     "enumeration": "7"
    },
-   "solution": "RECENSE"
+   "solution": "RECENSE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RECENSE",
+    "definitions": [
+     {
+      "text": "Critically alter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "consistently cutting finishing time",
+      "for": "deletion",
+      "note": "the closing letter standing for time is removed, and 'consistently' says this happens to both words alike"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "modern",
+      "gives": "RECENT",
+      "note": "modern means recent"
+     },
+     {
+      "clueFragment": "concert repertoire",
+      "gives": "SET",
+      "note": "a band's set is the list of numbers it plays at a concert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RECEN",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A conductor is told to overhaul a modern concert programme, always trimming the end so the evening runs shorter.",
+     "walkthrough": "T is time, and both RECENT and SET end in it, so each loses its final T to give RECEN + SE.",
+     "definitionFit": "To recense is to revise a text critically, producing a new recension of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "repertoire"
+    }
+   }
   },
   {
    "number": 5,
@@ -126,7 +463,61 @@
     "text": "Splendid non-professional people without commission turned up",
     "enumeration": "5"
    },
-   "solution": "ROYAL"
+   "solution": "ROYAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ROYAL",
+    "definitions": [
+     {
+      "text": "Splendid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turning up means the letters are read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "non-professional",
+      "gives": "LAY",
+      "note": "lay people are non-professionals, outside a profession"
+     },
+     {
+      "clueFragment": "people without commission",
+      "gives": "OR",
+      "note": "OR, other ranks, are soldiers who hold no officer's commission"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "YAL"
+     ],
+     "reversals": [
+      {
+       "from": "LAYOR",
+       "to": "ROYAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Amateurs who were not paid any fee have arrived, and it is splendid.",
+     "walkthrough": "'Without commission' sounds like no sales fee, but it means not commissioned as officers.",
+     "definitionFit": "Royal can mean magnificent or fit for a king, as in a royal welcome."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "commission"
+    }
+   }
   },
   {
    "number": 6,
@@ -140,7 +531,54 @@
     "text": "Fantastic cosplay as character from Odyssey",
     "enumeration": "7"
    },
-   "solution": "CALYPSO"
+   "solution": "CALYPSO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CALYPSO",
+    "definitions": [
+     {
+      "text": "character from Odyssey",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fantastic",
+      "for": "anagram",
+      "note": "fantastic means fanciful and wildly made-up, so the letters are rearranged freely"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cosplay",
+      "gives": "COSPLAY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COSPLAY",
+       "gives": "CALYPSO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fan dresses up superbly as a figure from Homer's epic.",
+     "walkthrough": "Cosplay is dressing as a fictional character, which fits the surface neatly.",
+     "definitionFit": "Calypso is the nymph in Homer's Odyssey who keeps Odysseus on her island for seven years."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fantastic"
+    }
+   }
   },
   {
    "number": 7,
@@ -154,7 +592,58 @@
     "text": "Nickel-plated iron supplying people of southern Africa",
     "enumeration": "5"
    },
-   "solution": "NGUNI"
+   "solution": "NGUNI",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NGUNI",
+    "definitions": [
+     {
+      "text": "people of southern Africa",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "plated",
+      "for": "container",
+      "note": "a plating is a coat over the outside, so the first piece covers the second all round"
+     }
+    ],
+    "linkWords": [
+     "supplying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nickel",
+      "gives": "NI",
+      "note": "Ni is the chemical symbol for nickel"
+     },
+     {
+      "clueFragment": "iron",
+      "gives": "GUN",
+      "note": "iron is slang for a handgun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "GUN",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Nickel-coated iron is what is being sold to the people of southern Africa.",
+     "walkthrough": "'Iron' is the metal in the surface but slang for a gun in the wordplay.",
+     "definitionFit": "The Nguni are a group of Bantu-speaking peoples of southern Africa including the Zulu, Xhosa and Swazi."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "iron"
+    }
+   }
   },
   {
    "number": 8,
@@ -168,7 +657,53 @@
     "text": "Radical redesign for cell units",
     "enumeration": "8"
    },
-   "solution": "ENERGIDS"
+   "solution": "ENERGIDS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENERGIDS",
+    "definitions": [
+     {
+      "text": "cell units",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Radical",
+      "for": "anagram",
+      "note": "a radical change is a thorough overhaul, so the letters are rearranged completely"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "redesign",
+      "gives": "REDESIGN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REDESIGN",
+       "gives": "ENERGIDS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An architect proposes a sweeping redesign of the cells in a prison block.",
+     "definitionFit": "An energid is a nucleus with the cytoplasm it governs, regarded as a functional unit within a cell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Radical"
+    }
+   }
   },
   {
    "number": 9,
@@ -182,7 +717,64 @@
     "text": "Nothing in old physics represented astrology etc",
     "enumeration": "9"
    },
-   "solution": "SCIOSOPHY"
+   "solution": "SCIOSOPHY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCIOSOPHY",
+    "definitions": [
+     {
+      "text": "astrology etc",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "represented",
+      "for": "anagram",
+      "note": "something represented is presented again in a new form, so the letters are set out in a different order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nothing",
+      "gives": "O",
+      "note": "nothing is zero, shaped like O"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the dictionary abbreviation for old"
+     },
+     {
+      "clueFragment": "physics",
+      "gives": "PHYSICS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OOPHYSICS",
+       "gives": "SCIOSOPHY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scientist sneers that astrology and its kind are nothing but old physics dressed up again.",
+     "walkthrough": "'Nothing in old physics' reads like a dismissive verdict, but it supplies two Os to add to the seven letters of PHYSICS before they are rearranged.",
+     "definitionFit": "Sciosophy is a supposed system of knowledge with no scientific basis, such as astrology or other occult lore."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "represented"
+    }
+   }
   },
   {
    "number": 10,
@@ -196,7 +788,55 @@
     "text": "Bound to receive superior instrument in view of fine work",
     "enumeration": "5"
    },
-   "solution": "LOUPE"
+   "solution": "LOUPE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LOUPE",
+    "definitions": [
+     {
+      "text": "instrument in view of fine work",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to receive",
+      "for": "container",
+      "note": "one word receives another, taking it in among its own letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bound",
+      "gives": "LOPE",
+      "note": "to lope is to run with long bounding strides"
+     },
+     {
+      "clueFragment": "superior",
+      "gives": "U",
+      "note": "U means upper-class, superior in British usage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "U",
+      "PE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone seems certain to be given a top-class tool for intricate work.",
+     "walkthrough": "'Bound to' looks like 'certain to', but Bound is a leap, LOPE, which receives U for superior.",
+     "definitionFit": "A loupe is a small magnifying glass held to the eye by jewellers and watchmakers doing delicate work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Bound"
+    }
+   }
   },
   {
    "number": 11,
@@ -210,7 +850,69 @@
     "text": "Maybe Guy's Hospital in backing for Greek legal administrator",
     "enumeration": "5"
    },
-   "solution": "EPHOR"
+   "solution": "EPHOR",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "EPHOR",
+    "definitions": [
+     {
+      "text": "Greek legal administrator",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "with the possessive read as 'has', the first word has the next one in it, inside its letters"
+     },
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means going in reverse, so the assembled letters are read from the end"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maybe Guy",
+      "gives": "ROPE",
+      "note": "a guy is a rope steadying a tent or mast, so 'maybe' marks it as one example of a rope"
+     },
+     {
+      "clueFragment": "Hospital",
+      "gives": "H",
+      "note": "H is the abbreviation for hospital on road signs and maps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EPHOR"
+     ],
+     "reversals": [
+      {
+       "from": "ROHPE",
+       "to": "EPHOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Guy's is a London teaching hospital, here apparently sponsoring a Greek legal official.",
+     "walkthrough": "Guy's Hospital is a famous London hospital, but the words split: a guy is a rope, the 's is 'has', and ROPE has H inside it before the whole reverses.",
+     "definitionFit": "The ephors were the five magistrates elected each year in ancient Sparta to oversee the kings and the law."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Guy's"
+    }
+   }
   },
   {
    "number": 12,
@@ -224,7 +926,49 @@
     "text": "Sovereign is pallidly, somewhat contrarily, gliding in",
     "enumeration": "9"
    },
-   "solution": "ILLAPSING"
+   "solution": "ILLAPSING",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ILLAPSING",
+    "definitions": [
+     {
+      "text": "gliding in",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means to some degree, so only part of the run of words is taken"
+     },
+     {
+      "text": "contrarily",
+      "for": "reversal",
+      "note": "acting contrarily means going the opposite way, so the run of letters is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sovereign is pallidly",
+      "gives": "GNISPALLI",
+      "note": "the end of the first word, all of the second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A monarch is described as pale and rather stubborn, an odd portrait of a sovereign.",
+     "walkthrough": "The letters run backwards inside 'sovereiGN IS PALLIdly'; read them from the end to get ILLAPSING.",
+     "definitionFit": "To illapse is a rare verb meaning to slip or glide gently into something, so illapsing is gliding in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sovereign"
+    }
+   }
   },
   {
    "number": 13,
@@ -244,7 +988,56 @@
      }
     ]
    },
-   "solution": "WAMBLECROPPED"
+   "solution": "WAMBLECROPPED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WAMBLE-CROPPED",
+    "definitions": [
+     {
+      "text": "suffering indigestion",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "for some"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Women's",
+      "gives": "W",
+      "note": "W is the abbreviation for women, as on lavatory doors"
+     },
+     {
+      "clueFragment": "walk",
+      "gives": "AMBLE",
+      "note": "an amble is a leisurely walk"
+     },
+     {
+      "clueFragment": "cut short",
+      "gives": "CROPPED",
+      "note": "hair or grass cut short is cropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "AMBLE",
+      "CROPPED"
+     ]
+    },
+    "explanation": {
+     "surface": "A women's walking event is curtailed because some of the walkers have upset stomachs.",
+     "walkthrough": "'Cut short' looks like an instruction to delete letters, but it is the plain word CROPPED, the last third of the answer.",
+     "definitionFit": "Wamble-cropped is an old dialect adjective for someone queasy and sick in the stomach, wamble being a rumbling of the gut."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 14,
@@ -258,7 +1051,76 @@
     "text": "University's river and the one it joins, not SE London's old one, short of English mine",
     "enumeration": "9"
    },
-   "solution": "CAMOUFLET"
+   "solution": "CAMOUFLET",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CAMOUFLET",
+    "definitions": [
+     {
+      "text": "mine",
+      "at": 83
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not here means without, so the named letters are taken away"
+     },
+     {
+      "text": "short of",
+      "for": "deletion",
+      "note": "short of means lacking, so the word goes without the named letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "University's river",
+      "gives": "CAM",
+      "note": "the Cam flows through Cambridge"
+     },
+     {
+      "clueFragment": "the one it joins",
+      "gives": "OUSE",
+      "note": "the Cam is a tributary of the Great Ouse"
+     },
+     {
+      "clueFragment": "SE",
+      "gives": "SE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "London's old one",
+      "gives": "FLEET",
+      "note": "the Fleet is a London river long since buried underground"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAM",
+      "OU",
+      "FLET"
+     ]
+    },
+    "explanation": {
+     "surface": "A tour of rivers: Cambridge's, the one it flows into, and London's lost one, ending at an English mine.",
+     "walkthrough": "The SE printed in the clue is what the Ouse loses. The Fleet is a London river now buried and running in sewers.",
+     "definitionFit": "A camouflet is an underground mine or explosion that does not break the surface, used to collapse enemy tunnels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mine"
+    }
+   }
   },
   {
    "number": 15,
@@ -278,7 +1140,52 @@
      }
     ]
    },
-   "solution": "PHOSSYJAW"
+   "solution": "PHOSSYJAW",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PHOSSY JAW",
+    "definitions": [
+     {
+      "text": "a matchmaker's occupational hazard",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ruffling",
+      "for": "anagram",
+      "note": "ruffling disorders something, as wind does hair, so the letters are mixed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "waspy Josh",
+      "gives": "WASPYJOSH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WASPYJOSH",
+       "gives": "PHOSSYJAW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Annoying a prickly man called Josh is the risk a romantic go-between runs.",
+     "walkthrough": "A matchmaker here is not a romantic go-between but a worker making matches in a match factory.",
+     "definitionFit": "Phossy jaw was bone decay of the jaw caused by white phosphorus, an industrial disease of Victorian match-factory workers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "matchmaker's"
+    }
+   }
   },
   {
    "number": 16,
@@ -292,7 +1199,65 @@
     "text": "Illegitimate Jews married in confusion, on edge",
     "enumeration": "8"
    },
-   "solution": "MAMZERIM"
+   "solution": "MAMZERIM",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MAMZERIM",
+    "definitions": [
+     {
+      "text": "Illegitimate Jews",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece goes in another, set among its letters"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "confusion",
+      "gives": "MAZE",
+      "note": "a maze is a state of bewilderment"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the abbreviation for married"
+     },
+     {
+      "clueFragment": "edge",
+      "gives": "RIM",
+      "note": "a rim is an edge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "M",
+      "ZE",
+      "RIM"
+     ]
+    },
+    "explanation": {
+     "surface": "Jewish children born out of wedlock are wed in a muddle, everyone nervous.",
+     "walkthrough": "'On edge' reads as nervous, but in a down clue 'on' just places the edge after the rest.",
+     "definitionFit": "In Jewish law a mamzer is a child of a forbidden union such as adultery; mamzerim is the Hebrew plural."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "edge"
+    }
+   }
   },
   {
    "number": 17,
@@ -306,7 +1271,62 @@
     "text": "Updating past to include private embellishment",
     "enumeration": "13"
    },
-   "solution": "AGGIORNAMENTO"
+   "solution": "AGGIORNAMENTO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AGGIORNAMENTO",
+    "definitions": [
+     {
+      "text": "Updating",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to include",
+      "for": "container",
+      "note": "the first word is made to include the rest, wrapping around them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "past",
+      "gives": "AGO",
+      "note": "ago means in the past"
+     },
+     {
+      "clueFragment": "private",
+      "gives": "GI",
+      "note": "a GI is an American private soldier"
+     },
+     {
+      "clueFragment": "embellishment",
+      "gives": "ORNAMENT",
+      "note": "an ornament is an embellishment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AG",
+      "GI",
+      "ORNAMENT",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A homeowner modernises an old house by adding a personal decorative touch.",
+     "walkthrough": "The past word opens after its first letter to take in the rest. 'Private' is the soldier, not secret.",
+     "definitionFit": "Aggiornamento is the Italian word for bringing up to date, used especially of the reforms of the Second Vatican Council."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "private"
+    }
+   }
   },
   {
    "number": 18,
@@ -320,7 +1340,64 @@
     "text": "Party animal also known as the wrong Pole aboard Jumbo?",
     "enumeration": "7"
    },
-   "solution": "ORGIAST"
+   "solution": "ORGIAST",
+   "annotation": {
+    "type": [
+     "charade",
+     "substitution"
+    ],
+    "answer": "ORGIAST",
+    "definitions": [
+     {
+      "text": "Party animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the wrong",
+      "for": "substitution",
+      "note": "having the wrong one means the correct letter is swapped out for its opposite"
+     }
+    ],
+    "linkWords": [
+     "aboard"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "also known as",
+      "gives": "OR",
+      "note": "or introduces an alternative name, as in 'Mumbai, or Bombay'"
+     },
+     {
+      "clueFragment": "Jumbo",
+      "gives": "GIANT",
+      "note": "jumbo means giant-sized"
+     },
+     {
+      "clueFragment": "Pole",
+      "gives": "S",
+      "note": "S, south, is the other pole from the N that Jumbo's letters hold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "GIAST"
+     ]
+    },
+    "explanation": {
+     "surface": "An elephant at a party is said to have the wrong Polish person on its back.",
+     "walkthrough": "The north pole N in GIANT is replaced by the opposite pole S.",
+     "definitionFit": "An orgiast is someone who takes part in orgies, a wild reveller."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Pole"
+    }
+   }
   },
   {
    "number": 19,
@@ -334,7 +1411,51 @@
     "text": "Gluten-free powder in fruitcake, a serving of food",
     "enumeration": "7"
    },
-   "solution": "NUTMEAL"
+   "solution": "NUTMEAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NUTMEAL",
+    "definitions": [
+     {
+      "text": "Gluten-free powder",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fruitcake",
+      "gives": "NUT",
+      "note": "a fruitcake and a nut are both slang for an eccentric person"
+     },
+     {
+      "clueFragment": "a serving of food",
+      "gives": "MEAL",
+      "note": "a meal is a serving of food"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUT",
+      "MEAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe uses a wheat-free flour in fruitcake, which makes a portion of food.",
+     "walkthrough": "'Fruitcake' is the cake in the surface but slang for a crazy person in the wordplay.",
+     "definitionFit": "Nutmeal is finely ground nuts, used in baking as a flour without wheat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fruitcake"
+    }
+   }
   },
   {
    "number": 20,
@@ -348,7 +1469,64 @@
     "text": "Reveal antique lacework after lifting beam",
     "enumeration": "6"
    },
-   "solution": "BEWRAY"
+   "solution": "BEWRAY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "BEWRAY",
+    "definitions": [
+     {
+      "text": "Reveal antique",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lifting",
+      "for": "reversal",
+      "note": "in a down clue, lifting raises the letters so they read upward"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lacework",
+      "gives": "WEB",
+      "note": "a web is a fine lacy network"
+     },
+     {
+      "clueFragment": "beam",
+      "gives": "RAY",
+      "note": "a ray is a beam of light"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEW",
+      "RAY"
+     ],
+     "reversals": [
+      {
+       "from": "WEB",
+       "to": "BEW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dealer uncovers old lace after hoisting a ceiling timber.",
+     "walkthrough": "'Antique' looks like it describes the lacework, but it belongs to the definition, marking the answer as an archaic word.",
+     "definitionFit": "Bewray is an obsolete verb meaning to divulge or betray a secret, so it is an old word for reveal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "antique"
+    }
+   }
   },
   {
    "number": 21,
@@ -362,7 +1540,67 @@
     "text": "Variable height on both sides of English, French or Chinese city",
     "enumeration": "9"
    },
-   "solution": "ZHENGZHOU"
+   "solution": "ZHENGZHOU",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ZHENGZHOU",
+    "definitions": [
+     {
+      "text": "Chinese city",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on both sides of",
+      "for": "container",
+      "note": "a piece placed on both sides of another appears once before it and once after it, surrounding it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Variable height",
+      "gives": "ZH",
+      "note": "Z is a standard symbol for a variable and H the abbreviation for height"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "ENG",
+      "note": "Eng is the abbreviation for English"
+     },
+     {
+      "clueFragment": "Variable height",
+      "gives": "ZH",
+      "note": "the same pair again, for the far side"
+     },
+     {
+      "clueFragment": "French or",
+      "gives": "OU",
+      "note": "ou is the French word for or"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ZH",
+      "ENG",
+      "ZH",
+      "OU"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of cities with the height above sea level and names given in English, French or Chinese.",
+     "walkthrough": "ZH is written twice, once on each side of ENG, and the French word for 'or' ends it.",
+     "definitionFit": "Zhengzhou is the capital of Henan province in central China."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Variable"
+    }
+   }
   },
   {
    "number": 22,
@@ -382,7 +1620,62 @@
      }
     ]
    },
-   "solution": "EBOOK"
+   "solution": "EBOOK",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "E-BOOK",
+    "definitions": [
+     {
+      "text": "that needs a special viewer",
+      "at": 24,
+      "note": "a relative clause standing for the thing that needs one"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Raised",
+      "for": "reversal",
+      "note": "in a down clue, raised means the letters go upward, read from the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "floor",
+      "gives": "KO",
+      "note": "to floor someone is to knock them out, a KO"
+     },
+     {
+      "clueFragment": "decoration",
+      "gives": "OBE",
+      "note": "the OBE is a British honour, Officer of the Order of the British Empire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EBO",
+      "OK"
+     ],
+     "reversals": [
+      {
+       "from": "KOOBE",
+       "to": "EBOOK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elevated floor with ornamentation that can only be appreciated with a special viewing device.",
+     "walkthrough": "'Floor decoration' suggests a mosaic, but floor is the boxing KO and decoration the OBE medal, read upward together.",
+     "definitionFit": "An e-book is a book in digital form, read on a dedicated reader device or app."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "floor"
+    }
+   }
   },
   {
    "number": 23,
@@ -396,7 +1689,55 @@
     "text": "Who's struck roadside, shifting feet?",
     "enumeration": "5"
    },
-   "solution": "HIKER"
+   "solution": "HIKER",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "deletion"
+    ],
+    "answer": "HIKER",
+    "definitions": [
+     {
+      "text": "Who's struck roadside, shifting feet?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shifting feet",
+      "for": "deletion",
+      "note": "the feet of words in a down clue are their last letters, and shifting them means moving them away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "struck",
+      "gives": "HIT",
+      "note": "struck means hit"
+     },
+     {
+      "clueFragment": "roadside",
+      "gives": "KERB",
+      "note": "the kerb is the British spelling of curb, the edge of the pavement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HI",
+      "KER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at the side of the road, shuffling their sore feet, wonders who has been hit.",
+     "walkthrough": "HIT and KERB each lose their last letter. Read whole, the clue describes the answer: a walker on the roadside moving on foot.",
+     "definitionFit": "A hiker is a walker covering distance on foot, often along roads and verges."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "feet"
+    }
+   }
   },
   {
    "number": 24,
@@ -410,7 +1751,65 @@
     "text": "On the evidence of affluent travellers, judge struck back",
     "enumeration": "5"
    },
-   "solution": "TESTE"
+   "solution": "TESTE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "TESTE",
+    "definitions": [
+     {
+      "text": "On the evidence of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "struck",
+      "for": "deletion",
+      "note": "struck off means removed, as a name is struck from a list"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means reading the remaining letters from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "affluent travellers",
+      "gives": "JETSET",
+      "note": "the jet set are wealthy people who fly about the world"
+     },
+     {
+      "clueFragment": "judge",
+      "gives": "J",
+      "note": "J is the abbreviation for judge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TESTE"
+     ],
+     "reversals": [
+      {
+       "from": "ETSET",
+       "to": "TESTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A judge, having heard evidence from wealthy globetrotters, is attacked in return.",
+     "walkthrough": "JET SET loses its J and the rest reads backwards.",
+     "definitionFit": "Teste is Latin used in English for citing a witness, meaning on the testimony of the person named."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "judge"
+    }
+   }
   },
   {
    "number": 25,
@@ -424,7 +1823,61 @@
     "text": "Australian native returning in the role of oil producer",
     "enumeration": "5"
    },
-   "solution": "ROOSA"
+   "solution": "ROOSA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ROOSA",
+    "definitions": [
+     {
+      "text": "oil producer",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means coming back, so the following short word is read from its end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Australian native",
+      "gives": "ROO",
+      "note": "roo is Australian slang for a kangaroo"
+     },
+     {
+      "clueFragment": "in the role of",
+      "gives": "AS",
+      "note": "'as' means in the role of, as in 'acting as host'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROO",
+      "SA"
+     ],
+     "reversals": [
+      {
+       "from": "AS",
+       "to": "SA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Aboriginal Australian comes home to work in the oil industry.",
+     "walkthrough": "'Australian native' suggests a person, but it is the kangaroo. Only AS is turned round.",
+     "definitionFit": "Roosa is an Indian grass whose leaves are distilled to yield an aromatic oil, so the plant is a producer of oil."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "producer"
+    }
+   }
   },
   {
    "number": 26,
@@ -444,7 +1897,62 @@
      }
     ]
    },
-   "solution": "KILNERJAR"
+   "solution": "KILNERJAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "KILNER JAR",
+    "definitions": [
+     {
+      "text": "which is useful for preservation",
+      "at": 39,
+      "note": "a descriptive phrase standing for the thing that is useful"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortened",
+      "for": "deletion",
+      "note": "something shortened loses its end, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Firing chamber",
+      "gives": "KILN",
+      "note": "a kiln is an oven for firing pottery"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "ERE",
+      "note": "ere is an old word for before"
+     },
+     {
+      "clueFragment": "clash",
+      "gives": "JAR",
+      "note": "to jar is to clash, as colours or sounds do"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KILN",
+      "ER",
+      "JAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A potter's kiln is cut down in size before a row breaks out, though it still has its uses.",
+     "walkthrough": "'Shortened' sits after 'Firing chamber' but trims the word after it, ERE. A Kilner jar is a British brand of glass jar with a sealed lid, used for preserving fruit.",
+     "definitionFit": "Kilner jars are airtight glass containers made for bottling and pickling, so their purpose is preserving food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Firing"
+    }
+   }
   },
   {
    "number": 27,
@@ -458,7 +1966,69 @@
     "text": "Turkish chief about to yield to king in a lot of paying stuff?",
     "enumeration": "7"
    },
-   "solution": "MUKHTAR"
+   "solution": "MUKHTAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "substitution"
+    ],
+    "answer": "MUKHTAR",
+    "definitions": [
+     {
+      "text": "Turkish chief",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to yield to",
+      "for": "substitution",
+      "note": "a letter that yields to another gives up its place, which the other then takes"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a lot of",
+      "gives": "MUCH",
+      "note": "much means a lot of"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c is short for circa, about"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     },
+     {
+      "clueFragment": "paying stuff",
+      "gives": "TAR",
+      "note": "to pay a ship's seams is to coat them with tar or pitch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MUKH",
+      "TAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A Turkish leader is about to give way to a king over a large sum of money.",
+     "walkthrough": "'Paying stuff' suggests cash, but to pay in nautical terms is to seal with tar. In MUCH, the C gives way to K.",
+     "definitionFit": "A mukhtar is the elected headman of a village or neighbourhood in Turkey and the Arab world."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "paying"
+    }
+   }
   },
   {
    "number": 28,
@@ -472,7 +2042,61 @@
     "text": "Sailing vessel with fortune reversed where one pays for US passage",
     "enumeration": "7"
    },
-   "solution": "TOLLWAY"
+   "solution": "TOLLWAY",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TOLLWAY",
+    "definitions": [
+     {
+      "text": "where one pays for US passage",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversed",
+      "for": "reversal",
+      "note": "reversed means turned back to front, so the joined pieces are read from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailing vessel",
+      "gives": "YAWL",
+      "note": "a yawl is a two-masted sailing boat"
+     },
+     {
+      "clueFragment": "fortune",
+      "gives": "LOT",
+      "note": "one's lot is one's fortune or fate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOL",
+      "LWAY"
+     ],
+     "reversals": [
+      {
+       "from": "YAWLLOT",
+       "to": "TOLLWAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor whose luck has turned must pay their fare to cross to America.",
+     "walkthrough": "YAWL + LOT is read backwards.",
+     "definitionFit": "A tollway is the American name for a highway on which drivers must pay a fee to travel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "passage"
+    }
+   }
   }
  ]
 }
