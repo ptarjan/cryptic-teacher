@@ -222,6 +222,14 @@ L = ["Across", "23a Convert got holy urge (8)", "THEOLOGY – anagram",
 e, _ = tftt.read_entries(pb.headed(L))
 print(" ".join("%d%s:%s" % (x["number"], x["direction"][0], x.get("heading")) for x in e))' 2>&1 | tail -1)"
 
+check "a mistyped suffix gives way to the same light printed under its own heading (ST 2691)" \
+  "1a:SAMPAN 1d:SEATBELT" "$(PYTHONPATH="$REPO/tools" python3 -c '
+import parse_bigdave44 as pb, parse_timesforthetimes as tftt
+L = ["Across", "1d Boat a metre in length (6)", "SAMPAN – x",
+     "Down", "1d Safety device testable when faulty (4,4)", "SEAT BELT – anagram"]
+e, _ = tftt.read_entries(pb.headed(L))
+print(" ".join("%d%s:%s" % (x["number"], x["direction"][0], x["answer"]) for x in e))' 2>&1 | tail -1)"
+
 check "a charade printed as glossed pieces is the whole answer, not its first piece" \
   "1a:SUBJECTMATTER 3a:PETUNIA 5a:KEYPAD 7a:SUBJECT" "$(PYTHONPATH="$REPO/tools" python3 -c '
 import parse_bigdave44 as pb, parse_timesforthetimes as tftt
