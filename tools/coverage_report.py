@@ -18,8 +18,9 @@ count, run every night.
 
 The flags, in the order they matter:
 
-  STALE    the newest puzzle is older than three times the series' cadence, so
-           the feed has stopped answering and nobody has been told.
+  STALE    the newest puzzle is older than the series' STALE_AFTER_DAYS (its
+           cadence plus its source's posting lag), so the feed has stopped
+           answering and nobody has been told.
   SHALLOW  the whole series spans less than SHALLOW_DAYS, which means it has
            never been backfilled.
   HOLES    more than HOLES_PCT of the numbers between the oldest and newest we
@@ -113,6 +114,41 @@ CADENCE_DAYS = {
     "cyclops": 14,
 }
 
+# Days of silence after which a live series is STALE: every series the daily
+# run hooks, so none can stop arriving unnoticed. 2026-10-12: Quiptic, Sunday
+# Times, Times Jumbo and Azed had all stopped weeks earlier while the old rule
+# (three cadences, seven series) stayed quiet. The base is the cadence: daily 3,
+# weekly 10, fortnightly 17, monthly 40. Added on top is the source's own lag:
+# a series rebuilt from a blog only arrives once the post does, and a prize
+# puzzle's post waits for its competition to close, a week after it ran (two
+# weeks for the Jumbo). The newest held date is the puzzle's own, so that lag
+# is silence the feed always shows. A series not listed here never goes STALE.
+# Dead series (the Nation, Listener, TLS archives) and the books are left out.
+STALE_AFTER_DAYS = {
+    # Fetched from the paper the day it runs.
+    "cryptic": 3,
+    "independent": 3,
+    "metro": 3,          # Mon-Fri: Friday to Monday is 3
+    "quiptic": 10,
+    "everyman": 10,
+    "indysunday": 10,
+    "cyclops": 17,       # Private Eye, fortnightly
+    # Rebuilt from blogs posted the same day or the next.
+    "times": 3,
+    "timesquick": 3,
+    "telegraph": 4,      # a day's blog lag after Sunday's gap
+    "toughie": 5,        # Tue-Fri: Friday to Tuesday is 4, plus the blog's day
+    "ftcryptic": 4,      # Mon-Sat, fifteensquared the same day or the next
+    # Prize puzzles, blogged once their competition closes.
+    "sundaytimes": 10 + 7,
+    "mephisto": 10 + 7,
+    "sundaytel": 10 + 7,
+    "sundaytough": 10 + 7,
+    "timesjumbo": 10 + 14,
+    "azed": 40 + 7,      # monthly from 2026, first Sunday; blogged a week on
+    "timesclub": 40,     # the Times Crossword Club's monthly
+}
+
 
 def is_date_keyed(held):
     """True when a series' "number" is really its own date spelled YYYYMMDD
@@ -167,7 +203,8 @@ def audit(puzzles, today):
             newest, oldest = dates[-1], dates[0]
             quiet = (today - newest).days
             depth = (newest - oldest).days
-            if cadence and quiet > cadence * 3:
+            stale_after = STALE_AFTER_DAYS.get(name)
+            if stale_after and quiet > stale_after:
                 flags.append(f"STALE nothing since {newest} ({quiet}d)")
             if depth < SHALLOW_DAYS:
                 flags.append(f"SHALLOW spans {depth}d, never backfilled")
