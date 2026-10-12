@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "Plant agents to follow one to California",
     "enumeration": "6"
    },
-   "solution": "ACACIA"
+   "solution": "ACACIA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACACIA",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "follow",
+      "for": "charade",
+      "note": "agents that follow come behind, so their letters are placed after the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "A as the indefinite article, meaning one"
+     },
+     {
+      "clueFragment": "California",
+      "gives": "CA",
+      "note": "CA is the postal abbreviation for California"
+     },
+     {
+      "clueFragment": "agents",
+      "gives": "CIA",
+      "note": "the CIA is the US intelligence agency, a body of agents"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CA",
+      "CIA"
+     ]
+    },
+    "explanation": {
+     "surface": "Spies are told to plant themselves by trailing someone out to California.",
+     "walkthrough": "'Plant' looks like the spy's verb, but it is the definition; 'to follow' puts the agents after the other two pieces.",
+     "definitionFit": "The acacia is a tree or shrub, commonly called wattle, so it is a kind of plant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Plant"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +104,73 @@
     "text": "Stalin was wrong to stand up during short journey",
     "enumeration": "9"
    },
-   "solution": "COMMUNIST"
+   "solution": "COMMUNIST",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "container"
+    ],
+    "answer": "COMMUNIST",
+    "definitions": [
+     {
+      "text": "Stalin",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to stand up",
+      "for": "reversal",
+      "note": "in a down clue, standing up means the word is read from the bottom upwards"
+     },
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "something cut short loses its final letter"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "one thing happening during another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "journey",
+      "gives": "COMMUT",
+      "note": "a commute, a regular journey to work, without its last letter"
+     },
+     {
+      "clueFragment": "wrong",
+      "gives": "NIS",
+      "note": "a sin is a wrong, here written upwards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COMMU",
+      "NIS",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "SIN",
+       "to": "NIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tells of a wrong committed while standing on a brief trip, oddly tied to Stalin.",
+     "walkthrough": "'Stalin' is the definition by example; the reversed wrong goes inside the shortened commute.",
+     "definitionFit": "Stalin led the Soviet Union and was a member of its party, so he is an example of a communist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "wrong"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +184,57 @@
     "text": "Runs into driver when bad-tempered",
     "enumeration": "6"
    },
-   "solution": "CRABBY"
+   "solution": "CRABBY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CRABBY",
+    "definitions": [
+     {
+      "text": "bad-tempered",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into something means being placed inside it"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "driver",
+      "gives": "CABBY",
+      "note": "a cabby is a taxi driver"
+     },
+     {
+      "clueFragment": "Runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "R",
+      "ABBY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone crashes into a motorist while in a foul mood.",
+     "definitionFit": "Crabby is an informal synonym for irritable, like a crab snapping at whoever comes near."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "driver"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +248,59 @@
     "text": "Gave up Mark when sleeping around",
     "enumeration": "9"
    },
-   "solution": "ABSTAINED"
+   "solution": "ABSTAINED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ABSTAINED",
+    "definitions": [
+     {
+      "text": "Gave up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "one thing placed around another encloses it"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sleeping",
+      "gives": "ABED",
+      "note": "abed means in bed, asleep"
+     },
+     {
+      "clueFragment": "Mark",
+      "gives": "STAIN",
+      "note": "a stain is a mark"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "STAIN",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Mark, a person, quit something while he was dozing in bed.",
+     "walkthrough": "'Mark' looks like a man's name, but it is a plain noun for a blemish.",
+     "definitionFit": "To abstain is to refrain from something, so abstained matches gave up in the past tense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Mark"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +314,52 @@
     "text": "Refined translation lacks it",
     "enumeration": "6"
    },
-   "solution": "SUBTLE"
+   "solution": "SUBTLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SUBTLE",
+    "definitions": [
+     {
+      "text": "Refined",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacks",
+      "for": "deletion",
+      "note": "something that lacks letters has them taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "translation",
+      "gives": "SUBTITLE",
+      "note": "a subtitle is an on-screen translation of film dialogue"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written, the letters to remove"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUBTLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A critic complains that a polished translation has lost something.",
+     "definitionFit": "Subtle means delicate and finely judged, which is close to refined or sophisticated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "translation"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +373,43 @@
     "text": "Grow up with \"Dandy\"?",
     "enumeration": "5"
    },
-   "solution": "SWELL"
+   "solution": "SWELL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SWELL",
+    "definitions": [
+     {
+      "text": "Grow up",
+      "at": 0
+     },
+     {
+      "text": "Dandy",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grow up",
+      "note": "first meaning: to increase in size"
+     },
+     {
+      "clueFragment": "Dandy",
+      "note": "second meaning: an old-fashioned word for a fashionable man"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The quotation marks suggest the Dandy comic, read by children who grow up, but it means a stylish man.",
+     "definitionFit": "Swell is both a verb for expanding and a dated noun for a smartly dressed gentleman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dandy"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +423,76 @@
     "text": "Pack cab then reverse over large bird",
     "enumeration": "8"
    },
-   "solution": "BLACKCAP"
+   "solution": "BLACKCAP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "BLACKCAP",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reverse",
+      "for": "reversal",
+      "note": "to reverse is to turn back, so the words are read backwards"
+     },
+     {
+      "text": "over",
+      "for": "container",
+      "note": "lying over something means covering it, so these letters wrap around"
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pack",
+      "gives": "PACK",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cab",
+      "gives": "CAB",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "L",
+      "ACKCAP"
+     ],
+     "reversals": [
+      {
+       "from": "PACKCAB",
+       "to": "BACKCAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Load up the taxi, then back it over a big bird.",
+     "walkthrough": "'Large bird' reads as one phrase, but the size word supplies a letter and only 'bird' defines.",
+     "definitionFit": "The blackcap is a small European warbler, named for the male's dark crown."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "reverse"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +506,51 @@
     "text": "Inclined to have spare time",
     "enumeration": "5"
    },
-   "solution": "LEANT"
+   "solution": "LEANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEANT",
+    "definitions": [
+     {
+      "text": "Inclined",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to have"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spare",
+      "gives": "LEAN",
+      "note": "spare as an adjective means thin, lean"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEAN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is disposed to enjoy free time.",
+     "walkthrough": "'Spare time' reads as leisure, but 'spare' means thin and 'time' is just its letter.",
+     "definitionFit": "Leant is the past tense of lean, so it means tilted or rested at an angle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spare"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +564,62 @@
     "text": "Return flag to fighter — it keeps things on the level",
     "enumeration": "7"
    },
-   "solution": "GIMBALS"
+   "solution": "GIMBALS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "GIMBALS",
+    "definitions": [
+     {
+      "text": "it keeps things on the level",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Return",
+      "for": "reversal",
+      "note": "returning means going back, so the combined letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flag",
+      "gives": "SLAB",
+      "note": "a flag or flagstone is a paving slab"
+     },
+     {
+      "clueFragment": "fighter",
+      "gives": "MIG",
+      "note": "the MiG is a Russian fighter jet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GIM",
+      "BALS"
+     ],
+     "reversals": [
+      {
+       "from": "SLABMIG",
+       "to": "GIMBALS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hand a banner back to a warrior, who stays even-handed.",
+     "walkthrough": "'Flag' suggests a banner but means a flat stone; the whole of slab plus jet is read backwards.",
+     "definitionFit": "Gimbals are pivoted rings that hold a compass or camera horizontal however its mount tilts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flag"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +639,82 @@
      }
     ]
    },
-   "solution": "GUTTAPERCHA"
+   "solution": "GUTTAPERCHA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "anagram"
+    ],
+    "answer": "GUTTA-PERCHA",
+    "definitions": [
+     {
+      "text": "insulating material",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means the word is read from the bottom"
+     },
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out suggests something put out of order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pull",
+      "gives": "GUT",
+      "note": "a tug is a pull, here written upwards"
+     },
+     {
+      "clueFragment": "plug",
+      "gives": "TAP",
+      "note": "a tap is a plug or stopper for a cask"
+     },
+     {
+      "clueFragment": "reach",
+      "gives": "ERCHA",
+      "note": "these letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUT",
+      "TAP",
+      "ERCHA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REACH",
+       "gives": "ERCHA"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "TUG",
+       "to": "GUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An electrician tugs out a plug and stretches for some insulation.",
+     "definitionFit": "Gutta-percha is a latex from Malaysian trees, once used to insulate undersea telegraph cables."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plug"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +728,52 @@
     "text": "Issue from animal back to front",
     "enumeration": "7"
    },
-   "solution": "EMANATE"
+   "solution": "EMANATE",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "EMANATE",
+    "definitions": [
+     {
+      "text": "Issue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back to front",
+      "for": "cycling",
+      "note": "bringing the back to the front moves the last letter round to the start"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "animal",
+      "gives": "MANATEE",
+      "note": "a manatee is a sea cow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MANATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A problem arises from an animal turned the wrong way round.",
+     "walkthrough": "Only the final letter moves, not the whole word reversing.",
+     "definitionFit": "To issue, as a verb, is to flow out or come forth, which is what emanate means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Issue"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +787,61 @@
     "text": "It improves join after henna treatment",
     "enumeration": "11"
    },
-   "solution": "ENHANCEMENT"
+   "solution": "ENHANCEMENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ENHANCEMENT",
+    "definitions": [
+     {
+      "text": "It improves",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "treatment",
+      "for": "anagram",
+      "note": "a treatment works something over, so these letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "henna",
+      "gives": "ENHAN",
+      "note": "these letters rearranged"
+     },
+     {
+      "clueFragment": "join",
+      "gives": "CEMENT",
+      "note": "to cement is to join firmly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENHAN",
+      "CEMENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HENNA",
+       "gives": "ENHAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A beauty product claims to make things better once the henna is applied.",
+     "walkthrough": "'After' puts the join word behind the rearranged dye.",
+     "definitionFit": "An enhancement is something that makes a thing better, so it is what improves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "treatment"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +861,51 @@
      }
     ]
    },
-   "solution": "THUMBNAILSKETCH"
+   "solution": "THUMBNAILSKETCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THUMBNAIL SKETCH",
+    "definitions": [
+     {
+      "text": "basic plan",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "reveal"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Digital attachments",
+      "gives": "THUMBNAILS",
+      "note": "nails are attached to the digits, the fingers and thumbs"
+     },
+     {
+      "clueFragment": "vessel",
+      "gives": "KETCH",
+      "note": "a ketch is a two-masted sailing boat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THUMBNAILS",
+      "KETCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Accessories fixed to a ship show a rough design.",
+     "walkthrough": "'Digital' sounds like computing, but it refers to digits, the fingers.",
+     "definitionFit": "A thumbnail sketch is a brief outline, small enough to fit on a thumbnail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Digital"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +919,50 @@
     "text": "Similar to taking heart",
     "enumeration": "4"
    },
-   "solution": "AKIN"
+   "solution": "AKIN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "AKIN",
+    "definitions": [
+     {
+      "text": "Similar to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heart",
+      "for": "letter_selection",
+      "note": "the heart of a word is its centre, so only its inner letters count"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taking",
+      "gives": "AKIN",
+      "select": "middle",
+      "note": "the inner letters, without the outer ones"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AKIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Something feels like being encouraged.",
+     "walkthrough": "'Taking heart' reads as gaining courage; here the heart is that of the word itself.",
+     "definitionFit": "Akin to means related or comparable, as in kin, a synonym of resembling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +976,48 @@
     "text": "Missing the start of defence evidence",
     "enumeration": "10"
    },
-   "solution": "INDICATION"
+   "solution": "INDICATION",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "INDICATION",
+    "definitions": [
+     {
+      "text": "evidence",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Missing the start of",
+      "for": "deletion",
+      "note": "missing the start means the first letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "defence",
+      "gives": "VINDICATION",
+      "note": "vindication is a defence or justification"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INDICATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A court case lacks the opening proof from the defence team.",
+     "walkthrough": "'Defence' must be turned into its synonym before the first letter goes.",
+     "definitionFit": "An indication is a sign that points to something, a looser synonym of evidence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "defence"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +1031,57 @@
     "text": "Lacking will to make it neatest",
     "enumeration": "9"
    },
-   "solution": "INTESTATE"
+   "solution": "INTESTATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INTESTATE",
+    "definitions": [
+     {
+      "text": "Lacking will",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to make",
+      "for": "anagram",
+      "note": "making something from materials means building them into a new shape"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "neatest",
+      "gives": "NEATEST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITNEATEST",
+       "gives": "INTESTATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone without motivation won't tidy things up.",
+     "walkthrough": "'Will' suggests determination, but it is a legal document.",
+     "definitionFit": "Intestate describes someone who dies without having made a valid legal testament."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "will"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1095,59 @@
     "text": "Repeating \"Crucial time to replace MP\"",
     "enumeration": "9"
    },
-   "solution": "ITERATIVE"
+   "solution": "ITERATIVE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "ITERATIVE",
+    "definitions": [
+     {
+      "text": "Repeating",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to replace",
+      "for": "substitution",
+      "note": "replacing means one item takes another's place in the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crucial",
+      "gives": "IMPERATIVE",
+      "note": "imperative means essential, crucial"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "MP",
+      "gives": "MP",
+      "note": "taken as written, the letters swapped out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "T",
+      "ERATIVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A news report repeats that it is vital to replace a Member of Parliament.",
+     "definitionFit": "Iterative means done again and again, each pass repeating the process."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "MP"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1167,43 @@
      }
     ]
    },
-   "solution": "STITCHUP"
+   "solution": "STITCHUP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STITCH UP",
+    "definitions": [
+     {
+      "text": "Repair",
+      "at": 0
+     },
+     {
+      "text": "undo",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Repair",
+      "note": "first meaning: to mend by sewing"
+     },
+     {
+      "clueFragment": "undo",
+      "note": "second meaning: to ruin someone by framing or betraying them"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two senses look opposite; British slang uses stitch up for setting someone up to take the blame.",
+     "definitionFit": "Stitch up means to sew a tear closed and, informally, to frame or cheat a person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "undo"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1223,59 @@
      }
     ]
    },
-   "solution": "ESTATEDUTY"
+   "solution": "ESTATEDUTY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ESTATE DUTY",
+    "definitions": [
+     {
+      "text": "tax",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "works",
+      "for": "anagram",
+      "note": "works, as in a factory, processes material into a new form"
+     }
+    ],
+    "linkWords": [
+     "to provide"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Statute",
+      "gives": "STATUTE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Dye",
+      "gives": "DYE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STATUTEDYE",
+       "gives": "ESTATEDUTY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A law states that dyeworks must pay a levy.",
+     "walkthrough": "'Works' looks like a noun for a factory, but it signals the rearrangement.",
+     "definitionFit": "Estate duty was the former British levy on a dead person's property, a death tax."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "works"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1289,41 @@
     "text": "Eastern English river bird",
     "enumeration": "4"
    },
-   "solution": "NENE"
+   "solution": "NENE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NENE",
+    "definitions": [
+     {
+      "text": "Eastern English river",
+      "at": 0
+     },
+     {
+      "text": "bird",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eastern English river",
+      "note": "first meaning: a river flowing through Northamptonshire and the Fens to the Wash"
+     },
+     {
+      "clueFragment": "bird",
+      "note": "second meaning: a Hawaiian goose"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a waterbird found on an English river; the two are separate meanings.",
+     "definitionFit": "The Nene is a river of eastern England, and the nene is a goose native to Hawaii."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1337,39 @@
     "text": "How to get juice from orange in church?",
     "enumeration": "6"
    },
-   "solution": "PULPIT"
+   "solution": "PULPIT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PULPIT",
+    "definitions": [
+     {
+      "text": "How to get juice from orange in church?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How to get juice from orange",
+      "note": "surface reading: an instruction for extracting fruit juice"
+     },
+     {
+      "clueFragment": "in church",
+      "note": "setter's reading: the instruction, said as a two-word phrase, names a raised stand found in church"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Squashing fruit to a mush and the instruction to do so give the name of a church fixture.",
+     "definitionFit": "A pulpit is the raised enclosed platform in a church from which the preacher speaks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "orange"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1389,56 @@
      }
     ]
    },
-   "solution": "COCKTAILSAUSAGE"
+   "solution": "COCKTAILSAUSAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COCKTAIL SAUSAGE",
+    "definitions": [
+     {
+      "text": "Snack",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drinks",
+      "gives": "COCKTAILS",
+      "note": "cocktails are mixed drinks"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tradition",
+      "gives": "USAGE",
+      "note": "usage means custom or tradition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COCKTAILS",
+      "A",
+      "USAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Nibbles served alongside drinks are a time-honoured custom.",
+     "walkthrough": "'Snack with drinks' looks like the whole definition, but 'drinks' starts the wordplay.",
+     "definitionFit": "A cocktail sausage is a small party sausage, a finger food served at drinks parties."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drinks"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1452,63 @@
     "text": "Main growth in fuel outside Russian capital",
     "enumeration": "5"
    },
-   "solution": "CORAL"
+   "solution": "CORAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CORAL",
+    "definitions": [
+     {
+      "text": "Main growth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capital",
+      "for": "letter_selection",
+      "note": "a capital is a head letter, so only the first letter is kept"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "one thing outside another surrounds it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fuel",
+      "gives": "COAL",
+      "note": "coal is a fuel"
+     },
+     {
+      "clueFragment": "Russian",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "R",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "The chief growth in the fuel industry lies beyond Moscow.",
+     "walkthrough": "'Main' is the sea in old poetic usage, so main growth is something growing in the sea; 'Russian capital' is not Moscow.",
+     "definitionFit": "Coral is built up by colonies of small marine animals, a growth in the sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Main"
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1522,56 @@
     "text": "Mean rascal extremely lazy",
     "enumeration": "5"
    },
-   "solution": "IMPLY"
+   "solution": "IMPLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "IMPLY",
+    "definitions": [
+     {
+      "text": "Mean",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only those are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rascal",
+      "gives": "IMP",
+      "note": "an imp is a mischievous child, a rascal"
+     },
+     {
+      "clueFragment": "lazy",
+      "gives": "LY",
+      "select": "outer",
+      "note": "the first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMP",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A stingy scoundrel is very idle.",
+     "walkthrough": "'Mean' looks like an adjective for the rascal, but it is the verb.",
+     "definitionFit": "To imply is to suggest without saying outright, which is one sense of the verb mean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mean"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1585,49 @@
     "text": "Shows fruit to flier",
     "enumeration": "7"
    },
-   "solution": "AIRSHIP"
+   "solution": "AIRSHIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AIRSHIP",
+    "definitions": [
+     {
+      "text": "flier",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shows",
+      "gives": "AIRS",
+      "note": "to air something is to show it, so airs means shows"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "HIP",
+      "note": "a hip is the fruit of the rose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIRS",
+      "HIP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone displays fruit to a pilot or passenger.",
+     "definitionFit": "An airship is a powered lighter-than-air craft, so it flies and is a flier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shows"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1641,63 @@
     "text": "Delegate likely to accept flower in",
     "enumeration": "7"
    },
-   "solution": "APPOINT"
+   "solution": "APPOINT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "APPOINT",
+    "definitions": [
+     {
+      "text": "Delegate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to accept",
+      "for": "container",
+      "note": "accepting something means taking it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "likely",
+      "gives": "APT",
+      "note": "apt means likely, as in apt to happen"
+     },
+     {
+      "clueFragment": "flower",
+      "gives": "PO",
+      "note": "a flower is something that flows, a river; the Po is in Italy"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AP",
+      "PO",
+      "IN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A representative will probably let a flower come inside.",
+     "walkthrough": "'Flower' is the crossword's river, something that flows; 'Delegate' is the verb, not the person.",
+     "definitionFit": "To appoint someone is to assign them a role, which is what delegating a person does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flower"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1711,56 @@
     "text": "Careless mole swallows prune",
     "enumeration": "6"
    },
-   "solution": "SLOPPY"
+   "solution": "SLOPPY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SLOPPY",
+    "definitions": [
+     {
+      "text": "Careless",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallows",
+      "for": "container",
+      "note": "something that swallows another holds it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mole",
+      "gives": "SPY",
+      "note": "a mole is a spy planted inside an organisation"
+     },
+     {
+      "clueFragment": "prune",
+      "gives": "LOP",
+      "note": "to lop is to prune, cutting branches off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LOP",
+      "PY"
+     ]
+    },
+    "explanation": {
+     "surface": "A clumsy mole eats a dried plum.",
+     "walkthrough": "'Mole' is the secret agent and 'prune' the verb, not the animal and the fruit.",
+     "definitionFit": "Sloppy means done without care or attention, a close synonym of careless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "prune"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1774,56 @@
     "text": "Number one held both",
     "enumeration": "6"
    },
-   "solution": "EITHER"
+   "solution": "EITHER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EITHER",
+    "definitions": [
+     {
+      "text": "both",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held",
+      "for": "container",
+      "note": "something held is gripped from the outside, so it sits within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Number",
+      "gives": "ETHER",
+      "note": "a number here is something that numbs, and ether is an anaesthetic"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "I",
+      "THER"
+     ]
+    },
+    "explanation": {
+     "surface": "The top number kept both of them.",
+     "walkthrough": "'Number' is read as numb-er, a thing that numbs, not a figure.",
+     "definitionFit": "Either can mean each of two, as in trees on either side, so it covers both."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Number"
+    }
+   }
   }
  ]
 }
