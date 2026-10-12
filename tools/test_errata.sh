@@ -148,7 +148,10 @@ for keep in ("The solution to 13 should be interested in 10 others, not otherwis
              "machine made from canes was a CESNA. This should have been CESSNA. Our apologies.",
              "Note added 8 September 2011. There is a spelling mistake, involving one P too many, "
              "in the solution to 9 across.",
-             "* there is an error in the clue and solution for 12 down"):
+             "* there is an error in the clue and solution for 12 down",
+             # A special's instructions naming no clue (Azed 2630, 1906).
+             "Answers to the eight clues in italics must be encoded thus in the diagram.",
+             "The puzzle incorporates eight of CJM’s gems, all of them prize-winners, printed in italics."):
     p, _ = run(keep)
     check(f"not an erratum: {keep[:40]}", p.get("preamble") == keep and not errata.find(keep),
           p.get("preamble"))

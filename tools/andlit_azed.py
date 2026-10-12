@@ -25,8 +25,10 @@ post prints in each clue's place, else the crossings' letters, written into the
 grid with every crossing agreeing. With no post, or one that leaves a light
 unanswered, a plain puzzle files unsolved for the backfill to solve. A special
 (andlit's index names it, or its preamble says more than which Chambers to
-use) files only from an HTML page, whose preamble is read, with a post's
-answers: a solver reading its clues cold would fill the grid wrongly. A scanned copy
+use) files the same way, carrying its preamble (the HTML page's "Special
+instructions", or the PDF's lines above ACROSS: pdf_preamble), the post's
+answers only where they cross, else unsolved; one whose preamble no reader
+finds files with awaitsPreamble. Clues are the only must-have. A scanned copy
 (2006-08's PDFs are one page image) is read by the shared OCR vote and the
 barred grid finder (read_scan), to a time budget. Numbers
 already filed are left alone. A filing run over every number (no --dry-run or
@@ -88,16 +90,23 @@ CAUSES = {
     "numbers-differ": "the grid's numbering differs from the numbers printed in it",
     "clues-differ": "the clue list does not clue the grid's lights",
     "enumeration": "an enumeration does not count its light",
-    "special": "a special: its preamble is not read off a PDF, or no fifteensquared answers check it",
-    "post-misses": "a special whose fifteensquared post leaves a light unanswered",
+    # Retired 2026-10-12: a special files like any puzzle (clues are the
+    # only must-have); kept so an old held.json still reads.
+    "special": "a special (no longer held: it files with its preamble, or awaitsPreamble)",
+    "post-misses": "a special whose fifteensquared post leaves a light unanswered (no longer held)",
     "answers-disagree": "fifteensquared's answers cross wrongly in the printed grid",
     "refused-on-write": "puzzle_integrity refused the write",
     "scan-unread": "a scanned copy the OCR budget or an absent reader left unread this run",
     "ocr-blank": "a scanned copy whose OCR readings leave a clue unagreed",
     "scan-no-clues": "a scanned copy no reader reads a clue list off (the scan may stop short of it)",
 }
+#: The Chambers line, only where it ends its sentence: "... is recommended
+#: but does not give the phrase at 30" is an instruction, kept whole.
 CHAMBERS = re.compile(r"(?i)(?:special instructions:\s*)?(?:the\s+)?chambers dictionary \(\d{4}\)"
-                      r" is recommended\.?")
+                      r" is recommended(?:\.|(?=\s*$)|(?=\s+(?-i:[A-Z0-9])))")
+#: "Number 25 across should read: ...": the erratum's lead-in word, which
+#: errata.apply would leave behind as the whole preamble.
+ERRATUM_LEAD = re.compile(r"\bNumber\s+(?=\d+\s*(?:across|down|ac|dn)\b)", re.I)
 
 
 def get(url):
@@ -189,7 +198,7 @@ def read_html(text):
     m = re.search(r"Azed Crossword No\.?\s*([\d,]+)", text)
     number = int(m.group(1).replace(",", "")) if m else None
     pre = re.search(r"Special instructions:\s*</B>(.*?)</font>", text, re.DOTALL | re.IGNORECASE)
-    preamble = clean(pre.group(1)) if pre else ""
+    preamble = ERRATUM_LEAD.sub("", clean(pre.group(1))) if pre else ""
     grid, printed = [], {}
     for row_html in re.findall(r"<tr>(.*?)</tr>", text, re.DOTALL | re.IGNORECASE):
         cells = SQUARE.findall(row_html)
@@ -396,10 +405,15 @@ def read_pdf(data):
     text, ops = fpp.ops_of(data)
     if not text.strip():
         return None     # a scan: the page is one image
-    runs = lp.text_runs(data)
-    title = next((t for _p, _x, _y, _s, t in runs if re.search(r"Azed\s+No\.?\s*[\d,]+", t)
-                  and "solution" not in t.lower()), "")
-    m = re.search(r"Azed\s+No\.?\s*(\d{1,2},?\d{3})", title)
+    runs = overprinted_once(lp.text_runs(data))
+    # The heading is the largest "Azed No. n" on the page: the competition
+    # rules' "to Azed No. n, PO Box ..." and the prizewinners are set small.
+    # A run that opens with it comes first: 2482's text is all one size, and
+    # its notes "to mark Azed No. 2,500" are not its heading "No. 2,482 Plain".
+    title = max(((bool(re.match(r"(?i)\s*(?:Azed\s+)?No\.?\s*\d{1,2},?\d{3}", t)), s, t)
+                 for _p, _x, _y, s, t in runs if re.search(r"(?i)(?:Azed\s+|^\s*)No\.?\s*\d{1,2},?\d{3}", t)
+                 and not re.search(r"(?i)solution|prizewinners", t)), default=(0, 0, ""))[2].strip()
+    m = re.search(r"(?i)No\.?\s*(\d{1,2},?\d{3})", title)
     number = int(m.group(1).replace(",", "")) if m else None
     found = read_bars(segments(ops))
     if not found:
@@ -417,8 +431,103 @@ def read_pdf(data):
         sizes[round(s, 1)] += len(t.strip())
     size = sizes.most_common(1)[0][0] if sizes else 7.5
     lines = column_lines(runs, size, lambda x, y: xs[0] - 5 < x < xs[-1] + 5 and ys[-1] - 5 < y < ys[0] + 5)
-    return {"number": number, "preamble": "", "title": title, "grid": grid,
-            "printed": printed, "lines": sections(lines)}
+    # A heading that says "Plain" has no instructions to read: text above
+    # its ACROSS is a notice (2498's postponed lunch), not a preamble.
+    pre = "" if re.search(r"(?i)\bPlain\b", title) else pdf_preamble(runs, lines, size, xs, ys)
+    return {"number": number, "preamble": pre, "title": title,
+            "grid": grid, "printed": printed, "lines": sections(lines)}
+
+
+def overprinted_once(runs):
+    """The runs with bold-by-overprinting undone: a run whose text begins
+    another run's at the same spot ("2 Letters Latent" under "2 Letters
+    Latent From the answer ...") or repeats it is dropped."""
+    at = collections.defaultdict(set)
+    for r in runs:
+        at[(r[0], round(r[1]), round(r[2]))].add(r[4].strip())
+    out, seen = [], set()
+    for r in runs:
+        key, t = (r[0], round(r[1]), round(r[2])), r[4].strip()
+        if (t and any(o != t and o.startswith(t) for o in at[key])) or (key, t) in seen:
+            continue
+        seen.add((key, t))
+        out.append(r)
+    return out
+
+
+#: A row of a Playfair word square printed beside the instructions ("E S T I C").
+SQUARE_ROW = re.compile(r"(?<!\S)(?:[A-Z] ){4}[A-Z](?!\S)")
+#: The competition entry form's labels, printed under the grid.
+FORM_LABELS = re.compile(r"^(?:(?:Name|Address|Post ?code)\s*)+$", re.I)
+
+
+def full_width(lines):
+    """`lines` (column_lines' (column, y, text)) with a column whose lines all
+    sit within the previous column's height merged into it line by line: a
+    preamble set the full width of the page, which column_lines cut in two
+    where a line's right part starts past its 60pt gap ("...a clue to 37" +
+    "37 (a word in the quotation) in the style"). A number overprinted at
+    the cut is kept once."""
+    cols = []
+    for c in sorted({c for c, _y, _t in lines}):
+        mine = [ln for ln in lines if ln[0] == c]
+        last = cols[-1] if cols else None
+        if last and min(y for _c, y, _t in last) - 2 <= min(y for _c, y, _t in mine) \
+                and max(y for _c, y, _t in mine) <= max(y for _c, y, _t in last) + 2:
+            for _c, y, t in mine:
+                i = min(range(len(last)), key=lambda k: abs(last[k][1] - y))
+                if abs(last[i][1] - y) <= 2:
+                    left = last[i][2]
+                    first, _, rest = t.partition(" ")
+                    if left.split(" ")[-1] == first.rstrip(",.;:") and first[:1].isdigit():
+                        t = left.rsplit(" ", 1)[0] + " " + t if rest else left
+                    else:
+                        t = f"{left} {t}"
+                    last[i] = (last[i][0], last[i][1], t)
+                else:
+                    last.append((last[i][0], y, t))
+            last.sort(key=lambda ln: -ln[1])
+        else:
+            cols.append(mine)
+    return [ln for col in cols for ln in col]
+
+
+def pdf_preamble(runs, lines, size, xs, ys):
+    """A special's instructions off its PDF: the clue-sized lines read before
+    the ACROSS heading (since ~2016 they run on under the grid and into the
+    next column), else the lines set in smaller type under the grid, above an
+    ACROSS heading in that column (~2006-2015). A word square's letter rows
+    printed beside the text go after it, a row a line. "" for none."""
+    head = []
+    for line in lines:
+        if HEADING.match(line[2]):
+            break
+        if not FORM_LABELS.match(line[2]):
+            head.append(line)
+    head = [t for _c, _y, t in full_width(head)]
+    if not head:
+        across = [(x, y) for p, x, y, _s, t in runs
+                  if p == 0 and re.fullmatch(r"(?i)a\s*c\s*r\s*o\s*s\s*s", t.strip())]
+        ax, ay = max(across, key=lambda a: a[1], default=(None, None))
+        if ax is not None and xs[0] - 15 < ax < xs[-1]:
+            under = [r for r in runs if r[0] == 0 and ay < r[2] < ys[-1] - 5 and xs[0] - 15 < r[1] < xs[-1]
+                     and abs(r[3] - size) >= 0.6 and r[3] > 5 and r[4].strip()]
+            if under:
+                small = collections.Counter(round(r[3], 1) for r in under).most_common(1)[0][0]
+                head = [t for _c, _y, t in full_width(column_lines(under, small, lambda x, y: False))
+                        if not FORM_LABELS.match(t)]
+    # A square row read into a line of text ("I doing K B D F H double duty").
+    square = [row for t in head for row in SQUARE_ROW.findall(t)]
+    text = ""
+    for t in (SQUARE_ROW.sub(" ", t).strip() for t in head):
+        if not t:
+            continue
+        if text.endswith("-") and not text.endswith(" -") and t[:1].islower():
+            text = text[:-1] + t
+        else:
+            text = f"{text} {t}" if text else t
+    text = re.sub(r"\s+", " ", text).strip()
+    return text + "".join("\n" + r.replace(" ", "") for r in square) if text else ""
 
 
 def split_numbers(printed, starts):
@@ -488,11 +597,24 @@ def clue_list(lines, wanted):
 LOOSE_WORDS = re.compile(r"\(\s*(\d{1,2})\s*,\s*\d\s+words?\s+or\s+\d\s*\)\s*$")
 
 
+LOST_BRACKET = re.compile(r"\s(\d{1,2}(?:[,\-]\s?\d{1,2})*)\)\s*$")
+#: "(11, 3 words, apostrophe)".
+APOSTROPHE_COUNT = re.compile(r"\((\d{1,2}),\s*(\d)\s*words?,\s*apostrophe\)\s*$")
+
+
 def entry_of(key, text, answers):
     """A clue record as tools/azed_puzzles.py's parser writes one."""
     text = LOOSE_WORDS.sub(r"(\1)", text)
+    # A count whose "(" the PDF's text lost: "You can’t —— that! 6)".
+    if not ENUM_END.search(text):
+        text = LOST_BRACKET.sub(r" (\1)", text)
+    apos = APOSTROPHE_COUNT.search(text)
     m = azed_puzzles.FIGURE_WORDS.search(text)
-    if m and int(m.group(2)) in azed_puzzles.SPELT:
+    if apos and int(apos.group(2)) in azed_puzzles.SPELT:
+        text = (f"{text[:apos.start()].rstrip()} ({apos.group(1)}, "
+                f"{azed_puzzles.SPELT[int(apos.group(2))]} words, apostrophe)")
+        enum = apos.group(1)
+    elif m and int(m.group(2)) in azed_puzzles.SPELT:
         text = f"{text[:m.start()].rstrip()} ({m.group(1)}, {azed_puzzles.SPELT[int(m.group(2))]} words)"
         enum = m.group(1)
     else:
@@ -796,22 +918,36 @@ def assemble(number, copy, url, date, post, kind=""):
         return None, "ocr-blank", f"{len(blank)} clues, e.g. {blank[:3]}"
     if set(clues) != set(lights):
         return None, "clues-differ", f"unread {sorted(set(lights) - set(clues))[:3]}"
-    if special(kind, copy) and not (post and copy["preamble"]):
-        return None, "special", kind or copy.get("title", "")
+    # Only the clues are mandatory (grid and answers are derived): a special
+    # files like any puzzle, its preamble carried, its post's answers written
+    # only where every crossing agrees and unsolved otherwise (a Playfair's
+    # encoded or a Letters Latent's mutilated entries never cross the post's
+    # answers), for the solver to fill at hint time. One whose preamble no
+    # reader finds files with awaitsPreamble, which keeps annotators off it.
+    is_special = special(kind, copy)
+    # A special's light printed with a count and no words ("*37 (8)", the
+    # competition's clue word) is clued by its preamble: "See preamble (8)",
+    # as the Listener readers file one.
+    for k in lights:
+        if is_special and not re.search(r"[A-Za-z]", re.sub(r"\([^()]*\)\s*$", "", clues[k])):
+            count = ENUM_END.search(clues[k])
+            clues = {**clues, k: "See preamble" + (f" ({count.group(1)})" if count else "")}
     entries = [entry_of(k, clues[k], {}) for k in lights]
     if post:
         answers = post_answers(post, entries, lights)
         entries = [dict(e, answer=answers.get((e["number"], e["direction"]))) for e in entries]
     if post and any(not e["answer"] for e in entries):
         filled = fill_from_crossings(grid, entries)
-        if filled is None and copy["preamble"]:
-            return None, "post-misses", ""
-        # Only the clues are mandatory: a plain puzzle whose post leaves
-        # lights unanswered files unsolved, for the backfill to solve.
+        # A puzzle whose post leaves lights unanswered files unsolved, for
+        # the backfill to solve.
         entries = filled or [dict(e, answer=None) for e in entries]
         post = post if filled else None
+    # A special's count may be the full answer's, not its entry's (Letters
+    # Latent, Give & Take), or belong to the light the clue really clues
+    # (Wrong Number): the preamble says so, and it is not held for it.
     for e in entries:
-        if e["enumeration"] is None or int(re.sub(r"\D.*", "", e["enumeration"]) or 0) and \
+        if e["enumeration"] is None and not (is_special and not re.search(r"[\d)]\s*$", e["clue"])) \
+                or not is_special and e["enumeration"] and int(re.sub(r"\D.*", "", e["enumeration"]) or 0) and \
                 sum(int(n) for n in re.findall(r"\d+", e["enumeration"])) != len(lights[(e["number"], e["direction"])]):
             return None, "enumeration", f"{e['number']} {e['direction']}"
     rec = {"post_id": post["post_id"] if post else f"andlit-{number}",
@@ -819,12 +955,21 @@ def assemble(number, copy, url, date, post, kind=""):
            "series": azed_puzzles.CATEGORY, "number": number, "setter": azed_puzzles.SETTER,
            "entries": entries}
     row = {"grid": grid, "number": number, "how": "andlit"}
-    puzzle, why = file_blog_puzzles.build(rec, row, SERIES, date, azed_puzzles.SETTER)
+    puzzle, why = file_blog_puzzles.build(rec, row, SERIES, date, azed_puzzles.SETTER,
+                                          loose_counts=is_special)
+    if why and is_special and post:
+        post = None
+        rec = dict(rec, post_id=f"andlit-{number}", link=url, date=None,
+                   entries=[dict(e, answer=None) for e in entries])
+        puzzle, why = file_blog_puzzles.build(rec, row, SERIES, date, azed_puzzles.SETTER,
+                                          loose_counts=is_special)
     if why:
         return None, ("answers-disagree" if "disagree" in why else "clues-differ"), why
     pre = CHAMBERS.sub("", copy["preamble"] or "").strip()
     if pre:
         puzzle["preamble"] = pre
+    elif is_special:
+        puzzle["awaitsPreamble"] = True
     puzzle["source"] = {"url": url, "gridOrigin": "published"}
     if post:
         puzzle["solutions"]["check"] = (
