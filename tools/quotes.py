@@ -100,12 +100,12 @@ def straighten(puzzle):
 def straighten_clues_only(record):
     """A clues-only record (tools/clues_only.py) with its clue text straight:
     itself when it already is, else a copy."""
-    lights = [light for d in ("across", "down") for light in (record.get("clues") or {}).get(d) or []]
+    lights = [light for d in ("across", "down", "unplaced") for light in (record.get("clues") or {}).get(d) or []]
     if not any(isinstance(l.get("clue"), dict) and isinstance(l["clue"].get("text"), str)
                and CURLY & set(l["clue"]["text"]) for l in lights):
         return record
     record = copy.deepcopy(record)
-    for d in ("across", "down"):
+    for d in ("across", "down", "unplaced"):
         for light in record["clues"].get(d) or []:
             if isinstance(light.get("clue"), dict):
                 light["clue"]["text"] = straight(light["clue"].get("text"))

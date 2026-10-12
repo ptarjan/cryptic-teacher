@@ -138,6 +138,44 @@ with tempfile.TemporaryDirectory() as scratch:
         # One id, one state.
         refused(record, "an id already filed with its grid")
 
+# A book jigsaw: one clue list under "Method:", no numbers, no across or
+# down. The parser keeps the instruction as its preamble, acquire_book holds
+# it clues-only as `unplaced` with `cluesUnplaced`, and no queue takes it.
+import acquire_book
+import parse_penguin_book
+import puzzle_schema
+leaf = ("17\n\nMethod: Solve the clues and fit the solutions into the diagram jigsaw-\n"
+        "wise, wherever they will go.\n\n"
+        + "".join(f"Clue number {w} for the jigsaw here ({n})\n\n" for w, n in
+                  zip("one two three four five six seven eight nine ten eleven twelve "
+                      "thirteen".split(), [5, 7, 4, 6, 8, 5, 3, 9, 6, 7, 4, 5, 6])))
+jig = parse_penguin_book.build_puzzle(28, 0, [], [leaf])
+want = "Solve the clues and fit the solutions into the diagram jigsaw-wise, wherever they will go."
+if jig.get("mode") != "jigsaw" or jig.get("preamble") != want or len(jig.get("clues") or []) != 13:
+    fails.append(f"the Method: leaf parsed as {jig.get('mode')}, preamble "
+                 f"{jig.get('preamble')!r}, {len(jig.get('clues') or [])} clues")
+if not acquire_book.is_jigsaw(jig) or acquire_book.is_jigsaw({**jig, "preamble": None}):
+    fails.append("is_jigsaw: a Method: list is one, a guessed list without the line is not")
+with tempfile.TemporaryDirectory() as scratch:
+    root = Path(scratch)
+    row = acquire_book.file_jigsaw(jig, "isbn_9780140277500", root)
+    held = clues_only.files(root)
+    rec = json.loads(held[0].read_text()) if held else {}
+    if row.get("status") != "held-clues-only-jigsaw" or len(held) != 1:
+        fails.append(f"the jigsaw was not held clues-only: {row}")
+    elif not (rec.get("cluesUnplaced") is True and rec.get("preamble") == want
+              and len(rec["clues"].get("unplaced", [])) == 13 and "across" not in rec["clues"]
+              and rec["clues"]["unplaced"][0] == {"clue": {"text": "Clue number one for the jigsaw here",
+                                                            "enumeration": "5"}, "length": 5}):
+        fails.append(f"the held jigsaw is shaped {json.dumps(rec)[:300]}")
+    if rec and (puzzle_schema.validate_clues_only(rec) or clues_only.builder(rec)
+                or clues_only.solvable(root)):
+        fails.append("a held jigsaw breaks the schema, or a builder or queue takes it")
+    bad = {**jig, "clues": jig["clues"][:-1] + [{"number": None, "clue": "Wqxzt brlk", "enumeration": "5"}]}
+    row = acquire_book.file_jigsaw(bad, "isbn_9780140277500", Path(scratch) / "other")
+    if row.get("status") != "rejected-before-search" or clues_only.files(Path(scratch) / "other"):
+        fails.append(f"a jigsaw with a clue unfit to file was held: {row}")
+
 if fails:
     print("FAIL test_clues_only:\n  " + "\n  ".join(fails))
     sys.exit(1)

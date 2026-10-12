@@ -426,6 +426,22 @@ def find_content_start(lines: list[str]) -> tuple[int, str]:
     return len(lines), "unparsed"
 
 
+def jigsaw_method(lines: list[str]) -> str | None:
+    """The instruction a "Method:" line prints, run on to the blank line that
+    ends it, without the label: "Solve the clues and enter the answers in the
+    diagram jigsaw-wise, wherever they will go." None when no line has one."""
+    for i, line in enumerate(lines):
+        if line.strip().lower().startswith("method:"):
+            out = [line.strip()[len("method:"):].strip()]
+            for more in lines[i + 1:]:
+                if not more.strip():
+                    break
+                out.append(more.strip())
+            text = re.sub(r"(?<=\w)-\s+(?=[a-z])", "-", " ".join(w for w in out if w))
+            return re.sub(r"\s+", " ", text).strip() or None
+    return None
+
+
 def segment_clues(lines: list[str]) -> list[str]:
     """Join wrapped lines into one raw chunk per clue, boundary-anchored on
     the enumeration (or a "See N" cross-reference) at the END of a clue,
@@ -561,6 +577,12 @@ def build_puzzle(seq_number: int, clue_leaf_idx: int, trailing_idxs: list[int],
         record["across"], record["down"] = across, down
     elif mode == "jigsaw":
         record["clues"] = [parse_clue_chunk(c) for c in segment_clues(content_lines)]
+        # The "Method:" instruction is the jigsaw's preamble: it is what says
+        # the answers go in wherever they fit (acquire_book files it with the
+        # clues). A leaf with no such line is only guessed a jigsaw, so has none.
+        method = jigsaw_method(raw_lines[:content_start])
+        if method:
+            record["preamble"] = method
         record["across"] = []
         record["down"] = []
     else:

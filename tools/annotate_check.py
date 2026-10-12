@@ -136,7 +136,7 @@ def is_blind(puzzle):
 # stuck, and not before. A whitelist, so a new top-level field stays hidden
 # until someone decides the run should see it.
 VIEW_KEYS = ("id", "number", "series", "name", "setter", "dimensions", "preamble",
-             "entries")
+             "cluesUnplaced", "entries")
 
 
 def to_write(puzzle, before):

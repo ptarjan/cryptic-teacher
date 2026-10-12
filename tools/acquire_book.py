@@ -467,6 +467,64 @@ def file_clues_only(puzzle_meta, across, down, identifier, clues_dir):
         return None, [str(err)]
 
 
+def is_jigsaw(p):
+    """A Method: jigsaw: the parser read one flat clue list under the
+    instruction (parse_penguin_book.jigsaw_method). A leaf only guessed a
+    jigsaw (no Across heading, no Method: line) is not one: it is screened
+    as any other, and rejected for its missing across/down split."""
+    return p.get("mode") == "jigsaw" and bool(p.get("preamble")) and bool(p.get("clues"))
+
+
+#: Fewer clues than this under a Method: line is a split that lost the list.
+JIGSAW_MIN_CLUES = 12
+
+
+def file_jigsaw(p, identifier, clues_dir, write=True):
+    """The report row for a Method: jigsaw, held clues-only as `unplaced` with
+    `cluesUnplaced` (clues_only.from_jigsaw) when `write`. Each clue is
+    finished as every book clue is (ocr_clues.alone) and refused as every OCR
+    filer refuses one (ocr_clues.unfit): no record is written with a clue
+    unfit to file."""
+    import puzzle_integrity
+    from file_penguin_puzzle import build as build_penguin
+    bn = p["book_number"]
+    clues, reasons = [], []
+    for i, c in enumerate(p["clues"], 1):
+        text = ocr_clues.alone(c.get("clue"), f"{i}-jigsaw", c.get("enumeration"))
+        clues.append((text, c.get("enumeration")))
+        why = ocr_clues.unfit(text, c.get("enumeration"))
+        if why:
+            reasons.append(f"clue {i}: {why}")
+    if len(clues) < JIGSAW_MIN_CLUES:
+        reasons.insert(0, f"only {len(clues)} clues read under its Method: line")
+    row = {"book_number": bn, "setter": p.get("setter"), "jigsaw": True,
+           "lights_recovered": len(clues), "reasons": reasons}
+    if reasons:
+        row["status"] = "rejected-before-search"
+        return row
+    row["status"] = "held-clues-only-jigsaw"
+    if not write:
+        row["filing"] = "not attempted (--file not given)"
+        return row
+    try:
+        meta = build_penguin({"book_number": bn, "setter": p.get("setter"),
+                              "puzzle": {"dimensions": {"cols": 15, "rows": 15}, "entries": []}},
+                             identifier, "unsolved", unsolved=True)
+    except SystemExit as err:
+        row.update(filing="refused clues-only", filing_problems=[f"tools/file_penguin_puzzle.py refused it: {err}"])
+        return row
+    record, problems = clues_only.from_jigsaw(meta, clues, p["preamble"], "tools/acquire_book.py")
+    if not problems:
+        try:
+            row["filed"] = str(clues_only.write(record, clues_dir))
+            row["filing"] = "filed clues-only jigsaw"
+            return row
+        except puzzle_integrity.RefusedWrite as err:
+            problems = [str(err)]
+    row.update(filing="refused clues-only", filing_problems=problems)
+    return row
+
+
 def reprint_of(pid, across, down, index=None):
     """The held puzzle a book leaf reprints, or None: the id sharing at least
     clue_index.THRESHOLD of its clues (clue_index.matches; a listed reprint
@@ -633,6 +691,12 @@ def main(argv=None):
     for p in puzzles:
         bn = p["book_number"]
         pid = puzzle_id(BOOK_SERIES, book_number(args.identifier, bn))
+        if is_jigsaw(p):
+            # One flat list under "Method:": no across/down split for the
+            # screen or the search to read, so it is held as its clues.
+            rows[bn] = file_jigsaw(p, args.identifier, clues_dir, write=args.file)
+            clues_filed += 1 if rows[bn].get("filed") else 0
+            continue
         across, down, notes, damage = build_spec(p)
         copy = reprint_of(pid, across, down) if args.file else None
         if copy:

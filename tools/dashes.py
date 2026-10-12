@@ -203,12 +203,12 @@ def normalise(puzzle):
 def normalise_clues_only(record):
     """A clues-only record (tools/clues_only.py) with its clue text in the
     house spelling: itself when it already is, else a copy."""
-    lights = [l for d in ("across", "down") for l in (record.get("clues") or {}).get(d) or ()]
+    lights = [l for d in ("across", "down", "unplaced") for l in (record.get("clues") or {}).get(d) or ()]
     if not any(isinstance(t := (l.get("clue") or {}).get("text"), str) and normal(t) != t
                for l in lights if isinstance(l.get("clue"), dict)) and not any(stale(l) for l in lights):
         return record
     record = copy.deepcopy(record)
-    for d in ("across", "down"):
+    for d in ("across", "down", "unplaced"):
         for light in record["clues"].get(d) or ():
             if isinstance(light.get("clue"), dict):
                 enumeration.rewrite_entry(light, mapped)

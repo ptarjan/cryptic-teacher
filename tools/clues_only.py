@@ -30,6 +30,7 @@ from __future__ import annotations
 
 import datetime
 import json
+import re
 import sys
 from pathlib import Path
 import puzzle_paths
@@ -132,6 +133,38 @@ def from_book(meta, across, down, generator):
                    "source": {"url": meta["source"]["url"], "acquiredBy": generator,
                               "acquiredOn": datetime.date.today().isoformat()},
                    "clues": clues})
+    return record, problems
+
+
+def from_jigsaw(meta, clues, preamble, generator):
+    """(record, problems) for a book jigsaw: one list of clues printed with no
+    numbers and no across or down, under the instruction `preamble` ("Method:
+    solve the clues and enter the answers jigsaw-wise, wherever they will go").
+    `clues` are [(text, enumeration)] in printed order. The record holds them
+    as `unplaced` with `cluesUnplaced`; no builder takes it yet (builder()),
+    so it is held as data, as the Listener book's barred grids are."""
+    import enumeration
+    from fetch_puzzle import has_words
+    out, problems = [], []
+    for i, (text, count) in enumerate(clues, 1):
+        if not text:
+            problems.append(f"clue {i} has no clue text")
+            continue
+        line = f"{text} ({count})" if count else text
+        item = {"clue": enumeration.clue(line, missing=not has_words(enumeration.split(line)[0]))}
+        cells = sum(map(int, re.findall(r"\d+", count or "")))
+        if cells:
+            item["length"] = cells
+        out.append(item)
+    if not out:
+        problems.append("no clues were read")
+    record = {key: meta[key] for key in ("id", "number", "series", "name", "setter",
+                                         "date", "year") if meta.get(key)}
+    record.update({**({"preamble": preamble} if preamble else {}), "cluesUnplaced": True,
+                   "dimensions": {"cols": 15, "rows": 15},
+                   "source": {"url": meta["source"]["url"], "acquiredBy": generator,
+                              "acquiredOn": datetime.date.today().isoformat()},
+                   "clues": {"unplaced": out}})
     return record, problems
 
 
@@ -276,7 +309,11 @@ def grid_kind(record):
 
 
 def builder(record):
-    """The BUILDERS entry that promotes `record`, or None."""
+    """The BUILDERS entry that promotes `record`, or None. None for a jigsaw
+    (`cluesUnplaced`): its answers say nothing of where each goes, and no
+    builder fits a word list into a grid yet."""
+    if record.get("cluesUnplaced"):
+        return None
     return BUILDERS.get(((record.get("source") or {}).get("acquiredBy"), grid_kind(record)))
 
 

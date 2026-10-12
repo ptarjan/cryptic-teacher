@@ -1455,7 +1455,9 @@ def refuse_bad_clues_only(record):
     validate_annotations.text_errors(record, markup)
     flags += [("SHAPE", pid, err) for err in markup]
     by =(record.get("source") or {}).get("acquiredBy")
-    if clues_only.builder(record) is None:
+    # A jigsaw is held as data: its clues are the must-have, and no builder
+    # fits a word list into a grid yet (clues_only.builder).
+    if clues_only.builder(record) is None and not record.get("cluesUnplaced"):
         flags.append(("STATE", pid, (f"no builder in clues_only.BUILDERS for a "
                                      f"{clues_only.grid_kind(record)} grid filed by {by}, "
                                      f"so its answers could never become a grid puzzle")))
