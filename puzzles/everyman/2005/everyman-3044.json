@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "Dish, lightly cooked portion",
     "enumeration": "7"
    },
-   "solution": "RAREBIT"
+   "solution": "RAREBIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAREBIT",
+    "definitions": [
+     {
+      "text": "Dish",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lightly cooked",
+      "gives": "RARE",
+      "note": "meat cooked only briefly is rare"
+     },
+     {
+      "clueFragment": "portion",
+      "gives": "BIT",
+      "note": "a bit is a portion or piece"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RARE",
+      "BIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A menu note about a dish served as a small, lightly cooked portion.",
+     "walkthrough": "'Lightly cooked portion' reads as a description of the dish, but it splits into two plain synonyms.",
+     "definitionFit": "Welsh rarebit is a savoury dish of melted cheese on toast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "portion"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +96,56 @@
      }
     ]
    },
-   "solution": "RACKSUP"
+   "solution": "RACKSUP",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RACKS UP",
+    "definitions": [
+     {
+      "text": "accumulates points",
+      "at": 32,
+      "note": "the answer is the verb phrase alone; points is what gets racked up"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discarding",
+      "for": "deletion",
+      "note": "discarding something throws it out, so that letter is removed"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Goes mad",
+      "gives": "CRACKSUP",
+      "note": "someone who goes mad cracks up"
+     },
+     {
+      "clueFragment": "clubs",
+      "gives": "C",
+      "note": "C is the abbreviation for clubs in cards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RACKSUP"
+     ]
+    },
+    "explanation": {
+     "surface": "A card player loses it, throws away clubs, and piles up points.",
+     "definitionFit": "To rack up points or profits is to accumulate them steadily."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clubs"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +159,49 @@
     "text": "Sappers deliberately hurt causing temporary delay",
     "enumeration": "7"
    },
-   "solution": "RESPITE"
+   "solution": "RESPITE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RESPITE",
+    "definitions": [
+     {
+      "text": "temporary delay",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "causing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sappers",
+      "gives": "RE",
+      "note": "the Royal Engineers, whose soldiers are called sappers"
+     },
+     {
+      "clueFragment": "deliberately hurt",
+      "gives": "SPITE",
+      "note": "to spite someone is to hurt them on purpose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "SPITE"
+     ]
+    },
+    "explanation": {
+     "surface": "Army engineers sabotage something and so cause a pause in proceedings.",
+     "definitionFit": "A respite is a short break or postponement, a temporary relief or delay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sappers"
+    }
+   }
   },
   {
    "number": 3,
@@ -87,7 +221,81 @@
      }
     ]
    },
-   "solution": "BEAUGESTE"
+   "solution": "BEAUGESTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "BEAU GESTE",
+    "definitions": [
+     {
+      "text": "film",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending in",
+      "for": "letter_selection",
+      "note": "the ending of a word is its final letter, so only that is kept"
+     },
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upset means knocked over and disordered, so the letters are rearranged"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sweetheart",
+      "gives": "BEAU",
+      "note": "a beau is a boyfriend or sweetheart"
+     },
+     {
+      "clueFragment": "gets",
+      "gives": "GETS",
+      "note": "taken as written for the mix"
+     },
+     {
+      "clueFragment": "feature",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of feature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEAU",
+      "G",
+      "E",
+      "STE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GETS",
+       "gives": "GSTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sweetheart is upset about the way a feature film ends.",
+     "walkthrough": "The jumbled GETS wraps round the final E of feature, after the sweetheart.",
+     "definitionFit": "Beau Geste is a 1939 Hollywood feature film, from P C Wren's Foreign Legion novel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sweetheart"
+    }
+   }
   },
   {
    "number": 4,
@@ -119,7 +327,42 @@
      }
     ]
    },
-   "solution": "TAKEITONTHECHIN"
+   "solution": "TAKEITONTHECHIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TAKE IT ON THE CHIN",
+    "definitions": [
+     {
+      "text": "Accept defeat stoically",
+      "at": 0
+     },
+     {
+      "text": "as a boxer might?",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Accept defeat stoically",
+      "note": "first meaning: the figurative idiom, bearing a setback without complaint"
+     },
+     {
+      "clueFragment": "as a boxer might?",
+      "note": "second meaning: the literal one, a boxer absorbing a punch to the jaw"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The idiom for bearing misfortune bravely comes from boxing, and the question mark invites reading it literally as a punch landing on the face.",
+     "definitionFit": "The idiom means to endure a blow or setback with courage and without complaint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 5,
@@ -133,7 +376,39 @@
     "text": "One likely to have a nap?",
     "enumeration": "7"
    },
-   "solution": "TIPSTER"
+   "solution": "TIPSTER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TIPSTER",
+    "definitions": [
+     {
+      "text": "One likely to have a nap?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One likely to have a nap?",
+      "note": "surface reading: someone prone to dozing off for a short sleep"
+     },
+     {
+      "clueFragment": "nap",
+      "note": "setter's reading: in horse racing a nap is a newspaper's most confident selection of the day"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A nap looks like a snooze; in racing slang it is a tipster's best bet of the day, so the person likely to have one is a racing pundit.",
+     "definitionFit": "A racing tipster publishes selections, and the strongest selection is called the nap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nap"
+    }
+   }
   },
   {
    "number": 5,
@@ -157,7 +432,43 @@
      }
     ]
    },
-   "solution": "TOWEROFSTRENGTH"
+   "solution": "TOWEROFSTRENGTH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TOWER OF STRENGTH",
+    "definitions": [
+     {
+      "text": "Powerful tractor?",
+      "at": 0
+     },
+     {
+      "text": "One's extremely dependable when needed",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Powerful tractor?",
+      "note": "whimsical meaning: a tower is something that tows, and a tractor that tows with great power has strength"
+     },
+     {
+      "clueFragment": "One's extremely dependable when needed",
+      "note": "usual meaning: a person who is a firm support in a crisis"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read 'tower' as one who tows, not a tall building, and the phrase describes a mighty tractor.",
+     "definitionFit": "The idiom describes a person whose reliability gives others support in hard times."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tractor"
+    }
+   }
   },
   {
    "number": 6,
@@ -171,7 +482,50 @@
     "text": "Community's endless capital",
     "enumeration": "5"
    },
-   "solution": "PARIS"
+   "solution": "PARIS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PARIS",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without an end means the last letter is removed"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Community",
+      "gives": "PARISH",
+      "note": "a parish is a local community"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A community is described as a capital without end.",
+     "definitionFit": "Paris is the capital city of France."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Community"
+    }
+   }
   },
   {
    "number": 7,
@@ -185,7 +539,67 @@
     "text": "Article supports working there in Iran",
     "enumeration": "7"
    },
-   "solution": "TEHERAN"
+   "solution": "TEHERAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TEHERAN",
+    "definitions": [
+     {
+      "text": "in Iran",
+      "at": 31,
+      "note": "a place in Iran, the answer being its capital"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "something working is being operated on, so these letters are reworked"
+     },
+     {
+      "text": "supports",
+      "for": "charade",
+      "note": "in a down clue the supporting piece sits beneath the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "there",
+      "gives": "THERE",
+      "note": "taken as written for the mix"
+     },
+     {
+      "clueFragment": "Article",
+      "gives": "AN",
+      "note": "an is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEHER",
+      "AN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THERE",
+       "gives": "TEHER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper article backs people working out there in Iran.",
+     "walkthrough": "In a down answer the article sits at the bottom, holding up the jumbled letters above it.",
+     "definitionFit": "Teheran, also spelt Tehran, is the capital city of Iran, so it is a place in that country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Article"
+    }
+   }
   },
   {
    "number": 8,
@@ -199,7 +613,61 @@
     "text": "Full? Salesman allowed inside at the end",
     "enumeration": "7"
    },
-   "solution": "REPLETE"
+   "solution": "REPLETE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "REPLETE",
+    "definitions": [
+     {
+      "text": "Full?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the end",
+      "for": "letter_selection",
+      "note": "at the end points to the final letter of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Salesman",
+      "gives": "REP",
+      "note": "a rep is a sales representative"
+     },
+     {
+      "clueFragment": "allowed",
+      "gives": "LET",
+      "note": "let means allowed"
+     },
+     {
+      "clueFragment": "inside",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of inside"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REP",
+      "LET",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Is the shop full? A salesman was allowed in at closing time.",
+     "definitionFit": "Replete means filled up, especially well fed after a meal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "inside"
+    }
+   }
   },
   {
    "number": 9,
@@ -213,7 +681,65 @@
     "text": "Horseman, leader of cavalry, with very big rifle",
     "enumeration": "7"
    },
-   "solution": "COSSACK"
+   "solution": "COSSACK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "COSSACK",
+    "definitions": [
+     {
+      "text": "Horseman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "the leader of a word is its opening letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cavalry",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of cavalry"
+     },
+     {
+      "clueFragment": "very big",
+      "gives": "OS",
+      "note": "OS is the abbreviation for outsize"
+     },
+     {
+      "clueFragment": "rifle",
+      "gives": "SACK",
+      "note": "to rifle or sack a place is to plunder it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OS",
+      "SACK"
+     ]
+    },
+    "explanation": {
+     "surface": "A cavalry commander rides out carrying an enormous rifle.",
+     "walkthrough": "'Rifle' reads as a gun but is the verb meaning to ransack.",
+     "definitionFit": "Cossacks were famed as horsemen of the Russian and Ukrainian steppes, serving as light cavalry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rifle"
+    }
+   }
   },
   {
    "number": 10,
@@ -227,7 +753,63 @@
     "text": "Row back to vessel to attend a service",
     "enumeration": "7"
    },
-   "solution": "WORSHIP"
+   "solution": "WORSHIP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "WORSHIP",
+    "definitions": [
+     {
+      "text": "attend a service",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means reading the word in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Row",
+      "gives": "ROW",
+      "note": "taken as written, then turned round"
+     },
+     {
+      "clueFragment": "vessel",
+      "gives": "SHIP",
+      "note": "a ship is a vessel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WOR",
+      "SHIP"
+     ],
+     "reversals": [
+      {
+       "from": "ROW",
+       "to": "WOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rows back to their boat in order to attend a church service.",
+     "definitionFit": "To worship is to take part in a religious service, attending church or chapel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Row"
+    }
+   }
   },
   {
    "number": 11,
@@ -241,7 +823,65 @@
     "text": "Carol having drop of lime in drink",
     "enumeration": "5"
    },
-   "solution": "SLING"
+   "solution": "SLING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SLING",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drop of",
+      "for": "letter_selection",
+      "note": "a drop is just a tiny amount, so only the first letter is taken"
+     },
+     {
+      "text": "having",
+      "for": "container",
+      "note": "having something means holding it within"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Carol",
+      "gives": "SING",
+      "note": "to carol is to sing"
+     },
+     {
+      "clueFragment": "lime",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter of lime"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "L",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Carol likes a splash of lime in her drink.",
+     "walkthrough": "Carol looks like a woman's name but is the verb meaning to sing.",
+     "definitionFit": "A sling is a cocktail of spirit, usually gin, with water, sugar and citrus, as in the Singapore sling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Carol"
+    }
+   }
   },
   {
    "number": 12,
@@ -261,7 +901,46 @@
      }
     ]
    },
-   "solution": "INRESERVE"
+   "solution": "INRESERVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IN RESERVE",
+    "definitions": [
+     {
+      "text": "Set aside",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "what is popular is in"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "RESERVE",
+      "note": "to book a table is to reserve it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "RESERVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A popular book has been put aside for someone in a library.",
+     "definitionFit": "Something held in reserve has been kept back or set aside for later use."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "book"
+    }
+   }
   },
   {
    "number": 13,
@@ -281,7 +960,50 @@
      }
     ]
    },
-   "solution": "PRESSCONFERENCE"
+   "solution": "PRESSCONFERENCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRESS CONFERENCE",
+    "definitions": [
+     {
+      "text": "meeting with journalists",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crowd",
+      "gives": "PRESS",
+      "note": "to crowd people is to press them together"
+     },
+     {
+      "clueFragment": "sports league",
+      "gives": "CONFERENCE",
+      "note": "in American sport a conference is a grouping of teams within a league"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRESS",
+      "CONFERENCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A crowd at a sports league gathering meets reporters.",
+     "walkthrough": "The first 'with' joins the two pieces; the second belongs to the definition.",
+     "definitionFit": "A press conference is an event at which someone answers questions from reporters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Crowd"
+    }
+   }
   },
   {
    "number": 14,
@@ -295,7 +1017,65 @@
     "text": "Street repairs, radical round roundabout by factory?",
     "enumeration": "9"
    },
-   "solution": "ROADWORKS"
+   "solution": "ROADWORKS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ROADWORKS",
+    "definitions": [
+     {
+      "text": "Street repairs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "roundabout",
+      "for": "container",
+      "note": "round about means placed on both sides, enclosing something"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "radical",
+      "gives": "RAD",
+      "note": "rad is short for a political radical"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "O is round in shape"
+     },
+     {
+      "clueFragment": "factory",
+      "gives": "WORKS",
+      "note": "a works is a factory"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "O",
+      "AD",
+      "WORKS"
+     ]
+    },
+    "explanation": {
+     "surface": "A traffic roundabout near a factory is dug up by radical street repairs.",
+     "walkthrough": "'Roundabout' looks like a traffic island but is two words run together: round about, meaning around.",
+     "definitionFit": "Roadworks are the repairs or construction carried out on a road or street."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "roundabout"
+    }
+   }
   },
   {
    "number": 15,
@@ -315,7 +1095,63 @@
      }
     ]
    },
-   "solution": "PERFECTSTRANGER"
+   "solution": "PERFECTSTRANGER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PERFECT STRANGER",
+    "definitions": [
+     {
+      "text": "one one's not met before",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across answer, one thing on another comes after it, so the patrolman follows the street"
+     }
+    ],
+    "linkWords": [
+     "meeting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tense",
+      "gives": "PERFECT",
+      "note": "the perfect is a grammatical tense"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street"
+     },
+     {
+      "clueFragment": "patrolman",
+      "gives": "RANGER",
+      "note": "a ranger patrols a park or forest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PERFECT",
+      "ST",
+      "RANGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous encounter with a patrolling officer on the street, someone never met before.",
+     "walkthrough": "'Tense' reads as nervous but is the grammatical tense. In an across clue 'patrolman on street' puts the patrolman after the street.",
+     "definitionFit": "A perfect stranger is someone completely unknown to you, whom you have never encountered."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tense"
+    }
+   }
   },
   {
    "number": 15,
@@ -329,7 +1165,53 @@
     "text": "Horseman in cap Dior designed",
     "enumeration": "7"
    },
-   "solution": "PICADOR"
+   "solution": "PICADOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PICADOR",
+    "definitions": [
+     {
+      "text": "Horseman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "designed",
+      "for": "anagram",
+      "note": "designed means fashioned into a new form, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cap Dior",
+      "gives": "CAPDIOR",
+      "note": "taken as written for the mix"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CAPDIOR",
+       "gives": "PICADOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rider wears a cap designed by the fashion house Dior.",
+     "definitionFit": "A picador is the mounted bullfighter who goads the bull with a lance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "designed"
+    }
+   }
   },
   {
    "number": 16,
@@ -343,7 +1225,68 @@
     "text": "Decisions in game, good for East in more than one series",
     "enumeration": "7"
    },
-   "solution": "RULINGS"
+   "solution": "RULINGS",
+   "annotation": {
+    "type": [
+     "substitution",
+     "charade"
+    ],
+    "answer": "RULINGS",
+    "definitions": [
+     {
+      "text": "Decisions",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "good for East",
+      "for": "substitution",
+      "note": "for means in place of, so one letter replaces another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game",
+      "gives": "RU",
+      "note": "RU is rugby union"
+     },
+     {
+      "clueFragment": "more than one series",
+      "gives": "LINES",
+      "note": "a line is a series, and more than one makes it plural"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "East",
+      "gives": "E",
+      "note": "E is the abbreviation for East, which is swapped out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "LINGS"
+     ]
+    },
+    "explanation": {
+     "surface": "Referees' decisions in a game across a series of matches.",
+     "walkthrough": "In LINES the E for East is replaced by G for good.",
+     "definitionFit": "Rulings are official decisions, such as those made by a judge or referee."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 17,
@@ -357,7 +1300,62 @@
     "text": "Rubbish boy initially put in lockup, perhaps",
     "enumeration": "7"
    },
-   "solution": "GARBAGE"
+   "solution": "GARBAGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GARBAGE",
+    "definitions": [
+     {
+      "text": "Rubbish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter is kept"
+     },
+     {
+      "text": "put in",
+      "for": "container",
+      "note": "putting one thing in another places it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lockup, perhaps",
+      "gives": "GARAGE",
+      "note": "a lockup is one example of a garage, hence perhaps"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "B",
+      "select": "first",
+      "note": "first letter of boy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAR",
+      "B",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A rubbish boy gets put into a police lockup.",
+     "walkthrough": "A lockup is a garage rented separately from a house, as well as a cell.",
+     "definitionFit": "Garbage is refuse or rubbish, also used for nonsense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lockup"
+    }
+   }
   },
   {
    "number": 18,
@@ -371,7 +1369,46 @@
     "text": "Compensation concerning clothing",
     "enumeration": "7"
    },
-   "solution": "REDRESS"
+   "solution": "REDRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REDRESS",
+    "definitions": [
+     {
+      "text": "Compensation",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concerning",
+      "gives": "RE",
+      "note": "re means concerning or about"
+     },
+     {
+      "clueFragment": "clothing",
+      "gives": "DRESS",
+      "note": "dress means clothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "DRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A compensation claim relating to damaged clothing.",
+     "definitionFit": "Redress is a remedy or reparation for a wrong suffered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "concerning"
+    }
+   }
   },
   {
    "number": 19,
@@ -385,7 +1422,83 @@
     "text": "Deploy laser beam, almost following lead of 'Cubby' Broccoli?",
     "enumeration": "9"
    },
-   "solution": "CALABRESE"
+   "solution": "CALABRESE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "CALABRESE",
+    "definitions": [
+     {
+      "text": "Broccoli",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lead of",
+      "for": "letter_selection",
+      "note": "the lead is the front, so only the opening letter is kept"
+     },
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "Deploy",
+      "for": "anagram",
+      "note": "to deploy is to arrange or spread out in a new formation"
+     }
+    ],
+    "linkWords": [
+     "following"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "'Cubby'",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of Cubby"
+     },
+     {
+      "clueFragment": "laser",
+      "gives": "LASER",
+      "note": "taken as written for the mix"
+     },
+     {
+      "clueFragment": "beam",
+      "gives": "BEA",
+      "note": "beam with its last letter cut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ALABRESE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LASERBEA",
+       "gives": "ALABRESE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A laser-beam scene suits a Bond film produced by Albert 'Cubby' Broccoli.",
+     "walkthrough": "Cubby Broccoli produced the James Bond films, famous for laser beams; here Broccoli is simply the vegetable.",
+     "definitionFit": "Calabrese is a common green variety of broccoli, named after Calabria in Italy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Broccoli"
+    }
+   }
   },
   {
    "number": 20,
@@ -399,7 +1512,41 @@
     "text": "Excellent fish",
     "enumeration": "5"
    },
-   "solution": "BRILL"
+   "solution": "BRILL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BRILL",
+    "definitions": [
+     {
+      "text": "Excellent",
+      "at": 0
+     },
+     {
+      "text": "fish",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Excellent",
+      "note": "first meaning: British slang short for brilliant"
+     },
+     {
+      "clueFragment": "fish",
+      "note": "second meaning: a European flatfish related to the turbot"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Brill as slang for great is informal British, clipped from brilliant.",
+     "definitionFit": "The word is both a colloquial adjective of praise and the name of an edible flatfish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -413,7 +1560,57 @@
     "text": "News involving learner driver and the public",
     "enumeration": "5"
    },
-   "solution": "WORLD"
+   "solution": "WORLD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WORLD",
+    "definitions": [
+     {
+      "text": "the public",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "something involving another item takes it in, so one piece goes inside"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "News",
+      "gives": "WORD",
+      "note": "word in the sense of news, as in 'any word from him?'"
+     },
+     {
+      "clueFragment": "learner driver",
+      "gives": "L",
+      "note": "L is the learner plate on a car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WOR",
+      "L",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A news story about a learner driver and how the public reacted.",
+     "definitionFit": "The world, as in 'the whole world knows', means people generally or the public at large."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "News"
+    }
+   }
   },
   {
    "number": 22,
@@ -427,7 +1624,55 @@
     "text": "Study large hospital in Welsh town",
     "enumeration": "7"
    },
-   "solution": "DENBIGH"
+   "solution": "DENBIGH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DENBIGH",
+    "definitions": [
+     {
+      "text": "Welsh town",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Study",
+      "gives": "DEN",
+      "note": "a den is a private study room"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "BIG",
+      "note": "big means large"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the map abbreviation for hospital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEN",
+      "BIG",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A study of a large hospital situated in a Welsh town.",
+     "definitionFit": "Denbigh is a market town in north Wales, in Denbighshire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Study"
+    }
+   }
   },
   {
    "number": 23,
@@ -441,7 +1686,46 @@
     "text": "Appropriate language, English",
     "enumeration": "7"
    },
-   "solution": "GERMANE"
+   "solution": "GERMANE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GERMANE",
+    "definitions": [
+     {
+      "text": "Appropriate",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "language",
+      "gives": "GERMAN",
+      "note": "German is a language"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GERMAN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that English is the suitable language to use.",
+     "definitionFit": "Germane means relevant or pertinent to the matter in hand, so appropriate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Appropriate"
+    }
+   }
   },
   {
    "number": 24,
@@ -455,7 +1739,87 @@
     "text": "Girl, one leaving drunken sailor at New York, on the way back",
     "enumeration": "7"
    },
-   "solution": "ROSALYN"
+   "solution": "ROSALYN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "reversal",
+     "charade"
+    ],
+    "answer": "ROSALYN",
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "something leaving goes away, so that letter is removed"
+     },
+     {
+      "text": "drunken",
+      "for": "anagram",
+      "note": "a drunk staggers about out of order, so the letters are jumbled"
+     },
+     {
+      "text": "on the way back",
+      "for": "reversal",
+      "note": "travelling back means reading the abbreviation from right to left"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one, taken out"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "SAILOR",
+      "note": "taken as written before the removal"
+     },
+     {
+      "clueFragment": "New York",
+      "gives": "NY",
+      "note": "NY is the abbreviation for New York"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROSAL",
+      "YN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SALOR",
+       "gives": "ROSAL"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "NY",
+       "to": "YN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl walks away from a drunken sailor in New York on her way home.",
+     "walkthrough": "Drop the I from sailor, jumble the remaining five letters, then add New York reversed.",
+     "definitionFit": "Rosalyn is a female first name, so it suits the crossword convention of 'girl'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 25,
@@ -469,7 +1833,63 @@
     "text": "One who entertains those at sea on steamship",
     "enumeration": "7"
    },
-   "solution": "HOSTESS"
+   "solution": "HOSTESS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "HOSTESS",
+    "definitions": [
+     {
+      "text": "One who entertains",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "at sea means confused and all over the place, so the letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "those",
+      "gives": "THOSE",
+      "note": "taken as written for the mix"
+     },
+     {
+      "clueFragment": "steamship",
+      "gives": "SS",
+      "note": "SS is the abbreviation for steamship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOSTE",
+      "SS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THOSE",
+       "gives": "HOSTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone entertains passengers at sea aboard a steamship.",
+     "definitionFit": "A hostess receives and looks after guests, providing their entertainment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sea"
+    }
+   }
   }
  ]
 }
