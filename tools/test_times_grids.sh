@@ -380,11 +380,16 @@ print("REPARSED", calls)
 # An answer settled from the wordplay rebuilds the refused puzzle when it is
 # retried.
 k = T.printed(lone)[6]
-T.ANSWERS.write_text(json.dumps({"_doc": "", "2": {"_puzzle": "", f"{k['number']} {k['direction']}": {
-    "answer": T.printed(rec_of(TINY))[6]["answer"], "wordplay": ""}}}))
+T.ANSWERS.write_text(json.dumps({"_doc": "", "timesforthetimes": {"2": {"_puzzle": "", f"{k['number']} {k['direction']}": {
+    "answer": T.printed(rec_of(TINY))[6]["answer"], "wordplay": ""}}},
+    "bigdave44": {"2": {"_puzzle": "", "9 down": {"answer": "OTHER", "wordplay": ""}}}}))
 T.run(retry=())
 print("SETTLED", [(r["post_id"], [c["blogged"][0] for c in r.get("corrections", [])])
                   for r in map(json.loads, T.OUT.open())])
+# One table for every blog, keyed by blog: post ids are per blog, so the same
+# id under two blogs is two puzzles, and a blog the table lacks has none.
+print("PER_BLOG", T.settled_answers()[2] != T.settled_answers("bigdave44")[2],
+      T.settled_answers("bigdave44")[2], T.settled_answers("fifteensquared"))
 T.ANSWERS.unlink()
 # More wrong answers than typos explain is a wrong grid.
 messy = post(4, rec_of(TINY), "a clue")
@@ -521,6 +526,8 @@ check "a run drops the grid and attempt of a post the parser no longer reads" \
 check "a post the parser reads again is tried again" "[9]" "$(field REPARSED)"
 check "a retried refusal rebuilds with a wordplay-settled answer, as a correction" \
       "[(2, ['Z'])]" "$(field SETTLED)"
+check "the answers table is per blog: same post id, different puzzle; a blog it lacks gets none" \
+      "True {(9, 'down'): 'OTHER'} {}" "$(field PER_BLOG)"
 check "--resettle corrects the grids already written and refuses the rest" \
       "[(1, 1)] [4]" "$(field RESETTLE)"
 check "only the Azed and Mephisto of the barred series are rebuilt, by the parsed names" \

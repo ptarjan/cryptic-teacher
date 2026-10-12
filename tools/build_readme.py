@@ -430,7 +430,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/data/lexicons/indicators.json", "type -> indicator -> clues, from the same sources; the indicators/ page is built from it"),
     ("tables everything else reads", "tools/data/unclueable.json", "words rejected as answers, with reasons; grid_fill.py vetoes them"),
     ("tables everything else reads", "tools/data/corroboration_ledger.json", "every disagreement tools/corroborate.py settled or could not, and every field it filled: the puzzle, the field, each candidate with its sources, the winner and the rule that picked it"),
-    ("tables everything else reads", "tools/data/times_answers.json", "Times-blog answers settled from the clue's wordplay; times_grids.py applies them before rebuilding"),
+    ("tables everything else reads", "tools/data/blog_answers.json", "blog answers (Times, bigdave44) settled from the clue's wordplay; times_grids.py applies them before rebuilding"),
     ("tables everything else reads", "tools/data/difficulty_baseline.json", "the frozen distribution difficulty.py normalises against"),
     ("tables everything else reads", "tools/data/lexicon.tsv", "192,738 British-cryptic words by frequency rank; difficulty.py scores rarity off it"),
     ("tables everything else reads", "tools/data/grading_rubric.md", "the five axes a blind judge scores a clue on"),

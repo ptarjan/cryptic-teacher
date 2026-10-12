@@ -395,15 +395,16 @@ def numbered_by(rec, grid):
 
 LEXICON = Path(__file__).resolve().parent / "data" / "lexicon.tsv"
 #: Answers settled by reading the wordplay, where the grid allowed several
-#: fixes or none the word lists knew.
-ANSWERS = Path(__file__).resolve().parent / "data" / "times_answers.json"
+#: fixes or none the word lists knew: one table for every blog, keyed by blog
+#: first because post ids are per blog.
+ANSWERS = Path(__file__).resolve().parent / "data" / "blog_answers.json"
 
 
-def settled_answers():
-    """{post_id: {(number, direction): answer}} from ANSWERS."""
+def settled_answers(blog="timesforthetimes"):
+    """{post_id: {(number, direction): answer}} from ANSWERS, for one blog."""
     raw = json.loads(ANSWERS.read_text(encoding="utf-8")) if ANSWERS.exists() else {}
     out = {}
-    for pid, lights in raw.items():
+    for pid, lights in raw.get(blog, {}).items():
         if pid.startswith("_"):
             continue
         out[int(pid)] = {(int(k.split()[0]), k.split()[1]): v["answer"]
@@ -1127,8 +1128,8 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
     run. A puzzle already started runs to its own `max_nodes`; the rest stay
     due for the next run, counted in the result's "left".
     `where` is another blog's cache directory, holding its own parsed.jsonl,
-    grids.jsonl and attempts.jsonl; the answers settled for this blog's posts
-    are not applied there. `solver` stands in for solve()."""
+    grids.jsonl and attempts.jsonl, named after the blog, whose own answers
+    in ANSWERS are applied there. `solver` stands in for solve()."""
     parsed, out_path, attempts = ((where / "parsed.jsonl", where / "grids.jsonl",
                                    where / "attempts.jsonl") if where
                                   else (PARSED, OUT, ATTEMPTS))
@@ -1142,7 +1143,7 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
     recs = [r for r in every if r["series"] in SIZE
             and (series is None or r["series"] == series) and has_clues(r)]
     vocab = vocabulary(every)
-    settled = {} if where else settled_answers()
+    settled = settled_answers(where.name if where else "timesforthetimes")
     del every
     # Newest first: recent posts write out their clues, and recent puzzles are
     # the ones people look for.
