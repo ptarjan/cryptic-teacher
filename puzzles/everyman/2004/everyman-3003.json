@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Cat finally spots litter",
     "enumeration": "5"
    },
-   "solution": "TRASH"
+   "solution": "TRASH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TRASH",
+    "definitions": [
+     {
+      "text": "litter",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word it follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cat",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of cat"
+     },
+     {
+      "clueFragment": "spots",
+      "gives": "RASH",
+      "note": "a rash is an outbreak of spots on the skin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RASH"
+     ]
+    },
+    "explanation": {
+     "surface": "A cat eventually notices its litter tray.",
+     "walkthrough": "'Spots' looks like a verb meaning sees, but it is a noun: an outbreak of pimples.",
+     "definitionFit": "Litter and trash are synonyms for rubbish strewn about."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spots"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +99,61 @@
     "text": "Deal mostly involving one secret society",
     "enumeration": "5"
    },
-   "solution": "TRIAD"
+   "solution": "TRIAD",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TRIAD",
+    "definitions": [
+     {
+      "text": "secret society",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all of the word, so its final letter is dropped"
+     },
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "to involve something is to take it in, so one piece is wrapped around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deal",
+      "gives": "TRADE",
+      "note": "to deal is to trade"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "I",
+      "AD"
+     ]
+    },
+    "explanation": {
+     "surface": "A shady deal that brings in a single secret society.",
+     "walkthrough": "TRADE loses its last letter to give TRAD, which then takes I inside.",
+     "definitionFit": "A triad is a Chinese criminal secret society, a kind of organised gang."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Deal"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +167,49 @@
     "text": "Piece in paper, tiny piece with no heading",
     "enumeration": "7"
    },
-   "solution": "ARTICLE"
+   "solution": "ARTICLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARTICLE",
+    "definitions": [
+     {
+      "text": "Piece in paper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no heading",
+      "for": "deletion",
+      "note": "having no heading means the word loses its first letter, its head"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tiny piece",
+      "gives": "PARTICLE",
+      "note": "a particle is a minute fragment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARTICLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A small newspaper item that has been printed without a headline.",
+     "walkthrough": "PARTICLE without its first letter P gives the answer; 'heading' plays on newspaper headlines.",
+     "definitionFit": "An article is a written item published in a newspaper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +233,63 @@
      }
     ]
    },
-   "solution": "HEREWARDTHEWAKE"
+   "solution": "HEREWARDTHEWAKE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "HEREWARD THE WAKE",
+    "definitions": [
+     {
+      "text": "historical novel",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word before it"
+     },
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "new signals that the letters are made into a fresh arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Holidaying",
+      "gives": "H",
+      "select": "first",
+      "note": "first letter of holidaying"
+     },
+     {
+      "clueFragment": "at Kew, we read her",
+      "gives": "ATKEWWEREADHER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HATKEWWEREADHER",
+       "gives": "HEREWARDTHEWAKE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "On holiday at Kew Gardens, someone reads her a recently published historical novel.",
+     "walkthrough": "Kew is a London district famous for its botanic gardens. Hereward the Wake is Charles Kingsley's novel about an English rebel against the Normans.",
+     "definitionFit": "Hereward the Wake (1866) is a novel set in the eleventh century, so it is historical fiction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "new"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +303,79 @@
     "text": "Hospital doctor in charge leaving confused geriatrics at end of corridor",
     "enumeration": "9"
    },
-   "solution": "REGISTRAR"
+   "solution": "REGISTRAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "REGISTRAR",
+    "definitions": [
+     {
+      "text": "Hospital doctor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "leaving means going out of, so those letters are removed from the word that follows"
+     },
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "confused letters are mixed up and need rearranging"
+     },
+     {
+      "text": "at end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "geriatrics",
+      "gives": "GERIATRICS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "i/c is the abbreviation for in charge"
+     },
+     {
+      "clueFragment": "corridor",
+      "gives": "R",
+      "select": "last",
+      "note": "last letter of corridor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REGISTRA",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GERIATRS",
+       "gives": "REGISTRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A senior doctor leaves bewildered elderly patients at the end of a hospital corridor.",
+     "walkthrough": "GERIATRICS minus IC leaves GERIATRS, which is rearranged and followed by R.",
+     "definitionFit": "In British hospitals a registrar is a grade of doctor below consultant, in specialist training."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "geriatrics"
+    }
+   }
   },
   {
    "number": 4,
@@ -113,7 +389,54 @@
     "text": "Hint about a rest",
     "enumeration": "9"
    },
-   "solution": "REMAINDER"
+   "solution": "REMAINDER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REMAINDER",
+    "definitions": [
+     {
+      "text": "rest",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one word goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hint",
+      "gives": "REMINDER",
+      "note": "a hint can be a reminder or prompt"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REM",
+      "A",
+      "INDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A suggestion that someone ought to take a break.",
+     "definitionFit": "The rest of something is what is left over, its remainder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rest"
+    }
+   }
   },
   {
    "number": 5,
@@ -127,7 +450,61 @@
     "text": "Visitor in front of entrance, caught by sudden blast of wind",
     "enumeration": "5"
    },
-   "solution": "GUEST"
+   "solution": "GUEST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GUEST",
+    "definitions": [
+     {
+      "text": "Visitor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front of",
+      "for": "letter_selection",
+      "note": "the front of a word is its first letter"
+     },
+     {
+      "text": "caught by",
+      "for": "container",
+      "note": "something caught by another is held inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sudden blast of wind",
+      "gives": "GUST",
+      "note": "a gust is a brief strong rush of wind"
+     },
+     {
+      "clueFragment": "entrance",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter of entrance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GU",
+      "E",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "A visitor standing at the front door is hit by a sudden blast of wind.",
+     "definitionFit": "A guest is someone invited to visit a home or event."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entrance"
+    }
+   }
   },
   {
    "number": 6,
@@ -147,7 +524,65 @@
      }
     ]
    },
-   "solution": "SHRINKINGVIOLET"
+   "solution": "SHRINKINGVIOLET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHRINKING VIOLET",
+    "definitions": [
+     {
+      "text": "very shy type",
+      "at": 39
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Psychiatrist",
+      "gives": "SHRINK",
+      "note": "shrink is slang for a psychiatrist"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "northern",
+      "gives": "N",
+      "note": "N is the abbreviation for northern"
+     },
+     {
+      "clueFragment": "g-",
+      "gives": "G",
+      "note": "the stuttered letter taken as written"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "VIOLET",
+      "note": "Violet is a girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHRINK",
+      "I",
+      "N",
+      "G",
+      "VIOLET"
+     ]
+    },
+    "explanation": {
+     "surface": "A psychiatrist with a stammering northern girl who is extremely shy.",
+     "walkthrough": "The stutter in 'g-girl' is not just colour: it supplies the G before the name.",
+     "definitionFit": "A shrinking violet is an idiom for an extremely timid, retiring person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "g-girl"
+    }
+   }
   },
   {
    "number": 7,
@@ -161,7 +596,56 @@
     "text": "Went round gallery surrounded by staff",
     "enumeration": "7"
    },
-   "solution": "ROTATED"
+   "solution": "ROTATED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ROTATED",
+    "definitions": [
+     {
+      "text": "Went round",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounded by",
+      "for": "container",
+      "note": "surrounded by means placed inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "staff",
+      "gives": "ROD",
+      "note": "a rod is a staff or pole"
+     },
+     {
+      "clueFragment": "gallery",
+      "gives": "TATE",
+      "note": "the Tate is a famous London art gallery"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "TATE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone toured an art gallery while flanked by its employees.",
+     "walkthrough": "'Staff' suggests gallery employees, but here it is a stick.",
+     "definitionFit": "To have rotated is to have turned or spun round."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "staff"
+    }
+   }
   },
   {
    "number": 8,
@@ -175,7 +659,75 @@
     "text": "Meet up again with English prisoner, never changing outwardly",
     "enumeration": "9"
    },
-   "solution": "RECONVENE"
+   "solution": "RECONVENE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RECONVENE",
+    "definitions": [
+     {
+      "text": "Meet up again",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changing",
+      "for": "anagram",
+      "note": "changing means the letters of the word are altered into a new order"
+     },
+     {
+      "text": "outwardly",
+      "for": "container",
+      "note": "outwardly means on the outside, so the rearranged word sits around the other pieces"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "never",
+      "gives": "NEVER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "prisoner",
+      "gives": "CON",
+      "note": "con is slang for a convict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ECON",
+      "VENE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEVER",
+       "gives": "RVENE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Arranging a reunion with an English prisoner whose appearance never alters.",
+     "walkthrough": "'Outwardly' applies to the rearranged word: it splits after its first letter to take the English prisoner inside.",
+     "definitionFit": "To reconvene is to assemble again after a break."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outwardly"
+    }
+   }
   },
   {
    "number": 9,
@@ -189,7 +741,64 @@
     "text": "Temporary home — get word about one",
     "enumeration": "7"
    },
-   "solution": "INTERIM"
+   "solution": "INTERIM",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INTERIM",
+    "definitions": [
+     {
+      "text": "Temporary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round, so one word encloses the other"
+     }
+    ],
+    "linkWords": [
+     "get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "to be in is to be at home"
+     },
+     {
+      "clueFragment": "word",
+      "gives": "TERM",
+      "note": "a term is a word or expression"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "TER",
+      "I",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in temporary housing is waiting to hear news about one person.",
+     "definitionFit": "Interim describes an arrangement lasting only for the meantime, provisional."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +812,55 @@
     "text": "Wandering, boy round desert",
     "enumeration": "7"
    },
-   "solution": "ERRATIC"
+   "solution": "ERRATIC",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ERRATIC",
+    "definitions": [
+     {
+      "text": "Wandering",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means encircling, so the first word goes around the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boy",
+      "gives": "ERIC",
+      "note": "Eric is a boy's name"
+     },
+     {
+      "clueFragment": "desert",
+      "gives": "RAT",
+      "note": "to rat is to desert or betray"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "RAT",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy wandering around the desert.",
+     "walkthrough": "'Desert' looks like a sandy noun; it is the verb meaning abandon.",
+     "definitionFit": "Erratic means irregular and straying from a steady course, as a wandering path does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "desert"
+    }
+   }
   },
   {
    "number": 11,
@@ -223,7 +880,75 @@
      }
     ]
    },
-   "solution": "DICKWHITTINGTON"
+   "solution": "DICKWHITTINGTON",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "DICK WHITTINGTON",
+    "definitions": [
+     {
+      "text": "in pantomime",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Wicked",
+      "for": "anagram",
+      "note": "wicked suggests something twisted and corrupted, so these letters are rearranged"
+     },
+     {
+      "text": "swallowing",
+      "for": "container",
+      "note": "to swallow something is to take it inside"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "witch",
+      "gives": "WITCH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "KING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "don't",
+      "gives": "DONT",
+      "note": "taken as written, apostrophe ignored"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WITCHKINGDOITNT",
+       "gives": "DICKWHITTINGTON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wicked witches and kings refrain from swallowing anything in a pantomime.",
+     "walkthrough": "'Wicked witch' reads as a stock pantomime villain, but 'Wicked' is the anagram signal. A pantomime is a British Christmas stage show based on a folk tale.",
+     "definitionFit": "Dick Whittington is the hero of a classic British pantomime, the poor boy who becomes Lord Mayor of London."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wicked"
+    }
+   }
   },
   {
    "number": 12,
@@ -243,7 +968,49 @@
      }
     ]
    },
-   "solution": "SEESRED"
+   "solution": "SEESRED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEES RED",
+    "definitions": [
+     {
+      "text": "becomes very angry",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Watches",
+      "gives": "SEES",
+      "note": "to watch is to see"
+     },
+     {
+      "clueFragment": "Communist",
+      "gives": "RED",
+      "note": "Red is a common label for a Communist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEES",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone watches a Communist and flies into a rage.",
+     "definitionFit": "To see red is an idiom for losing one's temper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Watches"
+    }
+   }
   },
   {
    "number": 12,
@@ -263,7 +1030,50 @@
      }
     ]
    },
-   "solution": "SHANGRILA"
+   "solution": "SHANGRILA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SHANGRI-LA",
+    "definitions": [
+     {
+      "text": "earthly paradise",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Foreign",
+      "for": "anagram",
+      "note": "foreign suggests something strange and altered, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl has an",
+      "gives": "GIRLHASAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GIRLHASAN",
+       "gives": "SHANGRILA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl from abroad has found heaven on earth.",
+     "definitionFit": "Shangri-La, from James Hilton's novel Lost Horizon, is a byword for an idyllic hidden utopia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Foreign"
+    }
+   }
   },
   {
    "number": 13,
@@ -277,7 +1087,47 @@
     "text": "Good sieve, cooking utensil",
     "enumeration": "7"
    },
-   "solution": "GRIDDLE"
+   "solution": "GRIDDLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRIDDLE",
+    "definitions": [
+     {
+      "text": "cooking utensil",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "sieve",
+      "gives": "RIDDLE",
+      "note": "a riddle is a coarse sieve for soil or gravel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RIDDLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of kitchen equipment: a good sieve and a pan.",
+     "walkthrough": "RIDDLE here is not a puzzle but a large garden sieve.",
+     "definitionFit": "A griddle is a flat iron plate used for cooking over heat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sieve"
+    }
+   }
   },
   {
    "number": 13,
@@ -291,7 +1141,55 @@
     "text": "Marvellous, small company at making what a soldier might wear",
     "enumeration": "9"
    },
-   "solution": "GREATCOAT"
+   "solution": "GREATCOAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GREATCOAT",
+    "definitions": [
+     {
+      "text": "what a soldier might wear",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Marvellous",
+      "gives": "GREAT",
+      "note": "great means marvellous"
+     },
+     {
+      "clueFragment": "small company",
+      "gives": "CO",
+      "note": "Co is the short form of company"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREAT",
+      "CO",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "A wonderful little firm is producing military clothing.",
+     "definitionFit": "A greatcoat is a heavy overcoat, standard military winter issue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "number": 14,
@@ -305,7 +1203,54 @@
     "text": "Rarebit cooked for a judge",
     "enumeration": "7"
    },
-   "solution": "ARBITER"
+   "solution": "ARBITER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ARBITER",
+    "definitions": [
+     {
+      "text": "a judge",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooked means altered by preparation, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rarebit",
+      "gives": "RAREBIT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RAREBIT",
+       "gives": "ARBITER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Welsh rarebit prepared for a judge to taste.",
+     "walkthrough": "Welsh rarebit is cheese on toast.",
+     "definitionFit": "An arbiter is someone appointed to settle a dispute, a judge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 15,
@@ -319,7 +1264,66 @@
     "text": "Boy cut a long sizzling sausage",
     "enumeration": "7"
    },
-   "solution": "BOLOGNA"
+   "solution": "BOLOGNA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "BOLOGNA",
+    "definitions": [
+     {
+      "text": "sausage",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "cut means shortened, so the word loses its last letter"
+     },
+     {
+      "text": "sizzling",
+      "for": "anagram",
+      "note": "sizzling suggests being agitated in a hot pan, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boy",
+      "gives": "BOY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a long",
+      "gives": "ALONG",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "LOGNA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALONG",
+       "gives": "LOGNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boy slices a lengthy sausage that is frying in the pan.",
+     "definitionFit": "A bologna is a large smoked sausage named after the Italian city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sizzling"
+    }
+   }
   },
   {
    "number": 16,
@@ -339,7 +1343,42 @@
      }
     ]
    },
-   "solution": "ENGARDE"
+   "solution": "ENGARDE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EN GARDE",
+    "definitions": [
+     {
+      "text": "Fencer's warning",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in area of",
+      "for": "hidden_word",
+      "note": "in the area of means located within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kitchen garden",
+      "gives": "ENGARDE",
+      "note": "found inside kitchen garden"
+     }
+    ],
+    "explanation": {
+     "surface": "A fencer calls a warning while standing in a vegetable plot.",
+     "definitionFit": "En garde is the French call fencers use to tell an opponent to take a guard position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "area"
+    }
+   }
   },
   {
    "number": 17,
@@ -353,7 +1392,42 @@
     "text": "Change back",
     "enumeration": "7"
    },
-   "solution": "REVERSE"
+   "solution": "REVERSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REVERSE",
+    "definitions": [
+     {
+      "text": "Change",
+      "at": 0
+     },
+     {
+      "text": "back",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Change",
+      "note": "first meaning: to turn something the other way round"
+     },
+     {
+      "clueFragment": "back",
+      "note": "second meaning: to go backwards, as a car does"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Change back' reads as one instruction to undo something; the two words are separate meanings.",
+     "definitionFit": "To reverse is both to invert a decision and to drive a vehicle backwards."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 18,
@@ -373,7 +1447,39 @@
      }
     ]
    },
-   "solution": "GOLDENRETRIEVER"
+   "solution": "GOLDENRETRIEVER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GOLDEN RETRIEVER",
+    "definitions": [
+     {
+      "text": "Superb fetching animal?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Superb fetching animal?",
+      "note": "surface reading: a gorgeous, attractive creature"
+     },
+     {
+      "clueFragment": "fetching",
+      "note": "setter's reading: an excellent beast that fetches things, a gun dog bringing back game"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Fetching' reads as attractive, but it means bringing back; 'superb' stands for a word meaning first-rate that is also a colour.",
+     "definitionFit": "This breed of gun dog is bred to bring back shot birds, and its coat is a rich yellow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fetching"
+    }
+   }
   },
   {
    "number": 19,
@@ -387,7 +1493,49 @@
     "text": "On day before festival calls for US actor",
     "enumeration": "5"
    },
-   "solution": "REEVE"
+   "solution": "REEVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REEVE",
+    "definitions": [
+     {
+      "text": "US actor",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "calls for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "On",
+      "gives": "RE",
+      "note": "re means on or concerning"
+     },
+     {
+      "clueFragment": "day before festival",
+      "gives": "EVE",
+      "note": "an eve is the day before a festival, as in Christmas Eve"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "EVE"
+     ]
+    },
+    "explanation": {
+     "surface": "On the day before a holiday, an American actor is in demand.",
+     "definitionFit": "Christopher Reeve was the American film actor best known as Superman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "calls"
+    }
+   }
   },
   {
    "number": 20,
@@ -401,7 +1549,45 @@
     "text": "Send for terms of reference",
     "enumeration": "5"
    },
-   "solution": "REMIT"
+   "solution": "REMIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REMIT",
+    "definitions": [
+     {
+      "text": "Send",
+      "at": 0
+     },
+     {
+      "text": "terms of reference",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Send",
+      "note": "first meaning: to transmit money or refer a case on"
+     },
+     {
+      "clueFragment": "terms of reference",
+      "note": "second meaning: the scope of authority given to a body"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as sending off for a document; the verb and the noun are separate meanings.",
+     "definitionFit": "As a verb it means to send payment; as a noun it is the defined area of a committee's responsibility."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Send"
+    }
+   }
   },
   {
    "number": 21,
@@ -415,7 +1601,54 @@
     "text": "Angry about no good unappreciative type",
     "enumeration": "7"
    },
-   "solution": "INGRATE"
+   "solution": "INGRATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INGRATE",
+    "definitions": [
+     {
+      "text": "unappreciative type",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the first word goes round the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Angry",
+      "gives": "IRATE",
+      "note": "irate means angry"
+     },
+     {
+      "clueFragment": "no good",
+      "gives": "NG",
+      "note": "NG is the abbreviation for no good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "NG",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is furious about a worthless, thankless person.",
+     "definitionFit": "An ingrate is a person who shows no gratitude."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Angry"
+    }
+   }
   },
   {
    "number": 22,
@@ -435,7 +1668,61 @@
      }
     ]
    },
-   "solution": "OILDRUM"
+   "solution": "OILDRUM",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "OIL DRUM",
+    "definitions": [
+     {
+      "text": "container",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "OLD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "spirit",
+      "gives": "RUM",
+      "note": "rum is a spirit distilled from sugar cane"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "I",
+      "LD",
+      "RUM"
+     ]
+    },
+    "explanation": {
+     "surface": "A single bottle of aged liquor in a vessel.",
+     "definitionFit": "An oil drum is a large cylindrical metal barrel for storing liquids."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 23,
@@ -449,7 +1736,49 @@
     "text": "Degradation in a cellar",
     "enumeration": "9"
    },
-   "solution": "ABASEMENT"
+   "solution": "ABASEMENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABASEMENT",
+    "definitions": [
+     {
+      "text": "Degradation",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cellar",
+      "gives": "BASEMENT",
+      "note": "a basement is a cellar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BASEMENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone suffers humiliation by being kept down in a cellar.",
+     "definitionFit": "Abasement is humiliation, a lowering of someone's dignity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 24,
@@ -463,7 +1792,46 @@
     "text": "Shout for minister?",
     "enumeration": "5"
    },
-   "solution": "TREAT"
+   "solution": "TREAT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TREAT",
+    "definitions": [
+     {
+      "text": "Shout",
+      "at": 0
+     },
+     {
+      "text": "minister",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shout",
+      "note": "first meaning: British slang for buying a round, as in 'my shout'"
+     },
+     {
+      "clueFragment": "minister",
+      "note": "second meaning: to minister to a patient, give medical care"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests yelling for a clergyman or politician, but 'shout' is the British idea of paying for everyone's drinks, and 'minister' is a verb.",
+     "definitionFit": "A treat is something paid for on someone's behalf, and to treat a patient is to tend them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "minister"
+    }
+   }
   }
  ]
 }
