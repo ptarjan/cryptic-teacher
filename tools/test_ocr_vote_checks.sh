@@ -1406,6 +1406,19 @@ check("a linked group's count puts a break on the boundary at the earlier light'
       ("4,5", [{"at": 4, "mark": ","}], None), (held["entries"][0]["clue"]["enumeration"], held["entries"][0]["clue"].get("separators"),
                             held["entries"][1]["clue"].get("separators")))
 
+# The next puzzle's heading read onto a book clue (Araucaria book 2, No 15's
+# last Down light): it and all after it are that puzzle's, so go.
+check("next puzzle's heading and clue go", "",
+      oc.alone("Alphabetical Jigsaw A, dyer can display enthusiasm", "-down", "7"))
+check("next puzzle's heading after a clue goes", "Courage never fails",
+      oc.alone("Courage never fails Alphabetical Jigsaw (of a sort) Each of the", "-down", "5"))
+check("next puzzle's heading after the count goes", "Courage never fails",
+      oc.alone("Courage never fails (5) ALPHABETICAL JIGSAW 2", "-down", "5"))
+check("a clue's own 'alphabetical jigsaw' stays", "Initiates of alphabetical jigsaw and Araucaria's Xmas Club",
+      oc.alone("Initiates of alphabetical jigsaw and Araucaria's Xmas Club", "-across", "5"))
+check("bled() names another puzzle's heading", True,
+      "another puzzle's heading" in (oc.bled("DJ in Notts. Alphabetical Jigsaw A's A") or ""))
+
 print(f"FAILS {fails}")
 EOF
 )

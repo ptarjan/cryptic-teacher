@@ -1305,9 +1305,20 @@ def check_dashes(puzzle, flags):
                           "spell a dash or ellipsis as the clue does (dashes.quote)"))
 
 
-def _lead_finding(e, text):
-    return (f"{entry_id(e)}: {text!r} opens with a quote nothing closes; an OCR clue is "
+def _lead_finding(e, text, name=None):
+    return (f"{name or entry_id(e)}: {text!r} opens with a quote nothing closes; an OCR clue is "
             f"stored {leading_quote.clean(text)!r} (leading_quote.clean)")
+
+
+def _light_name(record, light):
+    """A clues-only `light` named by its list and place in it ("across light
+    3", "unplaced clue 3"): such a record holds no clue numbers, and a
+    jigsaw's clues no direction either."""
+    for d in ("across", "down", "unplaced"):
+        for i, l in enumerate((record.get("clues") or {}).get(d) or (), 1):
+            if l is light:
+                return f"{d} {'clue' if d == 'unplaced' else 'light'} {i}"
+    return "a light"
 
 
 def check_leading_quotes(puzzle, flags):
@@ -1500,7 +1511,8 @@ def refuse_bad_clues_only(record):
     import puzzle_paths
     pid = record.get("id")
     flags = [("SCHEMA", pid, p) for p in puzzle_schema.validate_clues_only(record)]
-    flags += [("LEAD", pid, _lead_finding(l, t)) for l, t in leading_quote.unclean_clues_only(record)]
+    flags += [("LEAD", pid, _lead_finding(l, t, _light_name(record, l)))
+              for l, t in leading_quote.unclean_clues_only(record)]
     import validate_annotations  # lazy: it imports this module's fetcher
     markup = []
     validate_annotations.text_errors(record, markup)
