@@ -2172,5 +2172,15 @@ tools/test_leading_quote.sh                   an OCR'd clue opens with a quote o
                                               write gate refuses what it would still mend
 tools/gale_http.py                            the Chrome-like browsing of Gale and its portal,
                                               shared by gale_fetch.py
+tools/test_gale_page_cap.sh                   is a Gale page laid out within
+                                              gale_inbox.MAX_PAGE_PIXELS however small the grid
+                                              it is scaled by (a crossword-centenary article's
+                                              printed grid scaled the 2013-12-17 page to 363
+                                              MP), is a leaf staged before that cap shrunk to
+                                              fit (its edition's input_hash moved, so its scan
+                                              and read come due) and left alone the second
+                                              time, and does a scan unit past its memory
+                                              ceiling (edition_queue.UNIT_MEMORY_MB, RLIMIT_AS)
+                                              end a failure naming it?
 ```
 <!-- LAYOUT-END -->
