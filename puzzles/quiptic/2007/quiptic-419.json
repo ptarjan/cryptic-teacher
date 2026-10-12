@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,62 @@
     "text": "Change key part periodically in lunar spacecraft",
     "enumeration": "8"
    },
-   "solution": "MODULATE"
+   "solution": "MODULATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MODULATE",
+    "definitions": [
+     {
+      "text": "Change key",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "periodically",
+      "for": "letter_selection",
+      "note": "something done periodically happens at regular intervals, so only every other letter of the word is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the kept letters are placed inside the name of the spacecraft"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lunar spacecraft",
+      "gives": "MODULE",
+      "note": "the lunar module was the Apollo landing craft"
+     },
+     {
+      "clueFragment": "part",
+      "gives": "AT",
+      "select": "alternate",
+      "note": "second and fourth letters of 'part'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MODUL",
+      "AT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for adjusting some component at intervals aboard a moon lander.",
+     "walkthrough": "'Change key' reads like an instruction, but it is the definition, a musical term; 'part' supplies just two of its letters.",
+     "definitionFit": "In music, to modulate is to shift from one key into another during a piece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +105,51 @@
     "text": "Impurer salt is regularly used in cereal",
     "enumeration": "6"
    },
-   "solution": "MUESLI"
+   "solution": "MUESLI",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "MUESLI",
+    "definitions": [
+     {
+      "text": "cereal",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at fixed intervals, so every second letter of the phrase is taken"
+     }
+    ],
+    "linkWords": [
+     "used in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Impurer salt is",
+      "gives": "MUESLI",
+      "select": "alternate",
+      "note": "the even-placed letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MUESLI"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that adulterated salt keeps turning up in breakfast food.",
+     "definitionFit": "Muesli is a breakfast cereal of oats, nuts and dried fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Impurer"
+    }
+   }
   },
   {
    "number": 3,
@@ -71,7 +173,62 @@
      }
     ]
    },
-   "solution": "HARDATIT"
+   "solution": "HARDATIT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "HARD AT IT",
+    "definitions": [
+     {
+      "text": "not letting up",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'eadgear",
+      "for": "deletion",
+      "note": "the dropped aitch of Cockney speech shows that every H must go from the phrase it describes"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the strike word goes round the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Knock",
+      "gives": "HIT",
+      "note": "to knock is to hit"
+     },
+     {
+      "clueFragment": "builder's",
+      "gives": "HARDHAT",
+      "note": "a builder's headgear is a hard hat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ARDAT",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A Cockney describes roughing up a builder's helmet.",
+     "walkthrough": "With its aitches dropped, hard hat becomes 'ARD 'AT, and HIT wraps around those letters.",
+     "definitionFit": "Someone hard at it is working energetically without a pause, an idiom for unrelenting effort."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Knock"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +242,48 @@
     "text": "Two notes that couldn't be lower?",
     "enumeration": "6"
    },
-   "solution": "MINIMA"
+   "solution": "MINIMA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MINIMA",
+    "definitions": [
+     {
+      "text": "that couldn't be lower",
+      "at": 10,
+      "note": "elliptical: points that couldn't be lower"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two notes",
+      "gives": "MINIM",
+      "note": "a minim is a half note in music"
+     },
+     {
+      "clueFragment": "Two notes",
+      "gives": "A",
+      "note": "A is a note of the scale, the second of the two"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MINIM",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A singer asks about two notes at the very bottom of the range.",
+     "walkthrough": "Both pieces come from 'Two notes': a note value and a note name.",
+     "definitionFit": "Minima are the lowest values or points reached, the plural of minimum."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "notes"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +297,42 @@
     "text": "Liquor, umpteen bottles, enough to get on with",
     "enumeration": "6"
    },
-   "solution": "QUORUM"
+   "solution": "QUORUM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "QUORUM",
+    "definitions": [
+     {
+      "text": "enough to get on with",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottles",
+      "for": "hidden_word",
+      "note": "to bottle is to contain, so the phrase holds the answer within its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Liquor, umpteen",
+      "gives": "QUORUM",
+      "note": "runs across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A party host reckons plenty of drink is all that is needed to start.",
+     "definitionFit": "A quorum is the minimum number of members needed for a meeting to conduct business."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bottles"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +346,45 @@
     "text": "We''re told they measure liquid rock",
     "enumeration": "6"
    },
-   "solution": "QUARTZ"
+   "solution": "QUARTZ",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "QUARTZ",
+    "definitions": [
+     {
+      "text": "rock",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "We''re told",
+      "for": "homophone",
+      "note": "what we are told we hear spoken, so the word is judged by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "they measure liquid",
+      "gives": "QUARTZ",
+      "soundsLike": "QUARTS",
+      "note": "quarts are measures of liquid volume"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone passes on a claim about what measures liquid rock, as if lava were gauged.",
+     "walkthrough": "'Liquid rock' suggests lava, but rock stands alone as the definition.",
+     "definitionFit": "Quartz is a hard crystalline mineral, a common rock-forming silica."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "liquid"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +398,64 @@
     "text": "Enthusiast pushing one forward in sea current",
     "enumeration": "6"
    },
-   "solution": "MANIAC"
+   "solution": "MANIAC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "MANIAC",
+    "definitions": [
+     {
+      "text": "Enthusiast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pushing one forward",
+      "for": "anagram",
+      "note": "moving the single letter for one earlier in its word rearranges that word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sea",
+      "gives": "MAIN",
+      "note": "the main is a poetic word for the open sea"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "AC",
+      "note": "alternating current"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MANI",
+      "AC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MAIN",
+       "gives": "MANI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A keen swimmer forging ahead through an ocean current.",
+     "walkthrough": "'One' is the letter I, which is pushed one place forward within the word for sea; the main is an old poetic name for the ocean.",
+     "definitionFit": "A maniac is informally a fanatic or devotee, as in a football maniac."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pushing"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +469,39 @@
     "text": "Light that gets lighter the more it's used",
     "enumeration": "6"
    },
-   "solution": "CANDLE"
+   "solution": "CANDLE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CANDLE",
+    "definitions": [
+     {
+      "text": "Light that gets lighter the more it's used",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Light that gets lighter",
+      "note": "surface reading: a lamp growing brighter"
+     },
+     {
+      "clueFragment": "the more it's used",
+      "note": "setter's reading: this source of light loses weight as it burns down"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Lighter' means less heavy, not brighter: wax is consumed as this source of illumination burns.",
+     "definitionFit": "A wax stick with a wick that gives light shrinks as it burns, so it weighs less with use."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lighter"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +515,55 @@
     "text": "Essentials for rigging trial supported by men on board",
     "enumeration": "11"
    },
-   "solution": "CROSSPIECES"
+   "solution": "CROSSPIECES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CROSSPIECES",
+    "definitions": [
+     {
+      "text": "Essentials for rigging",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supported by",
+      "for": "charade",
+      "note": "in a down clue, being supported means sitting on top, so the first part is placed above the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trial",
+      "gives": "CROSS",
+      "note": "a cross to bear is a trial or burden"
+     },
+     {
+      "clueFragment": "men on board",
+      "gives": "PIECES",
+      "note": "chessmen on a board are pieces"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CROSS",
+      "PIECES"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailing test that depends on the crew aboard ship.",
+     "walkthrough": "'Men on board' suggests sailors on a ship, but they are chessmen.",
+     "definitionFit": "Crosspieces are transverse spars or timbers, structural parts needed to rig a mast or framework."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +577,65 @@
     "text": "Treasures left for good in shadowy south",
     "enumeration": "6"
    },
-   "solution": "VALUES"
+   "solution": "VALUES",
+   "annotation": {
+    "type": [
+     "substitution",
+     "charade"
+    ],
+    "answer": "VALUES",
+    "definitions": [
+     {
+      "text": "Treasures",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "one thing given for another means it replaces it in the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "shadowy",
+      "gives": "VAGUE",
+      "note": "shadowy means indistinct"
+     },
+     {
+      "clueFragment": "south",
+      "gives": "S",
+      "note": "compass abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VALUE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Treasures abandoned forever somewhere dark in the south.",
+     "walkthrough": "'Left for good' reads as abandoned forever; it actually means L replaces G in VAGUE.",
+     "definitionFit": "To value something is to treasure or prize it; both are verbs here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +655,51 @@
      }
     ]
    },
-   "solution": "REDGIANT"
+   "solution": "REDGIANT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RED GIANT",
+    "definitions": [
+     {
+      "text": "Star",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunkenly",
+      "for": "anagram",
+      "note": "a drunk staggers about, so the letters lurch into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "treading",
+      "gives": "TREADING",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TREADING",
+       "gives": "REDGIANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity staggering along after too much to drink.",
+     "walkthrough": "'Star' reads as a celebrity, but it is the astronomical kind.",
+     "definitionFit": "A red giant is a large, cool, luminous star late in its life, such as Betelgeuse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Star"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +713,55 @@
     "text": "Bet backing Italian smoker",
     "enumeration": "4"
    },
-   "solution": "ETNA"
+   "solution": "ETNA",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "ETNA",
+    "definitions": [
+     {
+      "text": "Italian smoker",
+      "at": 12
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means going in the opposite direction, so the word is read from end to start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bet",
+      "gives": "ANTE",
+      "note": "an ante is a stake in poker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETNA"
+     ],
+     "reversals": [
+      {
+       "from": "ANTE",
+       "to": "ETNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gambler supports an Italian who smokes.",
+     "walkthrough": "'Smoker' suggests a person with a cigarette; it is a volcano.",
+     "definitionFit": "Etna is the active volcano in Sicily, and a volcano emits smoke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "smoker"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +775,61 @@
     "text": "Greedy cook isn't A1 fit",
     "enumeration": "10"
    },
-   "solution": "INSATIABLE"
+   "solution": "INSATIABLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "INSATIABLE",
+    "definitions": [
+     {
+      "text": "Greedy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cook",
+      "for": "anagram",
+      "note": "to cook figures is to falsify them, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "isn't A1",
+      "gives": "ISNTAI",
+      "note": "the letters, with the digit 1 read as the letter I"
+     },
+     {
+      "clueFragment": "fit",
+      "gives": "ABLE",
+      "note": "fit and able mean capable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INSATI",
+      "ABLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISNTAI",
+       "gives": "INSATI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A greedy chef who is not in top shape.",
+     "walkthrough": "The digit 1 stands for the letter I; A1 means first-class.",
+     "definitionFit": "Insatiable describes an appetite that can never be satisfied, like greed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cook"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +843,67 @@
     "text": "Wreck of great age pictured breaking up in river",
     "enumeration": "11"
    },
-   "solution": "DECREPITUDE"
+   "solution": "DECREPITUDE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DECREPITUDE",
+    "definitions": [
+     {
+      "text": "Wreck of great age",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking up",
+      "for": "anagram",
+      "note": "something breaking up falls to pieces, so the word's letters are reassembled"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the rearranged letters sit inside the river's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pictured",
+      "gives": "PICTURED",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "DEE",
+      "note": "the Dee is a river in Scotland, and another in Wales and England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "CREPITUD",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PICTURED",
+       "gives": "CREPITUD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient shipwreck depicted breaking apart in a river.",
+     "walkthrough": "'Wreck' looks like a sunken ship, but with 'of great age' it describes the state of being worn out by years.",
+     "definitionFit": "Decrepitude is the condition of being feeble and broken down through old age."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Wreck"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +917,62 @@
     "text": "President, up before journalist, went over the same ground again",
     "enumeration": "8"
    },
-   "solution": "RETRACED"
+   "solution": "RETRACED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "RETRACED",
+    "definitions": [
+     {
+      "text": "went over the same ground again",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading from the bottom, so the name is turned around"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "President",
+      "gives": "CARTER",
+      "note": "Jimmy Carter, US president"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RETRAC",
+      "ED"
+     ],
+     "reversals": [
+      {
+       "from": "CARTER",
+       "to": "RETRAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician revisiting old territory with a reporter in tow.",
+     "definitionFit": "To retrace one's steps is to go back along the path already travelled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +986,48 @@
     "text": "Young waterfowl lose heart, going under repeatedly",
     "enumeration": "8"
    },
-   "solution": "DUCKINGS"
+   "solution": "DUCKINGS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DUCKINGS",
+    "definitions": [
+     {
+      "text": "going under repeatedly",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lose heart",
+      "for": "deletion",
+      "note": "losing the heart means removing the central letter of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Young waterfowl",
+      "gives": "DUCKLINGS",
+      "note": "baby ducks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUCK",
+      "INGS"
+     ]
+    },
+    "explanation": {
+     "surface": "Baby ducks lose courage and keep sinking.",
+     "definitionFit": "Duckings are repeated plunges or immersions underwater."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 16,
@@ -273,7 +1041,65 @@
     "text": "Golfer's half rolling, dropping hot iron",
     "enumeration": "6"
    },
-   "solution": "FERRIC"
+   "solution": "FERRIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "FERRIC",
+    "definitions": [
+     {
+      "text": "iron",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half",
+      "for": "deletion",
+      "note": "only half of the word is wanted, here its second half"
+     },
+     {
+      "text": "dropping",
+      "for": "deletion",
+      "note": "dropping means letting a letter fall away from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Golfer's",
+      "gives": "GOLFER",
+      "note": "the word as written"
+     },
+     {
+      "clueFragment": "rolling",
+      "gives": "RICH",
+      "note": "rolling in money means very rich"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "abbreviation, as on taps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FER",
+      "RIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer's ball rolls halfway and stops short of the hot iron club.",
+     "walkthrough": "'Iron' looks like a golf club; it is the metal. 'Rolling' means wealthy, as in rolling in it.",
+     "definitionFit": "Ferric means containing or relating to iron, from Latin ferrum."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "rolling"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +1113,43 @@
     "text": "Biblical lawgiver's design",
     "enumeration": "6"
    },
-   "solution": "MOSAIC"
+   "solution": "MOSAIC",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MOSAIC",
+    "definitions": [
+     {
+      "text": "Biblical lawgiver's",
+      "at": 0
+     },
+     {
+      "text": "design",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Biblical lawgiver's",
+      "note": "first meaning: belonging to Moses, who received the law"
+     },
+     {
+      "clueFragment": "design",
+      "note": "second meaning: a picture made of small coloured tiles"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a plan drawn up by Moses; the adjective and the noun just share spelling.",
+     "definitionFit": "Mosaic means relating to Moses, as in Mosaic law, and also names a pattern made of tesserae."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "design"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1163,67 @@
     "text": "Posted troops again ahead of time, causing ill-feeling",
     "enumeration": "10"
    },
-   "solution": "RESENTMENT"
+   "solution": "RESENTMENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RESENTMENT",
+    "definitions": [
+     {
+      "text": "ill-feeling",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ahead of",
+      "for": "charade",
+      "note": "ahead of means placed before, so the earlier parts come first"
+     }
+    ],
+    "linkWords": [
+     "causing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "again",
+      "gives": "RE",
+      "note": "the prefix for doing something once more"
+     },
+     {
+      "clueFragment": "Posted",
+      "gives": "SENT",
+      "note": "sent by post"
+     },
+     {
+      "clueFragment": "troops",
+      "gives": "MEN",
+      "note": "soldiers"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RESENT",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A unit redeployed early, prompting grievances.",
+     "walkthrough": "'Posted troops' reads as stationing soldiers, but 'Posted' and 'again' combine into one word meaning sent a second time.",
+     "definitionFit": "Resentment is bitter indignation at being treated unfairly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1237,56 @@
     "text": "Left English team with hooligan",
     "enumeration": "6"
    },
-   "solution": "EXITED"
+   "solution": "EXITED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXITED",
+    "definitions": [
+     {
+      "text": "Left",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "abbreviation"
+     },
+     {
+      "clueFragment": "team",
+      "gives": "XI",
+      "note": "eleven players, as in cricket or football"
+     },
+     {
+      "clueFragment": "hooligan",
+      "gives": "TED",
+      "note": "a Teddy boy, the 1950s British youth rebel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "XI",
+      "TED"
+     ]
+    },
+    "explanation": {
+     "surface": "An England side departs in the company of a troublemaker.",
+     "walkthrough": "'Left' looks like a direction; it is a past-tense verb.",
+     "definitionFit": "Exited and left are both past tenses meaning went out or departed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Left"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1300,53 @@
     "text": "Man immersed in right-wing thinking",
     "enumeration": "6"
    },
-   "solution": "THEORY"
+   "solution": "THEORY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THEORY",
+    "definitions": [
+     {
+      "text": "thinking",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "immersed in",
+      "for": "container",
+      "note": "to be immersed is to be plunged inside, so one word sits in another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man",
+      "gives": "HE",
+      "note": "a man is he"
+     },
+     {
+      "clueFragment": "right-wing",
+      "gives": "TORY",
+      "note": "Tories are Britain's Conservatives"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HE",
+      "ORY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone deeply absorbed in conservative ideology.",
+     "definitionFit": "A theory is a body of ideas, so it can stand for a line of thinking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1360,47 @@
     "text": "Boast about racket",
     "enumeration": "4"
    },
-   "solution": "CROW"
+   "solution": "CROW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CROW",
+    "definitions": [
+     {
+      "text": "Boast",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "circa, Latin for about"
+     },
+     {
+      "clueFragment": "racket",
+      "gives": "ROW",
+      "note": "a row is a noisy din"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ROW"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone bragging about their tennis bat.",
+     "walkthrough": "'Racket' suggests tennis, but it means a noise.",
+     "definitionFit": "To crow is to boast gloatingly, like a cockerel proclaiming triumph."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "racket"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1414,55 @@
     "text": "Get up in seething water",
     "enumeration": "8"
    },
-   "solution": "IRRIGATE"
+   "solution": "IRRIGATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IRRIGATE",
+    "definitions": [
+     {
+      "text": "water",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one word is set inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seething",
+      "gives": "IRATE",
+      "note": "furious"
+     },
+     {
+      "clueFragment": "Get up",
+      "gives": "RIG",
+      "note": "to rig out is to dress or get up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IR",
+      "RIG",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Rising from boiling water.",
+     "walkthrough": "'Seething water' suggests a boiling pan; seething means angry and water is a verb.",
+     "definitionFit": "To irrigate land is to supply it with water through channels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seething"
+    }
+   }
   },
   {
    "number": 23,
@@ -371,7 +1476,84 @@
     "text": "He prophesied bad weather returning to East around January 1",
     "enumeration": "6"
    },
-   "solution": "ELIJAH"
+   "solution": "ELIJAH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "ELIJAH",
+    "definitions": [
+     {
+      "text": "He prophesied",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so the word is read backwards"
+     },
+     {
+      "text": "1",
+      "for": "letter_selection",
+      "note": "the number one picks out the very first letter of the month"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means enclosing, so the reversed word wraps the month's letter"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "East",
+      "gives": "E",
+      "note": "compass abbreviation"
+     },
+     {
+      "clueFragment": "bad weather",
+      "gives": "HAIL",
+      "note": "hail is stormy weather"
+     },
+     {
+      "clueFragment": "January",
+      "gives": "J",
+      "select": "first",
+      "note": "the first letter of the month"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LI",
+      "J",
+      "AH"
+     ],
+     "reversals": [
+      {
+       "from": "HAIL",
+       "to": "LIAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A forecaster predicted storms coming back east early in the new year.",
+     "walkthrough": "'He prophesied bad weather' reads like a forecaster, but only 'He prophesied' defines.",
+     "definitionFit": "Elijah was an Old Testament prophet who foretold a drought in Israel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "prophesied"
+    }
+   }
   },
   {
    "number": 24,
@@ -385,7 +1567,43 @@
     "text": "Rough speaking was employed aboard",
     "enumeration": "6"
    },
-   "solution": "CREWED"
+   "solution": "CREWED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CREWED",
+    "definitions": [
+     {
+      "text": "was employed aboard",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "speaking",
+      "for": "homophone",
+      "note": "speaking means the word is to be judged as heard, not as written"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rough",
+      "gives": "CREWED",
+      "soundsLike": "CRUDE",
+      "note": "rough means crude or unrefined"
+     }
+    ],
+    "explanation": {
+     "surface": "A sailor talking coarsely while working on a ship.",
+     "definitionFit": "Someone who crewed a vessel worked as one of the hands on board."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rough"
+    }
+   }
   },
   {
    "number": 25,
@@ -399,7 +1617,65 @@
     "text": "Soldier crushed by reversing vehicle — disastrous",
     "enumeration": "6"
    },
-   "solution": "TRAGIC"
+   "solution": "TRAGIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TRAGIC",
+    "definitions": [
+     {
+      "text": "disastrous",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crushed by",
+      "for": "container",
+      "note": "being crushed by something means being squeezed inside it"
+     },
+     {
+      "text": "reversing",
+      "for": "reversal",
+      "note": "a vehicle reversing goes backwards, so its word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vehicle",
+      "gives": "CART",
+      "note": "a cart is a simple vehicle"
+     },
+     {
+      "clueFragment": "Soldier",
+      "gives": "GI",
+      "note": "an American private"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRA",
+      "GI",
+      "C"
+     ],
+     "reversals": [
+      {
+       "from": "CART",
+       "to": "TRAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier is run over by a backing truck, a calamity.",
+     "definitionFit": "Tragic describes something calamitous, causing great suffering or loss."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
