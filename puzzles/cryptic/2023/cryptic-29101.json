@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,57 @@
     "text": "Local network installed in loft by the ocean",
     "enumeration": "8"
    },
-   "solution": "ATLANTIC"
+   "solution": "ATLANTIC",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ATLANTIC",
+    "definitions": [
+     {
+      "text": "ocean",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "installed in",
+      "for": "container",
+      "note": "something installed in a space is fitted inside it, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "by the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loft",
+      "gives": "ATTIC",
+      "note": "a loft is the room under the roof"
+     },
+     {
+      "clueFragment": "Local network",
+      "gives": "LAN",
+      "note": "LAN stands for local area network"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "LAN",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wires up a home network in their attic, in a house overlooking the sea.",
+     "definitionFit": "The Atlantic is one of the world's great oceans, lying between Europe and the Americas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "loft"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +100,56 @@
     "text": "10(1000000)00? It's a beast",
     "enumeration": "4"
    },
-   "solution": "MINK"
+   "solution": "MINK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MINK",
+    "definitions": [
+     {
+      "text": "beast",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "It's a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "1000000",
+      "gives": "M",
+      "note": "a million is M, as in the prefix mega"
+     },
+     {
+      "clueFragment": "(",
+      "gives": "IN",
+      "note": "the brackets put one number inside the other, read as the word in"
+     },
+     {
+      "clueFragment": "10(1000000)00",
+      "gives": "K",
+      "note": "the outer digits 1000 make a thousand, K as in kilo"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "IN",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "A baffling string of digits presented like a puzzle, with the claim that it is an animal.",
+     "walkthrough": "The million sits inside the thousand, so the number reads M in K: run together, that is MINK.",
+     "definitionFit": "The mink is a small carnivorous mammal prized for its fur, so it is a beast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +163,62 @@
     "text": "Move around the Tube, essentially underground in America",
     "enumeration": "6"
    },
-   "solution": "SUBWAY"
+   "solution": "SUBWAY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SUBWAY",
+    "definitions": [
+     {
+      "text": "underground in America",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means one word wraps itself about another"
+     },
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its core, so only the central letters are used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Move",
+      "gives": "SWAY",
+      "note": "to sway is to move to and fro"
+     },
+     {
+      "clueFragment": "the Tube",
+      "gives": "UB",
+      "select": "middle",
+      "note": "the two middle letters of the word tube"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "UB",
+      "WAY"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice on getting about London's Underground, oddly glossed as being American.",
+     "walkthrough": "The Tube is London's Underground, and Americans call their underground railway the subway.",
+     "definitionFit": "In American usage a subway is an underground railway, what Londoners call the Tube."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Move"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +232,66 @@
     "text": "I serve differently to conclude Federer's final game",
     "enumeration": "7"
    },
-   "solution": "REVERSI"
+   "solution": "REVERSI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "REVERSI",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "differently",
+      "for": "anagram",
+      "note": "arranged differently means the letters are put in another order"
+     },
+     {
+      "text": "final",
+      "for": "letter_selection",
+      "note": "the final of a word is its closing letter"
+     }
+    ],
+    "linkWords": [
+     "to conclude"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I serve",
+      "gives": "ISERVE",
+      "note": "the letters taken as written"
+     },
+     {
+      "clueFragment": "Federer's",
+      "gives": "R",
+      "select": "last",
+      "note": "the last letter of the tennis player's name"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISERVER",
+       "gives": "REVERSI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis player resolves to vary their serve to close out Federer's last game.",
+     "walkthrough": "The tennis setting makes 'game' look like a game in a set; it is a board game.",
+     "definitionFit": "Reversi is a board game, also sold as Othello, in which counters are flipped to the capturing colour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +305,47 @@
     "text": "Bill's old schoolmaster",
     "enumeration": "4"
    },
-   "solution": "BEAK"
+   "solution": "BEAK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BEAK",
+    "definitions": [
+     {
+      "text": "Bill",
+      "at": 0
+     },
+     {
+      "text": "old schoolmaster",
+      "at": 7
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bill",
+      "note": "first meaning: a bird's bill"
+     },
+     {
+      "clueFragment": "old schoolmaster",
+      "note": "second meaning: dated British slang for a schoolmaster or magistrate"
+     }
+    ],
+    "explanation": {
+     "surface": "A man called Bill remembers his former teacher.",
+     "walkthrough": "Bill looks like a man's name; it is a bird's bill, and the 's is 'is'.",
+     "definitionFit": "A bird's horny mouth is its beak, and old British school slang used the same word for a teacher."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bill"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +359,59 @@
     "text": "Every other Briton's reasonable and related by blood",
     "enumeration": "10"
    },
-   "solution": "BIOLOGICAL"
+   "solution": "BIOLOGICAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BIOLOGICAL",
+    "definitions": [
+     {
+      "text": "related by blood",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Every other",
+      "for": "letter_selection",
+      "note": "every other means taking one letter and skipping the next"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Briton",
+      "gives": "BIO",
+      "select": "alternate",
+      "note": "the first, third and fifth letters"
+     },
+     {
+      "clueFragment": "reasonable",
+      "gives": "LOGICAL",
+      "note": "reasonable means sensible, logical"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIO",
+      "LOGICAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A claim that all Britons are sensible and kin to one another.",
+     "definitionFit": "A biological parent or child is one related by birth rather than by adoption or marriage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Every"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +425,46 @@
     "text": "In Judea, the nativity reveals deity",
     "enumeration": "6"
    },
-   "solution": "ATHENA"
+   "solution": "ATHENA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ATHENA",
+    "definitions": [
+     {
+      "text": "deity",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "in points to letters sitting inside the words that follow"
+     }
+    ],
+    "linkWords": [
+     "reveals"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Judea, the nativity",
+      "gives": "ATHENA",
+      "note": "found across the end of the first word, the whole second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A Christmas sentence: the birth in Judea reveals God incarnate.",
+     "walkthrough": "The nativity scene suggests the Christian God; the deity is Greek.",
+     "definitionFit": "Athena was the Greek goddess of wisdom and war, patron of Athens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nativity"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +478,66 @@
     "text": "Bearing thanks, King George departed to tour Thailand",
     "enumeration": "8"
    },
-   "solution": "ATTITUDE"
+   "solution": "ATTITUDE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ATTITUDE",
+    "definitions": [
+     {
+      "text": "Bearing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "departed",
+      "for": "deletion",
+      "note": "whatever has departed has gone away, so those letters leave"
+     },
+     {
+      "text": "to tour",
+      "for": "container",
+      "note": "to tour a place is to travel round it, so the word goes around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thanks",
+      "gives": "GRATITUDE",
+      "note": "gratitude is thankfulness"
+     },
+     {
+      "clueFragment": "King George",
+      "gives": "GR",
+      "note": "GR, Georgius Rex, is King George's royal cipher"
+     },
+     {
+      "clueFragment": "Thailand",
+      "gives": "T",
+      "note": "T is Thailand's international vehicle code"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "T",
+      "ITUDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Bearing thanks, the late King George set off on a tour of Thailand.",
+     "walkthrough": "GR, Georgius Rex, is the royal cipher seen on postboxes; 'departed' suggests the late king, but it tells you to remove him.",
+     "definitionFit": "Bearing in the sense of carriage or posture is attitude, how one holds oneself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bearing"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +551,48 @@
     "text": "Be no longer in the lead?",
     "enumeration": "5"
    },
-   "solution": "EXIST"
+   "solution": "EXIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXIST",
+    "definitions": [
+     {
+      "text": "Be",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no longer",
+      "gives": "EX",
+      "note": "ex means former, no longer"
+     },
+     {
+      "clueFragment": "in the lead",
+      "gives": "IST",
+      "note": "first place is 1ST, read as letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "IST"
+     ]
+    },
+    "explanation": {
+     "surface": "A wistful question about losing first place.",
+     "walkthrough": "The digit 1 in 1ST is read as the letter I.",
+     "definitionFit": "To exist is simply to be, to have being or reality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +606,42 @@
     "text": "Support the other side",
     "enumeration": "4"
    },
-   "solution": "BACK"
+   "solution": "BACK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BACK",
+    "definitions": [
+     {
+      "text": "Support",
+      "at": 0
+     },
+     {
+      "text": "the other side",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Support",
+      "note": "first meaning: to support someone, as a verb"
+     },
+     {
+      "clueFragment": "the other side",
+      "note": "second meaning: the reverse side of something"
+     }
+    ],
+    "explanation": {
+     "surface": "Urging loyalty to the opposing team.",
+     "definitionFit": "To back a cause is to support it, and the back is the reverse face of anything."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Support"
+    }
+   }
   },
   {
    "number": 11,
@@ -173,7 +655,76 @@
     "text": "One day in seven I'll eradicate ragwort, primarily with this?",
     "enumeration": "10"
    },
-   "solution": "WEEDKILLER"
+   "solution": "WEEDKILLER",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade",
+     "and_lit"
+    ],
+    "answer": "WEEDKILLER",
+    "definitions": [
+     {
+      "text": "One day in seven I'll eradicate ragwort, primarily with this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means one thing is placed inside another"
+     },
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letters count"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seven",
+      "gives": "WEEK",
+      "note": "seven days make a week"
+     },
+     {
+      "clueFragment": "One day",
+      "gives": "D",
+      "note": "D is the abbreviation for day"
+     },
+     {
+      "clueFragment": "I'll",
+      "gives": "ILL",
+      "note": "taken as written, without the apostrophe"
+     },
+     {
+      "clueFragment": "eradicate ragwort",
+      "gives": "ER",
+      "select": "first",
+      "note": "the first letters of the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WEE",
+      "D",
+      "K",
+      "ILL",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener vows to spend one day a week clearing ragwort, with a hinted chemical aid.",
+     "walkthrough": "The whole clue doubles as the definition: what a gardener might use one day a week to wipe out weeds like ragwort, a toxic yellow-flowered plant.",
+     "definitionFit": "Ragwort is a common weed, and a herbicide used to eradicate it is a weedkiller."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "seven"
+    }
+   }
   },
   {
    "number": 12,
@@ -187,7 +738,56 @@
     "text": "Determined supporter boring Sylvester Stallone",
     "enumeration": "6"
    },
-   "solution": "STEELY"
+   "solution": "STEELY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STEELY",
+    "definitions": [
+     {
+      "text": "Determined",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boring",
+      "for": "container",
+      "note": "something boring drills into another thing, ending up inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sylvester Stallone",
+      "gives": "SLY",
+      "note": "Sly is the actor's well-known nickname"
+     },
+     {
+      "clueFragment": "supporter",
+      "gives": "TEE",
+      "note": "a golf tee supports the ball"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TEE",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A grim, determined fan finds Stallone's films dull.",
+     "walkthrough": "'Boring' reads as dull; it means drilling into.",
+     "definitionFit": "Steely means hard and resolute like steel, so firmly determined."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boring"
+    }
+   }
   },
   {
    "number": 13,
@@ -201,7 +801,73 @@
     "text": "Delivers suspect walk-on part? I'd stumble over scenery",
     "enumeration": "10"
    },
-   "solution": "EXTRADITES"
+   "solution": "EXTRADITES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "charade"
+    ],
+    "answer": "EXTRADITES",
+    "definitions": [
+     {
+      "text": "Delivers suspect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stumble",
+      "for": "anagram",
+      "note": "to stumble is to trip and fall in a muddle, so the letters are jumbled"
+     },
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over, in a down clue, means read from the bottom back up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "walk-on part",
+      "gives": "EXTRA",
+      "note": "an extra has a walk-on part in a film"
+     },
+     {
+      "clueFragment": "I'd",
+      "gives": "ID",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "scenery",
+      "gives": "SET",
+      "note": "a stage set is the scenery"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXTRA",
+      "DI",
+      "TES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ID",
+       "gives": "DI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor with a bit part worries they'll trip over the scenery.",
+     "walkthrough": "The theatrical scene hides the definition: 'suspect' is a noun, the person handed over.",
+     "definitionFit": "A state that extradites someone hands over a suspect to another jurisdiction for trial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "suspect"
+    }
+   }
   },
   {
    "number": 14,
@@ -215,7 +881,51 @@
     "text": "Gary isn't cast in 1960s' TV series",
     "enumeration": "8"
    },
-   "solution": "STINGRAY"
+   "solution": "STINGRAY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STINGRAY",
+    "definitions": [
+     {
+      "text": "1960s' TV series",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cast",
+      "for": "anagram",
+      "note": "cast can mean thrown, so the letters are flung into new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gary isn't",
+      "gives": "GARYISNT",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GARYISNT",
+       "gives": "STINGRAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor named Gary is left out of the cast of an old TV show.",
+     "walkthrough": "'Cast' looks like a TV cast list; it is the anagram signal. Stingray was a Gerry Anderson puppet adventure series.",
+     "definitionFit": "Stingray was a British puppet series about a submarine, first broadcast in 1964."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 15,
@@ -229,7 +939,48 @@
     "text": "Announcement: 50% off diamonds!",
     "enumeration": "3"
    },
-   "solution": "ICE"
+   "solution": "ICE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ICE",
+    "definitions": [
+     {
+      "text": "diamonds",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "50% off",
+      "for": "deletion",
+      "note": "fifty per cent off means half of the word is cut away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Announcement",
+      "gives": "NOTICE",
+      "note": "a notice is a public announcement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "A jeweller's sale announcement: diamonds at half price.",
+     "walkthrough": "The first half of NOTICE goes, leaving its second half.",
+     "definitionFit": "Ice is slang for diamonds, from their cold glittering look."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Announcement"
+    }
+   }
   },
   {
    "number": 16,
@@ -243,7 +994,38 @@
     "text": "E-lation?",
     "enumeration": "7"
    },
-   "solution": "ECSTASY"
+   "solution": "ECSTASY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ECSTASY",
+    "definitions": [
+     {
+      "text": "E-lation?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "E-lation?",
+      "note": "surface reading: elation, a state of great joy"
+     },
+     {
+      "clueFragment": "E-lation?",
+      "note": "setter's reading: the high from taking E, slang for a popular rave drug"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The hyphen splits off E, slang for a club drug, so the word means both great joy and the drug that brings it.",
+     "definitionFit": "The word means rapturous joy and is also the full name of the drug known as E."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 17,
@@ -257,7 +1039,75 @@
     "text": "Runner is climbing over the summit of Kilimanjaro",
     "enumeration": "3"
    },
-   "solution": "SKI"
+   "solution": "SKI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "container"
+    ],
+    "answer": "SKI",
+    "definitions": [
+     {
+      "text": "Runner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "summit of",
+      "for": "letter_selection",
+      "note": "the summit is the top, and in a down clue the top of a word is its first letter"
+     },
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down clue, climbing means the word is read upwards, backwards"
+     },
+     {
+      "text": "over",
+      "for": "container",
+      "note": "going over something means passing across and around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Kilimanjaro",
+      "gives": "K",
+      "select": "first",
+      "note": "the first letter of the mountain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "K",
+      "I"
+     ],
+     "reversals": [
+      {
+       "from": "IKS",
+       "to": "SKI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An athlete is climbing Kilimanjaro.",
+     "walkthrough": "'Runner' suggests an athlete; it means a runner on a sledge or a pair of snowshoes.",
+     "definitionFit": "A ski is a long narrow runner that slides over snow, like the runner of a sledge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Runner"
+    }
+   }
   },
   {
    "number": 18,
@@ -271,7 +1121,58 @@
     "text": "Drunk pinches copper and metal",
     "enumeration": "7"
    },
-   "solution": "MERCURY"
+   "solution": "MERCURY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MERCURY",
+    "definitions": [
+     {
+      "text": "metal",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pinches",
+      "for": "container",
+      "note": "to pinch something is to grip it, holding it inside"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drunk",
+      "gives": "MERRY",
+      "note": "merry is tipsy"
+     },
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Cu is copper's chemical symbol"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MER",
+      "CU",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk shoplifts copper and other metal.",
+     "walkthrough": "'Pinches' reads as stealing; it means holding inside.",
+     "definitionFit": "Mercury is a metallic element, the only metal liquid at room temperature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pinches"
+    }
+   }
   },
   {
    "number": 19,
@@ -285,7 +1186,48 @@
     "text": "Just terrible losing crown",
     "enumeration": "8"
    },
-   "solution": "RIGHTFUL"
+   "solution": "RIGHTFUL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RIGHTFUL",
+    "definitions": [
+     {
+      "text": "Just",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing crown",
+      "for": "deletion",
+      "note": "the crown is the top, so in a down clue the first letter is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "terrible",
+      "gives": "FRIGHTFUL",
+      "note": "frightful means terrible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIGHTFUL"
+     ]
+    },
+    "explanation": {
+     "surface": "A dethroned monarch laments it is simply terrible to lose the crown.",
+     "walkthrough": "'Just' looks like an adverb, 'simply'; it is the adjective meaning fair.",
+     "definitionFit": "Just means fair and legitimate, as does rightful, as in the rightful owner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Just"
+    }
+   }
   },
   {
    "number": 20,
@@ -299,7 +1241,43 @@
     "text": "Common soldier",
     "enumeration": "7"
    },
-   "solution": "GENERAL"
+   "solution": "GENERAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GENERAL",
+    "definitions": [
+     {
+      "text": "Common",
+      "at": 0
+     },
+     {
+      "text": "soldier",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Common",
+      "note": "first meaning: widespread, not specific"
+     },
+     {
+      "clueFragment": "soldier",
+      "note": "second meaning: a senior army officer"
+     }
+    ],
+    "explanation": {
+     "surface": "Looks like a private, a common soldier, but it is the top brass.",
+     "definitionFit": "General means widespread or usual, and a general is a high-ranking army officer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Common"
+    }
+   }
   },
   {
    "number": 21,
@@ -313,7 +1291,80 @@
     "text": "A British party is caught after doing a U-turn, sharp",
     "enumeration": "8"
    },
-   "solution": "ABRASIVE"
+   "solution": "ABRASIVE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "ABRASIVE",
+    "definitions": [
+     {
+      "text": "sharp",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doing a U-turn",
+      "for": "reversal",
+      "note": "a U-turn sends something back the way it came, so it reads backwards"
+     },
+     {
+      "text": "caught",
+      "for": "container",
+      "note": "something caught is trapped inside another thing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "RAVE",
+      "note": "a rave is a dance party"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "B",
+      "RA",
+      "SI",
+      "VE"
+     ],
+     "reversals": [
+      {
+       "from": "IS",
+       "to": "SI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A British political party is caught out making a policy U-turn, and the criticism is sharp.",
+     "walkthrough": "'A British party' looks like a political party; the party is a rave.",
+     "definitionFit": "Abrasive means harsh or sharp in manner, rough like sandpaper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 22,
@@ -327,7 +1378,54 @@
     "text": "Having no immediate use, king leaves in musical style",
     "enumeration": "6"
    },
-   "solution": "BLUESY"
+   "solution": "BLUESY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BLUESY",
+    "definitions": [
+     {
+      "text": "in musical style",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "whatever leaves goes away, so that letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Having no immediate use",
+      "gives": "BLUESKY",
+      "note": "blue-sky research or thinking has no immediate practical application"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLUES",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A redundant king departs to the strains of music.",
+     "walkthrough": "Blue-sky means speculative, with no practical payoff yet; take away K to leave the answer.",
+     "definitionFit": "Bluesy describes music in the style of the blues, with its bent notes and melancholy feel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "king"
+    }
+   }
   },
   {
    "number": 23,
@@ -341,7 +1439,55 @@
     "text": "Sturgeon's playing a bugle",
     "enumeration": "6"
    },
-   "solution": "BELUGA"
+   "solution": "BELUGA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BELUGA",
+    "definitions": [
+     {
+      "text": "Sturgeon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing about with letters rearranges them"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a bugle",
+      "gives": "ABUGLE",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ABUGLE",
+       "gives": "BELUGA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Sturgeon is playing a bugle.",
+     "walkthrough": "Sturgeon looks like a surname, perhaps Nicola Sturgeon the Scottish politician; it is the fish.",
+     "definitionFit": "The beluga is a large sturgeon of the Caspian and Black Seas, source of prized caviar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Sturgeon"
+    }
+   }
   },
   {
    "number": 23,
@@ -355,7 +1501,66 @@
     "text": "Adult abandons fight over oxygen container",
     "enumeration": "6"
    },
-   "solution": "BOTTLE"
+   "solution": "BOTTLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "BOTTLE",
+    "definitions": [
+     {
+      "text": "container",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandons",
+      "for": "deletion",
+      "note": "whatever abandons a word walks out of it, so that letter goes"
+     },
+     {
+      "text": "over",
+      "for": "container",
+      "note": "lying over something means covering it on both sides, so one piece goes around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fight",
+      "gives": "BATTLE",
+      "note": "a battle is a fight"
+     },
+     {
+      "clueFragment": "Adult",
+      "gives": "A",
+      "note": "A is the film classification for adult"
+     },
+     {
+      "clueFragment": "oxygen",
+      "gives": "O",
+      "note": "O is oxygen's chemical symbol"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "O",
+      "TTLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A grown-up gives up a struggle over an oxygen tank.",
+     "walkthrough": "'Container' looks like part of an oxygen cylinder; it is the definition on its own.",
+     "definitionFit": "A bottle is a vessel for holding liquids, a kind of container."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Adult"
+    }
+   }
   },
   {
    "number": 24,
@@ -369,7 +1574,63 @@
     "text": "Everton gutted — thumps in dodgy penalty",
     "enumeration": "10"
    },
-   "solution": "PUNISHMENT"
+   "solution": "PUNISHMENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "PUNISHMENT",
+    "definitions": [
+     {
+      "text": "penalty",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gutted",
+      "for": "letter_selection",
+      "note": "something gutted has its insides removed, leaving only the outer letters"
+     },
+     {
+      "text": "dodgy",
+      "for": "anagram",
+      "note": "dodgy means unreliable or crooked, so the letters are not in order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everton",
+      "gives": "EN",
+      "select": "outer",
+      "note": "the first and last letters of the club's name"
+     },
+     {
+      "clueFragment": "thumps in",
+      "gives": "THUMPSIN",
+      "note": "the letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ENTHUMPSIN",
+       "gives": "PUNISHMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A football report: Everton, devastated, hit back after a dubious penalty call.",
+     "walkthrough": "Everton is an English football club; 'penalty' suggests a spot kick but means a punishment.",
+     "definitionFit": "A penalty is a punishment imposed for breaking a rule or law."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "penalty"
+    }
+   }
   },
   {
    "number": 25,
@@ -383,7 +1644,69 @@
     "text": "Opening of honeypot? I'm not sure — tip from Pooh Bear",
     "enumeration": "4"
    },
-   "solution": "HUMP"
+   "solution": "HUMP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HUMP",
+    "definitions": [
+     {
+      "text": "Bear",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Opening of",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter"
+     },
+     {
+      "text": "tip from",
+      "for": "letter_selection",
+      "note": "the tip of a word is its very end, here the first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "honeypot",
+      "gives": "H",
+      "select": "first",
+      "note": "the first letter"
+     },
+     {
+      "clueFragment": "I'm not sure",
+      "gives": "UM",
+      "note": "um is the hesitant noise of uncertainty"
+     },
+     {
+      "clueFragment": "Pooh",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "UM",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "Winnie-the-Pooh dithers over whether to open the honey pot.",
+     "walkthrough": "'Pooh Bear' reads as one name; Bear is the definition, the verb meaning carry. To hump is British slang for lugging something heavy.",
+     "definitionFit": "To hump something is to carry it with effort, so it means to bear a load."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bear"
+    }
+   }
   },
   {
    "number": 26,
@@ -397,7 +1720,49 @@
     "text": "Leaders of Newcastle usually taunt Sunderland fans",
     "enumeration": "4"
    },
-   "solution": "NUTS"
+   "solution": "NUTS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "NUTS",
+    "definitions": [
+     {
+      "text": "fans",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leaders of",
+      "for": "letter_selection",
+      "note": "the leaders of words are their opening letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Newcastle usually taunt Sunderland",
+      "gives": "NUTS",
+      "select": "first",
+      "note": "the first letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Newcastle's bosses habitually mock the supporters of rival club Sunderland.",
+     "walkthrough": "Newcastle and Sunderland are fierce north-east England football rivals.",
+     "definitionFit": "A nut is an enthusiast, as in a football nut, so nuts are fans."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fans"
+    }
+   }
   },
   {
    "number": 26,
@@ -411,7 +1776,51 @@
     "text": "Feature of numbers with natural base",
     "enumeration": "4"
    },
-   "solution": "NOSE"
+   "solution": "NOSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOSE",
+    "definitions": [
+     {
+      "text": "Feature",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "numbers",
+      "gives": "NOS",
+      "note": "nos is the abbreviation for numbers"
+     },
+     {
+      "clueFragment": "natural base",
+      "gives": "E",
+      "note": "e is the base of natural logarithms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A mathematical property of numbers expressed in the natural base.",
+     "walkthrough": "The maths setting makes 'feature' look like a property; it is a facial feature.",
+     "definitionFit": "The nose is one of the facial features, along with eyes and mouth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Feature"
+    }
+   }
   },
   {
    "number": 27,
@@ -425,7 +1834,73 @@
     "text": "Swimmers swim on vacation, including exercise by river",
     "enumeration": "5"
    },
-   "solution": "SPERM"
+   "solution": "SPERM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "SPERM",
+    "definitions": [
+     {
+      "text": "Swimmers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "a word on vacation is vacated, emptied of its middle and left with its ends"
+     },
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including means taking something inside"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "swim",
+      "gives": "SM",
+      "select": "outer",
+      "note": "the first and last letters"
+     },
+     {
+      "clueFragment": "exercise",
+      "gives": "PE",
+      "note": "PE is physical education"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the map abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PE",
+      "R",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "Holidaymakers swim and work out beside a river.",
+     "walkthrough": "'Swimmers' looks like people in the water; it means the cells that swim to an egg.",
+     "definitionFit": "Sperm cells propel themselves with a tail, so they are cheekily called swimmers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Swimmers"
+    }
+   }
   },
   {
    "number": 28,
@@ -439,7 +1914,69 @@
     "text": "Everybody loves a posh royal, one who's an old predator?",
     "enumeration": "8"
    },
-   "solution": "ALLOSAUR"
+   "solution": "ALLOSAUR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALLOSAUR",
+    "definitions": [
+     {
+      "text": "old predator",
+      "at": 43
+     }
+    ],
+    "linkWords": [
+     "one who's an"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everybody",
+      "gives": "ALL",
+      "note": "all means everybody"
+     },
+     {
+      "clueFragment": "loves",
+      "gives": "OS",
+      "note": "love is zero in tennis, the letter O, so loves are Os"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "posh",
+      "gives": "U",
+      "note": "U means upper-class"
+     },
+     {
+      "clueFragment": "royal",
+      "gives": "R",
+      "note": "R is the abbreviation for royal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "OS",
+      "A",
+      "U",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A toff-loving royal is unmasked as an old predator.",
+     "walkthrough": "U for upper-class is old British slang for posh.",
+     "definitionFit": "The allosaur was a large meat-eating dinosaur of the Jurassic, so an ancient hunter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "predator"
+    }
+   }
   }
  ]
 }
