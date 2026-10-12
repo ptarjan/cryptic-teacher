@@ -81,11 +81,15 @@ with tempfile.TemporaryDirectory() as scratch:
         if [f[0] for f in err.flags] != ["NEARDUP"]:
             fails.append(f"the copy was refused for {err.flags}, want NEARDUP")
 
-    # A book page holding a newspaper's puzzle is the reprint, whichever was
-    # filed first: written after it, the newspaper's own id is filed, and
-    # the book file becomes a reading of it beside acquire_book's reprints.
-    # A book page reprinting a held newspaper puzzle is refused.
+    # A held book file is never replaced by another copy of its puzzle,
+    # whichever was filed first: a newspaper id carrying a held book file's
+    # clues (telegraph-26398 over the solved, annotated book-25035) is
+    # refused, the book file stands untouched, and the pair is recorded for
+    # the cross-check (tools/book_twins.py). A book page reprinting a held
+    # newspaper puzzle is refused too.
     import book_queue
+    import book_twins
+    import corroborate
     with tempfile.TemporaryDirectory() as other:
         puzzle_paths.PUZZLE_DIR = Path(other) / "puzzles"
         book_queue.REPRINT_DIR = Path(other) / "book-reprints"
@@ -97,51 +101,44 @@ with tempfile.TemporaryDirectory() as scratch:
         held = puzzle_paths.file_for(book)
         held.parent.mkdir(parents=True)
         held.write_text(json.dumps(book))
+        before = held.read_bytes()
         try:
             write_puzzle_file(puzzle_paths.file_for(puzzle), puzzle,
                               generator="tools/build_authored_puzzle.py")
+            fails.append("a newspaper id was filed over a held book copy of its puzzle")
         except puzzle_integrity.RefusedWrite as err:
-            fails.append(f"the original was refused over a held book copy: {err}")
-        if not puzzle_paths.find("authored-1"):
-            fails.append("the original was not filed over a held book copy")
-        if puzzle_paths.find("book-13007"):
-            fails.append("the book copy of a newspaper puzzle is still filed")
-        reading = book_queue.REPRINT_DIR / "authored-1" / "isbn_9781902254067-7.txt"
-        clue = puzzle["entries"][0]["clue"]["text"]
-        if not reading.is_file() or clue not in reading.read_text():
-            fails.append(f"the book copy's clues are not kept at {reading}")
+            if [f[0] for f in err.flags] != ["NEARDUP"]:
+                fails.append(f"the newspaper copy was refused for {err.flags}, want NEARDUP")
+        if puzzle_paths.find("authored-1"):
+            fails.append("the newspaper copy of a held book puzzle was filed")
+        if not held.is_file() or held.read_bytes() != before:
+            fails.append("the held book file was removed or changed by a copy's write")
+        if (book_queue.REPRINT_DIR / "authored-1").exists():
+            fails.append("the held book file was turned into a reading")
+        twins = book_twins.read(Path(other))
+        if twins != {"book-13007": "authored-1"}:
+            fails.append(f"book_twins holds {twins}, want the refused pair")
+        seen = []
+        corroborate._georgeho[:] = [type("DB", (), {"execute": lambda self, q, a: seen.append(a) or []})()]
+        book_twins.ROOT = Path(other)
+        corroborate.georgeho.every({"id": "book-13007"})
+        if seen != [("authored-1",)]:
+            fails.append(f"georgeho reads the book under {seen}, want its twin authored-1")
+    with tempfile.TemporaryDirectory() as other:
+        puzzle_paths.PUZZLE_DIR = Path(other) / "puzzles"
+        original = puzzle_paths.file_for(puzzle)
+        original.parent.mkdir(parents=True)
+        original.write_text(json.dumps(puzzle))
         try:
             write_puzzle_file(puzzle_paths.file_for(book), book)
             fails.append("a book page reprinting a held puzzle was filed")
         except puzzle_integrity.RefusedWrite as err:
             if [f[0] for f in err.flags] != ["NEARDUP"]:
                 fails.append(f"the book reprint was refused for {err.flags}, want NEARDUP")
-
-    # The same pair filed by two jobs in two worktrees, the book first and the
-    # newspaper second, each before the other's push reached it: both files
-    # arrive by git, no write sees the pair, and supersede_held_books keeps the
-    # book as a reading. Two books reprinting each other are left alone.
     import fetch_puzzle
-    with tempfile.TemporaryDirectory() as other:
-        puzzle_paths.PUZZLE_DIR = Path(other) / "puzzles"
-        book_queue.REPRINT_DIR = Path(other) / "book-reprints"
-        twin = [{**e, "clue": {**e["clue"], "text": e["clue"]["text"] + " twice"}}
-                for e in puzzle["entries"]]
-        for p in (book, puzzle,
-                  {**book, "entries": twin, "id": "book-13008", "number": 13008},
-                  {**book, "entries": twin, "id": "book-13009", "number": 13009}):
-            path = puzzle_paths.file_for(p)
-            path.parent.mkdir(parents=True, exist_ok=True)
-            path.write_text(json.dumps(p))
-        done = fetch_puzzle.supersede_held_books()
-        if done != [("book-13007", "authored-1")]:
-            fails.append(f"supersede_held_books did {done}, want [('book-13007', 'authored-1')]")
-        if puzzle_paths.find("book-13007") or not puzzle_paths.find("authored-1"):
-            fails.append("the book filed before its newspaper original is still filed, or the original went")
-        if not (book_queue.REPRINT_DIR / "authored-1" / "isbn_9781902254067-7.txt").is_file():
-            fails.append("the book filed first is not kept as a reading of the newspaper original")
-        if not (puzzle_paths.find("book-13008") and puzzle_paths.find("book-13009")):
-            fails.append("a book reprinting another book was removed")
+    for gone in ("supersede_book", "supersede_held_books"):
+        if hasattr(fetch_puzzle, gone):
+            fails.append(f"fetch_puzzle.{gone} can still remove a held book file")
 
 for f in fails:
     print("  FAIL:", f)

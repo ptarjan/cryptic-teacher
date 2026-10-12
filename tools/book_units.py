@@ -13,8 +13,6 @@ tools/acquire_books.sh with no argument is the tick; each unit runs
                  desktop (tools/ocr_remote.py): each book tools/book_queue.py
                  --reread lists, READS at once, so one slow book holds up only
                  itself and a book just borrowed is read at the next tick.
-  * supersede    a held book file that reprints a held newspaper puzzle turned
-                 into a reading of it (fetch_puzzle.py --supersede-books).
 """
 import subprocess
 import sys
@@ -71,5 +69,4 @@ def plan(ledger, now):
     _, due = book_queue("--reread")
     for book in due:
         out.append(unit(f"read:{book}", timeout=READ_SECONDS, cls="read", why="its text is on disk and it is due"))
-    out.append(unit("supersede", timeout=1200, every=HOUR))
     return out

@@ -7,13 +7,13 @@
 
 A table here describes one puzzle file's content, keyed by its id ("<id>" or
 "<id>/<entry id>"): a clue, answer or light the source got wrong, a setter's
-error, a nina, a light the solver missed. A row whose file is gone names
-nothing, and tools/test_source_answer_wrong.sh fails on it (book-12076, dropped
-10-11 by fetch_puzzle.supersede_held_books, kept its source_clue_wrong row).
+error, a nina, a light the solver missed, the newspaper id a book file is. A
+row whose file is gone names nothing, and tools/test_source_answer_wrong.sh
+fails on it.
 
 So whatever deletes or renames a puzzle file takes its rows in the same commit:
 on a rename (the same file under a new id) they move to the new id, on any
-other deletion they go. fetch_puzzle.supersede_book calls retire(); durable.sh
+other deletion they go. durable.sh
 retires the id of every D or R line it commits and carries the tables in that
 commit; the pre-commit hook runs --check-staged, which refuses the rest.
 SOURCE_LIGHT_WRONG is code in fetch_puzzle.py, not data, so it is checked but
@@ -31,7 +31,7 @@ DATA = ROOT / "tools" / "data"
 #: (json_merge.dump_lines) and merged per key (.gitattributes json-keys).
 ENTRY_TABLES = ("source_clue_wrong", "source_answer_wrong", "setter_error", "blog_disagree")
 #: Keyed "<id>".
-PUZZLE_TABLES = ("ninas", "blind_misses", "diagnosed_misses")
+PUZZLE_TABLES = ("ninas", "blind_misses", "diagnosed_misses", "book_twins")
 TABLES = ENTRY_TABLES + PUZZLE_TABLES
 LIGHT_TABLE = "tools/fetch_puzzle.py"
 PUZZLE_FILE = re.compile(r"^puzzles/(?:.*/)?([a-z][a-z0-9]*-\d+)\.json$")

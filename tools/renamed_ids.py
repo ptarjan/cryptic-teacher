@@ -158,9 +158,8 @@ def reprinted_in(renamed, live):
 
 def main(argv):
     if argv == ["--write"]:
-        # A later rename of an id wins. A row history cannot pair stays: a
-        # book file superseded by the newspaper puzzle another job filed
-        # (fetch_puzzle.supersede_book) is deleted in a commit of its own.
+        # A later rename of an id wins. A row history cannot pair (an id
+        # deleted in a commit of its own, not renamed) stays.
         renamed = {**read(), **dict(from_history())}
         write(renamed)
         print(f"{MAP.relative_to(ROOT)}: {len(renamed)} renamed id(s)")
@@ -168,7 +167,7 @@ def main(argv):
     if argv == ["--check"]:
         # Sorted: a job's batch can stage its rows in path order and commit
         # its renames in another.
-        # A row history does not pair is a supersede (see --write) and stands.
+        # A row history does not pair stands (see --write).
         have, want = read(), dict(from_history())
         if any(have.get(a) != b for a, b in want.items()):
             missing = [f"{a} -> {b}" for a, b in want.items() if have.get(a) != b]

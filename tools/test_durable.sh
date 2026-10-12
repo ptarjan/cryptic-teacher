@@ -284,8 +284,8 @@ for script, why in long_jobs.items():
     for m in re.finditer(r"^(CT_SALVAGE_PATHS|DURABLE_PATHS)=(.*)$", text, re.M):
         if re.search(r"\bpuzzles/\w", m.group(2)):
             bad.append(f"tools/{script}'s {m.group(1)} names a folder inside puzzles/: a write "
-                       "there can delete a book file in another (fetch_puzzle.supersede_book), "
-                       "and that deletion would never be committed")
+                       "there can move a file to another (fetch_puzzle.write_puzzle_file unlinks "
+                       "the old path), and that deletion would never be committed")
     if "durable.sh" in text and "durable_run" not in text and "durable_checkpoint" not in text:
         bad.append(f"tools/{script} sources tools/durable.sh but never checkpoints")
 assert not bad, "\n".join(bad)

@@ -4586,9 +4586,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
                 decide(verdict, puzzle, paper.series, puzzles, held, commit if write else None)
                 verdicts.append(verdict)
         # Keyed by the inputs after this read's writes: a stray clue it
-        # mended no longer makes the edition due. Its reprints are those it
-        # read: a book its write superseded (fetch_puzzle.supersede_book)
-        # becomes a reading after it, and makes it due to vote.
+        # mended no longer makes the edition due.
         h = inputs_of(fh, found, paper.series, read_with)
         known[rel] = edition_commit.row(rel, h, found, fh, scan_key(paper_of(d)), sol_seen, verdicts, vlm_ok and seen_by,
                                         solution_key())

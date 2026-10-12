@@ -292,12 +292,10 @@ tools/acquire_book.py                         takes a book from an archive.org i
                                               (a leaf whose clues are a held puzzle's, a Times
                                               anthology reprinting the daily, is kept as a
                                               reading that votes on that puzzle's clues, not
-                                              filed as a new book-N; a newspaper puzzle filed
-                                              after its book copy turns the book-N file into
-                                              that reading, in fetch_puzzle.write_puzzle_file,
-                                              and fetch_puzzle.py --supersede-books does the
-                                              same for a pair two jobs filed in two worktrees,
-                                              each before the other's push reached it), and a
+                                              filed as a new book-N; a newspaper puzzle whose
+                                              book copy is held is refused instead, the book
+                                              file kept and the pair recorded in
+                                              tools/book_twins.py for the cross-check), and a
                                               per-puzzle report of what it got and why the rest
                                               failed
 tools/light_spec.py                           turns one OCR'd clue list into the light spec the
@@ -992,9 +990,8 @@ tools/puzzle_rows.py                          the per-puzzle tables' rows follow
 tools/test_puzzle_rows.sh                     do a puzzle's table rows go where its file goes?
                                               retire discards and carries, the pre-commit gate
                                               refuses a drop or rename leaving rows, durable.sh
-                                              commits a drop with its rows gone, supersede_book
-                                              writes the redirect row and retires the rows, and
-                                              every real row names a file
+                                              commits a drop with its rows gone, and every real
+                                              row names a file
 tools/test_renamed_ids.sh                     does a renamed puzzle's old id keep resolving? A
                                               rename inside a commit that moves every file is
                                               still paired, a staged rename the map lacks is
@@ -1345,6 +1342,12 @@ tools/data/reprints_pending.json              the reprint files held before tool
                                               rule, still to fold into their originals;
                                               puzzle_integrity.py's REPRINT check forgives
                                               these alone, and the list only shrinks
+tools/book_twins.py                           the newspaper id of each held book file a filer
+                                              tried to file a copy of:
+                                              fetch_puzzle.check_not_copy refuses the copy and
+                                              keeps the book, and corroborate.georgeho reads
+                                              the book under that id, so the blog post
+                                              cross-checks it
 tools/reprints.py                             a reprint is filed as its original: the
                                               reprinting paper's number and print date go on
                                               the original as source.reprintedIn, and
@@ -1498,10 +1501,7 @@ tools/rank_book_candidates.py                 judge each candidate archive.org c
 tools/acquire_books.sh                        the archive.org books as a queue of units: a tick
                                               every ten minutes; `unit borrow:<id>` takes one
                                               loan and fetches its text, `unit read:<id>` reads
-                                              one book from disk, `unit supersede` turns a held
-                                              book file that reprints a held newspaper puzzle
-                                              into a reading of it (fetch_puzzle.py
-                                              --supersede-books)
+                                              one book from disk
 tools/book_units.py                           the books' units for tools/unit_queue.py: the
                                               next loan (one at a time, an hour after a
                                               refusal, three an hour), each due book's read,
@@ -1529,8 +1529,8 @@ tools/test_durable.sh                         does a long job keep what it filed
                                               refuse and push the rest; does corpus_queue.py
                                               stop let the pass commit; does every long
                                               scheduled job use tools/durable.sh, committing
-                                              all of puzzles/ so a book file a newspaper write
-                                              superseded is deleted on origin too?
+                                              all of puzzles/ so a file a write moved between
+                                              folders is deleted on origin too?
 tools/data/source_answer_wrong.json           answers a source's key got wrong, keyed puzzle
                                               id/entry id: what it serves, the corrected
                                               letters, the evidence; read as

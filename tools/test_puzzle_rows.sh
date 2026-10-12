@@ -5,10 +5,7 @@
 # pre-commit gate (--check-staged) refuses a staged deletion or rename that
 # leaves rows and lets a directory move and a retired drop through;
 # tools/durable.sh commits a drop with its rows gone, past that gate, and lands
-# it on origin. Then, on the real code, fetch_puzzle.supersede_book (the full
-# pass's "Drop book-N" when book-N reprints a filed newspaper puzzle, as
-# book-12076 did times-25638 on 10-11) writes the old id's redirect row and
-# retires its rows; and every real table row names a puzzle file on disk.
+# it on origin. Then every real table row names a puzzle file on disk.
 #
 #     bash tools/test_puzzle_rows.sh
 set -uo pipefail
@@ -83,7 +80,7 @@ mkdir -p puzzles/x/2018 && git mv puzzles/x/2017/x-3.json puzzles/x/2018/x-3.jso
 check "a file that moves keeps its id and its rows" 0 "$(python3 tools/puzzle_rows.py --check-staged; echo $?)"
 git reset -q --hard
 
-# durable.sh: a deletion in the tree, as supersede_book leaves it, plus a filing.
+# durable.sh: a deletion in the tree plus a filing.
 rm puzzles/x/2017/x-1.json
 python3 -c 'import json; json.dump({"id": "x-6", "entries": []}, open("puzzles/x/2017/x-6.json", "w"))'
 (DURABLE_PATHS=(puzzles); . tools/durable.sh; durable_checkpoint "test pass") >"$tmp/durable.out" 2>&1
@@ -95,32 +92,7 @@ check "and its rows go in that commit" 0 \
   "$(git --git-dir="$tmp/origin.git" show master:tools/data/source_clue_wrong.json | grep -c x-1)"
 check "nothing left uncommitted" "" "$(git status --porcelain)"
 
-# The real code.
 cd "$here/.." || exit 1
-got="$(PYTHONPATH=tools python3 - "$tmp" <<'PY'
-import sys
-from pathlib import Path
-import fetch_puzzle as F
-import book_queue, puzzle_rows, renamed_ids
-
-tmp = Path(sys.argv[1])
-book = tmp / "book-1.json"
-book.write_text('{"id": "book-1", "entries": []}')
-calls = []
-F.puzzle_paths.find = lambda pid: book
-F.puzzle_paths.shim_path = lambda p: tmp / "none.js"
-F.read_puzzle_file = lambda p: {"id": "book-1", "entries": [], "source": {}}
-F.clue_index = lambda: type("I", (), {"discard": lambda self, pid: None})()
-book_queue.save_reprint = lambda *a, **k: tmp / "reading.txt"
-renamed_ids.read = lambda path=None: {"old-1": "new-1"}
-renamed_ids.write = lambda rows, path=None: calls.append(("write", rows))
-puzzle_rows.retire = lambda old, new=None, root=None: calls.append(("retire", old, new))
-F.supersede_book("book-1", "times-9")
-print(not book.exists(), calls)
-PY
-)"
-check "supersede_book writes the redirect row and retires the rows" \
-  "True [('write', {'old-1': 'new-1', 'book-1': 'times-9'}), ('retire', 'book-1', None)]" "$got"
 check "every real table row names a puzzle on disk" 0 "$(python3 tools/puzzle_rows.py --check; echo $?)"
 
 [ "$fails" = 0 ] && echo "puzzle_rows: all checks passed" || echo "puzzle_rows: $fails FAILED"

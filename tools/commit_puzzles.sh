@@ -35,8 +35,7 @@ ct_commit_puzzles() {  # ct_commit_puzzles <job>
       p+=(tools/data/renamed_ids.json)
     fi
     # A deletion or rename takes its per-puzzle table rows (tools/puzzle_rows.py:
-    # carried to the new id, else discarded), and a superseded book its
-    # redirect row (fetch_puzzle.supersede_book), in this commit; otherwise
+    # carried to the new id, else discarded) in this commit; otherwise
     # the rows name no puzzle and CI fails (book-12076, 10-11). These lines
     # come last, so the whole tables they carry follow every puzzle file
     # their other rows describe. A clues-only file dropped is usually promoted

@@ -751,7 +751,21 @@ class GeorgeHo(Adapter):
         db = corroborate._georgeho_index()
         if db is None:
             raise SystemExit(f"no {corroborate.GEORGEHO}: corroborate.py --download")
-        return {pid: pid for (pid,) in db.execute("select distinct pid from clue")}
+        out = {pid: pid for (pid,) in db.execute("select distinct pid from clue")}
+        import book_twins
+        out.update({book: book for book, twin in book_twins.read().items() if twin in out})
+        return out
+
+    def held(self):
+        """Our files in its series, and each held book file a newspaper copy
+        was refused over (tools/book_twins.py), checked against that copy's
+        rows (corroborate.georgeho)."""
+        import book_twins
+        import series as series_meta
+        out = held_paths(self.series)
+        books = held_paths((series_meta.BOOK_SERIES,))
+        out.update({b: books[b] for b in book_twins.read() if b in books})
+        return out
 
     def fetch_one(self, pid):
         return False
