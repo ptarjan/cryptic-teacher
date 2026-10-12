@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,49 @@
      }
     ]
    },
-   "solution": "CAPTIVEAUDIENCE"
+   "solution": "CAPTIVEAUDIENCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAPTIVE AUDIENCE",
+    "definitions": [
+     {
+      "text": "one has no alternative but to listen",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prisoner",
+      "gives": "CAPTIVE",
+      "note": "a prisoner is held captive"
+     },
+     {
+      "clueFragment": "hearing",
+      "gives": "AUDIENCE",
+      "note": "a formal hearing, as in an audience with the Pope"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAPTIVE",
+      "AUDIENCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A prisoner is granted a hearing and is told to sit still and listen.",
+     "definitionFit": "A captive audience is a group of listeners who cannot leave, so they are forced to hear whatever is said."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "hearing"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +98,66 @@
     "text": "Administrative officer's publicity jaunt — about time!",
     "enumeration": "8"
    },
-   "solution": "ADJUTANT"
+   "solution": "ADJUTANT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ADJUTANT",
+    "definitions": [
+     {
+      "text": "Administrative officer's",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests letters turned and moved around into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "publicity",
+      "gives": "AD",
+      "note": "an ad is a piece of publicity"
+     },
+     {
+      "clueFragment": "jaunt",
+      "gives": "JAUNT",
+      "note": "taken as written, to be mixed"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "JUTANT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "JAUNTT",
+       "gives": "JUTANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exasperated note that an officer's PR trip is long overdue.",
+     "walkthrough": "The definition is possessive, matching the answer's 's: 'Adjutant's publicity...' reads naturally, so the 's belongs to the definition.",
+     "definitionFit": "An adjutant is a military officer who assists a commander with administrative duties."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "jaunt"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +171,47 @@
     "text": "Drivers in the forest",
     "enumeration": "5"
    },
-   "solution": "WOODS"
+   "solution": "WOODS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WOODS",
+    "definitions": [
+     {
+      "text": "Drivers",
+      "at": 0
+     },
+     {
+      "text": "forest",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "in the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drivers",
+      "note": "first meaning: golf clubs, the driver being the number one wood"
+     },
+     {
+      "clueFragment": "forest",
+      "note": "second meaning: an area of trees"
+     }
+    ],
+    "explanation": {
+     "surface": "Motorists have strayed into the forest.",
+     "walkthrough": "'Drivers' suggests motorists, but in golf the long-hitting clubs are called woods.",
+     "definitionFit": "Woods are a stretch of trees, so the word serves as a plural synonym for a forest; golf's driver is also a wood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Drivers"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +225,64 @@
     "text": "Cereal containing half bran could make one brainy",
     "enumeration": "8"
    },
-   "solution": "CEREBRAL"
+   "solution": "CEREBRAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CEREBRAL",
+    "definitions": [
+     {
+      "text": "brainy",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half",
+      "for": "letter_selection",
+      "note": "half asks for only the front portion of the following word"
+     },
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means the first word holds the second inside it"
+     }
+    ],
+    "linkWords": [
+     "could make one"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cereal",
+      "gives": "CEREAL",
+      "note": "taken as written, the outer word"
+     },
+     {
+      "clueFragment": "bran",
+      "gives": "BR",
+      "select": "first",
+      "note": "the first two of four letters of bran"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CERE",
+      "BR",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A breakfast cereal with added bran claims to make you clever.",
+     "definitionFit": "Cerebral, from the Latin for brain, describes someone intellectual and given to thinking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "half"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +296,50 @@
     "text": "One talks a lot about US fuel container",
     "enumeration": "6"
    },
-   "solution": "GASBAG"
+   "solution": "GASBAG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GASBAG",
+    "definitions": [
+     {
+      "text": "One talks a lot",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US fuel",
+      "gives": "GAS",
+      "note": "gas is American for petrol"
+     },
+     {
+      "clueFragment": "container",
+      "gives": "BAG",
+      "note": "a bag holds things"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAS",
+      "BAG"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone droning on about American petrol cans.",
+     "walkthrough": "Gas is the American word for what Britons call petrol.",
+     "definitionFit": "A gasbag is an informal word for a person who chatters endlessly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "container"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +353,47 @@
     "text": "They say it's what a matador does that could be missed",
     "enumeration": "9"
    },
-   "solution": "AVOIDABLE"
+   "solution": "AVOIDABLE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "AVOIDABLE",
+    "definitions": [
+     {
+      "text": "could be missed",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "They say",
+      "for": "homophone",
+      "note": "they say points to how the phrase is spoken rather than written"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it's what a matador does",
+      "gives": "AVOIDABLE",
+      "soundsLike": "AVOID A BULL",
+      "note": "a matador dodges the charging animal"
+     }
+    ],
+    "explanation": {
+     "surface": "A remark about bullfighting: the matador's work is skipping out of the way.",
+     "definitionFit": "Something avoidable can be sidestepped or done without, so it could be missed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "missed"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +407,66 @@
     "text": "I finally get silver out for the creature",
     "enumeration": "6"
    },
-   "solution": "AGOUTI"
+   "solution": "AGOUTI",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "AGOUTI",
+    "definitions": [
+     {
+      "text": "creature",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "'finally' keeps only the first letter of 'I'"
+     }
+    ],
+    "linkWords": [
+     "get",
+     "for the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "silver",
+      "gives": "AG",
+      "note": "Ag is the chemical symbol for silver"
+     },
+     {
+      "clueFragment": "out",
+      "gives": "OUT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "select": "first",
+      "note": "the letter I, placed at the end"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AG",
+      "OUT",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at last brings out the silverware for an animal.",
+     "walkthrough": "'Finally' is not taking a last letter here; it tells you the I goes at the end of the answer.",
+     "definitionFit": "The agouti is a burrowing rodent of Central and South America, so it is a creature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "finally"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +480,46 @@
     "text": "Establishment's friend behaving according to its precepts",
     "enumeration": "15"
    },
-   "solution": "INSTITUTIONALLY"
+   "solution": "INSTITUTIONALLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INSTITUTIONALLY",
+    "definitions": [
+     {
+      "text": "behaving according to its precepts",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Establishment's",
+      "gives": "INSTITUTION",
+      "note": "an establishment is an institution; the 's joins it to what follows"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "ALLY",
+      "note": "an ally is a friend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INSTITUTION",
+      "ALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A friend of the organisation who sticks to its rules.",
+     "definitionFit": "Acting institutionally means acting in the manner of an organisation, following its established rules and norms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "friend"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +533,51 @@
     "text": "Dead Roman could be the daughter of Cassiopeia",
     "enumeration": "9"
    },
-   "solution": "ANDROMEDA"
+   "solution": "ANDROMEDA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANDROMEDA",
+    "definitions": [
+     {
+      "text": "the daughter of Cassiopeia",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "could be",
+      "for": "anagram",
+      "note": "could be hints the letters might form something else when rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dead Roman",
+      "gives": "DEADROMAN",
+      "note": "taken as written, nine letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DEADROMAN",
+       "gives": "ANDROMEDA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Speculating whether a deceased Roman was a figure from Greek myth.",
+     "walkthrough": "In Greek myth Cassiopeia's boast led to her daughter being chained to a rock as a sea monster's sacrifice.",
+     "definitionFit": "Andromeda was the princess, daughter of Cepheus and Cassiopeia, rescued by Perseus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Roman"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +591,58 @@
     "text": "For example, in the forefront with antipathy for animal products",
     "enumeration": "5"
    },
-   "solution": "VEGAN"
+   "solution": "VEGAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VEGAN",
+    "definitions": [
+     {
+      "text": "with antipathy for animal products",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the example phrase inside the word for the front"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "forefront",
+      "gives": "VAN",
+      "note": "the van is the leading part, as in vanguard"
+     },
+     {
+      "clueFragment": "For example",
+      "gives": "EG",
+      "note": "e.g. abbreviates for example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "EG",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "An example of someone leading the charge against animal products.",
+     "walkthrough": "'In the forefront' reads as one phrase, but 'in' is the insertion signal and 'the' is filler.",
+     "definitionFit": "A vegan avoids all animal products, a stance the clue describes as antipathy towards them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "forefront"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +656,61 @@
     "text": "Student turned around, about to move in a clumsy way",
     "enumeration": "7"
    },
-   "solution": "TRUNDLE"
+   "solution": "TRUNDLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRUNDLE",
+    "definitions": [
+     {
+      "text": "to move in a clumsy way",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "around suggests the letters are spun into a new order"
+     },
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about also suggests letters scattered and moved round"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Student",
+      "gives": "L",
+      "note": "L is a learner, the plate on a learner driver's car"
+     },
+     {
+      "clueFragment": "turned",
+      "gives": "TURNED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LTURNED",
+       "gives": "TRUNDLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student spins round, about to stumble off awkwardly.",
+     "walkthrough": "'Turned' looks like the anagram signal but is part of the fodder.",
+     "definitionFit": "To trundle is to move along slowly and heavily, like a cart on wheels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +724,68 @@
     "text": "Bet quire's almost entirely recycled to make this fuel",
     "enumeration": "7"
    },
-   "solution": "BRIQUET"
+   "solution": "BRIQUET",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "BRIQUET",
+    "definitions": [
+     {
+      "text": "fuel",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost entirely",
+      "for": "deletion",
+      "note": "almost entirely means all but the very end of the word is kept"
+     },
+     {
+      "text": "recycled",
+      "for": "anagram",
+      "note": "recycled material is broken down and remade in a fresh form"
+     }
+    ],
+    "linkWords": [
+     "to make this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bet",
+      "gives": "BET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "quire's",
+      "gives": "QUIRE",
+      "note": "a quire is a set of sheets of paper; the 's is read as is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRIQUET"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BETQUIR",
+       "gives": "BRIQUET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wager that a stack of paper will be recycled into fuel.",
+     "walkthrough": "Quire loses its last letter before the shuffle; the 's simply reads as 'is'.",
+     "definitionFit": "A briquet, or briquette, is a compressed block of coal dust or other material burned as fuel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recycled"
+    }
+   }
   },
   {
    "number": 13,
@@ -207,7 +799,46 @@
     "text": "Small container said to be disgusting",
     "enumeration": "4"
    },
-   "solution": "VIAL"
+   "solution": "VIAL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "VIAL",
+    "definitions": [
+     {
+      "text": "Small container",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said",
+      "for": "homophone",
+      "note": "said means we go by the spoken form of the word"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "disgusting",
+      "gives": "VIAL",
+      "soundsLike": "VILE",
+      "note": "vile means disgusting"
+     }
+    ],
+    "explanation": {
+     "surface": "A little pot that someone calls nasty.",
+     "definitionFit": "A vial is a small glass bottle for liquids such as medicine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "said"
+    }
+   }
   },
   {
    "number": 14,
@@ -221,7 +852,67 @@
     "text": "Utilitarian prat bearing unnatural stigma",
     "enumeration": "10"
    },
-   "solution": "PRAGMATIST"
+   "solution": "PRAGMATIST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PRAGMATIST",
+    "definitions": [
+     {
+      "text": "Utilitarian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unnatural",
+      "for": "anagram",
+      "note": "unnatural says the next word is in an abnormal, rearranged form"
+     },
+     {
+      "text": "bearing",
+      "for": "container",
+      "note": "bearing means carrying something within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prat",
+      "gives": "PRAT",
+      "note": "taken as written; a prat is a fool"
+     },
+     {
+      "clueFragment": "stigma",
+      "gives": "STIGMA",
+      "note": "taken as written, six letters to be mixed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRA",
+      "GMATIS",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STIGMA",
+       "gives": "GMATIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A practical-minded fool carrying an odd mark of shame.",
+     "walkthrough": "Prat is British slang for an idiot.",
+     "definitionFit": "A utilitarian, like a pragmatist, judges things by practical usefulness rather than principle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bearing"
+    }
+   }
   },
   {
    "number": 15,
@@ -235,7 +926,55 @@
     "text": "Certificate Conservative unknown got for negotiation",
     "enumeration": "9"
    },
-   "solution": "DIPLOMACY"
+   "solution": "DIPLOMACY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIPLOMACY",
+    "definitions": [
+     {
+      "text": "negotiation",
+      "at": 41
+     }
+    ],
+    "linkWords": [
+     "got for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Certificate",
+      "gives": "DIPLOMA",
+      "note": "a diploma is a certificate of qualification"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C abbreviates Conservative"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "y is an algebraic unknown"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIPLOMA",
+      "C",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An unknown Tory gained a qualification in bargaining.",
+     "definitionFit": "Diplomacy is the conduct of negotiations between parties, especially nations."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unknown"
+    }
+   }
   },
   {
    "number": 16,
@@ -255,7 +994,39 @@
      }
     ]
    },
-   "solution": "ANTHILL"
+   "solution": "ANTHILL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ANT HILL",
+    "definitions": [
+     {
+      "text": "Rise for the worker?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rise for the worker?",
+      "note": "surface reading: a pay increase for an employee"
+     },
+     {
+      "clueFragment": "Rise for the worker?",
+      "note": "setter's reading: a mound of earth made by the worker insect"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A rise is British for a pay increase, but it is also a small hill; the worker is the insect caste in a colony.",
+     "definitionFit": "Worker insects build a heap of soil over their nest, a little rise in the ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rise"
+    }
+   }
   },
   {
    "number": 17,
@@ -269,7 +1040,46 @@
     "text": "European pet, one known for its offensive smell",
     "enumeration": "7"
    },
-   "solution": "POLECAT"
+   "solution": "POLECAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POLECAT",
+    "definitions": [
+     {
+      "text": "one known for its offensive smell",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "POLE",
+      "note": "a Pole is a European from Poland"
+     },
+     {
+      "clueFragment": "pet",
+      "gives": "CAT",
+      "note": "a cat is a common pet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POLE",
+      "CAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A pet from the Continent that is notorious for stinking.",
+     "definitionFit": "The polecat, a weasel relative, releases a foul-smelling secretion when threatened."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "European"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1093,51 @@
     "text": "Pinochet changed, pronounced sound",
     "enumeration": "8"
    },
-   "solution": "PHONETIC"
+   "solution": "PHONETIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PHONETIC",
+    "definitions": [
+     {
+      "text": "pronounced sound",
+      "at": 18,
+      "note": "read as 'sounded as pronounced', describing spelling that matches speech"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changed",
+      "for": "anagram",
+      "note": "changed tells us the dictator's name has altered form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pinochet",
+      "gives": "PINOCHET",
+      "note": "taken as written; Pinochet was a Chilean dictator"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PINOCHET",
+       "gives": "PHONETIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former Chilean dictator's change is declared sound.",
+     "definitionFit": "Phonetic means relating to speech sounds, or spelt as it is pronounced."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pinochet"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1151,60 @@
     "text": "Cross Capone off crucial set up",
     "enumeration": "8"
    },
-   "solution": "CRUCIFIX"
+   "solution": "CRUCIFIX",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CRUCIFIX",
+    "definitions": [
+     {
+      "text": "Cross",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "deletion",
+      "note": "off means taken away from the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Capone",
+      "gives": "AL",
+      "note": "Al Capone, the Chicago gangster"
+     },
+     {
+      "clueFragment": "crucial",
+      "gives": "CRUCIAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "set up",
+      "gives": "FIX",
+      "note": "to fix is to rig or set up an outcome"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRUCI",
+      "FIX"
+     ]
+    },
+    "explanation": {
+     "surface": "An angry Capone storms off after a vital frame-up.",
+     "walkthrough": "'Cross' looks like an adjective for Capone's mood but is the definition.",
+     "definitionFit": "A crucifix is a cross bearing a figure of Christ."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cross"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1218,52 @@
     "text": "Stained loo creating despair?",
     "enumeration": "10"
    },
-   "solution": "DESOLATION"
+   "solution": "DESOLATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DESOLATION",
+    "definitions": [
+     {
+      "text": "despair?",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "creating",
+      "for": "anagram",
+      "note": "creating implies the letters are worked into something new"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stained loo",
+      "gives": "STAINEDLOO",
+      "note": "taken as written, ten letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STAINEDLOO",
+       "gives": "DESOLATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dirty toilet leaves someone in despair.",
+     "walkthrough": "Loo is British slang for a toilet.",
+     "definitionFit": "Desolation is a state of bleak misery, close to despair; the question mark flags a looser fit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "creating"
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1277,52 @@
     "text": "Working in digs by the railway",
     "enumeration": "6"
    },
-   "solution": "SIDING"
+   "solution": "SIDING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SIDING",
+    "definitions": [
+     {
+      "text": "by the railway",
+      "at": 16,
+      "note": "a description of where it lies rather than a strict synonym"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Working",
+      "for": "anagram",
+      "note": "working means set in motion, so the letters are moved about"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in digs",
+      "gives": "INDIGS",
+      "note": "taken as written, six letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INDIGS",
+       "gives": "SIDING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone works from lodgings beside the railway line.",
+     "walkthrough": "Digs is British slang for rented lodgings.",
+     "definitionFit": "A siding is a short stretch of track beside the main railway line, used for parking trains."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "digs"
+    }
+   }
   },
   {
    "number": 21,
@@ -339,7 +1336,50 @@
     "text": "Sign of approval when alien''s given permit to travel",
     "enumeration": "6"
    },
-   "solution": "TICKET"
+   "solution": "TICKET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TICKET",
+    "definitions": [
+     {
+      "text": "permit to travel",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "when",
+     "'s given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sign of approval",
+      "gives": "TICK",
+      "note": "a tick mark shows something is correct"
+     },
+     {
+      "clueFragment": "alien",
+      "gives": "ET",
+      "note": "ET, the extra-terrestrial of the film"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TICK",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "An alien gets the nod and a travel pass.",
+     "definitionFit": "A ticket is a document entitling the holder to make a journey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "alien"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1393,43 @@
     "text": "American car drives itself!",
     "enumeration": "4"
    },
-   "solution": "AUTO"
+   "solution": "AUTO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AUTO",
+    "definitions": [
+     {
+      "text": "American car",
+      "at": 0
+     },
+     {
+      "text": "drives itself",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American car",
+      "note": "first meaning: US informal word for a motor car"
+     },
+     {
+      "clueFragment": "drives itself",
+      "note": "second meaning: automatic, self-operating"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The exclamation suggests a self-driving vehicle; the second sense is the automatic setting, as on a camera or gearbox.",
+     "definitionFit": "Auto is American slang for a car, and also short for automatic, meaning something that runs by itself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drives"
+    }
+   }
   },
   {
    "number": 23,
@@ -367,7 +1443,50 @@
     "text": "One giving rondo new twist",
     "enumeration": "5"
    },
-   "solution": "DONOR"
+   "solution": "DONOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DONOR",
+    "definitions": [
+     {
+      "text": "One giving",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new twist",
+      "for": "anagram",
+      "note": "a new twist means the letters are wrung into a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rondo",
+      "gives": "RONDO",
+      "note": "taken as written; a rondo is a musical form"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RONDO",
+       "gives": "DONOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A composer gives a rondo a fresh variation.",
+     "definitionFit": "A donor is a person who donates, that is someone who gives money, blood or organs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rondo"
+    }
+   }
   },
   {
    "number": 24,
@@ -381,7 +1500,61 @@
     "text": "Native at last destroyed mice",
     "enumeration": "7"
    },
-   "solution": "ENDEMIC"
+   "solution": "ENDEMIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ENDEMIC",
+    "definitions": [
+     {
+      "text": "Native",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "destroyed",
+      "for": "anagram",
+      "note": "destroyed means broken apart, so the letters are scattered and rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at last",
+      "gives": "END",
+      "note": "the end comes at last"
+     },
+     {
+      "clueFragment": "mice",
+      "gives": "MICE",
+      "note": "taken as written, four letters to be mixed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "END",
+      "EMIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MICE",
+       "gives": "EMIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Local mice finally wiped out.",
+     "walkthrough": "'At last' looks like it wants a final letter, but it is a synonym for the end.",
+     "definitionFit": "Endemic describes something native to, or naturally found only in, a particular area."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "last"
+    }
+   }
   },
   {
    "number": 25,
@@ -395,7 +1568,77 @@
     "text": "Divorcee to return with an accountant for rare items",
     "enumeration": "7"
    },
-   "solution": "EXOTICA"
+   "solution": "EXOTICA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "EXOTICA",
+    "definitions": [
+     {
+      "text": "rare items",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "return",
+      "for": "reversal",
+      "note": "return means go back the way it came, so the word runs backwards"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Divorcee",
+      "gives": "EX",
+      "note": "an ex is a former spouse"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "the little word taken as written"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "I",
+      "note": "an means one, written as the Roman numeral"
+     },
+     {
+      "clueFragment": "accountant",
+      "gives": "CA",
+      "note": "CA is a chartered accountant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "OT",
+      "I",
+      "CA"
+     ],
+     "reversals": [
+      {
+       "from": "TO",
+       "to": "OT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A divorced spouse comes back with a bookkeeper to claim the curios.",
+     "walkthrough": "'An' standing for one, then I, is a convention worth knowing.",
+     "definitionFit": "Exotica are unusual and striking things, especially from far-off places, so they are rare items."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Divorcee"
+    }
+   }
   },
   {
    "number": 26,
@@ -409,7 +1652,45 @@
     "text": "One doubting part of policy Nicaraguan advocated",
     "enumeration": "5"
    },
-   "solution": "CYNIC"
+   "solution": "CYNIC",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CYNIC",
+    "definitions": [
+     {
+      "text": "One doubting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part of",
+      "for": "hidden_word",
+      "note": "part of tells us the answer is a stretch of letters inside the words that follow"
+     }
+    ],
+    "linkWords": [
+     "advocated"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "policy Nicaraguan",
+      "gives": "CYNIC",
+      "note": "the run of letters across the word break"
+     }
+    ],
+    "explanation": {
+     "surface": "A sceptic questions a piece of Nicaraguan policy that was promoted.",
+     "definitionFit": "A cynic distrusts people's sincerity and motives, so is someone who doubts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "advocated"
+    }
+   }
   },
   {
    "number": 27,
@@ -423,7 +1704,54 @@
     "text": "Leader of ideal trio by arrangement",
     "enumeration": "9"
    },
-   "solution": "EDITORIAL"
+   "solution": "EDITORIAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EDITORIAL",
+    "definitions": [
+     {
+      "text": "Leader",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by arrangement",
+      "for": "anagram",
+      "note": "by arrangement means the letters are put into a new order"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ideal trio",
+      "gives": "IDEALTRIO",
+      "note": "taken as written, nine letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IDEALTRIO",
+       "gives": "EDITORIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The head of a perfect threesome, chosen by arrangement.",
+     "walkthrough": "'Leader' suggests a person; in British newspapers a leader is the main opinion article.",
+     "definitionFit": "In British journalism the leader, or leading article, is the newspaper's editorial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Leader"
+    }
+   }
   }
  ]
 }
