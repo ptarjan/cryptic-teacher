@@ -23,6 +23,9 @@
   "date": "2026-10-12",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -42,7 +45,68 @@
      }
     ]
    },
-   "solution": "THEOAKS"
+   "solution": "THEOAKS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "THE OAKS",
+    "definitions": [
+     {
+      "text": "Classic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncovered",
+      "for": "deletion",
+      "note": "uncovered means stripped of its covering, so the outside letters of the word are taken away"
+     },
+     {
+      "text": "regularly neglected",
+      "for": "letter_selection",
+      "note": "neglecting letters at regular intervals leaves every other letter of the word standing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "other",
+      "gives": "THE",
+      "note": "the word with its first and last letters removed"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "haikus",
+      "gives": "AKS",
+      "select": "alternate",
+      "note": "the even letters kept, the odd ones dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "O",
+      "AKS"
+     ]
+    },
+    "explanation": {
+     "surface": "A critic dismissing old-fashioned Japanese poetry as a so-called classic.",
+     "walkthrough": "The Oaks is one of the five English Classics, the flat horse races for three-year-olds; it is run at Epsom for fillies.",
+     "definitionFit": "In British racing a Classic is one of five major races, and the Oaks is one of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Classic"
+    }
+   }
   },
   {
    "number": 1,
@@ -66,7 +130,42 @@
      }
     ]
    },
-   "solution": "TRYITON"
+   "solution": "TRYITON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRY IT ON",
+    "definitions": [
+     {
+      "text": "Attempt to deceive",
+      "at": 0
+     },
+     {
+      "text": "as one might with new outfit",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attempt to deceive",
+      "note": "first meaning: British idiom for testing how far you can get away with something"
+     },
+     {
+      "clueFragment": "as one might with new outfit",
+      "note": "second meaning: put on clothes to check the fit"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In British usage, trying it on means chancing a deception to see if it works.",
+     "definitionFit": "The phrase is an idiom for a cheeky attempt to fool someone, and literally describes testing clothes in a fitting room."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 2,
@@ -80,7 +179,67 @@
     "text": "Costs unfortunately neutered Xi presidency at the outset",
     "enumeration": "11"
    },
-   "solution": "EXPENDITURE"
+   "solution": "EXPENDITURE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "EXPENDITURE",
+    "definitions": [
+     {
+      "text": "Costs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the outset",
+      "for": "letter_selection",
+      "note": "at the outset points to the opening letter of the word it follows"
+     },
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "unfortunately suggests things went badly wrong, so these letters end up jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "neutered",
+      "gives": "NEUTERED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Xi",
+      "gives": "XI",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "presidency",
+      "gives": "P",
+      "select": "first",
+      "note": "its first letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NEUTEREDXIP",
+       "gives": "EXPENDITURE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political headline about the Chinese president Xi Jinping's term being weakened early on.",
+     "definitionFit": "Expenditure is money spent, and costs as a plural noun means the same outlay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Xi"
+    }
+   }
   },
   {
    "number": 3,
@@ -94,7 +253,59 @@
     "text": "Queen Elizabeth supporting a bishop, nun's superior",
     "enumeration": "6"
    },
-   "solution": "ABBESS"
+   "solution": "ABBESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABBESS",
+    "definitions": [
+     {
+      "text": "nun's superior",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down entry a supporting part sits underneath, so it comes after the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     },
+     {
+      "clueFragment": "Queen Elizabeth",
+      "gives": "BESS",
+      "note": "Good Queen Bess was Elizabeth I's nickname"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "B",
+      "BESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Church hierarchy: the monarch backing a bishop, who is above a nun.",
+     "definitionFit": "An abbess is the woman in charge of a convent, so she is the superior of its nuns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "supporting"
+    }
+   }
   },
   {
    "number": 4,
@@ -108,7 +319,56 @@
     "text": "Unorthodox man recasts religious rites",
     "enumeration": "10"
    },
-   "solution": "SACRAMENTS"
+   "solution": "SACRAMENTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SACRAMENTS",
+    "definitions": [
+     {
+      "text": "religious rites",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unorthodox",
+      "for": "anagram",
+      "note": "unorthodox means not following the usual order, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man",
+      "gives": "MAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "recasts",
+      "gives": "RECASTS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MANRECASTS",
+       "gives": "SACRAMENTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A heretic reshaping the rituals of the church.",
+     "walkthrough": "'Recasts' looks like the anagram signal, but it is fodder; 'Unorthodox' does the job.",
+     "definitionFit": "Sacraments, such as baptism and the Eucharist, are the central ceremonies of Christian worship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recasts"
+    }
+   }
   },
   {
    "number": 5,
@@ -128,7 +388,43 @@
      }
     ]
    },
-   "solution": "REAREND"
+   "solution": "REAREND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REAR-END",
+    "definitions": [
+     {
+      "text": "Crash into",
+      "at": 0
+     },
+     {
+      "text": "back of Seat",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crash into",
+      "note": "first meaning: to hit another vehicle from behind"
+     },
+     {
+      "clueFragment": "back of Seat",
+      "note": "second meaning: the backside, which is what you sit on"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Seat is capitalised to suggest the Spanish car maker SEAT, fitting the crash; but the seat here is the bottom, and its back is a rear end.",
+     "definitionFit": "As a verb it means collide with the back of a vehicle; as a noun it is a colloquial term for the buttocks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Seat"
+    }
+   }
   },
   {
    "number": 5,
@@ -142,7 +438,47 @@
     "text": "Hotel's legal documents delivered",
     "enumeration": "4"
    },
-   "solution": "RITZ"
+   "solution": "RITZ",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RITZ",
+    "definitions": [
+     {
+      "text": "Hotel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "delivered",
+      "for": "homophone",
+      "note": "delivered as a speech is delivered, so it is the sound of the word that counts"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "legal documents",
+      "gives": "RITZ",
+      "soundsLike": "WRITS",
+      "note": "writs are formal court orders"
+     }
+    ],
+    "explanation": {
+     "surface": "Court papers being served at a hotel.",
+     "walkthrough": "The 's stands for 'is', joining definition to wordplay.",
+     "definitionFit": "The Ritz is a famous luxury hotel in London's Piccadilly, with namesakes in Paris and elsewhere."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "delivered"
+    }
+   }
   },
   {
    "number": 6,
@@ -156,7 +492,59 @@
     "text": "Alarm Tory shadowing a couple of females",
     "enumeration": "8"
    },
-   "solution": "AFFRIGHT"
+   "solution": "AFFRIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AFFRIGHT",
+    "definitions": [
+     {
+      "text": "Alarm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shadowing",
+      "for": "charade",
+      "note": "a shadow follows behind, so this part comes after the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "couple of females",
+      "gives": "FF",
+      "note": "two of the abbreviation F for female"
+     },
+     {
+      "clueFragment": "Tory",
+      "gives": "RIGHT",
+      "note": "Tories are on the political right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "FF",
+      "RIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A Conservative frightening women by stalking them.",
+     "definitionFit": "Affright is an archaic verb meaning frighten, so it substitutes for alarm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shadowing"
+    }
+   }
   },
   {
    "number": 7,
@@ -170,7 +558,60 @@
     "text": "Music from Cockney's place of origin making a comeback",
     "enumeration": "3"
    },
-   "solution": "EMO"
+   "solution": "EMO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "EMO",
+    "definitions": [
+     {
+      "text": "Music",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cockney's",
+      "for": "deletion",
+      "note": "a Cockney Londoner traditionally drops an initial aitch"
+     },
+     {
+      "text": "making a comeback",
+      "for": "reversal",
+      "note": "coming back means returning the way it came, so it is read upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "place of origin",
+      "gives": "HOME",
+      "note": "where one comes from; the letters also sitting backwards in comeback is a coincidence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMO"
+     ],
+     "reversals": [
+      {
+       "from": "OME",
+       "to": "EMO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A music genre returning to its roots in London's East End.",
+     "walkthrough": "Cockneys are East Londoners, whose accent famously drops H.",
+     "definitionFit": "Emo is a genre of emotional, guitar-based rock music popular in the 2000s."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "comeback"
+    }
+   }
   },
   {
    "number": 8,
@@ -184,7 +625,68 @@
     "text": "City youth of the 1950s turned up one involved in corruption",
     "enumeration": "7"
    },
-   "solution": "DETROIT"
+   "solution": "DETROIT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "DETROIT",
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "turned up in a down entry means flipped to read from bottom to top"
+     },
+     {
+      "text": "involved in",
+      "for": "container",
+      "note": "involved in says this goes inside the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "youth of the 1950s",
+      "gives": "TED",
+      "note": "a Teddy boy, the British teenage style of the fifties"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral"
+     },
+     {
+      "clueFragment": "corruption",
+      "gives": "ROT",
+      "note": "rot is decay"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DET",
+      "RO",
+      "I",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A town where a 1950s youngster turned up mixed up in graft.",
+     "walkthrough": "Teddy boys, or Teds, were 1950s British youths in Edwardian-style suits.",
+     "definitionFit": "Detroit is a major city in Michigan, the historic home of the American car industry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 9,
@@ -198,7 +700,53 @@
     "text": "Go on foot in westerly direction",
     "enumeration": "3"
    },
-   "solution": "YAP"
+   "solution": "YAP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "YAP",
+    "definitions": [
+     {
+      "text": "Go on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in westerly direction",
+      "for": "reversal",
+      "note": "westward is right to left in an across entry, so the word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "foot",
+      "gives": "PAY",
+      "note": "to foot a bill is to pay it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YAP"
+     ],
+     "reversals": [
+      {
+       "from": "PAY",
+       "to": "YAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Directions for a walker heading west.",
+     "definitionFit": "To go on, in the sense of talk tediously at length, is to yap, an informal word for chatter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "foot"
+    }
+   }
   },
   {
    "number": 10,
@@ -222,7 +770,38 @@
      }
     ]
    },
-   "solution": "BACKTOFRONT"
+   "solution": "BACKTOFRONT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BACK TO FRONT",
+    "definitions": [
+     {
+      "text": "What might indicate T is wrong way round?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What might indicate T is wrong way round?",
+      "note": "surface reading: a sign that the letter has been written in reverse"
+     },
+     {
+      "clueFragment": "T",
+      "note": "setter's reading: T is the last letter of the word front, so the phrase describing it as wrongly placed is a clue-like instruction"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The phrase for 'the wrong way round' also literally describes a letter that sits at the back of 'front'.",
+     "definitionFit": "The idiom means reversed, with the rear part placed where the forward part should be."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 11,
@@ -236,7 +815,63 @@
     "text": "Briefly insinuate vagrant is from north Africa",
     "enumeration": "8"
    },
-   "solution": "TUNISIAN"
+   "solution": "TUNISIAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "TUNISIAN",
+    "definitions": [
+     {
+      "text": "from north Africa",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the word loses its final letter"
+     },
+     {
+      "text": "vagrant",
+      "for": "anagram",
+      "note": "a vagrant wanders about, so these letters drift out of their order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "insinuate",
+      "gives": "INSINUAT",
+      "note": "the word without its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUNISIAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INSINUAT",
+       "gives": "TUNISIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hinting that a homeless person comes from North Africa.",
+     "walkthrough": "'Vagrant' reads as a noun, the person being talked about; it is an adjective-style anagram signal.",
+     "definitionFit": "Tunisia lies on the Mediterranean coast of North Africa, so a Tunisian person or thing comes from there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vagrant"
+    }
+   }
   },
   {
    "number": 12,
@@ -250,7 +885,66 @@
     "text": "Terminated northerner out of uniform in Foreign Office",
     "enumeration": "6"
    },
-   "solution": "FINITO"
+   "solution": "FINITO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "FINITO",
+    "definitions": [
+     {
+      "text": "Terminated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of",
+      "for": "deletion",
+      "note": "out of here means lacking, so one letter is dropped from the word"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the shortened word inside the abbreviation that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "northerner",
+      "gives": "INUIT",
+      "note": "the Inuit are a people of the Arctic north"
+     },
+     {
+      "clueFragment": "uniform",
+      "gives": "U",
+      "note": "Uniform is U in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "Foreign Office",
+      "gives": "FO",
+      "note": "the British government department, abbreviated"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "INIT",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A diplomat from the north sacked for turning up at the Foreign Office out of uniform.",
+     "walkthrough": "The Foreign Office is Britain's ministry for overseas affairs, routinely FO in crosswords.",
+     "definitionFit": "Finito is an informal borrowing from Italian meaning finished or over and done with."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uniform"
+    }
+   }
   },
   {
    "number": 13,
@@ -264,7 +958,58 @@
     "text": "Effect of mead perhaps sending Ionian tribe wild?",
     "enumeration": "11"
    },
-   "solution": "INEBRIATION"
+   "solution": "INEBRIATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INEBRIATION",
+    "definitions": [
+     {
+      "text": "Effect of mead perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "sending something wild throws it into disorder, so these letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "sending"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ionian",
+      "gives": "IONIAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tribe",
+      "gives": "TRIBE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IONIANTRIBE",
+       "gives": "INEBRIATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ancient Greeks running riot after drinking honey wine.",
+     "definitionFit": "Mead is an alcoholic drink, and inebriation, or drunkenness, is what too much of it produces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Ionian"
+    }
+   }
   },
   {
    "number": 14,
@@ -278,7 +1023,54 @@
     "text": "Most unusual collecting data in area under threat",
     "enumeration": "10"
    },
-   "solution": "RAINFOREST"
+   "solution": "RAINFOREST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RAINFOREST",
+    "definitions": [
+     {
+      "text": "area under threat",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collecting",
+      "for": "container",
+      "note": "collecting means gathering in, so the first word holds the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Most unusual",
+      "gives": "RAREST",
+      "note": "superlative of rare"
+     },
+     {
+      "clueFragment": "data",
+      "gives": "INFO",
+      "note": "short for information"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "INFO",
+      "REST"
+     ]
+    },
+    "explanation": {
+     "surface": "A report gathering rare facts about an endangered region.",
+     "definitionFit": "Tropical rainforests are a famous example of habitat threatened by logging and clearance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "collecting"
+    }
+   }
   },
   {
    "number": 15,
@@ -292,7 +1084,48 @@
     "text": "Ruffians repulsed, a little wet behind the ears",
     "enumeration": "4"
    },
-   "solution": "NAIF"
+   "solution": "NAIF",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "NAIF",
+    "definitions": [
+     {
+      "text": "wet behind the ears",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a little",
+      "for": "hidden_word",
+      "note": "a little of the word means only a small run of its letters is used"
+     },
+     {
+      "text": "repulsed",
+      "for": "reversal",
+      "note": "repulsed means driven back, so the letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ruffians",
+      "gives": "NAIF",
+      "note": "four consecutive letters read from right to left"
+     }
+    ],
+    "explanation": {
+     "surface": "Thugs beaten off by someone young and inexperienced.",
+     "definitionFit": "Naif means naive or innocent, and wet behind the ears is an idiom for inexperienced."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "repulsed"
+    }
+   }
   },
   {
    "number": 16,
@@ -306,7 +1139,43 @@
     "text": "Reserve unit",
     "enumeration": "10"
    },
-   "solution": "DETACHMENT"
+   "solution": "DETACHMENT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DETACHMENT",
+    "definitions": [
+     {
+      "text": "Reserve",
+      "at": 0
+     },
+     {
+      "text": "unit",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reserve",
+      "note": "first meaning: aloofness, emotional distance"
+     },
+     {
+      "clueFragment": "unit",
+      "note": "second meaning: a body of troops sent off on a separate task"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together the words suggest a reserve military unit, which is close to one meaning but splits into two.",
+     "definitionFit": "The word means both emotional aloofness and a group of soldiers detached for a special duty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Reserve"
+    }
+   }
   },
   {
    "number": 17,
@@ -320,7 +1189,76 @@
     "text": "Hazy peak rising above university, place Charlie's shunning",
     "enumeration": "8"
    },
-   "solution": "NEBULOUS"
+   "solution": "NEBULOUS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "NEBULOUS",
+    "definitions": [
+     {
+      "text": "Hazy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "rising in a down entry means read from the bottom up"
+     },
+     {
+      "text": "above",
+      "for": "charade",
+      "note": "above in a down entry means placed earlier, so this part comes first"
+     },
+     {
+      "text": "shunning",
+      "for": "deletion",
+      "note": "shunning means avoiding, so that letter is left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peak",
+      "gives": "BEN",
+      "note": "Ben is a Scottish word for mountain, as in Ben Nevis"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "place",
+      "gives": "LOCUS",
+      "note": "Latin for place"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEB",
+      "U",
+      "LOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A misty mountain towering over a campus that Charlie avoids.",
+     "definitionFit": "Nebulous means cloudy or vague, related to nebula, a cloud of gas, so it fits hazy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Charlie"
+    }
+   }
   },
   {
    "number": 18,
@@ -334,7 +1272,64 @@
     "text": "Repellent guest Anna and I cast out",
     "enumeration": "10"
    },
-   "solution": "NAUSEATING"
+   "solution": "NAUSEATING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NAUSEATING",
+    "definitions": [
+     {
+      "text": "Repellent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cast out",
+      "for": "anagram",
+      "note": "cast here means thrown about, so these letters land in a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guest",
+      "gives": "GUEST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Anna",
+      "gives": "ANNA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GUESTANNAI",
+       "gives": "NAUSEATING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A host throwing out an obnoxious visitor along with Anna.",
+     "walkthrough": "'Cast out' reads as expelling the guest, but it signals rearranging the letters.",
+     "definitionFit": "Something nauseating is sickening and disgusting, which is what repellent means as an adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 18,
@@ -348,7 +1343,43 @@
     "text": "Saw how single-malt aficionado might prefer his Laphroaig?",
     "enumeration": "7"
    },
-   "solution": "NOTICED"
+   "solution": "NOTICED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NOTICED",
+    "definitions": [
+     {
+      "text": "Saw",
+      "at": 0
+     },
+     {
+      "text": "how single-malt aficionado might prefer his Laphroaig",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saw",
+      "note": "first meaning: observed"
+     },
+     {
+      "clueFragment": "how single-malt aficionado might prefer his Laphroaig",
+      "note": "second meaning, split in two: without ice cubes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Laphroaig is a single-malt Scotch whisky from Islay; purists drink it without ice, so the answer splits as NOT ICED.",
+     "definitionFit": "Noticed means saw or spotted, and read as two words it describes a whisky served neat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Saw"
+    }
+   }
   },
   {
    "number": 19,
@@ -362,7 +1393,48 @@
     "text": "God rebelled, moving earth",
     "enumeration": "4"
    },
-   "solution": "EROS"
+   "solution": "EROS",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "EROS",
+    "definitions": [
+     {
+      "text": "God",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving earth",
+      "for": "cycling",
+      "note": "the letter standing for earth is shifted from one end of the word to the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rebelled",
+      "gives": "ROSE",
+      "note": "rose up, as in a revolt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EROS"
+     ]
+    },
+    "explanation": {
+     "surface": "A deity who revolted and shook the world.",
+     "walkthrough": "E is the usual abbreviation for earth; taking it from the end of the word to the front gives the god.",
+     "definitionFit": "Eros is the Greek god of love, equivalent to the Roman Cupid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "earth"
+    }
+   }
   },
   {
    "number": 20,
@@ -376,7 +1448,64 @@
     "text": "Newcomer's dog biting girl's bottom",
     "enumeration": "7"
    },
-   "solution": "SETTLER"
+   "solution": "SETTLER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SETTLER",
+    "definitions": [
+     {
+      "text": "Newcomer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottom",
+      "for": "letter_selection",
+      "note": "the bottom of a word in a down clue is its last letter"
+     },
+     {
+      "text": "biting",
+      "for": "container",
+      "note": "biting means holding between the teeth, so one word goes around the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog",
+      "gives": "SETTER",
+      "note": "a setter is a breed of gun dog"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "L",
+      "select": "last",
+      "note": "its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SETT",
+      "L",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A newly arrived dog nipping a girl's backside.",
+     "definitionFit": "A settler is someone who arrives to live in a new place, so is a newcomer there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bottom"
+    }
+   }
   },
   {
    "number": 21,
@@ -390,7 +1519,56 @@
     "text": "Famous family's bones found on island",
     "enumeration": "6"
    },
-   "solution": "MEDICI"
+   "solution": "MEDICI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MEDICI",
+    "definitions": [
+     {
+      "text": "Famous family",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found on",
+      "for": "charade",
+      "note": "found on here means placed after, so one piece follows the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bones",
+      "gives": "MEDIC",
+      "note": "Bones is slang for a doctor, from the Star Trek nickname sawbones"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEDIC",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A noble family's skeletons discovered on an island.",
+     "definitionFit": "The Medici were the renowned banking dynasty who ruled Renaissance Florence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bones"
+    }
+   }
   },
   {
    "number": 22,
@@ -410,7 +1588,46 @@
      }
     ]
    },
-   "solution": "THESUN"
+   "solution": "THESUN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "THE SUN",
+    "definitions": [
+     {
+      "text": "Popular title",
+      "at": 0
+     },
+     {
+      "text": "daily setter",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular title",
+      "note": "first meaning: a mass-market British tabloid newspaper"
+     },
+     {
+      "clueFragment": "daily setter",
+      "note": "second meaning: the thing that sets every evening"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a crossword setter for a daily paper; the setter is the thing in the sky that sets each day. The Sun is a British tabloid.",
+     "definitionFit": "A newspaper is a title in publishing, and the sun goes down, or sets, every day."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "setter"
+    }
+   }
   },
   {
    "number": 23,
@@ -424,7 +1641,54 @@
     "text": "Hypocrisy surrounding baker's contract",
     "enumeration": "8"
    },
-   "solution": "COVENANT"
+   "solution": "COVENANT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COVENANT",
+    "definitions": [
+     {
+      "text": "contract",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounding",
+      "for": "container",
+      "note": "surrounding says the first word goes around the following one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hypocrisy",
+      "gives": "CANT",
+      "note": "cant is insincere, sanctimonious talk"
+     },
+     {
+      "clueFragment": "baker's",
+      "gives": "OVEN",
+      "note": "the baker's appliance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OVEN",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A bakery owner's two-faced dealings around a business agreement.",
+     "definitionFit": "A covenant is a formal agreement or binding promise, a synonym for contract."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "baker's"
+    }
+   }
   },
   {
    "number": 24,
@@ -438,7 +1702,56 @@
     "text": "Visit American in Berkshire accommodation",
     "enumeration": "4"
    },
-   "solution": "STAY"
+   "solution": "STAY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STAY",
+    "definitions": [
+     {
+      "text": "Visit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first piece inside the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "Berkshire accommodation",
+      "gives": "STY",
+      "note": "a Berkshire is a breed of pig, housed in a sty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "A",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An American tourist lodging in the English county of Berkshire.",
+     "walkthrough": "Berkshire is an English county, but here it is the pig breed named after it.",
+     "definitionFit": "As nouns, a stay and a visit both mean a period spent somewhere as a guest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Berkshire"
+    }
+   }
   },
   {
    "number": 25,
@@ -452,7 +1765,61 @@
     "text": "Italian mercenaries deceive increasingly eccentric leader of infantry",
     "enumeration": "11"
    },
-   "solution": "CONDOTTIERI"
+   "solution": "CONDOTTIERI",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CONDOTTIERI",
+    "definitions": [
+     {
+      "text": "Italian mercenaries",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "the leader of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deceive",
+      "gives": "CON",
+      "note": "to con is to swindle"
+     },
+     {
+      "clueFragment": "increasingly eccentric",
+      "gives": "DOTTIER",
+      "note": "comparative of dotty, meaning crazy"
+     },
+     {
+      "clueFragment": "infantry",
+      "gives": "I",
+      "select": "first",
+      "note": "its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "DOTTIER",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Hired soldiers tricking an ever more peculiar commander of foot soldiers.",
+     "definitionFit": "Condottieri were the leaders of hired mercenary companies in Renaissance Italy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 26,
@@ -466,7 +1833,56 @@
     "text": "Small piece of upside-down cake",
     "enumeration": "3"
    },
-   "solution": "NUB"
+   "solution": "NUB",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "NUB",
+    "definitions": [
+     {
+      "text": "Small piece",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upside-down",
+      "for": "reversal",
+      "note": "upside-down in a down entry means read from the bottom up"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cake",
+      "gives": "BUN",
+      "note": "a small sweet roll"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUB"
+     ],
+     "reversals": [
+      {
+       "from": "BUN",
+       "to": "NUB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slice of pineapple upside-down cake.",
+     "definitionFit": "A nub is a small lump or protuberance, a little piece of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upside-down"
+    }
+   }
   },
   {
    "number": 27,
@@ -480,7 +1896,49 @@
     "text": "Crook from Sydney is going to bar opening",
     "enumeration": "3"
    },
-   "solution": "ILL"
+   "solution": "ILL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ILL",
+    "definitions": [
+     {
+      "text": "Crook from Sydney",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bar opening",
+      "for": "deletion",
+      "note": "bar means except, so everything is kept but the opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is going to",
+      "gives": "WILL",
+      "note": "the future auxiliary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILL"
+     ]
+    },
+    "explanation": {
+     "surface": "A criminal from Sydney planning to open a pub.",
+     "walkthrough": "In Australian slang 'crook' means sick, which is why Sydney is attached to it.",
+     "definitionFit": "Australians say they feel crook when unwell, so crook there is a synonym for poorly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Crook"
+    }
+   }
   },
   {
    "number": 28,
@@ -494,7 +1952,72 @@
     "text": "Composer makes first appearance, shy, disheartened, losing tempo initially",
     "enumeration": "7"
    },
-   "solution": "DEBUSSY"
+   "solution": "DEBUSSY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DEBUSSY",
+    "definitions": [
+     {
+      "text": "Composer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disheartened",
+      "for": "letter_selection",
+      "note": "losing its heart leaves only the outer letters of the word"
+     },
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing says a letter is taken away from the earlier part"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letter of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "makes first appearance",
+      "gives": "DEBUTS",
+      "note": "a debut is a first appearance"
+     },
+     {
+      "clueFragment": "tempo",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter, to be removed"
+     },
+     {
+      "clueFragment": "shy",
+      "gives": "SY",
+      "select": "outer",
+      "note": "the word with its middle letter gone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEBUS",
+      "SY"
+     ]
+    },
+    "explanation": {
+     "surface": "A timid composer finally performing, nervously rushing and losing the beat.",
+     "definitionFit": "Claude Debussy was a French composer, famous for impressionist works such as Clair de Lune."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tempo"
+    }
+   }
   },
   {
    "number": 29,
@@ -508,7 +2031,46 @@
     "text": "Comparatively poor but solvent",
     "enumeration": "7"
    },
-   "solution": "THINNER"
+   "solution": "THINNER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "THINNER",
+    "definitions": [
+     {
+      "text": "Comparatively poor",
+      "at": 0
+     },
+     {
+      "text": "solvent",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Comparatively poor",
+      "note": "first meaning: more meagre, weaker"
+     },
+     {
+      "clueFragment": "solvent",
+      "note": "second meaning: a liquid used to dilute paint"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface contrasts poor and solvent as money words; solvent is the chemical sense.",
+     "definitionFit": "Thin can mean scanty or poor, so its comparative fits; a thinner is a liquid that dissolves or dilutes paint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "solvent"
+    }
+   }
   }
  ]
 }
