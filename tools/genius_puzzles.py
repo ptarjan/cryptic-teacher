@@ -574,6 +574,9 @@ def read_pdf(path):
     out["marked"] = {l for c in out["clues"] if UNCLUED_MARK.fullmatch(c["clue"]) for l in c["lights"]}
     out["clues"] = [c for c in out["clues"] if not UNCLUED_MARK.fullmatch(c["clue"])]
     see_links(out["clues"])
+    # No numbered run and the clues all in what is left: an unnumbered list.
+    if not out["clues"] and unnumbered(out["preamble"]) >= UNNUMBERED_AT:
+        out["unplaced"], out["preamble"] = unplaced_clues(out["preamble"])
     rects = fpp.filled_rects(ops)
     grid = fpp.read_grid(rects) or fpp.read_grid(unstretched(rects))
     out["kind"] = "vector" if grid else None
@@ -784,6 +787,34 @@ def unnumbered(text):
     return sum(not re.match(r"\s*\d", x) for x in parts)
 
 
+#: The instruction run on before an unnumbered clue in the same stretch of
+#: text: whole sentences at least this long, ending on a full stop, where no
+#: clue's words would run before its own full stop.
+INSTRUCTION_AT = 60
+
+
+def unplaced_clues(text):
+    """([(clue, count)] in printed order, preamble or None) off text that
+    prints its clues with no numbers (No 280: "Clues are listed in
+    alphabetical order of their answers ..."). Each clue ends on its count; an
+    instruction printed between two clues is the sentences before the second
+    clue's start (INSTRUCTION_AT), and what follows the last count is
+    instruction too."""
+    clues, said, at = [], [], 0
+    for m in re.finditer(fpp.ENUM_TEXT, text or ""):
+        words = text[at:m.start()].strip()
+        stop = None
+        for s in re.finditer(r"[.!](?=\s+[A-Z\u2018\u201c\"'])", words):
+            stop = s.end() if s.end() >= INSTRUCTION_AT else stop
+        if stop:
+            said.append(words[:stop].strip())
+            words = words[stop:].strip()
+        clues.append((f"{words} {m.group(0)}", fpp.ENUM.search(m.group(0)).group(1)))
+        at = m.end()
+    said.append((text or "")[at:].strip())
+    return clues, " ".join(x for x in said if x) or None
+
+
 #: Where each clue of a jigsaw goes: light -> the start of its clue as
 #: printed in the unnumbered list. The post prints answers by light but not
 #: the clues, so the placing is its parses' (No 76: "COATI COAT + 1" is
@@ -820,15 +851,7 @@ DATED = {2: "2003-07-30"}  # url 2016/feb/04/genius-crossword-2; page published 
 
 #: A Genius the schema cannot hold yet, and why: assemble() reports it so
 #: rather than as the reader's first complaint about it.
-SCHEMA_GAP = {
-    # No 280 (2026-10-05, Enigmatist) prints every clue unnumbered ("In
-    # pieces, like 35 of the clues?"), so no numbered run is read and there
-    # is no JIGSAW placing: it wants filing clues-only as cluesUnplaced
-    # (clues_only.py's jigsaw builder, b813ef080b), or placing off its
-    # fifteensquared post once that lands.
-    280: ("clue list unnumbered (jigsaw)", "every clue printed without a number; "
-          "file clues-only (cluesUnplaced) or place off the post"),
-}
+SCHEMA_GAP = {}
 
 
 def split_shared_leaders(pdf, answers):
@@ -966,6 +989,8 @@ def assemble(number, pdf, post, date, url):
     if number in SCHEMA_GAP:
         return None, SCHEMA_GAP[number]
     if not pdf["clues"]:
+        if pdf.get("unplaced"):
+            return None, (HELD_JIGSAW, f"{len(pdf['unplaced'])} clues printed without numbers")
         return None, ("clue list unread", "")
     # Clues printed with no number (No 76: "Solutions to the remaining clues
     # have their indicated place", then an alphabetical list) fall out of the
@@ -1040,6 +1065,68 @@ def assemble(number, pdf, post, date, url):
         f"grid and clues read from {pdf['origin']}, its numbering matching "
         "the clue list; every fifteensquared answer written into it with each crossing agreeing")
     return puzzle, None
+
+
+#: assemble()'s class for a puzzle that prints every clue without a number:
+#: file() holds it clues-only (hold_jigsaw) and the nightly solve answers it.
+HELD_JIGSAW = "held clues-only (unnumbered jigsaw)"
+
+
+def hold_jigsaw(number, pdf, date, url):
+    """(clues_only record, problems) for a Genius printing every clue with no
+    number (pdf["unplaced"]): the record promote_jigsaw files once solved."""
+    import clues_only
+    meta = {"id": series_meta.puzzle_id(SERIES, number), "number": number, "series": SERIES,
+            "name": f"Guardian genius crossword No {number}", "setter": pdf["setter"],
+            "date": date.isoformat(), "source": {"url": url}}
+    record, problems = clues_only.from_jigsaw(meta, pdf["unplaced"], pdf["preamble"], GENERATOR)
+    if not pdf["grid"]:
+        problems.append("no grid read off the PDF: a Genius jigsaw is filed on the grid it prints")
+    else:
+        record["dimensions"] = {"cols": len(pdf["grid"][0]), "rows": len(pdf["grid"])}
+    return record, problems
+
+
+def promote_jigsaw(record, answers, grid=None):
+    """(puzzle, problems): a held Genius jigsaw filed unsolved on the grid
+    its PDF prints (`grid`, else read off the PDF again), each light given the
+    clue whose answer fills it (jigsaw_fit.fit_grid). puzzle["_parts"] maps
+    each entry id to (clue index, letters), as clues_only._jigsaw_build's does."""
+    import jigsaw_fit
+    number = record["number"]
+    if grid is None and pdf_path(number).exists():
+        grid = read_pdf(pdf_path(number))["grid"]
+    if grid is None:
+        return None, [f"no grid read off {pdf_path(number)}"]
+    lights, given = record["clues"]["unplaced"], answers.get("unplaced") or []
+    if len(given) != len(lights):
+        return None, [f"{len(given)} answers for {len(lights)} jigsaw clues"]
+    placed, why = jigsaw_fit.fit_grid(given, grid)
+    if why:
+        return None, [why]
+    off = [w for n, w in enumerate(given) if n not in {p[0] for p in placed}]
+    if off:
+        return None, [(f"{len(off)} answers take no light of the printed grid ({', '.join(off)}): "
+                       "the puzzle schema has no place for an answer entered off the grid")]
+    starts = sorted({(x, y) for _, x, y, _ in placed}, key=lambda c: (c[1], c[0]))
+    numbers = {c: k for k, c in enumerate(starts, 1)}
+    clues, parts = [], {}
+    for n, x, y, d in placed:
+        c = lights[n]["clue"]
+        light = (numbers[(x, y)], d)
+        clues.append({"lights": [light], "enumeration": c.get("enumeration"),
+                      "clue": f"{c['text']} ({c['enumeration']})" if c.get("enumeration") else c["text"]})
+        parts[groups.entry_id({"number": light[0], "direction": d})] = (n, given[n])
+    clues.sort(key=lambda c: (c["lights"][0][1] != "across", c["lights"][0][0]))
+    pdf = {"clues": clues, "grid": grid, "setter": record.get("setter"),
+           "preamble": record.get("preamble"), "origin": "the Guardian's printable PDF"}
+    puzzle, why = unsolved(number, pdf, datetime.date.fromisoformat(record["date"]),
+                           record["source"]["url"])
+    if why:
+        return None, [f"{why[0]}: {why[1]}"]
+    puzzle["cluesUnplaced"] = True
+    puzzle["_parts"] = parts
+    return puzzle, []
 
 
 #: Lights whose printed count the paper got short, filed with the count as
@@ -1386,6 +1473,21 @@ ALTERABLE = {"preamble alters entries (needs an alteration per answer)",
              "grid numbering differs from clue list"}
 
 
+def hold(number, pdf, date, url, write):
+    """file()'s (class, why) for an unnumbered jigsaw: held clues-only in
+    clues_only/ when `write` and its record passes, refused otherwise."""
+    import clues_only
+    record, problems = hold_jigsaw(number, pdf, date, url)
+    if not problems and write:
+        try:
+            return HELD_JIGSAW, str(clues_only.write(record))
+        except puzzle_integrity.RefusedWrite as e:
+            problems = [str(e)]
+    if problems:
+        return "clue list unnumbered (jigsaw), not held", "; ".join(problems)[:200]
+    return HELD_JIGSAW, "not written (--dry-run)"
+
+
 def file(write=True, numbers=None, log=print):
     """File every fetched PDF not yet in puzzles/, newest first.
     Returns (filed, {class: [numbers]}, counts)."""
@@ -1413,6 +1515,8 @@ def file(write=True, numbers=None, log=print):
                 counts["grid consistent with clues"] += 1
             date = datetime.date.fromisoformat(DATED.get(n, idx[str(n)]["date"]))
             puzzle, why = assemble(n, pdf, posts.get(n), date, idx[str(n)]["url"])
+            if why and why[0] == HELD_JIGSAW:
+                why = hold(n, pdf, date, idx[str(n)]["url"], write)
             if why and why[0] in ALTERABLE:
                 alt, also = assemble_altered(n, pdf, posts.get(n), date, idx[str(n)]["url"])
                 puzzle, why = (alt, None) if alt else (None, (why[0], f"{why[1]}; altered: {also}"))

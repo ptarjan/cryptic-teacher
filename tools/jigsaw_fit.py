@@ -25,6 +25,9 @@ can follow, so each grid is reached once. A grid and its transpose are one
 answer (which way is across is the one thing the answers cannot say); fit()
 returns the first found and refuses when two different grids remain.
 
+A jigsaw whose page prints its blank grid (a Guardian Genius) needs no
+search for the grid: fit_grid() assigns the answers to that grid's lights.
+
     python3 tools/jigsaw_fit.py WORD WORD ... [--size 15]
 """
 from __future__ import annotations
@@ -363,6 +366,78 @@ def fit(words, cols=15, rows=15, max_nodes=DEFAULT_MAX_NODES):
         return None, None, "no grid holds these answers"
     rows_, placed = next(iter(found.values()))
     return rows_, [(n, part, w, x, y, DIRS[d]) for n, part, w, x, y, d in placed], None
+
+
+def slots(grid):
+    """[(x, y, length, "across"|"down")] of a printed blocked grid's lights
+    ("#" a block), in reading order."""
+    rows, cols = len(grid), len(grid[0])
+    white = lambda x, y: 0 <= x < cols and 0 <= y < rows and grid[y][x] != "#"
+    out = []
+    for y in range(rows):
+        for x in range(cols):
+            for d, (dx, dy) in enumerate(((1, 0), (0, 1))):
+                if white(x, y) and not white(x - dx, y - dy) and white(x + dx, y + dy):
+                    run = 1
+                    while white(x + dx * run, y + dy * run):
+                        run += 1
+                    out.append((x, y, run, DIRS[d]))
+    return out
+
+
+def fit_grid(words, grid, max_nodes=DEFAULT_MAX_NODES):
+    """(placements, None) when the answers fill the printed grid's lights one
+    way only, else (None, why). Every light takes one answer, crossings
+    agreeing, no answer twice; an answer may take no light (a preamble can
+    send one below the grid). `placements` lists (answer index, x, y,
+    direction) per light, in slots() order."""
+    words = ["".join(ch for ch in w.upper() if ch.isalpha()) for w in words]
+    if not words or not all(words):
+        return None, "an answer is missing"
+    lights = slots(grid)
+    cells = [[(x + (d == "across") * i, y + (d == "down") * i) for i in range(n)]
+             for x, y, n, d in lights]
+    letter, used, chosen, found, nodes = {}, set(), [None] * len(lights), [], [0]
+
+    def fits(k, w):
+        return len(w) == len(cells[k]) and all(letter.get(c, ch) == ch for c, ch in zip(cells[k], w))
+
+    def walk():
+        nodes[0] += 1
+        if len(found) > 1 or nodes[0] > max_nodes:
+            return
+        open_ = [k for k in range(len(lights)) if chosen[k] is None]
+        if not open_:
+            found.append(list(chosen))
+            return
+        best = None
+        for k in open_:
+            ways = [n for n, w in enumerate(words) if n not in used and fits(k, w)]
+            if best is None or len(ways) < len(best[1]):
+                best = (k, ways)
+            if not ways:
+                return
+        k, ways = best
+        for n in ways:
+            set_ = [c for c, ch in zip(cells[k], words[n]) if c not in letter]
+            for c, ch in zip(cells[k], words[n]):
+                letter.setdefault(c, ch)
+            used.add(n)
+            chosen[k] = n
+            walk()
+            chosen[k] = None
+            used.discard(n)
+            for c in set_:
+                del letter[c]
+
+    walk()
+    if len(found) > 1:
+        return None, "the answers fill the printed grid more than one way"
+    if nodes[0] > max_nodes:
+        return None, f"the search ran out of budget ({max_nodes} nodes)"
+    if not found:
+        return None, "the answers fill no way of the printed grid's lights"
+    return [(n, x, y, d) for n, (x, y, _, d) in zip(found[0], lights)], None
 
 
 def main(argv):

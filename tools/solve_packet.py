@@ -113,16 +113,17 @@ def jigsaw_packet(record):
     """The packet for a jigsaw held clues-only: its preamble, its one flat
     list of clues, and the fill shape. Placing the answers is not the solve's
     job: tools/apply_solution.py fits them into the grid."""
-    lines = [(f"{record['id']} is a JIGSAW: the book printed its clues as one list, "
+    lines = [(f"{record['id']} is a JIGSAW: the paper printed its clues as one list, "
               f"with no numbers and no across or down, under this instruction:"),
              f"    {record.get('preamble') or '(no instruction printed)'}",
              ("Answer each clue; do not place them. Fill shape, one answer per clue "
               "in the order below:"),
              '    {"unplaced": [{"answer": ..., "definition": ...}, ...]}',
-             ("--check-only fits your answers into the one grid they interlock in "
-              "(tools/jigsaw_fit.py); it passes only when exactly one grid holds them "
-              "all, so a wrong answer shows as no grid. An answer longer than the grid "
-              "is linked across two lights: give it whole."),
+             ("--check-only fits your answers into the grid (tools/jigsaw_fit.py): the "
+              "one the paper printed, or with none printed the one grid they interlock "
+              "in. It passes only when they fill it exactly one way, so a wrong answer "
+              "shows as no fit. An answer longer than the grid is linked across two "
+              "lights: give it whole."),
              "\nCLUES"]
     for i, light in enumerate(record["clues"]["unplaced"], 1):
         clue = light["clue"]

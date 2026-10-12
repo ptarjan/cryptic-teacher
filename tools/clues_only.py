@@ -409,7 +409,15 @@ def grid_kind(record):
 
 # A jigsaw (`cluesUnplaced`) of these filers: its answers are fitted into the
 # grid (fit_jigsaw), since they say nothing of where each goes.
-JIGSAW_BUILDERS = {("tools/acquire_book.py", "blocked"): _jigsaw_build}
+def _genius_jigsaw_build(record, answers):
+    """A Genius printing every clue unnumbered, placed on the grid its PDF
+    prints (genius_puzzles.promote_jigsaw). Imported late: it imports this."""
+    import genius_puzzles
+    return genius_puzzles.promote_jigsaw(record, answers)
+
+
+JIGSAW_BUILDERS = {("tools/acquire_book.py", "blocked"): _jigsaw_build,
+                   ("tools/genius_puzzles.py", None): _genius_jigsaw_build}
 
 
 def builder(record):
