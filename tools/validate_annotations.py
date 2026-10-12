@@ -2753,6 +2753,19 @@ def edit_distance(a, b):
     return row[-1]
 
 
+def ocr_misread_edits(served, printed):
+    """The letters an OCR'd clue's correction changes, by clue_words. A run of
+    capitals the OCR glued on before the clue ("BEBGOWNAURWN A second
+    Cromwell?", a page header read into the column) is stray text dropped,
+    not the clue reworded, so it is measured without that run when the
+    printed clue does not open with it."""
+    edits = edit_distance(clue_words(served), clue_words(printed))
+    head = re.match(r"\s*([A-Z]{6,})\s+(?=\S)", served or "")
+    if head and not clue_words(printed).startswith(head.group(1).lower()):
+        edits = min(edits, edit_distance(clue_words(served[head.end():]), clue_words(printed)))
+    return edits
+
+
 #: How a SOURCE_CLUE_WRONG row's evidence opens when its clue was read off
 #: the printed page (tools/scan_crop.py), not mended from the wordplay.
 SCAN_READ = "Scan reads: "
@@ -2813,7 +2826,7 @@ def check_clue_unchanged(puzzle, path, errors):
         filed = corrected_clue(puzzle.get("id"), entry_id(e))
         ocr = (puzzle.get("source") or {}).get("retrievedFrom") in provenance.OCR_CHANNELS
         if filed is not None and clue_words(filed) == clue_words(e["clue"].get("text")):
-            misread = edit_distance(clue_words(was[entry_id(e)]), clue_words(filed))
+            misread = ocr_misread_edits(was[entry_id(e)], filed)
             if not ocr or misread <= OCR_MISREAD_EDITS or scan_read(puzzle.get("id"), entry_id(e)):
                 continue
             errors.append(
