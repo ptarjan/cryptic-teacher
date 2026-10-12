@@ -27,9 +27,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "tools" / "data"
-#: Keyed "<id>/<entry id>", one line per key (json_merge.dump_lines).
+#: Keyed "<id>/<entry id>". Every table here is one line per key
+#: (json_merge.dump_lines) and merged per key (.gitattributes json-keys).
 ENTRY_TABLES = ("source_clue_wrong", "source_answer_wrong", "setter_error", "blog_disagree")
-#: Keyed "<id>", indented (json.dumps(indent=1)).
+#: Keyed "<id>".
 PUZZLE_TABLES = ("ninas", "blind_misses", "diagnosed_misses")
 TABLES = ENTRY_TABLES + PUZZLE_TABLES
 LIGHT_TABLE = "tools/fetch_puzzle.py"
@@ -45,12 +46,8 @@ def key_id(key):
 
 
 def dump(name, rows):
-    if name in ENTRY_TABLES:
-        lines = [f" {json.dumps(k, ensure_ascii=False)}: "
-                 f"{json.dumps(rows[k], sort_keys=True, ensure_ascii=False)}"
-                 for k in sorted(rows)]
-        return "{\n" + ",\n".join(lines) + "\n}\n"
-    return json.dumps(rows, indent=1, ensure_ascii=False) + "\n"
+    from json_merge import dump_lines
+    return dump_lines(rows)
 
 
 def light_ids(text):

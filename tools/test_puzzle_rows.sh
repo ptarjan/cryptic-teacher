@@ -12,6 +12,8 @@
 #
 #     bash tools/test_puzzle_rows.sh
 set -uo pipefail
+# json_merge (dump_lines) is imported in the scratch repo, which has no .gitignore.
+export PYTHONDONTWRITEBYTECODE=1
 here="$(cd "$(dirname "$0")" && pwd)"
 tmp="$(mktemp -d)"
 trap 'rm -rf "$tmp"' EXIT
@@ -27,7 +29,7 @@ git init -q --bare "$tmp/origin.git"
 git clone -q "$tmp/origin.git" "$tmp/r" 2>/dev/null
 R="$tmp/r"
 mkdir -p "$R/tools/data" "$R/puzzles/x/2017" "$R/hooks"
-cp "$here"/{puzzle_rows.py,durable.sh,unstage_unparsable.sh,commit_puzzles.sh,push_puzzle_commit.sh,commit_subject.py,renamed_ids.py} "$R/tools/"
+cp "$here"/{puzzle_rows.py,durable.sh,unstage_unparsable.sh,commit_puzzles.sh,push_puzzle_commit.sh,commit_subject.py,renamed_ids.py,json_merge.py} "$R/tools/"
 # SOURCE_LIGHT_WRONG, as fetch_puzzle.py spells it.
 printf 'SOURCE_LIGHT_WRONG = {\n    ("x-9", "1-across"): (\n        {}, {}, ""),\n}\n' >"$R/tools/fetch_puzzle.py"
 printf '#!/bin/sh\nexec python3 tools/puzzle_rows.py --check-staged\n' >"$R/hooks/pre-commit"

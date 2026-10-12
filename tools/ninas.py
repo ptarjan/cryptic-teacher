@@ -204,7 +204,8 @@ def main(argv):
     found = scan()
     data = {pid: {"where": where, "letters": letters, "blog": url}
             for pid, url, where, letters, _ in found}
-    OUT.write_text(json.dumps(data, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+    from json_merge import dump_lines
+    OUT.write_text(dump_lines(data), encoding="utf-8")
     if "--show" in argv:
         for pid, url, where, letters, chunk in found:
             print(f"{pid}\t{where}\t{letters}\n    {url}\n    {chunk[:300]}\n")

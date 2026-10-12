@@ -48,7 +48,6 @@ import subprocess
 import sys
 from pathlib import Path
 
-import puzzle_schema
 
 MISSING = object()
 
@@ -158,6 +157,7 @@ def annotated_for_clue(merged, a, b):
 
 
 def main_puzzle(o_path, a_path, b_path):
+    import puzzle_schema  # here, so dump_lines and the keyed merge need only the stdlib
     try:
         # An empty ancestor is a file both sides added (add/add).
         o, a, b = (json.loads(t) if t.strip() or p != o_path else {}

@@ -25,7 +25,7 @@ trap 'rm -rf "$tree"' EXIT
 # Cached book text lives under tools/downloads.py's root; keep the real one out of it.
 export CT_DOWNLOADS="$tree/downloads"
 mkdir -p "$tree/tools/data" "$tree/puzzles/book/2000"
-cp "$REPO/tools/book_queue.py" "$REPO/tools/downloads.py" "$tree/tools/"
+cp "$REPO/tools/book_queue.py" "$REPO/tools/downloads.py" "$REPO/tools/json_merge.py" "$tree/tools/"
 
 cat > "$tree/tools/data/books.json" <<'JSON'
 {"books": [
