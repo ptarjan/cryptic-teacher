@@ -1546,6 +1546,12 @@ tools/data/blog_disagree.json                 clues a run checked against its bl
                                               annotate_check's blogDisagree or blog_compare.py
                                               --keep; the validator's blog checks and
                                               blog_compare.py skip them; merged per key
+tools/data/annotate_ab.json                   the 2026-10-12 A/B of the burn's annotate model:
+                                              Opus medium, Opus low and Sonnet on the same 20
+                                              queued puzzles; tokens, check retries, validation
+                                              and two blind judges' rankings per arm, read when
+                                              the burn's ANNOTATE_MODEL/ANNOTATE_EFFORT is
+                                              reconsidered
 tools/data/blog_compare.json                  our annotations against the blogs' marked facts
                                               (tools/blog_compare.py): unhinted clues the blogs
                                               cover, disagreement rates per series, examples,
