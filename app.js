@@ -3370,9 +3370,20 @@
   }
   function ruleHTML(text, also, learn, clue, ann) {
     const more = ruleAlso(also, clue, ann);
-    return `<p class="device-rule"><span class="rule-tag">Rule to keep</span> ${esc(maskAnswer(
+    return `<span class="device-rule">${esc(maskAnswer(
       text + (more.length ? `; also: ${more.join(", ")}` : "") + ".", ann.answer))}
-      <a class="learn-link" href="learn/#${learn}">More in the lesson</a></p>`;
+      <a class="learn-link" href="learn/#${learn}">More in the lesson</a></span>`;
+  }
+  // A rung's general rule sits behind a small chip at the end of its last line,
+  // so the rung is no taller until the solver asks for it. `rulesOpen` holds
+  // "<entry key>|<rung key>" for each rule opened by a tap on #hint-body.
+  const rulesOpen = new Set();
+  function withRuleChip(html, rule, rung, open) {
+    if (!rule) return html;
+    const chip = `<button type="button" class="rule-chip" data-rule="${rung}" aria-expanded="${open}"
+      aria-label="${open ? "Hide" : "Show"} the general rule">rule</button>${open ? rule : ""}`;
+    const end = html.match(/<\/(p|li)>(\s*<\/ul>)?\s*$/);
+    return end ? `${html.slice(0, end.index)} ${chip}${html.slice(end.index)}` : `${html}<p>${chip}</p>`;
   }
   // The indicator rung's rules: one line per device, naming this clue's words
   // for it. The device is the indicator's own `for`; without one, the clue's
@@ -4094,8 +4105,8 @@
       key: "type",
       label: LABELS.type,
       html: [familyOf(t)].map((f) => `<p><strong>${esc(maskAnswer(f.label, ann.answer))}</strong>. ` +
-        `${esc(maskAnswer(f.name === "anagram" && partAnagram(ann) ? ANAGRAM_PART : f.blurb, ann.answer))}</p>` +
-        familyRuleHTML(f, clue, ann)).join("")
+        `${esc(maskAnswer(f.name === "anagram" && partAnagram(ann) ? ANAGRAM_PART : f.blurb, ann.answer))}</p>`).join(""),
+      rule: familyRuleHTML(familyOf(t), clue, ann)
     });
 
     // The exact mechanism, held back until every spotting rung is behind the
@@ -4224,12 +4235,12 @@
       // Where only some indicators can be explained, the generic wording carries
       // the rest and the explained ones are listed under it.
       if (written.length && written.length !== inds.length) html += noteList;
-      // Then the rule that outlives this clue, under what is true of it.
-      html += indicatorRulesHTML(ann, clue, ops);
       steps.push({
         key: "indicators",
         label: LABELS.indicators,
-        html
+        html,
+        // The rule that outlives this clue, behind a chip (withRuleChip).
+        rule: indicatorRulesHTML(ann, clue, ops)
       });
     }
 
@@ -5156,10 +5167,11 @@
   // gone — it is deliberately not persisted — so without this the ladder reads
   // identically whether you earned five rungs or paid for five, and the one
   // number the site is for disappears as soon as you scroll.
-  function hintStepHTML(step, position, won) {
+  function hintStepHTML(step, position, won, ruleOpen) {
     return `<div class="hint-step${won ? " won" : ""}"><span class="step-label">${
       position} · ${esc(step.label)}${
-      won ? '<span class="step-won">worked out · free</span>' : ""}</span>${step.html}</div>`;
+      won ? '<span class="step-won">worked out · free</span>' : ""}</span>${
+      withRuleChip(step.html, step.rule, step.key, !!ruleOpen)}</div>`;
   }
 
   // Where the answer's words break, read straight off the clue's own
@@ -5615,7 +5627,8 @@
         // be read side by side against the explanation, for as long as you like.
         let chunk = "";
         if (lastGuess && lastGuess.rung === s.key) chunk += verdictHTML(lastGuess, tapping);
-        chunk += hintStepHTML(paced(s), i + 1, earnedRungs(e).indexOf(s.key) >= 0);
+        chunk += hintStepHTML(paced(s), i + 1, earnedRungs(e).indexOf(s.key) >= 0,
+          rulesOpen.has(entryKey(e) + "|" + s.key));
         // The verdict travels with the rung it judged, so the anchor goes round
         // both: you were told whether you were right, and then told why.
         bodyHTML += hintFocus === s.key ? `<div id="hint-focus">${chunk}</div>` : chunk;
@@ -8076,6 +8089,16 @@
 
     // The letter strip is also how you steer: tap a box to put the cursor on
     // that square of the current entry.
+    // A rule chip on a rung opens or closes that rung's general rule.
+    $("hint-body").addEventListener("click", (ev) => {
+      const rung = ev.target && ev.target.dataset && ev.target.dataset.rule;
+      const e = currentEntry();
+      if (!rung || !e) return;
+      const k = entryKey(e) + "|" + rung;
+      if (!rulesOpen.delete(k)) rulesOpen.add(k);
+      renderHintPanel();
+    });
+
     $("hint-pattern").addEventListener("click", (ev) => {
       const box = ev.target && ev.target.dataset ? ev.target : null;
       const idx = box ? Number(box.dataset.i) : NaN;
