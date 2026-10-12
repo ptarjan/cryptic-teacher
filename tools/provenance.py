@@ -360,6 +360,7 @@ ACQUISITION_BY_SOURCE = {
     ("timesquick", "www.theglobeandmail.com"): ("tools/fetch_globeandmail.py",),
     # The Quicks the blog wrote no clues for, from the Times's own player feed.
     ("timesquick", "feeds.thetimes.co.uk"): ("tools/fetch_times_feed.py",),
+    ("times", "feeds.thetimes.co.uk"): ("tools/fetch_times_feed.py",),
     ("metro", "metro.co.uk"): ("tools/fetch_metro.py",
                                "tools/fetch_metro.py --wayback"),
     ("canberra", "trove.nla.gov.au"): ("tools/file_trove_puzzles.py",),

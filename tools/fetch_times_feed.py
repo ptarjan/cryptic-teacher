@@ -7,6 +7,9 @@ numbers nothing else holds.
     python3 tools/fetch_times_feed.py --file      # file the cached ones not on disk
     python3 tools/fetch_times_feed.py --first     # fetch and file No 1 alone
     python3 tools/fetch_times_feed.py --dry-run --file
+    python3 tools/fetch_times_feed.py --daily 26801 26802     # find Daily Cryptics by number
+    python3 tools/fetch_times_feed.py --daily-missing 2017-01-01 2018-12-31
+    python3 tools/fetch_times_feed.py --daily-series --file   # file the cached Dailies
 
 feeds.thetimes.co.uk/puzzles/crossword/<YYYYMMDD>/<id>/data.json is the JSON
 the Times's web player reads: clues, enumerations, answers and the grid, as
@@ -55,6 +58,16 @@ SEED_REACH = 2500
 SUNDAY = 6
 THREADS = 32
 QUICK = "Quick Cryptic"
+#: The Daily Cryptic's crosswordtype in the feed; it files as series "times".
+DAILY = "Cryptic"
+#: Crosswordtype -> the series it files under.
+SERIES = {QUICK: "timesquick", DAILY: "times"}
+#: Daily ids sit a few past the Quick's of the same date (Quick + 5 in 2017),
+#: but a batch may sit far off: the search widens through these reaches.
+DAILY_OFFSETS = (5, 15, 60, 300)
+DAILY_DAYS = 2
+DAILY_THREADS = 6
+POLITE = 0.5
 TITLE_NUMBER = re.compile(r"(?:No\.?|Number)\s*\(?\s*0*(\d+)", re.I)
 
 
@@ -83,13 +96,15 @@ def cache_path(date, pid):
     return CACHE / f"{date:%Y%m%d}-{pid}.json"
 
 
-def cached():
-    """[(date, id, data)] in id order."""
+def cached(kind=QUICK):
+    """[(date, id, data)] of the cached puzzles of crosswordtype `kind`, in date order."""
     out = []
     for p in CACHE.glob("*.json"):
         d, pid = p.stem.split("-")
-        out.append((datetime.datetime.strptime(d, "%Y%m%d").date(), int(pid),
-                    json.loads(p.read_text(encoding="utf-8"))))
+        data = json.loads(p.read_text(encoding="utf-8"))
+        if data["copy"].get("crosswordtype") != kind:
+            continue
+        out.append((datetime.datetime.strptime(d, "%Y%m%d").date(), int(pid), data))
     return sorted(out, key=lambda t: (t[0], t[1]))
 
 
@@ -276,14 +291,15 @@ def convert(data, date):
     if {(e["number"], e["direction"]) for e in entries} != set(lights):
         return None, "the clues do not cover the grid's lights"
     entries.sort(key=lambda e: (e["direction"] != "across", e["number"]))
-    pub, kind = series_meta.publisher("timesquick"), series_meta.kind("timesquick").lower()
+    key = SERIES[data["copy"].get("crosswordtype")]
+    pub, kind = series_meta.publisher(key), series_meta.kind(key).lower()
     setter = (data["copy"].get("setter") or data["copy"].get("byline") or "").strip()
     return {
-        "id": series_meta.puzzle_id("timesquick", number),
+        "id": series_meta.puzzle_id(key, number),
         "number": number,
-        "series": "timesquick",
+        "series": key,
         "name": f"{pub} {kind} crossword No {number:,}",
-        "setter": setter or series_meta.default_setter("timesquick"),
+        "setter": setter or series_meta.default_setter(key),
         "date": date.isoformat(),
         "dimensions": {"cols": len(grid[0]), "rows": len(grid)},
         "source": {"url": URL.format(date=f"{date:%Y%m%d}", id=data["copy"]["id"])
@@ -293,17 +309,16 @@ def convert(data, date):
     }, None
 
 
-def file_all(write=True, log=print, only=None):
+def file_all(write=True, log=print, only=None, kind=QUICK):
     from fetch_puzzle import puzzle_path, write_puzzle_file
 
+    key = SERIES[kind]
     filed, held, skipped = 0, 0, {}
-    for date, _, data in cached():
-        if data["copy"].get("crosswordtype") != QUICK:
-            continue
+    for date, _, data in cached(kind):
         number = number_of(data)
         if only is not None and number != only:
             continue
-        if number and puzzle_path("timesquick", number).exists():
+        if number and puzzle_path(key, number).exists():
             held += 1
             continue
         puzzle, why = convert(data, date)
@@ -313,7 +328,7 @@ def file_all(write=True, log=print, only=None):
             continue
         try:
             if write:
-                write_puzzle_file(puzzle_path("timesquick", number), puzzle, generator=TOOL)
+                write_puzzle_file(puzzle_path(key, number), puzzle, generator=TOOL)
         except ValueError as e:
             skipped["refused by the write path"] = skipped.get("refused by the write path", 0) + 1
             log(f"  {puzzle['id']}: {e}")
@@ -325,6 +340,60 @@ def file_all(write=True, log=print, only=None):
     return filed
 
 
+def daily_dates(number, filed):
+    """Candidate print dates of Daily No `number`, counted in printing days
+    (Monday to Saturday) from the nearest filed number; `filed` {number: date}."""
+    near = min(filed, key=lambda n: abs(n - number))
+    d, step = filed[near], 1 if number > near else -1
+    for _ in range(abs(number - near)):
+        d += datetime.timedelta(days=step)
+        while d.weekday() == SUNDAY:
+            d += datetime.timedelta(days=step)
+    days = [d + datetime.timedelta(days=k) for k in range(-DAILY_DAYS, DAILY_DAYS + 1)]
+    return sorted((x for x in days if x.weekday() != SUNDAY), key=lambda x: abs((x - d).days))
+
+
+def find_daily(pool, number, filed, quick_ids, log=print):
+    """Cache Daily No `number` if the feed has it: on each candidate date, at
+    the ids near that date's Quick (the nearest cached date's, failing that)
+    plus 5, widening through DAILY_OFFSETS, pausing between requests."""
+    import time
+    seen = set()
+    for date in daily_dates(number, filed):
+        near = min(quick_ids, key=lambda d: abs((d - date).days))
+        base = quick_ids[near] + 5
+        for reach in DAILY_OFFSETS:
+            ids = [i for i in range(base - reach, base + reach + 1)
+                   if i > 0 and (date, i) not in seen]
+            seen.update((date, i) for i in ids)
+            for at in range(0, len(ids), CHUNK):
+                chunk = ids[at:at + CHUNK]
+                for i, data in zip(chunk, pool.map(lambda i, date=date: fetch(date, i), chunk)):
+                    if (data and data["copy"].get("crosswordtype") == DAILY
+                            and number_of(data) == number):
+                        cache_path(date, i).write_text(json.dumps(data, ensure_ascii=False),
+                                                       encoding="utf-8")
+                        log(f"No {number}: {date} id {i}")
+                        return date, i
+                time.sleep(POLITE)
+    log(f"No {number}: not found")
+    return None
+
+
+def filed_dailies():
+    """{number: date} of the Dailies on disk."""
+    import glob
+    import os
+    root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "puzzles", "times")
+    out = {}
+    for f in glob.glob(os.path.join(root, "*", "times-*.json")):
+        with open(f, encoding="utf-8") as fh:
+            row = json.load(fh)
+        if row.get("date"):
+            out[row["number"]] = datetime.date.fromisoformat(row["date"])
+    return out
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--walk", action="store_true", help="cache every Quick the feed has")
@@ -332,6 +401,11 @@ def main(argv=None):
     ap.add_argument("--until", type=datetime.date.fromisoformat, help="walk no further")
     ap.add_argument("--below", type=int, help="walk no further than this number")
     ap.add_argument("--gaps", action="store_true", help="look again for numbers the walk skipped")
+    ap.add_argument("--daily", type=int, nargs="+", metavar="N", help="find these Daily numbers")
+    ap.add_argument("--daily-missing", nargs=2, type=datetime.date.fromisoformat,
+                    metavar=("FROM", "TO"), help="find every Daily number missing on disk "
+                    "between the filed numbers dated FROM and TO")
+    ap.add_argument("--daily-series", action="store_true", help="--file files the Dailies")
     ap.add_argument("--file", action="store_true", help="file the cached Quicks not on disk")
     ap.add_argument("--dry-run", action="store_true", help="count, write nothing")
     a = ap.parse_args(argv)
@@ -347,12 +421,26 @@ def main(argv=None):
         import fetch_puzzle
         fetch_puzzle.reindex()
         return 0
+    if a.daily or a.daily_missing:
+        CACHE.mkdir(parents=True, exist_ok=True)
+        filed = filed_dailies()
+        numbers = list(a.daily or [])
+        if a.daily_missing:
+            lo, hi = a.daily_missing
+            inside = [n for n, d in filed.items() if lo <= d <= hi]
+            numbers += [n for n in range(min(inside), max(inside) + 1) if n not in filed]
+        quick_ids = {d: i for d, i, _ in cached(QUICK)}
+        have = {number_of(data) for _, _, data in cached(DAILY)}
+        with concurrent.futures.ThreadPoolExecutor(DAILY_THREADS) as pool:
+            for n in numbers:
+                if n not in have:
+                    find_daily(pool, n, filed, quick_ids, log=lambda s: print(s, flush=True))
     if a.walk:
         walk(a.until, a.below, log=lambda s: print(s, flush=True))
     if a.gaps:
         fill_gaps(log=lambda s: print(s, flush=True))
     if a.file:
-        file_all(write=not a.dry_run)
+        file_all(write=not a.dry_run, kind=DAILY if a.daily_series else QUICK)
         if not a.dry_run:
             import fetch_puzzle
             fetch_puzzle.reindex()
