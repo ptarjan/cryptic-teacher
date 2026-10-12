@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "Memorial day, you intended to say",
     "enumeration": "8"
    },
-   "solution": "MONUMENT"
+   "solution": "MONUMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "MONUMENT",
+    "definitions": [
+     {
+      "text": "Memorial",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to say",
+      "for": "homophone",
+      "note": "what you would say out loud is wanted, so the spoken phrase stands in for its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "day",
+      "gives": "MON",
+      "note": "MON is the short form of Monday"
+     },
+     {
+      "clueFragment": "you intended",
+      "gives": "UMENT",
+      "soundsLike": "YOU MEANT",
+      "note": "'you meant' said out loud, respelt as a word ending"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone on a remembrance day corrects what they were trying to say.",
+     "walkthrough": "'Memorial day' reads as one phrase, the US holiday, but the definition stops at 'Memorial'.",
+     "definitionFit": "A monument is a structure built to commemorate a person or event, which is what a memorial is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "day"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +93,56 @@
     "text": "Rising opera company produces single",
     "enumeration": "3"
    },
-   "solution": "ONE"
+   "solution": "ONE",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "ONE",
+    "definitions": [
+     {
+      "text": "single",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rising",
+      "for": "reversal",
+      "note": "in a down entry, rising means the letters are read from the bottom upwards"
+     }
+    ],
+    "linkWords": [
+     "produces"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "opera company",
+      "gives": "ENO",
+      "note": "English National Opera"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONE"
+     ],
+     "reversals": [
+      {
+       "from": "ENO",
+       "to": "ONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An up-and-coming opera company puts out a single record.",
+     "definitionFit": "One is a single unit; both words mean a lone item."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "single"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +156,66 @@
     "text": "Writer dipping into funds occasionally for turnover?",
     "enumeration": "5"
    },
-   "solution": "UPEND"
+   "solution": "UPEND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "UPEND",
+    "definitions": [
+     {
+      "text": "turnover?",
+      "at": 43,
+      "note": "the answer is a verb; the question mark lets the noun-looking 'turnover' be read as 'turn over'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means only now and then, so just every other letter of the word is kept"
+     },
+     {
+      "text": "dipping into",
+      "for": "container",
+      "note": "something dipping into another goes inside it, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "funds",
+      "gives": "UD",
+      "select": "alternate",
+      "note": "second and fourth letters of funds"
+     },
+     {
+      "clueFragment": "Writer",
+      "gives": "PEN",
+      "note": "a pen is a writing implement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "PEN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "An author borrows from savings now and then to keep the business turning over.",
+     "definitionFit": "To upend something is to turn it over or set it on its end."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "turnover"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +235,61 @@
      }
     ]
    },
-   "solution": "EASTERLILY"
+   "solution": "EASTERLILY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "EASTER LILY",
+    "definitions": [
+     {
+      "text": "Flower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at fixed intervals, so letters are taken at evenly spaced positions"
+     },
+     {
+      "text": "surrounded by",
+      "for": "container",
+      "note": "one piece is surrounded by another, so it is placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "field",
+      "gives": "IL",
+      "select": "alternate",
+      "note": "second and fourth letters of field"
+     },
+     {
+      "clueFragment": "wind",
+      "gives": "EASTERLY",
+      "note": "an easterly is a wind from the east"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EASTERL",
+      "IL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A bloom in a meadow is buffeted by the wind.",
+     "definitionFit": "The Easter lily is a white trumpet-shaped lily associated with Easter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wind"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +309,42 @@
      }
     ]
    },
-   "solution": "THEEND"
+   "solution": "THEEND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "THE END",
+    "definitions": [
+     {
+      "text": "Final",
+      "at": 0
+     },
+     {
+      "text": "song by Jim Morrison's group?",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Final",
+      "note": "first meaning: the conclusion"
+     },
+     {
+      "clueFragment": "song by Jim Morrison's group?",
+      "note": "second meaning: a 1967 track by the Doors, fronted by Jim Morrison"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Jim Morrison sang for the Doors, whose famous long track closes their first album. It is also a theme answer: a Fourth Plinth sculpture of the same name.",
+     "definitionFit": "The phrase is both a finish or conclusion and the title of a well-known Doors song."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Final"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +358,58 @@
     "text": "Attacks oil company gaining the last in profits",
     "enumeration": "6"
    },
-   "solution": "SHELLS"
+   "solution": "SHELLS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SHELLS",
+    "definitions": [
+     {
+      "text": "Attacks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the last in",
+      "for": "letter_selection",
+      "note": "the last in a word is its final letter, so only the closing letter is kept"
+     }
+    ],
+    "linkWords": [
+     "gaining"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "oil company",
+      "gives": "SHELL",
+      "note": "Shell is a major oil company"
+     },
+     {
+      "clueFragment": "profits",
+      "gives": "S",
+      "select": "last",
+      "note": "final letter of profits"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHELL",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Critics lay into an oil giant as it posts big profits.",
+     "definitionFit": "To shell is to bombard with artillery, so shells is a verb meaning attacks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Attacks"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +423,55 @@
     "text": "Send head of security in",
     "enumeration": "4"
    },
-   "solution": "SHIP"
+   "solution": "SHIP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SHIP",
+    "definitions": [
+     {
+      "text": "Send",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its front, so only its opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "security",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of security"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "HIP",
+      "note": "hip means fashionable, as does in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HIP"
+     ]
+    },
+    "explanation": {
+     "surface": "An order to dispatch the chief of security inside.",
+     "definitionFit": "To ship goods is to dispatch them, so ship is a synonym for send."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +491,72 @@
      }
     ]
    },
-   "solution": "EASYTERMS"
+   "solution": "EASYTERMS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "EASY TERMS",
+    "definitions": [
+     {
+      "text": "payment plan",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter is kept"
+     },
+     {
+      "text": "buys",
+      "for": "container",
+      "note": "a festival that buys something takes it in, so the piece goes inside"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Festival",
+      "gives": "EASTER",
+      "note": "Easter is a Christian festival"
+     },
+     {
+      "clueFragment": "Glastonbury",
+      "gives": "Y",
+      "select": "last",
+      "note": "last letter of Glastonbury"
+     },
+     {
+      "clueFragment": "master's",
+      "gives": "MS",
+      "note": "M for master, plus the S of the possessive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAS",
+      "Y",
+      "TER",
+      "MS"
+     ]
+    },
+    "explanation": {
+     "surface": "A music festival snaps up Glastonbury with a head's instalment plan.",
+     "walkthrough": "Glastonbury is a famous English music festival, which makes 'Festival' look like it means that one; it is Easter.",
+     "definitionFit": "Easy terms are an arrangement to pay in instalments, a kind of payment plan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Festival"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +576,70 @@
      }
     ]
    },
-   "solution": "LOOSECHANGE"
+   "solution": "LOOSECHANGE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "LOOSE CHANGE",
+    "definitions": [
+     {
+      "text": "money",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Flying",
+      "for": "anagram",
+      "note": "letters that are flying are scattered through the air and land in a new order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "solo",
+      "gives": "SOLO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "E is the international vehicle code for Spain"
+     },
+     {
+      "clueFragment": "transfer",
+      "gives": "CHANGE",
+      "note": "to change is to switch over or transfer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOOS",
+      "E",
+      "CHANGE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOLO",
+       "gives": "LOOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lone pilot crossing Spain wires funds abroad.",
+     "walkthrough": "'over' places the first piece before Spain's letter in this down entry.",
+     "definitionFit": "Loose change is small coins carried in a pocket, a form of money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flying"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +653,54 @@
     "text": "Just during the weekend game of rugby",
     "enumeration": "6"
    },
-   "solution": "SEVENS"
+   "solution": "SEVENS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEVENS",
+    "definitions": [
+     {
+      "text": "game of rugby",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something happening during a period falls inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the weekend",
+      "gives": "SS",
+      "note": "Saturday and Sunday, abbreviated S and S"
+     },
+     {
+      "clueFragment": "Just",
+      "gives": "EVEN",
+      "note": "just and even both mean fair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EVEN",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Only on Saturday or Sunday is there a rugby match.",
+     "definitionFit": "Sevens is the seven-a-side version of rugby union, a short fast form of the game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Just"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +714,48 @@
     "text": "Issue action on the internet?",
     "enumeration": "8"
    },
-   "solution": "EMISSION"
+   "solution": "EMISSION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EMISSION",
+    "definitions": [
+     {
+      "text": "Issue",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on the internet",
+      "gives": "E",
+      "note": "the E- prefix of email and e-commerce marks things online"
+     },
+     {
+      "clueFragment": "action",
+      "gives": "MISSION",
+      "note": "a mission is an operation or action"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MISSION"
+     ]
+    },
+    "explanation": {
+     "surface": "A call to take an online campaign further.",
+     "walkthrough": "The question mark flags the invented word e-mission, an action done online.",
+     "definitionFit": "An emission is something given off or issued, so the noun issue fits it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Issue"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +769,65 @@
     "text": "Britain's unfortunately long used to strikes",
     "enumeration": "9"
    },
-   "solution": "BLUDGEONS"
+   "solution": "BLUDGEONS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "BLUDGEONS",
+    "definitions": [
+     {
+      "text": "strikes",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "things that turn out unfortunately go wrong, so these letters are knocked out of order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Britain's",
+      "gives": "B",
+      "note": "B is the abbreviation for Britain"
+     },
+     {
+      "clueFragment": "long used",
+      "gives": "LONGUSED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LUDGEONS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LONGUSED",
+       "gives": "LUDGEONS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grumble that Britain has long been used to industrial action.",
+     "walkthrough": "'strikes' looks like walkouts but is a verb: hits.",
+     "definitionFit": "To bludgeon is to hit hard with a heavy club, so bludgeons means strikes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "strikes"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +841,54 @@
     "text": "A believer in free will is an irritable fool!",
     "enumeration": "11"
    },
-   "solution": "LIBERTARIAN"
+   "solution": "LIBERTARIAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LIBERTARIAN",
+    "definitions": [
+     {
+      "text": "A believer in free will",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fool",
+      "for": "anagram",
+      "note": "to fool with something is to mess about with it, so the letters get muddled"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an irritable",
+      "gives": "ANIRRITABLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANIRRITABLE",
+       "gives": "LIBERTARIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grumpy verdict that anyone believing in free will is a cranky idiot.",
+     "walkthrough": "'fool' reads as a noun insult, but it works as the verb, to mess about.",
+     "definitionFit": "In philosophy a libertarian holds that people have free will, as opposed to a determinist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fool"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +902,45 @@
     "text": "Different? Or what two relations have in common",
     "enumeration": "5"
    },
-   "solution": "OTHER"
+   "solution": "OTHER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OTHER",
+    "definitions": [
+     {
+      "text": "Different",
+      "at": 0
+     },
+     {
+      "text": "what two relations have in common",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "Or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Different",
+      "note": "first meaning: not the same"
+     },
+     {
+      "clueFragment": "what two relations have in common",
+      "note": "second meaning: the letter string shared by the words for a female parent and a male sibling"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The relations are mother and brother, both ending in the same five letters. It is also a theme answer: One & Other was Antony Gormley's Fourth Plinth project.",
+     "definitionFit": "Other means distinct or not the same, so it can replace the adjective different."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "relations"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +954,48 @@
     "text": "Supervisor's requirement to play bridge, say?",
     "enumeration": "10"
    },
-   "solution": "FOREPERSON"
+   "solution": "FOREPERSON",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FOREPERSON",
+    "definitions": [
+     {
+      "text": "Supervisor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say asks for what is heard when spoken, not what is written"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "requirement to play bridge",
+      "gives": "FOREPERSON",
+      "soundsLike": "FOUR PERSON",
+      "note": "bridge is a card game for four players"
+     }
+    ],
+    "explanation": {
+     "surface": "A boss's prerequisite for a game of bridge.",
+     "walkthrough": "The 's is 'is', joining the definition to the wordplay.",
+     "definitionFit": "A foreperson is the person in charge of a group of workers, a supervisor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bridge"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1009,49 @@
     "text": "Courage felt to be shown in recession",
     "enumeration": "6"
    },
-   "solution": "BOTTLE"
+   "solution": "BOTTLE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "BOTTLE",
+    "definitions": [
+     {
+      "text": "Courage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be shown",
+      "for": "hidden_word",
+      "note": "the answer is shown sitting inside the words in front of it"
+     },
+     {
+      "text": "in recession",
+      "for": "reversal",
+      "note": "something in recession goes backwards, so the letters are read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "felt to be",
+      "gives": "BOTTLE",
+      "note": "running across the words from the end back to the start"
+     }
+    ],
+    "explanation": {
+     "surface": "Bravery is needed during an economic downturn.",
+     "walkthrough": "Bottle is British slang for nerve or courage.",
+     "definitionFit": "In British informal speech, bottle means nerve or courage, as in 'lose your bottle'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recession"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1065,87 @@
     "text": "Rising artist's skill covering wrong flag in battle",
     "enumeration": "9"
    },
-   "solution": "TRAFALGAR"
+   "solution": "TRAFALGAR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "container"
+    ],
+    "answer": "TRAFALGAR",
+    "definitions": [
+     {
+      "text": "battle",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rising",
+      "for": "reversal",
+      "note": "in a down entry, rising means reading from the bottom upwards"
+     },
+     {
+      "text": "wrong",
+      "for": "anagram",
+      "note": "letters set out wrong are in the wrong order and need rearranging"
+     },
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "one piece covering another wraps around it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artist's",
+      "gives": "RA",
+      "note": "RA, Royal Academician, a crossword artist; the 's is possessive"
+     },
+     {
+      "clueFragment": "skill",
+      "gives": "ART",
+      "note": "art is a skill or craft"
+     },
+     {
+      "clueFragment": "flag",
+      "gives": "FLAG",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRA",
+      "FALG",
+      "AR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FLAG",
+       "gives": "FALG"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "RAART",
+       "to": "TRAAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An up-and-coming painter's knack involves a misjudged flag in a war scene.",
+     "walkthrough": "Trafalgar, Nelson's 1805 naval victory, also names the London square with the Fourth Plinth, the puzzle's theme.",
+     "definitionFit": "Trafalgar was a sea battle of 1805 between the British and Franco-Spanish fleets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "artist's"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1159,55 @@
     "text": "United breaking out of position",
     "enumeration": "6"
    },
-   "solution": "FOURTH"
+   "solution": "FOURTH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FOURTH",
+    "definitions": [
+     {
+      "text": "position",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "something breaking into another splits it open and sits in the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "out of",
+      "gives": "FORTH",
+      "note": "forth means out or away, as in 'go forth'"
+     },
+     {
+      "clueFragment": "United",
+      "gives": "U",
+      "note": "U is the abbreviation for United in team names"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FO",
+      "U",
+      "RTH"
+     ]
+    },
+    "explanation": {
+     "surface": "A football team breaking out of their league place.",
+     "walkthrough": "Theme answer: the Fourth Plinth in Trafalgar Square.",
+     "definitionFit": "Fourth is a place in an order or ranking, so it names a position."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "United"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1221,43 @@
     "text": "Certainly join forces again?",
     "enumeration": "6"
    },
-   "solution": "REALLY"
+   "solution": "REALLY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REALLY",
+    "definitions": [
+     {
+      "text": "Certainly",
+      "at": 0
+     },
+     {
+      "text": "join forces again?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Certainly",
+      "note": "first meaning: truly, indeed"
+     },
+     {
+      "clueFragment": "join forces again?",
+      "note": "second meaning: read as ..., to form an alliance once more"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark admits the second sense splits the word into RE (again) and ALLY (join forces).",
+     "definitionFit": "Really is an adverb of emphasis meaning truly or certainly, and re-ally is an invented verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Certainly"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1271,81 @@
     "text": "Hold new Lemsip at first to stop runny nose",
     "enumeration": "6"
    },
-   "solution": "NELSON"
+   "solution": "NELSON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "NELSON",
+    "definitions": [
+     {
+      "text": "Hold",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of the word before it"
+     },
+     {
+      "text": "runny",
+      "for": "anagram",
+      "note": "something runny flows and loses its shape, so the letters lose their order"
+     },
+     {
+      "text": "to stop",
+      "for": "container",
+      "note": "a stopper plugs a gap, so this piece goes into the middle of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     },
+     {
+      "clueFragment": "Lemsip",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter of Lemsip"
+     },
+     {
+      "clueFragment": "nose",
+      "gives": "NOSE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "E",
+      "L",
+      "SON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOSE",
+       "gives": "ESON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to dose a streaming cold with Lemsip.",
+     "walkthrough": "Lemsip is a British cold and flu remedy. The N goes in front; the L is plugged into the reshuffled nose after its first letter.",
+     "definitionFit": "A nelson is a wrestling hold applied by an arm under the opponent's armpit and hand on the neck."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hold"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1359,84 @@
     "text": "Top six in Premier League, including Newcastle, thank home support",
     "enumeration": "6"
    },
-   "solution": "PLINTH"
+   "solution": "PLINTH",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "PLINTH",
+    "definitions": [
+     {
+      "text": "support",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Top six in",
+      "for": "letter_selection",
+      "note": "the top of each of the next six words is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Premier",
+      "gives": "P",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "League",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "including",
+      "gives": "I",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "Newcastle",
+      "gives": "N",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "thank",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "H",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "L",
+      "I",
+      "N",
+      "T",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Newcastle, now in the Premier League's top six, thanks its loyal home crowd.",
+     "walkthrough": "'Top six' looks like a league table position; it means the first letters of six words. Theme answer: the Fourth Plinth.",
+     "definitionFit": "A plinth is the base block on which a statue or column stands, a support."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "six"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1450,50 @@
     "text": "Stories from Johannesburg's exciting event?",
     "enumeration": "5"
    },
-   "solution": "SAGAS"
+   "solution": "SAGAS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SAGAS",
+    "definitions": [
+     {
+      "text": "Stories",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Johannesburg's",
+      "gives": "SA",
+      "note": "Johannesburg is in South Africa, SA"
+     },
+     {
+      "clueFragment": "exciting event",
+      "gives": "GAS",
+      "note": "a gas is informal for something great fun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "GAS"
+     ]
+    },
+    "explanation": {
+     "surface": "Tales coming out of a thrilling occasion in Johannesburg.",
+     "walkthrough": "'a gas' is informal for a lot of fun, so an exciting event.",
+     "definitionFit": "Sagas are long stories, originally Norse heroic tales, now any long narrative."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exciting"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1507,58 @@
     "text": "Everyone's powers drop 25% with abnormal reactions",
     "enumeration": "9"
    },
-   "solution": "ALLERGIES"
+   "solution": "ALLERGIES",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ALLERGIES",
+    "definitions": [
+     {
+      "text": "abnormal reactions",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drop 25%",
+      "for": "deletion",
+      "note": "dropping a quarter means losing a quarter of the word's letters"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everyone's",
+      "gives": "ALL",
+      "note": "everyone is all; the 's is possessive"
+     },
+     {
+      "clueFragment": "powers",
+      "gives": "ENERGIES",
+      "note": "energies are powers or strengths"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "ERGIES"
+     ]
+    },
+    "explanation": {
+     "surface": "Everybody's strength flags by a quarter when their body overreacts.",
+     "walkthrough": "Eight letters lose a quarter, so the first two go.",
+     "definitionFit": "Allergies are the immune system's abnormal reactions to substances such as pollen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "powers"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1572,57 @@
     "text": "Sticks with muscles, not bone",
     "enumeration": "5"
    },
-   "solution": "GLUES"
+   "solution": "GLUES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GLUES",
+    "definitions": [
+     {
+      "text": "Sticks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means without, so the following piece is taken out"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "muscles",
+      "gives": "GLUTES",
+      "note": "glutes are buttock muscles"
+     },
+     {
+      "clueFragment": "bone",
+      "gives": "T",
+      "note": "T as in T-bone steak"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GLU",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Holding together with flesh alone and no skeleton.",
+     "walkthrough": "A T-bone is a steak, so 'bone' gives the letter T.",
+     "definitionFit": "To glue is to stick things together, so glues is a verb meaning sticks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sticks"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1636,53 @@
     "text": "£100000500 ain't bad!",
     "enumeration": "4"
    },
-   "solution": "GOOD"
+   "solution": "GOOD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GOOD",
+    "definitions": [
+     {
+      "text": "ain't bad!",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "£1000",
+      "gives": "G",
+      "note": "G, a grand, is slang for a thousand pounds"
+     },
+     {
+      "clueFragment": "00",
+      "gives": "OO",
+      "note": "the two zeros read as letters"
+     },
+     {
+      "clueFragment": "500",
+      "gives": "D",
+      "note": "D is the Roman numeral for 500"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "OO",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A large sum of money, and the speaker is pleased.",
+     "walkthrough": "The long number splits into £1000, 00 and 500.",
+     "definitionFit": "Saying something 'ain't bad' is a casual way of calling it good."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1702,60 @@
      }
     ]
    },
-   "solution": "KINGJOHN"
+   "solution": "KINGJOHN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "KING JOHN",
+    "definitions": [
+     {
+      "text": "Ruler once",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so the following piece is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "capturing",
+      "gives": "TAKING",
+      "note": "capturing a piece in chess is taking it"
+     },
+     {
+      "clueFragment": "volunteers",
+      "gives": "TA",
+      "note": "the TA, Territorial Army, was Britain's volunteer reserve"
+     },
+     {
+      "clueFragment": "Major",
+      "gives": "JOHN",
+      "note": "John Major, UK prime minister 1990-97"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KING",
+      "JOHN"
+     ]
+    },
+    "explanation": {
+     "surface": "A former monarch takes an army major prisoner without any volunteers.",
+     "walkthrough": "'Major' looks like a rank; it is the surname of a British prime minister, whose first name is wanted.",
+     "definitionFit": "King John ruled England from 1199 to 1216 and sealed Magna Carta."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Major"
+    }
+   }
   },
   {
    "number": 26,
@@ -427,7 +1769,41 @@
     "text": "Settle2",
     "enumeration": "6"
    },
-   "solution": "SQUARE"
+   "solution": "SQUARE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SQUARE",
+    "definitions": [
+     {
+      "text": "Settle",
+      "at": 0
+     },
+     {
+      "text": "2",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Settle",
+      "note": "first meaning: to pay off, as in squaring a debt"
+     },
+     {
+      "clueFragment": "2",
+      "note": "second meaning: the superscript 2 printed after the word means multiplied by itself"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The 2 is a superscript, the mathematical sign for raising a number to the second power. Theme answer: Trafalgar Square.",
+     "definitionFit": "To square an account is to settle it, and the superscript 2 is read as 'square' or 'squared'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 27,
@@ -441,7 +1817,41 @@
     "text": "Peculiar drink",
     "enumeration": "3"
    },
-   "solution": "RUM"
+   "solution": "RUM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RUM",
+    "definitions": [
+     {
+      "text": "Peculiar",
+      "at": 0
+     },
+     {
+      "text": "drink",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Peculiar",
+      "note": "first meaning: odd, in old-fashioned British slang"
+     },
+     {
+      "clueFragment": "drink",
+      "note": "second meaning: a spirit distilled from sugar cane"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Rum as an adjective is dated British for strange, as in 'a rum business'.",
+     "definitionFit": "The word is both dated slang for odd and the name of a spirit made from sugar cane."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -455,7 +1865,63 @@
     "text": "Answer back communist to get caught",
     "enumeration": "6"
    },
-   "solution": "SNARED"
+   "solution": "SNARED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SNARED",
+    "definitions": [
+     {
+      "text": "caught",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means going the other way, so the letters are read right to left"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Answer",
+      "gives": "ANS",
+      "note": "ANS is the abbreviation for answer"
+     },
+     {
+      "clueFragment": "communist",
+      "gives": "RED",
+      "note": "a Red is a communist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNA",
+      "RED"
+     ],
+     "reversals": [
+      {
+       "from": "ANS",
+       "to": "SNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A communist retorts and ends up arrested.",
+     "definitionFit": "Snared means trapped or caught, as an animal in a snare."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Answer"
+    }
+   }
   },
   {
    "number": 29,
@@ -469,7 +1935,62 @@
     "text": "Large cab carrying 500 east",
     "enumeration": "8"
    },
-   "solution": "HANDSOME"
+   "solution": "HANDSOME",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HANDSOME",
+    "definitions": [
+     {
+      "text": "Large",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "a vehicle carrying something holds it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cab",
+      "gives": "HANSOM",
+      "note": "a hansom is a horse-drawn cab"
+     },
+     {
+      "clueFragment": "500",
+      "gives": "D",
+      "note": "D is the Roman numeral for 500"
+     },
+     {
+      "clueFragment": "east",
+      "gives": "E",
+      "note": "E for east"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAN",
+      "D",
+      "SOM",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A big taxi carries 500 passengers eastward.",
+     "walkthrough": "Handsome is used here as in 'a handsome sum'.",
+     "definitionFit": "A handsome amount is a generous or large one, so the adjective means large."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Large"
+    }
+   }
   }
  ]
 }
