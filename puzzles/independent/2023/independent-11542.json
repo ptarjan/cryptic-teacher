@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,69 @@
     "text": "Journey westward among trees in French city",
     "enumeration": "7"
    },
-   "solution": "LIMOGES"
+   "solution": "LIMOGES",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "LIMOGES",
+    "definitions": [
+     {
+      "text": "French city",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "westward",
+      "for": "reversal",
+      "note": "in an across entry, going west means reading right to left, so the word is turned round"
+     },
+     {
+      "text": "among",
+      "for": "container",
+      "note": "being among things means sitting inside them, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trees",
+      "gives": "LIMES",
+      "note": "lime trees, also called lindens"
+     },
+     {
+      "clueFragment": "Journey",
+      "gives": "GO",
+      "note": "a go is a trip or turn, a journey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIM",
+      "OG",
+      "ES"
+     ],
+     "reversals": [
+      {
+       "from": "GO",
+       "to": "OG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller heads west through the woods somewhere in France.",
+     "definitionFit": "Limoges is a city in west-central France, famous for its porcelain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Journey"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +112,60 @@
     "text": "Puzzle initially freaking out clumsy idiot",
     "enumeration": "6"
    },
-   "solution": "LUMMOX"
+   "solution": "LUMMOX",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "LUMMOX",
+    "definitions": [
+     {
+      "text": "clumsy idiot",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letter of the word after it"
+     },
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "out means removed, so that letter is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Puzzle",
+      "gives": "FLUMMOX",
+      "note": "to flummox is to baffle or puzzle"
+     },
+     {
+      "clueFragment": "freaking",
+      "gives": "F",
+      "select": "first",
+      "note": "the first letter of freaking"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LUMMOX"
+     ]
+    },
+    "explanation": {
+     "surface": "A crossword baffles someone who starts panicking, a hopeless dolt.",
+     "walkthrough": "Take F away from FLUMMOX.",
+     "definitionFit": "A lummox is a big awkward, slow-witted person, an informal word for a clumsy oaf."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "freaking"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +179,44 @@
     "text": "Fashion house given mention",
     "enumeration": "6"
    },
-   "solution": "MANNER"
+   "solution": "MANNER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MANNER",
+    "definitions": [
+     {
+      "text": "Fashion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "given mention",
+      "for": "homophone",
+      "note": "given mention means spoken of, so the word is heard rather than written"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "house",
+      "gives": "MANNER",
+      "soundsLike": "MANOR",
+      "note": "a manor is a large country house"
+     }
+    ],
+    "explanation": {
+     "surface": "A couture house gets a mention in the press.",
+     "walkthrough": "'Fashion house' reads as one phrase, but Fashion is the definition and house the wordplay.",
+     "definitionFit": "Fashion as a noun can mean a way of doing something, as in 'after a fashion', which is a manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fashion"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +236,53 @@
      }
     ]
    },
-   "solution": "GAMETHEORY"
+   "solution": "GAMETHEORY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GAME THEORY",
+    "definitions": [
+     {
+      "text": "maths branch",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "transformational",
+      "for": "anagram",
+      "note": "transformational means changing form, so the letters take a new shape"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ah! Geometry",
+      "gives": "AHGEOMETRY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AHGEOMETRY",
+       "gives": "GAMETHEORY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student exclaims at discovering transformational geometry, a real topic in maths.",
+     "definitionFit": "Game theory is a branch of mathematics studying strategic decisions between competing players."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "transformational"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +296,65 @@
     "text": "King opening up sees PM",
     "enumeration": "5"
    },
-   "solution": "SUNAK"
+   "solution": "SUNAK",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SUNAK",
+    "definitions": [
+     {
+      "text": "PM",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means reading from bottom to top, so the letters are turned round"
+     }
+    ],
+    "linkWords": [
+     "sees"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     },
+     {
+      "clueFragment": "opening",
+      "gives": "ANUS",
+      "note": "a bodily opening"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUNA",
+      "K"
+     ],
+     "reversals": [
+      {
+       "from": "KANUS",
+       "to": "SUNAK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The King opens his weekly audience with the Prime Minister.",
+     "walkthrough": "Rishi Sunak was UK Prime Minister from 2022 to 2024; the earthy 'opening' is the setter's joke.",
+     "definitionFit": "Rishi Sunak was the British prime minister when this puzzle appeared, so PM defines him by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +368,62 @@
     "text": "Greens, at first boiled, mashed: many thanks!",
     "enumeration": "7"
    },
-   "solution": "OBLIGED"
+   "solution": "OBLIGED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "OBLIGED",
+    "definitions": [
+     {
+      "text": "many thanks!",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first asks for only the opening letter of the word before it"
+     },
+     {
+      "text": "mashed",
+      "for": "anagram",
+      "note": "mashed food is pulped out of shape, so the letters lose their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greens",
+      "gives": "G",
+      "select": "first",
+      "note": "the first letter of Greens"
+     },
+     {
+      "clueFragment": "boiled",
+      "gives": "BOILED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GBOILED",
+       "gives": "OBLIGED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner thanks the cook for vegetables boiled then mashed.",
+     "definitionFit": "Saying 'Much obliged!' is an old-fashioned way of expressing gratitude, so the word works as an exclamation of thanks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mashed"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +437,64 @@
     "text": "Ring that goes with fancy earrings in storage container",
     "enumeration": "9"
    },
-   "solution": "ORGANISER"
+   "solution": "ORGANISER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ORGANISER",
+    "definitions": [
+     {
+      "text": "storage container",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fancy",
+      "for": "anagram",
+      "note": "fancy means elaborate or fanciful, so the word after it is made over into a new order"
+     }
+    ],
+    "linkWords": [
+     "that goes with",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ring",
+      "gives": "O",
+      "note": "O is ring-shaped"
+     },
+     {
+      "clueFragment": "earrings",
+      "gives": "EARRINGS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "RGANISER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EARRINGS",
+       "gives": "RGANISER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ring is kept with some showy earrings in a jewellery box.",
+     "definitionFit": "An organiser is a box or case with compartments for keeping things tidy, so a storage container."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ring"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +508,47 @@
     "text": "Holding back eighth item to be auctioned?",
     "enumeration": "4"
    },
-   "solution": "LOTH"
+   "solution": "LOTH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOTH",
+    "definitions": [
+     {
+      "text": "Holding back",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "item to be auctioned",
+      "gives": "LOT",
+      "note": "each item in an auction is a lot"
+     },
+     {
+      "clueFragment": "eighth",
+      "gives": "H",
+      "note": "H is the eighth letter of the alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOT",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A bidder waits for the eighth item in the sale, lot H.",
+     "walkthrough": "Auction lots are sometimes lettered, so the eighth would be Lot H; the question mark admits the stretch.",
+     "definitionFit": "Loth (also spelt loath) means reluctant, unwilling, which is holding back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Holding"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +562,61 @@
     "text": "In crowd Scots frightened posh student",
     "enumeration": "8"
    },
-   "solution": "GRADUATE"
+   "solution": "GRADUATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "GRADUATE",
+    "definitions": [
+     {
+      "text": "student",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "In places what follows inside the word for a crowd"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crowd",
+      "gives": "GATE",
+      "note": "the gate is the attendance at a sports match"
+     },
+     {
+      "clueFragment": "Scots frightened",
+      "gives": "RAD",
+      "note": "rad is a Scots word for afraid"
+     },
+     {
+      "clueFragment": "posh",
+      "gives": "U",
+      "note": "U means upper-class"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RAD",
+      "U",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A posh student is scared to be among a crowd of Scots.",
+     "definitionFit": "A graduate is someone who has completed a degree, and in the US a graduate student continues study."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crowd"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +630,49 @@
     "text": "Actor once in Parliament full of comic potential",
     "enumeration": "8"
    },
-   "solution": "DIETRICH"
+   "solution": "DIETRICH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIETRICH",
+    "definitions": [
+     {
+      "text": "Actor once",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Parliament",
+      "gives": "DIET",
+      "note": "a diet is a legislative assembly, as in the Japanese Diet or the Diet of Worms"
+     },
+     {
+      "clueFragment": "full of comic potential",
+      "gives": "RICH",
+      "note": "rich, as in 'that's rich', means ripe for laughs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIET",
+      "RICH"
+     ]
+    },
+    "explanation": {
+     "surface": "An actor who became an MP proved a gift for comedy.",
+     "definitionFit": "Marlene Dietrich was a German-American film star of the 1930s and later, so an actor of former times."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Parliament"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +686,59 @@
     "text": "Beat somewhat shorter finalist in Omnium?",
     "enumeration": "5"
    },
-   "solution": "MINIM"
+   "solution": "MINIM",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MINIM",
+    "definitions": [
+     {
+      "text": "Beat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finalist",
+      "for": "letter_selection",
+      "note": "the finalist of a word is the one that comes last, its closing letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "somewhat shorter",
+      "gives": "MINI",
+      "note": "mini means smaller or shorter than usual, as in a miniskirt"
+     },
+     {
+      "clueFragment": "Omnium",
+      "gives": "M",
+      "select": "last",
+      "note": "the last letter of Omnium"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MINI",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A track cyclist who made the Omnium final turns out to be a little shorter than the rest.",
+     "walkthrough": "The Omnium is a multi-race track cycling event, which makes 'Beat' look like a verb about winning; it is a musical noun.",
+     "definitionFit": "A minim is a half note, which counts as one beat in time signatures such as 2/2."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Beat"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +752,75 @@
     "text": "Horrid thing to ruin repose, ultimately?",
     "enumeration": "9"
    },
-   "solution": "NIGHTMARE"
+   "solution": "NIGHTMARE",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "NIGHTMARE",
+    "definitions": [
+     {
+      "text": "Horrid thing to ruin repose, ultimately",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Horrid",
+      "for": "anagram",
+      "note": "something horrid is ugly and distorted, so the word after it is scrambled"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the very end, so only the final letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thing",
+      "gives": "THING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "to ruin",
+      "gives": "MAR",
+      "note": "to mar is to spoil or ruin"
+     },
+     {
+      "clueFragment": "repose",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of repose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIGHT",
+      "MAR",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THING",
+       "gives": "NIGHT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks what horrible thing finally wrecks a good night's rest.",
+     "walkthrough": "The whole clue is the definition too: a bad dream is the horrid thing that ruins sleep.",
+     "definitionFit": "A nightmare is a frightening dream, the kind of horror that destroys peaceful sleep."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Horrid"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +834,58 @@
     "text": "Public article to appear before Charles's passing",
     "enumeration": "10"
    },
-   "solution": "OVERTAKING"
+   "solution": "OVERTAKING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERTAKING",
+    "definitions": [
+     {
+      "text": "passing",
+      "at": 42
+     }
+    ],
+    "linkWords": [
+     "to appear before",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Public",
+      "gives": "OVERT",
+      "note": "overt means done openly, in public"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "Charles",
+      "gives": "KING",
+      "note": "Charles III is the British king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVERT",
+      "A",
+      "KING"
+     ]
+    },
+    "explanation": {
+     "surface": "A public notice heralds the death of King Charles.",
+     "walkthrough": "'Passing' looks like death in the surface; here it is a driver going past another vehicle.",
+     "definitionFit": "Overtaking is moving past a slower vehicle on the road, which is also called passing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "passing"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +899,48 @@
     "text": "Rhine tributary rougher here and there",
     "enumeration": "4"
    },
-   "solution": "RUHR"
+   "solution": "RUHR",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "RUHR",
+    "definitions": [
+     {
+      "text": "Rhine tributary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "here and there",
+      "for": "letter_selection",
+      "note": "here and there means only at intervals, so every other letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rougher",
+      "gives": "RUHR",
+      "select": "alternate",
+      "note": "the first, third, fifth and seventh letters of rougher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUHR"
+     ]
+    },
+    "explanation": {
+     "surface": "A river feeding the Rhine runs choppier in places.",
+     "definitionFit": "The Ruhr is a German river that flows into the Rhine at Duisburg, giving its name to the industrial region."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rougher"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +954,66 @@
     "text": "Boring President forced to tour America",
     "enumeration": "10"
    },
-   "solution": "PEDESTRIAN"
+   "solution": "PEDESTRIAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PEDESTRIAN",
+    "definitions": [
+     {
+      "text": "Boring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "forced",
+      "for": "anagram",
+      "note": "forced means pushed out of its natural shape, so the word is rearranged"
+     },
+     {
+      "text": "to tour",
+      "for": "container",
+      "note": "touring a place means going all round it, so these letters surround another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "President",
+      "gives": "PRESIDENT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "A",
+      "note": "A is a standard abbreviation for America"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEDESTRI",
+      "A",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PRESIDENT",
+       "gives": "PEDESTRIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dull head of state is made to go on a tour of the United States.",
+     "definitionFit": "Pedestrian as an adjective means dull and uninspired, lacking any flair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Boring"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +1027,67 @@
     "text": "One in secret coup destroyed ERG politician?",
     "enumeration": "11"
    },
-   "solution": "EUROSCEPTIC"
+   "solution": "EUROSCEPTIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EUROSCEPTIC",
+    "definitions": [
+     {
+      "text": "ERG politician?",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "destroyed",
+      "for": "anagram",
+      "note": "something destroyed is broken apart, so the two words are reassembled in a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the numeral inside the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secret coup",
+      "gives": "SECRETCOUP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EUROSCEPT",
+      "I",
+      "C"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SECRETCOUP",
+       "gives": "EUROSCEPTC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plotter is caught in a failed covert power grab within a party faction.",
+     "walkthrough": "The ERG is the European Research Group, a caucus of Brexit-supporting Conservative MPs; the question mark marks the definition by example.",
+     "definitionFit": "Members of the ERG are known for opposing the European Union, the defining stance of a Eurosceptic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "secret"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1101,65 @@
     "text": "Agent with servant brought in free carpet",
     "enumeration": "9"
    },
-   "solution": "REPRIMAND"
+   "solution": "REPRIMAND",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "REPRIMAND",
+    "definitions": [
+     {
+      "text": "carpet",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought in",
+      "for": "container",
+      "note": "brought in means placed inside, so one piece is held by another"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agent",
+      "gives": "REP",
+      "note": "a rep, or representative, acts as an agent"
+     },
+     {
+      "clueFragment": "free",
+      "gives": "RID",
+      "note": "to rid is to free of something"
+     },
+     {
+      "clueFragment": "servant",
+      "gives": "MAN",
+      "note": "a manservant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REP",
+      "RI",
+      "MAN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A salesman and his servant come round to lay a carpet at no charge.",
+     "walkthrough": "'Carpet' looks like a floor covering but is a verb: to carpet someone is British slang for to scold them.",
+     "definitionFit": "To be carpeted is to be called before the boss for a telling-off, so carpet means to rebuke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "carpet"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1173,65 @@
     "text": "Drive away from island and lake in Kansas City",
     "enumeration": "8"
    },
-   "solution": "DISLODGE"
+   "solution": "DISLODGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DISLODGE",
+    "definitions": [
+     {
+      "text": "Drive away",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding letters inside the city's name"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kansas City",
+      "gives": "DODGE",
+      "note": "Dodge City is a city in Kansas, famed in Wild West lore"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "IS",
+      "note": "Is. is the abbreviation for island"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the abbreviation for lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IS",
+      "L",
+      "ODGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A road trip leaves an island and a lake for Kansas City, Missouri.",
+     "walkthrough": "Kansas City is a real city, but here it means a city in Kansas: Dodge.",
+     "definitionFit": "To dislodge something is to force it out of position, to drive it away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Kansas"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1245,58 @@
     "text": "Pedant needs to stay alert in the middle",
     "enumeration": "8"
    },
-   "solution": "STICKLER"
+   "solution": "STICKLER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "STICKLER",
+    "definitions": [
+     {
+      "text": "Pedant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the middle",
+      "for": "letter_selection",
+      "note": "in the middle keeps only the central letters of the word"
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to stay",
+      "gives": "STICK",
+      "note": "to stick is to stay put"
+     },
+     {
+      "clueFragment": "alert",
+      "gives": "LER",
+      "select": "middle",
+      "note": "the middle three letters of alert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STICK",
+      "LER"
+     ]
+    },
+    "explanation": {
+     "surface": "A nitpicker must stay watchful at the centre of things.",
+     "definitionFit": "A stickler insists on strict rules and correctness, which is what a pedant does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stay"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1310,42 @@
     "text": "Printer's perseverance keeping dot?",
     "enumeration": "11"
    },
-   "solution": "INTERSPERSE"
+   "solution": "INTERSPERSE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INTERSPERSE",
+    "definitions": [
+     {
+      "text": "dot",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "hidden_word",
+      "note": "keeping means holding within, so the answer sits inside the run of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Printer's perseverance",
+      "gives": "INTERSPERSE",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A dogged printer insists on a dot, perhaps a full stop.",
+     "definitionFit": "To dot something about is to scatter it at intervals, the same as interspersing it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dot"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1359,47 @@
     "text": "Tinker's award for service announced",
     "enumeration": "6"
    },
-   "solution": "MEDDLE"
+   "solution": "MEDDLE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MEDDLE",
+    "definitions": [
+     {
+      "text": "Tinker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "announced",
+      "for": "homophone",
+      "note": "announced means spoken aloud, so the sound matters, not the spelling"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "award for service",
+      "gives": "MEDDLE",
+      "soundsLike": "MEDAL",
+      "note": "a medal is awarded for service"
+     }
+    ],
+    "explanation": {
+     "surface": "A travelling tinker's military honour is made public.",
+     "walkthrough": "'Tinker's' reads as possessive; it is 'Tinker is', with tinker a verb.",
+     "definitionFit": "To tinker with something is to fiddle with it unhelpfully, which is to meddle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tinker's"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1419,49 @@
      }
     ]
    },
-   "solution": "ATLAST"
+   "solution": "ATLAST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AT LAST",
+    "definitions": [
+     {
+      "text": "in the end",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "linked to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Map book",
+      "gives": "ATLAS",
+      "note": "an atlas is a book of maps"
+     },
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "T is the abbreviation for temperature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATLAS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A map book is eventually tied to temperature readings, as in a climate atlas.",
+     "definitionFit": "At last and in the end both mean finally, after a long wait."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "temperature"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1475,53 @@
     "text": "Want chess player to sacrifice bishop",
     "enumeration": "4"
    },
-   "solution": "LACK"
+   "solution": "LACK",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LACK",
+    "definitions": [
+     {
+      "text": "Want",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to sacrifice",
+      "for": "deletion",
+      "note": "to sacrifice is to give up, so a letter is lost from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chess player",
+      "gives": "BLACK",
+      "note": "the two sides in chess are White and Black"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess notation for bishop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LACK"
+     ]
+    },
+    "explanation": {
+     "surface": "A chess player is urged to give up a bishop for an attack.",
+     "walkthrough": "Remove B from BLACK.",
+     "definitionFit": "Want as a noun means a shortage or absence, the same as lack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Want"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1541,64 @@
      }
     ]
    },
-   "solution": "HIGHSTREET"
+   "solution": "HIGHSTREET",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "HIGH STREET",
+    "definitions": [
+     {
+      "text": "shopping sector",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Stormy",
+      "for": "anagram",
+      "note": "a stormy thing is wild and turbulent, so the word after it is thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sloshed",
+      "gives": "HIGH",
+      "note": "high means intoxicated, like sloshed"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "SETTER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIGH",
+      "STREET"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SETTER",
+       "gives": "STREET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crossword setter, drunk and in a temper, is out on the town among the shops.",
+     "definitionFit": "The high street is a town's main road, where most of its shops are found."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Stormy"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1612,50 @@
     "text": "Sailor almost showing courage",
     "enumeration": "5"
    },
-   "solution": "HEART"
+   "solution": "HEART",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HEART",
+    "definitions": [
+     {
+      "text": "courage",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the word loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailor",
+      "gives": "HEARTY",
+      "note": "'my hearties' is how pirates address fellow sailors"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEART"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor almost displays bravery.",
+     "definitionFit": "Heart means courage or spirit, as in 'take heart' or 'lose heart'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sailor"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1669,57 @@
     "text": "Russian fighter protecting name for dynasty",
     "enumeration": "4"
    },
-   "solution": "MING"
+   "solution": "MING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MING",
+    "definitions": [
+     {
+      "text": "dynasty",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "protecting",
+      "for": "container",
+      "note": "protecting means guarding by surrounding, so one piece wraps another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Russian fighter",
+      "gives": "MIG",
+      "note": "the MiG is a Russian fighter jet"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "N",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A Russian jet guards the name of a royal line.",
+     "definitionFit": "The Ming dynasty ruled China from 1368 to 1644."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fighter"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1739,60 @@
      }
     ]
    },
-   "solution": "DALAILAMA"
+   "solution": "DALAILAMA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "homophone"
+    ],
+    "answer": "DALAI LAMA",
+    "definitions": [
+     {
+      "text": "Buddhist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "engaging",
+      "for": "container",
+      "note": "engaging here means taking on or holding, so the artist's name wraps the letter"
+     },
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as said out loud, so the sound counts and not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artist",
+      "gives": "DALI",
+      "note": "Salvador Dali, the Surrealist painter"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "wool producer",
+      "gives": "LAMA",
+      "soundsLike": "LLAMA",
+      "note": "the llama is an Andean animal kept for its wool"
+     }
+    ],
+    "explanation": {
+     "surface": "A Buddhist painter takes on a sheep or similar animal.",
+     "definitionFit": "The Dalai Lama is the spiritual leader of Tibetan Buddhism, so a Buddhist by example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "artist"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1806,39 @@
     "text": "I may represent this country",
     "enumeration": "5"
    },
-   "solution": "INDIA"
+   "solution": "INDIA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "INDIA",
+    "definitions": [
+     {
+      "text": "I may represent this country",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I may represent this country",
+      "note": "surface reading: someone claims they could stand for their nation, as a diplomat or athlete"
+     },
+     {
+      "clueFragment": "I",
+      "note": "setter's reading: the letter I, whose code word in the NATO phonetic alphabet is a country's name"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In radio spelling, Alpha, Bravo, Charlie and so on, the letter I is spoken as the name of a large South Asian country.",
+     "definitionFit": "India is both a nation and the phonetic alphabet word that stands for the letter I."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "I"
+    }
+   }
   },
   {
    "number": 27,
@@ -449,7 +1852,68 @@
     "text": "Exasperated striker's last time in terminus",
     "enumeration": "7"
    },
-   "solution": "ENRAGED"
+   "solution": "ENRAGED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "ENRAGED",
+    "definitions": [
+     {
+      "text": "Exasperated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "last asks for just the closing letter of the word before it"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places those letters inside the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "terminus",
+      "gives": "END",
+      "note": "a terminus is the end of the line"
+     },
+     {
+      "clueFragment": "striker's",
+      "gives": "R",
+      "select": "last",
+      "note": "the last letter of striker"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "AGE",
+      "note": "an age is a period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "R",
+      "AGE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer is furious after a last-minute goal at the end of the game.",
+     "definitionFit": "Exasperated and enraged both mean made very angry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "striker's"
+    }
+   }
   },
   {
    "number": 28,
@@ -463,7 +1927,39 @@
     "text": "An outside line to ring?",
     "enumeration": "7"
    },
-   "solution": "TANGENT"
+   "solution": "TANGENT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TANGENT",
+    "definitions": [
+     {
+      "text": "An outside line to ring?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An outside line to ring?",
+      "note": "surface reading: an external telephone line used to call someone"
+     },
+     {
+      "clueFragment": "outside line",
+      "note": "setter's reading: in geometry, a straight line lying outside a circle that just touches it"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The ring is a circle, not a phone call.",
+     "definitionFit": "A tangent is a straight line touching a curve at exactly one point without crossing it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ring"
+    }
+   }
   }
  ]
 }
