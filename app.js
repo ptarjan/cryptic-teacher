@@ -4355,7 +4355,11 @@
       ? `<p><b class="wt-part">What it seems to say</b>${esc(prose.surface)}</p>` : "";
     // A puzzle that is not a cryptic (meta.style, tools/puzzle_style.py) has no
     // wordplay to spot, name or build: its ladder is the definition and the walkthrough.
-    if (meta && meta.style === "straight") steps.splice(0, steps.length, ...steps.filter((s) => s.key === "definition"));
+    // The tag is a puzzle-wide majority (85%), so a clue in it that does carry
+    // indicators (times-26's "It sounds sluggish", "(anag.)") is real wordplay
+    // and keeps its full ladder: dropping the rung that sells its indicator
+    // would leave a paid-for hint off the screen.
+    if (meta && meta.style === "straight" && !(ann.indicators || []).length) steps.splice(0, steps.length, ...steps.filter((s) => s.key === "definition"));
     // A blog-derived ladder stops at what the blogger marked; the rest of the
     // explanation is theirs, and the panel links to it (blogCreditHTML).
     if (!ann.fromBlog) steps.push({
