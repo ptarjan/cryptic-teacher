@@ -2503,6 +2503,12 @@ class Paper:
         band holds no title)."""
         return self.parse(lines, titles)
 
+    @property
+    def also(self):
+        """The papers of the same series in other items whose editions a
+        run of this one reads too (ALSO)."""
+        return ALSO.get(self.key, ())
+
 
 #: The 1930 Times: archive.org's pub_times, one item an issue
 #: ("per_times_the-times_1930-03-04_45452"), each page scanned 13663px wide.
