@@ -1948,6 +1948,92 @@ def blind_misses(pid):
         return {}
 
 
+# A cold solve's answer its own annotator would not stand behind. Every answer
+# an official key later overturned had one of two marks on it, and every fill
+# passed the solve gate because its crossings agreed: listener-3 40D SLA
+# ("UNRESOLVED ... This fill is a placeholder until the published solution
+# corrects it"; the key says SLY) and 6D KARNATIC ("Usually spelt Carnatic";
+# the key says CARNATIC, and 6A KALYAN fell with it on their shared K). The
+# phrases are the annotator talking about its own answer, never about a
+# definition: LEGEND's "historically unverified" story or UP IN THE AIR's
+# "unresolved state" do not match.
+DOUBTS = re.compile(
+    r"^\s*(?:unresolved|unconfirmed|unverified)\b"
+    r"|\b(?:unresolved|unconfirmed|unverified)(?: guess)?:"
+    r"|\b(?:unconfirmed|unverified|a placeholder|placeholder) until\b"
+    r"|\btreat (?:this|it|that)\b[^.]{0,40}\bas (?:unconfirmed|unverified)\b"
+    r"|\bnot fully parsed\b|\bparse is (?:only )?partial\b"
+    r"|\bno wordplay\b[^.]{0,40}\bwas found\b|\bnothing found explains\b",
+    re.I | re.M)
+
+# "usually spelt X", where X is the answer one or two letters away: the grid
+# took a variant whose odd letter sat where nothing checked it.
+VARIANT_SPELLING = re.compile(r"\b(?:usually|normally|more often|commonly) spelt ((?:[A-Za-z'-]+ ?){1,3})", re.I)
+
+
+def annotation_prose(ann):
+    ex = ann.get("explanation") or {}
+    return "\n".join([ex.get("walkthrough") or "", ex.get("definitionFit") or ""]
+                     + [b.get("note") or "" for b in ann.get("blocks") or []])
+
+
+def variant_named(answer, prose):
+    """The usual spelling the prose names for `answer`, when it is a near-twin."""
+    want = letters(answer)
+    for m in VARIANT_SPELLING.finditer(prose):
+        words = m.group(1).split()
+        for n in range(1, len(words) + 1):
+            other = letters(" ".join(words[:n]))
+            if len(other) == len(want) and other != want:
+                if sum(a != b for a, b in zip(other, want)) <= max(1, len(want) // 4):
+                    return other
+    return None
+
+
+def doubted_model_answers(puzzle):
+    """{entry id: why} for each model answer whose annotation doubts it and that
+    may still be sent back: not printed by the paper, not graded by a key, not
+    reopened before (tools/reopen_answers.py reopens an entry once)."""
+    if provenance.solution_origin_from_file(puzzle) != "model":
+        return {}
+    detail = puzzle.get("solutions") or {}
+    settled = (set(provenance.printed_answers(puzzle)) | set(detail.get("graded") or {})
+               | set(detail.get("reopened") or {}))
+    out = {}
+    for e in puzzle["entries"]:
+        ann = e.get("annotation")
+        if entry_id(e) in settled or not isinstance(ann, dict) or not e.get("solution"):
+            continue
+        prose = annotation_prose(ann)
+        m = DOUBTS.search(prose)
+        if m:
+            out[entry_id(e)] = f"its annotation says {m.group(0).strip()!r}"
+            continue
+        other = variant_named(e["solution"], prose)
+        if other:
+            out[entry_id(e)] = f"its annotation names the usual spelling {other}"
+    return out
+
+
+def check_model_answer_doubted(puzzle, errors, warnings, corpus=False):
+    """A model answer the annotation doubts goes back to be solved, not shipped.
+
+    The solve gate checks a fill against its own crossings, so a wrong letter
+    on an unchecked cell, or two weak answers agreeing on a shared one, passes
+    it; the annotator is the first reader who has to account for the word, and
+    when it writes "unconfirmed" it has found it cannot. An error here makes the
+    burn reopen the light once (tools/reopen_answers.py, which reads the same
+    function), so the next solve sees the rejected word. In a corpus run it is
+    a warning: those answers are already committed and reopened from there."""
+    for eid, why in doubted_model_answers(puzzle).items():
+        num, direction = eid.split("-")
+        tag = f"{num}{'A' if direction == 'across' else 'D'}"
+        (warnings if corpus else errors).append(
+            f"{tag}: the model's answer is in doubt — {why}. Write the word the clue "
+            f"really gives in `answer` if you can parse it, else leave the clue null; "
+            f"either way it is solved again rather than shipped with a hedged hint")
+
+
 def is_blank_clue(clue):
     """A grid entry the setter left without a clue: no text (an enumeration,
     if printed, is kept apart)."""
@@ -3324,6 +3410,7 @@ def _validate_puzzle(puzzle, corpus=False, schema=True):
     if annotated:
         check_every_clue_is_annotated(puzzle["entries"], errors, warnings,
                                       blind_misses(puzzle["id"]), corpus=corpus)
+        check_model_answer_doubted(puzzle, errors, warnings, corpus=corpus)
         check_cryptic_definition_cap(puzzle["entries"], errors, warnings,
                                      authored=authored)
         if authored:

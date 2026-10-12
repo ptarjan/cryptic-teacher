@@ -1440,6 +1440,29 @@ class RefusedWrite(ValueError):
         self.flags = flags
 
 
+def check_key_grades_model(old, new, flags):
+    """A key that replaces a model's solve grades it: each light it overturns is
+    in tools/data/blind_misses.json and has lost the hint written for the old
+    word (fetch_puzzle.grade_model_fill does both). listener-3's archive key
+    (listener_puzzles.graded_by_key) overturned three answers and recorded
+    none, so the nightly miss diagnosis never saw them. Any road that files a
+    key over a cold solve now has to grade it, or the write is refused."""
+    if "model" not in provenance.solution_detail(old) or "model" in provenance.solution_detail(new):
+        return
+    import validate_annotations  # lazy: it imports this module's fetcher
+    recorded = validate_annotations.blind_misses(new.get("id"))
+    have = {entry_id(e): e for e in new.get("entries") or []}
+    for eid, mine in provenance.model_answers(old).items():
+        e = have.get(eid)
+        if not mine or not e or not e.get("solution") or e["solution"] == mine:
+            continue
+        stale = re.sub(r"[^A-Z]", "", ((e.get("annotation") or {}).get("answer") or "").upper()) == mine
+        if eid not in recorded or stale:
+            flags.append(("UNGRADED", new["id"], f"{eid}: the key says {e['solution']} where the "
+                          f"model's solve said {mine}; grade it through fetch_puzzle.grade_model_fill "
+                          f"(records the miss, drops the old hint) before writing"))
+
+
 def refuse_bad_write(puzzle, old=None):
     """Raise RefusedWrite (a ValueError) naming every finding `puzzle` would bring to disk."""
     flags = []
@@ -1447,6 +1470,7 @@ def refuse_bad_write(puzzle, old=None):
     flags += [("SCHEMA", puzzle.get("id"), p) for p in puzzle_schema.validate(puzzle)]
     if old is not None:
         check_rewrite(old, puzzle, flags)
+        check_key_grades_model(old, puzzle, flags)
     check_new_bleed(old, puzzle, flags)
     check_new_spaces(old, puzzle, flags)
     check_new_punctuation(old, puzzle, flags)

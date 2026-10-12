@@ -46,7 +46,9 @@ import enumeration
 import downloads
 import series as series_meta
 import puzzle_paths
-from fetch_puzzle import puzzle_path, read_puzzle_file, write_puzzle_file
+import provenance
+from fetch_puzzle import (grade_model_fill, print_grade, puzzle_path,
+                          read_puzzle_file, write_puzzle_file)
 
 
 SERIES = "listener"
@@ -855,6 +857,14 @@ def file_pdfs(write=True, log=print):
                 log(f"  {number}: filed from {held['source'].get('acquiredBy')}; {why}")
                 continue
             if write:
+                # The one grader every key's arrival uses: it records each
+                # overturned model answer in blind_misses.json, where the
+                # nightly miss diagnosis finds it (puzzle_integrity refuses
+                # the write otherwise).
+                guessed = provenance.model_answers(held)
+                if guessed:
+                    print_grade(graded, grade_model_fill(graded, guessed), guessed,
+                                against="the Listener archive's solution")
                 write_puzzle_file(puzzle_path(SERIES, number), graded)
             filed.append(puzzle["id"])
             log(f"  graded {puzzle['id']} by the archive's solution: {why}"

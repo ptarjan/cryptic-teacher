@@ -148,6 +148,83 @@ try:
 except SystemExit:
     check("reopening a printed answer is refused", True)
 check("nothing reopens on a published grid", R.reopenable({**ran, "solutions": {"origin": "published"}}) == [])
+
+# --- an answer its own annotation doubts (what the official keys overturned) ---
+import validate_annotations as V, puzzle_integrity as PI
+def annotated_as(puzzle, eid, walkthrough, fit="A plain sense."):
+    out = copy.deepcopy(puzzle)
+    for x in out["entries"]:
+        if entry_id(x) == eid:
+            x["annotation"] = {"type": ["cryptic_definition"], "answer": x["solution"],
+                               "definitions": [], "blocks": [],
+                               "explanation": {"walkthrough": walkthrough, "definitionFit": fit}}
+    return out
+d_eid = entry_id(model[0])
+# listener-3 40D and 6D, as annotated before the archive's key overturned them.
+sla = annotated_as(base, d_eid, "UNRESOLVED: the crossings give S then L, with the last cell "
+                   "unchecked. This fill is a placeholder until the published solution corrects it.")
+check("an UNRESOLVED placeholder hint marks the model answer doubted", d_eid in V.doubted_model_answers(sla))
+word = model[0]["solution"]
+twin = word[:-1] + ("Q" if word[-1] != "Q" else "Z")
+variant = annotated_as(base, d_eid, f"Usually spelt {twin.title()}; the region is the coastal plain.")
+check("a hint naming a one-letter-off usual spelling marks it doubted", d_eid in V.doubted_model_answers(variant))
+for prose in ("A traditional story, often historically unverified, is a myth.",
+              "Plans undecided are said to be hanging in this unresolved state.",
+              "Kiev, now usually spelt Kyiv, is the capital of Ukraine."):
+    check(f"a definition about doubt is not doubt: {prose[:30]!r}",
+          d_eid not in V.doubted_model_answers(annotated_as(base, d_eid, prose)))
+errors, warnings = [], []
+V.check_model_answer_doubted(sla, errors, warnings)
+check("a doubted model answer is an error in the run's validation", len(errors) == 1 and not warnings)
+errors, warnings = [], []
+V.check_model_answer_doubted(sla, errors, warnings, corpus=True)
+check("and a warning in a corpus run", not errors and len(warnings) == 1)
+check("a published grid's hint is never a model doubt",
+      V.doubted_model_answers({**sla, "solutions": {"origin": "published"}}) == {})
+settled = copy.deepcopy(sla)
+settled["solutions"]["graded"] = {d_eid: "test"}
+check("a light a key already graded is not doubted again", d_eid not in V.doubted_model_answers(settled))
+check("a doubted answer is reopenable, like a null", d_eid in R.reopenable(sla))
+back = R.reopen(copy.deepcopy(sla), [d_eid])
+light = next(x for x in back["entries"] if entry_id(x) == d_eid)
+check("reopening it blanks the answer and drops the hedged hint",
+      "solution" not in light and "annotation" not in light and back["solutions"]["reopened"][d_eid] == word)
+check("once reopened it is no longer doubted (a second solve's word stands)",
+      d_eid not in V.doubted_model_answers({**sla, "solutions": back["solutions"]}))
+
+# --- a key over a cold solve must grade it ---
+keyed = copy.deepcopy(sla)
+keyed["solutions"] = {"origin": "published", "previousOrigin": "model"}
+next(x for x in keyed["entries"] if entry_id(x) == d_eid)["solution"] = twin
+real_misses = V.blind_misses
+try:
+    V.blind_misses = lambda pid: {}
+    flags = []
+    PI.check_key_grades_model(sla, keyed, flags)
+    check("a key overturning a model answer without grading it is refused",
+          [f[0] for f in flags] == ["UNGRADED"] and d_eid in flags[0][2])
+    recorded = []
+    real_record = fetch_puzzle.record_misses
+    fetch_puzzle.record_misses = lambda pid, wrong, marked=None: recorded.extend(wrong)
+    try:
+        fetch_puzzle.grade_model_fill(keyed, provenance.model_answers(sla))
+    finally:
+        fetch_puzzle.record_misses = real_record
+    check("grade_model_fill records the miss and drops the old hint",
+          recorded == [(d_eid, word, twin)]
+          and "annotation" not in next(x for x in keyed["entries"] if entry_id(x) == d_eid))
+    V.blind_misses = lambda pid: {d_eid: word}
+    flags = []
+    PI.check_key_grades_model(sla, keyed, flags)
+    check("once graded the write is let through", flags == [])
+    agree = copy.deepcopy(sla)
+    agree["solutions"] = {"origin": "published", "previousOrigin": "model"}
+    V.blind_misses = lambda pid: {}
+    flags = []
+    PI.check_key_grades_model(sla, agree, flags)
+    check("a key that agrees with the model needs no miss", flags == [])
+finally:
+    V.blind_misses = real_misses
 sys.exit(fails)
 PY
 rc=$?

@@ -6,7 +6,8 @@
     python3 tools/reopen_answers.py <ID> --ran <run's file> <id> ...
 
 A cold solve's answer can satisfy every crossing and still be wrong, and the
-annotator that cannot parse it leaves the clue null, which fails validation.
+annotator that cannot parse it leaves the clue null, or writes a hint that
+doubts it ("unconfirmed until the published key"), and either fails validation.
 Parked in tools/failed_inputs.py, that puzzle would wait forever, because
 nothing changes its inputs. So the burn blanks those answers instead: the
 puzzle is unsolved again, the queue solves it cold around everything else, and
@@ -35,6 +36,7 @@ import annotate_check
 import clues_only
 import provenance
 import puzzle_paths
+import validate_annotations
 from fetch_puzzle import read_puzzle_file, resolve_puzzle, write_puzzle_file
 from groups import entry_id
 
@@ -47,7 +49,11 @@ def reopenable(puzzle):
     done = (puzzle.get("solutions") or {}).get("reopened") or {}
     by_id = {entry_id(e): e for e in puzzle["entries"]}
     out = []
-    for e in annotate_check.unsolved(puzzle):
+    # A null the run left, or an answer its annotation doubts
+    # (validate_annotations.doubted_model_answers): both are a parse the
+    # annotator could not stand behind, and both fail validation.
+    doubted = validate_annotations.doubted_model_answers(puzzle)
+    for e in annotate_check.unsolved(puzzle) + [e for e in puzzle["entries"] if entry_id(e) in doubted]:
         lights = [entry_id(e)] + [i for i in e.get("group") or [] if i != entry_id(e)]
         if all(i in by_id and by_id[i].get("solution") and i not in printed
                and i not in done for i in lights):
@@ -87,13 +93,15 @@ def reopen(puzzle, ids, ran=None):
     refused = [i for i in ids if i not in allowed]
     if refused:
         raise SystemExit(f"reopen_answers: {puzzle['id']}: {', '.join(refused)} cannot be "
-                         f"reopened — only a model answer left null, once")
+                         f"reopened — only a model answer left null or doubted by its annotation, once")
     by_id = {entry_id(e): e for e in puzzle["entries"]}
     log = dict((puzzle.get("solutions") or {}).get("reopened") or {})
     for eid in ids:
         for light in by_id[eid].get("group") or [eid]:
             log[light] = by_id[light]["solution"]
             del by_id[light]["solution"]
+            # A hedged hint for the word being sent back explains nothing.
+            by_id[light].pop("annotation", None)
     return provenance.with_solution_detail(
         puzzle, {**provenance.solution_detail(puzzle), "reopened": log})
 
