@@ -50,4 +50,29 @@ check "data.json becomes a puzzle: lights placed, enumerations kept, answers as 
 2 down 2 0 Digit 3 TED" "$(convert 0)"
 check "a light with no clue is refused" "the clues do not cover the grid's lights" "$(convert 1)"
 
+daily() {  # a Daily's clue with HTML entities files as series "times", unescaped
+  REPO="$REPO" python3 - <<'PY'
+import datetime, os, sys
+sys.path.insert(0, os.path.join(os.environ["REPO"], "tools"))
+import fetch_times_feed as f
+data = {"headline": "Times Cryptic No 26829", "copy": {
+    "title": "Times Cryptic No 26829", "id": "26266", "setter": "",
+    "crosswordtype": "Cryptic", "gridsize": {"cols": "3", "rows": "3"},
+    "settings": {"solution": "CATO EWED"},
+    "clues": [
+        {"title": "Across", "clues": [
+            {"number": "1", "clue": "Pet &mdash; it&rsquo;s", "format": "3", "answer": "CAT"},
+            {"number": "3", "clue": "Married", "format": "1-2", "answer": "W-ED"}]},
+        {"title": "Down", "clues": [
+            {"number": "1", "clue": "Dairy animal", "format": "3", "answer": "COW"},
+            {"number": "2", "clue": "Digit", "format": "3", "answer": "TED"}]}]}}
+p, why = f.convert(data, datetime.date(2017, 9, 13))
+print(why or (p["id"], p["series"], p["entries"][0]["clue"]["text"]))
+print(f.daily_dates(26830, {26829: datetime.date(2017, 9, 13)})[0].isoformat())
+PY
+}
+check "a Daily files as series times, entities unescaped; the next number is the next day" \
+"('times-26829', 'times', 'Pet — it’s')
+2017-09-14" "$(daily)"
+
 [ "$fails" -eq 0 ] && echo "all checks passed" || { echo "$fails check(s) failed"; exit 1; }
