@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,58 @@
     "text": "Tailor mostly cut widow's garments and woollen clothes",
     "enumeration": "6"
    },
-   "solution": "TWEEDS"
+   "solution": "TWEEDS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TWEEDS",
+    "definitions": [
+     {
+      "text": "woollen clothes",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly cut",
+      "for": "letter_selection",
+      "note": "with most of the word cut away, only its opening letter survives"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tailor",
+      "gives": "T",
+      "select": "first",
+      "note": "the word with all but its first letter cut"
+     },
+     {
+      "clueFragment": "widow's garments",
+      "gives": "WEEDS",
+      "note": "widow's weeds are the black mourning clothes of a widow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "WEEDS"
+     ]
+    },
+    "explanation": {
+     "surface": "A tailor trims a widow's mourning outfit and some woollen garments.",
+     "definitionFit": "Tweeds are suits or garments made from tweed, a rough woven wool cloth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +101,60 @@
     "text": "Storm ripped over part of Colorado",
     "enumeration": "7"
    },
-   "solution": "TORNADO"
+   "solution": "TORNADO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TORNADO",
+    "definitions": [
+     {
+      "text": "Storm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down clue, one piece sits over, i.e. above, the next"
+     },
+     {
+      "text": "part of",
+      "for": "letter_selection",
+      "note": "only a portion of the following word is wanted, its tail end here"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ripped",
+      "gives": "TORN",
+      "note": "ripped means torn"
+     },
+     {
+      "clueFragment": "Colorado",
+      "gives": "ADO",
+      "select": "last",
+      "note": "the last three letters of the state name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TORN",
+      "ADO"
+     ]
+    },
+    "explanation": {
+     "surface": "A storm tore across part of the American state of Colorado.",
+     "definitionFit": "A tornado is a violent rotating windstorm, a kind of storm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +168,46 @@
     "text": "Price is less than seven shillings",
     "enumeration": "5"
    },
-   "solution": "EVENS"
+   "solution": "EVENS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EVENS",
+    "definitions": [
+     {
+      "text": "Price",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "less than",
+      "for": "hidden_word",
+      "note": "what is wanted is less than the full phrase, a run of letters inside it"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seven shillings",
+      "gives": "EVENS",
+      "note": "sits inside letters 2-6 of 'seven shillings'"
+     }
+    ],
+    "explanation": {
+     "surface": "Something costs under seven shillings, an old British sum of money.",
+     "walkthrough": "Price here is a bookmaker's price, the betting odds on a horse.",
+     "definitionFit": "Evens is the betting price at which a winning bet pays the same amount as the stake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Price"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +221,53 @@
     "text": "See AIDS treated as illness",
     "enumeration": "7"
    },
-   "solution": "DISEASE"
+   "solution": "DISEASE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DISEASE",
+    "definitions": [
+     {
+      "text": "illness",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "treated",
+      "for": "anagram",
+      "note": "something treated is processed and altered, so the letters are worked into a new order"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See AIDS",
+      "gives": "SEEAIDS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEEAIDS",
+       "gives": "DISEASE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor regards AIDS as an illness to be treated.",
+     "definitionFit": "A disease is a disorder of the body, a straightforward synonym for an illness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "treated"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +281,74 @@
     "text": "Basket contains heads of political undesirables: nobs and nobles get beheaded",
     "enumeration": "6"
    },
-   "solution": "PUNNET"
+   "solution": "PUNNET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "deletion"
+    ],
+    "answer": "PUNNET",
+    "definitions": [
+     {
+      "text": "Basket",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heads of",
+      "for": "letter_selection",
+      "note": "the heads of words are their first letters"
+     },
+     {
+      "text": "beheaded",
+      "for": "deletion",
+      "note": "a word that is beheaded loses its first letter"
+     }
+    ],
+    "linkWords": [
+     "contains",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "political undesirables: nobs",
+      "gives": "PUN",
+      "select": "first",
+      "note": "first letters of these three words"
+     },
+     {
+      "clueFragment": "nobles",
+      "gives": "N",
+      "select": "first",
+      "note": "also its first letter"
+     },
+     {
+      "clueFragment": "get",
+      "gives": "ET",
+      "note": "the word with its head removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUN",
+      "N",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A revolutionary scene where the toffs and aristocrats are guillotined and their heads go in a basket.",
+     "walkthrough": "The heads of four words come first; then 'get beheaded' is read as an instruction applied to the word get itself.",
+     "definitionFit": "A punnet is a small square basket or container used for selling soft fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "get"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +362,46 @@
     "text": "Cheerful over strike",
     "enumeration": "6"
    },
-   "solution": "UPBEAT"
+   "solution": "UPBEAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPBEAT",
+    "definitions": [
+     {
+      "text": "Cheerful",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "over",
+      "gives": "UP",
+      "note": "time is up when it is over"
+     },
+     {
+      "clueFragment": "strike",
+      "gives": "BEAT",
+      "note": "to strike is to beat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "BEAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Workers are cheerful now the industrial action is finished.",
+     "definitionFit": "Upbeat describes an optimistic, positive mood, a synonym for cheerful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "strike"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +415,56 @@
     "text": "Non-union employees were originally fair game",
     "enumeration": "9"
    },
-   "solution": "NEWMARKET"
+   "solution": "NEWMARKET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NEWMARKET",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "the origin of each word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Non-union employees were",
+      "gives": "NEW",
+      "select": "first",
+      "note": "first letters of the three words, the hyphenated one counting once"
+     },
+     {
+      "clueFragment": "fair",
+      "gives": "MARKET",
+      "note": "a fair is a market"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEW",
+      "MARKET"
+     ]
+    },
+    "explanation": {
+     "surface": "Workers outside the union were once considered legitimate targets.",
+     "walkthrough": "'Fair game' looks like one phrase, but fair gives a piece and game alone is the definition. Newmarket is also a Suffolk horse-racing town.",
+     "definitionFit": "Newmarket is a card game in which players lay cards in sequence, betting on certain cards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fair"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +478,53 @@
     "text": "Time ran out for novelist",
     "enumeration": "7"
    },
-   "solution": "TREMAIN"
+   "solution": "TREMAIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TREMAIN",
+    "definitions": [
+     {
+      "text": "novelist",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "letters put out of place are disordered and rearranged"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time ran",
+      "gives": "TIMERAN",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TIMERAN",
+       "gives": "TREMAIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer missed a deadline: the time allowed has run out.",
+     "definitionFit": "Rose Tremain is an English writer of novels such as Restoration."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +544,49 @@
      }
     ]
    },
-   "solution": "VICTORIACROSS"
+   "solution": "VICTORIACROSS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VICTORIA CROSS",
+    "definitions": [
+     {
+      "text": "Decoration",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "woman",
+      "gives": "VICTORIA",
+      "note": "a woman's name"
+     },
+     {
+      "clueFragment": "angry",
+      "gives": "CROSS",
+      "note": "cross means angry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VICTORIA",
+      "CROSS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's choice of ornament annoys a woman.",
+     "definitionFit": "The Victoria Cross is Britain's highest military medal for gallantry, a decoration in the honours sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Decoration"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +600,44 @@
     "text": "Box, maybe, found in street",
     "enumeration": "4"
    },
-   "solution": "TREE"
+   "solution": "TREE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TREE",
+    "definitions": [
+     {
+      "text": "Box, maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "hidden_word",
+      "note": "the letters are discovered lying inside the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "street",
+      "gives": "TREE",
+      "note": "sits inside letters 2-5 of 'street'"
+     }
+    ],
+    "explanation": {
+     "surface": "A cardboard box has been left lying in the road.",
+     "walkthrough": "Box is not a container here but the evergreen shrub used for hedging; 'maybe' marks it as one example.",
+     "definitionFit": "Box is a small evergreen shrub or tree, an example of the category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Box"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +657,50 @@
      }
     ]
    },
-   "solution": "SPINBOWLER"
+   "solution": "SPINBOWLER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPIN BOWLER",
+    "definitions": [
+     {
+      "text": "Shane Warne, perhaps",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Produce silk",
+      "gives": "SPIN",
+      "note": "silkworms and spiders spin silk"
+     },
+     {
+      "clueFragment": "hat",
+      "gives": "BOWLER",
+      "note": "a bowler is a hard round felt hat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPIN",
+      "BOWLER"
+     ]
+    },
+    "explanation": {
+     "surface": "Making a silk hat as a gift for the Australian cricketer.",
+     "walkthrough": "Shane Warne was a famous Australian cricketer who bowled leg-spin, making the ball turn off the pitch.",
+     "definitionFit": "Warne is an example of a cricketer whose deliveries rely on spin rather than pace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "silk"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +714,69 @@
     "text": "Revulsion and ecstasy in dodgy sauna",
     "enumeration": "6"
    },
-   "solution": "NAUSEA"
+   "solution": "NAUSEA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NAUSEA",
+    "definitions": [
+     {
+      "text": "Revulsion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dodgy",
+      "for": "anagram",
+      "note": "something dodgy is unsound, so these letters are unreliable and get rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece is placed in the middle of another"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sauna",
+      "gives": "SAUNA",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "ecstasy",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAUS",
+      "E",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SAUNA",
+       "gives": "NAUSA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drug-taking in a seedy sauna provokes disgust.",
+     "definitionFit": "Nausea is a feeling of sickness, extended to strong disgust or loathing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ecstasy"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +790,48 @@
     "text": "Reckless youth gets injury on holiday",
     "enumeration": "8"
    },
-   "solution": "TEARAWAY"
+   "solution": "TEARAWAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEARAWAY",
+    "definitions": [
+     {
+      "text": "Reckless youth",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "injury",
+      "gives": "TEAR",
+      "note": "a tear is a rip, as in a muscle"
+     },
+     {
+      "clueFragment": "on holiday",
+      "gives": "AWAY",
+      "note": "someone on holiday is away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEAR",
+      "AWAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A wild teenager hurts himself while on vacation.",
+     "definitionFit": "A tearaway is a wild, impetuous young person who behaves rashly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +845,62 @@
     "text": "Fathers for Justice finally produces",
     "enumeration": "9"
    },
-   "solution": "FOREBEARS"
+   "solution": "FOREBEARS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "FOREBEARS",
+    "definitions": [
+     {
+      "text": "Fathers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "FOR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Justice",
+      "gives": "E",
+      "select": "last",
+      "note": "its last letter"
+     },
+     {
+      "clueFragment": "produces",
+      "gives": "BEARS",
+      "note": "to bear fruit or young is to produce it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "E",
+      "BEARS"
+     ]
+    },
+    "explanation": {
+     "surface": "The campaign group Fathers 4 Justice at last brings something forth.",
+     "walkthrough": "Fathers 4 Justice is a British fathers' rights campaign group, known for stunts in superhero costumes.",
+     "definitionFit": "Forebears are ancestors, the fathers of earlier generations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fathers"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +914,63 @@
     "text": "First of salmon are up the Mobile River",
     "enumeration": "9"
    },
-   "solution": "EUPHRATES"
+   "solution": "EUPHRATES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "EUPHRATES",
+    "definitions": [
+     {
+      "text": "River",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "First of",
+      "for": "letter_selection",
+      "note": "the first letter of the following word is wanted"
+     },
+     {
+      "text": "Mobile",
+      "for": "anagram",
+      "note": "mobile letters move about freely into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "salmon",
+      "gives": "S",
+      "select": "first",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "are up the",
+      "gives": "AREUPTHE",
+      "note": "letters to rearrange along with the one above"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SAREUPTHE",
+       "gives": "EUPHRATES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Salmon swimming upstream, apparently up the Mobile River in Alabama.",
+     "walkthrough": "'The Mobile River' reads as a real US river; Mobile is the anagram signal and River the definition.",
+     "definitionFit": "The Euphrates is a major river of western Asia, flowing through Turkey, Syria and Iraq."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mobile"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +984,48 @@
     "text": "Alaska and Indiana are alike",
     "enumeration": "4"
    },
-   "solution": "AKIN"
+   "solution": "AKIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AKIN",
+    "definitions": [
+     {
+      "text": "alike",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "are"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Alaska",
+      "gives": "AK",
+      "note": "the US postal abbreviation for Alaska"
+     },
+     {
+      "clueFragment": "Indiana",
+      "gives": "IN",
+      "note": "the US postal abbreviation for Indiana"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AK",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Two American states are said to be similar.",
+     "definitionFit": "Akin means of similar character, a close synonym for alike."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1039,47 @@
     "text": "What Eminem does to get hits",
     "enumeration": "4"
    },
-   "solution": "RAPS"
+   "solution": "RAPS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RAPS",
+    "definitions": [
+     {
+      "text": "What Eminem does",
+      "at": 0
+     },
+     {
+      "text": "hits",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What Eminem does",
+      "note": "first meaning: performs rap music, as the American rapper does"
+     },
+     {
+      "clueFragment": "hits",
+      "note": "second meaning: sharp knocks or blows"
+     }
+    ],
+    "explanation": {
+     "surface": "How the rapper Eminem achieves chart success.",
+     "walkthrough": "Hits suggests chart hits, but it means blows.",
+     "definitionFit": "The word means both performs rhythmic spoken lyrics and sharp blows or knocks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hits"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1093,49 @@
     "text": "Excellent, if not initially exciting",
     "enumeration": "7"
    },
-   "solution": "RIPPING"
+   "solution": "RIPPING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RIPPING",
+    "definitions": [
+     {
+      "text": "Excellent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not initially",
+      "for": "deletion",
+      "note": "the word is used without its opening letter"
+     }
+    ],
+    "linkWords": [
+     "if"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exciting",
+      "gives": "GRIPPING",
+      "note": "a gripping story is exciting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIPPING"
+     ]
+    },
+    "explanation": {
+     "surface": "Something is first-rate, provided it is thrilling.",
+     "definitionFit": "Ripping is dated British slang for splendid or first-rate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1149,48 @@
     "text": "Girls fit in well in Kent",
     "enumeration": "9"
    },
-   "solution": "MAIDSTONE"
+   "solution": "MAIDSTONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAIDSTONE",
+    "definitions": [
+     {
+      "text": "in Kent",
+      "at": 18,
+      "note": "the answer is a town in Kent rather than a synonym for the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girls",
+      "gives": "MAIDS",
+      "note": "maids are girls or young women"
+     },
+     {
+      "clueFragment": "fit in well",
+      "gives": "TONE",
+      "note": "to tone in is to blend or harmonise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAIDS",
+      "TONE"
+     ]
+    },
+    "explanation": {
+     "surface": "Young women settle in nicely in the English county of Kent.",
+     "walkthrough": "Kent is a county in south-east England.",
+     "definitionFit": "Maidstone is the county town of Kent, so the clue locates it rather than defining it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fit"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1204,53 @@
     "text": "Red, dead, revolutionary — and feared!",
     "enumeration": "7"
    },
-   "solution": "DREADED"
+   "solution": "DREADED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DREADED",
+    "definitions": [
+     {
+      "text": "feared",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "anagram",
+      "note": "a revolution turns things over, so the letters are turned into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Red, dead",
+      "gives": "REDDEAD",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REDDEAD",
+       "gives": "DREADED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dead communist revolutionary who was much feared.",
+     "definitionFit": "Dreaded means regarded with great fear or apprehension."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1264,56 @@
     "text": "Start to navigate Dart's less broad stretches",
     "enumeration": "7"
    },
-   "solution": "NARROWS"
+   "solution": "NARROWS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NARROWS",
+    "definitions": [
+     {
+      "text": "less broad stretches",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Start to",
+      "for": "letter_selection",
+      "note": "the start of the following word, its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "navigate",
+      "gives": "N",
+      "select": "first",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "Dart's",
+      "gives": "ARROWS",
+      "note": "darts are small arrows thrown at a board"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ARROWS"
+     ]
+    },
+    "explanation": {
+     "surface": "Steering a boat along the tighter reaches of Devon's River Dart.",
+     "walkthrough": "The Dart is a river in Devon, which makes the surface read as navigation; here it means the missile thrown in darts.",
+     "definitionFit": "Narrows are the slender stretches of a river or sea passage where it is less wide."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dart's"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1327,45 @@
     "text": "Heathen emperor's private goddess",
     "enumeration": "6"
    },
-   "solution": "ATHENE"
+   "solution": "ATHENE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ATHENE",
+    "definitions": [
+     {
+      "text": "goddess",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "private",
+      "for": "hidden_word",
+      "note": "what is private is kept within, so the letters lie inside the words"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Heathen emperor",
+      "gives": "ATHENE",
+      "note": "sits inside letters 3-8 of 'Heathen emperor'"
+     }
+    ],
+    "explanation": {
+     "surface": "A pagan ruler worships his own personal deity.",
+     "definitionFit": "Athene, or Athena, is the Greek goddess of wisdom and war."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "private"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1379,63 @@
     "text": "A canny type, Macbeth perhaps has to take on king",
     "enumeration": "8"
    },
-   "solution": "OPERATOR"
+   "solution": "OPERATOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPERATOR",
+    "definitions": [
+     {
+      "text": "A canny type",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "take on",
+      "for": "charade",
+      "note": "taking something on means adding it to the end of what is already there"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Macbeth perhaps",
+      "gives": "OPERA",
+      "note": "Verdi wrote an opera of Macbeth"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R for rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPERA",
+      "TO",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Shakespeare's scheming Macbeth must seize the throne from the king.",
+     "walkthrough": "Macbeth suggests the play or its hero, but Verdi's opera version is what is meant.",
+     "definitionFit": "An operator is a shrewd, skilful person, as in a smooth operator."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Macbeth"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1449,45 @@
     "text": "Bush's authority figures",
     "enumeration": "6"
    },
-   "solution": "ELDERS"
+   "solution": "ELDERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ELDERS",
+    "definitions": [
+     {
+      "text": "Bush's",
+      "at": 0,
+      "note": "read as bushes, a plural noun"
+     },
+     {
+      "text": "authority figures",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bush's",
+      "note": "first meaning: shrubs of the genus bearing elderberries"
+     },
+     {
+      "clueFragment": "authority figures",
+      "note": "second meaning: senior members of a church or community"
+     }
+    ],
+    "explanation": {
+     "surface": "President Bush's senior advisers.",
+     "walkthrough": "Bush looks like the American president; it is the plant, with 's read as making a plural.",
+     "definitionFit": "The word names both elderberry shrubs and senior people who hold authority in a group."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bush's"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1501,66 @@
     "text": "Andy Warhol finally managed to become a superstar",
     "enumeration": "5"
    },
-   "solution": "DYLAN"
+   "solution": "DYLAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "DYLAN",
+    "definitions": [
+     {
+      "text": "a superstar",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word before it"
+     },
+     {
+      "text": "managed",
+      "for": "anagram",
+      "note": "letters that are managed are handled and arranged differently"
+     }
+    ],
+    "linkWords": [
+     "to become"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Andy",
+      "gives": "ANDY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Warhol",
+      "gives": "L",
+      "select": "last",
+      "note": "its last letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANDYL",
+       "gives": "DYLAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Andy Warhol eventually achieved superstar fame.",
+     "walkthrough": "Warhol coined 'superstars' for his circle; here the superstar is Bob Dylan, the singer-songwriter.",
+     "definitionFit": "Bob Dylan is a hugely famous American singer-songwriter, an example of a superstar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "managed"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1574,48 @@
     "text": "Girl got worked up and upset",
     "enumeration": "10"
    },
-   "solution": "DISTRESSED"
+   "solution": "DISTRESSED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISTRESSED",
+    "definitions": [
+     {
+      "text": "upset",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "DI",
+      "note": "short for the girl's name Diana"
+     },
+     {
+      "clueFragment": "got worked up",
+      "gives": "STRESSED",
+      "note": "stressed means anxious, worked up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "STRESSED"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl became agitated and unhappy.",
+     "definitionFit": "Distressed means suffering anxiety or sorrow, a synonym for upset."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1629,54 @@
     "text": "Only Nonconformist in French city",
     "enumeration": "4"
    },
-   "solution": "LYON"
+   "solution": "LYON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LYON",
+    "definitions": [
+     {
+      "text": "French city",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Nonconformist",
+      "for": "anagram",
+      "note": "a nonconformist refuses the usual order, so the letters break their arrangement"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Only",
+      "gives": "ONLY",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONLY",
+       "gives": "LYON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The sole Protestant dissenter living in a French city.",
+     "walkthrough": "Nonconformist with a capital looks like a religious dissenter outside the Church of England; here it is the anagram signal.",
+     "definitionFit": "Lyon is the major city in east-central France, at the meeting of the Rhône and Saône."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nonconformist"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1690,44 @@
     "text": "Well, he does go over the top",
     "enumeration": "6"
    },
-   "solution": "GUSHER"
+   "solution": "GUSHER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GUSHER",
+    "definitions": [
+     {
+      "text": "Well",
+      "at": 0
+     },
+     {
+      "text": "he does go over the top",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Well",
+      "note": "first meaning: an oil well whose oil spurts out unchecked"
+     },
+     {
+      "clueFragment": "he does go over the top",
+      "note": "second meaning: an effusive person who praises too much"
+     }
+    ],
+    "explanation": {
+     "surface": "A shrug at a man who always exaggerates.",
+     "walkthrough": "Well looks like a throat-clearing interjection, but it is the noun, an oil well.",
+     "definitionFit": "The word names both a spouting oil well and someone who is overly effusive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Well"
+    }
+   }
   },
   {
    "number": 27,
@@ -437,7 +1741,67 @@
     "text": "Vacuous airhead sadly is no beauty",
     "enumeration": "6"
    },
-   "solution": "ADONIS"
+   "solution": "ADONIS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "ADONIS",
+    "definitions": [
+     {
+      "text": "beauty",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Vacuous",
+      "for": "letter_selection",
+      "note": "vacuous means empty, so the word is emptied of its middle letters"
+     },
+     {
+      "text": "sadly",
+      "for": "anagram",
+      "note": "things that go sadly go wrong, so the letters fall out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "airhead",
+      "gives": "AD",
+      "select": "outer",
+      "note": "its outer letters"
+     },
+     {
+      "clueFragment": "is no",
+      "gives": "ISNO",
+      "note": "letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "ONIS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISNO",
+       "gives": "ONIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The empty-headed person, unfortunately, is not good-looking.",
+     "definitionFit": "Adonis, the handsome youth of Greek myth, names any strikingly good-looking young man."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beauty"
+    }
+   }
   }
  ]
 }
