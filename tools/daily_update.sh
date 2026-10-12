@@ -647,6 +647,7 @@ unit_annotate() {  # id [solve]
       case " $unsolved " in
         *" $num "*)
           fill="${sidfile%.sid}.fill" verdict="$work_dir/$num.verdict"
+          [ -s "$sidfile" ] || ! worker_implausible "$num" || continue
           ann_file="tools/_puzzle_$num.json"
           echo "solving puzzle $num cold and annotating it with Claude Code... (session ${session:-unknown}%)" ;;
         *)

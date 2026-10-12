@@ -77,6 +77,9 @@ from find_renarration import scan
 
 TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
+# Printed under a clean report: the run's whole remaining job is one line.
+STOP_NOW = ("Stop now: end your turn with one short line (a cold solve: its "
+            "confidence line). No summary, no review, no further pass.")
 
 
 def run(args):
@@ -1129,6 +1132,9 @@ def main(argv):
         # file, which needs an approval the run cannot give.
         print("Nothing to tidy up: --patch files are deleted when merged and "
               "tools/_* is ignored by git. The run is finished.")
+        # Runs kept going after a clean check, re-reading and summarising,
+        # ~3-4% of the burn's spend (10-08..12): said here, where they look.
+        print(STOP_NOW)
     if counts:
         # Two callers: the annotate run, which hands over tools/_ann_<ID>.json,
         # and the field backfills, which edit the puzzle in place. Naming a file

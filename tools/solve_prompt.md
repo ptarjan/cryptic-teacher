@@ -23,7 +23,11 @@ its answer and definition, copied verbatim from the clue:
 
     {"1-across": {"answer": "POPULAR FRONT", "definition": "Left-wing alliance"}, ...}
 
-Spaces, hyphens and apostrophes are stripped. Then run the check:
+Spaces, hyphens and apostrophes are stripped. Write it as soon as your cold
+pass has answers, and rewrite it after every pass, so your work is always on
+disk: a run that ends without the file throws the whole solve away. Give every
+entry your best answer, adding `"guess": true` to one you are unsure of; leave
+an entry out only when you have no candidate at all. Then run the check:
 
     python3 tools/apply_solution.py <number> --fill <path> --check-only
 
@@ -39,7 +43,9 @@ Once the check passes, write the fill in and make the copy you annotate:
     python3 tools/annotate_check.py --view <number>
 
 Then do your annotation task from that copy, annotating each `(MODEL)` answer
-from the wordplay you derived it by.
+from the wordplay you derived it by. The moment `annotate_check.py` says
+`clean`, you are done: end with the one confidence line below, and nothing else
+— no summary, no further pass.
 
 ## Method
 
@@ -60,7 +66,9 @@ will catch it.
 
 ## Confidence
 
-End your final message with every entry listed as one of:
+Your final message is one line naming the entries that are not CONFIDENT, each
+with its grade (e.g. `LIKELY: 20D CHEAT; GUESS: 11D TOFFEES`), or `all
+CONFIDENT`. The grades:
 
 * **CONFIDENT**: the wordplay accounts for every letter.
 * **LIKELY**: the definition and crossings fit, but the wordplay is only partly
@@ -69,5 +77,6 @@ End your final message with every entry listed as one of:
 
 Never invent wordplay to promote a GUESS: your annotation states it with
 full authority. If you cannot get the check to pass
-honestly, stop, annotate nothing, and name the entries that beat you. Waiting for the paper's key
+honestly, leave your fill written with its guesses flagged, annotate nothing,
+stop, and name the entries that beat you. Waiting for the paper's key
 is a fine outcome.

@@ -176,7 +176,8 @@ python3 tools/annotate_check.py <ID>
 
 It applies the file, validates it, audits it, and prints everything wrong in one report,
 each line saying what to do. Fix everything it lists in one edit, run it again, and stop
-when it says `clean`. What it prints under "worth knowing now" is advice, not a failure.
+the moment it says `clean`: end with one short line, with no summary of your work and no
+further pass. What it prints under "worth knowing now" is advice, not a failure.
 
 Nine first runs in ten fail, nearly always on these five rules. Get them right first time:
 

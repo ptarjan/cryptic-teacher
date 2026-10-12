@@ -175,6 +175,20 @@ with tempfile.TemporaryDirectory() as scratch:
     row = acquire_book.file_jigsaw(bad, "isbn_9780140277500", Path(scratch) / "other")
     if row.get("status") != "rejected-before-search" or clues_only.files(Path(scratch) / "other"):
         fails.append(f"a jigsaw with a clue unfit to file was held: {row}")
+# Before a cold solve is paid for: a clue list no symmetric grid can hold.
+def lights(across, down):
+    return {"clues": {"across": [{"length": n} for n in across],
+                      "down": [{"length": n} for n in down]}}
+for across, down, bad, what in (
+        ([6, 8, 11, 8, 6], [8, 3, 7, 7, 3, 8, 5], False, "a symmetric list"),
+        ([6, 8, 11, 7, 6], [8, 3, 3, 8], True, "across lengths out of mirror"),
+        ([6, 8, 6], [8, 3, 7, 3, 8, 14], True, "a down light with no partner"),
+        ([6, None, 6], [8, 3, 7, 3, 8, None, 14], False, "an unknown length partners it"),
+        ([6, 6], [8, 8, 4, 4, 7, 7], False, "pairs only")):
+    if bool(clues_only.implausible(lights(across, down))) != bad:
+        fails.append(f"implausible() misjudged {what}: {clues_only.implausible(lights(across, down))}")
+if clues_only.implausible({"clues": {"unplaced": [{"length": 5}]}, "cluesUnplaced": True}) is not None:
+    fails.append("implausible() judged a jigsaw, which has no grid to argue from")
 
 if fails:
     print("FAIL test_clues_only:\n  " + "\n  ".join(fails))
