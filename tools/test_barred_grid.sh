@@ -58,6 +58,22 @@ wide = [{"number": n, "direction": d, "answer": "".join(WIDE[y][x] for y, x in c
 wfound = bg.solve(wide, size=(6, 4))
 print("wide", len(wfound), "|".join(bg.layout(wide, wfound[0], size=(6, 4))[1]) == "|".join(WBARS),
       len(bg.solve(wide, size=(4, 6))))
+# An unclued, unnumbered light (Listener No 3985's thematic entries): one
+# light leaves the list for the pool, the rest renumber in order of their
+# start squares, and the search puts it back where it was.
+cells = rg.light_cells(WBARS)
+starts = {}
+for (n, d), cs in cells.items():
+    starts.setdefault(cs[0], []).append((n, d))
+alone = next(k for k, cs in sorted(cells.items()) if len(starts[cs[0]]) == 1
+             and any(c[0] != cs[0][0] or c[1] != cs[0][1] for c in cs))
+renum = {n: i + 1 for i, n in enumerate(sorted({n for (n, d) in cells if (n, d) != alone}))}
+clued = [dict(e, number=renum[e["number"]]) for e in wide
+         if (e["number"], e["direction"]) != alone]
+word = next(e["answer"] for e in wide if (e["number"], e["direction"]) == alone)
+ufound = bg.solve_unclued(clued, [word], size=(6, 4), cap=3)
+y, x = cells[alone][0]
+print("unclued", len(ufound), ufound[0][2] == [(word, y * 6 + x, alone[1])])
 PY
 )
 check "the answers pin down one grid" "count 1" "$(grep '^count' <<<"$out")"
@@ -69,4 +85,6 @@ check "a one-letter light is refused" "short None" "$(grep '^short' <<<"$out")"
 check "a (cols, rows) grid round-trips, and its transpose fits nothing" "wide 1 True 0" "$(grep '^wide' <<<"$out")"
 check "a light's candidates: the crossings keep the one that fits" "pick 1 True" "$(grep '^pick' <<<"$out")"
 check "candidates of different lengths are refused" "mixed None" "$(grep '^mixed' <<<"$out")"
+check "an unnumbered unclued light goes back where it was" \
+  "unclued 1 True" "$(grep '^unclued' <<<"$out")"
 exit $fails

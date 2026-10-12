@@ -162,6 +162,136 @@ def solve_words(entries, size=SIZE, cap=2):
     return found
 
 
+def solve_unclued(entries, pool, size=SIZE, cap=2):
+    """solve_words() for a grid that also holds unclued, unnumbered lights:
+    every fill (up to `cap`) as ({number: cell index}, {(number, direction):
+    word}, [(word, cell index, direction)]). `pool` is the unclued words, each
+    used once (Listener No 3985's eleven thematic entries: the paper numbers
+    only the clued lights, so they start on any square, numbered or not).
+
+    The squares are visited in order. Each may take the next number's lights
+    and may start a pool word in a direction nothing else starts or runs
+    through; after that it must be covered, since no later light reaches
+    back to it. None when the clued entries are unusable."""
+    by_number = candidates_by_number(entries)
+    if not by_number:
+        return None
+    numbers = sorted(by_number)
+    cols, rows = shape(size)
+    n = cols * rows
+    grid = [None] * n
+    runs = {"across": [False] * n, "down": [False] * n}
+    step = {"across": 1, "down": cols}
+    left = defaultdict(int)
+    for w in pool:
+        left[letters(w)] += 1
+    found, place, words, unclued = [], {}, {}, []
+    # Every square is covered once or twice, so the lights' letters fix how
+    # many are covered once: a square's cover is final once the walk passes
+    # it, and a fill past that many is dead.
+    total = sum(len(slot[d][0]) for slot in by_number.values() for d in slot) + \
+        sum(len(letters(w)) for w in pool)
+    unchecked_left = [2 * n - total]
+    if not 0 <= unchecked_left[0] <= n:
+        return []
+
+    def fits(c, direction, word):
+        r, col = divmod(c, cols)
+        if (col + len(word) > cols) if direction == "across" else (r + len(word) > rows):
+            return False
+        return not any(runs[direction][c + i * step[direction]] for i in range(len(word)))
+
+    def put(c, direction, word):
+        """Write word from c; the cells it newly filled, or None on a clash."""
+        wrote = []
+        for i, ch in enumerate(word):
+            q = c + i * step[direction]
+            if grid[q] is None:
+                grid[q] = ch
+                wrote.append(q)
+            elif grid[q] != ch:
+                for w in wrote:
+                    grid[w] = None
+                return None
+        for i in range(len(word)):
+            runs[direction][c + i * step[direction]] = True
+        return wrote
+
+    def take(c, direction, word, wrote):
+        for i in range(len(word)):
+            runs[direction][c + i * step[direction]] = False
+        for w in wrote:
+            grid[w] = None
+
+    def starts(c, k):
+        """[(number or None, {direction: word}, pooled directions)] that may start at c."""
+        out = []
+        clued = [({}, None)]
+        if k < len(numbers):
+            num = numbers[k]
+            slot = by_number[num]
+            for a in slot.get("across") or [None]:
+                for d in slot.get("down") or [None]:
+                    lights = {dn: w for dn, w in (("across", a), ("down", d)) if w}
+                    if all(fits(c, dn, w) for dn, w in lights.items()):
+                        clued.insert(len(clued) - 1, (lights, num))
+        for lights, num in clued:
+            free = [dn for dn in ("across", "down") if dn not in lights]
+            options = {dn: [None] + [w for w, k2 in left.items() if k2 and fits(c, dn, w)]
+                       for dn in free}
+            for a in options.get("across", [None]):
+                for d in options.get("down", [None]):
+                    if a and d and a == d and left[a] < 2:
+                        continue
+                    pooled = {dn: w for dn, w in (("across", a), ("down", d)) if w}
+                    out.append((num, {**lights, **pooled}, set(pooled)))
+        return out
+
+    def go(c, k):
+        if len(found) >= cap:
+            return
+        if c == n:
+            if k == len(numbers) and not any(left.values()):
+                found.append((dict(place), dict(words), list(unclued)))
+            return
+        for num, lights, pooled in starts(c, k):
+            done = []
+            for dn, w in lights.items():
+                wrote = put(c, dn, w)
+                if wrote is None:
+                    break
+                done.append((dn, w, wrote))
+            else:
+                once = runs["across"][c] != runs["down"][c]
+                if (runs["across"][c] or runs["down"][c]) and unchecked_left[0] >= once:
+                    unchecked_left[0] -= once
+                    if num is not None:
+                        place[num] = c
+                    for dn, w in lights.items():
+                        if dn in pooled:
+                            left[w] -= 1
+                            unclued.append((w, c, dn))
+                        else:
+                            words[(num, dn)] = w
+                    go(c + 1, k + (num is not None))
+                    if num is not None:
+                        del place[num]
+                    for dn, w in lights.items():
+                        if dn in pooled:
+                            left[w] += 1
+                            unclued.pop()
+                        else:
+                            del words[(num, dn)]
+                    unchecked_left[0] += once
+            for dn, w, wrote in reversed(done):
+                take(c, dn, w, wrote)
+            if len(found) >= cap:
+                return
+
+    go(0, 0)
+    return found
+
+
 def layout(entries, placement, size=SIZE, words=None):
     """(rows of letters, bars) for one placement from solve(), or from
     solve_words() with the words it chose."""

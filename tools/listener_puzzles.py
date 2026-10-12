@@ -636,8 +636,14 @@ TIMES = {
 
 #: Times pages read and not filed, and why.
 TIMES_SKIP = {
-    3985: "the notes' answers fit no 12x12 or 13x13 barred grid: it holds "
-          "unclued thematic lights the notes neither list nor place",
+    # The notes' "Thematic Information" table names the 11 unclued entries
+    # (INES ROBERT NURSES SMART PICKETT HENS CRACK MAY MITCHELL WITCH BETTY),
+    # but every number 1-38 is a clued light's, so they start unnumbered (row
+    # one forces NURSES down from 1-across's N, between 5 and 6).
+    # barred_grid.solve_unclued searches that shape; 15 minutes at 12x12
+    # found no fill (2026-10-12). A grid image would settle it.
+    3985: "its 11 unclued thematic entries are unnumbered and placed nowhere "
+          "the notes say; barred_grid.solve_unclued found no 12x12 fill in 15 min",
 }
 
 
