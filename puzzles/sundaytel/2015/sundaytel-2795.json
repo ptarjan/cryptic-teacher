@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,70 @@
     "text": "Bring back limit in salary for head office in Rome",
     "enumeration": "6"
    },
-   "solution": "PAPACY"
+   "solution": "PAPACY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "PAPACY",
+    "definitions": [
+     {
+      "text": "head office in Rome",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bring back",
+      "for": "reversal",
+      "note": "bringing something back returns it the way it came, so the word for limit is read right to left"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece sits inside the word for salary, which wraps around it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "salary",
+      "gives": "PAY",
+      "note": "pay is a salary; it is split to hold the other piece"
+     },
+     {
+      "clueFragment": "limit",
+      "gives": "CAP",
+      "note": "a cap is an upper limit, as on spending"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "PAC",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "CAP",
+       "to": "PAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at a head office in Rome is asked to restore a pay cap.",
+     "walkthrough": "'Head office' sounds corporate, but here the office is that of the head of the Catholic Church.",
+     "definitionFit": "The papacy is the Pope's office, the headship of the Roman Catholic Church, based in Rome."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "office"
+    }
+   }
   },
   {
    "number": 1,
@@ -46,7 +112,68 @@
     "text": "A poorly organised end of term in which children don't work",
     "enumeration": "8"
    },
-   "solution": "PLAYROOM"
+   "solution": "PLAYROOM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "PLAYROOM",
+    "definitions": [
+     {
+      "text": "in which children don't work",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "organised",
+      "for": "anagram",
+      "note": "badly organised letters have been put into a new order"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "poorly",
+      "gives": "POORLY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "term",
+      "gives": "M",
+      "select": "last",
+      "note": "the last letter of term"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "APOORLYM",
+       "gives": "PLAYROOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At the end of term, a messy room where children aren't studying.",
+     "walkthrough": "'Poorly organised' reads as one phrase, but 'poorly' is fodder and 'organised' alone signals the shuffle.",
+     "definitionFit": "A playroom is a room set aside for children's games and toys, not lessons."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "poorly"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +187,55 @@
     "text": "Sympathetic feeling about hospital succinctly expressed",
     "enumeration": "5"
    },
-   "solution": "PITHY"
+   "solution": "PITHY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PITHY",
+    "definitions": [
+     {
+      "text": "succinctly expressed",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the feeling word wraps the hospital letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sympathetic feeling",
+      "gives": "PITY",
+      "note": "pity is sympathy for suffering"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the abbreviation for hospital, as on road signs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIT",
+      "H",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A brief, compassionate note about a hospital.",
+     "walkthrough": "H goes inside PITY.",
+     "definitionFit": "Pithy remarks are concise and forceful, saying much in few words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sympathetic"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +249,52 @@
     "text": "Fellow-surgeon, perhaps, providing description of light work in theatre",
     "enumeration": "7"
    },
-   "solution": "COMEDIC"
+   "solution": "COMEDIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COMEDIC",
+    "definitions": [
+     {
+      "text": "description of light work in theatre",
+      "at": 35,
+      "note": "the answer is an adjective; the definition names its use as a description"
+     }
+    ],
+    "linkWords": [
+     "providing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow-",
+      "gives": "CO",
+      "note": "co- is the prefix meaning fellow, as in co-worker"
+     },
+     {
+      "clueFragment": "surgeon, perhaps",
+      "gives": "MEDIC",
+      "note": "a surgeon is one example of a medic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "MEDIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A colleague in the operating theatre describes a minor procedure.",
+     "walkthrough": "'Theatre' suggests the operating theatre, matching the surgeon, but the definition is about stage comedy.",
+     "definitionFit": "Comedic describes comedy, the light, humorous kind of play staged in a theatre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "theatre"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +308,56 @@
     "text": "Have meal without a starter?",
     "enumeration": "6"
    },
-   "solution": "LAUNCH"
+   "solution": "LAUNCH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LAUNCH",
+    "definitions": [
+     {
+      "text": "starter",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense of outside: the meal word goes around the small word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Have meal",
+      "gives": "LUNCH",
+      "note": "to lunch is to have a midday meal"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "A",
+      "UNCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Can you eat a meal and skip the first course?",
+     "walkthrough": "'Without a starter' reads as skipping the first course, but 'without' means outside: LUNCH goes round A, and 'starter' alone is the definition.",
+     "definitionFit": "A launch is the beginning of a venture or the start of a product, so it is a kind of starter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +371,66 @@
     "text": "Brisk movement from everyone, therefore, after change of heart",
     "enumeration": "7"
    },
-   "solution": "ALLEGRO"
+   "solution": "ALLEGRO",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ALLEGRO",
+    "definitions": [
+     {
+      "text": "Brisk movement",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "change of heart",
+      "for": "anagram",
+      "note": "the heart of a word is its middle, and changing it rearranges those central letters"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "all means everyone"
+     },
+     {
+      "clueFragment": "therefore",
+      "gives": "ERGO",
+      "note": "ergo is Latin for therefore"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "E",
+      "GR",
+      "O"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RG",
+       "gives": "GR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Everyone, having changed their mind, sets off at a brisk pace.",
+     "walkthrough": "A word's heart is its middle; here only the two central letters of the Latin word trade places. 'Movement' is the musical sense, a section of a symphony.",
+     "definitionFit": "Allegro is a musical tempo marking for fast, lively, and a piece or movement played at that speed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "movement"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +444,53 @@
     "text": "Proposes reform for Minnesota",
     "enumeration": "9"
    },
-   "solution": "NOMINATES"
+   "solution": "NOMINATES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOMINATES",
+    "definitions": [
+     {
+      "text": "Proposes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reform",
+      "for": "anagram",
+      "note": "to reform is to form again, giving the letters a new shape"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Minnesota",
+      "gives": "MINNESOTA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MINNESOTA",
+       "gives": "NOMINATES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician puts forward reforms for the state of Minnesota.",
+     "definitionFit": "To nominate someone is to put their name forward as a candidate, which is proposing them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reform"
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +504,62 @@
     "text": "Deal with line in letters that he has",
     "enumeration": "6"
    },
-   "solution": "HANDLE"
+   "solution": "HANDLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HANDLE",
+    "definitions": [
+     {
+      "text": "Deal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the two pieces sit inside the letters named as belonging to he"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "letters that he has",
+      "gives": "HE",
+      "note": "the word he is made of these two letters, split to hold the rest"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "and means together with"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AND",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone copes with a line in a man's correspondence.",
+     "walkthrough": "'Deal with' looks like the definition, but 'with' is needed for its own piece, leaving 'Deal' alone as the verb.",
+     "definitionFit": "To handle a matter is to deal with it, manage it, or take care of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 8,
@@ -144,7 +573,47 @@
     "text": "Old man's daily leisure activities",
     "enumeration": "8"
    },
-   "solution": "PASTIMES"
+   "solution": "PASTIMES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PASTIMES",
+    "definitions": [
+     {
+      "text": "leisure activities",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old man's",
+      "gives": "PAS",
+      "note": "pa is a familiar word for father, the old man; with the possessive it becomes pa's"
+     },
+     {
+      "clueFragment": "daily",
+      "gives": "TIMES",
+      "note": "The Times is a British daily newspaper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAS",
+      "TIMES"
+     ]
+    },
+    "explanation": {
+     "surface": "Dad's daily newspaper is what he does for leisure.",
+     "walkthrough": "A daily is a newspaper, and The Times is the classic British one; 'old man' is slang for father.",
+     "definitionFit": "Pastimes are hobbies, the things people do to fill spare time pleasantly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "daily"
+    }
+   }
   },
   {
    "number": 9,
@@ -164,7 +633,39 @@
      }
     ]
    },
-   "solution": "SELFSERVICE"
+   "solution": "SELFSERVICE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SELF-SERVICE",
+    "definitions": [
+     {
+      "text": "With which consumers are satisfied, with no waiting involved",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "With which consumers are satisfied, with no waiting involved",
+      "note": "surface reading: a quick service where customers are happy because there is no queue"
+     },
+     {
+      "clueFragment": "consumers are satisfied",
+      "note": "setter's reading: diners help themselves, since nobody waits at table for them"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Waiting' means serving at table, not standing in a queue: nobody serves the diners, so they help themselves.",
+     "definitionFit": "In a cafeteria-style arrangement customers fetch their own food, so nobody waits on them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "waiting"
+    }
+   }
   },
   {
    "number": 10,
@@ -178,7 +679,56 @@
     "text": "Some Californian citizens with little time for expression of grief",
     "enumeration": "6"
    },
-   "solution": "LAMENT"
+   "solution": "LAMENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAMENT",
+    "definitions": [
+     {
+      "text": "expression of grief",
+      "at": 47
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Some Californian",
+      "gives": "LA",
+      "note": "LA, Los Angeles, is one Californian city"
+     },
+     {
+      "clueFragment": "citizens",
+      "gives": "MEN",
+      "note": "citizens as men, the people of the place"
+     },
+     {
+      "clueFragment": "with little time",
+      "gives": "T",
+      "note": "T is the abbreviation for time; with adds it on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Busy Los Angeles people have no time to mourn.",
+     "walkthrough": "'Some Californian citizens' is LA MEN, men of Los Angeles; little time is T.",
+     "definitionFit": "A lament is a song, poem or cry that voices sorrow or mourning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Californian"
+    }
+   }
   },
   {
    "number": 11,
@@ -192,7 +742,45 @@
     "text": "Show effects of strain in fight",
     "enumeration": "4"
    },
-   "solution": "FRAY"
+   "solution": "FRAY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FRAY",
+    "definitions": [
+     {
+      "text": "Show effects of strain",
+      "at": 0
+     },
+     {
+      "text": "fight",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Show effects of strain",
+      "note": "first meaning: to wear thin, as nerves or a rope do under stress"
+     },
+     {
+      "clueFragment": "fight",
+      "note": "second meaning: a battle or brawl"
+     }
+    ],
+    "explanation": {
+     "surface": "A fighter shows signs of wear during a bout.",
+     "definitionFit": "Fray is a verb for unravelling under stress and a noun for a battle or skirmish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "strain"
+    }
+   }
   },
   {
    "number": 12,
@@ -206,7 +794,69 @@
     "text": "One cover put back with kindness, and with care",
     "enumeration": "10"
    },
-   "solution": "DILIGENTLY"
+   "solution": "DILIGENTLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DILIGENTLY",
+    "definitions": [
+     {
+      "text": "with care",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put back",
+      "for": "reversal",
+      "note": "something put back goes the other way, so the first two pieces are read right to left"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "cover",
+      "gives": "LID",
+      "note": "a lid covers a pot or box"
+     },
+     {
+      "clueFragment": "with kindness",
+      "gives": "GENTLY",
+      "note": "doing something gently is doing it kindly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DILI",
+      "GENTLY"
+     ],
+     "reversals": [
+      {
+       "from": "ILID",
+       "to": "DILI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone replaces a lid tenderly, taking care.",
+     "walkthrough": "Both the numeral and the cover are put back together as one unit, not separately.",
+     "definitionFit": "Acting diligently means working conscientiously and attentively, which is doing things with care."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 13,
@@ -226,7 +876,60 @@
      }
     ]
    },
-   "solution": "CONTACTSPORT"
+   "solution": "CONTACTSPORT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CONTACT SPORT",
+    "definitions": [
+     {
+      "text": "rugby, notably",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "right changes in position",
+      "for": "anagram",
+      "note": "a single letter, the one standing for right, shifts place within the phrase so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "In",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "contract",
+      "gives": "CONTRACT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "spot",
+      "gives": "SPOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CONTRACTSPOT",
+       "gives": "CONTACTSPORT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rugby player's contract has a clause about moving positions.",
+     "walkthrough": "Only one letter moves: the R (right) leaves 'contract' and lands at the end of 'spot', turning CONTRACT SPOT into CONTACT SPORT.",
+     "definitionFit": "Rugby involves deliberate physical collisions between players, making it a prime example of a contact sport."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "position"
+    }
+   }
   },
   {
    "number": 14,
@@ -240,7 +943,66 @@
     "text": "Characteristic energy and sudden movement upset saintly author",
     "enumeration": "9"
    },
-   "solution": "TRADEMARK"
+   "solution": "TRADEMARK",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TRADEMARK",
+    "definitions": [
+     {
+      "text": "Characteristic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upsetting turns the pieces upside down, so they read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     },
+     {
+      "clueFragment": "sudden movement",
+      "gives": "DART",
+      "note": "a dart is a quick sudden movement"
+     },
+     {
+      "clueFragment": "saintly author",
+      "gives": "MARK",
+      "note": "St Mark wrote one of the four Gospels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRADE",
+      "MARK"
+     ],
+     "reversals": [
+      {
+       "from": "EDART",
+       "to": "TRADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An author with saintly values is upset by a burst of energy.",
+     "walkthrough": "'Upset' turns the first two pieces over as a unit; the saintly author is the Gospel writer, so no saint abbreviation is needed.",
+     "definitionFit": "A trademark is a distinctive feature associated with a person, by extension from a brand's registered symbol."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 15,
@@ -254,7 +1016,67 @@
     "text": "Grave wrecked in utter barbarity",
     "enumeration": "8"
    },
-   "solution": "SAVAGERY"
+   "solution": "SAVAGERY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SAVAGERY",
+    "definitions": [
+     {
+      "text": "barbarity",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrecked",
+      "for": "anagram",
+      "note": "something wrecked is broken apart, so its letters are rebuilt in another order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the rearranged letters go inside the word for utter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "utter",
+      "gives": "SAY",
+      "note": "to utter is to say; it is split to hold the rest"
+     },
+     {
+      "clueFragment": "Grave",
+      "gives": "GRAVE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "VAGER",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GRAVE",
+       "gives": "VAGER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A desecrated grave is an act of complete barbarity.",
+     "walkthrough": "'Utter' looks like an adjective meaning complete, but it is the verb to say.",
+     "definitionFit": "Savagery and barbarity both mean extreme cruelty or uncivilised violence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "utter"
+    }
+   }
   },
   {
    "number": 16,
@@ -268,7 +1090,56 @@
     "text": "From other side of the world, area is as natural as it could be",
     "enumeration": "12"
    },
-   "solution": "AUSTRALASIAN"
+   "solution": "AUSTRALASIAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AUSTRALASIAN",
+    "definitions": [
+     {
+      "text": "From other side of the world",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "as it could be",
+      "for": "anagram",
+      "note": "the letters are arranged as they might possibly be, rather than as given"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the standard abbreviation for area"
+     },
+     {
+      "clueFragment": "is as natural",
+      "gives": "ISASNATURAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AISASNATURAL",
+       "gives": "AUSTRALASIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A distant region looks as unspoilt as can be.",
+     "walkthrough": "Area shrinks to A; the rest, 'is as natural', is used whole in the anagram.",
+     "definitionFit": "Australasia, Australia and New Zealand with nearby islands, lies roughly opposite Britain on the globe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "natural"
+    }
+   }
   },
   {
    "number": 17,
@@ -282,7 +1153,55 @@
     "text": "From southern region, an ancient Greek",
     "enumeration": "7"
    },
-   "solution": "SPARTAN"
+   "solution": "SPARTAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPARTAN",
+    "definitions": [
+     {
+      "text": "ancient Greek",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "From"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "southern",
+      "gives": "S",
+      "note": "S is the abbreviation for southern"
+     },
+     {
+      "clueFragment": "region",
+      "gives": "PART",
+      "note": "a part of a country is a region"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PART",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient Greek hailing from a southern region.",
+     "definitionFit": "A Spartan was a citizen of Sparta, a powerful city-state of ancient Greece."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "region"
+    }
+   }
   },
   {
    "number": 18,
@@ -296,7 +1215,50 @@
     "text": "Extended front of ship for missile-launcher",
     "enumeration": "7"
    },
-   "solution": "LONGBOW"
+   "solution": "LONGBOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LONGBOW",
+    "definitions": [
+     {
+      "text": "missile-launcher",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Extended",
+      "gives": "LONG",
+      "note": "something extended is long"
+     },
+     {
+      "clueFragment": "front of ship",
+      "gives": "BOW",
+      "note": "the bow is the front of a ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LONG",
+      "BOW"
+     ]
+    },
+    "explanation": {
+     "surface": "An extended ship's bow carries a missile launcher.",
+     "walkthrough": "'Missile-launcher' suggests modern weaponry, but arrows are missiles too.",
+     "definitionFit": "A longbow is a tall bow for shooting arrows, which are missiles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "missile-launcher"
+    }
+   }
   },
   {
    "number": 19,
@@ -310,7 +1272,58 @@
     "text": "Cover for head in meetings about education",
     "enumeration": "6"
    },
-   "solution": "FEDORA"
+   "solution": "FEDORA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FEDORA",
+    "definitions": [
+     {
+      "text": "Cover for head",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the meetings word surrounds the abbreviation for education"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meetings",
+      "gives": "FORA",
+      "note": "fora is a plural of forum, a meeting for discussion"
+     },
+     {
+      "clueFragment": "education",
+      "gives": "ED",
+      "note": "ED is the abbreviation for education"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ED",
+      "ORA"
+     ]
+    },
+    "explanation": {
+     "surface": "A head teacher keeps their hat on in education meetings.",
+     "walkthrough": "Fora is the Latin plural of forum, a form crosswords favour over forums.",
+     "definitionFit": "A fedora is a soft felt hat with a creased crown, a covering worn on the head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 20,
@@ -324,7 +1337,61 @@
     "text": "Telling about drug, very enlightening experience",
     "enumeration": "10"
    },
-   "solution": "REVELATION"
+   "solution": "REVELATION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REVELATION",
+    "definitions": [
+     {
+      "text": "enlightening experience",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the telling word goes round the two short pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Telling",
+      "gives": "RELATION",
+      "note": "a relation is a telling or narration of events"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the abbreviation for very"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "V",
+      "E",
+      "LATION"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recounts a drug trip that felt profoundly illuminating.",
+     "walkthrough": "RELATION holds V and E after its first two letters; the pair enters in the order very, drug, the reverse of how they are printed.",
+     "definitionFit": "A revelation is a sudden disclosure or insight that opens one's eyes, an enlightening experience."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Telling"
+    }
+   }
   },
   {
    "number": 21,
@@ -338,7 +1405,52 @@
     "text": "English poet appearing intermittently in Germany",
     "enumeration": "4"
    },
-   "solution": "GRAY"
+   "solution": "GRAY",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "GRAY",
+    "definitions": [
+     {
+      "text": "English poet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "appearing intermittently",
+      "for": "letter_selection",
+      "note": "something intermittent comes and goes, so only every other letter shows"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Germany",
+      "gives": "GRAY",
+      "select": "alternate",
+      "note": "the first, third, fifth and seventh letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRAY"
+     ]
+    },
+    "explanation": {
+     "surface": "An English poet occasionally turns up in Germany.",
+     "walkthrough": "Thomas Gray wrote the Elegy Written in a Country Churchyard.",
+     "definitionFit": "Thomas Gray was an eighteenth-century English poet, author of the famous churchyard Elegy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Germany"
+    }
+   }
   },
   {
    "number": 21,
@@ -352,7 +1464,42 @@
     "text": "Country held by Afghan army",
     "enumeration": "5"
    },
-   "solution": "GHANA"
+   "solution": "GHANA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GHANA",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held by",
+      "for": "hidden_word",
+      "note": "the answer is held inside the next words, running across their boundary"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Afghan army",
+      "gives": "GHANA",
+      "note": "the letters run from inside the first word into the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A nation is in the grip of the Afghan army.",
+     "definitionFit": "Ghana is a country in West Africa, formerly the Gold Coast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "army"
+    }
+   }
   },
   {
    "number": 22,
@@ -366,7 +1513,55 @@
     "text": "Where to get drinks in sweltering island capital",
     "enumeration": "6"
    },
-   "solution": "HOBART"
+   "solution": "HOBART",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HOBART",
+    "definitions": [
+     {
+      "text": "island capital",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the drinks place sits inside the word for sweltering"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sweltering",
+      "gives": "HOT",
+      "note": "sweltering weather is very hot"
+     },
+     {
+      "clueFragment": "Where to get drinks",
+      "gives": "BAR",
+      "note": "a bar serves drinks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "BAR",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller hunts for a drink in a hot island city.",
+     "walkthrough": "The island is Tasmania, the Australian state south of the mainland.",
+     "definitionFit": "Hobart is the capital city of Tasmania, the island state of Australia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sweltering"
+    }
+   }
   },
   {
    "number": 23,
@@ -380,7 +1575,65 @@
     "text": "Couple taken in by European doctor and given a hug",
     "enumeration": "8"
    },
-   "solution": "EMBRACED"
+   "solution": "EMBRACED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EMBRACED",
+    "definitions": [
+     {
+      "text": "given a hug",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken in by",
+      "for": "container",
+      "note": "being taken in means being held inside, so the pair word goes within the others"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MD",
+      "note": "MD, Doctor of Medicine; it is split to hold the pair"
+     },
+     {
+      "clueFragment": "Couple",
+      "gives": "BRACE",
+      "note": "a brace is a pair, as of pheasants"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "M",
+      "BRACE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A couple are welcomed and hugged by a European doctor.",
+     "walkthrough": "Brace is a word for a pair, used mostly of game birds such as pheasants.",
+     "definitionFit": "To embrace someone is to take them in your arms, so embraced is given a hug."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Couple"
+    }
+   }
   },
   {
    "number": 24,
@@ -394,7 +1647,44 @@
     "text": "Questioning how prince can succeed",
     "enumeration": "6"
    },
-   "solution": "ASKING"
+   "solution": "ASKING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ASKING",
+    "definitions": [
+     {
+      "text": "Questioning",
+      "at": 0
+     },
+     {
+      "text": "how prince can succeed",
+      "at": 12,
+      "note": "read as two words, AS KING"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Questioning",
+      "note": "first meaning: putting a question"
+     },
+     {
+      "clueFragment": "how prince can succeed",
+      "note": "second meaning, split into two words: a prince succeeds to the throne in the role of monarch"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split the answer as AS KING: a prince succeeds his parent as king.",
+     "definitionFit": "Asking is the act of putting questions, while the split reading names the role a crown prince inherits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "succeed"
+    }
+   }
   },
   {
    "number": 25,
@@ -408,7 +1698,56 @@
     "text": "Showing effects of fever, say — wet, in a way",
     "enumeration": "6"
    },
-   "solution": "SWEATY"
+   "solution": "SWEATY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SWEATY",
+    "definitions": [
+     {
+      "text": "Showing effects of fever",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in a way",
+      "for": "anagram",
+      "note": "the letters are put in a different manner or arrangement from the one given"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "say",
+      "gives": "SAY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "wet",
+      "gives": "WET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SAYWET",
+       "gives": "SWEATY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A feverish patient is, so to speak, damp after a fashion.",
+     "walkthrough": "'Say' looks like it means 'for example' after fever, but it is fodder alongside 'wet'.",
+     "definitionFit": "A high temperature makes the body perspire, so someone with a fever is damp with perspiration."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   }
  ]
 }
