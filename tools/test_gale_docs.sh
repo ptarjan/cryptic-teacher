@@ -123,6 +123,8 @@ check("the Sunday Times' cryptic, not its Mephisto or French one", [1, 1],
 check("FT and Independent titles", [0, 1, 1],
       [gd.crossword("FTHA", ["F. T. Crossword Puzzle No. 2,718"]), gd.crossword("INDA", ["Concise crossword #9171",
        "Cryptic crossword #9172"]), gd.crossword("INDA", ["BritishRedCross", "The Tuesday Crossword"])])
+check("the TLS's newest crossword, not the last one's solution under its title", 0,
+      gd.crossword("TLSH", ["TLS Crossword 604", "TLS Crossword 603", "Engrossing items"]))
 check("the report on the number asked", 1, gd.report(["Report on Crossword No. 1,308", "Report on Crossword No. 1,309"],
                                                     1309))
 # A miss from an older matcher is asked again once; a current one is not.

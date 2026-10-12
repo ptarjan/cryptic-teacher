@@ -1908,18 +1908,18 @@ tools/gale_inbox.py                           every 1930-2019 Times edition with
                                               (lay_out_fetched), and the other papers' Gale
                                               archives' unfiled dates (OTHERS, other_wanted:
                                               Telegraph to 2000, FT 1966-2010, Independent
-                                              1986-2016, Sunday Times to 2006) as
-                                              Gale<Paper><year>UKEnglish editions
+                                              1986-2016, Sunday Times to 2006, TLS 1992-2014)
+                                              as Gale<Paper><year>UKEnglish editions
                                               file_archive_org_puzzles.py reads (the Telegraph
                                               and FT in those papers' runs, --paper
-                                              galeindependent and galesundaytimes), publishes
-                                              the Times progress page, and for pages saved by
-                                              hand sweeps each Gale download out of the
-                                              desktop's and Mac's Downloads into its paper's
-                                              inbox on the Media share, mirrors the Times one
-                                              over the ssh hatch, matches and stages it, and
-                                              starts the full pass when a page is laid out
-                                              while none runs (kick)
+                                              galeindependent, galesundaytimes and galetls),
+                                              publishes the Times progress page, and for pages
+                                              saved by hand sweeps each Gale download out of
+                                              the desktop's and Mac's Downloads into its
+                                              paper's inbox on the Media share, mirrors the
+                                              Times one over the ssh hatch, matches and stages
+                                              it, and starts the full pass when a page is laid
+                                              out while none runs (kick)
 tools/gale_inbox.sh                           the scheduled entry point for gale_inbox.py sync,
                                               every minute, from a worktree
 tools/gale_listener.py                        the Listener crosswords of 1930-91, read from the

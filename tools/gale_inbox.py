@@ -1116,9 +1116,11 @@ class Other(collections.namedtuple("Other", "series years printed folder item"))
 #: The other papers, fetched by tools/gale_fetch.py once no Times row is
 #: left, in this order: the biggest gaps whose pages a filer's headings
 #: read (file_archive_org_puzzles' TELEGRAPH, FT) first, then those with
-#: none (its GALE_INDEPENDENT, GALE_SUNDAY_TIMES). Each archive's years are its
+#: none (its GALE_INDEPENDENT, GALE_SUNDAY_TIMES, GALE_TLS). Each archive's years are its
 #: issuesForMonth's (read 2026-10-11): TGRH ends with 2000, FTHA (its
-#: crossword from 1966) with 2010, INDA with 2016, STHA with 2006.
+#: crossword from 1966) with 2010, INDA with 2016, STHA with 2006; TLSH
+#: (read 2026-10-12) runs 1902 to 26 December 2014, a Friday weekly whose
+#: contents first name "TLS Crossword 102" on 5 June 1992 (few before 1995).
 OTHERS = {
     "TGRH": Other("telegraph", range(1925, 2001), None, "Telegraph", "GaleTelegraph{}UKEnglish"),
     "FTHA": Other("ftcryptic", range(1966, 2011), None, "FT", "GaleFT{}UKEnglish"),
@@ -1126,6 +1128,7 @@ OTHERS = {
                   "GaleIndependent{}UKEnglish"),
     "STHA": Other("sundaytimes", range(1924, 2007), ((6,), "1924-12-28"), "Sunday Times",
                   "GaleSundayTimes{}UKEnglish"),
+    "TLSH": Other("tls", range(1992, 2015), ((4,), "1992-01-03"), "TLS", "GaleTLS{}UKEnglish"),
 }
 
 

@@ -108,7 +108,8 @@ gale's are) are papers of their own: GALE_TELEGRAPH (also "CROSSWORD /
 runs (ALSO), and GALE_INDEPENDENT (--paper galeindependent, from No 1 on 7
 October 1986, the numbers of our independent series) and GALE_SUNDAY_TIMES
 (--paper galesundaytimes, weekly from No 1 on 11 January 1925, our
-sundaytimes series' numbers).
+sundaytimes series' numbers), and GALE_TLS (--paper galetls, the TLS's
+Friday crossword, No 102 by 5 June 1992, our tls series' numbers).
 
 --paper gale reads the Times pages Paul saves from Gale's Times Digital
 Archive (tools/gale_inbox.py lays each date out as
@@ -540,6 +541,21 @@ def shaped_on(img, box):
     return box is not None and grid_shaped(tuple(v * SCAN_WIDTH / img.width for v in box))
 
 
+#: The papers (keys) whose grid is right of the clues their title heads,
+#: never elsewhere (locate_grid's `right`), and wider than grid_shaped's:
+#: the TLS's 15x15 is 38% of its page's width.
+GRID_RIGHT = {"galetls"}
+WIDE_GRID = 1400
+
+
+def wide_shaped(img, box):
+    """shaped_on(), up to WIDE_GRID wide at SCAN_WIDTH."""
+    if box is None:
+        return False
+    gw, gh = ((v1 - v0) * SCAN_WIDTH / img.width for v0, v1 in ((box[0], box[2]), (box[1], box[3])))
+    return 500 <= gw <= WIDE_GRID and 0.85 <= gw / max(gh, 1) <= 1.18
+
+
 #: How far, in pixels, a crop grows on a side its largest ink touches, and
 #: how many times, so a grid wider or further from its title than the
 #: first crop is read whole.
@@ -577,7 +593,7 @@ def ink_in(img, crop, fixed=()):
 ABOVE_GAP = 80
 
 
-def locate_grid(img, title):
+def locate_grid(img, title, right=False):
     """(box, side) of the grid a title heads: the largest ink under it, else
     over it (the 1980s Times prints its title under the grid), else left of
     it (the FT's Monday Prize prints it right of the grid's top), else right
@@ -585,7 +601,10 @@ def locate_grid(img, title):
     `side` is "below", "above", "left" or "right". (box, None) when no ink
     there is a grid, the box the ink under the title; (None, None) when
     there is none. A title box may reach past the page's edge (an FT one is
-    widened to FT_GRID_SPAN about its middle): the crops are clipped to it."""
+    widened to FT_GRID_SPAN about its middle): the crops are clipped to it.
+    `right`: only right of it, out to the page's edge (the TLS heads its
+    clues with its title, the grid beyond them, the last solution's grid
+    left of them)."""
     x0, y0, x1, y1 = title
     w = x1 - x0
     span = int(1.3 * w) + 80
@@ -595,6 +614,8 @@ def locate_grid(img, title):
              ("left", (max(0, x0 - span), max(0, y0 - 80), min(img.width, x0), min(img.height, y0 + span)), ()),
              ("right", (max(0, int(cx)), max(0, y0 - 80), min(img.width, int(cx) + span), min(img.height, y0 + span)),
               ()))
+    if right:
+        tries = (("right", (max(0, int(cx)), max(0, y0 - 80), img.width, min(img.height, y0 + 3 * w)), ()),)
     first = None
     for side, crop, fixed in tries:
         if crop[2] - crop[0] < 2 or crop[3] - crop[1] < 2:
@@ -614,7 +635,7 @@ def locate_grid(img, title):
                                      or starts_under(img, box, crop[1])) \
             and (side != "above" or box[3] >= y0 - ABOVE_GAP) \
             and (side != "left" or box[2] < cx) and (side != "right" or box[0] > cx)
-        if clear and shaped_on(img, box):
+        if clear and (wide_shaped if right else shaped_on)(img, box):
             return box, side
         # A grid another side's crop finds whole under the title, across its
         # middle, is the grid under it: the one under-crop joins it to the
@@ -2419,6 +2440,38 @@ def sunday_times_headings(lines, titles=()):
 
 
 
+#: The TLS's title: "TLS CROSSWORD 835" over its clues (an unbylined weekly
+#: prize puzzle), never its entry address's "TLS Crossword 835," or "The
+#: winner of Crossword 831". Its solution heading, four weeks on, under the
+#: solution grid left of the clues: "SOLUTION TO CROSSWORD 831".
+TLS_TITLE = re.compile(r"^\W*(?:t\W?l\W?s\W{0,3})?cr[o0]ss\W{0,3}w[o0]rd\W{0,3}(?:n[o0]\W{0,3})?\s*" + SMALL_NUMBER
+                       + r"(.*)$", re.IGNORECASE)
+TLS_SOLUTION = re.compile(r"^\W*s[o0][l1]ut[il1][o0]n\W{0,3}(?:(?:t[o0]|of)\s+)?(?:(?:tls\s+)?cr[o0]ss\W{0,3}w[o0]rd\W{0,3})?"
+                          r"(?:n[o0]\W{0,3})?\s*" + SMALL_NUMBER + r"\W{0,3}\w?\W*$", re.IGNORECASE)
+#: Dated TLS crosswords, read off Gale's contents (2026-10-12) and our own
+#: tls files: weekly, less the double issues, and sparse before 1995.
+TLS_ANCHORS = ((datetime.date(1992, 6, 5), 102), (datetime.date(1995, 1, 6), 128),
+               (datetime.date(1996, 6, 7), 168), (datetime.date(2000, 6, 2), 363),
+               (datetime.date(2010, 6, 4), 835), (datetime.date(2014, 12, 26), 1055),
+               (datetime.date(2017, 5, 19), 1176))
+#: How far a TLS title's number may stray from its date's.
+TLS_SLACK = 30
+
+
+def tls_expected_number(day):
+    """anchored(TLS_ANCHORS), one a week outside them."""
+    first, last = TLS_ANCHORS[0], TLS_ANCHORS[-1]
+    if first[0] < day < last[0]:
+        return anchored(TLS_ANCHORS, day)
+    start, number = first if day <= first[0] else last
+    return number + round((day - start).days / 7)
+
+
+def tls_headings(lines, titles=()):
+    """titled_headings() of a TLS page."""
+    return titled_headings(lines, TLS_TITLE, TLS_SOLUTION)
+
+
 #: The Times crossword's first day, No 1 (a Saturday); it ran six days a
 #: week, none on a day the paper was not printed.
 TIMES_1930_FIRST = datetime.date(1930, 2, 1)
@@ -2551,11 +2604,13 @@ GALE_INDEPENDENT = Paper("galeindependent", "independent", re.compile(r"GaleInde
 GALE_SUNDAY_TIMES = Paper("galesundaytimes", "sundaytimes", re.compile(r"GaleSundayTimes((?:19|20)\d\d)UKEnglish$"),
                           "Sunday Times cryptic crossword No {:,}", sunday_times_expected_number,
                           sunday_times_headings, slack=SUNDAY_TIMES_SLACK)
+GALE_TLS = Paper("galetls", "tls", re.compile(r"GaleTLS((?:19|20)\d\d)UKEnglish$"), "TLS crossword No {:,}",
+                 tls_expected_number, tls_headings, slack=TLS_SLACK)
 #: The archive.org papers (coverage counts each series once, off these).
 PAPERS = {p.key: p for p in (TIMES, FT, GUARDIAN, TELEGRAPH)}
 #: Every --paper a run can read: each ledger's editions.
 FILERS = {**PAPERS, GALE.key: GALE, GALE_INDEPENDENT.key: GALE_INDEPENDENT,
-          GALE_SUNDAY_TIMES.key: GALE_SUNDAY_TIMES}
+          GALE_SUNDAY_TIMES.key: GALE_SUNDAY_TIMES, GALE_TLS.key: GALE_TLS}
 #: The papers of the same series in other items whose editions a run of
 #: FILERS[key] reads too.
 ALSO = {TIMES.key: (TIMES_1930,), TELEGRAPH.key: (GALE_TELEGRAPH,), FT.key: (GALE_FT,)}
@@ -3068,11 +3123,11 @@ def read_puzzle(d, found, hit, solutions):
         verdict["number"] = n
     img = page(d, leaf)
     lines = leaf_lines(d / "djvu.xml.gz", {leaf}).get(leaf, [])
-    gbox, side = (grid_under_clues(img, hit["box"]), "below") if paper.clues_above else locate_grid(img, hit["box"])
+    gbox, side = (grid_under_clues(img, hit["box"]), "below") if paper.clues_above else locate_grid(img, hit["box"], paper.key in GRID_RIGHT)
     if gbox is None:
         return refuse(verdict, "not-a-grid", "no ink under the title"), None
     gw, gh = gbox[2] - gbox[0], gbox[3] - gbox[1]
-    if side is None or not shaped_on(img, gbox):
+    if side is None or not (wide_shaped if paper.key in GRID_RIGHT else shaped_on)(img, gbox):
         return refuse(verdict, "not-a-grid", f"the ink under the title is {gw}x{gh}, not a grid"), None
     key = f"{d.name}_{n}"
     third = (paper.third, third_top(img, gbox, paper.third)) if paper.third else None

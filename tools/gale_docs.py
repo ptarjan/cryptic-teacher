@@ -49,7 +49,8 @@ PRODUCTS = {"TTDA": ("ttda", "Times", "The Times Digital Archive"),
             "TGRH": ("tgrh", "Daily Telegraph", "The Telegraph Historical Archive"),
             "FTHA": ("ftha", "Financial Times", "Financial Times Historical Archive"),
             "INDA": ("inda", "Independent", "The Independent Digital Archive"),
-            "STHA": ("stha", "Sunday Times", "The Sunday Times Historical Archive")}
+            "STHA": ("stha", "Sunday Times", "The Sunday Times Historical Archive"),
+            "TLSH": ("tlsh", "Times Literary Supplement", "The Times Literary Supplement Historical Archive")}
 MONTHS = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "June", "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."]
 DVI = re.compile(r"var dviResponse = (\{.*?\});\s*\n")
 
@@ -129,6 +130,10 @@ def crossword(prod, titles, number=None):
     # Telegraph's to 1990 or so are its clue heading, "No. 12,212 across".
     kind = re.compile(f"{KIND.pattern}|{ACROSS.pattern}", re.IGNORECASE) if prod == "TGRH" else KIND
     cands = [i for i, t in enumerate(titles) if kind.search(t) and not bad.search(t)]
+    if prod == "TLSH":
+        # The TLS's last solution is indexed under its puzzle's own title
+        # ("TLS Crossword 603" beside "TLS Crossword 604"): the newest first.
+        cands.sort(key=lambda i: -max(map(int, re.findall(r"\d+", titles[i].replace(",", ""))), default=0))
     if number is not None:
         cands.sort(key=lambda i: not named(number).search(titles[i]))
     return cands[0] if cands else None
