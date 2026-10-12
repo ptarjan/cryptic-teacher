@@ -770,6 +770,14 @@ JIGSAW = {
          (18, "down"): "Cupboard", (19, "down"): "Art in tears",
          (21, "down"): "To wit unknown", (22, "down"): "Draw a distinction",
          (24, "down"): "I hold Communist"},
+    # Each entry the post prints fits one light only, against the numbered
+    # answers' letters: CAUSATION is the only nine with A second and T sixth.
+    250: {(1, "down"): "Sound of shower", (5, "down"): "Heading away from Quantico",
+          (6, "down"): "Split smoothed over", (8, "across"): "Lugs around",
+          (11, "across"): "Booty call", (12, "across"): "Sanded steel peg",
+          (17, "across"): "One announces credit", (20, "across"): "Sacking bishop",
+          (21, "down"): "Taunt fool", (23, "down"): "Set within new design",
+          (26, "across"): "For ever and ever", (27, "across"): "Branch I"},
 }
 
 
@@ -788,16 +796,23 @@ def place_jigsaw(number, pdf):
         return "the placing does not cover the unnumbered lights"
     order = sorted(table, key=starts.get)
     ends = [starts[l] for l in order[1:]] + [len(pre)]
+    after = ""
     for light, end in zip(order, ends):
-        text = pre[starts[light]:end].strip()
-        enum = re.findall(fpp.ENUM_TEXT, text)
-        if len(enum) != 1 or not text.endswith(enum[0].strip()):
+        # A clue runs to its count; what follows the last is the preamble's
+        # rest (No 250 prints its instructions under the list).
+        m = re.search(fpp.ENUM_TEXT, pre[starts[light]:end])
+        if not m or (end < len(pre) and pre[starts[light] + m.end():end].strip()):
             return f"{light[0]} {light[1]}'s clue does not end on one count"
-        count = enum[0].strip("() ")
-        if sum(int(n) for n in re.findall(r"\d+", count)) != len(lights[light]):
+        text = pre[starts[light]:starts[light] + m.end()].strip()
+        after = pre[starts[light] + m.end():end] if end == len(pre) else after
+        count = m.group(0).strip("() ")
+        # An answer altered on entry (ALTERED_BY) counts the answer, not the
+        # light: assemble_altered's crossings check that one.
+        if number not in ALTERED_BY and sum(int(n) for n in re.findall(r"\d+", count)) != len(lights[light]):
             return f"{light[0]} {light[1]}'s count is not its length"
         pdf["clues"].append({"lights": [light], "clue": text, "enumeration": count})
-    pdf["preamble"] = pre[:min(starts.values())].strip() or None
+        pdf.setdefault("placed", {})[light] = text
+    pdf["preamble"] = " ".join(x for x in (pre[:min(starts.values())].strip(), after.strip()) if x) or None
     pdf["clues"].sort(key=lambda c: (c["lights"][0][1] != "across", c["lights"][0][0]))
     pdf["jigsaw"] = True
     return None
@@ -936,6 +951,7 @@ ALTERED_BY = {
     239: ("a letter dropped", {"deletion"}),  # "entered without this letter"
     248: (None, {"move"}),                    # acrosses rotated: DEMOTE as EMOTED
     263: ("a letter dropped wherever it occurs", {"deletion"}),
+    250: (None, {"insertion"}),                # a pair of letters put in twelve jigsaw answers
 }
 #: A post naming an entry apart from the answer: "entered as EMOTED".
 NAMED_ENTRY = re.compile(r"(?i:entered as|entry(?: is)?:?|enter(?:ing)?|becomes?|giving|gives|"
@@ -1087,6 +1103,8 @@ def assemble_altered(number, pdf, post, date, url):
         first = c["lights"][0]
         cells = [cell for l in c["lights"] for cell in lights[l]]
         said[first] = sources(wins.get(first, []), answers.get(first))
+        if first in pdf.get("placed", {}):
+            said[first] = placed_words(rendered, pdf["placed"][first]) or said[first]
         words = {w for w in candidates(said[first], rule) if len(w) == len(cells)}
         given = UNCLUED_LETTERS.get(number, {}).get(first)
         if first in unclued and given:
@@ -1149,8 +1167,16 @@ def assemble_altered(number, pdf, post, date, url):
         if len(next(c for c in clued if c["lights"][0] == k)["lights"]) > 1:
             return None, f"{k[0]} {k[1]} is a linked answer entered altered"
         by[k]["alteration"] = {"from": frm, "steps": steps_for(frm, fill[k], ops)}
+        # A count printed for the answer, not the entry (No 250's HALE (4)
+        # entered HANDLE), stays as printed: it may count either word.
+        printed = next(c for c in clued if c["lights"][0] == k)["enumeration"]
+        if printed and printed.isdigit() and int(printed) == len(frm) != len(fill[k]):
+            by[k]["clue"]["enumeration"] = printed
+            by[k]["clue"].pop("separators", None)
     if preamble:
         puzzle["preamble"] = preamble
+    if pdf.get("jigsaw"):
+        puzzle["cluesUnplaced"] = True
     puzzle["source"] = {"url": url, "gridOrigin": "published"}
     puzzle["solutions"]["check"] = (
         f"grid and clues read from {pdf['origin']}, its numbering matching the "
@@ -1159,6 +1185,19 @@ def assemble_altered(number, pdf, post, date, url):
         + ", the only choice of them whose crossings all agree; an entry not its answer "
           "carries the answer as its alteration's `from`")
     return puzzle, None
+
+
+def placed_words(rendered, clue):
+    """A jigsaw clue's words off the post row printing it, which numbers no
+    light: "SA CAUTION / CAU SA TION Heading away ..." gives the answer
+    before the slash and the entry after it, CAUTION and CAUSATION."""
+    text = DASHES.sub("-", re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", rendered))))
+    at = text.find(DASHES.sub("-", clue)[:20])
+    if at < 0:
+        return []
+    row = text[max(text.rfind(" - ", 0, at), at - 80) + 1:at].split("/")
+    out = [re.findall(r"[A-Z]{2,}", row[0])[-1:], ["".join(re.findall(r"[A-Z]+", row[-1]))]]
+    return [w for ws in out for w in ws if w]
 
 
 #: The most unclued lights a Genius leaves; more says the clue list was misread.
