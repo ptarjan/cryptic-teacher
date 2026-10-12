@@ -898,6 +898,17 @@ tools/test_difficulty_page.sh                 can /difficulty/ describe a rating
                                               components, quote the scorecard only while it
                                               matches today's weights, and leave no
                                               {{placeholder}} unfilled
+tools/progress.py                             per series and per day, how many puzzles are
+                                              known, acquired, filed, solved and hinted: the
+                                              history /progress/ draws, read without touching
+                                              the corpus
+tools/progress_record.py                      writes that history: `record` nightly, and a
+                                              one-off `backfill` from the files, the commit
+                                              history and the saved coverage ledgers
+tools/data/progress.json                      tools/progress.py's history, one day a line
+tools/test_progress.sh                        does /progress/ date each phase, carry the
+                                              ledger's counts to today, pace by days rather
+                                              than points, and draw every chart?
 tools/test_series_hub.sh                      does /puzzles/ describe each series without
                                               counting it? A series blurb with a count or
                                               puzzle number must be refused, the hub must not

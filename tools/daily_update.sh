@@ -420,6 +420,9 @@ unit_ratings() {
   python3 tools/build_clue_joints.py >/dev/null || echo "build_clue_joints failed (rc=$?); the authoring checks use last night's tools/data/clue_joints.json"
   # The grid filler's per-length floors, re-measured over the day's answers.
   python3 tools/build_fill_floors.py >/dev/null || echo "build_fill_floors failed (rc=$?); grid_fill uses last night's tools/data/fill_floors.json"
+  # Tonight's row of the phase history /progress/ draws: the site is built from
+  # a one-commit checkout, so the history it charts has to be committed.
+  python3 tools/progress_record.py record >/dev/null || echo "progress record failed (rc=$?); /progress/ misses tonight's row"
   return 0
 }
 
