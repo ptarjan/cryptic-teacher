@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Change way to travel to and from work",
     "enumeration": "7"
    },
-   "solution": "COMMUTE"
+   "solution": "COMMUTE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COMMUTE",
+    "definitions": [
+     {
+      "text": "Change",
+      "at": 0
+     },
+     {
+      "text": "way to travel to and from work",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Change",
+      "note": "first meaning: to reduce or exchange, as a sentence is reduced"
+     },
+     {
+      "clueFragment": "way to travel to and from work",
+      "note": "second meaning: the daily journey between home and the office"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as one idea, switching how you get to the office; it is two separate senses of the same word.",
+     "definitionFit": "A governor can lessen a sentence by this verb, and the noun names the regular journey a worker makes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Change"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +86,56 @@
     "text": "Marine creature enjoyed month with no discharge",
     "enumeration": "7"
    },
-   "solution": "OCTOPUS"
+   "solution": "OCTOPUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OCTOPUS",
+    "definitions": [
+     {
+      "text": "Marine creature",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "enjoyed"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "month",
+      "gives": "OCT",
+      "note": "short form of October"
+     },
+     {
+      "clueFragment": "no",
+      "gives": "O",
+      "note": "the letter O looks like zero, nothing"
+     },
+     {
+      "clueFragment": "discharge",
+      "gives": "PUS",
+      "note": "matter discharged from a wound"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OCT",
+      "O",
+      "PUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A sea animal has had a healthy month without any infection.",
+     "walkthrough": "'With no discharge' reads as a single phrase meaning healthy, but it splits into nothing plus a discharge.",
+     "definitionFit": "This eight-armed cephalopod lives in the sea, so it is a marine animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "no"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +149,67 @@
     "text": "Wander over around new estate",
     "enumeration": "5"
    },
-   "solution": "MANOR"
+   "solution": "MANOR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "MANOR",
+    "definitions": [
+     {
+      "text": "estate",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "in a down clue, over means turned upside down, so the word reads backwards"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around says one piece is wrapped about the other, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wander",
+      "gives": "ROAM",
+      "note": "to wander is to roam"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "N",
+      "OR"
+     ],
+     "reversals": [
+      {
+       "from": "RONAM",
+       "to": "MANOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone strolls round a newly built housing estate.",
+     "walkthrough": "ROAM written backwards is MAOR, which then holds N.",
+     "definitionFit": "A manor is a landed estate with its big house, the property of a lord."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +223,55 @@
     "text": "Starred possibly in several \"Merchants of Venice\"?",
     "enumeration": "7"
    },
-   "solution": "TRADERS"
+   "solution": "TRADERS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRADERS",
+    "definitions": [
+     {
+      "text": "several \"Merchants of Venice\"",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly hints that the letters could be arranged another way"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Starred",
+      "gives": "STARRED",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STARRED",
+       "gives": "TRADERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor took the lead in a string of productions of Shakespeare's play.",
+     "walkthrough": "The quotation marks make it look like a play title; read plainly, merchants in Venice are simply people who buy and sell.",
+     "definitionFit": "Merchants are people who buy and sell goods, so several of them are dealers in commerce."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Venice"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +285,48 @@
     "text": "Polish insects get bigger",
     "enumeration": "7"
    },
-   "solution": "BEESWAX"
+   "solution": "BEESWAX",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEESWAX",
+    "definitions": [
+     {
+      "text": "Polish",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "insects",
+      "gives": "BEES",
+      "note": "honey-making insects"
+     },
+     {
+      "clueFragment": "get bigger",
+      "gives": "WAX",
+      "note": "to wax is to grow, as the moon does"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEES",
+      "WAX"
+     ]
+    },
+    "explanation": {
+     "surface": "Bugs from Poland are growing larger.",
+     "walkthrough": "Capitalised at the start, Polish looks like the nationality, but it is the noun for a shining substance.",
+     "definitionFit": "This substance made by bees is used to shine furniture, a classic polish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Polish"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +340,56 @@
     "text": "Exeter's first flower festival",
     "enumeration": "6"
    },
-   "solution": "EASTER"
+   "solution": "EASTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EASTER",
+    "definitions": [
+     {
+      "text": "festival",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first says to keep only the opening letter of the city's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Exeter's",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter of the city name"
+     },
+     {
+      "clueFragment": "flower",
+      "gives": "ASTER",
+      "note": "a daisy-like garden flower"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "ASTER"
+     ]
+    },
+    "explanation": {
+     "surface": "The Devon city of Exeter holds its first flower show.",
+     "walkthrough": "Exeter is a cathedral city in Devon, England.",
+     "definitionFit": "The Christian celebration of the Resurrection is a spring religious festival."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flower"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +403,51 @@
     "text": "Get rid of the clergy? That's the stuff!",
     "enumeration": "9"
    },
-   "solution": "SACKCLOTH"
+   "solution": "SACKCLOTH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SACKCLOTH",
+    "definitions": [
+     {
+      "text": "the stuff",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get rid of",
+      "gives": "SACK",
+      "note": "to sack is to dismiss"
+     },
+     {
+      "clueFragment": "the clergy",
+      "gives": "CLOTH",
+      "note": "the cloth is an idiom for the clergy as a body"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SACK",
+      "CLOTH"
+     ]
+    },
+    "explanation": {
+     "surface": "An anticlerical cheer: sacking the priesthood is just what is needed.",
+     "walkthrough": "'That's the stuff!' sounds like applause, but stuff here means fabric.",
+     "definitionFit": "Sackcloth is a coarse woven fabric, and stuff is an old word for woven material."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stuff"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +461,78 @@
     "text": "Bill made off with last copy at school",
     "enumeration": "7"
    },
-   "solution": "ACADEMY"
+   "solution": "ACADEMY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ACADEMY",
+    "definitions": [
+     {
+      "text": "school",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off suggests something gone wrong or out of order, so the letters are scrambled"
+     },
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "last says to keep only the final letter of the following word"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bill",
+      "gives": "AC",
+      "note": "AC, short for account, which is a bill"
+     },
+     {
+      "clueFragment": "made",
+      "gives": "MADE",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "copy",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "ADEM",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MADE",
+       "gives": "ADEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bill ran off with the last copy of something at school.",
+     "walkthrough": "Bill reads as a boy's name, but it stands for an account. 'Made off' looks like ran away; off is a shuffle signal.",
+     "definitionFit": "An academy is a school, often a specialised or state-funded secondary one in Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bill"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +546,39 @@
     "text": "A high-flyer once upon a time",
     "enumeration": "13"
    },
-   "solution": "STRATOCRUISER"
+   "solution": "STRATOCRUISER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "STRATOCRUISER",
+    "definitions": [
+     {
+      "text": "A high-flyer once upon a time",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A high-flyer once upon a time",
+      "note": "surface reading: a person who was once ambitious and successful"
+     },
+     {
+      "clueFragment": "A high-flyer once upon a time",
+      "note": "setter's reading: a mid-century Boeing airliner that literally flew high and is now retired"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "High-flyer usually means a high achiever; here it is taken literally as an aircraft, and once upon a time says it is no longer in service.",
+     "definitionFit": "The Boeing 377 was a long-range propeller airliner of the late 1940s, flying passengers at altitude."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "high-flyer"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +592,62 @@
     "text": "Knock out the leader in the tabloid",
     "enumeration": "4"
    },
-   "solution": "STUN"
+   "solution": "STUN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STUN",
+    "definitions": [
+     {
+      "text": "Knock out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader of a word is its opening letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in says one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "tabloid",
+      "gives": "SUN",
+      "note": "The Sun is a British tabloid newspaper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "T",
+      "UN"
+     ]
+    },
+    "explanation": {
+     "surface": "A tabloid campaign to oust the party leader.",
+     "walkthrough": "The Sun is a popular British tabloid newspaper.",
+     "definitionFit": "To stun someone is to daze or render them unconscious with a blow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 11,
@@ -173,7 +661,59 @@
     "text": "Retiring from action, sail away",
     "enumeration": "10"
    },
-   "solution": "ANTISOCIAL"
+   "solution": "ANTISOCIAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANTISOCIAL",
+    "definitions": [
+     {
+      "text": "Retiring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "away",
+      "for": "anagram",
+      "note": "away suggests the letters are knocked out of place and reassembled"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "action",
+      "gives": "ACTION",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sail",
+      "gives": "SAIL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACTIONSAIL",
+       "gives": "ANTISOCIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone withdraws from the fray and sets off by boat.",
+     "walkthrough": "Retiring looks like stopping work; here it means shy and withdrawn.",
+     "definitionFit": "A retiring person avoids company, which is an unsociable, reclusive disposition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Retiring"
+    }
+   }
   },
   {
    "number": 12,
@@ -187,7 +727,51 @@
     "text": "Boxes with a key are thin on the ground",
     "enumeration": "6"
    },
-   "solution": "SPARSE"
+   "solution": "SPARSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPARSE",
+    "definitions": [
+     {
+      "text": "thin on the ground",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "with",
+     "are"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boxes",
+      "gives": "SPARS",
+      "note": "to spar is to box, practise boxing"
+     },
+     {
+      "clueFragment": "a key",
+      "gives": "E",
+      "note": "E is one of the musical keys"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPARS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Containers fitted with a lock are hard to find.",
+     "walkthrough": "Boxes looks like a plural noun; it is the verb, as in fights.",
+     "definitionFit": "Something thinly scattered and scarce is few and far between, an idiom for thin on the ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Boxes"
+    }
+   }
   },
   {
    "number": 13,
@@ -201,7 +785,64 @@
     "text": "It's many years since working for recruitment firms",
     "enumeration": "8"
    },
-   "solution": "AGENCIES"
+   "solution": "AGENCIES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "AGENCIES",
+    "definitions": [
+     {
+      "text": "recruitment firms",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "working suggests the letters are worked over into a new form"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It's many years",
+      "gives": "AGE",
+      "note": "'it's an age' means a very long time"
+     },
+     {
+      "clueFragment": "since",
+      "gives": "SINCE",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGE",
+      "NCIES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SINCE",
+       "gives": "NCIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complains it has been years since they worked for a recruitment firm.",
+     "walkthrough": "'Since working' reads as a time phrase; working is the shuffle signal.",
+     "definitionFit": "Employment agencies are businesses that find and place staff, so they are recruiting companies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 14,
@@ -215,7 +856,64 @@
     "text": "Drinks, drug and journalists in cry for help",
     "enumeration": "9"
    },
-   "solution": "ESPRESSOS"
+   "solution": "ESPRESSOS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ESPRESSOS",
+    "definitions": [
+     {
+      "text": "Drinks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in says these pieces go inside the outer one"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is slang for ecstasy"
+     },
+     {
+      "clueFragment": "journalists",
+      "gives": "PRESS",
+      "note": "the press, collectively"
+     },
+     {
+      "clueFragment": "cry for help",
+      "gives": "SOS",
+      "note": "the distress signal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "S",
+      "PRESS",
+      "OS"
+     ]
+    },
+    "explanation": {
+     "surface": "Reporters plead for help after alcohol and drugs.",
+     "definitionFit": "These strong black coffees are drinks served in small cups."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Drinks"
+    }
+   }
   },
   {
    "number": 15,
@@ -229,7 +927,43 @@
     "text": "Drink that brings one up to date",
     "enumeration": "9"
    },
-   "solution": "REFRESHER"
+   "solution": "REFRESHER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REFRESHER",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     },
+     {
+      "text": "that brings one up to date",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drink",
+      "note": "first meaning: an informal word for a drink"
+     },
+     {
+      "clueFragment": "that brings one up to date",
+      "note": "second meaning: a course that updates a person's skills"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests one drink that revives you; the second sense is the training course.",
+     "definitionFit": "It is a casual term for a reviving beverage, and a short course renewing knowledge bears the same name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "date"
+    }
+   }
   },
   {
    "number": 16,
@@ -243,7 +977,56 @@
     "text": "College once predicted initial growth",
     "enumeration": "5"
    },
-   "solution": "POLYP"
+   "solution": "POLYP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "POLYP",
+    "definitions": [
+     {
+      "text": "growth",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initial",
+      "for": "letter_selection",
+      "note": "initial means the very first letter of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "College once",
+      "gives": "POLY",
+      "note": "a polytechnic, a type of British college abolished in 1992"
+     },
+     {
+      "clueFragment": "predicted",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POLY",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "An old college forecast its own early expansion.",
+     "walkthrough": "British polytechnics, called polys, became universities in 1992, hence 'once'.",
+     "definitionFit": "A polyp is a small abnormal growth of tissue, often in the nose or bowel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "growth"
+    }
+   }
   },
   {
    "number": 17,
@@ -257,7 +1040,46 @@
     "text": "Turn one's nose up, but eat",
     "enumeration": "5"
    },
-   "solution": "SCOFF"
+   "solution": "SCOFF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCOFF",
+    "definitions": [
+     {
+      "text": "Turn one's nose up",
+      "at": 0
+     },
+     {
+      "text": "eat",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turn one's nose up",
+      "note": "first meaning: to mock or sneer"
+     },
+     {
+      "clueFragment": "eat",
+      "note": "second meaning: to eat greedily"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface pictures a fussy diner who still eats; the word means both sneer and gobble.",
+     "definitionFit": "One meaning is to jeer at something with contempt; the other is to wolf food down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nose"
+    }
+   }
   },
   {
    "number": 18,
@@ -271,7 +1093,68 @@
     "text": "With drugs withdrawn, licence is reissued to health centres",
     "enumeration": "7"
    },
-   "solution": "CLINICS"
+   "solution": "CLINICS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "CLINICS",
+    "definitions": [
+     {
+      "text": "health centres",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "withdrawn",
+      "for": "deletion",
+      "note": "withdrawn says these letters are taken out of the rest"
+     },
+     {
+      "text": "reissued",
+      "for": "anagram",
+      "note": "something reissued is put out again in a new form, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drugs",
+      "gives": "EE",
+      "note": "E is slang for ecstasy, so two Es are drugs"
+     },
+     {
+      "clueFragment": "licence is",
+      "gives": "LICENCEIS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLINICS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LICNCIS",
+       "gives": "CLINICS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A medical licence, withdrawn over drugs, is restored to health centres.",
+     "walkthrough": "Remove both Es from LICENCE IS, then rearrange what is left.",
+     "definitionFit": "A clinic is a place where patients receive medical treatment, a health centre."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drugs"
+    }
+   }
   },
   {
    "number": 19,
@@ -285,7 +1168,59 @@
     "text": "Case of country accepting his concession",
     "enumeration": "9"
    },
-   "solution": "FRANCHISE"
+   "solution": "FRANCHISE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FRANCHISE",
+    "definitions": [
+     {
+      "text": "concession",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Case of",
+      "for": "container",
+      "note": "a case is an outer covering, so this word forms the outside"
+     },
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "accepting means taking something in, so the other piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "country",
+      "gives": "FRANCE",
+      "note": "a European country"
+     },
+     {
+      "clueFragment": "his",
+      "gives": "HIS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRANC",
+      "HIS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A nation agrees to a man's claim in some dispute.",
+     "definitionFit": "A franchise is a licence or privilege granted by an authority, which is a concession."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Case"
+    }
+   }
   },
   {
    "number": 20,
@@ -299,7 +1234,56 @@
     "text": "Retribution seems in order",
     "enumeration": "7"
    },
-   "solution": "NEMESIS"
+   "solution": "NEMESIS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEMESIS",
+    "definitions": [
+     {
+      "text": "Retribution",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in order",
+      "for": "anagram",
+      "note": "putting things in order means sorting them into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seems",
+      "gives": "SEEMS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEEMSIN",
+       "gives": "NEMESIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Revenge appears to be justified.",
+     "walkthrough": "'In' does double duty: its letters join the fodder, while 'order' is the signal. Read as 'in order', the surface means fitting.",
+     "definitionFit": "Nemesis is the Greek goddess of vengeance, and her name stands for deserved punishment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 21,
@@ -313,7 +1297,74 @@
     "text": "After first salvo ran off, turning yellow",
     "enumeration": "7"
    },
-   "solution": "SAFFRON"
+   "solution": "SAFFRON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "SAFFRON",
+    "definitions": [
+     {
+      "text": "yellow",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first means keep only the opening letter of the next word"
+     },
+     {
+      "text": "turning",
+      "for": "anagram",
+      "note": "turning suggests the letters are spun round into a new order"
+     },
+     {
+      "text": "After",
+      "for": "charade",
+      "note": "after places the shuffled letters behind the single letter that comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "salvo",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "ran off",
+      "gives": "RANOFF",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AFFRON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RANOFF",
+       "gives": "AFFRON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After the opening volley someone fled, showing cowardice.",
+     "walkthrough": "Yellow is slang for cowardly, which the surface plays on; here it is just the colour.",
+     "definitionFit": "Saffron is a deep orange-yellow spice, and its name is used for that colour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "yellow"
+    }
+   }
   },
   {
    "number": 22,
@@ -327,7 +1378,46 @@
     "text": "Went ahead and got enough of the answers right",
     "enumeration": "6"
    },
-   "solution": "PASSED"
+   "solution": "PASSED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PASSED",
+    "definitions": [
+     {
+      "text": "Went ahead",
+      "at": 0
+     },
+     {
+      "text": "got enough of the answers right",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Went ahead",
+      "note": "first meaning: overtook another vehicle"
+     },
+     {
+      "clueFragment": "got enough of the answers right",
+      "note": "second meaning: succeeded in an exam"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as one exam story; the first sense is overtaking.",
+     "definitionFit": "A driver overtaking moves in front, and a candidate clearing the pass mark succeeds in a test."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ahead"
+    }
+   }
   },
   {
    "number": 23,
@@ -341,7 +1431,55 @@
     "text": "\"Lear\" — it repeatedly moved the educated crowd",
     "enumeration": "8"
    },
-   "solution": "LITERATI"
+   "solution": "LITERATI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LITERATI",
+    "definitions": [
+     {
+      "text": "the educated crowd",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moved",
+      "for": "anagram",
+      "note": "moved says the letters are shifted into different positions"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lear",
+      "gives": "LEAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "it repeatedly",
+      "gives": "ITIT",
+      "note": "the word it, written twice as repeatedly says"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEARITIT",
+       "gives": "LITERATI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performance of King Lear repeatedly brought a cultured audience to tears.",
+     "definitionFit": "The literati are well-read, intellectual people taken as a group."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "moved"
+    }
+   }
   },
   {
    "number": 24,
@@ -355,7 +1493,56 @@
     "text": "Whitehall department provided year to make adaptation",
     "enumeration": "6"
    },
-   "solution": "MODIFY"
+   "solution": "MODIFY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MODIFY",
+    "definitions": [
+     {
+      "text": "make adaptation",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Whitehall department",
+      "gives": "MOD",
+      "note": "the Ministry of Defence, a UK government department"
+     },
+     {
+      "clueFragment": "provided",
+      "gives": "IF",
+      "note": "provided that, on condition"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "Y is the abbreviation for year"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOD",
+      "IF",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A government ministry funded a year to adapt something.",
+     "walkthrough": "Whitehall is the London street of UK government ministries, so it stands for the civil service.",
+     "definitionFit": "To modify something is to alter or adjust it, making changes to suit a purpose."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "provided"
+    }
+   }
   },
   {
    "number": 25,
@@ -369,7 +1556,70 @@
     "text": "Record player working around leading industrial city in France",
     "enumeration": "5"
    },
-   "solution": "DIJON"
+   "solution": "DIJON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "DIJON",
+    "definitions": [
+     {
+      "text": "city in France",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leading",
+      "for": "letter_selection",
+      "note": "leading means the letter at the front of the word"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around says one piece wraps about the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Record player",
+      "gives": "DJ",
+      "note": "a disc jockey plays records"
+     },
+     {
+      "clueFragment": "industrial",
+      "gives": "I",
+      "select": "first",
+      "note": "the opening letter of the word"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "on means operating, working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "I",
+      "J",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A DJ works in a leading French industrial city.",
+     "walkthrough": "Record player looks like a turntable; here it is the person who plays the records.",
+     "definitionFit": "Dijon is the capital of Burgundy in eastern France, famous for mustard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "player"
+    }
+   }
   },
   {
    "number": 26,
@@ -383,7 +1633,53 @@
     "text": "Tourists place, we're told by forecasters",
     "enumeration": "10"
    },
-   "solution": "SIGHTSEERS"
+   "solution": "SIGHTSEERS",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "SIGHTSEERS",
+    "definitions": [
+     {
+      "text": "Tourists",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we're told",
+      "for": "homophone",
+      "note": "we're told means something heard, so the word is taken by its sound"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "place",
+      "gives": "SIGHTS",
+      "soundsLike": "SITES",
+      "note": "to site is to place, so sites means places"
+     },
+     {
+      "clueFragment": "forecasters",
+      "gives": "SEERS",
+      "note": "seers foretell the future"
+     }
+    ],
+    "explanation": {
+     "surface": "Tourists are positioned according to the weather forecasters' advice.",
+     "walkthrough": "Forecasters looks like weather presenters; they are prophets.",
+     "definitionFit": "Sightseers visit places of interest, which is what tourists do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "forecasters"
+    }
+   }
   },
   {
    "number": 27,
@@ -397,7 +1693,46 @@
     "text": "Yank's such a stupid person",
     "enumeration": "4"
    },
-   "solution": "JERK"
+   "solution": "JERK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "JERK",
+    "definitions": [
+     {
+      "text": "Yank",
+      "at": 0
+     },
+     {
+      "text": "stupid person",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "'s such a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yank",
+      "note": "first meaning: to pull sharply"
+     },
+     {
+      "clueFragment": "stupid person",
+      "note": "second meaning: a contemptible fool"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Yank looks like slang for an American, inviting a jibe; it is the verb for a sharp pull.",
+     "definitionFit": "The word is both a sudden tug and an American insult for a foolish or obnoxious man."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Yank"
+    }
+   }
   },
   {
    "number": 28,
@@ -411,7 +1746,59 @@
     "text": "Sit and read novel on a horse, maybe",
     "enumeration": "7"
    },
-   "solution": "ASTRIDE"
+   "solution": "ASTRIDE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASTRIDE",
+    "definitions": [
+     {
+      "text": "on a horse, maybe",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new, so the letters take a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sit",
+      "gives": "SIT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "read",
+      "gives": "READ",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SITREAD",
+       "gives": "ASTRIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sits and reads a book while on horseback.",
+     "walkthrough": "Novel looks like a book to read; it is the shuffle signal.",
+     "definitionFit": "A rider sits with a leg on each side of the saddle, straddling the animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 29,
@@ -425,7 +1812,62 @@
     "text": "Is a back number stupid?",
     "enumeration": "7"
    },
-   "solution": "ASININE"
+   "solution": "ASININE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ASININE",
+    "definitions": [
+     {
+      "text": "stupid",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back says the words are read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is a",
+      "gives": "ISA",
+      "note": "taken as written, to be turned round"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "NINE",
+      "note": "a number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASI",
+      "NINE"
+     ],
+     "reversals": [
+      {
+       "from": "ISA",
+       "to": "ASI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is an old issue of a magazine silly?",
+     "walkthrough": "Back number looks like an old issue; back belongs with 'Is a'.",
+     "definitionFit": "Asinine means extremely foolish, literally like an ass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "back"
+    }
+   }
   }
  ]
 }
