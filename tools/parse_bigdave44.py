@@ -354,7 +354,7 @@ def records(posts):
         known.update(by_cadence(series, known))
     for key, group in sorted(groups.items()):
         series, number = key[:2]
-        best = max(group, key=lambda p: (len(p["entries"]), p["date"], p["post_id"]))
+        best = max(group, key=lambda p: (lights(p), p["date"], p["post_id"]))
         setters = {p["setter"] for p in group if p["setter"]}
         rec = {k: best[k] for k in ("post_id", "date", "slug", "link", "series",
                                     "number", "title", "entries")}
@@ -368,8 +368,16 @@ def records(posts):
         print(f"  date: {note}")
 
 
+def lights(rec):
+    """How many lights the post clues: its entries and every light of a
+    linked answer it prints whole (`unsplit`), which has no entry yet."""
+    return len(rec["entries"]) + sum(len(g["lights"]) for g in rec.get("unsplit") or ())
+
+
 def plausible(rec):
-    return PLAUSIBLE[0] <= len(rec["entries"]) <= PLAUSIBLE[1]
+    # Toughie 606 (19 entries and three linked answers over six more lights)
+    # and 1420 (18 and five) are whole clue lists, not a few hints.
+    return PLAUSIBLE[0] <= lights(rec) <= PLAUSIBLE[1]
 
 
 def run(write=True):
@@ -381,7 +389,10 @@ def run(write=True):
             posts.append(p)
     by_series = collections.defaultdict(collections.Counter)
     checked = agreed = 0
-    out = OUT.open("w", encoding="utf-8") if write else None
+    # Written aside and renamed in: a parse killed part-way (a timeout) must
+    # not leave the filers and the grid search a truncated parsed.jsonl.
+    part = OUT.with_name(OUT.name + ".part")
+    out = part.open("w", encoding="utf-8") if write else None
     for rec in records(posts):
         c = by_series[rec["series"]]
         c["puzzles"] += 1
@@ -400,6 +411,7 @@ def run(write=True):
             out.write(json.dumps(rec, ensure_ascii=False) + "\n")
     if out:
         out.close()
+        part.replace(OUT)
     print(f"{len(posts)} post(s) read")
     print("BY SERIES  (puzzles / full clue list / dated / setter named)")
     for s, c in sorted(by_series.items()):
