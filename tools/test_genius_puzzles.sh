@@ -94,6 +94,9 @@ print("see-way", sl[0]["lights"], sl[2]["lights"])
 print("unnumbered", G.unnumbered("Solutions to the remaining clues have their place About this (4,3) Anti pig (7) "
                                  "Art in tears (7) Barren function (4,5) Boy (5)"),
       G.unnumbered("8 Extremely insalubrious (8) 9 Novel (6) 10 Voyeur (13) 11 Story (9) 12 Vehicle (5)"))
+pre = G.parse_text("Clues ACross Instructions Eight solutions comprise the theme, supporter and World Cup winners. "
+                   "Deadline for entries is 23:59 GMT. GENIUS 165 SET BY VLAD Down 1 Work for two (3,5) 2 Stop (3)")
+print("preamble-165", pre["preamble"])
 for n, want in ((161, None), (162, None), (165, 8)):
     f = glob.glob(f"puzzles/genius/*/genius-{n}.json")
     if f:
@@ -131,6 +134,7 @@ check "two clues headed by one number both read (209)" "[[(20, 'across')], [(22,
 check "See special instructions with no count is a stub; with one, a clue (112, 92)" "[(1, 'See special instructions'), (10, 'Make out (9)'), (26, 'See special instructions (8)'), (2, 'One (7)')]" "$(get stub-uncounted)"
 check "See 12 across joins 12 across, not 12 down (162)" "[(12, 'across'), (2, 'down')] [(12, 'down')]" "$(get see-way)"
 check "unnumbered clues in the preamble are counted; numbered ones are not (76, 157)" "5 0" "$(get unnumbered)"
+check "a heading behind Clues, a header without No, and World Cup winners: preamble (165)" "Eight solutions comprise the theme, supporter and World Cup winners." "$(get preamble-165)"
 [ -z "$(get filed-165)" ] || check "genius-165 files its eight See-preamble lights unclued" "32 8" "$(get filed-165)"
 
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }
