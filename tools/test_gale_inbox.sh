@@ -261,7 +261,7 @@ check("a hand file that names no edition is a note: left in the inbox", True,
       "holiday snap.jpg" in note and "left in the inbox" in note and "nothing to do" in note)
 rel88 = "GaleTimes1988UKEnglish/1988-01-12"
 scanned = {rel88: {"edition": rel88, "scan": {"puzzles": [], "solutions": []}, "filesHash": fa.input_hash(d),
-                  "scanKey": fa.scan_key()}}
+                  "scanKey": fa.scan_key(fa.GALE)}}
 check("(mirror) a scan of other files, by older code, or one that failed, is no reading of these", ({}, {}, {}),
       (g.titleless(g.staged_matches(cache), {rel88: {**scanned[rel88], "filesHash": "old"}}, cache),
        g.titleless(g.staged_matches(cache), {rel88: {**scanned[rel88], "scanKey": "old"}}, cache),
@@ -698,7 +698,7 @@ fa.input_hash = lambda d: hashed.append(d.name) or real_hash(d)
 try:
     unscanned = g.titleless(g.staged_matches(sc), {rel1: {"filesHash": "x"}}, sc)
     unhashed = list(hashed)
-    scanned_row = {"filesHash": real_hash(sc / rel1), "scanKey": fa.scan_key(), "scan": {"puzzles": []}}
+    scanned_row = {"filesHash": real_hash(sc / rel1), "scanKey": fa.scan_key(fa.GALE), "scan": {"puzzles": []}}
     scanned_one = g.titleless(g.staged_matches(sc), {rel1: scanned_row}, sc)
 finally:
     fa.input_hash = real_hash

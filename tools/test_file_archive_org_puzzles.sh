@@ -113,6 +113,78 @@ narrow = {f"{m}.{d}" for m, d in code_reach.reach("file_archive_org_puzzles", f.
 check("scan() reaches each thread-pool sizing definition, and its key leaves them out: a thread cap rescans nothing",
       (set(code_reach.SIZING), set(), True),
       (set(code_reach.SIZING) & sized, set(code_reach.SIZING) & narrow, f.sized_scan_key() != f.scan_key()))
+# Each paper's scan key covers the shared scan code and its own definition
+# only: adding a paper (and listing it in the tables) or changing one moves
+# that paper's key and no other, so it never re-scans the corpus; a change
+# to the shared scan code moves every key.
+src = Path("file_archive_org_puzzles.py").read_text()
+opaque = code_reach.TRANSPORT + code_reach.SIZING
+keys = f.scan_keys(opaque)
+added = src.replace('''TELEGRAPH = Paper("telegraph", "telegraph", re.compile(r"(?:TheDaily|Sunday)Telegraph(19\\d\\d)UKEnglish$"),
+                  "Telegraph cryptic crossword No {:,}", telegraph_expected_number, telegraph_headings, margin=15,''',
+                    '''TELEGRAPH = Paper("telegraph", "telegraph", re.compile(r"(?:TheDaily|Sunday)Telegraph(19\\d\\d)UKEnglish$"),
+                  "Telegraph cryptic crossword No {:,}", telegraph_expected_number, telegraph_headings, margin=16,''')
+added = added.replace("FILERS = {**PAPERS, ", "NEWP = Paper('newp', 'newp', re.compile('NewP$'), "
+                      "'New No {:,}', expected_number, ft_headings)\nFILERS = {**PAPERS, NEWP.key: NEWP, ")
+moved = f.scan_keys(opaque, {"file_archive_org_puzzles": added})
+shared = f.scan_keys(opaque, {"file_archive_org_puzzles": src.replace(
+    "    if paper is TIMES and not found[\"puzzles\"]:", "    if paper is TIMES and not found[\"puzzles\"] and leaves:")})
+check("adding a paper and changing another moves only the changed one's scan key; the new one gets its own",
+      (added != src, {"TELEGRAPH"}, True),
+      (added.count("NEWP") == 3, {k for k in keys if moved[k] != keys[k]}, "NEWP" in moved and moved["NEWP"] not in keys.values()))
+check("(mirror) a change to the shared scan code moves every paper's scan key",
+      set(keys), {k for k in keys if shared[k] != keys[k]})
+check("a paper's scan key is its own: no two papers share one; scan_key() is the Times's",
+      (len(keys), keys["TIMES"], keys["GALE_TELEGRAPH"]),
+      (len(set(keys.values())), f.scan_key(), f.scan_key(f.GALE_TELEGRAPH)))
+old_key = next(iter(f.CORPUS_KEYS))
+rk = Path(os.environ["TMP"]) / "rekey.jsonl"
+rk.write_text("".join(json.dumps(r) + "\n" for r in (
+    {"edition": "NewsUK1990UKEnglish/1990-01-01_1", "scanKey": old_key, "filesHash": "h", "scan": {}},
+    {"edition": "GaleTelegraph1975UKEnglish/1975-03-04", "scanKey": old_key, "filesHash": "h", "scan": {}})))
+stood = [f.scan_current(r, "h") for r in f.scan_queue.jsonl_rows(rk)]
+check("a scan under the old corpus-wide key stands for a paper it names, and is re-keyed to that paper's; "
+      "a paper it never named (a new one) is due",
+      ([True, False], 1, [f.scan_key(), old_key], 0),
+      (stood, f.rekey_scans(rk), [r["scanKey"] for r in f.scan_queue.jsonl_rows(rk)], f.rekey_scans(rk)))
+f.CORPUS_KEYS[old_key] = {**f.CORPUS_KEYS[old_key], "times": "moved"}
+check("(mirror) once that paper's key moves, a scan under the corpus-wide key is stale",
+      False, f.scan_current({"edition": "NewsUK1990UKEnglish/x", "scanKey": old_key, "filesHash": "h", "scan": {}}, "h"))
+f.CORPUS_KEYS[old_key] = {**f.CORPUS_KEYS[old_key], "times": f.scan_key()}
+
+# The other papers' Gale pages: each item is a paper of its own, filed as
+# its series; the Telegraph's and FT's read in those runs.
+check("each Gale item is its paper's, filed as its series, read by its run",
+      [("galetelegraph", "telegraph", "telegraph"), ("galeft", "ftcryptic", "ft"),
+       ("galeindependent", "independent", "galeindependent"), ("galesundaytimes", "sundaytimes", "galesundaytimes")],
+      [(f.paper_of(f"x/{i}/d").key, f.paper_of(f"x/{i}/d").series, f.filer_of(f"{i}/d").key)
+       for i in ("GaleTelegraph1975UKEnglish", "GaleFT1980UKEnglish", "GaleIndependent1990UKEnglish",
+                 "GaleSundayTimes1950UKEnglish")])
+check("a Gale Telegraph title: the ~1990 banner over the clues, the old 'No. N ACROSS', the solution heading",
+      ([21502, 15301], [21501], []),
+      ([n for t in ("CROSSWORD / 21,502", "No. 15,301 ACROSS") for n, _, _ in f.GALE_TELEGRAPH.headings([line(t)])[0]],
+       [n for n, _ in f.GALE_TELEGRAPH.headings([line("SOLUTION No. 21,501")])[1]],
+       f.GALE_TELEGRAPH.headings([line("QUICK CROSSWORD")])[0]))
+check("an Independent title with its setter, and its solution headings; never the Quick or Concise",
+      ([(1234, "Quixote"), (5678, None), (9101, None)], [1233, 1233], []),
+      ([(n, s) for t in ("THE INDEPENDENT CROSSWORD No 1,234 Set by Quixote", "Saturday Crossword No. 5,678",
+                         "Cryptic crossword #9,101") for n, _, s in f.GALE_INDEPENDENT.headings([line(t)])[0]],
+       [n for t in ("Solution to No 1,233", "Yesterday's solution No. 1,233")
+        for n, _ in f.GALE_INDEPENDENT.headings([line(t)])[1]],
+       [h for t in ("QUICK CROSSWORD No 1,234", "Concise crossword No 12") for h in f.GALE_INDEPENDENT.headings([line(t)])[0]]))
+check("a Sunday Times title from No 1 on, and its solution headings; never Mephisto",
+      ([1, 2345, 3456], [1, 2344], []),
+      ([n for t in ("Cross-word Puzzle—No. 1", "THE SUNDAY TIMES CROSSWORD No 2,345", "Prize Crossword No. 3,456")
+        for n, _, _ in f.GALE_SUNDAY_TIMES.headings([line(t)])[0]],
+       [n for t in ("Solution to Cross-word Puzzle No. 1", "SOLUTION TO No 2,344")
+        for n, _ in f.GALE_SUNDAY_TIMES.headings([line(t)])[1]],
+       f.GALE_SUNDAY_TIMES.headings([line("Mephisto No 1,234")])[0]))
+import datetime as _d
+check("the Independent and Sunday Times numbers their dates imply run on into our independent and sundaytimes files",
+      (1, 7566, 1, 4589, 5000),
+      (f.independent_expected_number(_d.date(1986, 10, 7)), f.independent_expected_number(_d.date(2011, 1, 15)),
+       f.sunday_times_expected_number(_d.date(1925, 1, 11)), f.sunday_times_expected_number(_d.date(2014, 5, 11)),
+       f.sunday_times_expected_number(_d.date(2022, 3, 27))))
 check("a title no verdict covers makes the edition due", "titles changed",
       f.due_reason({"inputs": "h", "solutionsSeen": [], "verdicts": [], "vlm": "v",
                     "scan": {"puzzles": [{"number": 18862}]}}, "h", [], "v"))
@@ -2710,7 +2782,8 @@ check("(mirror) unclosed, the largest ink is a part of it", True, part[2] - part
 d1930 = Path("x/per_times_the-times_1930-03-04_45452/per_times_the-times_1930-03-04_45452")
 check("a pub_times issue is the 1930 Times, read 4x smaller, filed as times",
       ("times1930", 4, "times"), (f.paper_of(d1930).key, f.paper_of(d1930).shrink, f.paper_of(d1930).series))
-check("a run of the Times reads the 1930 issues too", True, f.TIMES_1930 in f.TIMES.also)
+check("a run of the Times reads the 1930 issues too; the Telegraph and FT runs their Gale pages", (True, True, True),
+      (f.TIMES_1930 in f.run_papers(f.TIMES), f.GALE_TELEGRAPH in f.run_papers(f.TELEGRAPH), f.GALE_FT in f.run_papers(f.FT)))
 import datetime as _dt
 check("1930 numbers run six a week from No 1 on 1 Feb, none on Good Friday",
       [1, 27, 54, 94, 129, 209],

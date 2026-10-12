@@ -19,8 +19,8 @@ HTTP/2 and headers through curl_cffi when installed, each document's page
 opened before its Download, each request with the Referer of the page it
 was clicked on. The date is known, so nothing matches it: it is laid out
 straight away as that date's edition (gale_inbox.lay_out_fetched), which
-tools/gale_read.sh reads and files (the Times'; no filer reads the other
-papers' items yet), and kept as GALE_<doc>.pdf in its paper's Fetched
+tools/gale_read.sh reads and files (the Times'; file_archive_org_puzzles.py
+reads the other papers', the Telegraph and FT in those papers' runs), and kept as GALE_<doc>.pdf in its paper's Fetched
 folder on the Mac (fetched_dir: out of the inbox, so no sweep, match or
 set-aside sees it). Every paper's downloads count against the one LIMITS
 window: Gale's cap is per IP, not per archive.

@@ -101,6 +101,15 @@ the grid is under them (clues_above); the previous puzzle's grid prints
 under "SOLUTION No. 18,339". Its numbers run on into our telegraph series
 (No 25,846 in Feb 2009), so a puzzle files as telegraph-N.
 
+The other papers' Gale pages tools/gale_fetch.py lays out
+(Gale<Paper><year>UKEnglish/<date>, one page and no text, read as --paper
+gale's are) are papers of their own: GALE_TELEGRAPH (also "CROSSWORD /
+21,502" over the clues from ~1990) and GALE_FT, read by the telegraph and ft
+runs (ALSO), and GALE_INDEPENDENT (--paper galeindependent, from No 1 on 7
+October 1986, the numbers of our independent series) and GALE_SUNDAY_TIMES
+(--paper galesundaytimes, weekly from No 1 on 11 January 1925, our
+sundaytimes series' numbers).
+
 --paper gale reads the Times pages Paul saves from Gale's Times Digital
 Archive (tools/gale_inbox.py lays each date out as
 GaleTimes<year>UKEnglish/<date>; tools/edition_queue.py reads them minutes
@@ -119,9 +128,11 @@ headings and verdicts against its inputs (its files, the solutions seen,
 whether the VLM read it), after each edition. Editions never read go first, then the stale by when they were read
 (tools/scan_queue.py), so a capped run (--limit, --seconds) never starts over.
 --workers N reads N editions at once (one's VLM wait overlaps another's OCR).
-A change to the heading code (scan_key: the code scan() reaches, method by
-method and across modules, tools/code_reach.py) makes
-each edition's scan stale, so it is scanned again on its next read. Any
+A change to a paper's heading code (scan_key: the code scan() reaches,
+method by method and across modules, tools/code_reach.py, the papers left
+out, then that paper's own definition) makes each of its editions' scans
+stale, so they are scanned again on their next read; adding or changing one
+paper makes no other paper's edition due. Any
 other change to this code or the VLM model makes nothing due: whoever makes it
 runs the re-read once, `--reread [BEFORE]` (every edition last read before
 BEFORE, an ISO time, default now; slices of one re-read share a BEFORE).
@@ -136,6 +147,7 @@ run side by side and a batch run (this CLI, holding the ledger's lock
 throughout) holds them off: a unit then ends "held", left for the next plan.
 """
 import argparse
+import ast
 import bisect
 import contextlib
 import datetime
@@ -1677,7 +1689,7 @@ def edition_dirs(cache=CACHE, paper=None):
         return []
     years = [sorted(item / n for n in with_pages(item))
              for item in (cache / n for n in dir_cache.listed(cache))
-             if any(p.item.match(item.name) for p in (paper or TIMES, *(paper or TIMES).also))]
+             if any(p.item.match(item.name) for p in run_papers(paper or TIMES))]
     out = []
     for k in range(max(map(len, years), default=0)):
         out += [y[k] for y in years if k < len(y)]
@@ -1809,19 +1821,21 @@ def grids_on(img, step=2, shaped=grid_shaped):
     return out
 
 
-def title_bands(img, grid, far=False):
+def title_bands(img, grid, far=False, heights=1):
     """The crops a grid's title is read in, in turn: over and under it,
     TITLE_REACH deep, half the grid's width wider each side (the Guardian's
     title runs left of its grid); then a grid's width left of it, from its
     top down TITLE_REACH (the 1983-86 FT's "F.T. CROSSWORD" over "PUZZLE
     No. 5,607" heads the clue column beside the grid); with `far`, last, a
     grid's height over it (a Gale page's Saturday prize title, over its
-    entry form)."""
+    entry form), or `heights` of them as wide as the band over it (a Gale
+    Telegraph's "No. 15,301 ACROSS", over the clue columns over its grid)."""
     x0, y0, x1, y1 = grid
     xa, xb = max(0, x0 - (x1 - x0) // 2), min(img.width, x1 + (x1 - x0) // 2)
     return ((xa, max(0, y0 - TITLE_REACH), xb, y0), (xa, y1, xb, min(img.height, y1 + TITLE_REACH)),
             (max(0, x0 - (x1 - x0)), y0, x0, min(img.height, y0 + TITLE_REACH))) \
-        + (((x0, max(0, y0 - (y1 - y0)), x1, y0),) if far else ())
+        + (() if not far else ((x0, max(0, y0 - (y1 - y0)), x1, y0),) if heights == 1
+           else ((xa, max(0, y0 - heights * (y1 - y0)), xb, y0),))
 
 
 def printed_lines(words):
@@ -1874,7 +1888,7 @@ def ocr_titles(img, paper, day, key, far=False):
     number to the date."""
     found = []
     for g in grids_on(img):
-        for band in title_bands(img, g, far):
+        for band in title_bands(img, g, far, paper.title_heights):
             reads = {}
             for which in READERS:
                 path = CROPS / "titles" / f"{key}_{'_'.join(map(str, band))}.{reader_key(which)}.json"
@@ -2168,7 +2182,7 @@ def setters(series):
     return _SETTERS[series]
 
 
-def ft_headings(lines):
+def ft_headings(lines, titles=()):
     """([(number, box, setter)], [(number, box)]): each FT crossword title,
     its number on its own line or the line just under it, and each
     "Solution N" heading; boxes widened to the grid's span."""
@@ -2232,7 +2246,7 @@ GUARDIAN_SOLUTION = re.compile(r"^\W*(?:guardian\s+)?(?:prize\s+)?crossword\s+\w
 GUARDIAN_THIRD = 360
 
 
-def guardian_headings(lines):
+def guardian_headings(lines, titles=()):
     """([(number, box, setter)], [(number, box)]): each Guardian crossword
     title with the setter on it or the line under it, and each solution
     label (the solution grid is above it). A label whose number is misread
@@ -2283,7 +2297,7 @@ def digits(text):
     return number_of(re.sub(r"^[TIil]", "1", text.strip()))
 
 
-def telegraph_headings(lines):
+def telegraph_headings(lines, titles=()):
     """([(number, box, None)], [(number, box)]): each Telegraph cryptic's
     title, "No. 18,340 ACROSS" over the left clue column, and each
     "SOLUTION No. 18,339" heading, its box widened to the solution grid's."""
@@ -2299,6 +2313,100 @@ def telegraph_headings(lines):
             num = re.search(r"[\dTIl]\d?[,.\-\s]?\d{3}", text)
             puzzles.append((digits(num.group(0)), box_of(ws), None))
     return puzzles, solutions
+
+
+#: A Gale Telegraph page's title from ~1990: a banner "CROSSWORD / 21,502"
+#: over both clue columns (before it, "No. 15,301 ACROSS": telegraph_headings).
+TELEGRAPH_BANNER = re.compile(r"^\W*cr[o0]ssw[o0]rd\W{1,4}([\dTIl]\d?[,.\-\s]?\d{3})\W*$", re.IGNORECASE)
+
+
+def gale_telegraph_headings(lines, titles=()):
+    """telegraph_headings(), and each TELEGRAPH_BANNER title."""
+    puzzles, solutions = telegraph_headings(lines)
+    for ws in lines:
+        m = TELEGRAPH_BANNER.match(" ".join(w[4] for w in ws))
+        if m:
+            puzzles.append((digits(m.group(1)), box_of(ws), None))
+    return puzzles, solutions
+
+
+#: A number of one to five digits, as the Independent and Sunday Times
+#: print theirs ("No. 12", "No 2,345").
+SMALL_NUMBER = r"([\dTIl]?\d?[,.]?\d{1,3})(?![\d,])"
+
+
+def titled_headings(lines, title, solution):
+    """([(number, box, setter)], [(number, box)]) of each line opening with
+    `title` (its number group 1, any setter after it, "Set by X", in group
+    2) and each opening with `solution` (number group 1)."""
+    puzzles, solutions = [], []
+    for ws in lines:
+        text = " ".join(w[4] for w in ws)
+        m = solution.match(text)
+        if m:
+            solutions.append((digits(m.group(1)), box_of(ws)))
+            continue
+        m = title.match(text)
+        if m:
+            setter = FT_SETTER.search(m.group(2))
+            puzzles.append((digits(m.group(1)), box_of(ws), setter.group(1).title() if setter else None))
+    return puzzles, solutions
+
+
+#: The Independent's title (from its first issue, 7 October 1986): "THE
+#: INDEPENDENT CROSSWORD No 1,234", "Saturday Crossword No. 5,678", "Cryptic
+#: crossword #9,101", maybe "Set by" its setter after; never the Quick or
+#: Concise crossword. Its solution heading: "Solution to No 1,233",
+#: "Yesterday's solution No. 1,233", "Saturday's solution to Crossword 5,677".
+INDEPENDENT_TITLE = re.compile(r"^\W*(?:the\s+)?(?:independent\s+)?(?:(?:saturday|weekend|tuesday|prize|cryptic)\s+){0,2}"
+                               r"cr[o0]ss\s?w[o0]rd\W{0,3}(?:puzzle\W{0,3})?(?:n[o0]\W{0,3}|#)?\s*" + SMALL_NUMBER
+                               + r"(.*)$", re.IGNORECASE)
+INDEPENDENT_SOLUTION = re.compile(r"^\W*(?:(?:yesterday|saturday|last\s+week)'?s\s+)?s[o0][l1]ut[il1][o0]n\W{0,3}"
+                                  r"(?:t[o0]\s+)?(?:(?:cr[o0]ssw[o0]rd|puzzle)\W{0,3})?(?:n[o0]\W{0,3}|#)?\s*"
+                                  + SMALL_NUMBER + r"\W*$", re.IGNORECASE)
+#: Dated Independent cryptics: No 1 in its first issue, and our first and
+#: latest independent files.
+INDEPENDENT_ANCHORS = ((datetime.date(1986, 10, 7), 1), (datetime.date(2011, 1, 15), 7566),
+                       (datetime.date(2026, 10, 10), 12483))
+
+
+def independent_expected_number(day):
+    return anchored(INDEPENDENT_ANCHORS, day)
+
+
+def independent_headings(lines, titles=()):
+    """titled_headings() of an Independent page."""
+    return titled_headings(lines, INDEPENDENT_TITLE, INDEPENDENT_SOLUTION)
+
+
+#: The Sunday Times's title: "Cross-word Puzzle—No. 1" (11 January 1925),
+#: "THE SUNDAY TIMES CROSSWORD No 2,345", "Prize Crossword No. 3,456"; never
+#: Mephisto, the Concise or a solution heading. Its solution heading:
+#: "Solution to Cross-word Puzzle No. 1", "SOLUTION TO No 2,344",
+#: "Last week's solution No. 3,455".
+SUNDAY_TIMES_TITLE = re.compile(r"^\W*(?:the\s+)?(?:sunday\s+times\s+)?(?:prize\s+)?cr[o0]ss\W{0,3}w[o0]rd\W{0,3}"
+                                r"(?:puzzle\W{0,3})?(?:n[o0]\W{0,3})?\s*" + SMALL_NUMBER + r"(.*)$", re.IGNORECASE)
+SUNDAY_TIMES_SOLUTION = re.compile(r"^\W*(?:last\s+week'?s\s+)?s[o0][l1]ut[il1][o0]n\W{0,3}(?:(?:t[o0]|of)\s+)?"
+                                   r"(?:(?:prize\s+)?cr[o0]ss\W{0,3}w[o0]rd\W{0,3})?(?:puzzle\W{0,3})?(?:n[o0]\W{0,3})?\s*"
+                                   + SMALL_NUMBER + r"\W*$", re.IGNORECASE)
+#: Dated Sunday Times cryptics: No 1 (11 January 1925), our first
+#: sundaytimes file and No 5,000 (27 March 2022); one a week between, less
+#: the weeks it was not printed (1978-79), so interpolated.
+SUNDAY_TIMES_ANCHORS = ((datetime.date(1925, 1, 11), 1), (datetime.date(2014, 5, 11), 4589),
+                        (datetime.date(2022, 3, 27), 5000))
+#: How far a Sunday Times title's number may stray from its date's: one a
+#: week, so a year is 52.
+SUNDAY_TIMES_SLACK = 80
+
+
+def sunday_times_expected_number(day):
+    return anchored(SUNDAY_TIMES_ANCHORS, day)
+
+
+def sunday_times_headings(lines, titles=()):
+    """titled_headings() of a Sunday Times page."""
+    return titled_headings(lines, SUNDAY_TIMES_TITLE, SUNDAY_TIMES_SOLUTION)
+
 
 
 #: The Times crossword's first day, No 1 (a Saturday); it ran six days a
@@ -2330,7 +2438,7 @@ TITLE_1930_BARE = re.compile(_HEAD_1930 + r"\s*(?:n[o0]\W{0,3})?\s*\S{0,4}$", re
 SOLUTION_1930 = re.compile(r"^\W*(?:\S{1,2}\s+)?solution\s+(?:of|to)\s+puzzle\s+n[o0]\W{0,3}\s*(\d{1,3})(?!\d)", re.IGNORECASE)
 
 
-def times1930_headings(lines):
+def times1930_headings(lines, titles=()):
     """([(number, box, None)], [(number, box)]) of the 1930 titles and
     solution headings in `lines`. A title whose number was not read takes
     the number after the page's solution heading's; with none, the page
@@ -2353,14 +2461,24 @@ def times1930_headings(lines):
     return titles, sols
 
 
+def times_headings(lines, titles=()):
+    """headings() of a Times page: TITLE, and solution headings read against
+    its titles and `titles`."""
+    found = headings(lines, TITLE)
+    return [(n, box, None) for n, box in found], solution_headings(lines, [n for n, _ in found] + list(titles))
+
+
 class Paper:
     """One newspaper's run of archive.org items: where its editions are, how
     its titles and solution headings read, the number its date implies, and
     the series its puzzles file as."""
 
-    def __init__(self, key, series, item, name, expected, third=0, solution_above=False, margin=40,
-                 clues_above=False, shrink=1, slack=None, four=False, also=()):
+    def __init__(self, key, series, item, name, expected, parse=None, third=0, solution_above=False, margin=40,
+                 clues_above=False, shrink=1, slack=None, four=False, title_heights=1):
         self.key, self.series, self.item, self.name, self.expected = key, series, item, name, expected
+        #: Its headings parser, (lines, titles) -> headings(): the Times's
+        #: (times_headings) unless named.
+        self.parse = parse or times_headings
         #: The width of a clue column right of the grid (0: none), whether
         #: the solution grid is printed above its heading, how far left
         #: of the grid the clue numbers may start, and whether the clues are
@@ -2374,67 +2492,80 @@ class Paper:
         #: Four clue columns under the grid and no counts printed (the 1930
         #: Times): columns_of_four() reads them, the grid gives the counts.
         self.four = four
-        #: Papers of the same series in other items, whose editions a run of
-        #: this one reads too.
-        self.also = also
+        #: How many of a grid's heights over it a title is looked for on a
+        #: page with no text (title_bands' far band).
+        self.title_heights = title_heights
 
     def headings(self, lines, titles=()):
         """([(number, box, setter)], [(number, box)]) of the titles and
         solution headings in `lines`; a solution heading is read against
         those titles and `titles`, read elsewhere on the page (a solution
         band holds no title)."""
-        if self.key == "times1930":
-            return times1930_headings(lines)
-        if self.key == "ft":
-            return ft_headings(lines)
-        if self.key == "guardian":
-            return guardian_headings(lines)
-        if self.key == "telegraph":
-            return telegraph_headings(lines)
-        found = headings(lines, TITLE)
-        return [(n, box, None) for n, box in found], solution_headings(lines, [n for n, _ in found] + list(titles))
+        return self.parse(lines, titles)
 
 
 #: The 1930 Times: archive.org's pub_times, one item an issue
 #: ("per_times_the-times_1930-03-04_45452"), each page scanned 13663px wide.
 TIMES_1930 = Paper("times1930", SERIES, re.compile(r"per_times_the-times_(19\d\d)-\d\d-\d\d_\d+$"),
-                   "Times crossword puzzle No {:,}", times1930_expected_number, margin=15, shrink=4,
-                   slack=TIMES_1930_SLACK, four=True)
-TIMES = Paper("times", SERIES, ITEM, "Times cryptic crossword No {:,}", expected_number, also=(TIMES_1930,))
+                   "Times crossword puzzle No {:,}", times1930_expected_number, times1930_headings, margin=15,
+                   shrink=4, slack=TIMES_1930_SLACK, four=True)
+TIMES = Paper("times", SERIES, ITEM, "Times cryptic crossword No {:,}", expected_number)
 FT = Paper("ft", "ftcryptic", re.compile(r"FinancialTimes(19\d\d)UKEnglish$"),
-           "Financial Times cryptic crossword No {:,}", ft_expected_number)
+           "Financial Times cryptic crossword No {:,}", ft_expected_number, ft_headings)
 GUARDIAN = Paper("guardian", "cryptic", re.compile(r"TheGuardian(19\d\d)UKEnglish$"),
-                 "Cryptic crossword No {:,}", guardian_expected_number, third=GUARDIAN_THIRD, solution_above=True,
-                 margin=15)
+                 "Cryptic crossword No {:,}", guardian_expected_number, guardian_headings, third=GUARDIAN_THIRD,
+                 solution_above=True, margin=15)
 TELEGRAPH = Paper("telegraph", "telegraph", re.compile(r"(?:TheDaily|Sunday)Telegraph(19\d\d)UKEnglish$"),
-                  "Telegraph cryptic crossword No {:,}", telegraph_expected_number, margin=15, clues_above=True)
+                  "Telegraph cryptic crossword No {:,}", telegraph_expected_number, telegraph_headings, margin=15,
+                  clues_above=True)
 #: The Times pages Paul saves from Gale (tools/gale_inbox.py), under a ledger
 #: of their own: a run of them, minutes after a page lands, never waits on the
 #: full pass holding filed.jsonl for an hour-long slice, and the full pass's
 #: Times runs never read them.
 GALE = Paper("gale", SERIES, GALE_ITEM, "Times cryptic crossword No {:,}", expected_number)
+#: The other papers' Gale pages tools/gale_fetch.py lays out
+#: (gale_inbox.OTHERS: Gale<Paper><year>UKEnglish/<date>), one page each.
+GALE_TELEGRAPH = Paper("galetelegraph", "telegraph", re.compile(r"GaleTelegraph((?:19|20)\d\d)UKEnglish$"),
+                       "Telegraph cryptic crossword No {:,}", telegraph_expected_number, gale_telegraph_headings,
+                       margin=15, clues_above=True, title_heights=2)
+GALE_FT = Paper("galeft", "ftcryptic", re.compile(r"GaleFT((?:19|20)\d\d)UKEnglish$"),
+                "Financial Times cryptic crossword No {:,}", ft_expected_number, ft_headings)
+GALE_INDEPENDENT = Paper("galeindependent", "independent", re.compile(r"GaleIndependent((?:19|20)\d\d)UKEnglish$"),
+                         "Independent cryptic crossword No {:,}", independent_expected_number, independent_headings)
+GALE_SUNDAY_TIMES = Paper("galesundaytimes", "sundaytimes", re.compile(r"GaleSundayTimes((?:19|20)\d\d)UKEnglish$"),
+                          "Sunday Times cryptic crossword No {:,}", sunday_times_expected_number,
+                          sunday_times_headings, slack=SUNDAY_TIMES_SLACK)
 #: The archive.org papers (coverage counts each series once, off these).
 PAPERS = {p.key: p for p in (TIMES, FT, GUARDIAN, TELEGRAPH)}
 #: Every --paper a run can read: each ledger's editions.
-FILERS = {**PAPERS, GALE.key: GALE}
-#: Each run's ledger in the cache, filed.jsonl unless named here. Kept off
-#: Paper, whose code is in the scan key (scan_key).
+FILERS = {**PAPERS, GALE.key: GALE, GALE_INDEPENDENT.key: GALE_INDEPENDENT,
+          GALE_SUNDAY_TIMES.key: GALE_SUNDAY_TIMES}
+#: The papers of the same series in other items whose editions a run of
+#: FILERS[key] reads too.
+ALSO = {TIMES.key: (TIMES_1930,), TELEGRAPH.key: (GALE_TELEGRAPH,), FT.key: (GALE_FT,)}
+#: Each run's ledger in the cache, filed.jsonl unless named here.
 LEDGER_NAMES = {GALE.key: downloads.GALE_LEDGER.name}
 #: The runs whose never-read editions are read latest laid out first (pages
 #: saved by hand, whose saver waits to see them filed), not a year at a time.
 NEWEST_FIRST = {GALE.key}
 
 
+def run_papers(paper):
+    """`paper` and the papers whose editions a run of it reads too (ALSO)."""
+    return (paper, *ALSO.get(paper.key, ()))
+
+
 def paper_of(d):
     """The Paper an edition directory's item belongs to."""
-    return next((p for p in (*FILERS.values(), TIMES_1930) if p.item.match(Path(d).parent.name)), TIMES)
+    item = Path(d).parent.name
+    return next((q for p in FILERS.values() for q in run_papers(p) if q.item.match(item)), TIMES)
 
 
 def filer_of(rel):
     """The FILERS paper whose run reads edition `rel` ("<item>/<edition>"),
     or None."""
     item = rel.split("/")[0]
-    return next((p for p in FILERS.values() if any(q.item.match(item) for q in (p, *p.also))), None)
+    return next((p for p in FILERS.values() if any(q.item.match(item) for q in run_papers(p))), None)
 
 
 def issues_between(a, b):
@@ -3299,35 +3430,89 @@ WORKERS = 2
 SAVE_EVERY = 300
 
 
-def scan_key():
-    """A hash of the code that finds an edition's titles and solution
-    headings: what scan() reaches, here and in this repo's other modules
-    (tools/code_reach.py: a method only when called, comments and
-    docstrings left out), past the desktop transport and the thread-pool
-    sizing (code_reach.SIZING). A scan made by other code is
-    made again; an edit to code scan() never runs changes nothing."""
-    if not _SCAN_KEY:
-        import code_reach
-        _SCAN_KEY.append(code_reach.key("file_archive_org_puzzles", SCAN_ROOTS,
-                                        opaque=code_reach.TRANSPORT + code_reach.SIZING))
-    return _SCAN_KEY[0]
+def scan_key(paper=None):
+    """A hash of the code that finds `paper`'s (the Times's by default)
+    titles and solution headings, and no other paper's (scan_keys)."""
+    import code_reach
+    return scan_keys(code_reach.TRANSPORT + code_reach.SIZING)[_paper_name(paper)]
 
 
-def sized_scan_key():
+def sized_scan_key(paper=None):
     """scan_key() with the thread-pool sizing in: the same scan, re-keyed
     to scan_key() (rekey_scans), never scanned again."""
-    if not _SIZED_KEY:
-        import code_reach
-        _SIZED_KEY.append(code_reach.key("file_archive_org_puzzles", SCAN_ROOTS))
-    return _SIZED_KEY[0]
+    import code_reach
+    return scan_keys(code_reach.TRANSPORT)[_paper_name(paper)]
+
+
+def paper_defs(tree):
+    """(papers, tables) of a module syntax tree: the module-level names
+    bound to a Paper(...), and those of every other module-level assignment
+    that names one (PAPERS, FILERS, ALSO)."""
+    papers, tables = set(), set()
+    assigns = [n for n in tree.body if isinstance(n, ast.Assign)]
+    for n in assigns:
+        if isinstance(n.value, ast.Call) and getattr(n.value.func, "id", None) == "Paper":
+            papers.update(t.id for t in n.targets if isinstance(t, ast.Name))
+    for n in assigns:
+        names = {t.id for t in n.targets if isinstance(t, ast.Name)}
+        if not names & papers and any(isinstance(x, ast.Name) and x.id in papers for x in ast.walk(n.value)):
+            tables |= names
+    return papers, tables
+
+
+def scan_keys(opaque, texts=None):
+    """{Paper's module-level name: its scan key}. A key hashes what scan()
+    reaches (tools/code_reach.py: a method only when called, comments and
+    docstrings left out) with every Paper and every table naming one left
+    out, then what that paper's own definition reaches (its item, its
+    headings parser, the number its date implies) with the other papers
+    left out, past the `opaque` modules and definitions (the desktop
+    transport and thread-pool sizing). So adding or changing one paper
+    moves only its own key, and a scan made by other code is made again;
+    an edit to code scan() never runs changes nothing. `texts` ({module:
+    source}) stands in for files (tests)."""
+    if texts is None and opaque in _SCAN_KEYS:
+        return _SCAN_KEYS[opaque]
+    import code_reach
+    me = "file_archive_org_puzzles"
+    papers, tables = paper_defs(ast.parse((texts or {}).get(me) or Path(__file__).read_text(encoding="utf-8")))
+    left = tuple(f"{me}.{n}" for n in sorted(papers | tables))
+    shared = code_reach.key(me, SCAN_ROOTS, texts, opaque=opaque + left)
+    out = {}
+    for name in sorted(papers):
+        own = code_reach.key(me, {name}, texts, opaque=opaque + tuple(n for n in left if n != f"{me}.{name}"))
+        out[name] = hashlib.sha256(f"{shared}\n{own}".encode()).hexdigest()[:16]
+    if texts is None:
+        _SCAN_KEYS[opaque] = out
+    return out
+
+
+def _paper_name(paper):
+    """The module-level name of Paper `paper` (TIMES by default)."""
+    paper = paper or TIMES
+    return next(k for k, v in globals().items() if v is paper and k.isupper())
+
+
+#: The corpus-wide scan keys of the code before each paper had a key of its
+#: own, each with {paper key: the scan_key() of that same code}: a row under
+#: one stands while its paper's key is the one named (current_keys), and
+#: rekey_scans moves it there.
+_CORPUS_PAPERS = {"times": "0e663a8f51a2d840", "times1930": "9bd5e92db2bd9a53", "ft": "ec1c493d7a63b2ae",
+                  "guardian": "503a6e254efafd7c", "telegraph": "7d84cc09fe38bd9d", "gale": "9563e1b93356e0dc"}
+CORPUS_KEYS = {"f5d96d62730b57d5": _CORPUS_PAPERS, "631672b37146c86b": _CORPUS_PAPERS}
+
+
+def current_keys(paper):
+    """The scanKeys a scan of one of `paper`'s editions stands under."""
+    key = scan_key(paper)
+    return {key, sized_scan_key(paper)} | {k for k, keys in CORPUS_KEYS.items() if keys.get(paper.key) == key}
 
 
 def rekey_scans(ledger):
-    """Re-key the rows of `ledger` scanned under sized_scan_key() to
-    scan_key(), unless a run holds it; how many."""
+    """Re-key the rows of `ledger` scanned under another of their paper's
+    current_keys() to its scan_key(), unless a run holds it; how many."""
     import fcntl
-    old, new = sized_scan_key(), scan_key()
-    if old == new or not ledger.exists():
+    if not ledger.exists():
         return 0
     with open(ledger.with_suffix(".lock"), "w") as f:
         try:
@@ -3335,19 +3520,23 @@ def rekey_scans(ledger):
         except BlockingIOError:
             return 0
         rows = scan_queue.jsonl_rows(ledger)
-        n = sum(r.get("scanKey") == old for r in rows)
-        if n:
+        moved = {}
+        for k, r in enumerate(rows):
+            paper = paper_of(r.get("edition", ""))
+            new = scan_key(paper)
+            if r.get("scanKey") != new and r.get("scanKey") in current_keys(paper):
+                moved[k] = new
+        if moved:
             tmp = ledger.with_suffix(".tmp")
-            tmp.write_text("".join(json.dumps({**r, "scanKey": new} if r.get("scanKey") == old else r) + "\n"
-                                   for r in rows), encoding="utf-8")
+            tmp.write_text("".join(json.dumps({**r, "scanKey": moved[k]} if k in moved else r) + "\n"
+                                   for k, r in enumerate(rows)), encoding="utf-8")
             tmp.replace(ledger)
-        return n
+        return len(moved)
 
 
 #: Where scan_key() starts.
 SCAN_ROOTS = {"scan"}
-_SCAN_KEY = []
-_SIZED_KEY = []
+_SCAN_KEYS = {}
 
 
 def solution_key():
@@ -3526,7 +3715,7 @@ def scan_stands(paper, rel, cache=CACHE, rows=None):
     appended since parsed), apart from plan()'s on the planner thread;
     `rows`, a standing() taken earlier, saves the ledger's re-read."""
     row = (standing(paper, cache) if rows is None else rows).get(rel)
-    return bool(row) and scan_current(row, input_hash(Path(cache) / rel))
+    return bool(row) and scan_current(row, input_hash(Path(cache) / rel), rel)
 
 
 def sister_solutions(cache, paper):
@@ -3713,11 +3902,10 @@ def short_cause(series, row, v, solutions):
 
 #: {edition dir: (djvu.xml.gz's stat, [(number, leaf)])}: the solution
 #: headings in each edition's archive.org text as paper.headings reads them
-#: (text_headings), under _HEADINGS_KEY's scan code; {puzzle file: (its
+#: (text_headings), the stat taken with its paper's scan_key; {puzzle file: (its
 #: stat, filed_state)}. save_likely and load_likely keep both between
 #: processes.
 _HEADINGS = {}
-_HEADINGS_KEY = []
 _WHOLE = {}
 _LIKELY_MOVED = []
 #: How long (seconds) one plan spends reading headings out of archive.org
@@ -3731,16 +3919,13 @@ def text_headings(d, deadline=None):
     archive.org text prints on its crossword leaves, as its rescan reads
     them (_scan, a leaf with text); [] with no text. None when not read yet
     and time.monotonic() is past `deadline`."""
-    key = scan_key()
-    if _HEADINGS_KEY != [key]:
-        _HEADINGS.clear()
-        _HEADINGS_KEY[:] = [key]
     xml = d / "djvu.xml.gz"
     try:
         st = xml.stat()
     except OSError:
         return []
-    stamp = (st.st_mtime_ns, st.st_size)
+    paper = paper_of(d)
+    stamp = (st.st_mtime_ns, st.st_size, scan_key(paper))
     hit = _HEADINGS.get(str(d))
     if hit is not None and hit[0] == stamp:
         return hit[1]
@@ -3751,7 +3936,6 @@ def text_headings(d, deadline=None):
     except (OSError, ValueError):
         return []
     text = leaf_lines(xml, leaves)
-    paper = paper_of(d)
     out = [(n, leaf) for leaf in sorted(text) for n, _ in paper.headings(text[leaf])[1]]
     _HEADINGS[str(d)] = (stamp, out)
     _LIKELY_MOVED.append(True)
@@ -3766,25 +3950,24 @@ def save_likely(path):
     tmp = f"{os.fspath(path)}.{os.getpid()}.tmp"
     os.makedirs(os.path.dirname(os.fspath(path)) or ".", exist_ok=True)
     with open(tmp, "wb") as f:
-        pickle.dump({"key": _HEADINGS_KEY[:1], "headings": dict(_HEADINGS), "whole": dict(_WHOLE)}, f,
+        pickle.dump({"headings": dict(_HEADINGS), "whole": dict(_WHOLE)}, f,
                     protocol=pickle.HIGHEST_PROTOCOL)
     os.replace(tmp, path)
 
 
 def load_likely(path):
-    """Take what save_likely wrote to `path`: the headings when read by this scan code."""
+    """Take what save_likely wrote to `path` (a heading stands while its
+    stat, scan key in, does)."""
     try:
         with open(path, "rb") as f:
             snap = pickle.load(f)
-        key, heads, whole = snap["key"], snap["headings"], snap["whole"]
+        heads, whole = snap["headings"], snap["whole"]
     except (OSError, EOFError, pickle.UnpicklingError, AttributeError, ValueError, TypeError, KeyError):
         return
     for k, v in whole.items():
         _WHOLE.setdefault(k, v)
-    if key == [scan_key()]:
-        _HEADINGS_KEY[:] = key
-        for k, v in heads.items():
-            _HEADINGS.setdefault(k, v)
+    for k, v in heads.items():
+        _HEADINGS.setdefault(k, v)
 
 
 def likely(paper, known, reads, rels, scans, solutions, held, order):
@@ -3952,10 +4135,11 @@ def rank_of_reason(reason):
     return RANKS[reason]
 
 
-def scan_current(row, fh):
-    """Whether ledger `row` holds a scan of files `fh` by this scan code."""
-    return (bool(row) and row.get("filesHash") == fh and row.get("scanKey") in (scan_key(), sized_scan_key())
-            and "scan" in row)
+def scan_current(row, fh, rel=None):
+    """Whether ledger `row` (of edition `rel`, else its own "edition") holds
+    a scan of files `fh` by its paper's scan code."""
+    return (bool(row) and row.get("filesHash") == fh and "scan" in row
+            and row.get("scanKey") in current_keys(paper_of(rel or row.get("edition", ""))))
 
 
 def plan(paper, cache=CACHE, ledger=None, reread=None, asked=(), dirs=None):
@@ -3981,7 +4165,7 @@ def _plan_paper(paper, cache, ledger, reread, asked, dirs):
     rels = {d: f"{d.parent.name}/{d.name}" for d in every}
     seen_by = vlm.version() if vlm.reachable() else None
     fhs = {d: input_hash(d) for d in dirs}
-    stale = [d for d in dirs if not scan_current(known.get(rels[d]), fhs[d])]
+    stale = [d for d in dirs if not scan_current(known.get(rels[d]), fhs[d], rels[d])]
     stale_set = set(stale)
     scans = {rels[d]: (known.get(rels[d]) or {}).get("scan") or {"puzzles": [], "solutions": []} for d in every}
     held = held_dates(paper.series)
@@ -4082,7 +4266,7 @@ def scan_unit(paper, rel, cache=CACHE, ledger=None):
             return "busy"
         fh = input_hash(d)
         row = load_known(ledger).get(rel) or {}
-        if scan_current(row, fh):
+        if scan_current(row, fh, rel):
             return "current"
         try:
             found = scan_anywhere(d)
@@ -4090,7 +4274,8 @@ def scan_unit(paper, rel, cache=CACHE, ledger=None):
             found = {"puzzles": [], "solutions": [], "failed": scan_queue.failure((rel,), e)}
         progress(f"scanned {rel}: " + (f"failed: {found['failed']}" if "failed" in found
                                        else f"{len(found['puzzles'])} puzzle(s)"))
-        scan_queue.append(ledger, [{**row, "edition": rel, "scan": found, "filesHash": fh, "scanKey": scan_key()}])
+        scan_queue.append(ledger, [{**row, "edition": rel, "scan": found, "filesHash": fh,
+                                    "scanKey": scan_key(paper_of(d))}])
         return "scanned"
 
 
@@ -4170,7 +4355,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
             scans[rels[d]] = (row or {}).get("scan") or {"puzzles": [], "solutions": []}
             continue
         fh = input_hash(d)
-        if scan_current(row, fh):
+        if scan_current(row, fh, rels[d]):
             scans[rels[d]] = row["scan"]
         else:
             unscanned[d] = fh
@@ -4194,7 +4379,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
         progress(f"scanned {rels[d]}: " + (f"failed: {found['failed']}" if "failed" in found
                                            else f"{len(found['puzzles'])} puzzle(s)"))
         known[rels[d]] = {**known.get(rels[d], {}), "edition": rels[d], "scan": found, "filesHash": unscanned[d],
-                          "scanKey": scan_key()}
+                          "scanKey": scan_key(paper_of(d))}
         changed.add(rels[d])
         # Saved as it goes: the scans of a whole paper take hours, and a kill
         # then loses at most SAVE_EVERY seconds of them.
@@ -4238,7 +4423,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
         return head, tar, {
             "rel": rels[d], "ledger": str(ledger), "ledgerSize": ledger_size, "series": paper.series,
             "puzzles": puzzles and str(puzzles), "source": str(source), "crops": str(CROPS), "found": found,
-            "filesHash": fh, "solutionsSeen": sol_seen, "scanKey": scan_key(), "solutionKey": solution_key(),
+            "filesHash": fh, "solutionsSeen": sol_seen, "scanKey": scan_key(paper_of(d)), "solutionKey": solution_key(),
             "vlmVersion": vlm.version(),
             "reprints": read_with}
     fresh = 0
@@ -4263,7 +4448,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
         # read: a book its write superseded (fetch_puzzle.supersede_book)
         # becomes a reading after it, and makes it due to vote.
         h = inputs_of(fh, found, paper.series, read_with)
-        known[rel] = edition_commit.row(rel, h, found, fh, scan_key(), sol_seen, verdicts, vlm_ok and seen_by,
+        known[rel] = edition_commit.row(rel, h, found, fh, scan_key(paper_of(d)), sol_seen, verdicts, vlm_ok and seen_by,
                                         solution_key())
         changed.add(rel)
         flush()

@@ -1116,7 +1116,7 @@ class Other(collections.namedtuple("Other", "series years printed folder item"))
 #: The other papers, fetched by tools/gale_fetch.py once no Times row is
 #: left, in this order: the biggest gaps whose pages a filer's headings
 #: read (file_archive_org_puzzles' TELEGRAPH, FT) first, then those with
-#: none. No filer reads these items yet. Each archive's years are its
+#: none (its GALE_INDEPENDENT, GALE_SUNDAY_TIMES). Each archive's years are its
 #: issuesForMonth's (read 2026-10-11): TGRH ends with 2000, FTHA (its
 #: crossword from 1966) with 2010, INDA with 2016, STHA with 2006.
 OTHERS = {
@@ -1564,7 +1564,7 @@ def titleless(staged, ledger, cache=CACHE):
         scan = row.get("scan") or {}
         # The ledger's fields first: each answers without a stat.
         if ("scan" in row and "failed" not in scan and not scan.get("puzzles")
-                and d.name in staged_year(d.parent) and fa.scan_current(row, fa.input_hash(d))):
+                and d.name in staged_year(d.parent) and fa.scan_current(row, fa.input_hash(d), f"{d.parent.name}/{d.name}")):
             out[day] = ms
     return out
 
