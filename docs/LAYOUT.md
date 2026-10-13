@@ -2493,5 +2493,15 @@ tools/trim_codeql_caches.py                   delete all but the newest CodeQL o
 tools/test_fetch_nation_dates.sh              does fetch_nation date a page printing no issue
                                               on the issue clock, so it sorts between its
                                               neighbours instead of before the number below it?
+tools/test_push_gate_target_tree.sh           does tools/push_puzzle_commit.sh judge a commit
+                                              with the checking code of the tree it publishes
+                                              (origin/master plus the commit), not the pusher's
+                                              own checkout? The burn
+                                              (tools/prereset_backfill.sh) pushes from a
+                                              checkout that is behind master until its push
+                                              succeeds and it resets, so a gate judged from
+                                              that checkout deadlocks it once master loosens
+                                              the gate, and lets it past a gate master has
+                                              tightened
 ```
 <!-- LAYOUT-END -->
