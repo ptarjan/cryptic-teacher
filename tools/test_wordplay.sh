@@ -343,6 +343,32 @@ try:
 except w.WordplayError as x:
     check("view refuses a tree that misses the answer", "CAFE" in str(x), str(x))
 
+# cryptic-30080 17D: the setter printed (8) and the model wrote WAR PAINT. The
+# displayed answer takes its breaks and hyphens from the enumeration, never
+# from the model's spelling, and from_model stores no spelling for it.
+wclue = "Fight coat for battle decoration"
+wmodel = {"def": "battle decoration", "wp": "[Fight]WAR + [coat]PAINT", "answer": "WAR PAINT"}
+for enum, seps, want in [("8", (), "WARPAINT"), ("3,5", (), "WAR PAINT"), ("3,5", [(3, ",")], "WAR PAINT"),
+                         ("3-5", (), "WAR-PAINT"), ("3-5", [(3, "-")], "WAR-PAINT")]:
+    e = entry(17, "down", "WARPAINT", wclue, seps)
+    e["clue"]["enumeration"] = enum
+    stored = annotation.from_model(dict(wmodel), e)
+    check(f"({enum}) seps={list(seps)}: model WAR PAINT is no spelling", "spelling" not in stored,
+          stored.get("spelling"))
+    check(f"({enum}) seps={list(seps)}: view answers {want}", annotation.view(stored, e)["answer"] == want,
+          annotation.view(stored, e)["answer"])
+    check(f"({enum}) seps={list(seps)}: a stored WAR PAINT spelling still shows {want}",
+          annotation.view({**stored, "spelling": "WAR PAINT"}, e)["answer"] == want)
+e = entry(17, "down", "WARPAINT", wclue)
+e["clue"]["enumeration"] = "8"
+check("(8): from_model keeps no WAR PAINT spelling", "spelling" not in annotation.from_model(dict(wmodel), e))
+check("apostrophe spelling survives (8)",
+      annotation.spaced("DON'T", {"number": 1, "direction": "across", "clue": {"enumeration": "4"}}) == "DON'T")
+check("enumeration's apostrophe is not doubled",
+      annotation.spaced("DON'T", {"number": 1, "direction": "across", "clue": {"enumeration": "3'1"}}) == "DON'T")
+check("no enumeration leaves the spacing",
+      annotation.spaced("WAR PAINT", {"number": 1, "direction": "across", "clue": {}}) == "WAR PAINT")
+
 import series
 for pid, extra, want in [
     ("times-29000", {}, "Times cryptic crossword No 29,000"),

@@ -86,6 +86,73 @@ def display_answer(entry, puzzle=None):
     return "".join(out).strip(" -")
 
 
+# An enumeration this code reads as word lengths and the marks between them:
+# "8", "3,5", "2-3,4", "4'1". Worded ones ("two words") say nothing reliable.
+ENUM_SHAPE = re.compile(r"\s*\d+(\s*[,.\-–'’\s]\s*\d+)*\s*")
+ENUM_MARK = {"-": "-", "–": "-", "'": "'", "’": "'"}
+
+
+def _enum_marks(enum):
+    """{letters before it: mark text} for a printed enumeration, and its total;
+    None when the enumeration is missing or not plain digits and marks."""
+    enum = str(enum or "")
+    if not ENUM_SHAPE.fullmatch(enum):
+        return None
+    marks, n = {}, 0
+    for tok in re.findall(r"\d+|[^\d\s]|\s+", enum.strip()):
+        if tok.isdigit():
+            n += int(tok)
+        elif n not in marks or ENUM_MARK.get(tok):
+            marks[n] = ENUM_MARK.get(tok.strip(), " ")
+    return marks, n
+
+
+def answer_marks(entry, puzzle=None):
+    """Where the setter breaks the answer: {letters before it: " ", "-" or "'"}
+    and the answer's letter count, read from the light's separators where it
+    has them, else from its printed enumeration (whose word lengths must add
+    up to the answer). None when nothing printed says, so the stored spacing
+    stands (a Listener's bare clue), and for a linked answer: its first leg
+    prints the whole group's enumeration, so no one light's marks place the
+    group's breaks (validate_annotations skips it for the same reason)."""
+    if len(entry.get("group") or []) > 1:
+        return None
+    clue = entry.get("clue") or {}
+    if clue.get("separators"):
+        if not entry.get("solution"):
+            return None
+        marks = {}
+        for s in clue["separators"]:
+            marks[s["at"]] = marks.get(s["at"], "") + MARK_TEXT.get(s["mark"], " ")
+        return marks, len(_letters(entry["solution"]))
+    return _enum_marks(clue.get("enumeration"))
+
+
+def spaced(text, entry, puzzle=None):
+    """`text` (an answer) with its word breaks and hyphens taken from the
+    setter's enumeration, never from whoever spelled it: (8) makes WAR PAINT
+    WARPAINT, (3,5) makes WARPAINT WAR PAINT, (3-5) WAR-PAINT. The text's own
+    letters, accents and apostrophes stay. Unchanged when no enumeration
+    speaks or its lengths do not add up to the text's letters."""
+    got = answer_marks(entry, puzzle)
+    if not text or got is None:
+        return text
+    marks, total = got
+    if len(_letters(text)) != total:
+        return text
+    out, n = [], 0
+    for ch in str(text):
+        if ch in " -–—":
+            continue
+        if _letters(ch):
+            if n in marks and n:
+                mark = marks[n]
+                out.append(mark if not (mark == "'" and out and out[-1] in "'’") else "")
+            n += 1
+        out.append(ch)
+    return "".join(out).strip(" -")
+
+
 def _walk(node, parent=None):
     """(node, parent) for every node, its parts before the op joining them."""
     for p in node.get("parts") or []:
@@ -254,7 +321,8 @@ def view(ann, entry, puzzle=None):
     clue = ((entry or {}).get("clue") or {}).get("text") or ""
     defs = ann.get("definitions") or []
     tree = copy.deepcopy(ann.get("wordplay"))
-    answer = ann.get("spelling") or display_answer(entry, puzzle)
+    # The setter's enumeration spaces the answer, whatever a spelling says.
+    answer = spaced(ann.get("spelling") or display_answer(entry, puzzle), entry, puzzle)
     got, types = {}, (["double_definition"] if len(defs) > 1 else [])
     def_spans = [(d["at"], d["at"] + len(d["text"])) for d in defs if "at" in d]
     def_inds = [copy.deepcopy(i) for d in defs for i in d.get("indicators") or []]
@@ -434,8 +502,11 @@ def from_model(m, entry, puzzle=None):
             raise wordplay.WordplayError(f"answer {m['answer']!r} is not the grid's {display!r}; "
                                          f"leave `answer` out unless it corrects a (MODEL) answer "
                                          f"or spells one with an apostrophe or accent")
-        if m["answer"] != display:
-            out["spelling"] = m["answer"]
+        # Word breaks and hyphens are the enumeration's, never the model's: a
+        # model's WAR PAINT against a printed (8) is WARPAINT, and is no spelling.
+        said = spaced(m["answer"], entry, puzzle)
+        if display is None or said != spaced(display, entry, puzzle):
+            out["spelling"] = said
     if wp:
         alt = entry.get("alteration")
         want = (alt["from"] if isinstance(alt, dict) and alt.get("from")
