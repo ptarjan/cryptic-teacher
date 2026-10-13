@@ -292,52 +292,12 @@ PUBLISHED_WRONG = {
 # for the same reason: forgive exactly this sentence, not the clue it comes from,
 # so any other defect on the same light still reports.
 UNLINKED_IN_SOURCE = dict([
-    (("cryptic-26330", "7-down: clue says (5-5) = 10, answer holds 5"),
-     "BLANK, which would make POINT-BLANK, is not spare — its own clue commits it "
-     "to 21-across's BLANK CHEQUE"),
-    (("cryptic-26330", "10-across: clue says (14) = 14, answer holds 6"),
-     "BREAKING, which would make GROUNDBREAKING, is not spare — its own clue "
-     "commits it to 18-down's BREAKING POINT"),
-    (("cryptic-26330", "15-across: clue says (11) = 11, answer holds 5"),
-     "GROUND, which would make UNDERGROUND, is not spare — its own clue commits "
-     "it to 10-across's GROUNDBREAKING"),
-    (("cryptic-26330", "18-down: clue says (8,5) = 13, answer holds 8"),
-     "POINT, which would make BREAKING POINT, is not spare — its own clue commits "
-     "it to 7-down's POINT-BLANK"),
-    (("cryptic-26330", "21-across: clue says (5,6) = 11, answer holds 5"),
-     "CHEQUE, which would make BLANK CHEQUE, carries its own complete, "
-     "self-contained clue and nothing links it here"),
-    (("cryptic-26330", "25-down: clue says (10) = 10, answer holds 5"),
-     "no light anywhere in this grid is blank, spare, or grouped toward "
-     "completing it"),
-    (("cryptic-26178", "6-across: clue says (8) = 8, answer holds 4"),
-     "the WOOD that would make DASHWOOD is already spent on 1-down + 26-across's "
-     "WOODHOUSE"),
     (("cryptic-25430",
       "22-down + 23-down + 12-across: clue says (6,1,5,3,4,2,6,3) = 30, "
       "answer holds 6 alone or 21 linked"),
      "Landor's epitaph repeats NATURE, which the grid holds only once, and ends "
      "in ART — already spent on 8-down + 19-across's ART DECO; no single light "
      "supplies the gap"),
-    (("cryptic-25220",
-      "23-across: clue says (3,7,4,2,8,4,2,5,2,3,7,1,4) = 52, answer holds 10"),
-     "the missing 6 letters are 22-across LIFE IS (mislabelled '22-down' in the "
-     "source), already spent on 14-across + 22-across's LIFE IS TOO SHORT"),
-    (("cryptic-25126", "6-down: clue says (4,5) = 9, answer holds 4"),
-     "the MINOR that would make ASIA MINOR is already spent on 17/19/20-across's "
-     "MAJOR AND MINOR"),
-    (("cryptic-25126", "8-down: clue says (4,5) = 9, answer holds 4"),
-     "the MAJOR that would make DRUM MAJOR is already spent on 17/19/20-across's "
-     "MAJOR AND MINOR"),
-    (("cryptic-24951", "16-down: clue says (3,3,3,5,3,7) = 24, answer holds 3"),
-     "SET THE CAT AMONG THE PIGEONS is 16-down + 24-across + 13-across + "
-     "1-down, but 24-across THE reads \"See 16\", one leader, and the paper "
-     "grouped it into 18-down + 24-across + 8-down's LET THE DOG SEE THE "
-     "RABBIT"),
-    (("cryptic-24640", "17-across: clue says (5,3,5) = 13, answer holds 5"),
-     "the NEW that would make BRAVE NEW WORLD is 18-across, which leads its "
-     "own NEW WORLD ORDER, and a light that starts one answer cannot continue "
-     "another"),
     (("cryptic-24575",
       "9-across + 18-down + 7-down + 16-down + 19-across + 29-across: "
       "clue says (3,4,2,3,8,3,3,9,3,5,3,5) = 51, answer holds 9 alone or 42 "
@@ -374,12 +334,6 @@ UNLINKED_IN_SOURCE = dict([
       "linked"),
      "no light in this grid is blank, spare, or grouped toward the three missing "
      "letters"),
-    (("cryptic-24104", "13-across: clue says (6) = 6, answer holds 3"),
-     "the ASH that would make POTASH is already spent on 18-down + 24-across's "
-     "ASHORE"),
-    (("cryptic-24104", "16-down: clue says (6) = 6, answer holds 3"),
-     "the ORE that would complete it is already spent on 18-down + 24-across's "
-     "ASHORE"),
     (("cryptic-23874", "18-down: clue says (5,8) = 13, answer holds 8"),
      "no light in this grid is blank, spare, or grouped toward the five missing "
      "letters"),
@@ -394,27 +348,9 @@ UNLINKED_IN_SOURCE = dict([
     # RIGHT, INSIDE RIGHT, RIGHT NOTE and RIGHT AS RAIN. Each of the three
     # lights reads "See" and one number, so it sits in that one leader's group,
     # and these are the answers left over.
-    (("cryptic-23821", "4-across: clue says (6,5) = 11, answer holds 6"),
-     "the RIGHT that would make MISTER RIGHT is already spent on "
-     "23-down + 16-across's RIGHT NOTE"),
-    (("cryptic-23821", "5-down: clue says (6,5) = 11, answer holds 6"),
-     "the RIGHT that would make INSIDE RIGHT is already spent on "
-     "23-down + 16-across's RIGHT NOTE"),
     (("cryptic-23821", "22-across: clue says (5,2,4) = 11, answer holds 6"),
      "the RIGHT that would make RIGHT AS RAIN is already spent on "
      "23-down + 16-across's RIGHT NOTE"),
-    (("cryptic-23821", "15-across: clue says (4,6) = 10, answer holds 4"),
-     "the CENTRE that would make SOFT CENTRE is already spent on "
-     "20-down + 1-across's CENTRE SPREAD"),
-    (("cryptic-23821", "17-across: clue says (9,6) = 15, answer holds 9"),
-     "the CENTRE that would make DETENTION CENTRE is already spent on "
-     "20-down + 1-across's CENTRE SPREAD"),
-    (("cryptic-23821", "26-across: clue says (6,6) = 12, answer holds 6"),
-     "the CENTRE that would make GARDEN CENTRE is already spent on "
-     "20-down + 1-across's CENTRE SPREAD"),
-    (("cryptic-23821", "16-down: clue says (7,4) = 11, answer holds 7"),
-     "the LEFT that would make NOTHING LEFT is already spent on "
-     "9-across + 11-across's LEFT UNDONE"),
     (("cryptic-23753",
       "1-across + 52-across: clue says (4,6-4) = 14, answer holds 4 alone or 8 "
       "linked"),
@@ -464,17 +400,6 @@ UNLINKED_IN_SOURCE = dict([
      "the CHANCE that finishes HAVE AN EYE TO THE MAIN CHANCE is 1-down, "
      "already spent on 1-down + 15-across + 2-down's CHANCE WOULD BE A FINE "
      "THING"),
-    (("cryptic-22831", "12-across: clue says (6,6) = 12, answer holds 6"),
-     "the ESTATE that would make FOURTH ESTATE is 25-across, which carries a "
-     "full clue of its own and is pointed at by 7-down's \"See 25\" for ESTATE "
-     "AGENTS"),
-    (("cryptic-22831", "15-across: clue says (7,6) = 13, answer holds 7"),
-     "the same 25-across ESTATE would make HOUSING ESTATE, and it carries a "
-     "full clue of its own"),
-    (("cryptic-21640", "20-down: clue says (5,7) = 12, answer holds 5"),
-     "the THERESA that makes SAINT THERESA is 1-across, spent on the paper's "
-     "own five-light group for the ONE-EYED YELLOW IDOL line — 19-down's "
-     "\"Whence 20,1across\" names both uses"),
     (("cryptic-22691",
       "8-down + 23-down + 11-across + 18-down: clue says "
       "(3,6,2,3,5,2,3,5,2,4,10) = 45, answer holds 14 alone or 31 linked"),
@@ -485,12 +410,6 @@ UNLINKED_IN_SOURCE = dict([
       "15 linked"),
      "the SHAKESPEARE in THE ROYAL SHAKESPEARE COMPANY is 5-down, which "
      "carries a full clue of its own"),
-    (("cryptic-21748", "16-down: clue says (4,4,7) = 15, answer holds 8"),
-     "the FORWARD that finishes BEST FOOT FORWARD is 1-across, which carries a "
-     "full clue of its own — 5-across names the pair as \"16 1across\""),
-    (("cryptic-21718", "12-across: clue says (4,6) = 10, answer holds 4"),
-     "the LITTLE that makes JOHN LITTLE is 19-down, already spent on 19-down + "
-     "8-down's LITTLE GREEN MEN"),
     (("cryptic-21625", "12-across: clue says (5,2,4) = 11, answer holds 5"),
      "the same 7-down OF TIME finishes 6-down's DANCE TO THE MUSIC OF TIME, "
      "and 7-down has no clue text to say it continues either answer"),
@@ -501,10 +420,6 @@ UNLINKED_IN_SOURCE = dict([
      "one five-cell light: 20-down holds the first, 4-down BRIDES FOR and "
      "4-across BROTHERS the rest, and the second SEVEN has no light anywhere "
      "in this grid"),
-    (("cryptic-22575", "10-across: clue says (6-3,6-4) = 19, answer holds 9"),
-     "the clue opens \"(and 10 again)\" — the paper spends one nine-cell light "
-     "twice, printing THIRTY-SIX (6-3) in it and counting a second (6-4) "
-     "answer it never gave a light to"),
     (("cryptic-22327",
       "21-down + 20-down: clue says (6,6,6) = 18, answer holds 6 alone or 12 "
       "linked"),
@@ -530,11 +445,6 @@ UNLINKED_IN_SOURCE = dict([
      "spent on 21-across + 9-across + 23-down + 11-across's WHAT SORT OF TIME "
      "DO YOU CALL THIS THEN, and a light that starts one answer cannot "
      "continue another"),
-    (("cryptic-21893", "11-across: clue says (6,4,2,3,8) = 23, answer holds 12"),
-     "BATTLE HYMN OF THE REPUBLIC is 23 letters and 11-across holds the "
-     "twelve of BATTLE HYMN OF; no light in this grid is blank, spare or "
-     "grouped toward THE REPUBLIC, and 1-across's PUBLIC is a different word "
-     "carrying its own clue, spent on 1-across + 9-across's PUBLIC NUISANCE"),
 ])
 
 # PER_LIGHT_ENUMERATION names the series whose linked clues are enumerated one
