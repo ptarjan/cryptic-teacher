@@ -994,8 +994,9 @@ def check_setter(puzzle, flags):
     A puzzle read off a newspaper page is exempt: the print edition is not
     that source, and older papers ran puzzles with no byline (the 1970s FT).
     So is a puzzle the series lists in `unbylined`: no source names its setter.
-    And, where the series sets `unbylinedUnsolved`, a puzzle filed unsolved: it
-    has no post to name one, and the filer files it only once its page names none."""
+    And, where the series sets `unbylinedUnsolved`, a puzzle with no post: filed
+    unsolved, or solved since by the model ("model"), it has no post to name one,
+    and the filer files it only once its page names none."""
     pid, setter = puzzle["id"], puzzle.get("setter")
     series = series_meta.of(puzzle) or "cryptic"  # a format v2 file stores none
     if setter is None:
@@ -1005,7 +1006,7 @@ def check_setter(puzzle, flags):
         if (meta.get("bylined") and not series_meta.is_book(series) and not scanned
                 and puzzle.get("number") not in meta.get("unbylined", {})
                 and not (meta.get("unbylinedUnsolved")
-                         and (puzzle.get("solutions") or {}).get("origin") == "unsolved")):
+                         and (puzzle.get("solutions") or {}).get("origin") in ("unsolved", "model"))):
             flags.append(("SETTER", pid, f"no setter, but {series} prints a byline "
                           f"on every puzzle"))
         return
@@ -1501,12 +1502,17 @@ def refuse_bad_write(puzzle, old=None):
     flags = []
     check_puzzle(puzzle, datetime.now(timezone.utc).date(), flags)
     # No setter never holds a puzzle (Paul's standing rule: never hold a puzzle
-    # for its form): the audit still reports it, but a write refuses only one
-    # that drops a byline the held file has, which is a reader that broke.
+    # for its form): a write refuses only one that drops a byline the held file
+    # has, which is a reader that broke. The audit (and so the pre-push) passes
+    # a Genius with no post, solved or not (check_setter); genius-26 committed
+    # and could not push while it flagged a model-solved one (10-13).
     # Seen 2026-10-13: Genius 43-109, filed unsolved with none (series.py
     # unbylinedUnsolved), refused on SETTER the moment the backfill solved them.
     if puzzle.get("setter") is None and not (old or {}).get("setter"):
         flags = [f for f in flags if not (f[0] == "SETTER" and f[2].startswith("no setter"))]
+    elif puzzle.get("setter") is None and not any(f[0] == "SETTER" for f in flags):
+        flags.append(("SETTER", puzzle.get("id"), "no setter, but the held file has "
+                      f"{old['setter']!r}: a write never drops a byline"))
     flags += [("SCHEMA", puzzle.get("id"), p) for p in puzzle_schema.validate(puzzle)]
     if old is not None:
         check_rewrite(old, puzzle, flags)
