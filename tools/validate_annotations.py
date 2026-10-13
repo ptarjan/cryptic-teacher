@@ -2830,6 +2830,11 @@ def skipped_words(fragment, clue):
     return best or []
 
 
+def is_pointer_text(e):
+    """Is entry e's clue a bare pointer ("See 17", counted or not)?"""
+    return groups.is_pointer(e["clue"].get("text", ""), counted=True)
+
+
 def check_groups(puzzle, errors):
     """A linked answer is one answer over several lights. Its leader carries
     `group`, the answer's lights in order with itself first, and the whole
@@ -2881,13 +2886,17 @@ def check_groups(puzzle, errors):
                 errors.append(f"{entry_id(e)}: group names {gid}, which is not in this puzzle")
                 continue
             if gid in clued:
-                # An answer of its own that this one also runs through
-                # (cryptic-21893's THERE in BATTLE HYMN OF THE REPUBLIC): it
-                # keeps its clue, so a bare pointer there is a continuation.
-                if groups.is_pointer(other["clue"].get("text", ""), counted=True):
+                # An answer of its own that this one also runs through: it
+                # keeps its own clue (cryptic-21893's THERE in BATTLE HYMN OF
+                # THE REPUBLIC), or it continues another answer (cryptic-25126's
+                # MINOR, "See 17", ends both MAJOR AND MINOR and ASIA MINOR).
+                # A pointer continuing nothing else is a plain continuation.
+                elsewhere = any(gid in h["group"][1:] and gid not in groups.self_clued(h)
+                                for _, h in groups.linked(puzzle["entries"]))
+                if is_pointer_text(other) and not elsewhere:
                     errors.append(f"{gid}: in {entry_id(e)}'s selfClued, but its clue is a "
-                                  f"pointer; a light whose clue is \"See N\" is a plain "
-                                  f"continuation")
+                                  f"pointer and it continues no other answer; a light whose "
+                                  f"clue is \"See N\" is a plain continuation")
                 continue
             held_by.setdefault(gid, []).append(entry_id(e))
             if other.get("annotation"):
