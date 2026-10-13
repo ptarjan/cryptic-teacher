@@ -6,6 +6,7 @@
     python3 tools/annotate_check.py cryptic-30098 --patch FILE
     python3 tools/annotate_check.py --reread times-18749   # misread? ask the OCR again
     python3 tools/annotate_check.py cryptic-30098 --by claude-opus-5-5  # hints another session wrote
+    python3 tools/annotate_check.py cryptic-30098 --withdraw "why"  # take back this run's work
 
 The _ann file is in the model's shape (annotate_prompt.md's Schema: `def`,
 `wp`, `notes`, ...), which apply_annotations translates (annotation.from_model)
@@ -44,6 +45,15 @@ command needs an approval these runs cannot give and aborts whole, having run
 nothing. Worse still is the shape the transcripts showed: fix one warning,
 re-run, read the next warning, fix that. One run already knows everything that
 is wrong, so this says all of it at once and asks for one edit back.
+
+--withdraw is how a run takes back its own work when it cannot pass the
+check honestly (solve_prompt.md: annotate nothing, stop). Each check has
+already applied tools/_ann_<ID>.json to the puzzle file, and a run's
+permissions refuse `git checkout`, so it cannot put the file back itself: this
+leaves tools/_withdrawn_<ID>.txt holding the reason, and the harness
+(tools/puzzle_worker.sh, worker_withdrawn) restores the file, drops the
+annotations and ships nothing the run wrote. genius-268 (10-13) asked for a
+checkout it could not run, and its 29 hints and guessed fills were committed.
 
 --reread, run by tools/prereset_backfill.sh on a finished run before it
 commits or discards it, asks the scan filer to read an OCR'd puzzle's source
@@ -1125,6 +1135,22 @@ def reread(pid):
     return 0
 
 
+def withdrawn_path(path):
+    """The marker a withdrawn run leaves for the harness (tools/puzzle_worker.sh)."""
+    return default_input(path).with_name(f"_withdrawn_{path.stem}.txt")
+
+
+def withdraw(path, why):
+    """Mark this run's work on puzzle `path` as taken back: the harness puts
+    the puzzle file back as committed and ships nothing the run wrote."""
+    withdrawn_path(path).write_text((why.strip() or "no reason given") + "\n")
+    shown = path.relative_to(ROOT) if path.is_relative_to(ROOT) else path
+    print(f"withdrawn: when this run ends, {shown} is put back as committed and "
+          f"nothing this run wrote ships. Do not edit it or run git. Stop now: end "
+          f"with your final line naming the entries that beat you.")
+    return 0
+
+
 def main(argv):
     if not argv or argv[0] in ("-h", "--help"):
         print(__doc__.strip())
@@ -1134,6 +1160,8 @@ def main(argv):
     if argv[0] == "--view":
         print(write_view(resolve_puzzle(argv[1])).relative_to(ROOT))
         return 0
+    if argv[1:2] == ["--withdraw"]:
+        return withdraw(resolve_puzzle(argv[0]), " ".join(argv[2:]))
     by = []
     if "--by" in argv:
         at = argv.index("--by")

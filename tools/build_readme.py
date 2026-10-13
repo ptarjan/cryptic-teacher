@@ -686,6 +686,7 @@ LAYOUT = [
     ("fetching", "tools/test_genius_instructions.sh", "is a puzzle whose clues point at instructions we do not hold kept from the annotators, and does filing a preamble later let a parked failure retry?"),
     ("fetching", "tools/discard_alert.py", "decide whether a discarded annotation run is worth waking anyone for"),
     ("fetching", "tools/test_discard_verdict.sh", "does a discarded annotation run wake someone only when they can act on it? (tools/discard_alert.py; wired into _worker_finish in tools/puzzle_worker.sh.)"),
+    ("fetching", "tools/test_withdrawn_run.sh", "does a run that takes back its own work (annotate_check.py --withdraw, or last words asking for a git revert) ship none of it, the harness putting the puzzle back? (genius-268, 10-13)"),
     ("fetching", "tools/reapply_annotation.py", "re-apply a commit's annotation onto origin's copy of its puzzle when push_puzzle_commit.sh's replay conflicts"),
     ("fetching", "tools/desktop_hosts.py", "the desktop's LAN and tailnet addresses, read once from desktop_hosts.json by python and shell callers"),
     ("fetching", "tools/desktop_hosts.json", "the desktop's addresses, LAN first, tailnet as fallback: the one place to edit when its DHCP lease changes"),

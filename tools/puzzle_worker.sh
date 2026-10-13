@@ -172,6 +172,8 @@ worker_annotate() {   # id log sidfile task [note] [fill]
   else
     worker_forget "$sidfile"
     kind=""
+    # A fresh conversation has withdrawn nothing (worker_withdrawn).
+    rm -f "tools/_withdrawn_$id.txt"
     if [ -n "$fill" ]; then
       kind=solve
       rm -f "$fill"
@@ -239,7 +241,13 @@ worker_verdict_line() {   # file
 # written and the conversation, its fill and its annotations kept, for the
 # caller to resume it.
 worker_apply() {   # id fill log verdict sidfile [notefile]
-  local id="$1" fill="$2" log="$3" verdict="$4" sidfile="$5" notefile="${6:-}" judged="" said="$3" rc error
+  local id="$1" fill="$2" log="$3" verdict="$4" sidfile="$5" notefile="${6:-}" judged="" said="$3" rc error why
+  # A run that took its work back has neither its fill nor its hints applied.
+  if why=$(worker_withdrawn "$id" "$log"); then
+    worker_withdraw "$id" "$why"
+    echo "withdrawn by the run — $why" >"$verdict"
+    return 2
+  fi
   restore_puzzle "$id"
   if [ -s "$fill" ]; then
     # --no-reindex: the index is the caller's to rebuild when its run ends.
@@ -560,6 +568,42 @@ worker_flagged() {   # id notefile sidfile output
   return 0
 }
 
+# Whether the run on puzzle $1 took back its own work, printing why; $2 is its
+# output, the CLI's final message. A run that cannot pass the check honestly
+# is told to annotate nothing (tools/solve_prompt.md), but every check it ran
+# has already applied its tools/_ann_<id>.json to the puzzle file, and its
+# permissions refuse git. So it runs `annotate_check.py <id> --withdraw`,
+# which leaves tools/_withdrawn_<id>.txt, and the harness puts the file back
+# (worker_withdraw). A run whose last words ask for a git command to undo its
+# edits is taken at its word the same way: genius-268 (10-13) rejected its own
+# run, was refused `git checkout`, and its 29 hints and guessed fills were
+# committed as "Annotate genius-268". Lowercase only, so an answer in a
+# confidence line (RESET, RESTORED) is not read as a request.
+worker_withdrawn() {   # id [output]
+  local marker="tools/_withdrawn_$1.txt" asked
+  if [ -e "$marker" ]; then
+    echo "it ran annotate_check.py --withdraw: $(grep -v '^[[:space:]]*$' "$marker" | head -1 | cut -c1-200)"
+    return 0
+  fi
+  [ -n "${2:-}" ] && [ -s "$2" ] || return 1
+  asked=$(grep -E -m1 '\bgit (checkout|restore|reset|stash|clean)\b' "$2") || return 1
+  echo "its last words asked for a git revert: $(printf '%s' "$asked" | sed 's/^[[:space:]]*//' | cut -c1-200)"
+}
+
+# Undo everything a withdrawn run wrote for puzzle $1 ($2: why, from
+# worker_withdrawn): the puzzle file and its rows go back as committed
+# (discard_puzzle, which salvages them first) and its annotation file goes, so
+# nothing it took back reaches a commit, a reopen or a resume. It is recorded
+# against the puzzle's inputs: the run said it cannot do this honestly, so the
+# same work is not bought again until its clues change or its key is filed.
+worker_withdraw() {   # id why
+  echo "  [$1] the run withdrew its own work, so nothing it wrote ships — $2"
+  discard_puzzle "$1"
+  rm -f "tools/_ann_$1.json" "tools/_withdrawn_$1.txt"
+  python3 tools/failed_inputs.py record annotate "$1" --judged \
+    --reason "the run withdrew its own work: $2" || true
+}
+
 # A run that failed or was stopped. One cut off by a lockout usually leaves
 # real work behind: some clues annotated, the rest untouched. That file fails
 # validation (its blank clues), so validation cannot be the test: throwing it
@@ -570,7 +614,14 @@ worker_flagged() {   # id notefile sidfile output
 # $5 says how it was stopped; $6 set means master changed the puzzle meanwhile,
 # so nothing it wrote to the puzzle came back. 0 when its edits were kept.
 worker_failed() {   # id what notefile sidfile [how] [moved]
-  local id="$1" what="$2" how="${5:-were cut off by a usage limit, which has since cleared}" seen intact=""
+  local id="$1" what="$2" how="${5:-were cut off by a usage limit, which has since cleared}" seen intact="" why
+  # A run that withdrew is not resumed into the edits it took back.
+  if why=$(worker_withdrawn "$id"); then
+    worker_withdraw "$id" "$why"
+    rm -f "$3"
+    worker_forget "$4"
+    return 1
+  fi
   # What the retry is told to look at: the annotate run's copy, never the
   # puzzle itself, which names the blog.
   seen=$(python3 tools/puzzle_paths.py "$id")
@@ -608,19 +659,31 @@ worker_finish() {   # id what sidfile log
   return $rc
 }
 _worker_finish() {
-  local id="$1" what="$2" sidfile="$3" log="$4" vlog file reopen ran loss wants pending=""
+  local id="$1" what="$2" sidfile="$3" log="$4" vlog file reopen ran loss wants pending="" why
+  # A run that took its work back ships none of it, however it validates.
+  if why=$(worker_withdrawn "$id" "$log"); then
+    worker_withdraw "$id" "$why"
+    return 1
+  fi
   vlog="$(mktemp "${TMPDIR:-/tmp}/cryptic-validate.XXXXXX")"
   if ! python3 tools/validate_annotations.py "$id" >"$vlog" 2>&1; then
     file=$(python3 tools/puzzle_paths.py "$id")
     echo "  [$id] did not validate — handing the errors back rather than discarding the puzzle"
     local fix
     fix=$(printf '%s\n\n%s\n\n%s\n' "$file does not validate:" "$(grep -E '^  ERROR' "$vlog")" \
-      "Fix those clues in $file and nothing else, following tools/annotate_prompt.md, then run python3 tools/annotate_check.py $id until it reports clean. Do not commit.")
+      "Fix those clues in $file and nothing else, following tools/annotate_prompt.md, then run python3 tools/annotate_check.py $id until it reports clean. Do not commit. If they cannot be fixed honestly, run python3 tools/annotate_check.py $id --withdraw \"<why>\" instead and stop: the puzzle file is put back for you.")
     # Even a fix run the limit cuts off may have landed its edit, so the second
     # validation runs either way and decides on what is on disk.
     declare -F on_fix_run >/dev/null && on_fix_run 1
     worker_annotate "$id" "$log" "$sidfile" "$fix" "$fix" || true
     declare -F on_fix_run >/dev/null && on_fix_run 0
+    # The fix run may take the work back instead (genius-268, 10-13: the
+    # validator passed what the run had asked to revert, and it shipped).
+    if why=$(worker_withdrawn "$id" "$log"); then
+      rm -f "$vlog"
+      worker_withdraw "$id" "$why"
+      return 1
+    fi
   fi
   if ! python3 tools/validate_annotations.py "$id" >"$vlog" 2>&1; then
     tail -5 "$vlog"

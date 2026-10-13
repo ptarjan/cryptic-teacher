@@ -64,6 +64,9 @@ CONFIDENT`. The grades:
 * **GUESS**: it fits the letters and nothing more.
 
 Never invent wordplay to promote a GUESS: your annotation states it with full
-authority. If you cannot pass the check honestly, leave your fill written with
-guesses flagged, annotate nothing, stop, and name the entries that beat you.
-Waiting for the paper's key is a fine outcome.
+authority. If you cannot pass the check honestly, annotate nothing, stop, and
+name the entries that beat you. The check has already written your annotations
+into the puzzle file, so take them back with
+`python3 tools/annotate_check.py <ID> --withdraw "<why>"`: the puzzle file is
+put back for you when the run ends and nothing you wrote ships. Never use git
+for this; this run cannot. Waiting for the paper's key is a fine outcome.
