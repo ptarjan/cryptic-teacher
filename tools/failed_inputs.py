@@ -234,10 +234,16 @@ def code_version(kind, pid, reason):
 def due(kind, pid, rec):
     """Whether a recorded failure no longer holds: its puzzle changed, or the
     code or data that refused it did. A record from before code versions
-    (no "code") holds on its puzzle alone."""
+    (no "code") that names the module refusing it is due, since nobody knows
+    which version that was (10-13: genius-38 and Nation DATE rows waited by
+    hand for a fix and a re-date); one naming none (the model's own failure,
+    the bulk) holds on its puzzle alone."""
     if rec["puzzle"] != input_hash(pid):
         return True
-    return "code" in rec and rec["code"] != code_version(kind, pid, rec.get("reason"))
+    if "code" not in rec:
+        return any((TOOLS / f"{m}.py").exists()
+                   for m in NAMED_MODULE.findall(rec.get("reason") or ""))
+    return rec["code"] != code_version(kind, pid, rec.get("reason"))
 
 
 def load():
