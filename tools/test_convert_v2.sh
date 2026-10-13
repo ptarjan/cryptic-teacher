@@ -201,8 +201,7 @@ new = run("a double definition's indicator hangs on a definition",
           ann(["double_definition"], "STEEL", "", 0, [blk("Steel"), blk("silver, silicon or scandium")],
               [("say", "double_definition")],
               definitions=[{"text": "Steel", "at": 0}, {"text": "silver, silicon or scandium", "at": 7}]),
-          entry("STEEL", "Steel, silver, silicon or scandium, say?"), "normalised",
-          ["double definition meaning kept apart"],
+          entry("STEEL", "Steel, silver, silicon or scandium, say?"), "exact",
           tree_check=lambda n: n["definitions"][1].get("indicators", [{}])[0].get("text") == "say")
 run("an &lit indicator hangs on the definition",
     ann(["charade", "and_lit"], "IONA", "Island connected with Columba ultimately?", 0,
@@ -311,6 +310,73 @@ lead = {"id": "genius-9", "name": "Genius 9", "series": "genius", "entries": [
 out, redo = C.migrate_puzzle(lead)
 got = annotation.view_puzzle(out)["entries"][0]["alsoLeads"][0].get("annotation", {}).get("answer")
 check("an alsoLeads answer keeps its own clue's spacing", not redo and got == "WAR PAINT", (redo, got))
+
+# Step 8's tighten blockers (10-13). A palindrome over the answer alone has no
+# parts, and a file stores no empty list: the pruned tree still views
+# (everyman-3919 10A gave "KeyError: 'parts'").
+import puzzle_schema
+a = ann(["double_definition", "palindrome"], "BEEB", "Broadcaster", 0,
+        [blk("Broadcaster", note="first meaning"), blk("Auntie", note="second meaning")],
+        [("put another way", "palindrome")],
+        definitions=[{"text": "Broadcaster", "at": 0}, {"text": "Auntie", "at": 30}])
+e = entry("BEEB", "Broadcaster; put another way, Auntie")
+got, ks, new = C.check(a, e)
+pruned = puzzle_schema.prune({"id": "x-1", "number": 1, "entries": [{**e, "annotation": new}]})["entries"][0]["annotation"]
+try:
+    v = annotation.view(pruned, e)
+    check("a palindrome with no parts views once pruned", "parts" not in pruned["wordplay"]
+          and v["type"] == ["double_definition", "palindrome"], (pruned, v["type"]))
+except Exception as x:
+    check("a palindrome with no parts views once pruned", False, repr(x))
+
+# A setter's slip (tools/data/setter_error.json): the legacy assembly names an
+# anagram whose fodder lacks the letters it gives. It becomes one unchecked
+# anagram over the fodder as printed, which view() lists, even where a block
+# hid the slip by respelling its words (quiptic-32 13D: "Elf oil" filed as ELFOIF).
+a = ann(["anagram"], "KISS OF LIFE", "First aid", 0,
+        [blk("skis", "SKIS"), blk("Elf oil", "ELFOIF")], [("spill", "anagram")],
+        assembly={"anagrams": [{"fodder": "SKISELFOIL", "gives": "KISSOFLIFE"}]})
+got, ks, new = C.check(a, entry("KISSOFLIFE", "First aid required after skis become involved in Elf oil spill",
+                                "4,2,4", [(4, ","), (6, ",")]))
+v = new and annotation.view(new, entry("KISSOFLIFE", "First aid required after skis become involved in Elf oil spill",
+                                       "4,2,4", [(4, ","), (6, ",")]))
+check("a setter's slip is an unchecked anagram of the printed fodder",
+      new and new["wordplay"]["op"] == "anagram" and new["wordplay"].get("unchecked")
+      and v["assembly"]["anagrams"] == [{"fodder": "SKISELFOIL", "gives": "KISSOFLIFE"}]
+      and [b["gives"] for b in v["blocks"]] == ["SKIS", "ELFOIL"], (got, ks, new and new["wordplay"], v and v.get("assembly")))
+# The rest of the wordplay is still rebuilt round the slip, and checked
+# (azed-2473 17D: BR(E)A + PAINTS giving STPIN, not an anagram of everything).
+a = ann(["container", "anagram"], "BREAST PIN", "What'll fix corsage", 0,
+        [blk("gay deceiver", "BRA"), blk("east", "E"), blk("paints", "STPIN")],
+        [("in", "container"), ("Variety of", "anagram")],
+        assembly={"anagrams": [{"fodder": "PAINTS", "gives": "STPIN"}]})
+e = entry("BREASTPIN", "What'll fix corsage from east in gay deceiver? Variety of paints")
+got, ks, new = C.check(a, e)
+check("the wordplay round a slip is rebuilt and checked",
+      new and w.render({**new["wordplay"], "parts": new["wordplay"]["parts"][:1]}).startswith("ins")
+      and [n["op"] for n in C._walk(new["wordplay"]) if n.get("unchecked")] == ["anagram"],
+      (got, ks, new and new["wordplay"]))
+# A slip that gives the whole answer while another block still gives letters
+# contradicts itself (ftcryptic-18035 21A): redo the clue.
+a = ann(["anagram"], "POLYTUNNEL", "long tent with beds", 24,
+        [blk("Large", "N"), blk("opulently", "OPULENTLY")], [("fitted", "anagram")],
+        assembly={"anagrams": [{"fodder": "OPULENTLY", "gives": "POLYTUNNEL"}]})
+got, ks, new = C.check(a, entry("POLYTUNNEL", "Large, opulently fitted long tent with beds"))
+check("a slip the blocks contradict is redone", got == "failed" and "setter's slip and blocks disagree" in ks, (got, ks))
+
+# A double definition's block note is its `meaning`; a definition's own note
+# stays on the definitions rung, also when the definition had no block
+# (times-29410 26A's note "read as FLY BY NIGHT").
+a = ann(["double_definition"], "FLY-BY-NIGHT", "Debtor absconding", 0,
+        [blk("on the red-eye", note="a red-eye is an overnight flight")],
+        definitions=[{"text": "Debtor absconding", "at": 0, "note": "read as FLY BY NIGHT"},
+                     {"text": "on the red-eye", "at": 18}])
+e = entry("FLYBYNIGHT", "Debtor absconding on the red-eye?", "3-2-5", [(3, "-"), (5, "-")])
+got, ks, new = C.check(a, e)
+v = new and annotation.view(new, e)
+check("a definition's note is never a block's", v and v["blocks"] == [
+    {"clueFragment": "Debtor absconding"}, {"clueFragment": "on the red-eye", "note": "a red-eye is an overnight flight"}],
+    (got, ks, v and v["blocks"]))
 
 raise SystemExit(fails > 0)
 PY

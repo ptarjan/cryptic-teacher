@@ -63,6 +63,7 @@ import argparse
 import collections
 import copy
 import functools
+import itertools
 import json
 import os
 import re
@@ -456,12 +457,14 @@ def convert(ann, entry, puzzle=None):
             b = fits and next((x for x in fits if L(x.get("clueFragment")) == L(d["text"])), fits[0])
             if b:
                 spare.remove(b)
-            if b and b.get("note") and b["note"] != d.get("note"):
-                if d.get("note"):
+            # A definition's block note is its `meaning` (the blocks rung);
+            # its `note` stays on the definitions rung. No meaning, no block
+            # note: a definition note is never moved up a rung (times-29410
+            # 26A's "read as FLY BY NIGHT" named the answer there).
+            if b and b.get("note"):
+                if d.get("note") and b["note"] != d["note"]:
                     notes.add("double definition meaning kept apart")
                 d["meaning"] = b["note"]
-            elif b and not b.get("note") and d.get("note"):
-                d["meaning"] = ""
         if spare:
             raise Unconvertible("double definition block that is no definition")
     elif "cryptic_definition" in tset and not any(b.get("gives") for b in blocks):
@@ -500,10 +503,7 @@ def convert(ann, entry, puzzle=None):
     return {k: out[k] for k in order if k in out}, notes
 
 
-# Series whose printed enumerations count letters only (Azed marks a word
-# break in 23 of 19,690, the Listener in none): their answers' spacing is a
-# fact the enumeration can't give, kept as `spelling`.
-LETTER_COUNT_ONLY = {"azed", "listener"}
+LETTER_COUNT_ONLY = annotation.LETTER_COUNT_ONLY
 
 
 def _lights(entry, puzzle):
@@ -539,6 +539,71 @@ def _enumerated(entry, puzzle):
     return any((x.get("clue") or {}).get("enumeration") or (x.get("clue") or {}).get("separators") for x in _lights(entry, puzzle))
 
 
+def _slips(units, vals, ann, tset, want):
+    """(units, vals, made any) with each setter's slip made one unit. A slip is a legacy
+    `assembly.anagrams` row whose fodder does not hold the letters it gives
+    (tools/data/setter_error.json says which clues may have one, and the
+    validator holds the row to it). No search can rebuild such an anagram,
+    and an unchecked op of the clue's first missing type round all the blocks
+    loses which letters are shuffled (azed-1751 21D: an unchecked deletion
+    giving TRILENE inside an unchecked anagram giving TRILENE). So the run of
+    blocks that spells the fodder becomes one unchecked anagram giving the
+    stated letters, the rest of the wordplay is rebuilt round it as usual,
+    and view() lists it as the anagram the row names.
+
+    A block may have hidden the slip by respelling its words (quiptic-32 13D:
+    "Elf oil" filed as giving ELFOIF, while the assembly kept the printed
+    SKISELFOIL), which made a fully checked tree out of a leaf's untrue
+    `gives`. The fodder is matched against each block's gives or its words as
+    printed, and a leaf whose printed words are what fit is taken as printed."""
+    made = False
+    for a in (ann.get("assembly") or {}).get("anagrams") or []:
+        if not isinstance(a, dict):
+            continue
+        f, g = L(a.get("fodder")), L(a.get("gives"))
+        if not f or not g or _bag(f) == _bag(g):
+            continue
+
+        def readings(k):
+            u = units[k]
+            out = [vals[k]] if vals[k] else []
+            if "op" not in u and u.get("words") and not u.get("unchecked") and L(u["words"]) not in out:
+                out.append(L(u["words"]))
+            return out
+        real = [k for k in range(len(units)) if readings(k)]
+        pick = None
+        for i in range(len(real)):
+            for j in range(i + 1, len(real) + 1):
+                ks = real[i:j]
+                if len(ks) > 8 or pick:
+                    break
+                for combo in itertools.product(*(readings(k) for k in ks)):
+                    if _bag("".join(combo)) == _bag(f):
+                        pick = list(zip(ks, combo))
+                        break
+        if pick is None:
+            continue
+        for k, got in pick:
+            if got != vals[k]:
+                units[k] = {x: v for x, v in units[k].items() if x != "gives"}
+        pick = [k for k, _ in pick]
+        inner = [units[k] for k in pick]
+        node = {"op": "anagram", "unchecked": True, "gives": g,
+                "parts": inner if len(inner) == 1 else [{"op": "charade", "parts": inner}]}
+        keep = [k for k in range(len(units)) if k not in pick[1:]]
+        units = [node if k == pick[0] else units[k] for k in keep]
+        vals = [g if k == pick[0] else vals[k] for k in keep]
+        if _bag(g) == _bag(want) and sum(1 for v in vals if v) > 1 and "deletion" not in tset:
+            # The slip gives the whole answer and another block still gives
+            # letters (ftcryptic-18035 21A: the row says OPULENTLY gives
+            # POLYTUNNEL, and a block "Large" filed as giving N makes up the
+            # letter the slip lacks). The row and the blocks disagree about
+            # what the anagram is; which is right is not decidable here.
+            raise Unconvertible("setter's slip and blocks disagree", f"{f} gives {g}")
+        made = True
+    return units, vals, made
+
+
 def _tree(blocks, inds, tset, want, ann, notes):
     sel_inds = [i["text"] for i in inds if i.get("for") == "letter_selection" and i.get("text")]
     units, vals, fixed = [], [], set()
@@ -553,6 +618,10 @@ def _tree(blocks, inds, tset, want, ann, notes):
         fixed |= ts
     if not units:
         return None
+    units, vals, slipped = _slips(units, vals, ann, tset, want)
+    if slipped:
+        # The slip is the clue's anagram: the search is not to look for another.
+        fixed.add("anagram")
     # Blocks that give nothing (an indicator filed as a block) ride along unchecked.
     real = [k for k, v in enumerate(vals) if v]
     if not real and "palindrome" in tset:
@@ -561,11 +630,11 @@ def _tree(blocks, inds, tset, want, ann, notes):
     hl = ann.get("hiddenLetter")
     if isinstance(hl, dict) and hl.get("kind") in ("extra", "omitted"):
         return {"op": "charade", "unchecked": True, "gives": want, "parts": units}
-    kinds = tuple(k for k in SEARCH if k in tset)
+    kinds = tuple(k for k in SEARCH if k in tset and not (slipped and k == "anagram"))
     found = build(tuple(units[k] for k in real), tuple(vals[k] for k in real), want, kinds) if real else {}
     tree = None
     if found:
-        goal = tset & set(SEARCH)
+        goal = (tset & set(SEARCH)) - (fixed & {"anagram"})
         # The closest to the stored type first; the evaluator has the last word.
         for _, (_, cand) in sorted(found.items(), key=lambda it: (len(goal ^ (it[0] - fixed)), it[1][0])):
             cand = copy.deepcopy(cand)
@@ -781,7 +850,8 @@ def compare(old, new, view):
     pcs = lambda a: [L(p) for p in a.get("pieces") or []] if len(a.get("pieces") or []) > 1 else []
     if pcs(oa) != pcs(va) or fod(oa) != fod(va) or _plain(oa.get("reversals")) != _plain(va.get("reversals")):
         acc.add("assembly recomputed")
-    if new.get("definitions") and any("meaning" in d for d in new["definitions"]):
+    if new.get("definitions") and any("meaning" in d and d.get("note") and d["meaning"] != d["note"]
+                                      for d in new["definitions"]):
         acc.add("double definition meaning kept apart")
     return acc, bad
 
@@ -1064,6 +1134,29 @@ def _findings(puzzle, old):
         return {(flag, what) for flag, _, what in e.flags}
 
 
+def _validate_regressions(old, new):
+    """What validate_annotations (the deploy's corpus rules, as --tighten and
+    the pre-commit hook run them) finds on the v2 file and not on the legacy
+    one: each new ERROR, and each backlog ratchet whose count grew (that
+    would fail the ratchet). `wordplay.unchecked` is left out: the migration
+    writes that allowance itself. The step 8 attempt of 10-13 converted 79
+    files the tighten then refused, which blocked the whole commit; a file
+    like that is held legacy instead, and the commit message names why."""
+    import validate_annotations as V
+
+    def seen(p):
+        _, errors, warnings = V.validate_puzzle(copy.deepcopy(p), corpus=True)
+        counts = V.count_backlog(warnings)
+        counts.pop("wordplay.unchecked", None)
+        return errors, counts
+    e_old, c_old = seen(old)
+    e_new, c_new = seen(new)
+    out = [f"validate {e[:240]}" for e in e_new if e not in e_old]
+    out += [f"validate ratchet {f}: {c_old.get(f, 0)} -> {n} clue(s)"
+            for f, n in c_new.items() if n > c_old.get(f, 0)]
+    return out
+
+
 def _committed(path):
     """The file as HEAD has it (the legacy copy of one an interrupted run already rewrote)."""
     import subprocess
@@ -1080,8 +1173,9 @@ def migrate_file(path, write=True):
 
     The file is rewritten whole or not at all (a .part renamed over it, as
     fetch_puzzle.write_puzzle_file writes), and only when puzzle_integrity's
-    write check finds nothing on the v2 file that it did not already find on
-    the legacy one; otherwise it is left legacy and `held` names the new
+    write check, and validate_annotations (_validate_regressions), find
+    nothing on the v2 file that they did not already find on the legacy
+    one; otherwise it is left legacy and `held` names the new
     findings (a file is wholly one shape, so a held file is still valid). A
     file already v2 (an interrupted run's) is recounted from HEAD's copy."""
     import puzzle_schema
@@ -1094,9 +1188,11 @@ def migrate_file(path, write=True):
         rec.update(zip(("full", "opaque"), tree_counts(cur)), redo=redo, already=True)
         return rec
     new, redo = migrate_puzzle(cur)
-    extra = _findings(new, cur) - _findings(cur, cur)
+    extra = sorted(f"{f} {w}" for f, w in _findings(new, cur) - _findings(cur, cur))
+    if not extra:
+        extra = _validate_regressions(cur, new)
     if extra:
-        rec.update(full=0, opaque=0, redo={}, held=sorted(f"{f} {w}" for f, w in extra)[:5])
+        rec.update(full=0, opaque=0, redo={}, held=extra[:5])
         return rec
     rec.update(zip(("full", "opaque"), tree_counts(new)), redo=redo)
     if write:
@@ -1151,7 +1247,7 @@ def commit_message(records):
              "annotation dropped for the burn to re-annotate (plan section 5). The old text is in",
              "this commit's parent.", ""]
     if held:
-        lines += [f"Left legacy ({len(held)}; puzzle_integrity found something new on the v2 file):"]
+        lines += [f"Left legacy ({len(held)}; puzzle_integrity or validate_annotations found something new on the v2 file):"]
         lines += [f"  {r['id']}: {'; '.join(r['held'])}" for r in held] + [""]
     lines += ["Redone, by kind:"]
     for k, ids in sorted(by_kind.items(), key=lambda kv: -len(kv[1])):
