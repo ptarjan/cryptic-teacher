@@ -491,7 +491,11 @@ def match(node, want, got=None):
         ok = False
         if "".join(sorted(want)) in _bag(child):
             try:
-                same = [v for v in values(child) if sorted(v) == sorted(want)]
+                # A reading that is a real anagram first (one already in the
+                # answer's order is no anagram: _check_ops), then the first in
+                # order, so the result never depends on set order.
+                same = sorted((v for v in values(child) if sorted(v) == sorted(want)),
+                              key=lambda v: (v == want, v))
             except _NeedTarget:
                 same = []
             ok = True
@@ -501,8 +505,8 @@ def match(node, want, got=None):
         ok = _match_container(node, want, got)
     elif op == "deletion":
         ok = False
-        for f in values(node["parts"][0]):
-            for r in values(node["parts"][1]):
+        for f in sorted(values(node["parts"][0])):
+            for r in sorted(values(node["parts"][1])):
                 if any(f.startswith(r, k) and f[:k] + f[k + len(r):] == want for k in range(len(f))):
                     match(node["parts"][0], f, got)
                     match(node["parts"][1], r, got)

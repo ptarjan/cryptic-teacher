@@ -48,6 +48,16 @@ series.display_name() (`prize`, `title`, `label`).
     python3 tools/convert_v2.py puzzles/ --report design/converter_dryrun.txt
 
 reads every puzzle and writes nothing but the report.
+
+    python3 tools/convert_v2.py puzzles/ --migrate [--commit]
+
+is the step 8 rewrite (`migrate`): every file in place, whole or not at all,
+each through `migrate_puzzle` and kept only if puzzle_integrity's write check
+finds nothing new on it; the converted puzzles' `wordplay.unchecked` allowance
+is written into annotation_backlog.json, and --commit makes the one migration
+commit, listing the redone clues by kind. A kill loses nothing: the same
+command resumes from the ledger beside puzzles/. tools/test_migrate_v2.sh
+proves it on a sample.
 """
 import argparse
 import collections
@@ -768,26 +778,57 @@ def check(ann, entry, puzzle=None):
 
 # ---------- the rewrite: the policy applied ----------
 
-def migrate_puzzle(puzzle):
-    """(puzzle with every annotation in v2 form, {entry id: kinds} redone).
+def _clue_id(puzzle, where, held):
+    m = re.match(r"\$\.offGrid\[(\d+)\]", where)
+    if m:
+        return f"{puzzle.get('id')}/{int(m.group(1)) + 1}-offgrid"
+    return f"{puzzle.get('id')}/{held.get('number')}-{held.get('direction')}"
 
-    An entry that converts takes its v2 annotation. One that does not (a
-    `check` failure: the module docstring's policy) loses its `annotation`
-    and nothing else: the burn's own queue re-annotates exactly the clues
-    without one, and every other clue keeps its work. The input is not
-    changed."""
-    out = copy.deepcopy(puzzle)
+
+def migrate_puzzle(puzzle):
+    """(the puzzle as a whole format v2 file, {clue id: kinds} redone).
+
+    An annotation that converts takes its v2 form. One that does not (a
+    `check` failure: the module docstring's policy) is dropped and nothing
+    else: the burn's own queue re-annotates exactly the clues without one,
+    and every other clue keeps its work. Every annotation is visited (each
+    entry's, each alsoLeads item's, each offGrid clue's), and the file loses
+    `name`/`series` for the facts display_name needs (`puzzle_names`), so
+    the result is v2 even when nothing in it was annotated. A file that is
+    already v2 comes back as it is. The input is not changed."""
+    import puzzle_schema
+    if puzzle_schema.is_v2(puzzle):
+        return copy.deepcopy(puzzle), {}
+    names, _ = puzzle_names(puzzle) if puzzle.get("id") else ({}, None)
+    out = copy.deepcopy({k: v for k, v in puzzle.items() if k not in ("name", "series")})
+    out.update(names)
     redo = {}
-    for e in out.get("entries") or []:
-        if not isinstance(e, dict) or not e.get("annotation"):
-            continue
-        status, kinds, new = check(e["annotation"], e, puzzle)
+    for where, held, ann in list(puzzle_schema.annotations(puzzle)):
+        status, kinds, new = check(ann, held, puzzle)
+        node = out
+        for part in re.findall(r"\.(\w+)|\[(\d+)\]", where.split("$", 1)[1])[:-1]:
+            node = node[part[0]] if part[0] else node[int(part[1])]
         if status == "failed":
-            redo[f"{puzzle.get('id')}/{e.get('number')}-{e.get('direction')}"] = sorted(kinds)
-            del e["annotation"]
+            redo[_clue_id(puzzle, where, held)] = sorted(kinds)
+            del node["annotation"]
         else:
-            e["annotation"] = new
-    return out, redo
+            node["annotation"] = new
+    return puzzle_schema.order(puzzle_schema.prune(out)), redo
+
+
+def tree_counts(puzzle):
+    """(annotations whose tree is all checked, annotations with an unchecked
+    step) in a v2 puzzle. The second is the puzzle's `wordplay.unchecked`
+    allowance: validate_annotations.v2_view warns once per such annotation and
+    count_backlog counts the clues it names."""
+    import puzzle_schema
+    full = opaque = 0
+    for _, _, ann in puzzle_schema.annotations(puzzle):
+        if ann.get("wordplay") and any(n.get("unchecked") for n in _walk(ann["wordplay"])):
+            opaque += 1
+        else:
+            full += 1
+    return full, opaque
 
 
 # ---------- puzzle names ----------
@@ -966,12 +1007,190 @@ def dry_run(root, report, limit=None):
     return write(True)
 
 
+# ---------- the migration (plan step 8): every file rewritten in place ----------
+
+REPO = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+LEDGER = ".convert_v2_migrate.jsonl"
+
+
+def _findings(puzzle, old):
+    import puzzle_integrity
+    try:
+        puzzle_integrity.refuse_bad_write(puzzle, old)
+        return set()
+    except puzzle_integrity.RefusedWrite as e:
+        return {(flag, what) for flag, _, what in e.flags}
+
+
+def _committed(path):
+    """The file as HEAD has it (the legacy copy of one an interrupted run already rewrote)."""
+    import subprocess
+    try:
+        rel = os.path.relpath(os.path.realpath(path), os.path.realpath(REPO))
+        out = subprocess.run(["git", "-C", REPO, "show", f"HEAD:{rel}"], capture_output=True, check=True)
+        return json.loads(out.stdout)
+    except (subprocess.CalledProcessError, ValueError):
+        return None
+
+
+def migrate_file(path, write=True):
+    """One file of the migration: {id, path, full, opaque, redo, held?}.
+
+    The file is rewritten whole or not at all (a .part renamed over it, as
+    fetch_puzzle.write_puzzle_file writes), and only when puzzle_integrity's
+    write check finds nothing on the v2 file that it did not already find on
+    the legacy one; otherwise it is left legacy and `held` names the new
+    findings (a file is wholly one shape, so a held file is still valid). A
+    file already v2 (an interrupted run's) is recounted from HEAD's copy."""
+    import puzzle_schema
+    with open(path, encoding="utf-8") as fh:
+        cur = json.load(fh)
+    rec = {"id": cur.get("id"), "path": path}
+    if puzzle_schema.is_v2(cur):
+        old = _committed(path)
+        _, redo = migrate_puzzle(old) if old is not None and not puzzle_schema.is_v2(old) else (None, {})
+        rec.update(zip(("full", "opaque"), tree_counts(cur)), redo=redo, already=True)
+        return rec
+    new, redo = migrate_puzzle(cur)
+    extra = _findings(new, cur) - _findings(cur, cur)
+    if extra:
+        rec.update(full=0, opaque=0, redo={}, held=sorted(f"{f} {w}" for f, w in extra)[:5])
+        return rec
+    rec.update(zip(("full", "opaque"), tree_counts(new)), redo=redo)
+    if write:
+        part = os.path.join(os.path.dirname(path), f".{os.path.basename(path)}.part")
+        with open(part, "w", encoding="utf-8") as fh:
+            fh.write(json.dumps(new, indent=1, ensure_ascii=False) + "\n")
+        os.replace(part, path)
+    return rec
+
+
+def _migrate_one(args):
+    path, write = args
+    try:
+        return migrate_file(path, write)
+    except Exception as x:  # a converter bug: the file stays legacy, the run goes on
+        return {"id": os.path.basename(path)[:-5], "path": path, "full": 0, "opaque": 0, "redo": {},
+                "held": [f"crashed: {type(x).__name__}: {x}"[:300]]}
+
+
+def write_allowance(records, backlog):
+    """Set each migrated puzzle's `wordplay.unchecked` allowance (its clues with an
+    unchecked step) in annotation_backlog.json; every other field as it was."""
+    import validate_annotations as V
+    with open(backlog) as fh:
+        data = json.load(fh)
+    allow = dict(data.get("wordplay.unchecked") or {})
+    for r in records:
+        if r.get("held"):
+            continue
+        if r["opaque"]:
+            allow[r["id"]] = r["opaque"]
+        else:
+            allow.pop(r["id"], None)
+    data["wordplay.unchecked"] = dict(sorted(allow.items(), key=V._sort_key))
+    with open(backlog, "w") as fh:
+        fh.write(json.dumps(data, indent=1) + "\n")
+    return sum(allow.values()), len(allow)
+
+
+def commit_message(records):
+    full = sum(r["full"] for r in records)
+    opaque = sum(r["opaque"] for r in records)
+    redo = {k: v for r in records for k, v in r["redo"].items()}
+    held = [r for r in records if r.get("held")]
+    by_kind = collections.defaultdict(list)
+    for cid, kinds in redo.items():
+        by_kind[kinds[0] if len(kinds) == 1 else ", ".join(kinds)].append(cid)
+    lines = [f"Migrate puzzles to format v2: {full} trees, {opaque} opaque", "",
+             f"tools/convert_v2.py --migrate over {len(records)} puzzle files: {full} annotations with",
+             f"a fully checked tree, {opaque} with an unchecked step (allowed per puzzle under",
+             f"wordplay.unchecked in tools/annotation_backlog.json), {len(redo)} redone: the clue's",
+             "annotation dropped for the burn to re-annotate (plan section 5). The old text is in",
+             "this commit's parent.", ""]
+    if held:
+        lines += [f"Left legacy ({len(held)}; puzzle_integrity found something new on the v2 file):"]
+        lines += [f"  {r['id']}: {'; '.join(r['held'])}" for r in held] + [""]
+    lines += ["Redone, by kind:"]
+    for k, ids in sorted(by_kind.items(), key=lambda kv: -len(kv[1])):
+        lines.append(f"  {k} ({len(ids)}):")
+        lines += ["    " + ", ".join(ids[n:n + 6]) for n in range(0, len(ids), 6)]
+    return "\n".join(lines) + "\n"
+
+
+def migrate(root, backlog, jobs=4, commit=False, limit=None):
+    """Rewrite every puzzle under `root` as format v2, in place; see main()."""
+    import multiprocessing
+    import subprocess
+    root = os.path.abspath(root)
+    ledger = os.path.join(os.path.dirname(root), LEDGER)
+    done = {}
+    if os.path.exists(ledger):
+        with open(ledger) as fh:
+            for line in fh:
+                try:
+                    r = json.loads(line)
+                except ValueError:
+                    continue  # a line cut by a kill
+                done[r["path"]] = r
+    files = sorted(os.path.join(dp, f) for dp, _, fs in os.walk(root) for f in fs
+                   if f.endswith(".json") and not f.startswith("."))
+    if limit:
+        files = files[:limit]
+    todo = [f for f in files if f not in done or done[f].get("held")]
+    print(f"migrate: {len(files)} files, {len(files) - len(todo)} done by an earlier run, "
+          f"{len(todo)} to go; ledger {ledger}", file=sys.stderr, flush=True)
+    with open(ledger, "a") as out, multiprocessing.Pool(jobs) as pool:
+        for n, r in enumerate(pool.imap_unordered(_migrate_one, [(f, True) for f in todo], chunksize=8), 1):
+            done[r["path"]] = r
+            out.write(json.dumps(r) + "\n")
+            out.flush()
+            if n % 1000 == 0:
+                print(f"migrate: {n}/{len(todo)}", file=sys.stderr, flush=True)
+    records = [done[f] for f in files if f in done]
+    total, puzzles = write_allowance(records, backlog)
+    msg = commit_message(records)
+    held = sum(1 for r in records if r.get("held"))
+    print(msg.split("\n\n")[0])
+    print(f"{len(records)} files, {held} left legacy; wordplay.unchecked allowance {total} clues in "
+          f"{puzzles} puzzles; redone {sum(len(r['redo']) for r in records)} clues")
+    msg_path = os.path.join(os.path.dirname(root), ".convert_v2_migrate.msg")
+    with open(msg_path, "w") as fh:
+        fh.write(msg)
+    if commit:
+        trailer = subprocess.run([sys.executable, os.path.join(REPO, "tools", "provenance.py"), "trailer"],
+                                 capture_output=True, text=True).stdout.strip()
+        if trailer:
+            with open(msg_path, "a") as fh:
+                fh.write("\n" + trailer + "\n")
+        subprocess.run(["git", "-C", REPO, "add", "--", os.path.relpath(root, REPO),
+                        os.path.relpath(backlog, REPO)], check=True)
+        subprocess.run(["git", "-C", REPO, "commit", "-q", "-F", msg_path], check=True)
+        os.remove(ledger)
+        os.remove(msg_path)
+        print(f"committed: {subprocess.run(['git', '-C', REPO, 'log', '-1', '--format=%h %s'], capture_output=True, text=True).stdout.strip()}")
+    else:
+        print(f"not committed; message in {msg_path}")
+    return records
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    ap.add_argument("root", help="puzzles/ (or a subfolder); read only")
+    ap.add_argument("root", help="puzzles/ (or a subfolder); read only unless --migrate")
     ap.add_argument("--report", help="write the dry-run report here")
-    ap.add_argument("--limit", type=int, help="stop after this many annotated puzzles")
+    ap.add_argument("--limit", type=int, help="stop after this many annotated puzzles (--migrate: files)")
+    ap.add_argument("--migrate", action="store_true",
+                    help="rewrite every file under root as format v2 in place (plan step 8), write "
+                         "the wordplay.unchecked allowance into --backlog, and with --commit make "
+                         "the one migration commit. Resumable: a killed run picks up from "
+                         f"<root>/../{LEDGER} when started again the same way.")
+    ap.add_argument("--backlog", default=os.path.join(REPO, "tools", "annotation_backlog.json"))
+    ap.add_argument("--jobs", type=int, default=4)
+    ap.add_argument("--commit", action="store_true", help="--migrate: commit the result (root in this repo)")
     a = ap.parse_args()
+    if a.migrate:
+        recs = migrate(a.root, a.backlog, a.jobs, a.commit, a.limit)
+        raise SystemExit(1 if any(r.get("held") for r in recs) and not a.commit else 0)
     text = dry_run(a.root, a.report, a.limit)
     print(text if len(text) < 6000 else text[:6000] + "\n…")
 

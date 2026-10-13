@@ -33,7 +33,9 @@ def check(name, ok, detail=""):
     fails += not ok
     print(("ok  " if ok else "FAIL"), name, "" if ok else detail)
 
-p = fp.read_puzzle_file(fp.resolve_puzzle("quiptic-619"))
+# A frozen legacy copy (tools/fixtures): the legacy annotations are the subject,
+# and the corpus file is format v2 from step 8 on.
+p = fp.read_puzzle_file(Path("fixtures/quiptic-619-legacy.json"))
 by = {f"{e['number']}-{e['direction']}": e for e in p["entries"]}
 model, same, tried = {}, 0, 0
 for eid, e in by.items():

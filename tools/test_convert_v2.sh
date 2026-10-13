@@ -260,7 +260,7 @@ run("a blank-for indicator on a leaf with a selection and a sound takes the next
 # migrate_puzzle: the bad clue is dropped for the burn, the rest converted.
 good = ann(["charade"], "WAR PAINT", "Make-up", 0, [blk("conflict", "WAR"), blk("colour", "PAINT")])
 bad = ann(["double_definition"], "CASE", "Legal action", 0, [blk("Legal action")])
-pz = {"id": "cryptic-1", "entries": [
+pz = {"id": "cryptic-1", "name": "Cryptic crossword No 1", "series": "cryptic", "entries": [
     {**entry("WARPAINT", "Make-up conflict colour", "3,5"), "annotation": good},
     {**entry("CASE", "Legal action", "4"), "number": 2, "annotation": bad},
     {**entry("ABC", "No hint yet", "3"), "number": 3}]}
@@ -269,6 +269,17 @@ check("migrate_puzzle redoes only the bad clue", list(redo) == ["cryptic-1/2-acr
       and "annotation" not in out["entries"][1] and "annotation" not in out["entries"][2], (redo, out))
 check("migrate_puzzle converts the rest and leaves the input alone",
       "wordplay" in out["entries"][0]["annotation"] and pz["entries"][1]["annotation"] is bad)
+check("migrate_puzzle writes a whole v2 file: no name or series", "name" not in out and "series" not in out, out.keys())
+check("migrate_puzzle leaves a v2 file as it is", C.migrate_puzzle(out) == (out, {}))
+alts = {"id": "cryptic-2", "name": "Cryptic crossword No 2", "series": "cryptic", "entries": [
+    {**entry("WARPAINT", "Make-up conflict colour", "3,5"), "alsoLeads": [{"annotation": bad}]}],
+    "offGrid": [{"clue": {"text": "Make-up conflict colour", "enumeration": "3,5"}, "solution": "WARPAINT",
+                 "annotation": good}]}
+out, redo = C.migrate_puzzle(alts)
+check("migrate_puzzle reaches alsoLeads and offGrid annotations", list(redo) == ["cryptic-2/1-across"]
+      and "annotation" not in out["entries"][0]["alsoLeads"][0]
+      and "wordplay" in out["offGrid"][0]["annotation"], (redo, out))
+check("tree_counts counts checked and unchecked trees", C.tree_counts(out) == (1, 0), C.tree_counts(out))
 
 raise SystemExit(fails > 0)
 PY

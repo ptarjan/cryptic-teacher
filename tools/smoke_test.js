@@ -7560,13 +7560,26 @@ global.realSetTimeout(() => {
 // ladder is climbed in each, and a clue the converter rebuilt exactly must show
 // the same panel at every rung. A clue it normalised (blocks recut, link words
 // recomputed) only has to render; tools/test_shim_format.sh checks the data.
-{
-  const got = JSON.parse(require("child_process").execFileSync("python3", ["-c",
-    "import json, convert_v2, fetch_puzzle as fp\n"
-    + "[(o, n, st)] = convert_v2.converted_samples(1)\n"
-    + "print(json.dumps({'old': fp.browser_puzzle(o), 'new': fp.browser_puzzle(n),"
-    + " 'exact': [w for w, s in st.items() if s == 'exact']}))"],
-  { cwd: path.join(ROOT, "tools"), encoding: "utf8", maxBuffer: 1 << 26 }));
+// CT_SMOKE_V2=<legacy dir>:<migrated dir> holds every puzzle a migration
+// rewrote (tools/convert_v2.py --migrate on a copy; tools/test_migrate_v2.sh)
+// to the same, instead of the one converted sample.
+for (const got of JSON.parse(require("child_process").execFileSync("python3", ["-c",
+    "import json, os, sys, convert_v2, fetch_puzzle as fp, puzzle_schema as S\n"
+    + "from pathlib import Path\n"
+    + "pairs = os.environ.get('CT_SMOKE_V2')\n"
+    + "if pairs:\n"
+    + "    old_dir, new_dir = pairs.split(':')\n"
+    + "    out = []\n"
+    + "    for f in sorted(Path(new_dir).rglob('*.json')):\n"
+    + "        n = fp.read_puzzle_file(f); o = fp.read_puzzle_file(Path(old_dir) / f.relative_to(new_dir))\n"
+    + "        if S.is_v2(o) or not any(a for _, _, a in S.annotations(n)): continue\n"
+    + "        st = {w: convert_v2.check(a, h, o)[0] for w, h, a in S.annotations(o)}\n"
+    + "        out.append((o, n, st))\n"
+    + "else:\n"
+    + "    out = convert_v2.converted_samples(1)\n"
+    + "print(json.dumps([{'old': fp.browser_puzzle(o), 'new': fp.browser_puzzle(n),"
+    + " 'exact': [w for w, s in st.items() if s == 'exact']} for o, n, st in out]))"],
+  { cwd: path.join(ROOT, "tools"), encoding: "utf8", maxBuffer: 1 << 28 }))) {
   const ID = "smoke-format-v2";
   const ladders = (puz) => {
     const p = Object.assign({}, puz, { id: ID });
@@ -7617,7 +7630,7 @@ global.realSetTimeout(() => {
     // A clue run on by an ellipsis is shown with its neighbour, whose own
     // annotation may be a normalised one.
     .filter((e) => !/^\s*(…|\.\.\.)|(…|\.\.\.)\s*$/.test(clueText(e))).map(entryId);
-  assert(exact.length >= 5, `format v2: ${got.old.id} has exactly converted clues to compare: ${exact.length}`);
+  if (!process.env.CT_SMOKE_V2) assert(exact.length >= 5, `format v2: ${got.old.id} has exactly converted clues to compare: ${exact.length}`);
   const differ = exact.filter((id) => JSON.stringify(before[id]) !== JSON.stringify(after[id]));
   assert(!differ.length, `format v2: ${got.old.id}'s exactly converted clues climb the same ladder as `
     + `its legacy file; these do not: ${differ.join(", ")}`);

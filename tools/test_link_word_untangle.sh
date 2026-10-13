@@ -10,7 +10,7 @@ python3 - <<'PY'
 import json, pathlib, tempfile
 import annotate_check as C
 import validate_annotations as V
-from fetch_puzzle import resolve_puzzle
+from fetch_puzzle import read_puzzle_view, resolve_puzzle
 
 fails = 0
 def check(name, ok, got=None):
@@ -78,7 +78,9 @@ check("a gives not drawn from the fragment: no claim either way",
 # A link word landing on a definition or indicator (check_link_word_is_clear_of_other_marks):
 # committed annotations with the link words a real first check rejected put back.
 def committed(stem, eid):
-    d = json.loads(resolve_puzzle(stem).read_text(encoding="utf-8"))
+    # Through the view: from step 8 the corpus file is format v2, whose
+    # annotation stores the tree and view() gives the legacy fields (linkWords).
+    d = read_puzzle_view(resolve_puzzle(stem))
     e = next(e for e in d["entries"] if f"{e['number']}-{e['direction']}" == eid)
     return json.loads(json.dumps(e["annotation"]))
 
