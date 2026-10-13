@@ -141,6 +141,35 @@ assert got == {("timesforthetimes", "no-grid"): 1, ("archive.org", "blank-clues"
 assert (r["exist"], r["filed"], r["missing"]) == (4, 1, 3)
 assert r["buckets"][-1]["cause"] == "no-source"     # not recoverable sorts last
 
+# Known (/progress/'s whole bar) counts every puzzle printed by today, as if
+# the series is still going, or up to its last issue if it ended. A running
+# series carries its newest held number on at its held run's pace; a series
+# with one dated number stops at its highest held.
+import datetime
+import series as sm
+D = datetime.date
+weekly = lambda s, n: {1: D(2000, 1, 2), 53: D(2000, 12, 31)}.get(n)          # 52 weeks, 52 numbers
+assert cov.due_number("azed", {1, 53}, D(2001, 1, 28), weekly) == 57
+assert cov.due_number("azed", {1, 53}, D(2000, 12, 31), weekly) == 53
+assert cov.due_number("azed", {1, 53}, D(2000, 6, 1), weekly) == 53   # never below held
+assert cov.due_number("azed", {53}, D(2030, 1, 1), weekly) == 53      # no pace to carry
+assert cov.number_runs("nation", {258, 3503}, D(2026, 10, 12), weekly) == [(1, 3529)], "ended at lastIssue"
+monthly = lambda s, n: {20000: D(2000, 1, 1), 270: D(2024, 2, 1), 290: D(2025, 10, 1)}.get(n)
+assert cov.number_runs("timesclub", {20000, 20279, 270, 290}, D(2026, 10, 1), monthly) == \
+    [(20000, 20279), (270, 302)], "a renumbered series: the old run ends, the new one runs"
+assert cov.number_runs("metro", {9516}, D(2026, 10, 11), weekly) == [(1, 10072)], "a day count: No 1 to today's"
+# Every series has a Known rule: printed days, numbers, Trove dates, the book
+# estimates, or none because it is a reprint of another or our own.
+for s in sm.SERIES:
+    m = sm.meta(s)
+    rule = (s in ac.PRINTED or sm.first_number(s) is not None or "numberIsDayCount" in m
+            or s in ("canberra", sm.BOOK_SERIES) or m.get("reprints") or m.get("unlisted"))
+    assert rule, f"{s}: no Known rule in tools/coverage.py, so /progress/ falls back to downloaded"
+# The Canberra Times holds one puzzle a print date, so an unfiled article keys
+# by its date and a date's other articles add nothing.
+day = {"1": D(1989, 1, 3), "2": D(1989, 1, 3)}
+assert cov.trove_key("1", day) == cov.trove_key("2", day) == "canberra-890103"
+
 # Scan classes off the cached listings: a PDF archive.org never OCR'd is an
 # edition like any other ("not-fetched" until fetched), a year whose listing is not cached "no-listing", a date no item
 # holds "no-scan".

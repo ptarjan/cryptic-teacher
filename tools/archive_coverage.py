@@ -52,7 +52,10 @@ PRINTED = {
               # The Times was shut by the lock-out of 1 Dec 1978 to 12 Nov 1979.
               "gaps": [("1978-12-01", "1979-11-12")]},
     "cryptic": {"weekdays": range(6), "first": "1929-01-05", "gaps": []},
-    "ftcryptic": {"weekdays": range(6), "first": "1930-01-01", "gaps": []},
+    # The FT's numbers keep step with its print days from the first scan on
+    # (No 1,629 on 1971-07-27 to No 18,503 on 2026-10-12, within 400), so No 1
+    # is 1,628 print days before No 1,629: about 1966-05-10, not 1930.
+    "ftcryptic": {"weekdays": range(6), "first": "1966-05-10", "gaps": []},
     "telegraph": {"weekdays": range(6), "first": "1925-07-30", "gaps": []},
 }
 

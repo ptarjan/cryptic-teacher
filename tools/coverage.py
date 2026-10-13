@@ -14,8 +14,13 @@ date, every other numbered series by its number, a book by its position.
 Denominators:
 
   printed dailies   every print date back to the first crossword (archive_coverage)
-  numbered series   first_number() (series.py) to the highest number held or listed
-  canberra          Trove articles the filer read and did not skip as no cryptic
+  numbered series   first_number() (series.py) to its last issue (lastIssue) if it has
+                    ended, else to the number due today: the highest held, carried on
+                    at the held run's pace (number_runs); a renumbered series counts
+                    both runs; a day-count series (numberIsDayCount) No 1 to today's
+  canberra          print dates with a Trove article the filer read and did not skip as
+                    no cryptic, or has not read yet (one puzzle a date: the series is
+                    keyed by its print date)
   book              each book's estimated_puzzle_count (tools/data/book_candidates.json,
                     an upper bound), its printed_count (tools/data/books.json, where the
                     book states one), or the puzzles its last read split, if more
@@ -426,16 +431,15 @@ def build(today=None):
     if "azed" in numbered:
         for n, cause in andlit_rows():
             numbered["azed"][2].add((n, "andlit", cause))
-    for s, (first, held, listed) in numbered.items():
+    for s in series_meta.SERIES:
+        if series_meta.meta(s).get("numberIsDayCount") and s not in ledgers:
+            numbered[s] = (1, held_numbers(s), set())
+    for s, (_first, held, listed) in numbered.items():
         led = Ledger(s, "numbers")
-        # Up to the highest number held: a blog's stray number (a typo, another
-        # series' run) must not invent thousands of puzzles; the daily fetch
-        # owns the numbers past it.
-        top = max(held, default=first - 1)
-        led.exists = set(range(first, top + 1))
+        led.exists = {n for a, b in number_runs(s, held, today) for n in range(a, b + 1)}
         led.filed = held & led.exists
         for n, blog, cause in listed:
-            if n >= first:
+            if n in led.exists:
                 led.claim(n, blog, cause)
         ledgers[s] = led
     if "ftcryptic" in ledgers:
@@ -448,12 +452,89 @@ def build(today=None):
             "series": {s: led.result() for s, led in sorted(ledgers.items())}}
 
 
+def number_date(series, n):
+    """The print date of `series`-n's file, or None (no file, or undated)."""
+    for p in [*(ROOT / "puzzles" / series).glob(f"*/{series}-{n}.json"),
+              ROOT / "clues_only" / series / f"{series}-{n}.json"]:
+        try:
+            day = json.loads(p.read_text(encoding="utf-8")).get("date")
+        except (OSError, ValueError):
+            continue
+        if day:
+            return datetime.date.fromisoformat(day)
+    return None
+
+
+def due_number(series, held, today, dated=number_date):
+    """The number `series` is due to have reached by `today`: the highest held,
+    carried on from its print date at the pace the held run kept (its lowest
+    and highest dated numbers, `dated(series, n)`). A series still running
+    counts every issue printed since our newest, not just the ones filed; one
+    whose run we hold no two dates of stops at its highest held."""
+    nums = sorted(held)
+    top = next(((n, d) for n in reversed(nums[-20:]) if (d := dated(series, n))), None)
+    low = next(((n, d) for n in nums[:20] if (d := dated(series, n))), None)
+    if not top or not low or top[1] <= low[1]:
+        return max(nums, default=0)
+    (top, last), (low, start) = top, low
+    pace = (top - low) / (last - start).days
+    return max(nums[-1], top + int(max((today - last).days, 0) * pace))
+
+
+def number_runs(series, held, today, dated=number_date):
+    """[(first, last)] numbers of `series` that exist by `today`, from
+    first_number() (1 for a day-count series). An ended series (series.py
+    lastIssue) stops at its last issue; a running one reaches its due_number(),
+    or for a day-count series today's number. A renumbered series
+    (renumberedBelow) ended its old run at its highest held number there, and
+    its newer run, from renumberedFrom, is the running one."""
+    m = series_meta.meta(series)
+    if m.get("numberIsDayCount"):
+        return [(1, max(series_meta.day_count_number(series, today), max(held, default=0)))]
+    first = series_meta.first_number(series)
+    if "lastIssue" in m:
+        return [(first, m["lastIssue"])]
+    below = m.get("renumberedBelow")
+    if below is None:
+        return [(first, due_number(series, held, today, dated))]
+    old, new = {n for n in held if n >= below}, {n for n in held if n < below}
+    start = m["renumberedFrom"]
+    return [(first, max(old, default=first - 1)),
+            (start, max(due_number(series, new, today, dated), start - 1))]
+
+
+def trove_dates(root=None):
+    """{article id: print date} from fetch_trove.py's search listings
+    (index/<year>.jsonl, "Thursday 11 December 1980")."""
+    out = {}
+    for path in sorted(((root or TROVE) / "index").glob("*.jsonl")):
+        for hit in jsonl(path):
+            try:
+                out[str(hit["id"])] = datetime.datetime.strptime(hit["date"], "%A %d %B %Y").date()
+            except (KeyError, TypeError, ValueError):
+                pass
+    return out
+
+
+def trove_key(art, dates):
+    """An unfiled Trove article's ledger key: the id its print date files as
+    (canberra-YYMMDD), since the series holds one puzzle a date and a date's
+    other articles (its quick, a local cryptic, a news item) must not count as
+    more; article-<id> when no listing dates it."""
+    day = dates.get(art)
+    if day is None:
+        iso = file_trove_puzzles.article_date(TROVE / art)
+        day = datetime.date.fromisoformat(iso) if iso else None
+    return series_meta.puzzle_id("canberra", int(day.strftime("%y%m%d"))) if day else f"article-{art}"
+
+
 def trove():
     led = Ledger("canberra", "Trove articles read as a cryptic")
     # A reprint filed as the London Times or Guardian puzzle it is counts too.
     led.filed = ({p.stem for p in (ROOT / "puzzles" / "canberra").glob("*/canberra-*.json")}
                  | reprinted_ids("canberra"))
     read = set()
+    dates = trove_dates()
     zones = file_trove_puzzles.zones_of(TROVE)
     for r in scan_queue.ledger_rows(TROVE / "filed.jsonl", "article").values():
         art = str(r.get("article"))
@@ -464,15 +545,15 @@ def trove():
             led.exists.add(r["id"])
             led.claim(r["id"], "trove", "written-not-filed")
             continue
-        key = f"article-{art}"
+        key = trove_key(art, dates)
         led.exists.add(key)
         file_trove_puzzles.stamp_cause(r, zones)
         if r.get("refused") or r.get("pending"):
             led.claim(key, "trove", r.get("cause") or ("refused-no-cause" if r.get("refused") else "pending-no-cause"))
     unread = [p.parent.name for p in TROVE.glob("*/meta.json") if p.parent.name not in read]
     for art in unread:
-        led.exists.add(f"article-{art}")
-        led.claim(f"article-{art}", "trove", "not-read")
+        led.exists.add(trove_key(art, dates))
+        led.claim(trove_key(art, dates), "trove", "not-read")
     if unread:
         led.notes.append(f"{len(unread)} fetched articles are unread; some may prove not to be cryptics")
     return led
