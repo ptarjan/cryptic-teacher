@@ -962,6 +962,7 @@
                 solution: e.solution, clue: l.clue, vid, base: entryId(e),
                 group: [vid, ...(l.group || []).slice(1)] };
     if (l.annotation) v.annotation = l.annotation;
+    if (l.selfClued) v.selfClued = l.selfClued;
     return v;
   })]);
   // An off-grid clue (`offGrid`) is an answer the preamble has entered
@@ -978,7 +979,11 @@
   });
   const buildLeaderOf = (list) => {
     const out = {};
-    list.forEach((e) => (e.group || []).slice(1).forEach((id) => { if (id !== entryId(e) && !(id in out)) out[id] = entryId(e); }));
+    // A light named in `selfClued` is an answer of its own that this one also
+    // runs through (cryptic-21893's THERE): it keeps its own clue.
+    list.forEach((e) => (e.group || []).slice(1).forEach((id) => {
+      if (id !== entryId(e) && !(id in out) && !(e.selfClued || []).includes(id)) out[id] = entryId(e);
+    }));
     return out;
   };
   const holderOf = (e) => byId[leaderOf[entryId(e)]] || e;

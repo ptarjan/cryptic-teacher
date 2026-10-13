@@ -592,6 +592,16 @@
     "annotation": {
      "$ref": "#/$defs/annotation"
     },
+    "selfClued": {
+     "description": "Beside `group` only: the lights of the group after its leader that are answers of their own as well, each keeping its own clue, annotation and group (cryptic-21893's 21-down THERE and 1-across PUBLIC finish 11-across's BATTLE HYMN OF THE REPUBLIC). They are not this answer's continuations.",
+     "type": "array",
+     "minItems": 1,
+     "uniqueItems": true,
+     "items": {
+      "type": "string",
+      "pattern": "^[0-9]+-(across|down)$"
+     }
+    },
     "alsoLeads": {
      "description": "Each further linked answer that starts on this light, in the order the paper prints their clues (Genius 209's 22 across, IVOR, starts both IVOR HUGH JEGO and IVOR SORE BEACH BUM). Present only beside `group`. Each carries its own clue, group (this entry first) and annotation; the light's `solution` is shared, and the answer's other lights are continuations as for `group`.",
      "type": "array",
@@ -609,6 +619,9 @@
        },
        "group": {
         "$ref": "#/$defs/group"
+       },
+       "selfClued": {
+        "$ref": "#/$defs/entry/properties/selfClued"
        },
        "annotation": {
         "$ref": "#/$defs/annotation"
