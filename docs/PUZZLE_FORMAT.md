@@ -54,6 +54,37 @@ and annotation files name entries by it. A puzzle file that stores an entry
 `id` fails the schema, so the write refuses it.
 
 
+## Design principles
+
+- **The file stores facts and a checked parse, nothing derivable.** A field
+  that can be computed from other fields is computed when the file is read,
+  not stored. An annotation's `type`, display `answer`, `linkWords`,
+  indicator `for`, `blocks` and `assembly` all follow from its wordplay tree
+  and the entry's solution, separators and clue; `annotation.view()` derives
+  them in one place, and a puzzle's `name` comes from `series.display_name()`.
+- **The model writes a model-friendly form, and a program translates it.**
+  The annotator writes each clue's wordplay as a one-line expression close to
+  a solving blog's parse line (`ins<in>([burn]STING, [tree]PINE) +<under>
+  [fish]LING`). `tools/wordplay.py` parses it, works out the letters at every
+  step, refuses a parse that does not give the answer (naming the step that
+  broke), and turns it into the stored tree.
+- **Lessons become checks, not prompt text.** The validator refuses a
+  derivable field rather than a prompt asking the model to keep it consistent,
+  so a mistake that has been fixed once cannot be written again.
+- **Why.** Stored copies of the same fact drifted apart: answers spaced
+  against their enumeration, a `type` list disagreeing with the blocks, link
+  words that overlap a block, and containers and deletions that no check could
+  reach, because only their final pieces were stored. A tree checks every
+  step, and a derived field cannot disagree with its source.
+
+Live so far: the parser and evaluator (`tools/wordplay.py`), `annotation.view()`
+and `series.display_name()`, tested by `tools/test_wordplay.sh`. Next steps: a
+converter from today's annotations to trees, the schema and validator change
+that removes the derived fields from the file and refuses them, the site's
+build reading `view()`, and the annotation prompt switching to the expression.
+Until then the files keep today's fields, described below.
+
+
 ## Annotation rules
 
 `tools/validate_annotations.py` enforces these:

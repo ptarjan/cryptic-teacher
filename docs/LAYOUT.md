@@ -260,9 +260,10 @@ tools/definitions.py                          where each of an annotation's defi
                                               rules, and refuses to guess past them
 tools/annotation.py                           an annotation's two groups, read one way by every
                                               tool: `explanation` (the prose rung) and
-                                              `assembly` (the machine-checkable rebuild), and
-                                              which of `assembly.anagrams` gives the whole
-                                              answer
+                                              `assembly` (the machine-checkable rebuild), which
+                                              of `assembly.anagrams` gives the whole answer,
+                                              and `view()`: the fields a format v2 wordplay
+                                              tree implies
 tools/groups.py                               linked answers: the leader carries `group`, its
                                               lights in order, and the other lights nothing;
                                               maps each light to its group or leader, and
@@ -2397,5 +2398,10 @@ tools/test_session_model.sh                   does apply_annotations find who wr
                                               when the model never ran it?
 tools/salvaged.sh                             lists or restores what tools/puzzle_worker.sh
                                               salvaged from a discarded run
+tools/test_wordplay.sh                        does wordplay.py parse and check every op of the
+                                              wordplay expression, and does annotation.view()
+                                              derive today's fields from the tree?
+tools/wordplay.py                             a clue's wordplay as one line the model writes,
+                                              and the tree a puzzle stores
 ```
 <!-- LAYOUT-END -->

@@ -943,6 +943,43 @@ def puzzle_name(series, number):
     return f"{book_row(series, number)['name']} No {position_of(series, number)}"
 
 
+# What a puzzle's name says before its number: "Times cryptic crossword" No
+# 29,000; a lead with {n} in it is the whole name, the number as printed
+# (The Nation prints no thousands comma). A series not listed is named by its
+# kind and publisher.
+NAME_LEADS = {
+    "cryptic": "Cryptic crossword", "quiptic": "Quiptic crossword", "everyman": "Everyman crossword",
+    "independent": "Independent cryptic crossword", "metro": "Metro cryptic crossword",
+    "cyclops": "Private Eye Cyclops crossword", "nation": "The Nation cryptic crossword No {n}",
+    "canberra": "Canberra Times cryptic crossword",
+    "indysunday": "Independent on Sunday cryptic crossword", "times": "Times cryptic crossword",
+    "timesquick": "Times quick cryptic crossword", "timesjumbo": "Times jumbo cryptic crossword",
+    "sundaytimes": "Sunday Times cryptic crossword", "timesclub": "Times club monthly special crossword",
+    "tls": "Times Literary Supplement cryptic crossword", "mephisto": "Sunday Times mephisto crossword",
+    "azed": "Observer azed crossword", "genius": "Guardian genius crossword",
+    "listener": "Listener crossword", "ftcryptic": "Financial Times cryptic crossword",
+    "telegraph": "Telegraph cryptic crossword", "toughie": "Telegraph toughie crossword",
+    "sundaytel": "Sunday Telegraph cryptic crossword", "sundaytough": "Sunday Telegraph Toughie",
+}
+
+
+def display_name(puzzle):
+    """The puzzle's name, from its id and the facts it stores: a book's from
+    the registry; "Prize crossword" for a Guardian prize; a printed `title`
+    after a colon (a Listener's); a date-keyed number as its weekday and date,
+    with the paper's `label` for the edition in brackets."""
+    series, number = parse_id(puzzle["id"])
+    if is_book(series):
+        return puzzle_name(series, number)
+    lead = "Prize crossword" if puzzle.get("prize") else NAME_LEADS.get(
+        series, f"{publisher(series, number)} {kind(series, number).lower()} crossword")
+    if (day := number_date(series, number)):
+        name = f"{lead}, {day.strftime('%A %-d %B %Y')}"
+        return name + (f" ({puzzle['label']})" if puzzle.get("label") else "")
+    name = lead.format(n=number) if "{n}" in lead else f"{lead} {display_number(series, number)}"
+    return name + (f": {puzzle['title']}" if puzzle.get("title") else "")
+
+
 # ---------- ids ----------
 # A puzzle's id is its series AND its number. The number alone is not unique:
 # every paper numbers from its own 1, so the Guardian's 30,089 and the Times'
