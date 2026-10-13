@@ -412,8 +412,11 @@ def convert(ann, entry, puzzle=None):
                                                              and re.sub(r"[^A-Z ]", "", fold(stored).upper()).split() == re.sub(r"[^A-Z ]", "", fold(display).upper()).replace("-", " ").split()):
             out["spelling"] = stored
         elif L(stored) == L(display) and not _enumerated(entry, puzzle):
-            # No enumeration to space it by (a Listener's): the spacing is a fact.
-            out["spelling"] = stored
+            # No enumeration to space it by (a Listener's): the spacing is a
+            # fact. A linked answer's unspaced run (THERESAONEEYED...) is no
+            # spacing at all: display_answer's breaks between lights beat it.
+            if len(_lights(entry, puzzle)) == 1 or re.search(r"[ \-]", stored):
+                out["spelling"] = stored
         elif L(stored) == L(display):
             # The letters agree; only the spacing or the hyphens differ from what
             # the entry derives. The printed enumeration and separators win: the
@@ -543,7 +546,15 @@ def _enumerated(entry, puzzle):
     """Whether any light of the answer prints an enumeration or separators
     that could space it."""
     if str((puzzle or {}).get("id", "")).rsplit("-", 1)[0] in LETTER_COUNT_ONLY:
-        return False
+        # Only its separators (a printed word break) space it: answer_marks.
+        return any((x.get("clue") or {}).get("separators") for x in _lights(entry, puzzle))
+    lights = _lights(entry, puzzle)
+    if len(lights) > 1:
+        # A linked answer is spaced only by a lead enumeration that speaks for
+        # the whole group (annotation.group_marks). Private Eye prints each
+        # leg's light length, (4) on WORK of WORK OF ART: no word breaks, so
+        # the stored spacing is the only one there is.
+        return annotation.group_marks(lights) is not None
     return any((x.get("clue") or {}).get("enumeration") or (x.get("clue") or {}).get("separators") for x in _lights(entry, puzzle))
 
 

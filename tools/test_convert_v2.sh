@@ -389,5 +389,49 @@ check("a definition's note is never a block's", v and v["blocks"] == [
     {"clueFragment": "Debtor absconding"}, {"clueFragment": "on the red-eye", "note": "a red-eye is an overnight flight"}],
     (got, ks, v and v["blocks"]))
 
+# Linked answers: the lead prints the whole group's enumeration (Guardian),
+# or each leg's own length (Private Eye), or reads in another order.
+def leg(num, d, sol, text=None, enum=None, seps=(), group=None):
+    e = {"number": num, "direction": d, "solution": sol,
+         "clue": {**({"text": text} if text else {"missing": True}), **({"enumeration": enum} if enum else {}),
+                  **({"separators": [{"at": a, "mark": m} for a, m in seps]} if seps else {})}}
+    return {**e, **({"group": group} if group else {})}
+
+lead = leg(18, "down", "THENIGHT", "Culling", "3,5,2,3,4,6", [(3, ","), (8, ",")],
+           ["18-down", "9-across", "24-down", "3-down"])
+p = {"id": "cryptic-21913", "entries": [lead, leg(9, "across", "OFTHE", "See 18", "5"),
+     leg(24, "down", "LONG", "See 18", "4", [(2, ",")]), leg(3, "down", "KNIVES", "See 18", "6")]}
+check("a lead's enumeration spaces the whole linked answer (not each leg's stray separators)",
+      annotation.display_answer(lead, p) == "THE NIGHT OF THE LONG KNIVES", annotation.display_answer(lead, p))
+lead = leg(8, "down", "WORK", "(& 24dn.) Labour stony", "4", group=["8-down", "24-down"])
+p = {"id": "cyclops-550", "entries": [lead, leg(24, "down", "OFART", "see 8dn.", "5")]}
+check("legs that print their own lengths break between lights",
+      annotation.display_answer(lead, p) == "WORK OFART", annotation.display_answer(lead, p))
+got, ks, new = C.check(ann(["anagram"], "WORK OF ART", "Labour", 9, [blk("stony", "WORKOFART")]), lead, p)
+check("... and the stored spacing is the spelling: the enumeration can't give it",
+      new and new.get("spelling") == "WORK OF ART" and annotation.view(new, lead, p)["answer"] == "WORK OF ART",
+      (got, ks, new))
+lead = leg(5, "across", "WONDER", "Di Prince", "6,5", group=["5-across", "5-down"])
+p = {"id": "cryptic-24331", "entries": [lead, leg(5, "down", "WOMAN", "See 5 across", "5")]}
+check("a lead's break where the lights meet needs no separator",
+      annotation.display_answer(lead, p) == "WONDER WOMAN", annotation.display_answer(lead, p))
+lead = leg(18, "across", "FIRE", "Spirit", "9", group=["18-across", "22-down"])
+p = {"id": "cryptic-22050", "entries": [lead, leg(22, "down", "WATER", "See 18", "5")]}
+check("one word over two lights stays one word",
+      annotation.display_answer(lead, p) == "FIREWATER", annotation.display_answer(lead, p))
+lead = leg(10, "across", "ROOK", "Chessman", "5,4", [(5, ",")], ["10-across", "11-across"])
+p = {"id": "cryptic-25358", "entries": [lead, leg(11, "across", "SPAWN", "See 10")]}
+check("a light may end mid-word: the lead's enumeration still spaces the whole",
+      annotation.display_answer(lead, p) == "ROOKS PAWN", annotation.display_answer(lead, p))
+# Mephisto: a bare count is one word or a hyphenated one (Chambers), so
+# the stored hyphen stands; "(10, two words)" is filed as separators.
+got, ks, new = C.check(ann(["charade"], "L-PLATES", "Learner's signs", 0, [blk("left", "L"), blk("dishes", "PLATES")]),
+                       entry("LPLATES", "Learner's signs left dishes", "7"), {"id": "mephisto-2964", "entries": []})
+check("Mephisto prints letter counts for hyphenated words: the hyphen is kept",
+      got != "failed" and new.get("spelling") == "L-PLATES", (got, ks, new))
+e = entry("SQUAREROOT", "Satisfying grub", "6,4", [(6, ",")])
+check("... and its printed word break still spaces the answer",
+      annotation.spaced("SQUAREROOT", e, {"id": "mephisto-3078"}) == "SQUARE ROOT")
+
 raise SystemExit(fails > 0)
 PY
