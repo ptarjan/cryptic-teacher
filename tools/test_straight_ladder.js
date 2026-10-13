@@ -38,17 +38,19 @@ const CRYPTIC_RUNGS = /indicator|kind of clue|building blocks/i;
   check(c.rungs.some((t) => /kind of clue/i.test(t)), "(mirror) times-5's ladder keeps the type rung: " + c.rungs.join(" | "));
 }
 // A straight-tagged puzzle can still hold a real wordplay clue (the tag is a
-// majority). times-26 31A has indicators, so it keeps its full ladder; f2c5f11f2f
-// (the first straight cut) dropped them there.
+// majority). times-28 27A ("Freed (anag.)") has indicators, so it keeps its
+// full ladder; f2c5f11f2f (the first straight cut) dropped them there. It was
+// times-26 31A until the format v2 migration dropped 16 of times-26's plain
+// definitions for the burn to redo, which left times-26 no longer straight.
 {
-  const want = { number: 31, direction: "across" };
-  const s = open("times-26", want);
-  check(s.row && s.row.style === "straight", "times-26's index row is straight: " + JSON.stringify(s.row && s.row.style));
+  const want = { number: 27, direction: "across" };
+  const s = open("times-28", want);
+  check(s.row && s.row.style === "straight", "times-28's index row is straight: " + JSON.stringify(s.row && s.row.style));
   check(s.rungs.length === 5 && s.rungs.some((t) => /indicator/i.test(t)),
-    "times-26 31A (has indicators) keeps its full 5-step ladder: " + s.rungs.join(" | "));
+    "times-28 27A (has indicators) keeps its full 5-step ladder: " + s.rungs.join(" | "));
   if (process.env.OLD_APP) {
-    const o = open("times-26", want, process.env.OLD_APP);
-    check(o.rungs.length === 5, "OLD_APP times-26 31A ladder has 5 steps: " + o.rungs.length);
+    const o = open("times-28", want, process.env.OLD_APP);
+    check(o.rungs.length === 5, "OLD_APP times-28 27A ladder has 5 steps: " + o.rungs.length);
   }
 }
 process.exit(failures ? 1 : 0);
