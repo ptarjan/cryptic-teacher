@@ -489,7 +489,13 @@ def main():
         raise SystemExit(f"{args.number} already has published solutions — refusing to overwrite")
 
     for entry in puzzle["entries"]:
-        entry["solution"] = normalise(fill[entry_id(entry)])
+        new = normalise(fill[entry_id(entry)])
+        # A hint explains the answer it was written for (a reopened puzzle
+        # keeps its other clues'), so one whose answer this fill changes goes,
+        # and the annotation run writes it again.
+        if entry.get("solution") and entry["solution"] != new:
+            entry.pop("annotation", None)
+        entry["solution"] = new
     for cid, item in groups.off_grid(puzzle):
         item["solution"] = normalise(fill[cid])
     detail = {

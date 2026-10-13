@@ -214,10 +214,11 @@ worker_annotate() {   # id log sidfile task [note] [fill]
 # again on the same inputs, and the return is 1 — or 2 when the ledger refused
 # the entry as transient (a lockout, the network).
 #
-# With $6, a resume-note path, two refusals are mended rather than thrown away,
-# once per conversation (worker_mendable): returns 3 with the note written and
-# the conversation, its fill and its annotations kept, for the caller to
-# resume it.
+# With $6, a resume-note path, two refusals of the fill (worker_mendable) and
+# hints that did not land on an accepted one (worker_mend_hints) are mended
+# rather than thrown away, once per conversation: returns 3 with the note
+# written and the conversation, its fill and its annotations kept, for the
+# caller to resume it.
 worker_apply() {   # id fill log verdict sidfile [notefile]
   local id="$1" fill="$2" log="$3" verdict="$4" sidfile="$5" notefile="${6:-}" judged="" said="$3" rc error
   restore_puzzle "$id"
@@ -235,8 +236,13 @@ worker_apply() {   # id fill log verdict sidfile [notefile]
       rc=$?
       [ "$rc" -ne 2 ] && return 0
       discard_puzzle "$id"
+      if worker_mend_hints "$id" "$fill" "$verdict" "$sidfile" "$notefile"; then
+        return 3
+      fi
       rm -f "tools/_ann_$id.json" "tools/_puzzle_$id.json"
-      alert "$WORKER_JOB solved $id but could not put its hints back on the fill, so nothing it wrote ships:"$'\n'"\`\`\`"$'\n'"$(grep -v '^[[:space:]]*$' "$verdict" | tail -4 | cut -c1-200)"$'\n'"\`\`\`"
+      # apply_annotations' own refusal first: the lines after it are the
+      # validator's preview, which may not name what stopped the write.
+      alert "$WORKER_JOB solved $id but could not put its hints back on the fill, so nothing it wrote ships:"$'\n'"\`\`\`"$'\n'"$( { grep '^apply_annotations' "$verdict" | head -3; grep -v '^[[:space:]]*$' "$verdict" | tail -4; } | cut -c1-200)"$'\n'"\`\`\`"
       # A validator error is a verdict on what the run wrote, so the puzzle is
       # not solved again until its inputs change. A refusal with none (no
       # session to land them as) is ours, and says nothing about the puzzle.
@@ -288,6 +294,23 @@ worker_mendable() {   # id fill verdict sidfile notefile
   touch "$mark"
   printf '%s\n' "$note" >"$notefile"
   echo "  [$id] $(grep -v '^[[:space:]]*$' "$verdict" | tail -1 | cut -c1-120) — resuming its conversation once to mend it"
+  return 0
+}
+
+# Whether hints that did not land on an accepted fill (annotate_check STOPPED,
+# verdict $3) go back to their conversation instead of being thrown away with
+# the fill: usually one clue's fault, and a fresh run buys the whole solve and
+# every other hint again (nation-3447, 10-12). Once per conversation, sharing
+# worker_mendable's mark. 0 when the note was written to $5.
+worker_mend_hints() {   # id fill verdict sidfile notefile
+  local id="$1" fill="$2" verdict="$3" sidfile="$4" notefile="$5" mark="${4%.sid}.mended"
+  [ -n "$notefile" ] && [ ! -e "$mark" ] || return 1
+  declare -F session_exists >/dev/null && session_exists "$(worker_sid "$sidfile")" || return 1
+  touch "$mark"
+  printf '%s\n%s\n\n%s\n' "Your fill passed the check, but your annotations did not land on it, so nothing has been written:" \
+    "$(grep -v '^[[:space:]]*$' "$verdict" | grep -v '^annotate_check ' | tail -20 | cut -c1-400)" \
+    "The puzzle file is back as committed. Apply your fill again with python3 tools/apply_solution.py $id --fill $fill, fix what is listed above in tools/_ann_$id.json (leave null only a clue you cannot parse), and run python3 tools/annotate_check.py $id until it reports clean. Do not commit." >"$notefile"
+  echo "  [$id] its hints did not land on the fill — resuming its conversation once to mend them"
   return 0
 }
 
@@ -386,12 +409,17 @@ worker_commit() {   # subject paths...
   return 0
 }
 
-# Blank the model answers ($2...) an annotation found no parse for, and commit
-# and push that, so the puzzle is solved again. Non-zero, with the file put
-# back, when any step fails; the puzzle is then parked like any other.
+# Blank the model answers ($3...) an annotation found no parse for, and commit
+# and push that, so the puzzle is solved again; the run's hints for every other
+# clue go in with it when they validate (tools/reopen_answers.py --ran, off the
+# run's file copied to $2). The run's view and annotation file go, so the
+# retry's view is written afresh and scoped to the clues still lacking a hint
+# (annotate_check.to_write). Non-zero, with the file put back, when any step
+# fails; the puzzle is then parked like any other.
 worker_reopen() {   # id run-file-copy entry...
   local id="$1" ran="$2" out
   shift 2
+  rm -f "tools/_ann_$id.json" "tools/_puzzle_$id.json"
   if ! out=$(python3 tools/reopen_answers.py "$id" --ran "$ran" "$@" 2>&1); then
     alert "$WORKER_JOB could not reopen $id's unparsed model answers ($*), so it is parked instead: $(printf '%s' "$out" | tail -3)"
     discard_puzzle "$id"
@@ -407,7 +435,7 @@ worker_reopen() {   # id run-file-copy entry...
     discard_puzzle "$id"
     return 1
   fi
-  worker_commit "Reopen $id $*"$'\n\n'"No parse was found for these model answers, so they go back to be solved again, once." \
+  worker_commit "Reopen $id $*"$'\n\n'"No parse was found for these model answers, so they go back to be solved again, once; the hints that validated stay." \
     "${specs[@]}" || { discard_puzzle "$id"; return 1; }
   echo "  [$id] $out; to be solved again"
 }
@@ -537,8 +565,9 @@ _worker_finish() {
     tail -5 "$vlog"
     # A model's answer the run could not parse may be the wrong word, and a
     # failure record would hold it until its inputs change, which is never. So
-    # those answers are blanked and the puzzle solved again instead, once per
-    # entry (tools/reopen_answers.py); read before the discard, off the run's file.
+    # those answers are blanked and solved again instead, once per entry, the
+    # other clues keeping the hints the run wrote for them
+    # (tools/reopen_answers.py); read before the discard, off the run's file.
     # A puzzle solved in this same run has no committed solve, so the run's
     # answers are copied aside before the discard and reopened from there.
     reopen=$(python3 tools/reopen_answers.py "$id" --which) || reopen=""

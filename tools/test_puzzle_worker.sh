@@ -96,7 +96,7 @@ echo "done"
 STUB
 chmod +x "$stub/claude"
 # shellcheck disable=SC2329  # its stubs are called by the sourced worker
-flow() (   # mode: accepted | refused | nofill | nohints | badhints | mend-nofill | mend-nodef | mend-twice
+flow() (   # mode: accepted | refused | nofill | nohints | badhints | mend-nofill | mend-nodef | mend-twice | mend-hints
   PATH="$stub:$PATH" CALLS="$stub/calls" EVENTS="$stub/events"
   export CALLS
   : >"$CALLS"; : >"$EVENTS"
@@ -119,6 +119,7 @@ flow() (   # mode: accepted | refused | nofill | nohints | badhints | mend-nofil
       tools/annotate_check.py)
         echo "session $CLAUDE_CODE_SESSION_ID" >>"$EVENTS"
         [ "$MODE" = nohints ] && { echo "annotate_check $2: STOPPED — the annotations were not applied"; return 2; }
+        [ "$MODE" = mend-hints ] && { printf 'apply_annotations: x.json: refused to write, fix these in the _ann file:\n  6-down quotes Deadly\n  ERROR: 17A: no annotation.\nannotate_check %s: STOPPED\n' "$2"; return 2; }
         [ "$MODE" = badhints ] && { printf '  ERROR: 14A: no annotation.\nannotate_check %s: STOPPED\n' "$2"; return 2; } ;;
       tools/failed_inputs.py) echo "recorded" ;;
     esac
@@ -204,6 +205,13 @@ events=$(cat "$stub/events")
 check "a second refusal of the same conversation is recorded as before" "$(got applied)" "1"
 check "in the solve ledger, judged" "$(grep -c 'failed_inputs.py record solve pw-test-[0-9]* --judged --reason   1-across: no definition given' <<<"$events")" "1"
 check "with no new note" "$(got note)" ""
+out=$(flow mend-hints)
+events=$(cat "$stub/events")
+check "hints that did not land on an accepted fill go back once" "$(got applied)" "3"
+check "with a note quoting apply_annotations' refusal" "$(grep -c '^apply_annotations: x.json: refused to write' "$stub/note")" "1"
+check "and telling it to apply its fill again" "$(grep -c 'Apply your fill again with python3 tools/apply_solution.py' "$stub/note")" "1"
+check "nothing recorded or alerted" "$(grep -c 'failed_inputs\|^alert' <<<"$events")" "0"
+check "its annotation file kept for the resume" "$(got ann)" "kept"
 
 echo "a clue list no grid can hold is recorded, not solved"
 # shellcheck disable=SC2329  # its stubs are called by the sourced worker

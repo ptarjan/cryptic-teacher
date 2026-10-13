@@ -4,7 +4,7 @@
 #
 #     bash tools/test_model_answers.sh
 set -uo pipefail
-cd "$(dirname "$0")/.."
+cd "$(dirname "$0")/.." || exit 1
 python3 - <<'PY'
 import copy, sys
 sys.path.insert(0, "tools")
@@ -142,6 +142,44 @@ check("a same-run solve reopens from the run's copy, without its annotations",
       and same["solutions"]["reopened"] == {**done, eid: right}
       and not any("annotation" in x for x in same["entries"])
       and not provenance.check(same))
+# The run's hints for every other clue go in with the reopen, when they validate.
+ran["annotatedBy"] = ["claude-opus-5-5"]
+kept = R.with_runs_hints(same, ran, [eid])
+check("the run's other hints are kept on the reopened grid, the reopened light's not",
+      all(x.get("annotation") == y.get("annotation") for x, y in zip(kept["entries"], ran["entries"])
+          if entry_id(x) != eid)
+      and "annotation" not in next(x for x in kept["entries"] if entry_id(x) == eid)
+      and kept["annotatedBy"] == ["claude-opus-5-5"])
+import validate_annotations as V0
+real_run_errors = V0.run_errors
+try:
+    V0.run_errors = lambda path, pz: []
+    check("hints that validate are kept", R.hinted_if_valid(path, same, ran, [eid]) is not None)
+    V0.run_errors = lambda path, pz: ["7A: something"]
+    check("hints that do not validate are all dropped", R.hinted_if_valid(path, same, ran, [eid]) is None)
+finally:
+    V0.run_errors = real_run_errors
+# A reopened light without a hint is pending, then answers-only; any other blank still fails.
+pending = copy.deepcopy(kept)
+next(x for x in pending["entries"] if entry_id(x) == p_eid)["annotation"] = {"type": ["charade"]}
+errs, warns = [], []
+V0.check_every_clue_is_annotated(pending["entries"], errs, warns,
+                                 reopened=pending["solutions"]["reopened"])
+check("a reopened light awaiting its solve is a warning, not an error",
+      not errs and any("sent back to be solved again" in w for w in warns))
+next(x for x in pending["entries"] if entry_id(x) == eid)["solution"] = right
+errs, warns = [], []
+V0.check_every_clue_is_annotated(pending["entries"], errs, warns,
+                                 reopened=pending["solutions"]["reopened"])
+check("solved again and still unparsed, it ships with answers only",
+      not errs and any("ships with answers only" in w for w in warns))
+other = next(x for x in pending["entries"] if entry_id(x) not in (eid, p_eid)
+             and x.get("annotation") and not x.get("group"))
+other.pop("annotation")
+errs, warns = [], []
+V0.check_every_clue_is_annotated(pending["entries"], errs, warns,
+                                 reopened=pending["solutions"]["reopened"])
+check("a blank on any light not reopened still fails", len(errs) == 1)
 try:
     R.reopen(copy.deepcopy(ran), [p_eid])
     check("reopening a printed answer is refused", False)
