@@ -19,8 +19,14 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "unsolved"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-13",
+  "check": "30 entries, 60 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,6 +39,57 @@
    "clue": {
     "text": "Use and reuse pieces of souvenir, eating deer perhaps?",
     "enumeration": "14"
+   },
+   "solution": "VENISONIVOROUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "VENISONIVOROUS",
+    "definitions": [
+     {
+      "text": "eating deer perhaps?",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Use and reuse",
+      "for": "anagram",
+      "note": "using letters and then using them again means drawing on them freely, in any order and more than once"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "souvenir",
+      "gives": "SOUVENIR",
+      "note": "every letter of the word, used once"
+     },
+     {
+      "clueFragment": "pieces of",
+      "gives": "VNISOO",
+      "note": "letters of the same word used a second time (O even a third)"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOUVENIRVNISOO",
+       "gives": "VENISONIVOROUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recycling the bits of a holiday keepsake, apparently while dining on deer.",
+     "walkthrough": "This is a letter bank: VENISONIVOROUS uses only the letters S, O, U, V, E, N, I, R, repeating some. The word is invented, built like carnivorous, hence the question mark.",
+     "definitionFit": "Venison is deer meat and -ivorous means feeding on, so the coinage describes a creature that dines on venison."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "souvenir"
+    }
    }
   },
   {
@@ -46,6 +103,56 @@
    "clue": {
     "text": "Drop in on the fifth, is it?",
     "enumeration": "5"
+   },
+   "solution": "VISIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VISIT",
+    "definitions": [
+     {
+      "text": "Drop in",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the fifth",
+      "gives": "V",
+      "note": "V is the Roman numeral five"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "IS",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a casual call is happening on the fifth of the month.",
+     "walkthrough": "The answer is spelt out by reading the clue's tail literally: V, then is, then it.",
+     "definitionFit": "To drop in is to pay a casual visit, so the phrasal verb and the verb are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fifth"
+    }
    }
   },
   {
@@ -69,6 +176,88 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "NEXTOFKIN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "anagram",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "NEXT OF KIN",
+    "definitions": [
+     {
+      "text": "Brother, for instance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down entry raising something lifts it upward, so the word reads bottom to top"
+     },
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "to keep something is to hold it within, so one piece sits inside another"
+     },
+     {
+      "text": "no-good",
+      "for": "anagram",
+      "note": "something no good is broken or messed up, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "farm animals",
+      "gives": "OXEN",
+      "note": "oxen are cattle on a farm"
+     },
+     {
+      "clueFragment": "the last bit of profit",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of profit"
+     },
+     {
+      "clueFragment": "fink",
+      "gives": "FKIN",
+      "note": "the word fink, letters shuffled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEX",
+      "T",
+      "O",
+      "FKIN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FINK",
+       "gives": "FKIN"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "OXEN",
+       "to": "NEXO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sibling who reared livestock, skimmed the profits and proved a rat.",
+     "walkthrough": "A fink is American slang for an informer or contemptible person, which makes the bracket read as an insult rather than an instruction.",
+     "definitionFit": "Next of kin is a person's closest relative, and a brother is one example of such a relation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fink"
+    }
    }
   },
   {
@@ -82,6 +271,68 @@
    "clue": {
     "text": "Academic beginning to score choral arrangement",
     "enumeration": "7"
+   },
+   "solution": "SCHOLAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "SCHOLAR",
+    "definitions": [
+     {
+      "text": "Academic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter, so only that one is kept"
+     },
+     {
+      "text": "arrangement",
+      "for": "anagram",
+      "note": "an arrangement sets things out in a chosen order, so these letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "score",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of score"
+     },
+     {
+      "clueFragment": "choral",
+      "gives": "CHORAL",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CHOLAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHORAL",
+       "gives": "CHOLAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A university musician starting work on a score for a choir.",
+     "walkthrough": "'Score' and 'arrangement' both sound like music terms, which hides their roles.",
+     "definitionFit": "A scholar is a learned person engaged in study and research, an academic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "arrangement"
+    }
    }
   },
   {
@@ -101,6 +352,49 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "NAILPOLISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NAIL POLISH",
+    "definitions": [
+     {
+      "text": "Some paint",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secure",
+      "gives": "NAIL",
+      "note": "to nail something down is to secure it"
+     },
+     {
+      "clueFragment": "coming from Krakow",
+      "gives": "POLISH",
+      "note": "Krakow is a city in Poland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAIL",
+      "POLISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A tin of paint described as reliable and imported from Poland.",
+     "definitionFit": "Nail polish is a lacquer brushed on fingernails, a kind of paint for the body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "secure"
+    }
    }
   },
   {
@@ -114,6 +408,48 @@
    "clue": {
     "text": "Low sounds in vessel",
     "enumeration": "4"
+   },
+   "solution": "VIAL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "VIAL",
+    "definitions": [
+     {
+      "text": "vessel",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sounds",
+      "for": "homophone",
+      "note": "sounds says the word is judged by how it is spoken, not how it is spelt"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Low",
+      "gives": "VIAL",
+      "soundsLike": "VILE",
+      "note": "low in the sense of base or despicable"
+     }
+    ],
+    "explanation": {
+     "surface": "Deep noises echoing inside a container.",
+     "walkthrough": "'Low sounds' reads as deep noises, but low means vile and sounds is the cue to say it.",
+     "definitionFit": "A vial is a small glass bottle or phial, a type of container for liquids."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Low"
+    }
    }
   },
   {
@@ -127,6 +463,50 @@
    "clue": {
     "text": "Morose, I disturbed the people sharing my apartment",
     "enumeration": "7"
+   },
+   "solution": "ROOMIES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROOMIES",
+    "definitions": [
+     {
+      "text": "the people sharing my apartment",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disturbed",
+      "for": "anagram",
+      "note": "something disturbed is thrown into disorder, so the letters get rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Morose, I",
+      "gives": "MOROSEI",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MOROSEI",
+       "gives": "ROOMIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy person upset by flatmates.",
+     "definitionFit": "Roomies is informal American for roommates, people who share a home with you."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "disturbed"
+    }
    }
   },
   {
@@ -140,6 +520,50 @@
    "clue": {
     "text": "Employment in American corporation",
     "enumeration": "5"
+   },
+   "solution": "USAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "USAGE",
+    "definitions": [
+     {
+      "text": "Employment",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "USA",
+      "note": "the abbreviation for the country"
+     },
+     {
+      "clueFragment": "corporation",
+      "gives": "GE",
+      "note": "General Electric, the big American company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "USA",
+      "GE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone working for a big US company.",
+     "walkthrough": "Employment here is a use of something, not a job.",
+     "definitionFit": "Usage means the act of using or employing something, so employment in that sense is a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Employment"
+    }
    }
   },
   {
@@ -153,6 +577,65 @@
    "clue": {
     "text": "He clutches chest — yes, that's hogwash",
     "enumeration": "8"
+   },
+   "solution": "MALARKEY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MALARKEY",
+    "definitions": [
+     {
+      "text": "hogwash",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clutches",
+      "for": "container",
+      "note": "clutching something means gripping it tightly inside, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He",
+      "gives": "MALE",
+      "note": "he refers to a male"
+     },
+     {
+      "clueFragment": "chest",
+      "gives": "ARK",
+      "note": "an ark is a chest or box, like the Ark of the Covenant"
+     },
+     {
+      "clueFragment": "yes",
+      "gives": "Y",
+      "note": "Y is short for yes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAL",
+      "ARK",
+      "E",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A man gripping his chest says yes, dismissing something as rubbish.",
+     "walkthrough": "'He' is a pronoun standing for any man, and an ark is an old word for a chest or coffer, as in the Ark of the Covenant.",
+     "definitionFit": "Malarkey is informal American slang for nonsense, the same as hogwash or baloney."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chest"
+    }
    }
   },
   {
@@ -166,6 +649,61 @@
    "clue": {
     "text": "Smash hits getting a mark like F",
     "enumeration": "5"
+   },
+   "solution": "SIXTH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SIXTH",
+    "definitions": [
+     {
+      "text": "like F",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Smash",
+      "for": "anagram",
+      "note": "smashing something breaks it apart so the pieces can be put back in another order"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hits",
+      "gives": "HITS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a mark",
+      "gives": "X",
+      "note": "a cross is a mark, as on a ballot or map"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HITSX",
+       "gives": "SIXTH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Big chart hits earning a failing grade from a critic.",
+     "walkthrough": "'Smash hits' reads as a phrase about pop records, and 'mark like F' as a school grade; F is really just a letter of the alphabet.",
+     "definitionFit": "F is the sixth letter of the alphabet, so it holds that ordinal position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Smash"
+    }
    }
   },
   {
@@ -179,6 +717,68 @@
    "clue": {
     "text": "Girlfriend returning near top-grade ego?",
     "enumeration": "9"
+   },
+   "solution": "INAMORATA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "INAMORATA",
+    "definitions": [
+     {
+      "text": "Girlfriend",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so the string is read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "near",
+      "gives": "AT",
+      "note": "at a place means close to it"
+     },
+     {
+      "clueFragment": "top-grade",
+      "gives": "A",
+      "note": "A is the top grade"
+     },
+     {
+      "clueFragment": "ego?",
+      "gives": "ROMANI",
+      "note": "ego is Latin for I, so it is a Roman I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INAMOR",
+      "A",
+      "TA"
+     ],
+     "reversals": [
+      {
+       "from": "ATAROMANI",
+       "to": "INAMORATA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girlfriend heading back to someone near-perfect with a big ego.",
+     "walkthrough": "The question mark flags the playful step: ego is the Latin word for I, so it yields ROMAN I. AT A ROMAN I read backwards spells INAMORATA.",
+     "definitionFit": "An inamorata is a female lover or sweetheart, an Italian-derived word for a girlfriend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ego"
+    }
    }
   },
   {
@@ -192,6 +792,58 @@
    "clue": {
     "text": "English novelist is a monster, largely outspoken",
     "enumeration": "8"
+   },
+   "solution": "TROLLOPE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "TROLLOPE",
+    "definitions": [
+     {
+      "text": "English novelist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "largely",
+      "for": "deletion",
+      "note": "largely means most but not all, so the last letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a monster",
+      "gives": "TROLL",
+      "note": "a troll is a monster of folklore"
+     },
+     {
+      "clueFragment": "outspoken",
+      "gives": "OPEN",
+      "note": "frank, candid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TROLL",
+      "OPE"
+     ]
+    },
+    "explanation": {
+     "surface": "A British writer described as a beast who speaks his mind.",
+     "walkthrough": "'Outspoken' looks like a sound signal but simply means open; take most of it.",
+     "definitionFit": "Anthony Trollope was a Victorian English writer of the Barsetshire novels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outspoken"
+    }
    }
   },
   {
@@ -205,6 +857,53 @@
    "clue": {
     "text": "Movie theater featuring remake of Iceman",
     "enumeration": "6"
+   },
+   "solution": "CINEMA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CINEMA",
+    "definitions": [
+     {
+      "text": "Movie theater",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "remake of",
+      "for": "anagram",
+      "note": "a remake reworks the original material into a new version, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "featuring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Iceman",
+      "gives": "ICEMAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ICEMAN",
+       "gives": "CINEMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A movie house screening a new version of a film called Iceman.",
+     "definitionFit": "Cinema is the general word for a building where films are shown, the American movie theater."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "remake"
+    }
    }
   },
   {
@@ -224,6 +923,43 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "LABORUNION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LABOR UNION",
+    "definitions": [
+     {
+      "text": "Part of the Democratic constituency",
+      "at": 0
+     },
+     {
+      "text": "the bond between a woman and her Lamaze partner?",
+      "at": 37
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part of the Democratic constituency",
+      "note": "first meaning: organized workers' groups, a traditional base of the US Democratic Party"
+     },
+     {
+      "clueFragment": "the bond between a woman and her Lamaze partner?",
+      "note": "second, punning meaning: the joining together of two people during childbirth"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Lamaze is a childbirth-preparation method in which a partner coaches the mother through labor, so their tie is a union in labor.",
+     "definitionFit": "A labor union is an organization of workers, historically allied with the Democratic Party in the United States."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bond"
+    }
    }
   },
   {
@@ -237,6 +973,43 @@
    "clue": {
     "text": "Walker's center on the football field?",
     "enumeration": "5"
+   },
+   "solution": "HIKER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HIKER",
+    "definitions": [
+     {
+      "text": "Walker",
+      "at": 0
+     },
+     {
+      "text": "center on the football field?",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Walker",
+      "note": "first meaning: someone who walks for recreation in the country"
+     },
+     {
+      "clueFragment": "center on the football field?",
+      "note": "second meaning: in American football the center hikes (snaps) the ball to start each play"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The 's after Walker is a contraction of 'is', not a possessive. The question mark marks the second sense as playful: the center is the player who hikes the ball.",
+     "definitionFit": "A hiker is a long-distance walker, and in American football to hike is to snap the ball, which the center does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Walker's"
+    }
    }
   },
   {
@@ -256,6 +1029,62 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "HOMEPAGE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HOME PAGE",
+    "definitions": [
+     {
+      "text": "starting point on the Internet",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "to involve something is to take it in, so one piece is enclosed by another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Skip",
+      "gives": "HOP",
+      "note": "to skip is to hop"
+     },
+     {
+      "clueFragment": "this writer's",
+      "gives": "ME",
+      "note": "the writer refers to themself as me"
+     },
+     {
+      "clueFragment": "many years",
+      "gives": "AGE",
+      "note": "an age is a very long time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "ME",
+      "P",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Passing over decades of a writer's life to start with their website.",
+     "walkthrough": "'This writer' is the setter speaking of themself, a standard way of clueing ME.",
+     "definitionFit": "A home page is the opening page of a website, where browsing begins."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Skip"
+    }
    }
   },
   {
@@ -275,6 +1104,61 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "LOANSHARK",
+   "annotation": {
+    "type": [
+     "charade",
+     "substitution"
+    ],
+    "answer": "LOAN SHARK",
+    "definitions": [
+     {
+      "text": "Shylock",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exchanging daughter for son initially",
+      "for": "substitution",
+      "note": "exchanging one thing for another means swapping a letter: D (daughter) is replaced by the initial of son"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Look",
+      "gives": "LO",
+      "note": "lo is an old word for look"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "ANS",
+      "note": "the word and with its D swapped for an S"
+     },
+     {
+      "clueFragment": "listen",
+      "gives": "HARK",
+      "note": "hark means listen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "ANS",
+      "HARK"
+     ]
+    },
+    "explanation": {
+     "surface": "Shakespeare's moneylender speaking, swapping a daughter for a son, as Shylock's Jessica might suggest.",
+     "walkthrough": "D is the standard abbreviation for daughter, and son gives its initial S. Shylock, the usurer of The Merchant of Venice, became a byword for a moneylender.",
+     "definitionFit": "A shylock is a ruthless moneylender charging extortionate interest, the same as a loan shark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Shylock"
+    }
    }
   },
   {
@@ -288,6 +1172,70 @@
    "clue": {
     "text": "Fatah reconsidered limiting tenure as a consequence",
     "enumeration": "9"
+   },
+   "solution": "AFTERMATH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "AFTERMATH",
+    "definitions": [
+     {
+      "text": "consequence",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reconsidered",
+      "for": "anagram",
+      "note": "something reconsidered is thought through again and recast, so its letters are rearranged"
+     },
+     {
+      "text": "limiting",
+      "for": "container",
+      "note": "limiting puts bounds around something, so one piece holds the other inside"
+     }
+    ],
+    "linkWords": [
+     "as a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fatah",
+      "gives": "AFTAH",
+      "note": "the name rearranged"
+     },
+     {
+      "clueFragment": "tenure",
+      "gives": "TERM",
+      "note": "a term of office is a tenure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AF",
+      "TERM",
+      "ATH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FATAH",
+       "gives": "AFTAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Palestinian party rethinks term limits for its leaders.",
+     "walkthrough": "Fatah is the Palestinian political faction; its rearranged letters close around TERM.",
+     "definitionFit": "The aftermath is what follows an event, its result or outcome."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fatah"
+    }
    }
   },
   {
@@ -301,6 +1249,70 @@
    "clue": {
     "text": "Declaration of guy with condition: broken toes",
     "enumeration": "9"
+   },
+   "solution": "MANIFESTO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "MANIFESTO",
+    "definitions": [
+     {
+      "text": "Declaration",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken has its parts scattered, so these letters are put back in a new order"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guy",
+      "gives": "MAN",
+      "note": "a guy is a man"
+     },
+     {
+      "clueFragment": "with condition",
+      "gives": "IF",
+      "note": "if introduces a condition"
+     },
+     {
+      "clueFragment": "toes",
+      "gives": "TOES",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "IF",
+      "ESTO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOES",
+       "gives": "ESTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man announces his medical problem: his toes are broken.",
+     "definitionFit": "A manifesto is a public statement of policy or aims, a formal declaration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "condition"
+    }
    }
   },
   {
@@ -314,6 +1326,55 @@
    "clue": {
     "text": "Someone falsifying documents restricts a searcher…",
     "enumeration": "7"
+   },
+   "solution": "FORAGER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FORAGER",
+    "definitions": [
+     {
+      "text": "searcher",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restricts",
+      "for": "container",
+      "note": "to restrict something is to hem it in, so one piece is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Someone falsifying documents",
+      "gives": "FORGER",
+      "note": "a forger fakes documents"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "A",
+      "GER"
+     ]
+    },
+    "explanation": {
+     "surface": "A document faker obstructs an investigator.",
+     "walkthrough": "The ellipsis only links the surface to the next clue.",
+     "definitionFit": "A forager hunts around for food or supplies, so the word means one who searches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "searcher"
+    }
    }
   },
   {
@@ -327,6 +1388,58 @@
    "clue": {
     "text": "By the borders of Edmonton, attempt a way in",
     "enumeration": "5"
+   },
+   "solution": "ENTRY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ENTRY",
+    "definitions": [
+     {
+      "text": "a way in",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the borders of",
+      "for": "letter_selection",
+      "note": "borders are the edges, so only the outermost letters of the word are kept"
+     }
+    ],
+    "linkWords": [
+     "By"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Edmonton",
+      "gives": "EN",
+      "select": "outer",
+      "note": "its first and last letters"
+     },
+     {
+      "clueFragment": "attempt",
+      "gives": "TRY",
+      "note": "a try is an attempt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "TRY"
+     ]
+    },
+    "explanation": {
+     "surface": "Trying to find a route into the Canadian city by skirting its edges.",
+     "definitionFit": "An entry is a door, gate or passage by which you go into a place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "borders"
+    }
    }
   },
   {
@@ -340,6 +1453,58 @@
    "clue": {
     "text": "…therefore, manager with a degree goes in for trade stoppage",
     "enumeration": "7"
+   },
+   "solution": "EMBARGO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EMBARGO",
+    "definitions": [
+     {
+      "text": "trade stoppage",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "goes in",
+      "for": "container",
+      "note": "going in means entering, so one piece is placed inside another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "therefore",
+      "gives": "ERGO",
+      "note": "ergo is Latin for therefore"
+     },
+     {
+      "clueFragment": "manager with a degree",
+      "gives": "MBA",
+      "note": "the Master of Business Administration, a manager's degree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MBA",
+      "RGO"
+     ]
+    },
+    "explanation": {
+     "surface": "So a qualified business manager steps in to stop trade.",
+     "walkthrough": "The ellipsis only carries the surface on from the previous clue; this clue stands alone.",
+     "definitionFit": "An embargo is an official ban on trade with a country, which halts commerce."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "degree"
+    }
    }
   },
   {
@@ -353,6 +1518,47 @@
    "clue": {
     "text": "Quietly maintains street crews",
     "enumeration": "6"
+   },
+   "solution": "PAVERS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PAVERS",
+    "definitions": [
+     {
+      "text": "street crews",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quietly",
+      "gives": "P",
+      "note": "p is the musical marking piano, meaning quietly"
+     },
+     {
+      "clueFragment": "maintains",
+      "gives": "AVERS",
+      "note": "to aver is to assert or maintain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "AVERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone softly insisting on something about the people who work the roads.",
+     "walkthrough": "'Maintains' tempts as road maintenance alongside 'street', but here it means asserts.",
+     "definitionFit": "Pavers are workers who lay paving, so road crews resurfacing a street are pavers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "maintains"
+    }
    }
   },
   {
@@ -366,6 +1572,50 @@
    "clue": {
     "text": "Sound of engine's victory over space",
     "enumeration": "5"
+   },
+   "solution": "VROOM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VROOM",
+    "definitions": [
+     {
+      "text": "Sound of engine",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "victory",
+      "gives": "V",
+      "note": "V for victory"
+     },
+     {
+      "clueFragment": "space",
+      "gives": "ROOM",
+      "note": "room means space"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "ROOM"
+     ]
+    },
+    "explanation": {
+     "surface": "A racing engine roaring in triumph over the open track.",
+     "walkthrough": "'Over' places V on top of ROOM in this down entry.",
+     "definitionFit": "Vroom imitates the roar of a revving motor, an onomatopoeic word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "space"
+    }
    }
   },
   {
@@ -379,6 +1629,47 @@
    "clue": {
     "text": "Star documentary filmmaker's beach woes",
     "enumeration": "8"
+   },
+   "solution": "SUNBURNS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUNBURNS",
+    "definitions": [
+     {
+      "text": "beach woes",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Star",
+      "gives": "SUN",
+      "note": "the sun is a star"
+     },
+     {
+      "clueFragment": "documentary filmmaker's",
+      "gives": "BURNS",
+      "note": "Ken Burns, maker of The Civil War and other long documentaries"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUN",
+      "BURNS"
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity documentary director complains about the seaside.",
+     "walkthrough": "'Star' reads as a celebrity but is the sun itself, and the 's on filmmaker's joins his name to it.",
+     "definitionFit": "Sunburns are the painful reddened skin you get from too long in the sun at the seaside."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Star"
+    }
    }
   },
   {
@@ -392,6 +1683,47 @@
    "clue": {
     "text": "Whole air-conditioning plant",
     "enumeration": "5"
+   },
+   "solution": "SUMAC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUMAC",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Whole",
+      "gives": "SUM",
+      "note": "a sum is a whole amount"
+     },
+     {
+      "clueFragment": "air-conditioning",
+      "gives": "AC",
+      "note": "the standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUM",
+      "AC"
+     ]
+    },
+    "explanation": {
+     "surface": "A complete climate-control system for a factory.",
+     "walkthrough": "'Plant' looks like a factory housing the air conditioning; it is a shrub.",
+     "definitionFit": "Sumac is a shrub or small tree whose berries yield a tangy spice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plant"
+    }
    }
   },
   {
@@ -405,6 +1737,59 @@
    "clue": {
     "text": "Wine and cheese at first make an essential nutrient",
     "enumeration": "4"
+   },
+   "solution": "ZINC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ZINC",
+    "definitions": [
+     {
+      "text": "essential nutrient",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter, so just that one is used"
+     }
+    ],
+    "linkWords": [
+     "make an"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wine",
+      "gives": "ZIN",
+      "note": "zin is short for zinfandel"
+     },
+     {
+      "clueFragment": "cheese",
+      "gives": "C",
+      "select": "first",
+      "note": "its opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ZIN",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A wine-and-cheese party claimed as health food.",
+     "walkthrough": "Zinfandel is a California red grape and wine, often called zin.",
+     "definitionFit": "Zinc is a trace mineral the body needs for immunity and healing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wine"
+    }
    }
   },
   {
@@ -424,6 +1809,49 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "GEORGEIII",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "GEORGE III",
+    "definitions": [
+     {
+      "text": "Insane monarch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "read unevenly",
+      "for": "letter_selection",
+      "note": "reading unevenly means reading only the odd-numbered letters and skipping every second one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goes on: \"Regret it if I",
+      "gives": "GEORGEIII",
+      "select": "alternate",
+      "note": "the first, third, fifth letter and so on of this run of words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEORGEIII"
+     ]
+    },
+    "explanation": {
+     "surface": "A deranged king rambles on, saying he will regret it if he reads unevenly.",
+     "walkthrough": "The quotation marks make 'Regret it if I' look like speech, but the alternate letters start back at 'goes on'.",
+     "definitionFit": "King George III of Britain suffered recurring bouts of mental illness, famously called the madness of King George."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unevenly"
+    }
    }
   },
   {
@@ -437,6 +1865,54 @@
    "clue": {
     "text": "Stack of paper covers large area",
     "enumeration": "5"
+   },
+   "solution": "REALM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REALM",
+    "definitions": [
+     {
+      "text": "area",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covers",
+      "for": "container",
+      "note": "to cover something is to go around it, so one piece is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stack of paper",
+      "gives": "REAM",
+      "note": "a ream is 500 sheets of paper"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REA",
+      "L",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A pile of paper spread over a big expanse of desk.",
+     "definitionFit": "A realm is a field or domain of activity, so it works as an area of interest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "area"
+    }
    }
   },
   {
@@ -456,6 +1932,76 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "AMERICANGOTHIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "deletion"
+    ],
+    "answer": "AMERICAN GOTHIC",
+    "definitions": [
+     {
+      "text": "artwork",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unexpectedly",
+      "for": "anagram",
+      "note": "something happening unexpectedly comes out in no predictable order, so the letters are scrambled"
+     },
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "most but not all, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rain came",
+      "gives": "AMERICAN",
+      "note": "these two words, rearranged"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "GOT",
+      "note": "got means caught, as in got a cold"
+     },
+     {
+      "clueFragment": "provincial",
+      "gives": "HICK",
+      "note": "a hick is an unsophisticated country person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMERICAN",
+      "GOT",
+      "HIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAINCAME",
+       "gives": "AMERICAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sudden downpour soaked most of a country painting.",
+     "walkthrough": "'Caught' looks like the usual C abbreviation but here it supplies GOT.",
+     "definitionFit": "American Gothic is Grant Wood's 1930 painting of a farmer with a pitchfork beside a woman, a famous artwork."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
    }
   }
  ]
