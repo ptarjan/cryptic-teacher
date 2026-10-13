@@ -13,11 +13,12 @@ entry packed into an array that the script itself unpacks
 (`fetch_puzzle.write_shim`). That script is how the page loads a puzzle from
 `file://`.
 
-Shape:
+Shape (format v2, which every file has been since the step 8 migration of
+2026-10-13; see "Format v2" below):
 
 ```jsonc
 {
-  "id": "cryptic-30066", "number": 30066, "name": "Cryptic crossword No 30,066",
+  "id": "cryptic-30066", "number": 30066,
   "setter": "Tramp", "date": "2026-07-23", "dimensions": {"rows": 15, "cols": 15},
   "source": {"url": "https://www.theguardian.com/crosswords/cryptic/30066"},
   "entries": [
@@ -27,12 +28,10 @@ Shape:
       "clue": {"text": "Destroying climate, sun reaches highest point", "enumeration": "10"},
       "solution": "CULMINATES",
       "annotation": {
-        "type": ["anagram"],
-        "answer": "CULMINATES",
         "definitions": [{"text": "reaches highest point", "at": 24}],
-        "indicators": [{"text": "Destroying", "for": "anagram", "note": "destroying a thing breaks it apart, so its letters are rearranged"}],
-        "blocks": [{"clueFragment": "climate, sun", "gives": "CLIMATESUN", "note": "anagram fodder"}],
-        "assembly": {"anagrams": [{"fodder": "CLIMATE SUN", "gives": "CULMINATES"}]},
+        "wordplay": {"op": "anagram",
+          "indicators": [{"text": "Destroying", "note": "destroying a thing breaks it apart, so its letters are rearranged"}],
+          "parts": [{"words": "climate, sun", "note": "anagram fodder"}]},
         "explanation": {
           "surface": "…the picture the clue pretends to paint…",
           "walkthrough": "…1-2 sentences on what the blocks cannot show…",
@@ -77,12 +76,41 @@ and annotation files name entries by it. A puzzle file that stores an entry
   reach, because only their final pieces were stored. A tree checks every
   step, and a derived field cannot disagree with its source.
 
-Live so far: the parser and evaluator (`tools/wordplay.py`), `annotation.view()`
-and `series.display_name()`, tested by `tools/test_wordplay.sh`, and the
-converter from today's annotations to trees (`tools/convert_v2.py`, tested by
-`tools/test_convert_v2.sh`): where the old blocks can't be rebuilt step by step
-it keeps the step as an `"unchecked": true` node, which the expression cannot
-write.
+### Format v2
+
+The corpus was rewritten to v2 in one migration commit ("Migrate puzzles to
+format v2: N trees, M opaque", `tools/convert_v2.py --migrate`, 2026-10-13).
+A legacy annotation's blocks became a tree; where a step could not be rebuilt
+from them it is kept as an `"unchecked": true` node, whose `gives` is taken as
+filed and which the expression cannot write. A clue whose annotation
+contradicted itself was dropped for the burn to redo (the commit message lists
+them by kind). A file whose v2 copy `puzzle_integrity` or
+`validate_annotations` found something new on stayed legacy, so the commit
+lists it too. The tree, in brief:
+
+- A node is an op `{op, indicators?, parts, spelt?, n?}` or a leaf
+  `{words, at?, gives?, note?}`. A leaf without `gives` is its own letters.
+  `gives` on a checked op is refused, because the evaluator works it out.
+- **An absent key means empty** (`puzzle_schema.prune` runs on every write), so
+  no file stores `[]` or `""`. `pal()` over the answer alone has no `parts`,
+  and every reader goes through `wordplay.parts_of`. An unchecked leaf without
+  `gives` gives no letters (a legacy block that was only a note).
+- **A double definition** has two `definitions` and no `wordplay` (or a
+  partless palindrome when the answer reads both ways). A definition's
+  `meaning` is the note on its block, on the blocks rung. Its `note` belongs to
+  the definitions rung, which comes later, so view() never promotes it to the
+  block: it may say what a block may not.
+- **A setter's slip** (`tools/data/setter_error.json`: printed fodder that
+  cannot give the answer) is one unchecked anagram over the fodder leaves as
+  printed, `gives` the letters it should give. view() lists it in
+  `assembly.anagrams`, and the validator holds it to the row. A block may not
+  respell its words to hide the slip.
+- **Spacing**: the display answer is the solution spaced by the light's
+  separators or enumeration. `spelling` holds what that cannot give (an
+  apostrophe, an accent, or a hyphen in a series whose enumeration counts
+  letters only, Azed and the Listener, when the light has no separators). A
+  separator at the light's own end means the answer runs on into another
+  light, and it is no gap inside this one.
 
 The schema and validator know both shapes, and read which one a file is from
 the file itself: an annotation with `blocks` is the legacy shape, one without
@@ -129,9 +157,12 @@ clue (`type`, `blocks`: a run that started before the prompt changed) is
 normalised the old way, assembly filled in from its blocks, and into a v2 file
 goes through `convert_v2.check`, an unconvertible one left as the file had it
 and named. That old-shape path goes a week after the audit last sees one.
-`tools/test_annotate_model_shape.sh` holds all of this. Still to come: the
-pilot and the corpus rewrite. Until then the files keep today's fields,
-described below.
+`tools/test_annotate_model_shape.sh` holds all of this.
+
+The rules below are written against the legacy fields (`type`, `answer`,
+`indicators` with `for`, `blocks`, `assembly`, `linkWords`). In a v2 file they
+are never stored: they are read off `annotation.view()`, which derives them
+from the tree, so every rule applies to both shapes.
 
 
 ## Annotation rules

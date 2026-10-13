@@ -1789,7 +1789,7 @@ SETTER_ERROR = load_source_table("setter_error")
 #: The letters a setter's slip may cost an anagram, extra and missing together:
 #: one wrong letter (quiptic-32 13-down, ELF OIL for KISS OF LIFE's FF and one L).
 #: A parse further out than that is a wrong parse, not a slip.
-SETTER_ERROR_LETTERS = 2
+SETTER_ERROR_LETTERS = annotation.SLIP_LETTERS
 
 
 def setter_error_problems(puzzle, eid, row, ann=None):

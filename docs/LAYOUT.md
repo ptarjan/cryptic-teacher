@@ -2438,10 +2438,14 @@ tools/test_wordplay.sh                        does wordplay.py parse and check e
                                               derive today's fields from the tree?
 tools/wordplay.py                             a clue's wordplay as one line the model writes,
                                               and the tree a puzzle stores
-tools/convert_v2.py                           today's annotations as format v2 wordplay trees,
+tools/convert_v2.py                           legacy annotations as format v2 wordplay trees,
                                               losing nothing (a step the blocks can't rebuild
-                                              stays an unchecked node), and a read-only dry run
-                                              over the corpus
+                                              stays an unchecked node, a setter's slip an
+                                              unchecked anagram of the printed fodder), the
+                                              read-only dry run, and --migrate, which rewrote
+                                              the corpus in one commit (10-13) and holds a file
+                                              legacy when its v2 copy fails a gate the legacy
+                                              one passed
 tools/test_convert_v2.sh                      does convert_v2.py rebuild the stored blocks,
                                               indicators and definitions from the tree, keep
                                               what it can't check as unchecked nodes, and

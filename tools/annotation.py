@@ -286,6 +286,17 @@ def _fodder(node, got):
     return "".join(got[id(p)] for _, p in sorted(zip(ats, parts), key=lambda it: it[0]))
 
 
+#: The letters a setter's slip may cost an anagram, extra and missing together
+#: (validate_annotations.SETTER_ERROR_LETTERS reads this).
+SLIP_LETTERS = 2
+
+
+def _slip_size(fodder, gives):
+    from collections import Counter
+    a, b = Counter(_letters(fodder)), Counter(_letters(gives))
+    return sum(((a - b) + (b - a)).values())
+
+
 def _assembly(tree, got):
     if tree.get("op") == "cryptic":
         return {}
@@ -294,11 +305,16 @@ def _assembly(tree, got):
     if len(pieces) > 1:
         out["pieces"] = pieces
     # An unchecked anagram (a setter's slip, or a legacy step taken as filed)
-    # is listed too when its fodder's letters are known, so the ring deals
-    # them and validate_annotations holds a slip to tools/data/setter_error.json.
+    # is listed too when its fodder's letters are known and are a slip's
+    # reach from what it gives, so the ring deals them and
+    # validate_annotations holds a slip to tools/data/setter_error.json.
+    # Further out it is a structure the tree does not hold (cryptic-22514
+    # 13A: a linked answer's 17 letters of fodder filed against one light's
+    # SLEEPING), and listing it would misstate it.
     anas = [{"fodder": _fodder(n, got) or "".join(sorted(got[id(n)])), "gives": got[id(n)]}
             for n, _ in _walk(tree) if n.get("op") == "anagram" and id(n) in got
-            and (not n.get("unchecked") or (len(_parts(n)) == 1 and id(_parts(n)[0]) in got))]
+            and (not n.get("unchecked") or (len(_parts(n)) == 1 and id(_parts(n)[0]) in got
+                                            and _slip_size(got[id(_parts(n)[0])], got[id(n)]) <= SLIP_LETTERS))]
     revs = [{"from": got[id(_parts(n)[0])], "to": got[id(n)]}
             for n, _ in _walk(tree) if n.get("op") == "reversal" and id(_parts(n)[0]) in got
             and not n.get("unchecked")]
