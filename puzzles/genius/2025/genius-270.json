@@ -6,6 +6,13 @@
  "setter": "Pangakupu",
  "date": "2025-12-01",
  "preamble": "Nine answers are modified to give associated entries. Nine other clues each contain one redundant word – in clue order these give a quotation missing its last word. The quotation’s author can be found straddling a black square.",
+ "messages": [
+  {
+   "text": "PHBMSOTSO",
+   "kind": "clue",
+   "order": "clues"
+  }
+ ],
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -19,8 +26,14 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "unsolved"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-13",
+  "check": "33 entries, 62 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,6 +46,68 @@
    "clue": {
     "text": "Part of church ruined by a priest introducing bit of topaz",
     "enumeration": "10"
+   },
+   "solution": "BAPTISTERY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "BAPTISTERY",
+    "definitions": [
+     {
+      "text": "Part of church",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ruined",
+      "for": "anagram",
+      "note": "ruined says the words by a priest are wrecked and rebuilt in a new order"
+     },
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "a bit of the word topaz is just its opening letter here"
+     }
+    ],
+    "linkWords": [
+     "introducing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "by a priest",
+      "gives": "BYAPRIEST",
+      "note": "taken as written, the letters to be rearranged"
+     },
+     {
+      "clueFragment": "topaz",
+      "gives": "T",
+      "select": "first",
+      "note": "only its first letter is used"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAPTISTERY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BYAPRIESTT",
+       "gives": "BAPTISTERY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A priest wrecks part of his church while setting a gemstone into it.",
+     "definitionFit": "A baptistery is the area or separate building of a church where baptisms take place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ruined"
+    }
    }
   },
   {
@@ -52,6 +127,63 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "BANKCARDS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BANK CARDS",
+    "definitions": [
+     {
+      "text": "means of payment",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the word for sides goes round the other"
+     }
+    ],
+    "linkWords": [
+     "silent"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sides",
+      "gives": "BANKS",
+      "note": "banks are the sides of a river"
+     },
+     {
+      "clueFragment": "eccentric",
+      "gives": "CARD",
+      "note": "a card is an eccentric or amusing person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BANK",
+      "CARD",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Riverbanks keep quiet about an oddball's method of paying.",
+     "walkthrough": "Silent is the fifth redundant word of the quotation.",
+     "definitionFit": "Debit and credit cards issued by banks are a common way to pay for things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sides"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "S",
+     "at": 6
+    }
    }
   },
   {
@@ -65,6 +197,54 @@
    "clue": {
     "text": "Song award drawing in soprano",
     "enumeration": "5"
+   },
+   "solution": "PSALM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PSALM",
+    "definitions": [
+     {
+      "text": "Song",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drawing in",
+      "for": "container",
+      "note": "drawing in means pulling something inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "award",
+      "gives": "PALM",
+      "note": "a palm is a prize, as in the Palme d'Or"
+     },
+     {
+      "clueFragment": "soprano",
+      "gives": "S",
+      "note": "S is the abbreviation for soprano"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "S",
+      "ALM"
+     ]
+    },
+    "explanation": {
+     "surface": "A song wins a prize that attracts a soprano.",
+     "definitionFit": "A psalm is a sacred song or hymn, especially one from the Book of Psalms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "award"
+    }
    }
   },
   {
@@ -78,6 +258,72 @@
    "clue": {
     "text": "Remote-controlled robots offering electricity in Yorkshire town? Not quite",
     "enumeration": "9"
+   },
+   "solution": "ILCHESTER",
+   "alteration": {
+    "from": "TELECHIRS",
+    "steps": [
+     {
+      "op": "anagram"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ILCHESTER",
+    "definitions": [
+     {
+      "text": "Remote-controlled robots",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the electricity abbreviation inside the town"
+     },
+     {
+      "text": "Not quite",
+      "for": "deletion",
+      "note": "not quite drops the town's last letter"
+     }
+    ],
+    "linkWords": [
+     "offering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yorkshire town",
+      "gives": "THIRSK",
+      "note": "Thirsk is a market town in North Yorkshire"
+     },
+     {
+      "clueFragment": "electricity",
+      "gives": "ELEC",
+      "note": "ELEC is the usual abbreviation for electricity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ELEC",
+      "HIRS"
+     ]
+    },
+    "explanation": {
+     "surface": "A northern town is almost able to power its remote-controlled machines.",
+     "walkthrough": "The clue gives TELECHIRS, rearranged into the Somerset cheese ILCHESTER for the grid.",
+     "definitionFit": "A telechir is a robot arm worked from a distance by a human operator."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "offering"
+    }
    }
   },
   {
@@ -91,6 +337,74 @@
    "clue": {
     "text": "Bits of mosaic — sets jumbled with time and use, finally",
     "enumeration": "8"
+   },
+   "solution": "TESSERAE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "TESSERAE",
+    "definitions": [
+     {
+      "text": "Bits of mosaic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "jumbled",
+      "for": "anagram",
+      "note": "jumbled says the collected letters are mixed into a new order"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally takes the last letter of the word use"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sets",
+      "gives": "SETS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "ERA",
+      "note": "an era is a period of time"
+     },
+     {
+      "clueFragment": "use",
+      "gives": "E",
+      "select": "last",
+      "note": "only its last letter is used"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TESSERAE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SETSERAE",
+       "gives": "TESSERAE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tiles in a mosaic get jumbled up as the years pass and they wear.",
+     "definitionFit": "Tesserae are the small cubes of stone or glass a mosaic is built from."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sets"
+    }
    }
   },
   {
@@ -104,6 +418,77 @@
    "clue": {
     "text": "Type of rocket, a rocket initially crashing into satellite",
     "enumeration": "6"
+   },
+   "solution": "ROMANO",
+   "alteration": {
+    "from": "MAROON",
+    "steps": [
+     {
+      "op": "anagram"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "ROMANO",
+    "definitions": [
+     {
+      "text": "Type of rocket",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially takes the first letter of the second rocket"
+     },
+     {
+      "text": "crashing into",
+      "for": "container",
+      "note": "crashing into puts the pieces before it inside the satellite"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "satellite",
+      "gives": "MOON",
+      "note": "the Moon is Earth's satellite"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rocket",
+      "gives": "R",
+      "select": "first",
+      "note": "only its first letter is used"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "A",
+      "R",
+      "OON"
+     ]
+    },
+    "explanation": {
+     "surface": "A rocket smashes into a moon.",
+     "walkthrough": "The clue gives MAROON, rearranged into the Italian cheese ROMANO for the grid.",
+     "definitionFit": "A maroon is a loud signal rocket, once used to summon lifeboat crews."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "satellite"
+    }
    }
   },
   {
@@ -117,6 +502,57 @@
    "clue": {
     "text": "Structure in funeral brings in every relative at the outset",
     "enumeration": "4"
+   },
+   "solution": "BRIE",
+   "alteration": {
+    "from": "BIER",
+    "steps": [
+     {
+      "op": "anagram"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "BRIE",
+    "definitions": [
+     {
+      "text": "Structure in funeral",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the outset",
+      "for": "letter_selection",
+      "note": "at the outset points to the opening letter of each of the four words before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brings in every relative",
+      "gives": "BIER",
+      "select": "first",
+      "note": "the four words whose first letters are taken"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIER"
+     ]
+    },
+    "explanation": {
+     "surface": "A mourner notes that a funeral draws in every relative from the start.",
+     "walkthrough": "The clue gives BIER; as the preamble says, nine answers are modified, and this one is rearranged into the cheese BRIE that goes in the grid.",
+     "definitionFit": "A bier is the movable stand on which a coffin rests during a funeral."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Structure"
+    }
    }
   },
   {
@@ -130,6 +566,68 @@
    "clue": {
     "text": "Data on voter distributed and turned over by machine?",
     "enumeration": "9"
+   },
+   "solution": "ROTAVATED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROTAVATED",
+    "definitions": [
+     {
+      "text": "turned over by machine",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "distributed",
+      "for": "anagram",
+      "note": "distributed means spread around, so the letters are scattered and reassembled"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Data",
+      "gives": "DATA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "voter",
+      "gives": "VOTER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROTAVATED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DATAVOTER",
+       "gives": "ROTAVATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Electoral data, shared out and then overturned by a counting machine.",
+     "walkthrough": "On is the sixth redundant word of the quotation.",
+     "definitionFit": "A rotavator is a motor-driven cultivator, so rotavated soil was churned by machine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "voter"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "O",
+     "at": 5
+    }
    }
   },
   {
@@ -143,6 +641,75 @@
    "clue": {
     "text": "Dodgy company turning up in Abaddon or the netherworld",
     "enumeration": "5"
+   },
+   "solution": "ENRON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "reversal"
+    ],
+    "answer": "ENRON",
+    "definitions": [
+     {
+      "text": "Dodgy company",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down clue turning up means reading from the bottom upwards"
+     },
+     {
+      "text": "in",
+      "for": "deletion",
+      "note": "in says the letters are found inside the run of words, keeping only the stretch that spans them"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Abaddon or",
+      "gives": "ABADDONOR",
+      "note": "only its last three letters are kept"
+     },
+     {
+      "clueFragment": "netherworld",
+      "gives": "NETHERWORLD",
+      "note": "only its first two letters are kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "RON"
+     ],
+     "reversals": [
+      {
+       "from": "NORNE",
+       "to": "ENRON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crooked firm rising in hell.",
+     "walkthrough": "A hidden word read upwards across 'Abaddon or netherworld'. The is the seventh redundant word of the quotation, so skip it before reading the letters.",
+     "definitionFit": "Enron was the US energy firm whose accounting fraud led to its collapse in 2001."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Abaddon"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "T",
+     "at": 39
+    }
    }
   },
   {
@@ -156,6 +723,56 @@
    "clue": {
     "text": "Edge, including start of hem",
     "enumeration": "4"
+   },
+   "solution": "INCH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "INCH",
+    "definitions": [
+     {
+      "text": "Edge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "start of takes the first letter of hem"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "including",
+      "gives": "INC",
+      "note": "INC is the abbreviation for including or inclusive"
+     },
+     {
+      "clueFragment": "hem",
+      "gives": "H",
+      "select": "first",
+      "note": "only its first letter is used"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INC",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A tailor describes a border that takes in the beginning of a hem.",
+     "walkthrough": "'Edge' looks like a noun for a border, but it is a verb.",
+     "definitionFit": "To inch forward is to move slowly and carefully, just as you edge along."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Edge"
+    }
    }
   },
   {
@@ -169,6 +786,71 @@
    "clue": {
     "text": "Poets are enthralled by religious woman with these French subtleties",
     "enumeration": "7"
+   },
+   "solution": "NUANCES",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "NUANCES",
+    "definitions": [
+     {
+      "text": "subtleties",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enthralled by",
+      "for": "container",
+      "note": "being enthralled by someone is being held captive inside their grip"
+     }
+    ],
+    "linkWords": [
+     "Poets",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "religious woman",
+      "gives": "NUN",
+      "note": "a nun is a woman in a religious order"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "A",
+      "note": "A is the abbreviation for are, the metric unit of area"
+     },
+     {
+      "clueFragment": "these French",
+      "gives": "CES",
+      "note": "ces is French for these"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NU",
+      "A",
+      "N",
+      "CES"
+     ]
+    },
+    "explanation": {
+     "surface": "A nun captivates a group of poets with fine points of French.",
+     "walkthrough": "Poets is redundant: the first of nine spare words that give Chesterton's line 'Poets have been mysteriously silent on the subject of [cheese]'.",
+     "definitionFit": "Nuances are fine shades of meaning or slight differences, which is what subtleties are."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "are"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "P",
+     "at": 0
+    }
    }
   },
   {
@@ -182,6 +864,58 @@
    "clue": {
     "text": "Indication of hesitation linked to tail bone",
     "enumeration": "7"
+   },
+   "solution": "MUNSTER",
+   "alteration": {
+    "from": "STERNUM",
+    "steps": [
+     {
+      "op": "anagram"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MUNSTER",
+    "definitions": [
+     {
+      "text": "bone",
+      "at": 40
+     }
+    ],
+    "linkWords": [
+     "linked to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tail",
+      "gives": "STERN",
+      "note": "the stern is the tail end of a ship"
+     },
+     {
+      "clueFragment": "Indication of hesitation",
+      "gives": "UM",
+      "note": "um is the noise a speaker makes while hesitating"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STERN",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor's note on a pause in speech connected to the coccyx.",
+     "walkthrough": "'Tail bone' reads as the coccyx, but tail is wordplay and bone alone defines. The clue gives STERNUM, rearranged into the cheese MUNSTER for the grid.",
+     "definitionFit": "The sternum is the breastbone, the flat bone at the front of the chest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tail"
+    }
    }
   },
   {
@@ -195,6 +929,55 @@
    "clue": {
     "text": "Firm assembled historic aircraft",
     "enumeration": "5"
+   },
+   "solution": "COMTE",
+   "alteration": {
+    "from": "COMET",
+    "steps": [
+     {
+      "op": "anagram"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COMTE",
+    "definitions": [
+     {
+      "text": "historic aircraft",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Firm",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company, a firm"
+     },
+     {
+      "clueFragment": "assembled",
+      "gives": "MET",
+      "note": "met means gathered together, as a meeting does"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "MET"
+     ]
+    },
+    "explanation": {
+     "surface": "A company builds a vintage plane from parts.",
+     "walkthrough": "The clue gives COMET, rearranged into the French cheese COMTE for the grid.",
+     "definitionFit": "The de Havilland Comet was the world's first jet airliner, flying from 1949."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "assembled"
+    }
    }
   },
   {
@@ -208,6 +991,84 @@
    "clue": {
     "text": "I have to enter last British resort before heading for next Dutch municipality",
     "enumeration": "9"
+   },
+   "solution": "EINDHOVEN",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EINDHOVEN",
+    "definitions": [
+     {
+      "text": "Dutch municipality",
+      "at": 60
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to enter",
+      "for": "container",
+      "note": "to enter means the single letter goes inside the word for last"
+     },
+     {
+      "text": "heading for",
+      "for": "letter_selection",
+      "note": "the heading of the word next is its first letter"
+     }
+    ],
+    "linkWords": [
+     "have",
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "last",
+      "gives": "END",
+      "note": "the end is the last part"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "British resort",
+      "gives": "HOVE",
+      "note": "Hove is a seaside town beside Brighton on the English south coast"
+     },
+     {
+      "clueFragment": "next",
+      "gives": "N",
+      "select": "first",
+      "note": "only its first letter is used"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "I",
+      "ND",
+      "HOVE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller plans to finish a seaside break in Britain before moving on to the Netherlands.",
+     "walkthrough": "Have is the second redundant word of the quotation.",
+     "definitionFit": "Eindhoven is a city in the southern Netherlands, home of Philips and PSV."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "last"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "H",
+     "at": 2
+    }
    }
   },
   {
@@ -221,6 +1082,58 @@
    "clue": {
     "text": "Brazilian diplomacy in a warning to demonstrators",
     "enumeration": "7"
+   },
+   "solution": "RICOTTA",
+   "alteration": {
+    "from": "RIOTACT",
+    "steps": [
+     {
+      "op": "anagram"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RICOTTA",
+    "definitions": [
+     {
+      "text": "warning to demonstrators",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "in a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brazilian",
+      "gives": "RIO",
+      "note": "Rio, short for Rio de Janeiro, the Brazilian city"
+     },
+     {
+      "clueFragment": "diplomacy",
+      "gives": "TACT",
+      "note": "tact is diplomacy in dealing with people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIO",
+      "TACT"
+     ]
+    },
+    "explanation": {
+     "surface": "A Brazilian diplomat tactfully cautions a crowd of protesters.",
+     "walkthrough": "The clue gives RIOT ACT, rearranged into the Italian cheese RICOTTA for the grid.",
+     "definitionFit": "The Riot Act was the British law read aloud to order a crowd to disperse; reading it was the formal caution before force."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Brazilian"
+    }
    }
   },
   {
@@ -234,6 +1147,63 @@
    "clue": {
     "text": "Permission to reproduce? Get frisky at the end, OK?",
     "enumeration": "9"
+   },
+   "solution": "COPYRIGHT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "COPYRIGHT",
+    "definitions": [
+     {
+      "text": "Permission to reproduce",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the end",
+      "for": "letter_selection",
+      "note": "at the end takes the last letter of frisky"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get",
+      "gives": "COP",
+      "note": "to cop is slang for to get or catch"
+     },
+     {
+      "clueFragment": "frisky",
+      "gives": "Y",
+      "select": "last",
+      "note": "only its last letter is used"
+     },
+     {
+      "clueFragment": "OK",
+      "gives": "RIGHT",
+      "note": "right means OK, all correct"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COP",
+      "Y",
+      "RIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks about permission to breed, then agrees to get playful later.",
+     "walkthrough": "'Reproduce' teases breeding; here it means copying a work.",
+     "definitionFit": "A copyright is the legal right to make and sell copies of a creative work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "reproduce"
+    }
    }
   },
   {
@@ -247,6 +1217,64 @@
    "clue": {
     "text": "Criticised squads returning after quashing independence",
     "enumeration": "6"
+   },
+   "solution": "SLATED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion"
+    ],
+    "answer": "SLATED",
+    "definitions": [
+     {
+      "text": "Criticised",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning says the word for squads runs back to front"
+     },
+     {
+      "text": "after quashing",
+      "for": "deletion",
+      "note": "quashing means suppressing, so that letter is removed after the reversal"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "squads",
+      "gives": "DETAILS",
+      "note": "a detail is a small squad of soldiers given a particular duty"
+     },
+     {
+      "clueFragment": "independence",
+      "gives": "I",
+      "note": "I is the abbreviation for independence or independent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLATED"
+     ],
+     "reversals": [
+      {
+       "from": "DETAILS",
+       "to": "SLIATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Squads coming home were criticised after crushing a bid for independence.",
+     "definitionFit": "To slate someone is British slang for to criticise them harshly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "squads"
+    }
    }
   },
   {
@@ -260,6 +1288,83 @@
    "clue": {
     "text": "Good story about eccentric British Republican being more likely to complain",
     "enumeration": "9"
+   },
+   "solution": "LIMBURGER",
+   "alteration": {
+    "from": "GRUMBLIER",
+    "steps": [
+     {
+      "op": "anagram"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIMBURGER",
+    "definitions": [
+     {
+      "text": "more likely to complain",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "charade",
+      "note": "about here means the story comes after the eccentric British part rather than before it"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "eccentric",
+      "gives": "RUM",
+      "note": "rum is old British slang for odd or eccentric"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "story",
+      "gives": "LIE",
+      "note": "a lie is a made-up story"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RUM",
+      "B",
+      "LIE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A tale about an odd British Republican who moans more than most.",
+     "walkthrough": "The clue gives GRUMBLIER, rearranged into the German cheese LIMBURGER for the grid.",
+     "definitionFit": "Someone grumblier grumbles more, so is quicker to moan and complain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "story"
+    }
    }
   },
   {
@@ -273,6 +1378,88 @@
    "clue": {
     "text": "About 4\" in dead tree, crumbling, home to climbing vermin?",
     "enumeration": "9"
+   },
+   "solution": "DECIMETRE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "DECIMETRE",
+    "definitions": [
+     {
+      "text": "About 4\"",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crumbling",
+      "for": "anagram",
+      "note": "crumbling says the letters of tree fall into a new order"
+     },
+     {
+      "text": "home to",
+      "for": "container",
+      "note": "home to means housing something, so it holds the reversed vermin"
+     },
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down clue climbing means going upwards, so the word is read in reverse"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dead",
+      "gives": "D",
+      "note": "D is the abbreviation for dead"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "TREE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "vermin",
+      "gives": "MICE",
+      "note": "mice are household vermin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ECIM",
+      "ETRE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TREE",
+       "gives": "ETRE"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "MICE",
+       "to": "ECIM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rotting tree a few inches across, inhabited by mice running up it.",
+     "walkthrough": "4\" means four inches; a tenth of a metre is just under that.",
+     "definitionFit": "A decimetre is ten centimetres, about 3.94 inches, so roughly four inches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "About"
+    }
    }
   },
   {
@@ -286,6 +1473,54 @@
    "clue": {
     "text": "Certain airport information irritated, being withdrawn",
     "enumeration": "3"
+   },
+   "solution": "ETA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ETA",
+    "definitions": [
+     {
+      "text": "Certain airport information",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being withdrawn",
+      "for": "reversal",
+      "note": "withdrawn means drawn out of the word irritated and drawn back, so the letters are taken from inside it and read in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "irritated",
+      "gives": "ATE",
+      "note": "the word whose middle holds the letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETA"
+     ],
+     "reversals": [
+      {
+       "from": "ATE",
+       "to": "ETA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone annoyed by an airport announcement pulls back from it.",
+     "definitionFit": "An ETA, estimated time of arrival, is one of the facts an airport shows for each flight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "irritated"
+    }
    }
   },
   {
@@ -299,6 +1534,69 @@
    "clue": {
     "text": "Obsessive subject upset town regarding research",
     "enumeration": "8"
+   },
+   "solution": "ANALYTIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ANALYTIC",
+    "definitions": [
+     {
+      "text": "regarding research",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue upset means turned upside down, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "subject"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Obsessive",
+      "gives": "ANAL",
+      "note": "anal is informal for obsessively fussy"
+     },
+     {
+      "clueFragment": "town",
+      "gives": "CITY",
+      "note": "a city is a large town"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANAL",
+      "YTIC"
+     ],
+     "reversals": [
+      {
+       "from": "CITY",
+       "to": "YTIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fixated person upset a town with their studies.",
+     "walkthrough": "Subject is the eighth redundant word of the quotation.",
+     "definitionFit": "Analytic work breaks things down to examine them, the method of research."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Obsessive"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "S",
+     "at": 10
+    }
    }
   },
   {
@@ -312,6 +1610,75 @@
    "clue": {
     "text": "Been upsetting salesman aboard public transport? Excellent",
     "enumeration": "6"
+   },
+   "solution": "SUPERB",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "SUPERB",
+    "definitions": [
+     {
+      "text": "Excellent",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upsetting",
+      "for": "reversal",
+      "note": "upsetting turns the whole group over, so it is read from the far end"
+     },
+     {
+      "text": "aboard",
+      "for": "container",
+      "note": "aboard means riding inside the vehicle"
+     }
+    ],
+    "linkWords": [
+     "Been"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "public transport",
+      "gives": "BUS",
+      "note": "a bus is public transport"
+     },
+     {
+      "clueFragment": "salesman",
+      "gives": "REP",
+      "note": "a rep is a sales representative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "PER",
+      "B"
+     ],
+     "reversals": [
+      {
+       "from": "BREPUS",
+       "to": "SUPERB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A travelling salesman on the bus has been causing trouble, and someone is delighted.",
+     "walkthrough": "Been is the third redundant word of the quotation.",
+     "definitionFit": "Superb is a strong word of praise meaning of the very highest quality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upsetting"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "B",
+     "at": 0
+    }
    }
   },
   {
@@ -325,6 +1692,63 @@
    "clue": {
     "text": "Never wandering, I see — or always wandering?",
     "enumeration": "7"
+   },
+   "solution": "NOMADIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOMADIC",
+    "definitions": [
+     {
+      "text": "always wandering",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Never",
+      "gives": "NO",
+      "note": "no can stand for never, as in 'no way'"
+     },
+     {
+      "clueFragment": "wandering",
+      "gives": "MAD",
+      "note": "mad describes a wandering mind"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "see",
+      "gives": "C",
+      "note": "C is a letter that sounds like see"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "MAD",
+      "I",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled question: does never roaming mean someone is forever on the move?",
+     "walkthrough": "The first 'wandering' means mentally astray; the second, in the definition, means roaming.",
+     "definitionFit": "Nomadic peoples move from place to place with no fixed home, forever on the road."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Never"
+    }
    }
   },
   {
@@ -338,6 +1762,59 @@
    "clue": {
     "text": "Wattle and bills in action at the outset",
     "enumeration": "6"
+   },
+   "solution": "ACACIA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ACACIA",
+    "definitions": [
+     {
+      "text": "Wattle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the outset",
+      "for": "letter_selection",
+      "note": "at the outset takes the first letters of in action"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bills",
+      "gives": "ACAC",
+      "note": "an AC is an account or bill, so two give the pair"
+     },
+     {
+      "clueFragment": "in action",
+      "gives": "IA",
+      "select": "first",
+      "note": "only the first letters are used"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACAC",
+      "IA"
+     ]
+    },
+    "explanation": {
+     "surface": "Building with wattle and daub costs money from the start of the work.",
+     "walkthrough": "Wattle sounds like the woven fencing; here it is the Australian tree.",
+     "definitionFit": "Wattle is the Australian name for the acacia, the national floral emblem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wattle"
+    }
    }
   },
   {
@@ -351,6 +1828,75 @@
    "clue": {
     "text": "Marauding at sea? Reasonable to imprison one after taking off a captain's head",
     "enumeration": "9"
+   },
+   "solution": "PIRATICAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "container"
+    ],
+    "answer": "PIRATICAL",
+    "definitions": [
+     {
+      "text": "Marauding at sea",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to imprison",
+      "for": "container",
+      "note": "to imprison means to hold the word for one inside"
+     },
+     {
+      "text": "after taking off",
+      "for": "deletion",
+      "note": "taking off removes that letter before the next step"
+     },
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "a captain's head is the first letter of the word captain"
+     }
+    ],
+    "linkWords": [
+     "a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reasonable",
+      "gives": "PRACTICAL",
+      "note": "practical means sensible, reasonable"
+     },
+     {
+      "clueFragment": "captain's",
+      "gives": "C",
+      "select": "first",
+      "note": "only the first letter of captain is used"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "I",
+      "RATICAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A sensible plan to jail someone once the ship's captain has been beheaded.",
+     "definitionFit": "Piratical describes pirates, who plunder and raid ships on the open water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Reasonable"
+    }
    }
   },
   {
@@ -364,6 +1910,58 @@
    "clue": {
     "text": "Academic adding nothing in demonstration",
     "enumeration": "5"
+   },
+   "solution": "PROOF",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PROOF",
+    "definitions": [
+     {
+      "text": "demonstration",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adding",
+      "for": "container",
+      "note": "adding means slipping the extra letter in the middle"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Academic",
+      "gives": "PROF",
+      "note": "PROF is short for professor, an academic"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "O",
+      "OF"
+     ]
+    },
+    "explanation": {
+     "surface": "A professor contributes nothing to a protest march.",
+     "walkthrough": "'Demonstration' suggests a protest; here it means showing something is true.",
+     "definitionFit": "A proof is a demonstration that something is true, as in mathematics."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "demonstration"
+    }
    }
   },
   {
@@ -377,6 +1975,63 @@
    "clue": {
     "text": "Character used in motto of Newcastle",
     "enumeration": "4"
+   },
+   "solution": "TONE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TONE",
+    "definitions": [
+     {
+      "text": "Character",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "used in",
+      "for": "deletion",
+      "note": "used in says the letters sit inside the words, keeping only the stretch that spans them"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "motto",
+      "gives": "MOTTO",
+      "note": "only its last two letters are kept"
+     },
+     {
+      "clueFragment": "Newcastle",
+      "gives": "NEWCASTLE",
+      "note": "only its first two letters are kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "NE"
+     ]
+    },
+    "explanation": {
+     "surface": "A letter of the alphabet that appears in a football club's motto.",
+     "walkthrough": "A hidden word across 'motto Newcastle'. Of is the ninth redundant word, so skip it; the quotation's last word, cheese, is the theme of the altered answers.",
+     "definitionFit": "The tone of a place or event is its character or general feel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Character"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "O",
+     "at": 24
+    }
    }
   },
   {
@@ -390,6 +2045,62 @@
    "clue": {
     "text": "Remove block from American and German, mysteriously, up front",
     "enumeration": "5"
+   },
+   "solution": "UNDAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNDAM",
+    "definitions": [
+     {
+      "text": "Remove block from",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up front",
+      "for": "charade",
+      "note": "up front puts the German word ahead of the American one"
+     }
+    ],
+    "linkWords": [
+     "mysteriously"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and German",
+      "gives": "UND",
+      "note": "und is German for and"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "AM",
+      "note": "AM is an abbreviation for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UND",
+      "AM"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to clear an obstruction for an American and a German, puzzlingly placed at the front.",
+     "walkthrough": "Mysteriously is the fourth redundant word of the quotation.",
+     "definitionFit": "To undam a river is to take away the dam that holds it back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "German"
+    },
+    "hiddenLetter": {
+     "kind": "clue",
+     "letter": "M",
+     "at": 39
+    }
    }
   },
   {
@@ -403,6 +2114,49 @@
    "clue": {
     "text": "Two people taking on second Italian church",
     "enumeration": "5"
+   },
+   "solution": "DUOMO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DUOMO",
+    "definitions": [
+     {
+      "text": "Italian church",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "taking on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two people",
+      "gives": "DUO",
+      "note": "a duo is a pair of people"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "MO",
+      "note": "mo is short for moment, a second"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUO",
+      "MO"
+     ]
+    },
+    "explanation": {
+     "surface": "A couple take up an Italian church for a brief time.",
+     "definitionFit": "Duomo is the Italian word for a city's main cathedral, as in Florence or Milan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
    }
   },
   {
@@ -416,6 +2170,59 @@
    "clue": {
     "text": "Like many compounds one's caught applied to skin?",
     "enumeration": "7"
+   },
+   "solution": "ORGANIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORGANIC",
+    "definitions": [
+     {
+      "text": "Like many compounds",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "applied to",
+      "for": "charade",
+      "note": "applied to says the other pieces are stuck on after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "skin",
+      "gives": "ORGAN",
+      "note": "the skin is the body's largest organ"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "I",
+      "note": "one is I, the Roman numeral; the 's is just 'is'"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORGAN",
+      "I",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A chemist asks whether a cream counts as a compound when it is rubbed on the skin.",
+     "definitionFit": "Organic chemistry covers carbon compounds, the great majority of all known chemicals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "skin"
+    }
    }
   },
   {
@@ -429,6 +2236,75 @@
    "clue": {
     "text": "Corporation backed program securing a harbour vessel",
     "enumeration": "7"
+   },
+   "solution": "TUGBOAT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "TUGBOAT",
+    "definitions": [
+     {
+      "text": "harbour vessel",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backed",
+      "for": "reversal",
+      "note": "backed means turned backwards, so the word for corporation is read in reverse"
+     },
+     {
+      "text": "securing",
+      "for": "container",
+      "note": "securing means holding something safely inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Corporation",
+      "gives": "GUT",
+      "note": "corporation is a jokey old word for a large belly, a gut"
+     },
+     {
+      "clueFragment": "program",
+      "gives": "BOT",
+      "note": "a bot is a software program that runs tasks automatically"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUG",
+      "BO",
+      "A",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "GUT",
+       "to": "TUG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A company backs a software project that protects a harbour boat.",
+     "walkthrough": "'Corporation' looks like a business, but it is the old joke word for a paunch.",
+     "definitionFit": "A tugboat is a small powerful boat that pushes and tows ships around a port."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Corporation"
+    }
    }
   },
   {
@@ -442,6 +2318,63 @@
    "clue": {
     "text": "Put away following female? That's your lot",
     "enumeration": "4"
+   },
+   "solution": "FETA",
+   "alteration": {
+    "from": "FATE",
+    "steps": [
+     {
+      "op": "anagram"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FETA",
+    "definitions": [
+     {
+      "text": "That's your lot",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following places the eating word after the abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "Put away",
+      "gives": "ATE",
+      "note": "to put away food is to eat it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "After a woman has eaten, someone announces there is no more food.",
+     "walkthrough": "'That's your lot' sounds like 'no more', but lot means destiny. The clue gives FATE, rearranged into the Greek cheese FETA for the grid.",
+     "definitionFit": "Your lot in life is what destiny has handed you, so fate is your lot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lot"
+    }
    }
   },
   {
@@ -455,6 +2388,64 @@
    "clue": {
     "text": "Exaggerated an emblem of love in bellbirds",
     "enumeration": "10"
+   },
+   "solution": "MASCARPONE",
+   "alteration": {
+    "from": "CAMPANEROS",
+    "steps": [
+     {
+      "op": "anagram"
+     }
+    ]
+   },
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MASCARPONE",
+    "definitions": [
+     {
+      "text": "bellbirds",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Exaggerated",
+      "gives": "CAMP",
+      "note": "camp means theatrical and over the top"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "emblem of love",
+      "gives": "EROS",
+      "note": "Eros, the Greek god of love, stands for love"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAMP",
+      "AN",
+      "EROS"
+     ]
+    },
+    "explanation": {
+     "surface": "An overdone symbol of love found among singing birds.",
+     "walkthrough": "The clue gives CAMPANEROS, rearranged into the Italian cheese MASCARPONE for the grid.",
+     "definitionFit": "The campanero is the South American bellbird, named for its ringing, bell-like call."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Exaggerated"
+    }
    }
   }
  ]
