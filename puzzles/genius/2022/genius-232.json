@@ -4,6 +4,14 @@
  "setter": "Pasquale",
  "date": "2022-10-03",
  "preamble": "Solutions to eight of the across clues must have two adjacent letters replaced before entry in the grid. The wordplay of their clues leads to the altered version to be entered. The misprints involved are from a set of eight displaced from the usual positions. Wordplay in the other eight across clues contains a superfluous letter that should be ignored. These eight letters in order, with the inclusion of a ninth letter to be deduced and entered in the centre of the grid, spell out the name of a person who admitted to perhaps having the set of eight in the wrong order. All down clues and solutions are normal.",
+ "messages": [
+  {
+   "text": "MOREAMBE",
+   "kind": "omitted",
+   "direction": "across",
+   "order": "clues"
+  }
+ ],
  "dimensions": {
   "cols": 15,
   "rows": 15
@@ -17,8 +25,14 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "unsolved"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-13",
+  "check": "30 entries, 58 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -31,6 +45,79 @@
    "clue": {
     "text": "Sparkling wine son poured out, sort of wine much loved",
     "enumeration": "6"
+   },
+   "solution": "ATIRED",
+   "alteration": {
+    "from": "ADORED",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "much loved",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "poured out",
+           "at": 19,
+           "note": "the son is emptied out of the sparkling wine, so his letter goes"
+          }
+         ],
+         "parts": [
+          {
+           "words": "Sparkling wine",
+           "at": 0,
+           "gives": "ASTI",
+           "note": "Asti is the Italian sparkling wine from Piedmont"
+          },
+          {
+           "words": "son",
+           "at": 15,
+           "gives": "S",
+           "note": "S is the abbreviation for son"
+          }
+         ]
+        },
+        {
+         "words": "sort of wine",
+         "at": 31,
+         "gives": "RED",
+         "note": "red is a kind of wine, as opposed to white or rosé"
+        }
+       ]
+      },
+      {
+       "gives": "TI"
+      },
+      {
+       "gives": "DO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wine lover pours out fizz and red, a sort of wine they adore.",
+     "walkthrough": "This is one of the eight altered entries: the wordplay builds the grid form, with TI where the real answer has DO. Swapping the note back gives the word defined.",
+     "definitionFit": "Adored means loved deeply, which is what much loved says."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "poured"
+    }
    }
   },
   {
@@ -44,6 +131,62 @@
    "clue": {
     "text": "A sport eg is getting out of hand? Show contrition",
     "enumeration": "9"
+   },
+   "solution": "APOLOGISE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Show contrition",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "getting out of hand",
+       "at": 14,
+       "note": "things out of hand are in disorder, so these letters are scrambled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0,
+         "note": "taken as written, to be rearranged"
+        },
+        {
+         "words": "sport",
+         "at": 2,
+         "gives": "POLO",
+         "note": "polo is a sport played on horseback"
+        },
+        {
+         "words": "eg",
+         "at": 8,
+         "note": "taken as written, to be rearranged"
+        },
+        {
+         "words": "is",
+         "at": 11,
+         "note": "taken as written, to be rearranged"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rough game gets out of control, and a player must say sorry.",
+     "definitionFit": "To apologise is to express regret, the outward show of contrition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hand"
+    }
    }
   },
   {
@@ -57,6 +200,49 @@
    "clue": {
     "text": "One doing a turn is rubbish — nothing right",
     "enumeration": "5"
+   },
+   "solution": "ROTOR",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "One doing a turn",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "rubbish",
+       "at": 20,
+       "gives": "ROT",
+       "note": "rot means nonsense, rubbish talk"
+      },
+      {
+       "words": "nothing",
+       "at": 30,
+       "gives": "O",
+       "note": "O looks like zero, nothing"
+      },
+      {
+       "words": "right",
+       "at": 38,
+       "gives": "R",
+       "note": "R is the abbreviation for right"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A critic dismisses a performer's act as rubbish, worthless from start to finish.",
+     "walkthrough": "'Doing a turn' suggests a stage act; here it is literal rotation.",
+     "definitionFit": "A rotor is the rotating part of a machine, such as a helicopter blade, so it is something that spins."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "turn"
+    }
    }
   },
   {
@@ -70,6 +256,63 @@
    "clue": {
     "text": "Make out most of antenna atop a research establishment",
     "enumeration": "7"
+   },
+   "solution": "DISCERN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Make out",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "indicators": [
+      {
+       "text": "atop",
+       "at": 25,
+       "note": "in a down clue the first piece sits on top of the second"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "most of",
+         "at": 9,
+         "note": "the dish loses its last letter, so most of it remains"
+        }
+       ],
+       "parts": [
+        {
+         "words": "antenna",
+         "at": 17,
+         "gives": "DISH",
+         "note": "a dish is a satellite antenna"
+        },
+        {
+         "gives": "H"
+        }
+       ]
+      },
+      {
+       "words": "a research establishment",
+       "at": 30,
+       "gives": "CERN",
+       "note": "CERN is the European particle physics laboratory near Geneva"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scientist spots a radio aerial perched on top of a laboratory.",
+     "definitionFit": "To discern is to perceive or detect, the sense of make out as in make out a shape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "antenna"
+    }
    }
   },
   {
@@ -83,6 +326,62 @@
    "clue": {
     "text": "Have control of fish around island",
     "enumeration": "7"
+   },
+   "solution": "COMMAND",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Have control of",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "around",
+       "at": 21,
+       "note": "the fish's letters sit around the island, holding it inside"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fish",
+       "at": 16,
+       "gives": "COD",
+       "note": "the cod is a common food fish"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "gives": "M",
+         "note": "no clue word gives this letter: it is the one the theme leaves out, first of MORECAMBE"
+        },
+        {
+         "words": "island",
+         "at": 28,
+         "gives": "MAN",
+         "note": "the Isle of Man, in the Irish Sea, is often just Man"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An island's people have charge of the fishing waters around it.",
+     "walkthrough": "One of the eight clues whose wordplay is a letter short: the wordplay misses one M, the first letter of the hidden name MORECAMBE.",
+     "definitionFit": "To command something is to be in charge of it, a direct synonym of having control."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fish"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "M"
+    }
    }
   },
   {
@@ -96,6 +395,41 @@
    "clue": {
     "text": "Applause with Zeus's maiden giving final message",
     "enumeration": "7"
+   },
+   "solution": "CHEERIO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "final message",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "Applause",
+       "at": 0,
+       "gives": "CHEER",
+       "note": "a cheer is a shout of applause"
+      },
+      {
+       "words": "Zeus's maiden",
+       "at": 14,
+       "gives": "IO",
+       "note": "Io was a maiden loved by Zeus in Greek myth, turned into a heifer"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A myth retold: Io bids farewell to cheering crowds.",
+     "definitionFit": "Cheerio is an informal British goodbye, the last thing said when parting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Applause"
+    }
    }
   },
   {
@@ -109,6 +443,58 @@
    "clue": {
     "text": "Trembling, I'm facing old grandee",
     "enumeration": "9"
+   },
+   "solution": "MAGNIFICO",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "grandee",
+      "at": 26
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Trembling",
+       "at": 0,
+       "note": "the letters shake into a new order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "I'm",
+         "at": 11,
+         "note": "taken as written, to be rearranged"
+        },
+        {
+         "words": "facing",
+         "at": 15,
+         "note": "taken as written, to be rearranged"
+        },
+        {
+         "words": "old",
+         "at": 22,
+         "gives": "O",
+         "note": "O is the abbreviation for old"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous person admits to facing an aged nobleman.",
+     "walkthrough": "'Facing' looks like the link joining two parts but is anagram fodder itself.",
+     "definitionFit": "A magnifico was a grandee of Venice, and the word now means any person of high rank."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "facing"
+    }
    }
   },
   {
@@ -132,6 +518,47 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "ANDSOON",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "etc",
+      "at": 42
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "will receive",
+       "at": 9,
+       "note": "the word for soon takes the medal inside it"
+      }
+     ],
+     "parts": [
+      {
+       "words": "Ere long",
+       "at": 0,
+       "gives": "ANON",
+       "note": "anon is an old word meaning soon"
+      },
+      {
+       "words": "military decoration",
+       "at": 22,
+       "gives": "DSO",
+       "note": "DSO is the Distinguished Service Order, a British military award"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Soon a soldier will collect a medal, and more besides.",
+     "definitionFit": "Etc abbreviates et cetera, Latin for and the rest, the same as and so on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
    }
   },
   {
@@ -145,6 +572,72 @@
    "clue": {
     "text": "Feet sadly suffering — about time to get tucked in",
     "enumeration": "7"
+   },
+   "solution": "DACTYLS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Feet",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to get tucked in",
+       "at": 34,
+       "note": "the two small pieces are put inside the jumbled word"
+      }
+     ],
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "suffering",
+         "at": 11,
+         "note": "the letters of sadly are put through it and rearranged"
+        }
+       ],
+       "parts": [
+        {
+         "words": "sadly",
+         "at": 5,
+         "note": "taken as written, to be rearranged"
+        }
+       ]
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "about",
+         "at": 23,
+         "gives": "C",
+         "note": "C is short for circa, about"
+        },
+        {
+         "words": "time",
+         "at": 29,
+         "gives": "T",
+         "note": "T is the abbreviation for time"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone with sore feet is finally getting tucked into bed.",
+     "walkthrough": "'Feet' looks like body parts, but these are metrical feet in poetry, each a long syllable followed by two short.",
+     "definitionFit": "A dactyl is a metrical foot of one stressed and two unstressed syllables, so dactyls are feet in verse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Feet"
+    }
    }
   },
   {
@@ -158,6 +651,73 @@
    "clue": {
     "text": "Wicked Tories — a problem for the listener",
     "enumeration": "6"
+   },
+   "solution": "ORETIS",
+   "alteration": {
+    "from": "OTITIS",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "a problem for the listener",
+      "at": 16
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "Wicked",
+       "at": 0,
+       "note": "the Tories are made bad, twisted out of their proper order"
+      }
+     ],
+     "parts": [
+      {
+       "op": "substitution",
+       "parts": [
+        {
+         "op": "substitution",
+         "parts": [
+          {
+           "words": "Tories",
+           "at": 7,
+           "note": "taken as written, to be rearranged"
+          },
+          {
+           "gives": "R"
+          },
+          {
+           "gives": "T"
+          }
+         ]
+        },
+        {
+         "gives": "E"
+        },
+        {
+         "gives": "I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jibe that the wicked Conservatives are a pain for anyone who has to hear them.",
+     "walkthrough": "An altered entry: the anagram of TORIES gives the grid form ORETIS, with RE where the real answer has TI. OTITIS is inflammation of the ear.",
+     "definitionFit": "An ear infection impairs hearing, so it is literally a trouble for someone trying to listen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "listener"
+    }
    }
   },
   {
@@ -171,6 +731,62 @@
    "clue": {
     "text": "Relating to probability of detectives returning to work unit",
     "enumeration": "7"
+   },
+   "solution": "ERGODIC",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Relating to probability",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "work unit",
+       "at": 51,
+       "gives": "ERG",
+       "note": "the erg is the unit of work in the old CGS system"
+      },
+      {
+       "gives": "O",
+       "note": "no clue word gives this letter: it is the one the theme leaves out, second of MORECAMBE"
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "returning",
+         "at": 38,
+         "note": "the detectives come back, so their letters are read from the end"
+        }
+       ],
+       "parts": [
+        {
+         "words": "detectives",
+         "at": 27,
+         "gives": "CID",
+         "note": "CID is the Criminal Investigation Department, the detective branch of British police"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Probability talk about police officers going back to their unit.",
+     "walkthrough": "The wordplay is one letter short: it gives no O, the second letter of the hidden name MORECAMBE.",
+     "definitionFit": "Ergodic theory is the branch of statistics and probability concerning long-run averages of systems."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unit"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "O"
+    }
    }
   },
   {
@@ -190,6 +806,112 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "POMERBEAR",
+   "alteration": {
+    "from": "POLARBEAR",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "into",
+       "at": 39,
+       "note": "the jumbled word and the opening letter go inside the fruit tree"
+      }
+     ],
+     "parts": [
+      {
+       "words": "fruit tree",
+       "at": 44,
+       "gives": "PEAR",
+       "note": "the pear is a fruit tree"
+      },
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "frenzied",
+           "at": 12,
+           "note": "something frenzied is wild and disordered, so the word more is jumbled"
+          }
+         ],
+         "parts": [
+          {
+           "op": "substitution",
+           "parts": [
+            {
+             "op": "substitution",
+             "parts": [
+              {
+               "words": "more",
+               "at": 7,
+               "note": "taken as written, to be rearranged"
+              },
+              {
+               "gives": "M"
+              },
+              {
+               "gives": "L"
+              }
+             ]
+            },
+            {
+             "gives": "E"
+            },
+            {
+             "gives": "A"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "beginning to",
+           "at": 21,
+           "note": "only the first letter of bash is wanted"
+          }
+         ],
+         "parts": [
+          {
+           "words": "bash",
+           "at": 34,
+           "note": "the word whose opening letter is taken"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wild animal crashes into a fruit tree in a frenzy.",
+     "walkthrough": "An altered entry: the wordplay builds the grid form POMERBEAR, with ME (the tonic sol-fa spelling of the third note) where the real answer has LA.",
+     "definitionFit": "The polar bear is the large white bear of the Arctic, a straightforward example of an animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "more"
+    }
    }
   },
   {
@@ -203,6 +925,55 @@
    "clue": {
     "text": "'I love New York' — incongruous use of language?",
     "enumeration": "5"
+   },
+   "solution": "IRONY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "incongruous use of language",
+      "at": 20
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "I",
+       "at": 1,
+       "note": "taken as written"
+      },
+      {
+       "gives": "R",
+       "note": "no clue word gives this letter: it is the one the theme leaves out, third of MORECAMBE"
+      },
+      {
+       "words": "love",
+       "at": 3,
+       "gives": "O",
+       "note": "love is zero in tennis scoring, a round letter O"
+      },
+      {
+       "words": "New York",
+       "at": 8,
+       "gives": "NY",
+       "note": "NY is the standard abbreviation for New York"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The famous tourist slogan held up as an example of words used against their sense.",
+     "walkthrough": "The wordplay lacks the R, third letter of the hidden name MORECAMBE.",
+     "definitionFit": "Irony is saying something whose meaning runs against its literal words, an incongruity of language."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "R"
+    }
    }
   },
   {
@@ -216,6 +987,82 @@
    "clue": {
     "text": "Figure one female will face endless pain",
     "enumeration": "6"
+   },
+   "solution": "IFAGON",
+   "alteration": {
+    "from": "ISOGON",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Figure",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "one",
+         "at": 7,
+         "gives": "I",
+         "note": "I is the Roman numeral for one"
+        },
+        {
+         "words": "female",
+         "at": 11,
+         "gives": "F",
+         "note": "F is the abbreviation for female"
+        },
+        {
+         "op": "deletion",
+         "indicators": [
+          {
+           "text": "endless",
+           "at": 28,
+           "note": "the word for pain loses its final letter"
+          }
+         ],
+         "parts": [
+          {
+           "words": "pain",
+           "at": 36,
+           "gives": "AGONY",
+           "note": "agony is intense pain"
+          },
+          {
+           "gives": "Y"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "gives": "FA"
+      },
+      {
+       "gives": "SO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman faces chronic suffering, a sad figure.",
+     "walkthrough": "An altered entry: the grid holds FA where the real answer has SO. An isogon is a polygon whose angles are all equal.",
+     "definitionFit": "In geometry a figure is a shape, and an isogon is a particular many-sided plane shape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Figure"
+    }
    }
   },
   {
@@ -229,6 +1076,58 @@
    "clue": {
     "text": "Good work by Wagner (in English) bringing in a crowd",
     "enumeration": "9"
+   },
+   "solution": "GATHERING",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "crowd",
+      "at": 47
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "bringing in",
+       "at": 33,
+       "note": "the pieces take the next word inside them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Good",
+         "at": 0,
+         "gives": "G",
+         "note": "G is the abbreviation for good"
+        },
+        {
+         "words": "work by Wagner (in English)",
+         "at": 5,
+         "gives": "THERING",
+         "note": "Wagner's opera cycle Der Ring des Nibelungen is called The Ring in English"
+        }
+       ]
+      },
+      {
+       "words": "a",
+       "at": 45,
+       "note": "taken as written"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fine Wagner production draws a big audience.",
+     "definitionFit": "A gathering is an assembly of people, the same as a crowd."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Good"
+    }
    }
   },
   {
@@ -242,6 +1141,73 @@
    "clue": {
     "text": "Lines up squaddies in street after about-turn",
     "enumeration": "7"
+   },
+   "solution": "ORIENTS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Lines up",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "squaddies",
+       "at": 9,
+       "gives": "OR",
+       "note": "OR stands for other ranks, ordinary soldiers"
+      },
+      {
+       "op": "container",
+       "parts": [
+        {
+         "words": "in",
+         "at": 19,
+         "gives": "IN",
+         "note": "taken as written"
+        },
+        {
+         "gives": "E",
+         "note": "no clue word gives this letter: it is the one the theme leaves out, fourth of MORECAMBE"
+        }
+       ]
+      },
+      {
+       "op": "reversal",
+       "indicators": [
+        {
+         "text": "after about-turn",
+         "at": 29,
+         "note": "an about-turn faces the other way, so the street is read backwards"
+        }
+       ],
+       "parts": [
+        {
+         "words": "street",
+         "at": 22,
+         "gives": "ST",
+         "note": "ST is the abbreviation for street"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sergeant lines up soldiers in the street after an about-turn on parade.",
+     "walkthrough": "The wordplay lacks an E, the fourth letter of MORECAMBE; the C that would follow goes in the grid's empty centre square.",
+     "definitionFit": "To orient something is to align or position it, so lines up is a fair synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lines"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "E"
+    }
    }
   },
   {
@@ -255,6 +1221,61 @@
    "clue": {
     "text": "A tin hat is unusual for islanders",
     "enumeration": "9"
+   },
+   "solution": "TAHITIANS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "islanders",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "unusual",
+       "at": 13,
+       "note": "an unusual arrangement of the letters is called for"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "A",
+         "at": 0,
+         "note": "taken as written, to be rearranged"
+        },
+        {
+         "words": "tin",
+         "at": 2,
+         "note": "taken as written, to be rearranged"
+        },
+        {
+         "words": "hat",
+         "at": 6,
+         "note": "taken as written, to be rearranged"
+        },
+        {
+         "words": "is",
+         "at": 10,
+         "note": "taken as written, to be rearranged"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tin helmet is odd headgear for people in a Pacific island.",
+     "definitionFit": "Tahitians are the people of Tahiti, an island in French Polynesia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hat"
+    }
    }
   },
   {
@@ -268,6 +1289,74 @@
    "clue": {
     "text": "Uncontrolled rage about dry event needing water",
     "enumeration": "7"
+   },
+   "solution": "REGATTA",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "event needing water",
+      "at": 28
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "about",
+       "at": 18,
+       "note": "the scrambled rage goes around the abbreviation for dry"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "anagram",
+         "indicators": [
+          {
+           "text": "Uncontrolled",
+           "at": 0,
+           "note": "rage running out of control is jumbled up"
+          }
+         ],
+         "parts": [
+          {
+           "words": "rage",
+           "at": 13,
+           "note": "taken as written, to be rearranged"
+          }
+         ]
+        },
+        {
+         "gives": "A",
+         "note": "no clue word gives this letter: it is the one the theme leaves out, sixth of MORECAMBE"
+        }
+       ]
+      },
+      {
+       "words": "dry",
+       "at": 24,
+       "gives": "TT",
+       "note": "TT is teetotal, so someone dry"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fury erupts at a teetotal function.",
+     "walkthrough": "The wordplay lacks one A, the letter after the centre C in MORECAMBE. 'Dry' looks like part of the definition but supplies TT.",
+     "definitionFit": "A regatta is a series of boat races, which naturally requires a river, lake or sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dry"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "A"
+    }
    }
   },
   {
@@ -287,6 +1376,48 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "ROPESIN",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Successfully gets hold of",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "to seal in",
+       "at": 39,
+       "note": "the sticky stuff closes round the gym letters, holding them"
+      }
+     ],
+     "parts": [
+      {
+       "words": "sticky stuff",
+       "at": 26,
+       "gives": "ROSIN",
+       "note": "rosin is a resin rubbed on violin bows for grip"
+      },
+      {
+       "words": "gym",
+       "at": 50,
+       "gives": "PE",
+       "note": "PE is physical education, gym class"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A climber grips the rope with resin chalked on in the gym.",
+     "definitionFit": "To rope someone in is to recruit or persuade them to take part, succeeding in getting hold of them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seal"
+    }
    }
   },
   {
@@ -300,6 +1431,66 @@
    "clue": {
     "text": "Sentinels having day off protecting Italian instruments",
     "enumeration": "7"
+   },
+   "solution": "GUITARS",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "instruments",
+      "at": 44
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "protecting",
+       "at": 25,
+       "note": "the sentinels surround the Italian, keeping it inside"
+      }
+     ],
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "off",
+         "at": 21,
+         "note": "the day is taken off, so its letter is removed"
+        }
+       ],
+       "parts": [
+        {
+         "words": "Sentinels",
+         "at": 0,
+         "gives": "GUARDS",
+         "note": "guards keep watch, like sentinels"
+        },
+        {
+         "words": "day",
+         "at": 17,
+         "gives": "D",
+         "note": "D is the abbreviation for day"
+        }
+       ]
+      },
+      {
+       "words": "Italian",
+       "at": 36,
+       "gives": "IT",
+       "note": "It is short for Italian, as in It vermouth"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Off-duty guards look after Italian musicians' equipment.",
+     "definitionFit": "Guitars are stringed musical instruments."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sentinels"
+    }
    }
   },
   {
@@ -313,6 +1504,46 @@
    "clue": {
     "text": "A soldier joining artist with a lively style",
     "enumeration": "7"
+   },
+   "solution": "AGILELY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "with a lively style",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "A",
+       "at": 0,
+       "note": "taken as written"
+      },
+      {
+       "words": "soldier",
+       "at": 2,
+       "gives": "GI",
+       "note": "GI is an American soldier"
+      },
+      {
+       "words": "artist",
+       "at": 18,
+       "gives": "LELY",
+       "note": "Sir Peter Lely was a 17th-century portrait painter at the English court"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier teams up with a painter who has plenty of verve.",
+     "definitionFit": "Agilely means nimbly and quickly, describing movement done with a light, lively manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "artist"
+    }
    }
   },
   {
@@ -326,6 +1557,61 @@
    "clue": {
     "text": "Toilets supplied with my skin scrubber",
     "enumeration": "6"
+   },
+   "solution": "LOOSOH",
+   "alteration": {
+    "from": "LOOFAH",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "skin scrubber",
+      "at": 25
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "Toilets",
+         "at": 0,
+         "gives": "LOOS",
+         "note": "loo is British slang for a toilet"
+        },
+        {
+         "words": "my",
+         "at": 22,
+         "gives": "OH",
+         "note": "oh my! and oh! are both cries of surprise"
+        }
+       ]
+      },
+      {
+       "gives": "SO"
+      },
+      {
+       "gives": "FA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The bathroom comes stocked with a personal scrubbing sponge.",
+     "walkthrough": "An altered entry: the wordplay gives the grid form with SO where the real answer has FA.",
+     "definitionFit": "A loofah is the dried fibrous fruit of a gourd, used as a rough bath sponge to scrub skin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "my"
+    }
    }
   },
   {
@@ -339,6 +1625,70 @@
    "clue": {
     "text": "The French confections, including the latest in excellent milky fluids",
     "enumeration": "7"
+   },
+   "solution": "LATICES",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "milky fluids",
+      "at": 58
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "indicators": [
+      {
+       "text": "including",
+       "at": 24,
+       "note": "the pieces hold the extra letter inside them"
+      }
+     ],
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "words": "The French",
+         "at": 0,
+         "gives": "LA",
+         "note": "la is the feminine form of the in French"
+        },
+        {
+         "words": "confections",
+         "at": 11,
+         "gives": "ICES",
+         "note": "ices are frozen confections"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "the latest in",
+         "at": 34,
+         "note": "only the final letter of excellent is taken"
+        }
+       ],
+       "parts": [
+        {
+         "words": "excellent",
+         "at": 48,
+         "note": "the word whose final letter is taken"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "French desserts contain the very best creamy sauces.",
+     "definitionFit": "Latices is a plural of latex, the milky sap of rubber trees and other plants."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "confections"
+    }
    }
   },
   {
@@ -352,6 +1702,62 @@
    "clue": {
     "text": "First-rate member of the clergy, but no saint",
     "enumeration": "5"
+   },
+   "solution": "PRIME",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "First-rate",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "parts": [
+      {
+       "op": "deletion",
+       "indicators": [
+        {
+         "text": "no",
+         "at": 37,
+         "note": "without the saint, so those letters come off the cleric"
+        }
+       ],
+       "parts": [
+        {
+         "words": "member of the clergy",
+         "at": 11,
+         "gives": "PRIEST",
+         "note": "a priest is an ordained minister"
+        },
+        {
+         "words": "saint",
+         "at": 40,
+         "gives": "ST",
+         "note": "ST is the abbreviation for saint"
+        }
+       ]
+      },
+      {
+       "gives": "M",
+       "note": "no clue word gives this letter: it is the one the theme leaves out, seventh of MORECAMBE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An excellent vicar, though hardly a holy one.",
+     "walkthrough": "The wordplay lacks the M, the second M of MORECAMBE.",
+     "definitionFit": "Prime means of the best quality, as in prime beef, so it matches first-rate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "saint"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "M"
+    }
    }
   },
   {
@@ -365,6 +1771,90 @@
    "clue": {
     "text": "Admits distortion is awful — electrical current to be switched off",
     "enumeration": "9"
+   },
+   "solution": "INTRODOTS",
+   "alteration": {
+    "from": "INTROMITS",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Admits",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "anagram",
+     "indicators": [
+      {
+       "text": "awful",
+       "at": 21,
+       "note": "an awful state is a mess, so the remaining letters are jumbled"
+      }
+     ],
+     "parts": [
+      {
+       "op": "substitution",
+       "parts": [
+        {
+         "op": "substitution",
+         "parts": [
+          {
+           "op": "deletion",
+           "indicators": [
+            {
+             "text": "to be switched off",
+             "at": 48,
+             "note": "turning the current off takes its symbol out of the word"
+            }
+           ],
+           "parts": [
+            {
+             "words": "distortion",
+             "at": 7,
+             "note": "taken as written, to be rearranged"
+            },
+            {
+             "words": "electrical current",
+             "at": 29,
+             "gives": "I",
+             "note": "I is the physics symbol for current"
+            }
+           ]
+          },
+          {
+           "gives": "D"
+          },
+          {
+           "gives": "M"
+          }
+         ]
+        },
+        {
+         "gives": "O"
+        },
+        {
+         "gives": "I"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An engineer concedes that the hum is dreadful and the power must be cut.",
+     "walkthrough": "An altered entry: the anagram gives the grid form INTRODOTS, with DO where the real answer has MI. To intromit is a rare verb meaning to let in.",
+     "definitionFit": "Intromit means to allow to enter, the sense of admits as letting someone in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Admits"
+    }
    }
   },
   {
@@ -378,6 +1868,41 @@
    "clue": {
     "text": "Like egg with perfectly round shape, useless",
     "enumeration": "5"
+   },
+   "solution": "OVOID",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Like egg",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "words": "perfectly round shape",
+       "at": 14,
+       "gives": "O",
+       "note": "the letter O is a circle"
+      },
+      {
+       "words": "useless",
+       "at": 37,
+       "gives": "VOID",
+       "note": "void means invalid, of no effect"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An egg that is perfectly round would be no use at all.",
+     "definitionFit": "Ovoid means egg-shaped, from the Latin ovum for egg."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "useless"
+    }
    }
   },
   {
@@ -391,6 +1916,65 @@
    "clue": {
     "text": "Fixed seal — it is coming apart",
     "enumeration": "7"
+   },
+   "solution": "STABILE",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Fixed",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "container",
+     "parts": [
+      {
+       "op": "anagram",
+       "indicators": [
+        {
+         "text": "coming apart",
+         "at": 19,
+         "note": "letters that come apart fall into a new arrangement"
+        }
+       ],
+       "parts": [
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "seal",
+           "at": 6,
+           "note": "taken as written, to be rearranged"
+          },
+          {
+           "words": "it",
+           "at": 13,
+           "note": "taken as written, to be rearranged"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "gives": "B",
+       "note": "no clue word gives this letter: it is the one the theme leaves out, eighth of MORECAMBE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A repaired seal is splitting open again.",
+     "walkthrough": "The wordplay lacks a B, the eighth letter of MORECAMBE. Stabile is an art word for a fixed abstract sculpture, the opposite of a mobile.",
+     "definitionFit": "As an adjective stabile means stable or stationary, the sense of fixed in place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "seal"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "B"
+    }
    }
   },
   {
@@ -404,6 +1988,79 @@
    "clue": {
     "text": "California to restrict house party disorder",
     "enumeration": "6"
+   },
+   "solution": "CHODOA",
+   "alteration": {
+    "from": "CHOREA",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "disorder",
+      "at": 35
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "parts": [
+      {
+       "op": "container",
+       "indicators": [
+        {
+         "text": "to restrict",
+         "at": 11,
+         "note": "the state's abbreviation hems the other pieces in"
+        }
+       ],
+       "parts": [
+        {
+         "words": "California",
+         "at": 0,
+         "gives": "CA",
+         "note": "CA is the postal abbreviation for California"
+        },
+        {
+         "op": "charade",
+         "parts": [
+          {
+           "words": "house",
+           "at": 23,
+           "gives": "HO",
+           "note": "HO is an abbreviation for house"
+          },
+          {
+           "words": "party",
+           "at": 29,
+           "gives": "DO",
+           "note": "a do is a party or celebration"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "gives": "DO"
+      },
+      {
+       "gives": "RE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "California moves to curb rowdy house parties.",
+     "walkthrough": "An altered entry: the grid holds DO where the real answer has RE.",
+     "definitionFit": "Chorea is a nervous disorder marked by jerky involuntary movements, as in Huntington's chorea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
    }
   },
   {
@@ -417,6 +2074,94 @@
    "clue": {
     "text": "Bunch of flowers a good boy brought back to mummy, finally",
     "enumeration": "7"
+   },
+   "solution": "NOSEGAY",
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Bunch of flowers",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "charade",
+     "parts": [
+      {
+       "op": "container",
+       "parts": [
+        {
+         "op": "reversal",
+         "indicators": [
+          {
+           "text": "brought back",
+           "at": 28,
+           "note": "the pieces are returned the way they came, read in reverse"
+          }
+         ],
+         "parts": [
+          {
+           "op": "charade",
+           "parts": [
+            {
+             "words": "a",
+             "at": 17,
+             "note": "taken as written"
+            },
+            {
+             "words": "good",
+             "at": 19,
+             "gives": "G",
+             "note": "G is the abbreviation for good"
+            },
+            {
+             "words": "boy",
+             "at": 24,
+             "gives": "SON",
+             "note": "a son is a boy child"
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "gives": "E",
+         "note": "no clue word gives this letter: it is the one the theme leaves out, last of MORECAMBE"
+        }
+       ]
+      },
+      {
+       "op": "last",
+       "indicators": [
+        {
+         "text": "finally",
+         "at": 51,
+         "note": "only the last letter of mummy is used"
+        }
+       ],
+       "parts": [
+        {
+         "words": "mummy",
+         "at": 44,
+         "note": "the word whose final letter is taken"
+        }
+       ]
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A well-behaved son comes home with a posy for his mother.",
+     "walkthrough": "The wordplay lacks an E, the last letter of MORECAMBE.",
+     "definitionFit": "A nosegay is a small posy of sweet-smelling flowers, tied together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mummy"
+    },
+    "hiddenLetter": {
+     "kind": "omitted",
+     "letter": "E"
+    }
    }
   },
   {
@@ -430,6 +2175,90 @@
    "clue": {
     "text": "Pathetic folk beginning to sob unfortunately, daughter included",
     "enumeration": "6"
+   },
+   "solution": "SADLAS",
+   "alteration": {
+    "from": "SADDOS",
+    "steps": [
+     {
+      "op": "substitution"
+     }
+    ]
+   },
+   "annotation": {
+    "definitions": [
+     {
+      "text": "Pathetic folk",
+      "at": 0
+     }
+    ],
+    "wordplay": {
+     "op": "substitution",
+     "parts": [
+      {
+       "op": "charade",
+       "parts": [
+        {
+         "op": "first",
+         "indicators": [
+          {
+           "text": "beginning to",
+           "at": 14,
+           "note": "just the opening letter of sob is taken"
+          }
+         ],
+         "parts": [
+          {
+           "words": "sob",
+           "at": 27,
+           "note": "the word whose opening letter is taken"
+          }
+         ]
+        },
+        {
+         "op": "container",
+         "indicators": [
+          {
+           "text": "included",
+           "at": 55,
+           "note": "the daughter goes inside the regretful word"
+          }
+         ],
+         "parts": [
+          {
+           "words": "unfortunately",
+           "at": 31,
+           "gives": "ALAS",
+           "note": "alas! is a cry meaning sadly, unfortunately"
+          },
+          {
+           "words": "daughter",
+           "at": 46,
+           "gives": "D",
+           "note": "D is the abbreviation for daughter"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "gives": "LA"
+      },
+      {
+       "gives": "DO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sad people start sobbing, and alas the daughter is among them.",
+     "walkthrough": "An altered entry: the grid holds LA where the real answer has DO. Saddo is British slang for a pitiably dull person.",
+     "definitionFit": "Saddos are people regarded as socially inadequate or pitiful, the slang sense of pathetic folk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unfortunately"
+    }
    }
   }
  ]
