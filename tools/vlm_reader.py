@@ -3,7 +3,7 @@
 Any OCR pipeline can use it as a voter: column_text() transcribes each clue
 column of a page image (its boxes taken from the other readers' lines), and
 pick() reads one clue the readers disagree on, shown their readings. The
-model is Qwen3-VL-8B behind llama-swap on Paul's desktop 3090
+model is qwen3.8-vl-27b behind llama-swap on the GPU host
 (VLM_READER_URL / VLM_READER_MODEL; an empty URL turns it off). When the
 server does not answer (desktop off, model missing) reachable() is False and
 a caller reads exactly as without it; version() names what its readings
