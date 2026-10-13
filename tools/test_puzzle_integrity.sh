@@ -791,5 +791,40 @@ check "$out12" "SEPARATE True" "a different source fingerprint opens its own cac
 check "$out12" "LEGACY_GONE True" "the old shared single-file cache is removed"
 check "$out12" "STALE_PRUNED True" "stale caches of other fingerprints are pruned"
 
+# No setter never holds a write (Paul's rule: never hold a puzzle for its
+# form). Genius 43 was filed unsolved with no byline; the backfill's solve
+# turned its origin to "model", and refuse_bad_write refused it on SETTER
+# (2026-10-13, eight Genius solves). Only dropping a held byline still refuses.
+out13=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
+import copy, json, glob
+import puzzle_integrity as pi
+p = json.load(open(glob.glob("puzzles/genius/*/genius-43.json")[0]))
+assert p.get("setter") is None
+def setter_flags(new, old):
+    try:
+        pi.refuse_bad_write(new, old)
+    except pi.RefusedWrite as e:
+        return [w for f, _, w in e.flags if f == "SETTER"]
+    return []
+solved = copy.deepcopy(p)
+solved["solutions"] = {**(p.get("solutions") or {}), "origin": "model"}
+print("SOLVED_NO_SETTER", "refused" if setter_flags(solved, p) else "allowed")
+print("NEW_NO_SETTER", "refused" if setter_flags(solved, None) else "allowed")
+had = copy.deepcopy(p); had["setter"] = "Araucaria"
+print("DROPS_SETTER", "refused" if setter_flags(solved, had) else "allowed")
+junk = copy.deepcopy(solved); junk["setter"] = "Unknown"
+print("PLACEHOLDER", "refused" if setter_flags(junk, p) else "allowed")
+audit = []
+pi.check_setter(solved, audit)
+print("AUDIT_STILL_REPORTS", bool(audit))
+PY
+)
+died "$out13" "the no-setter write fixture"
+same "a solved puzzle filed with no byline is written" "$(field SOLVED_NO_SETTER "$out13")" "allowed"
+same "a new puzzle with no byline is written" "$(field NEW_NO_SETTER "$out13")" "allowed"
+same "a write dropping the held byline is refused" "$(field DROPS_SETTER "$out13")" "refused"
+same "a placeholder byline is still refused" "$(field PLACEHOLDER "$out13")" "refused"
+same "the audit still reports the missing byline" "$(field AUDIT_STILL_REPORTS "$out13")" "True"
+
 [ "$fails" = 0 ] && echo "puzzle_integrity: all checks passed" || echo "puzzle_integrity: $fails FAILED"
 exit $((fails > 0))
