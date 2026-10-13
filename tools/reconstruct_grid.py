@@ -65,7 +65,14 @@ Beyond the numbering the search enforces these, and only these:
     four sides is not an unchecked square, it is a hole;
   * the grid is 180-degree symmetric, unless that search finishes empty and
     the caller allows the fallback;
-  * every row and every column holds at least two white cells;
+  * every row holds at least two white cells, and every column at least
+    one -- columns get the weaker rule because Genius 209 (2020-11-02)
+    has a column whose only white cell sits inside an across light.
+    That is the only kind of lone cell there can be (a cell in no light is
+    already a hole), so "two, unless the single cell is an across light's"
+    would be the same rule spelled longer. It costs no speed: columns are
+    only judged on finished grids, while the row rule, which prunes as each
+    row is decided, stays at two;
   * no two adjacent rows both lack an across light, and no two adjacent
     columns both lack a down light;
   * the white cells are all connected;
@@ -783,11 +790,12 @@ def conventions_broken(grid, symmetry=True):
                         for y in range(rows) for x in range(cols)):
         broken.append("not 180-degree symmetric")
 
-    def scan(lines, what):
+    def scan(lines, what, least):
         bare = 0
         for line in lines:
-            if sum(line) < 2:
-                broken.append(f"a {what} has fewer than two white cells")
+            if sum(line) < least:
+                broken.append(f"a {what} has fewer than two white cells"
+                              if least == 2 else f"a {what} has no white cell")
                 return
             longest, run = 0, 0
             for cell in list(line) + [False]:
@@ -798,8 +806,9 @@ def conventions_broken(grid, symmetry=True):
                 broken.append(f"two adjacent {what}s with no light along them")
                 return
 
-    scan(white, "row")
-    scan([[white[y][x] for y in range(rows)] for x in range(cols)], "column")
+    # Rows two, columns one: see the module docstring for Genius 209.
+    scan(white, "row", 2)
+    scan([[white[y][x] for y in range(rows)] for x in range(cols)], "column", 1)
 
     start = next(((x, y) for y in range(rows) for x in range(cols)
                   if white[y][x]), None)
