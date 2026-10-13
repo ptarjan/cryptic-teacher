@@ -70,7 +70,7 @@ static pages. Otherwise the suite fails on hundreds of stale `?v=` references:
 
 ```
 python3 tools/build_seo_pages.py && python3 tools/stamp_assets.py
-bash tools/make_og.sh --all         # only redraws cards older than their puzzle
+bash tools/make_og.sh --all         # only redraws cards whose page would come out different
 ```
 
 `tools/smoke_test.js` is the most important check. It runs the real `app.js`

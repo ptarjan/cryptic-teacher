@@ -256,6 +256,7 @@ LAYOUT = [
     ("building and checking the site", "tools/make_og_card.py", "picks a puzzle’s best clue and lays out its social card"),
     ("building and checking the site", "tools/make_og.sh", "screenshots those cards with headless Chrome"),
     ("building and checking the site", "tools/og_list.py", "prunes the cards no puzzle gets and lists the stale ones for make_og.sh, in one pass"),
+    ("building and checking the site", "tools/test_og_card_key.sh", "is a social card redrawn only when what it shows could change? Its key is the hash of the page Chrome is handed, so an edit to the drawing code or the site card moves no key, a reworded clue or a template change does, and a card the old scheme drew is adopted rather than redrawn"),
     ("building and checking the site", "tools/parallel.py", "pmap(): a map over the corpus on every core, results in order, for the build’s per-puzzle passes"),
     ("building and checking the site", "tools/test_shim_format.sh", "holds the packed puzzle shims to unpacking into exactly the puzzle the browser should hold"),
     ("building and checking the site", "tools/og_palette.py", "rewrites each card as a 256-colour palette PNG, a third of the size"),

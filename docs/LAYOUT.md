@@ -820,6 +820,12 @@ tools/make_og_card.py                         picks a puzzle’s best clue and l
 tools/make_og.sh                              screenshots those cards with headless Chrome
 tools/og_list.py                              prunes the cards no puzzle gets and lists the
                                               stale ones for make_og.sh, in one pass
+tools/test_og_card_key.sh                     is a social card redrawn only when what it shows
+                                              could change? Its key is the hash of the page
+                                              Chrome is handed, so an edit to the drawing code
+                                              or the site card moves no key, a reworded clue or
+                                              a template change does, and a card the old scheme
+                                              drew is adopted rather than redrawn
 tools/parallel.py                             pmap(): a map over the corpus on every core,
                                               results in order, for the build’s per-puzzle
                                               passes

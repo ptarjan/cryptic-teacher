@@ -28,7 +28,7 @@ permissions:
   id-token: write
 
 # One deploy at a time. cancel-in-progress must stay FALSE: a push takes about
-# 4 minutes to go live, far longer when many social cards are redrawn, and the
+# 4 minutes to go live, longer when many social cards are redrawn, and the
 # annotation backfill pushes a commit per puzzle, so
 # cancelling on every push meant no build ever reached the deploy step and the
 # site stopped updating while the corpus grew. There is no pile-up either way —
@@ -41,7 +41,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    # A build takes a few minutes, up to ~15 more when a change redraws a
+    # A build takes a few minutes, a couple more when a change redraws a
     # full OG_LIMIT of social cards.
     # Without a cap a hung step holds the pages concurrency group, and so every
     # deploy behind it, for GitHub's 6 hours.
@@ -165,8 +165,16 @@ jobs:
       # Before the pages, which point a puzzle at its own card only if the file
       # is already on disk — built the other way round, a new puzzle would
       # advertise the site card instead of its own.
+      # A card is redrawn only when the HTML it is screenshot from changes
+      # (make_og_card.card_key), so a push redraws the cards of the puzzles it
+      # touched and an edit to the drawing code redraws only the cards whose
+      # picture it moved. OG_LIMIT caps one run's drawing at ~1s a card so a
+      # change that does move every card (a template redesign) drains over
+      # later runs instead of holding this deploy past its budget.
       - name: Draw the social cards
         run: bash tools/make_og.sh --all
+        env:
+          OG_LIMIT: "120"
       # Last build's puzzle pages and their keys (tools/page_cache.py): a page
       # is rendered again only when its puzzle file, index row, neighbours,
       # card or stamped assets moved, or the code a puzzle page runs (what

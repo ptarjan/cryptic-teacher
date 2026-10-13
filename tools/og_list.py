@@ -10,38 +10,31 @@ What prune() reports goes to stderr: stdout is the list make_og.sh loops over.
 
 Both lists are what make_og_card.eligible() and card_key() say, but each
 puzzle's share of them (has it an annotation, does pick() find a clue to draw,
-its card key) comes off tools/row_cache.py, made again only for a puzzle
+its card key: the hash of the HTML its card is drawn from) comes off
+tools/row_cache.py, made again only for a puzzle
 whose file, blog facts or drawing code moved. Worked out afresh, they read and
 score every one of the ~50k puzzle files, which was most of the deploy's card
 step even when no card needed drawing. A row is keyed, beyond row_cache's
-code reach, on make_og_card's own salt and a hash of tools/data (whatever
-table the drawing code reads), so a change to either works them all out again.
+code reach and the tools/data files that code names (clue_types.json,
+books.json: row_cache.data_files), on make_og_card._salt(): the template and
+the app.js tables it draws from.
 
-A separate file rather than a flag on make_og_card.py because that script
-hashes its own bytes into every card's key, and any edit to it redraws them all.
+Not on all of tools/data, as it was: annotate and blog-facts commits touch a
+sidecar there (blog_disagree.json, setter_error.json, the lexicons) many times
+a day, none of which a card reads, and each one worked all ~17k rows out again
+(~45s of the deploy). tools/test_og_card_key.sh holds that line.
+
+An edit to the drawing code works every row out again (a minute or so, no
+drawing), but a card is redrawn only if its HTML came out different.
 """
 import contextlib
 import functools
-import hashlib
 import sys
 
 import fetch_puzzle
 import make_og_card
 import puzzle_paths
 import row_cache
-
-DATA = puzzle_paths.ROOT / "tools" / "data"
-SALT = None  # make_og_card._salt(), set before the rows are made
-
-
-def data_hash():
-    """Every file under tools/data but the blog facts, which each row names
-    for its own puzzle instead (blog_deps)."""
-    h = hashlib.sha1()
-    for f in sorted(DATA.rglob("*")):
-        if f.is_file() and "blog_facts" not in f.relative_to(DATA).parts:
-            h.update(f.relative_to(DATA).as_posix().encode() + b"\0" + f.read_bytes())
-    return h.hexdigest()
 
 
 @functools.cache
@@ -61,14 +54,12 @@ def annotated_row(path):
 def card_row(path):
     """(whether pick() finds a clue to draw, the card key or None)."""
     ok = bool(make_og_card.pick(path.stem)[0])
-    return ok, make_og_card.card_key(path.stem, SALT) if ok else None
+    return ok, make_og_card.card_key(path.stem) if ok else None
 
 
 def main(argv):
-    global SALT
     limit = int(argv[0])
-    SALT = make_og_card._salt()
-    salt = f"{SALT.hexdigest()}:{data_hash()}"
+    salt = make_og_card._salt().hexdigest()
     files = puzzle_paths.puzzle_files()
     by_id = {f.stem: f for f in files}
     marks = row_cache.cached_map("og_list", annotated_row, files)
@@ -80,9 +71,12 @@ def main(argv):
     keys = {p: key for p, (ok, key) in zip(wanted, rows) if ok}
     eligible = [p for p in wanted if p in keys]
     make_og_card.eligible = lambda: eligible
-    make_og_card.card_key = lambda pid, _salt: keys[pid]
+    make_og_card.card_key = lambda pid: keys[pid]
     with contextlib.redirect_stdout(sys.stderr):
         make_og_card.prune()
+        adopted = make_og_card.adopt_legacy()
+        if adopted:
+            print(f"og_list: took {adopted} card(s) drawn under the old key as current")
     for i, pid in enumerate(make_og_card.stale()):
         if i >= limit:
             break
