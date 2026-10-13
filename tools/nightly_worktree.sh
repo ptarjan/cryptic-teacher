@@ -94,7 +94,7 @@ _ct_cfg merge.puzzle-json.driver "python3 tools/json_merge.py --puzzle %O %A %B"
 # code until it moves. The alert text names no count, so it repeats only on
 # alert.sh's schedule while the cause is unchanged.
 _ct_follow_origin() {
-  local common home path cur edits why clobber
+  local common home path cur edits why clobber target
   common="$(git -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --path-format=absolute --git-common-dir)"
   home="$(dirname "$common")"
   # One job at a time; a job that finds another mid-update leaves it to that one.
@@ -116,17 +116,20 @@ sys.stdout.buffer.write(s.unstamp(s.INDEX_HTML.read_text(encoding="utf-8")).enco
     done < <(git -C "$home" diff --name-only HEAD --)
     # A commit, fetch or push holds index.lock, HEAD.lock or a ref lock for a
     # moment; wait any of them out, and keep git's own words for the alert.
+    # Every worktree's push moves origin/master in this shared repo, so aim at
+    # one commit: a push landing after the merge is no failure to move.
+    target="$(git -C "$home" rev-parse -q --verify origin/master)"
     ff_err=""
     for _ in 1 2 3 4 5 6; do
-      git -C "$home" merge-base --is-ancestor origin/master HEAD && break
-      ff_err="$(git -C "$home" merge -q --ff-only origin/master 2>&1)" && break
+      git -C "$home" merge-base --is-ancestor "$target" HEAD && break
+      ff_err="$(git -C "$home" merge -q --ff-only "$target" 2>&1)" && break
       compgen -G "$common/index.lock" >/dev/null || compgen -G "$common/HEAD.lock" >/dev/null ||
         compgen -G "$common/refs/heads/master.lock" >/dev/null ||
         grep -qi "lock" <<<"$ff_err" || break
       sleep 5
     done
   fi
-  if ! git -C "$home" merge-base --is-ancestor origin/master HEAD; then
+  if ! git -C "$home" merge-base --is-ancestor "${target:-origin/master}" HEAD; then
     edits="$(git -C "$home" diff --name-only HEAD -- | head -8 | tr '\n' ' ')"
     clobber="$(comm -12 <(git -C "$home" ls-files --others --exclude-standard | sort) \
                         <(git -C "$home" diff --name-only --diff-filter=A HEAD origin/master | sort) | head -8 | tr '\n' ' ')"
