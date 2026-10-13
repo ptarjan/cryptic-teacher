@@ -19,6 +19,7 @@ import sys
 import tempfile
 from pathlib import Path
 
+import annotation
 import build_authored_puzzle as builder
 import provenance
 import puzzle_integrity
@@ -32,7 +33,7 @@ with tempfile.TemporaryDirectory() as scratch:
     puzzle_paths.PUZZLE_DIR = Path(scratch)
     puzzle = builder.build("tools/data/sample_fill_11.json",
                            "tools/data/authored_A001_clues.json", 1,
-                           "Cryptic Teacher No 1", "Cryptic Teacher",
+                           "Cryptic Teacher",
                            datetime.date(2026, 7, 29))
     # finish() is the builder's own pre-write step, refusal included.
     puzzle, errors = builder.finish(puzzle, "human")
@@ -46,9 +47,19 @@ with tempfile.TemporaryDirectory() as scratch:
     written = json.loads(Path(out).read_text())
 
     want = ("authored-1", 1, "authored")
-    got = (written["id"], written["number"], written["series"])
+    got = (written["id"], written["number"], series.parse_id(written["id"])[0])
     if got != want:
         fails.append(f"id/number/series is {got}, want {want}")
+    # The format stores no series and no name: the id gives both.
+    if "series" in written or "name" in written:
+        fails.append(f"stores {sorted({'series', 'name'} & set(written))}: the id gives them")
+    if series.display_name(written) != "Cryptic Teacher No 1":
+        fails.append(f"displays as {series.display_name(written)!r}")
+    # Each annotation is the stored wordplay tree, not the clues file's model shape.
+    for e in written["entries"]:
+        ann = e["annotation"]
+        if annotation.is_model(ann) or "type" in ann or "blocks" in ann:
+            fails.append(f"{e['number']}-{e['direction']} annotation is not the stored tree: {sorted(ann)}")
     if Path(out).relative_to(scratch).as_posix() != "authored/2026/authored-1.json":
         fails.append(f"filed at {out}")
     src = written["source"]
@@ -57,8 +68,8 @@ with tempfile.TemporaryDirectory() as scratch:
                               "authored", False):
         fails.append(f"source is {src}")
     # The site publishes it at ?p=authored-1 only because the series is unlisted.
-    if not series.unlisted(written["series"]):
-        fails.append(f"series {written['series']!r} is listed: the site would index it")
+    if not series.unlisted(series.parse_id(written["id"])[0]):
+        fails.append("series authored is listed: the site would index it")
     if written["solutions"] != {"origin": "authored"}:
         fails.append(f"solutions is {written['solutions']}")
 
@@ -94,7 +105,7 @@ with tempfile.TemporaryDirectory() as scratch:
         puzzle_paths.PUZZLE_DIR = Path(other) / "puzzles"
         book_queue.REPRINT_DIR = Path(other) / "book-reprints"
         book = {**{k: v for k, v in puzzle.items() if k != "date"},
-                "id": "book-13007", "number": 13007, "series": "book", "year": 1998,
+                "id": "book-13007", "number": 13007, "year": 1998,
                 "source": {**puzzle["source"],
                            "url": "https://archive.org/details/isbn_9781902254067",
                            "book": {"identifier": "isbn_9781902254067", "numberInBook": 7}}}

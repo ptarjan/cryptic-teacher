@@ -10,10 +10,8 @@
 
 The _ann file is in the model's shape (annotate_prompt.md's Schema: `def`,
 `wp`, `notes`, ...), which apply_annotations translates (annotation.from_model)
-and writes in the puzzle file's own shape; a `wp` that does not give the answer
-stops the apply with a line naming the step that broke. An old-prompt clue
-(type, blocks), from a run that started before the prompt changed, still
-applies the old way.
+into the stored tree; a `wp` that does not give the answer stops the apply
+with a line naming the step that broke.
 
 --patch merges FILE, {"8-down": {"wp": "...", "notes": {"in": "..."}}},
 into tools/_ann_<ID>.json first: each named field replaced, null removing it,
@@ -65,7 +63,6 @@ Exit code is the validator's: 0 when the puzzle is publishable. Warnings and
 audit hits are worth fixing and do not fail the build. 2 when the annotations
 were not applied at all (STOPPED), so the puzzle file is as it was.
 """
-import collections
 import contextlib
 import io
 import json
@@ -264,15 +261,11 @@ def scan_path(puzzle):
 
 def in_notation(ann, entry, puzzle):
     """A stored annotation as the run writes one (annotation.to_model: `def`,
-    `wp`, `notes`), so the context it reads is in its own notation; a legacy
-    one goes through convert_v2 first, and one that does not convert is shown
-    as stored."""
-    import convert_v2
-    import puzzle_schema
+    `wp`, `notes`), so the context it reads is in its own notation; one
+    to_model cannot render is shown as stored."""
     try:
-        v2 = ann if puzzle_schema.is_v2_annotation(ann) else convert_v2.convert(ann, entry, puzzle)[0]
-        return annotation.to_model(v2)
-    except (convert_v2.Unconvertible, ValueError, KeyError, TypeError, IndexError, StopIteration):
+        return annotation.to_model(ann)
+    except (ValueError, KeyError, TypeError, IndexError, StopIteration):
         return ann
 
 
@@ -708,24 +701,12 @@ def respell_answers(pending):
     return changed
 
 
-def normalize_pending(path, pending):
-    """Write into `pending` what apply_annotations.normalize computes (an
-    `answer` left out, ...), so the steps before the apply see it too."""
-    try:
-        ann = json.loads(pending.read_text(encoding="utf-8"))
-    except ValueError:
-        return
-    if not isinstance(ann, dict):
-        return
-    entries = read_puzzle_file(path)["entries"]
-    by_id = {entry_id(e): e for e in entries}
-    # Only an old-prompt annotation is filled in place, and only in a legacy
-    # file: the model's shape stays the run's own text (apply translates it).
-    out = {k: normalize(v, by_id[k], entries, v2=False)
-           if k in by_id and isinstance(v, dict) and not annotation.is_model(v) else v
-           for k, v in ann.items()}
-    if out != ann:
-        write_pending(pending, out)
+def seen_as(a, entry, entries):
+    """The model-shape clue `a` as the checks read it: translated
+    (apply_annotations.normalize) and viewed (annotation.view)."""
+    stored = normalize(a, entry, entries)
+    here = {**entry, "alteration": stored["alteration"]} if "alteration" in stored else entry
+    return annotation.view(stored, here, {"entries": entries})
 
 
 def unname_block_notes(path, pending):
@@ -746,10 +727,10 @@ def unname_block_notes(path, pending):
     for eid, a in (ann.items() if isinstance(ann, dict) else ()):
         if annotation.is_model(a) and isinstance(a.get("notes"), dict) and eid in by_id:
             # The model's notes are its blocks' notes: read each against the
-            # block it becomes (the legacy view), rewrite it in `notes`.
+            # block it becomes (the view), rewrite it in `notes`.
             try:
-                seen = normalize(a, by_id[eid], entries, v2=False)
-            except ValueError:
+                seen = seen_as(a, by_id[eid], entries)
+            except (ValueError, KeyError, TypeError):
                 continue
             lights = light_solutions(by_id[eid], by_id)
             pieces = pieces_of(seen)
@@ -765,273 +746,9 @@ def unname_block_notes(path, pending):
                     if new:
                         a["notes"][key] = note = new
                         changed.append(eid)
-            continue
-        if not isinstance(a, dict) or not isinstance(a.get("answer"), str):
-            continue
-        lights = light_solutions(by_id.get(eid) or {}, by_id)
-        pieces = pieces_of(a)
-        senses = "double_definition" in (a.get("type") or [])
-        for block in a.get("blocks") or []:
-            if not isinstance(block, dict):
-                continue
-            for name in names(a["answer"], lights):
-                # "gives the answer" is true of the whole answer only, never of a light.
-                gives = block.get("gives") if name == a["answer"] else ""
-                new = unname(block.get("note"), name, gives, clues.get(eid, ""),
-                             pieces, blank=senses and not block.get("gives"))
-                if new:
-                    block["note"] = new
-                    changed.append(eid)
     if changed:
         write_pending(pending, ann)
     return sorted(set(changed), key=changed.index)
-
-
-LINK_EDGE = " ,;:"
-
-
-def link_word_candidates(a, clue):
-    """The edits that could take each link word out of the block it sits in.
-
-    A link word inside a block fragment is one of two slips, and the letters
-    tell them apart: the word is wordplay (its letters are in the block, "US
-    gunman is" giving USGUNMANIS, so it leaves linkWords), or the fragment ran
-    onto the link (RANDOMISE wants "disarm one", not "to disarm one", so the
-    fragment is trimmed). A block that is nothing but the link word may also be
-    the one to go. Each candidate is a whole new annotation; which of them is
-    right is the validator's call (untangle_link_words)."""
-    links = [t for t in a.get("linkWords") or [] if isinstance(t, str) and t]
-    blocks = a.get("blocks") or []
-    out = []
-    for li, lw in enumerate(links):
-        inside = [(bi, b) for bi, b in enumerate(blocks) if isinstance(b, dict)
-                  and isinstance(b.get("clueFragment"), str) and lw in b["clueFragment"]]
-        if not inside:
-            continue
-        if not any(validate_annotations.link_adds_nothing(b["clueFragment"], lw, b.get("gives"))
-                   for _, b in inside):
-            out.append({**a, "linkWords": [t for k, t in enumerate(links) if k != li]})
-        for bi, b in inside:
-            frag = b["clueFragment"]
-            for rest in (frag[len(lw):].lstrip(LINK_EDGE) if frag.startswith(lw) else None,
-                         frag[:-len(lw)].rstrip(LINK_EDGE) if frag.endswith(lw) else None):
-                if not rest or rest == frag or rest not in clue:
-                    continue
-                nb = {k: v for k, v in b.items() if k != "at"}
-                nb["clueFragment"] = rest
-                if b.get("gives") and letters(b["gives"]) == letters(frag):
-                    nb["gives"] = letters(rest)
-                out.append({**a, "blocks": [nb if k == bi else x for k, x in enumerate(blocks)]})
-            if frag == lw:
-                out.append({**a, "blocks": [x for k, x in enumerate(blocks) if k != bi]})
-    seen, uniq = set(), []
-    for c in out:
-        key = json.dumps(c, sort_keys=True)
-        if key not in seen:
-            seen.add(key)
-            uniq.append(c)
-    return uniq
-
-
-def _checks_of(lines, templates):
-    """The checks `lines` came from, counted: a candidate is compared with the
-    annotation it replaces check by check, not word for word, because a fixed
-    link word changes the text of every line that quotes it."""
-    return collections.Counter(rule_name(ln, templates) for ln in lines)
-
-
-def untangle_link_words(path, pending):
-    """Take each link word out of the block it sits in, where exactly one edit
-    does it cleanly; the [(entry id, what changed)].
-
-    check_link_word_is_not_inside_a_block was the second commonest first-check
-    failure (195 of 2778 runs). Every candidate from link_word_candidates is run
-    through the validator with the rest of the puzzle; one is written only if it
-    clears that check, adds no check (error or warning) the original did not
-    have, and has strictly fewer findings than every other such candidate. A
-    tie is a judgement, and is left to the run."""
-    try:
-        ann = json.loads(pending.read_text(encoding="utf-8"))
-        puzzle = read_puzzle_file(path)
-    except (ValueError, OSError, KeyError):
-        return []
-    if not isinstance(ann, dict):
-        return []
-    by_id = {entry_id(e): e for e in puzzle["entries"]}
-    templates = load_templates(Path(validate_annotations.__file__).read_text(encoding="utf-8"))
-    rule = "check_link_word_is_not_inside_a_block"
-    changed = []
-    for eid, a in list(ann.items()):
-        e = by_id.get(eid)
-        if not isinstance(a, dict) or annotation.is_model(a) or not e or not isinstance(e.get("clue"), dict):
-            continue
-        clue = e["clue"].get("text") or ""
-        found = []
-        validate_annotations.check_link_word_is_not_inside_a_block("", normalize(a, e, puzzle["entries"], v2=False),
-                                                                  clue, found)
-        if not found:
-            continue
-        cands = link_word_candidates(a, clue)
-        if not cands:
-            continue
-        base = _entry_report(path, ann, eid)
-        if base is None:
-            continue
-        base_checks = _checks_of(base, templates)
-        if not base_checks[rule]:
-            continue
-        scored = []
-        for c in cands:
-            got = _entry_report(path, {**ann, eid: c}, eid)
-            if got is None:
-                continue
-            checks = _checks_of(got, templates)
-            if not checks[rule] and not (checks - base_checks):
-                scored.append((sum(checks.values()), c))
-        scored.sort(key=lambda s: s[0])
-        if not scored or (len(scored) > 1 and scored[1][0] == scored[0][0]):
-            continue
-        ann[eid] = scored[0][1]
-        changed.append((eid, _describe_untangle(a, scored[0][1])))
-    if changed:
-        write_pending(pending, ann)
-    return changed
-
-
-def clear_link_list(a, clue):
-    """`a`'s linkWords with every one that lands on a definition or indicator
-    taken off it, or None when nothing lands on one.
-
-    Placed as app.js places them (validate_annotations.place_fragments). A link
-    word wholly inside the other mark goes: almost always an &lit, whose whole
-    clue is its definition, filed with its connectives ("and", "with") as links.
-    One that overlaps an indicator at an edge keeps the words clear of it when
-    they are still link vocabulary ("in which" beside the indicator "in" becomes
-    "which"), and goes otherwise; one touching a definition goes ("a cooking"
-    across "cooking utensil" is not trimmed to "a"). Repeated, because taking one link off moves
-    where the next lands."""
-    links = [t for t in a.get("linkWords") or [] if isinstance(t, str) and t]
-    if not links:
-        return None
-    vocab = validate_annotations.link_vocabulary()
-    words_of = validate_annotations.words_of
-    out, changed = list(links), False
-    for _ in range(len(links) + 1):
-        placed = validate_annotations.place_fragments({**a, "linkWords": out}, clue)
-        marks = [(j, j + len(t)) for k, t, j in placed if k in ("def", "ind")]
-        defs = [(j, j + len(t)) for k, t, j in placed if k == "def"]
-        hit = next(((lw, i) for k, lw, i in placed if k == "link"
-                    and any(i < e and s < i + len(lw) for s, e in marks)), None)
-        if hit is None:
-            return out if changed else None
-        lw, i = hit
-        free = [c for c in range(i, i + len(lw)) if not any(s <= c < e for s, e in marks)]
-        on_def = any(i < e and s < i + len(lw) for s, e in defs)
-        rest = None
-        if free and not on_def and free == list(range(free[0], free[-1] + 1)) and (
-                free[0] == i or free[-1] == i + len(lw) - 1):
-            rest = clue[free[0]:free[-1] + 1].strip(LINK_EDGE)
-            if not rest or not all(w in vocab for w in words_of(rest)):
-                rest = None
-        k = out.index(lw)
-        out = out[:k] + ([rest] if rest and rest not in out else []) + out[k + 1:]
-        changed = True
-    return None
-
-
-def clear_link_words(path, pending):
-    """Take each link word off the definition or indicator it lands on, where
-    clear_link_list can do it and the validator agrees; [(entry id, what changed)].
-
-    check_link_word_is_clear_of_other_marks failed the first check in 115 of
-    2842 runs (2026-10-12 audit). 166 of the ~190 logged lines were an &lit
-    whose definition is the whole clue, with connectives also filed as links,
-    and every run fixed it by emptying linkWords. The edit is written only if
-    the entry's findings lose that check and gain no other (error or warning)."""
-    try:
-        ann = json.loads(pending.read_text(encoding="utf-8"))
-        puzzle = read_puzzle_file(path)
-    except (ValueError, OSError, KeyError):
-        return []
-    if not isinstance(ann, dict):
-        return []
-    by_id = {entry_id(e): e for e in puzzle["entries"]}
-    templates = None
-    rule = "check_link_word_is_clear_of_other_marks"
-    changed = []
-    for eid, a in list(ann.items()):
-        e = by_id.get(eid)
-        if not isinstance(a, dict) or annotation.is_model(a) or not e or not isinstance(e.get("clue"), dict):
-            continue
-        clue = e["clue"].get("text") or ""
-        if not a.get("linkWords"):
-            continue
-        base = _entry_report(path, ann, eid)
-        if not base:
-            continue
-        templates = templates or load_templates(
-            Path(validate_annotations.__file__).read_text(encoding="utf-8"))
-        base_checks = _checks_of(base, templates)
-        if not base_checks[rule]:
-            continue
-        placed_ann = normalize(a, e, puzzle["entries"], v2=False)
-        new = clear_link_list(placed_ann, clue)
-        if new is None:
-            continue
-        cand = {**a, "linkWords": new}
-        if not new:
-            cand.pop("linkWords")
-        got = _entry_report(path, {**ann, eid: cand}, eid)
-        if got is None:
-            continue
-        checks = _checks_of(got, templates)
-        if checks[rule] or checks - base_checks:
-            continue
-        ann[eid] = cand
-        gone = [t for t in a.get("linkWords") or [] if t not in new]
-        added = [t for t in new if t not in (a.get("linkWords") or [])]
-        what = ", ".join(repr(t) for t in gone) + " out of linkWords"
-        if added:
-            what += f" ({', '.join(repr(t) for t in added)} kept, clear of the other mark)"
-        changed.append((eid, what))
-    if changed:
-        write_pending(pending, ann)
-    return changed
-
-
-def _describe_untangle(old, new):
-    """What untangle_link_words did to one entry, in a few words."""
-    gone = [t for t in old.get("linkWords") or [] if t not in (new.get("linkWords") or [])]
-    if gone:
-        return f"{gone[0]!r} out of linkWords (it is wordplay)"
-    olds = [b.get("clueFragment") for b in old.get("blocks") or [] if isinstance(b, dict)]
-    news = [b.get("clueFragment") for b in new.get("blocks") or [] if isinstance(b, dict)]
-    if len(news) < len(olds):
-        return f"block {next(f for f in olds if f not in news)!r} dropped (it is the link word)"
-    pairs = [(o, n) for o, n in zip(olds, news) if o != n]
-    return f"block {pairs[0][0]!r} trimmed to {pairs[0][1]!r} (the rest is the link word)"
-
-
-def _entry_report(path, ann, eid):
-    """The validator's errors and warnings on entry `eid` once `ann` applied,
-    or None when the annotations are too broken to validate."""
-    try:
-        puzzle = read_puzzle_file(path)
-        v2 = apply_annotations.file_is_v2(puzzle["entries"], puzzle)
-        e = next(x for x in puzzle["entries"] if entry_id(x) == eid)
-        e["annotation"] = normalize(ann[eid], e, puzzle["entries"], v2)
-        move_alteration(e)
-        tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
-        for other in puzzle["entries"]:
-            if other is not e and isinstance(ann.get(entry_id(other)), dict):
-                other["annotation"] = normalize(ann[entry_id(other)], other, puzzle["entries"], v2)
-                move_alteration(other)
-        definitions.place_puzzle(puzzle)
-        with contextlib.redirect_stdout(io.StringIO()):
-            _, errors, warnings = validate_annotations.validate_puzzle(puzzle)
-    except (OSError, ValueError, KeyError, IndexError, TypeError, AttributeError, StopIteration):
-        return None
-    return [x for x in errors + warnings if x.startswith(f"{tag}:")]
 
 
 def preview(path, pending):
@@ -1045,7 +762,6 @@ def preview(path, pending):
         ann = json.loads(pending.read_text(encoding="utf-8"))
         continuations = groups.leader_of(puzzle["entries"])
         only = annotate_only(path)
-        v2 = apply_annotations.file_is_v2(puzzle["entries"], puzzle)
         for e in puzzle["entries"]:
             if entry_id(e) in continuations or (only is not None and entry_id(e) not in ann):
                 continue
@@ -1054,12 +770,12 @@ def preview(path, pending):
             else:
                 # A clue whose wordplay does not check is named by the refusal;
                 # the rest are still worth validating.
-                new = apply_annotations.landed(ann[entry_id(e)], e, puzzle["entries"], v2, "", [])
+                new = apply_annotations.landed(ann[entry_id(e)], e, puzzle["entries"], "", [])
                 if new is None:
                     continue
                 e["annotation"] = new
                 move_alteration(e)
-        apply_also(puzzle, ann, v2, [])
+        apply_also(puzzle, ann, [])
         try:
             definitions.place_puzzle(puzzle)
         except ValueError as err:
@@ -1114,9 +830,9 @@ def misread(path):
     validate_annotations.check_clue_unchanged(puzzle, path, errors)
     if errors:
         why.append("check_clue_unchanged")
-    # A v2 tree whose anagram fodder cannot give its letters fails the
+    # A tree whose anagram fodder cannot give its letters fails the
     # evaluator, so view_puzzle leaves its annotation out: its problem is the
-    # misread check_anagram_letters would have named on a legacy file.
+    # misread check_anagram_letters names.
     problems = []
     viewed = annotation.view_puzzle(puzzle, problems)
     failed = {where for where, _ in problems}
@@ -1206,23 +922,10 @@ def main(argv):
         if filed:
             print(f"filed in tools/data/ and taken off {pending.name}: "
                   f"{', '.join(filed)}\n")
-        normalize_pending(path, pending)
         spaced = respell_answers(pending)
         if spaced:
             print(f"answers written with commas, now spaced in {pending.name}: "
                   f"{', '.join(spaced)}\n")
-        untangled = untangle_link_words(path, pending)
-        if untangled:
-            print(f"link words that sat inside a block, taken out in {pending.name}: "
-                  + "; ".join(f"{eid} {what}" for eid, what in untangled)
-                  + ". Make the walkthrough agree\n")
-        cleared = clear_link_words(path, pending)
-        if cleared:
-            print(f"link words that landed on a definition or indicator, taken off in "
-                  f"{pending.name}: "
-                  + "; ".join(f"{eid} {what}" for eid, what in cleared)
-                  + " (an &lit's whole clue is its definition, so it has no link words)."
-                  " Make the walkthrough agree\n")
         unnamed = unname_block_notes(path, pending)
         if unnamed:
             print(f"block notes that named the answer, rewritten without it in "

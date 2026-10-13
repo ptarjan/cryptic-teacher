@@ -262,8 +262,8 @@ tools/annotation.py                           an annotation's two groups, read o
                                               tool: `explanation` (the prose rung) and
                                               `assembly` (the machine-checkable rebuild), which
                                               of `assembly.anagrams` gives the whole answer,
-                                              and `view()`: the fields a format v2 wordplay
-                                              tree implies
+                                              and `view()`: the fields a stored wordplay tree
+                                              implies
 tools/groups.py                               linked answers: the leader carries `group`, its
                                               lights in order, and the other lights nothing;
                                               maps each light to its group or leader, and
@@ -1308,14 +1308,6 @@ tools/annotate_audit.sh                       the scheduled entry: runs the audi
 tools/test_annotate_audit.sh                  tests tools/annotate_audit.py: rule naming from
                                               the validator's AST, and that each run picks one
                                               fix target, rotating down the ranking on cooldown
-tools/restore_forced_rewrites.py              puts back the hint text a run rewrote only to get
-                                              past a validator false positive, replayed from
-                                              the annotate transcripts; run it for a check
-                                              whenever that check is relaxed
-tools/test_restore_forced_rewrites.sh         tests tools/restore_forced_rewrites.py: a failing
-                                              check is replayed to the text first flagged, and
-                                              only a field the puzzle still holds as forced
-                                              goes back
 tools/make_hint_packets.js                    blind solve-packets, to grade a hint by whether
                                               it gets a solver unstuck
 tools/grade_clues.py                          blind A/B/C/D packets of our clues against real
@@ -2014,8 +2006,8 @@ tools/test_scan_queue.sh                      does tools/scan_queue.py read the 
                                               included?
 tools/test_ann_normalize.sh                   what apply_annotations.normalize computes, so the
                                               run need not write it
-tools/derive_assembly.py                      an annotation's `assembly`, worked out from its
-                                              blocks
+tools/derive_assembly.py                      the search that rebuilds an assembly from block
+                                              letters, and the cut annotation.view() uses
 tools/test_derive_assembly.sh                 is `assembly` worked out from the blocks, and
                                               only with the clue's own operations?
 tools/row_cache.py                            a per-file pass over the corpus that parses only
@@ -2301,13 +2293,6 @@ tools/test_blocks_link_word.sh                when a clue's blocks are short by 
                                               letters of a word filed under linkWords, that
                                               word is fodder, and the warning says the edit to
                                               make
-tools/test_link_word_untangle.sh              does annotate_check take a link word out of the
-                                              block it sits in only when exactly one edit (drop
-                                              it from linkWords, trim the fragment, drop the
-                                              block) clears it cleanly, does it take a link
-                                              word off the definition or indicator it lands on
-                                              (an &lit's connectives), and does the error name
-                                              the edit when none does?
 tools/test_blocks_surplus.sh                  when a clue's blocks give too many letters and
                                               none too few, the warning names the single-block
                                               edits that take exactly the surplus away
@@ -2443,51 +2428,32 @@ tools/test_wordplay.sh                        does wordplay.py parse and check e
                                               derive today's fields from the tree?
 tools/wordplay.py                             a clue's wordplay as one line the model writes,
                                               and the tree a puzzle stores
-tools/convert_v2.py                           legacy annotations as format v2 wordplay trees,
-                                              losing nothing (a step the blocks can't rebuild
-                                              stays an unchecked node, a setter's slip an
-                                              unchecked anagram of the printed fodder), the
-                                              read-only dry run, and --migrate, which rewrote
-                                              the corpus in one commit (10-13) and holds a file
-                                              legacy when its v2 copy fails a gate the legacy
-                                              one passed
-tools/test_convert_v2.sh                      does convert_v2.py rebuild the stored blocks,
-                                              indicators and definitions from the tree, keep
-                                              what it can't check as unchecked nodes, and
-                                              refuse an answer that contradicts its enumeration?
 tools/test_annotate_model_shape.sh            does a run's output in the model's shape (def,
                                               wp, notes) translate to the stored annotation,
-                                              name the part of a parse that breaks, and land in
-                                              a legacy or v2 file as that file's shape,
-                                              old-prompt output included?
-tools/fixtures/quiptic-619-legacy.json        quiptic-619 in the legacy annotation format,
-                                              frozen so tools/test_annotate_model_shape.sh
-                                              still has legacy annotations to translate once
-                                              the corpus is format v2
-tools/fixtures/times-18-legacy.json           times-18 in the legacy annotation format, frozen
-                                              so tools/test_puzzle_style.sh judges it as
-                                              annotated: the format v2 migration drops its 11
-                                              plain definitions typed double_definition for the
-                                              burn to redo
-tools/fixtures/telegraph-31356-legacy.json    telegraph-31356 in the legacy annotation format,
-                                              frozen so tools/test_selector_indicator.sh still
-                                              has legacy blocks to check and normalize once the
-                                              corpus is format v2
-tools/test_format_v2.sh                       do the schema and validator refuse every derived
-                                              field in a format v2 file, evaluate its trees and
-                                              ratchet its unchecked steps, while legacy files
-                                              keep passing?
-tools/fixtures/legacy-puzzles/                three Guardian cryptics and a book puzzle as they
-                                              stood before the format v2 migration
-                                              (f59e109ad6^), the legacy files
-                                              convert_v2.converted_samples converts for
-                                              test_format_v2.sh, test_shim_format.sh and
-                                              smoke_test.js now the corpus is all v2
+                                              name the part of a parse that breaks, and refuse
+                                              a clue that writes a derived key (type, blocks)?
+tools/fixtures/quiptic-619.json               quiptic-619 frozen in the format, so
+                                              tools/test_annotate_model_shape.sh has stored
+                                              trees to render back to the model's shape
+                                              whatever the corpus copy becomes
+tools/fixtures/times-18.json                  times-18 frozen in the format with its
+                                              annotations, so tools/test_puzzle_style.sh judges
+                                              an annotated puzzle whatever the corpus copy
+                                              becomes
+tools/fixtures/telegraph-31356.json           telegraph-31356 frozen in the format, so
+                                              tools/test_selector_indicator.sh has letter
+                                              selections to check whatever the corpus copy
+                                              becomes
+tools/test_puzzle_format.sh                   do the schema and validator refuse every derived
+                                              field (top-level name and series included),
+                                              evaluate the trees and ratchet their unchecked
+                                              steps, and does series.name_facts turn a fetched
+                                              name into the prize, title or label it needs?
+tools/fixtures/format-puzzles/                three Guardian cryptics and a book puzzle frozen
+                                              in the format, read by test_puzzle_format.sh,
+                                              test_shim_format.sh and smoke_test.js
 tools/test_see_pointer.sh                     is a "See N" continuation the pointer and nothing
                                               else, in every reader?
-tools/test_migrate_v2.sh                      does the format v2 migration (tools/convert_v2.py
-                                              --migrate, plan step 8) leave files every gate
-                                              passes, and is it safe to kill and start again?
 tools/strip_abbreviation_notes.py             drops the leaf notes that only restate the
                                               abbreviation table (annotation.view() shows that
                                               gloss from build_abbreviations.table()),

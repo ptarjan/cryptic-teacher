@@ -51,8 +51,8 @@ if (( BASH_VERSINFO[0] * 100 + BASH_VERSINFO[1] < 501 )); then
   echo "ERROR: tools/prereset_backfill.sh needs bash 5.1+ for wait -n -p; this is $BASH_VERSION"
   exit 1
 fi
-# Paused while this file exists (a corpus-wide rewrite such as the format v2
-# migration, plan step 8): a fire exits here, before its worktree salvages and
+# Paused while this file exists (a corpus-wide rewrite such as a schema
+# migration): a fire exits here, before its worktree salvages and
 # pushes anything, and a running burn treats it as its deadline (past_deadline):
 # no new run starts, the ones in flight finish and land, and it exits.
 #     touch ~/.cryptic-teacher/prereset.pause     # pause
@@ -1088,20 +1088,19 @@ print(" ".join(n for n,_ in sorted(d.items(), key=lambda kv: kv[1])))' "$field")
   name="\`$field\`"
   case "$field" in
     explanation.definitionFit) what="ONE sentence saying why the answer means the definition; it renders last in the walkthrough" ;;
-    indicators.note) name="\`note\` on each indicator object (in a format v2 file, the \`indicators\` on the \`wordplay\` tree's ops and on \`definitions\`)"
+    indicators.note) name="\`note\` on each indicator object (the \`indicators\` on the \`wordplay\` tree's ops and on \`definitions\`)"
       what="ONE sentence saying why THOSE words carry THAT instruction — never the generic sentence about what the device does, and never a word of the answer" ;;
     explanation.surface) what="ONE sentence, 25 words max, of the picture the clue pretends to paint — never its mechanics" ;;
     indicators.for) name="\`for\` on each indicator object"
       what="the one name from the clue's own \`type\` whose operation those words signal" ;;
     messages) name="\`hiddenLetter\` on each clue the preamble's hidden-letter device touches, and the puzzle's \`messages\` (the _ann file's \"messages\" key),"
-      what="the letter the clue's wordplay adds, omits or misprints, and the phrase those letters spell, as tools/annotate_prompt.md describes; an omitted letter gets a block with no clueFragment (in a format v2 file, written in the wordplay as the prompt's grammar says)" ;;
-    # indicators.for and assembly.anagrams are derived in a format v2 file (the
-    # op names the type; the evaluator works the shuffle out) and refused if
-    # written, so a v2 puzzle leaves those lists at the --tighten that follows
-    # the migration and is never queued for them.
-    # The step 8 migration's unchecked steps are a re-parse, not an additive
-    # field: not backfilled here until the format v2 pilot says how
-    # (design/puzzle_format_v2.md step 8).
+      what="the letter the clue's wordplay adds, omits or misprints, and the phrase those letters spell, as tools/annotate_prompt.md describes; an omitted letter is written in the wordplay as the prompt's grammar says" ;;
+    # indicators.for and assembly.anagrams are derived (the op names the type;
+    # the evaluator works the shuffle out) and refused if written, so a puzzle
+    # leaves those lists at the --tighten that follows the migration and is
+    # never queued for them.
+    # Unchecked steps are a re-parse, not an additive field: not backfilled
+    # here (design/puzzle_format.md, step 8).
     wordplay.unchecked) echo "  not a backfill (a re-parse of the step); skipped"; continue ;;
     assembly.anagrams) name="\`assembly.anagrams\` entry"
       what="{fodder, gives} for the clue's shuffle: every letter that goes in, and what it becomes" ;;

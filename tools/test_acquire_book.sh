@@ -191,7 +191,7 @@ else:
                 fail(f"{pid}: could not be filed — {problems[0]}")
                 continue
             mine = fetch_puzzle.read_puzzle_file(path)
-            corpus = fetch_puzzle.read_puzzle_view(puzzle_paths.find(pid))
+            corpus = fetch_puzzle.read_puzzle_file(puzzle_paths.find(pid))
             if any(e.get("solution") is not None for e in mine["entries"]):
                 fail(f"{pid}: filed with answers; --unsolved must file none")
             if provenance.solution_detail(mine):

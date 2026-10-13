@@ -24,7 +24,7 @@ const NATIVE_FETCH = global.fetch;
 // Node's own timers, taken once. A boot that read global.setTimeout instead
 // would wrap the previous boot's wrapper, so every booted app (its window, its
 // registry, the corpus index) stayed reachable from the current global: about
-// 18 MB a boot, and smoke_test's format v2 block (two boots per migrated
+// 18 MB a boot, and smoke_test's puzzle format block (two boots per migrated
 // puzzle) ran out of heap on the 7-per-series sample (10-13).
 const NODE_SET_TIMEOUT = global.setTimeout, NODE_CLEAR_TIMEOUT = global.clearTimeout;
 
@@ -554,7 +554,7 @@ function boot(opts) {
   // appSrc goes back out because the smoke test greps app.js's own source (the
   // LABELS ladder) — an assertion about the code, not about the rendered DOM.
   // stop() cancels every timer this app still has pending. A caller that boots
-  // many apps in one synchronous run (smoke_test's format v2 block) never lets
+  // many apps in one synchronous run (smoke_test's puzzle format block) never lets
   // a timer fire, so each one kept its app alive, window and index included.
   const stop = () => {
     for (const t of pending.values()) realClearTimeout(t.handle);

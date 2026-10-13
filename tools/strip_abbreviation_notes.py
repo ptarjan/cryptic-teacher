@@ -5,7 +5,7 @@
     python3 tools/strip_abbreviation_notes.py puzzles/ --write      # rewrite in place
     python3 tools/strip_abbreviation_notes.py puzzles/ --commit     # rewrite, then one commit
 
-A format v2 leaf whose clue words -> letters pair is in
+A leaf whose clue words -> letters pair is in
 tools/build_abbreviations.table() needs no note: annotation.view() shows
 "W is a standard abbreviation for with" from the table. A stored note that
 says only that (annotation.restates_abbreviation) is a derivable field, which
@@ -32,10 +32,8 @@ REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def strip_puzzle(puzzle):
-    """Notes dropped from every annotation of a v2 puzzle, in place: a list of
-    (where, words, gives, note). A legacy puzzle is left alone."""
-    if not puzzle_schema.is_v2(puzzle):
-        return []
+    """Notes dropped from every annotation of the puzzle, in place: a list of
+    (where, words, gives, note)."""
     out = []
     for where, _, ann in puzzle_schema.annotations(puzzle):
         stack = [ann.get("wordplay")] if isinstance(ann.get("wordplay"), dict) else []
@@ -82,7 +80,7 @@ def main():
     print("commonest: " + ", ".join(f"{k} ({n})" for k, n in words.most_common(12)))
     if not a.commit or not notes:
         return
-    body = (f"{subject}\n\nA v2 leaf whose clue words -> letters pair is in "
+    body = (f"{subject}\n\nA leaf whose clue words -> letters pair is in "
             f"tools/build_abbreviations.table() stores no note that only restates it: "
             f"annotation.view() shows \"W is a standard abbreviation for with\" from the "
             f"table. tools/strip_abbreviation_notes.py over {len(files)} files. A schema "
@@ -93,7 +91,7 @@ def main():
                              capture_output=True, text=True).stdout.strip()
     if trailer:
         body += "\n" + trailer + "\n"
-    # From this commit on every v2 file is held to the rule, not only a run's new notes.
+    # From this commit on every file is held to the rule, not only a run's new notes.
     va = os.path.join(REPO, "tools", "validate_annotations.py")
     with open(va, encoding="utf-8") as fh:
         text = fh.read()

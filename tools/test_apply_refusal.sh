@@ -16,23 +16,19 @@ def check(name, ok):
     print(("  ok: " if ok else "  FAIL: ") + name)
     fails += not ok
 
-# A real annotated puzzle whose first annotated entry loses its type (without
-# blocks it would read as format v2, a mixed file: test_format_v2.sh covers that).
-for path in fetch_puzzle.puzzle_files():
-    puzzle = fetch_puzzle.read_puzzle_file(path)
-    idx = next((i for i, e in enumerate(puzzle["entries"])
-                if "blocks" in (e.get("annotation") or {})), None)
-    if idx is not None:
-        break
-del puzzle["entries"][idx]["annotation"]["type"]
+# A real annotated puzzle (a frozen copy in tools/fixtures) whose first
+# annotated entry's definition loses its words.
+path = Path("tools/fixtures/quiptic-619.json")
+puzzle = fetch_puzzle.read_puzzle_file(path)
+idx = next(i for i, e in enumerate(puzzle["entries"]) if (e.get("annotation") or {}).get("definitions"))
+del puzzle["entries"][idx]["annotation"]["definitions"][0]["text"]
 eid = groups.entry_id(puzzle["entries"][idx])
 try:
     puzzle_integrity.refuse_bad_write(puzzle)
     check("write refused", False)
 except puzzle_integrity.RefusedWrite as err:
-    msg = A.refusal(Path(path), puzzle, err)
-    check("entry id named", f"{eid}: missing required key 'type'" in msg)
-    check("says what to write", "annotate_prompt.md" in msg)
+    msg = A.refusal(path, puzzle, err)
+    check("entry id named", f"{eid} definitions[0]: missing required key 'text'" in msg)
     check("no entries[N] path left", "entries[" not in msg)
     check("no Traceback", "Traceback" not in msg)
     print(msg)
@@ -84,7 +80,7 @@ def refused(anns):
     return ""
 check("a wordless clue is not owed an annotation", "12-across" not in refused({}))
 check("an annotation on a wordless clue is refused",
-      "printed no words for 12-across" in refused({"12-across": {"answer": "GIN"}}))
+      "printed no words for 12-across" in refused({"12-across": {"def": "spirit", "wp": "GIN"}}))
 sys.exit(fails)
 PY
 rc=$?

@@ -8,8 +8,8 @@ The prompt is hand-written prose except for one block between REFERENCE-START an
 REFERENCE-END: the wordplay grammar the run writes `wp` in, copied from
 tools/wordplay.py's docstring (the parser it must satisfy, so a hand-kept copy
 would drift), and worked annotations rendered out of the corpus (EXAMPLES) in
-the run's own shape (annotation.to_model of the stored tree; a legacy entry goes
-through convert_v2 first), because four runs in five otherwise spent a turn
+the run's own shape (annotation.to_model of the stored tree), because four
+runs in five otherwise spent a turn
 printing annotations out of a puzzle file to see one. The block is regenerated
 on every nightly run and committed with whatever else the run changed. Edit
 wordplay.py or the examples, not the prose.
@@ -23,8 +23,6 @@ import json
 import sys
 from pathlib import Path
 import annotation
-import convert_v2
-import puzzle_schema
 import wordplay
 from fetch_puzzle import read_puzzle_file, resolve_puzzle
 from groups import entry_id
@@ -46,7 +44,7 @@ def grammar():
     """The Grammar block of wordplay.py's docstring, as it stands."""
     import textwrap
     doc = wordplay.__doc__
-    body = doc.split("Grammar\n-------\n", 1)[1].split("\nLegacy trees", 1)[0]
+    body = doc.split("Grammar\n-------\n", 1)[1].split("\nUnchecked nodes", 1)[0]
     return textwrap.dedent(body).rstrip("\n").splitlines()
 
 
@@ -56,10 +54,7 @@ def examples():
     for pid, eid in EXAMPLES:
         puzzle = read_puzzle_file(resolve_puzzle(pid))
         entry = next(e for e in puzzle["entries"] if entry_id(e) == eid)
-        ann = entry["annotation"]
-        if not puzzle_schema.is_v2_annotation(ann):
-            ann, _ = convert_v2.convert(ann, entry, puzzle)
-        model = annotation.to_model(ann)
+        model = annotation.to_model(entry["annotation"])
         clue = entry["clue"]
         out += [f"{pid} {eid}, \"{clue['text']}\" ({clue.get('enumeration', '')}), "
                 f"solution {entry['solution']}:", "",

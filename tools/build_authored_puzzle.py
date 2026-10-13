@@ -6,6 +6,12 @@ entry starts, how long it is, and which word fills it. What it cannot know is
 the clue. This script marries the two halves so the geometry is never retyped
 by hand — retyping is how a solution and a position drift apart.
 
+The clues file holds each annotation in the model's shape (`def`, `wp`,
+`notes`; annotation.MODEL_KEYS), and the build stores the wordplay tree
+annotation.from_model makes of it, which checks that the wordplay gives the
+letters the grid holds. The file stores no name: the id gives the series and
+series.display_name the name, "Cryptic Teacher cryptic crossword No 1".
+
 Output goes to puzzles/authored/<year>/authored-<number>.json, written by
 tools/fetch_puzzle.write_puzzle_file exactly as it writes Guardian puzzles, so
 the same schema, validator, app and smoke test apply to our own puzzles with no
@@ -21,7 +27,7 @@ clues we set that the corpus validator does not hold published clues to.
   python3 tools/build_authored_puzzle.py \
       --fill tools/data/sample_fill_11.json \
       --clues tools/data/authored_A001_clues.json \
-      --number 1 --name "Cryptic Teacher No 1" --setter "Cryptic Teacher" \
+      --number 1 --setter "Cryptic Teacher" \
       --date 2026-07-29 --annotated-by human
 
 --annotated-by says who wrote the clues' annotations — `human`, or the exact
@@ -34,17 +40,19 @@ import json
 import sys
 from pathlib import Path
 
+import annotation
 import definitions
 import provenance
 import puzzle_paths
 import puzzle_schema
 import series
 import validate_annotations
+import wordplay
 from fetch_puzzle import write_puzzle_file
 from groups import entry_id
 
 
-def build(fill_path, clues_path, number, name, setter, day):
+def build(fill_path, clues_path, number, setter, day):
     fill = json.loads(Path(fill_path).read_text())
     clues = json.loads(Path(clues_path).read_text())
 
@@ -56,15 +64,6 @@ def build(fill_path, clues_path, number, name, setter, day):
         if not spec:
             missing.append(eid)
             continue
-        ann = spec["annotation"]
-        # The annotation's answer must be the letters the grid actually holds.
-        # A silent mismatch here would put a clue for one word under another.
-        letters = "".join(c for c in ann["answer"].upper() if c.isalpha())
-        if letters != e["solution"]:
-            sys.exit(
-                f"{eid}: annotation answer {ann['answer']!r} gives {letters}, "
-                f"but the grid holds {e['solution']}"
-            )
         entries.append({
             "number": e["number"],
             "direction": e["direction"],
@@ -72,7 +71,6 @@ def build(fill_path, clues_path, number, name, setter, day):
             "length": e["length"],
             "clue": spec["clue"],
             "solution": e["solution"],
-            "annotation": ann,
         })
 
     if missing:
@@ -84,16 +82,29 @@ def build(fill_path, clues_path, number, name, setter, day):
 
     entries.sort(key=lambda e: (e["number"], e["direction"]))
     size = fill["size"]
-    return {
+    puzzle = {
         "id": series.puzzle_id("authored", number),
         "number": number,
-        "series": "authored",
-        "name": name,
         "setter": setter,
         "date": day.isoformat(),
         "dimensions": {"cols": size, "rows": size},
         "entries": entries,
     }
+    # The stored tree is made once every entry is in place: an answer's
+    # display reads the puzzle (a linked light's breaks), not the entry alone.
+    for e in entries:
+        eid = entry_id(e)
+        try:
+            ann = annotation.from_model(clues[eid]["annotation"], e, puzzle)
+        except wordplay.WordplayError as err:
+            sys.exit(f"{eid}: {err}")
+        # The answer the annotation reads must be the letters the grid holds.
+        # A silent mismatch here would put a clue for one word under another.
+        said = annotation.view(ann, e, puzzle)["answer"]
+        if "".join(c for c in said.upper() if c.isalpha()) != e["solution"]:
+            sys.exit(f"{eid}: annotation answer {said!r} is not the grid's {e['solution']}")
+        e["annotation"] = ann
+    return puzzle
 
 
 WORD = validate_annotations.HIDDEN_WORD_RE
@@ -108,8 +119,8 @@ def hidden_edge_errors(puzzle):
     do not use. An answer found more than once passes if any one run does."""
     errors = []
     for e in puzzle["entries"]:
-        ann = e.get("annotation") or {}
-        types = set(ann.get("type") or [])
+        ann = e.get("annotation")
+        types = set(annotation.view(ann, e, puzzle)["type"]) if ann else set()
         if "hidden_word" not in types or not types <= {"hidden_word", "reversal"}:
             continue
         letters, word = [], []
@@ -157,7 +168,6 @@ def main():
     ap.add_argument("--clues", required=True)
     ap.add_argument("--number", type=int, required=True,
                     help="our own running number: 1 is Cryptic Teacher No 1")
-    ap.add_argument("--name", required=True)
     ap.add_argument("--setter", default="Cryptic Teacher")
     ap.add_argument("--date", type=datetime.date.fromisoformat, required=True,
                     help="publication day, YYYY-MM-DD")
@@ -165,7 +175,7 @@ def main():
                     help="who wrote the annotations: human, or an exact model id")
     args = ap.parse_args()
 
-    puzzle = build(args.fill, args.clues, args.number, args.name, args.setter, args.date)
+    puzzle = build(args.fill, args.clues, args.number, args.setter, args.date)
     try:
         puzzle, errors = finish(puzzle, args.annotated_by)
     except ValueError as err:

@@ -22,6 +22,8 @@ import fetch_puzzle as fp
 
 out = Path(sys.argv[1])
 (out / "shims").mkdir()
+# Already a view (it names its series, which no file stores), so browser_puzzle
+# takes it as given: the packer, not view(), is what these entries exercise.
 odd = {"id": "odd-1", "series": "odd", "number": 1, "dimensions": {"cols": 3, "rows": 3},
        "source": {"acquiredBy": "tools/test_shim_format.sh", "url": "x"},
        "entries": [
@@ -51,40 +53,33 @@ odd = {"id": "odd-1", "series": "odd", "number": 1, "dimensions": {"cols": 3, "r
 cases = [(Path(f"puzzles/{odd['id']}.json"), odd)]
 cases += [(f, fp.read_puzzle_file(f)) for f in fp.puzzle_files()]
 
-# Format v2: a converted puzzle shows the browser what its legacy file did.
-# browser_puzzle reads annotation.view_puzzle(), which derives name, series
-# and every annotation field the app reads. Converted in memory (nothing is
-# written), and those puzzles' shims below are the v2 ones, so the JavaScript
-# unpack is held to them too.
-import convert_v2
-v2 = convert_v2.converted_samples(2)
-bad = [] if len(v2) == 2 else [f"found {len(v2)} converted puzzles, want 2"]
-def clue_ordered(e):
-    # The one difference an exact conversion may show: view() lists
-    # indicators in clue order, where a legacy file sometimes stored them otherwise.
-    a = e.get("annotation")
-    if not a or not a.get("indicators"):
-        return e
-    text = e["clue"]["text"]
-    return {**e, "annotation": {**a, "indicators": sorted(a["indicators"], key=lambda i: text.find(i["text"]))}}
-for old, new, status in v2:
-    bo, bn = fp.browser_puzzle(old), fp.browser_puzzle(new)
-    top = sorted(k for k in set(bo) | set(bn) if k != "entries" and bo.get(k) != bn.get(k))
-    bad += [f"{old['id']}: browser puzzle-level fields differ: {top}"] if top else []
-    exact = {int(w.split("[")[1].split("]")[0]) for w, s in status.items()
-             if s == "exact" and ".alsoLeads" not in w}
-    bad += [f"{old['id']} entries[{i}]: exact conversion, but the browser sees a different entry"
-            for i in sorted(exact) if clue_ordered(bo["entries"][i]) != clue_ordered(bn["entries"][i])]
+# The format fixtures (tools/fixtures/format-puzzles) join the corpus: a file
+# stores no name, series or derived annotation field, and browser_puzzle reads
+# annotation.view_puzzle(), so the browser gets every one of them. Their shims
+# below hold the JavaScript unpack to those derived fields too.
+fixtures = sorted(Path("tools/fixtures/format-puzzles").rglob("*.json"))
+bad = [] if len(fixtures) >= 4 else [f"found {len(fixtures)} format fixtures, want 4"]
+fixed = {}
+for path in fixtures:
+    p = fp.read_puzzle_file(path)
+    b = fp.browser_puzzle(p)
+    bad += [f"{p['id']}: the file stores {k}" for k in ("name", "series") if k in p]
+    bad += [f"{p['id']}: the browser gets no {k}" for k in ("name", "series") if not b.get(k)]
+    anns = [(i, e["annotation"]) for i, e in enumerate(b["entries"]) if e.get("annotation")]
+    bad += [] if anns else [f"{p['id']}: the browser gets no annotation"]
+    bad += [f"{p['id']} entries[{i}]: the browser's annotation lacks {k}"
+            for i, a in anns for k in ("type", "answer", "blocks") if not a.get(k)]
     bare = lambda e: {k: v for k, v in e.items() if k != "annotation"}
-    bad += [f"{old['id']} entries[{i}]: differs outside its annotation"
-            for i, (x, y) in enumerate(zip(bo["entries"], bn["entries"])) if bare(x) != bare(y)]
-    print(f"shim_format: {old['id']} as format v2 shows the browser its legacy fields "
-          f"({len(exact)} of {len(status)} annotations converted exactly, the rest normalised)")
+    bad += [f"{p['id']} entries[{i}]: differs outside its annotation"
+            for i, (x, y) in enumerate(zip(p["entries"], b["entries"])) if bare(x) != bare(y)]
+    print(f"shim_format: {p['id']} shows the browser its name, series and {len(anns)} derived annotations")
+    fixed[p["id"]] = (path, p)
 if bad:
     print("  FAIL: " + "\n  FAIL: ".join(bad))
     sys.exit(1)
-converted = {old["id"]: new for old, new, _ in v2}
-cases = [(path, converted.get(p["id"], p)) for path, p in cases]
+# A fixture is a frozen copy of a corpus file: its shim takes that file's place
+# (shims are named by id), and one the corpus no longer holds is added.
+cases = [fixed.pop(p["id"], (path, p)) for path, p in cases] + list(fixed.values())
 with open(out / "want", "w", encoding="utf-8") as want:
     for path, puzzle in cases:
         (out / "shims" / f"{puzzle['id']}.js").write_text(fp.shim_text(path, puzzle),

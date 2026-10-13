@@ -32,7 +32,7 @@ import sys
 from pathlib import Path
 
 import clueability
-from annotation import view_puzzle  # format v2: derived fields
+from annotation import view_puzzle  # the derived fields
 from puzzle_paths import puzzle_files
 
 ROOT = Path(__file__).resolve().parent.parent

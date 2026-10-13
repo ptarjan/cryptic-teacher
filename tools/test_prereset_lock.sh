@@ -59,7 +59,7 @@ check "a live backfill is left alone" "held" "$(verdict)"
 kill "$holder" 2>/dev/null
 wait "$holder" 2>/dev/null
 
-# Paused (a corpus rewrite, e.g. the format v2 migration): a fire says so and
+# Paused (a corpus rewrite, e.g. a schema migration): a fire says so and
 # exits 0 before it makes or salvages its worktree.
 pause_dir="$(mktemp -d)"
 touch "$pause_dir/prereset.pause"

@@ -252,15 +252,14 @@ def clue_words(clue):
 
 
 def quoted(ann):
-    """Every piece of clue text `ann` quotes: its definitions, indicators,
-    link words and block fragments, or in a format v2 annotation its
-    definitions and every indicator and leaf of its wordplay tree."""
+    """Every piece of clue text the stored annotation `ann` quotes: its
+    definitions and their indicators, and every indicator and leaf of its
+    wordplay tree."""
     import wordplay
     tree = ann.get("wordplay")
-    texts = ([d.get("text") for d in ann.get("definitions") or [] if isinstance(d, dict)]
-             + [i.get("text") for i in ann.get("indicators") or [] if isinstance(i, dict)]
-             + list(ann.get("linkWords") or [])
-             + [b.get("clueFragment") for b in ann.get("blocks") or [] if isinstance(b, dict)]
+    defs = [d for d in ann.get("definitions") or [] if isinstance(d, dict)]
+    texts = ([d.get("text") for d in defs]
+             + [i.get("text") for d in defs for i in d.get("indicators") or [] if isinstance(i, dict)]
              + ([d.get(k) for d, k in wordplay._spans(tree)] if isinstance(tree, dict) else []))
     return [t for t in texts if isinstance(t, str) and t]
 
@@ -872,10 +871,9 @@ def pack_entry(e):
 
 def browser_puzzle(puzzle):
     """The puzzle as window.CRYPTIC_PUZZLES holds it once its shim has run.
-    A format v2 file goes through annotation.view_puzzle() first, so the app
-    reads the same fields (name, series, type, answer, blocks, ...) from
-    either format; tools/test_shim_format.sh holds a converted puzzle to its
-    legacy shape."""
+    The file goes through annotation.view_puzzle() first, so the app reads
+    the derived fields (name, series, type, answer, blocks, ...);
+    tools/test_shim_format.sh holds a puzzle's shim to that view."""
     import annotation
     out = {k: v for k, v in with_blog_facts(annotation.view_puzzle(puzzle)).items() if k not in SHIM_DROP}
     def holder(h):
@@ -939,11 +937,11 @@ def read_puzzle_file(path):
 
 
 def read_puzzle_view(path):
-    """The puzzle as every reader of derived fields wants it: a format v2 file
-    through annotation.view_puzzle() (series, name, and each annotation's type,
-    answer, indicators, linkWords, blocks, assembly derived), a legacy file as
-    it is. Read-only: a tool that writes the puzzle back reads the raw file with
-    read_puzzle_file, or it would write the derived fields into a v2 file."""
+    """The puzzle as every reader of derived fields wants it: through
+    annotation.view_puzzle() (series, name, and each annotation's type,
+    answer, indicators, linkWords, blocks, assembly derived). Read-only: a
+    tool that writes the puzzle back reads the raw file with
+    read_puzzle_file, or it would write the derived fields into the file."""
     import annotation
     return annotation.view_puzzle(read_puzzle_file(path))
 
@@ -1022,14 +1020,11 @@ def write_puzzle_file(path, puzzle, generator=None):
     # A linked answer's lights in the order that reads as words, before the
     # sources are compared against the joined answer.
     puzzle = order_groups(puzzle)
-    # A puzzle built fresh from a page names its `series` and `name`; once it
-    # holds a format v2 annotation (merged from the held file) it is a v2 file,
-    # which stores neither, only the prize/title/label facts display_name needs.
-    if ("series" in puzzle or "name" in puzzle) and any(
-            puzzle_schema.is_v2_annotation(a) for _, _, a in puzzle_schema.annotations(puzzle)):
-        import convert_v2
-        names, _ = convert_v2.puzzle_names(puzzle)
-        puzzle = {**{k: v for k, v in puzzle.items() if k not in ("series", "name")}, **names}
+    # A puzzle built fresh from a page names its `series` and `name`; the file
+    # stores neither, only the prize/title/label facts display_name needs.
+    if "series" in puzzle or "name" in puzzle:
+        puzzle = {**{k: v for k, v in puzzle.items() if k not in ("series", "name")},
+                  **series_meta.name_facts(puzzle)}
     # A paper's publishing notes in the preamble go, and its erratum fixes
     # its clue, whoever wrote the file: tools/boilerplate.py, tools/errata.py.
     boilerplate.apply(puzzle)

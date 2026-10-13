@@ -37,10 +37,15 @@ def say(name, ok):
 
 # Linked groups: the leader holds the group and the whole annotation; every
 # continuation carries neither.
-lead_ann = {"type": ["charade"], "answer": "ABCDEFGH", "definitions": [{"text": "Some", "at": 0}],
-            "explanation": {"walkthrough": "w"}, "blocks": [{"clueFragment": "words", "gives": "X"}]}
+def stored(gives="ABCD", words="words here"):
+    """A stored annotation for the clue "Some words here": a definition and a one-leaf tree."""
+    return {"definitions": [{"text": "Some", "at": 0}],
+            "wordplay": {"words": words, "gives": gives, "at": 5}}
+
+
+lead_ann = dict(stored("ABCDEFGH"), explanation={"walkthrough": "w"})
 g = ["1-across", "2-down"]
-good = {"id": "t-1", "series": "t", "name": "T 1", "entries": [
+good = {"id": "t-1", "number": 1, "entries": [
     entry("1-across", group=g, annotation=lead_ann),
     entry("2-down", sol="EFGH")]}
 errs = []
@@ -79,13 +84,14 @@ say("hint_without_lookalike_says_copy",
 
 # A block quotes the clue it explains: a fragment the clue lacks fails.
 frag = copy.deepcopy(good)
-frag["entries"][0]["annotation"] = dict(lead_ann, blocks=[{"clueFragment": "sis trumpeted"}])
+frag["entries"][0]["annotation"] = dict(stored("ABCDEFGH", "sis trumpeted"))
+del frag["entries"][0]["annotation"]["wordplay"]["at"]
 say("fragment_not_in_clue_fails",
-    any("block fragment 'sis trumpeted' not found" in e for e in V.validate_puzzle(frag)[1]))
+    any("'sis trumpeted' is not in the clue" in e for e in V.validate_puzzle(frag)[1]))
 
 # A hole is the annotating run's failure; in the committed corpus it is a
 # clue queued to be annotated again, not a broken build.
-hole = [entry("1-across", annotation={"type": ["charade"]}), entry("2-across")]
+hole = [entry("1-across", annotation=stored()), entry("2-across")]
 errs, warns = [], []
 V.check_every_clue_is_annotated(hole, errs, warns)
 say("hole_fails_the_run", bool(errs))
@@ -96,7 +102,7 @@ say("hole_queued_in_corpus", not errs and any("queued" in w for w in warns))
 # A half-written file (the downs not reached yet) gets one line naming every
 # blank, not the paragraph once per clue; the audit still names its check.
 import annotate_audit
-half = [entry("1-across", annotation={"type": ["charade"]}), entry("1-down"),
+half = [entry("1-across", annotation=stored()), entry("1-down"),
         entry("2-down"), entry("3-down", solutionConfidence="LIKELY")]
 errs, warns = [], []
 V.check_every_clue_is_annotated(half, errs, warns)
@@ -192,10 +198,9 @@ def puzzle(series="cryptic", nulls=0, total=30, solutions=True):
     for i in range(total):
         e = entry(f"{i + 1}-across", sol="ABCD" if solutions else "")
         if i >= nulls:
-            e["annotation"] = {"type": ["charade"], "blocks": []}
+            e["annotation"] = stored()
         es.append(e)
-    return {"id": f"{series}-99999", "series": series, "number": 99999,
-            "entries": es}
+    return {"id": f"{series}-99999", "number": 99999, "entries": es}
 
 
 def blog_line(p):
@@ -214,7 +219,10 @@ say("times_names_its_own_blog", bool(times) and "timesforthetimes.co.uk" in time
 # A cryptic definition and a LIKELY letter get their advice; plain clues none.
 p = puzzle()
 say("plain_puzzle_no_notes", not AC.notes(p))
-p["entries"][0]["annotation"] = {"type": ["cryptic_definition"], "blocks": []}
+p["entries"][0]["annotation"] = {
+    "definitions": [{"text": "Some words here", "at": 0}],
+    "wordplay": {"op": "cryptic", "parts": [{"words": "Some", "at": 0, "note": "a"},
+                                            {"words": "words here", "at": 5, "note": "b"}]}}
 p["entries"][1]["solutionConfidence"] = "LIKELY"
 ns = AC.notes(p)
 say("cd_note", any("1-across typed `cryptic definition`" in n for n in ns))
@@ -231,7 +239,7 @@ from groups import entry_id
 puzzle_integrity.refuse_bad_write = lambda puzzle, old=None: None
 blog = "https://fifteensquared.net/2025/08/02/cyclops-99998-x/"
 real = puzzle(series="cyclops", nulls=30)
-real.update(id="cyclops-99998", name="Private Eye Cyclops crossword No 99998",
+real.update(id="cyclops-99998", number=99998,
             source={"url": "https://www.private-eye.co.uk/crossword"},
             solutions={"origin": "writeup", "blog": "fifteensquared", "url": blog})
 path = Path(tempfile.mkdtemp()) / "cyclops-99998.json"
@@ -252,22 +260,22 @@ try:
     say("view_says_jigsaw", json.loads(jig_view.read_text()).get("cluesUnplaced") is True)
 finally:
     jig_view.unlink()
-apply_annotations.apply(path, {entry_id(e): {"type": ["charade"]} for e in real["entries"]},
+charade = {"def": "Some", "wp": "[words]AB + [here]CD"}
+apply_annotations.apply(path, {entry_id(e): dict(charade) for e in real["entries"]},
                         by="human")
 say("apply_keeps_solutions_detail",
     json.loads(path.read_text()).get("solutions", {}).get("url") == blog)
 
 # A partial _ann file applies as it stands: absent keys become null.
 pending = path.parent / "_ann_cyclops-99998.json"
-pending.write_text(json.dumps({"1-across": {"type": ["charade"]}}))
+pending.write_text(json.dumps({"1-across": charade}))
 filled = AC.fill_missing(path, pending)
 ann = json.loads(pending.read_text())
 say("missing_keys_filled_null", len(filled) == 29 and len(ann) == 30
-    and ann["2-across"] is None and ann["1-across"] == {"type": ["charade"]})
+    and ann["2-across"] is None and ann["1-across"] == charade)
 
 # A refused write still says what the validator thinks, in the same turn.
-ann["1-across"] = {"type": ["charade"], "answer": "ABCD",
-                   "blocks": [{"clueFragment": "Some", "gives": "ABCD", "note": "this is ABCD"}]}
+ann["1-across"] = {"def": "Some", "wp": "[words here]ABCD", "notes": {"words here": "this is ABCD"}}
 pending.write_text(json.dumps(ann))
 errs, _ = AC.preview(path, pending)
 say("preview_names_validator_errors", any("names the answer" in e for e in errs)
@@ -275,9 +283,10 @@ say("preview_names_validator_errors", any("names the answer" in e for e in errs)
 
 # --patch consumes its file, so the run has nothing to rm afterwards.
 fix = path.parent / "_patch.json"
-fix.write_text(json.dumps({"2-across": {"type": ["anagram"]}}))
+anagram = {"def": "Some", "wp": "ana([words]DCBA)"}
+fix.write_text(json.dumps({"2-across": anagram}))
 say("patch_deletes_its_file", AC.patch(pending, fix) is None and not fix.exists()
-    and json.loads(pending.read_text())["2-across"] == {"type": ["anagram"]})
+    and json.loads(pending.read_text())["2-across"] == anagram)
 
 # An answer typed with the enumeration's comma is respelt with a space.
 pending.write_text(json.dumps({"1-across": {"answer": "TITUS, ANDRONICUS"}, "2-across": None}))
@@ -286,12 +295,20 @@ say("comma_answer_spaced", AC.respell_answers(pending) == ["1-across"]
 
 # A block note naming its answer is rewritten without it when no judgement goes
 # into that; one naming it mid-thought is left for the validator.
+named = path.parent / "cyclops-99995.json"
+named.write_text(json.dumps({"id": "cyclops-99995", "number": 99995, "entries": [
+    entry("1-across", "Drain cover rasping (7)", "GRATING"),
+    entry("2-across", "Archbishop's church (6)", "TEMPLE"),
+    entry("3-across", "Rag every day (5)", "DAILY")]}))
 pending.write_text(json.dumps({
-    "1-across": {"answer": "GRATING", "blocks": [{"note": "a grating is a grid of metal bars over a drain"}]},
-    "2-across": {"answer": "TEMPLE", "blocks": [{"note": "William Temple was Archbishop of Canterbury"}]},
-    "3-across": {"answer": "DAILY", "blocks": [{"note": "a rag is a newspaper, and one out every day is a daily"}]}}))
-unnamed = AC.unname_block_notes(path, pending)
-notes_now = {k: v["blocks"][0]["note"] for k, v in json.loads(pending.read_text()).items()}
+    "1-across": {"def": "rasping", "wp": "[Drain cover]GRATING",
+                 "notes": {"Drain cover": "a grating is a grid of metal bars over a drain"}},
+    "2-across": {"def": "church", "wp": "[Archbishop's]TEMPLE",
+                 "notes": {"Archbishop's": "William Temple was Archbishop of Canterbury"}},
+    "3-across": {"def": "every day", "wp": "[Rag]DAILY",
+                 "notes": {"Rag": "a rag is a newspaper, and one out every day is a daily"}}}))
+unnamed = AC.unname_block_notes(named, pending)
+notes_now = {k: next(iter(v["notes"].values())) for k, v in json.loads(pending.read_text()).items()}
 say("answer_opener_trimmed", unnamed == ["1-across"]
     and notes_now["1-across"] == "a grid of metal bars over a drain"
     and notes_now["2-across"].startswith("William") and notes_now["3-across"].startswith("a rag"))
@@ -377,12 +394,13 @@ say("unlinked_still_whole_answer_only", errs == [])
 linked = path.parent / "cyclops-99997.json"
 linked.write_text(json.dumps({"entries": [
     {"number": 1, "direction": "across", "solution": "PRIME", "group": ["1-across", "2-down"],
-     "clue": {"text": "Prepare a cleric for high office (5,8)"}},
+     "clue": {"text": "Prepare English cleric for high office (5,8)"}},
     {"number": 2, "direction": "down", "solution": "MINISTER", "clue": {"text": "See 1"}}]}))
-pending.write_text(json.dumps({"1-across": {"answer": "PRIME MINISTER", "blocks": [
-    {"note": "to prime is to prepare", "gives": "PRIM"}]}}))
+pending.write_text(json.dumps({"1-across": {
+    "def": "high office", "wp": "[Prepare]PRIM + [English]E + [cleric]MINISTER",
+    "notes": {"Prepare": "to prime is to prepare"}}}))
 say("light_name_unnamed", AC.unname_block_notes(linked, pending) == ["1-across"]
-    and json.loads(pending.read_text())["1-across"]["blocks"][0]["note"] == "to prepare")
+    and json.loads(pending.read_text())["1-across"]["notes"]["Prepare"] == "to prepare")
 
 # Each validator line names its check, and --explain takes what a run guesses.
 import contextlib, io

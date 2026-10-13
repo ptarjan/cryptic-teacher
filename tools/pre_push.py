@@ -219,7 +219,7 @@ def run_tests(todo, deadline):
     return passed, failed, unfinished
 
 
-#: Paths per run of a puzzle check: a push of the whole corpus (the format v2
+#: Paths per run of a puzzle check: a push of the whole corpus (a schema
 #: migration, ~52,000 files) is too long for one command line (E2BIG).
 ARG_CHUNK = 2000
 

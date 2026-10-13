@@ -83,9 +83,8 @@ entry = {
              "asPrinted": ["settled—stamp"]},
     "annotation": {
         "definitions": [{"text": "stamp not", "at": 12}, {"text": "not ... required", "at": 18}],
-        "indicators": [{"text": "settled—stamp"}],
-        "linkWords": ["Job"],
-        "blocks": [{"clueFragment": "... required"}],
+        "wordplay": {"op": "charade", "indicators": [{"text": "settled—stamp"}],
+                     "parts": [{"words": "... required"}]},
         "hiddenLetter": {"kind": "clue", "letter": "r", "at": 26},
     },
 }
@@ -103,8 +102,8 @@ for d in e["annotation"]["definitions"]:
 check("a definition across the ellipsis is the new clue's words", "not … required",
       e["annotation"]["definitions"][1]["text"])
 check("an indicator across the dash is the new clue's words", "settled — stamp",
-      e["annotation"]["indicators"][0]["text"])
-check("a block fragment follows the ellipsis", "… required", e["annotation"]["blocks"][0]["clueFragment"])
+      e["annotation"]["wordplay"]["indicators"][0]["text"])
+check("a leaf's words follow the ellipsis", "… required", e["annotation"]["wordplay"]["parts"][0]["words"])
 check("hiddenLetter still points at its letter", "r", t[e["annotation"]["hiddenLetter"]["at"]])
 check("asPrinted keeps only tokens of the new text", ["settled", "stamp"], e["clue"]["asPrinted"])
 flags = []
@@ -132,16 +131,15 @@ import enumeration
 def fresh(text, ann):
     return {"id": "t-2", "entries": [{"number": 4, "direction": "down", "clue": {"text": text}, "annotation": ann}]}
 
-# The migration: a spaced " - " link word must not be matched to the hyphen inside "Non-U".
+# The spaced " - " is the dash, not the hyphen inside "Non-U".
 old = fresh("Non-U eats, the first - they go", {
     "definitions": [{"text": "they go", "at": 24}],
-    "indicators": [{"text": "Non-U", "for": "deletion"}],
-    "linkWords": ["-"],
-    "blocks": [{"clueFragment": "the first"}, {"clueFragment": "eats,"}],
+    "wordplay": {"op": "deletion", "indicators": [{"text": "Non-U"}],
+                 "parts": [{"words": "the first"}, {"words": "eats,"}]},
 })
 e = dashes.normalise(old)["entries"][0]
-check("a dash link word follows the spaced dash, not a hyphen in a word", ["—"], e["annotation"]["linkWords"])
-check("the hyphenated indicator stays", "Non-U", e["annotation"]["indicators"][0]["text"])
+check("the spaced dash is the house dash", "Non-U eats, the first — they go", e["clue"]["text"])
+check("the hyphenated indicator stays", "Non-U", e["annotation"]["wordplay"]["indicators"][0]["text"])
 d = e["annotation"]["definitions"][0]
 check("the definition still sits at its at", "they go", e["clue"]["text"][d["at"]:d["at"] + 7])
 check("enumeration.find_words skips a hyphen inside a word", 15, enumeration.find_words("Non-U eats, ab - c", "-"))
@@ -150,29 +148,22 @@ check("find_words falls back to the first copy", 3, enumeration.find_words("Non-
 # A clue already stored right with its annotation left behind is mended by a re-run.
 ANN_CASES = [
     # (what, annotation with the stale quote, where to read it, clue, want)
-    ("link word '-'", {"linkWords": ["-"], "blocks": []}, lambda a: a["linkWords"][0],
-     "Good artist all-round — one with drawing ability", "—"),
-    ("link word '--'", {"linkWords": ["--"], "blocks": []}, lambda a: a["linkWords"][0],
-     "Good artist all-round — one with drawing ability", "—"),
-    ("link word en dash", {"linkWords": ["–"], "blocks": []}, lambda a: a["linkWords"][0],
-     "Large ox — it's a devil", "—"),
-    ("link word '...'", {"linkWords": ["..."], "blocks": []}, lambda a: a["linkWords"][0],
-     "Bar open to gin… or punch", "…"),
-    ("indicator across a dash", {"indicators": [{"text": "settled - stamp"}], "blocks": []}, lambda a: a["indicators"][0]["text"],
-     "Job settled — stamp not", "settled — stamp"),
+    # The quotes are the definitions and the wordplay tree's indicators and
+    # leaf words; link words, blocks and assembly are derived, not stored.
     ("definition across an ellipsis", {"definitions": [{"text": "not ... required"}]},
      lambda a: a["definitions"][0]["text"], "Job not … required", "not … required"),
-    ("block fragment with stops", {"blocks": [{"clueFragment": "gin..."}]}, lambda a: a["blocks"][0]["clueFragment"],
-     "Bar open to gin…", "gin…"),
-    ("anagram fodder across a dash", {"assembly": {"anagrams": [{"fodder": "ox - it"}]}, "blocks": []},
-     lambda a: a["assembly"]["anagrams"][0]["fodder"], "Large ox — it's a devil", "ox — it"),
-    # Format v2 (no `blocks`): the quotes are the wordplay tree's indicators
-    # and leaf words; linkWords, indicators and assembly are derived, not stored.
-    ("v2 wordplay indicator across a dash",
+    ("wordplay indicator across a dash",
      {"wordplay": {"op": "anagram", "indicators": [{"text": "settled - stamp"}], "parts": [{"words": "Job"}]}},
      lambda a: a["wordplay"]["indicators"][0]["text"], "Job settled — stamp not", "settled — stamp"),
-    ("v2 leaf words across a dash", {"wordplay": {"op": "anagram", "parts": [{"words": "ox - it"}]}},
+    ("wordplay indicator across an en dash",
+     {"wordplay": {"op": "anagram", "indicators": [{"text": "ox – it"}], "parts": [{"words": "devil"}]}},
+     lambda a: a["wordplay"]["indicators"][0]["text"], "Large ox — it's a devil", "ox — it"),
+    ("leaf words with stops", {"wordplay": {"op": "charade", "parts": [{"words": "gin..."}]}},
+     lambda a: a["wordplay"]["parts"][0]["words"], "Bar open to gin…", "gin…"),
+    ("leaf words across a dash", {"wordplay": {"op": "anagram", "parts": [{"words": "ox - it"}]}},
      lambda a: a["wordplay"]["parts"][0]["words"], "Large ox — it's a devil", "ox — it"),
+    ("leaf words across a double hyphen", {"wordplay": {"op": "charade", "parts": [{"words": "all-round -- one"}]}},
+     lambda a: a["wordplay"]["parts"][0]["words"], "Good artist all-round — one with drawing ability", "all-round — one"),
     ("misdirected word", {"features": {"misdirectedWord": "devil..."}}, lambda a: a["features"]["misdirectedWord"],
      "Large ox — it's a devil…", "devil…"),
 ]
@@ -200,23 +191,24 @@ KEEP = [
 ]
 for what, phrase, text in KEEP:
     check(f"quote keeps {what}", phrase, dashes.quote(phrase, text))
-pz = fresh("Pot - boiler", {"linkWords": ["-"], "blocks": []})
-check("a clue not yet normalised: its '-' link word follows it to the house dash", ["—"],
-      dashes.normalise(pz)["entries"][0]["annotation"]["linkWords"])
+pz = fresh("Pot - boiler", {"wordplay": {"op": "charade", "parts": [{"words": "Pot -"}]}})
+check("a clue not yet normalised: a leaf's '-' follows it to the house dash", "Pot —",
+      dashes.normalise(pz)["entries"][0]["annotation"]["wordplay"]["parts"][0]["words"])
 
 # The annotate path (apply_annotations.normalize, used by annotate_check and
 # apply_annotations) spells a new annotation's words the clue's way, so a
-# '-' link word cannot be written again.
+# '-' or '...' cannot be written again.
 check("respell: '-' is the clue's dash", "—", definitions.respell("-", "Good artist all-round — one"))
 check("respell: '...' is the clue's ellipsis", "…", definitions.respell("...", "Bar open to gin…"))
 check("respell: a hyphenated word stays", "all-round",
       definitions.respell("all-round", "Good artist all-round — one"))
-got = apply_annotations.in_clue_spelling(
-    {"linkWords": ["-"], "indicators": [{"text": "all-round"}], "blocks": [{"clueFragment": "gin..."}]},
-    "Good artist all-round — one with gin…")
-check("in_clue_spelling: link word", ["—"], got["linkWords"])
-check("in_clue_spelling: indicator", "all-round", got["indicators"][0]["text"])
-check("in_clue_spelling: block", "gin…", got["blocks"][0]["clueFragment"])
+e = {"number": 1, "direction": "across", "clue": {"text": "Good artist all-round — one with gin…", "enumeration": "4"},
+     "solution": "GINO"}
+pz = {"id": "t-3", "entries": [e]}
+got = apply_annotations.normalize({"def": "Good artist", "wp": "[gin...]GIN + [all-round]O"}, e, pz["entries"], puzzle=pz)
+words = [p["words"] for p in got["wordplay"]["parts"]]
+check("normalize: a leaf typed with stops is the clue's ellipsis", "gin…", words[0])
+check("normalize: a hyphenated leaf stays", "all-round", words[1])
 
 # A ligature is two or three letters, so straightening one is a clue rewrite
 # like a dash's: every `at` and quoted phrase moves with it (8cb5a7e0b2 left
@@ -227,8 +219,8 @@ lig = {"clue": {"text": "Ruﬃanly behaviour ‘with’ a girl, some of it",
                 "italics": [{"at": 10, "length": 9}]},
        "annotation": {"definitions": [{"text": "Ruﬃanly behaviour", "at": 0},
                                       {"text": "some of it", "at": 34}],
-                      "indicators": [{"text": "some of"}], "linkWords": ["with"],
-                      "blocks": [{"clueFragment": "a girl, some of it"}]}}
+                      "wordplay": {"op": "hidden", "indicators": [{"text": "some of"}],
+                                   "parts": [{"words": "a girl, some of it"}]}}}
 got = quotes.straighten({"entries": [lig]})["entries"][0]
 text = got["clue"]["text"]
 check("ligature: clue spelt out", "Ruffianly behaviour 'with' a girl, some of it", text)

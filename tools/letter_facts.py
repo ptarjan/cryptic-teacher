@@ -92,7 +92,7 @@ from puzzle_paths import puzzle_files
 
 
 def read_view(path):
-    """A puzzle file as annotation.view_puzzle() shows it: a format v2 file with
+    """A puzzle file as annotation.view_puzzle() shows it: with
     the derived fields (type, blocks, indicators, ...) every reader here takes."""
     import annotation
     return annotation.view_puzzle(json.loads(path.read_text(encoding="utf-8")))
