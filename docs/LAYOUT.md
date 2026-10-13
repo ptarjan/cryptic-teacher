@@ -2447,6 +2447,10 @@ tools/fixtures/quiptic-619-legacy.json        quiptic-619 in the legacy annotati
                                               frozen so tools/test_annotate_model_shape.sh
                                               still has legacy annotations to translate once
                                               the corpus is format v2
+tools/fixtures/telegraph-31356-legacy.json    telegraph-31356 in the legacy annotation format,
+                                              frozen so tools/test_selector_indicator.sh still
+                                              has legacy blocks to check and normalize once the
+                                              corpus is format v2
 tools/test_format_v2.sh                       do the schema and validator refuse every derived
                                               field in a format v2 file, evaluate its trees and
                                               ratchet its unchecked steps, while legacy files

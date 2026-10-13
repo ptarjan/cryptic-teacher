@@ -30,8 +30,10 @@ check("the source word alone", None, found("Bahrain", "B"))
 check("a selector phrase alone", None, found("at last", "T"))
 
 # telegraph-31356 24D with its selector put back in the block, and as fixed but
-# edited, so both count as changed against HEAD.
-path = v.ROOT / "puzzles/telegraph/2026/telegraph-31356.json"
+# edited, so both count as changed against HEAD. A frozen legacy copy
+# (tools/fixtures): legacy blocks and normalize() are the subject, and the
+# corpus file may be format v2.
+path = v.ROOT / "tools/fixtures/telegraph-31356-legacy.json"
 puzzle = json.loads(path.read_text())
 e = next(e for e in puzzle["entries"] if v.entry_id(e) == "24-down")
 fixed = copy.deepcopy(puzzle)
@@ -46,6 +48,27 @@ check("message names the indicator and the block", True,
 errors = []
 v.check_selectors_are_indicators(fixed, path, errors)
 check("fixed entry passes", [], errors)
+
+# A format v2 file stores a tree: its blocks are view()'s, and a leaf holding
+# the selector ("capital of Bahrain" giving B) is refused the same way.
+import convert_v2
+v2, _ = convert_v2.migrate_puzzle(fixed)
+for f in v2["entries"]:  # HEAD's copy is legacy, so every v2 annotation is "changed": keep 24D's only
+    if v.entry_id(f) != "24-down":
+        f.pop("annotation", None)
+def unfirst(node):
+    for i, part in enumerate(node.get("parts") or []):
+        if part.get("op") == "first" and part["parts"][0].get("words") == "Bahrain":
+            node["parts"][i] = {"words": "capital of Bahrain", "gives": "B"}
+        else:
+            unfirst(part)
+errors = []
+v.check_selectors_are_indicators(v2, path, errors)
+check("a v2 file's fixed entry passes", [], errors)
+unfirst(next(f for f in v2["entries"] if v.entry_id(f) == "24-down")["annotation"]["wordplay"])
+errors = []
+v.check_selectors_are_indicators(v2, path, errors)
+check("a v2 leaf with its selector inside is checked", 1, len(errors))
 
 # apply_annotations.normalize writes that fix itself: the run's block with its
 # selector inside goes to disk as the block and the indicator.
@@ -78,4 +101,5 @@ check("several letters are left to the run", "a lender's first",
       one("a lender's first", "AL")["blocks"][0]["clueFragment"])
 check("a note that teaches", True,
       len(one("Irish leader", "I")["indicators"][0]["note"]) >= 25)
+raise SystemExit(fails)
 PY
