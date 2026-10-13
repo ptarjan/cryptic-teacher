@@ -7,6 +7,7 @@ set -euo pipefail
 cd "$(dirname "$0")"
 python3 - <<'PY'
 import copy
+import annotation
 import hidden_messages as hm
 import puzzle_schema
 import validate_annotations as v
@@ -15,9 +16,11 @@ PREAMBLE = ("Wordplay in each across clue omits a letter from the entry. In orde
             "the omissions form a hint, which must be written below the grid.")
 
 
-def entry(n, direction, clue, answer, blocks, hidden=None):
-    ann = {"type": ["charade"], "answer": answer, "definitions": [{"text": clue.split()[-1], "at": clue.rindex(" ") + 1}],
-           "blocks": blocks, "explanation": {"walkthrough": "w"}}
+def entry(n, direction, clue, answer, tree, hidden=None):
+    """A clue as a file stores it: its wordplay tree, the device's letter a leaf
+    with no clue words (supplied) or one a deletion takes out (extra)."""
+    ann = {"definitions": [{"text": clue.split()[-1], "at": clue.rindex(" ") + 1}],
+           "wordplay": tree, "explanation": {"walkthrough": "w"}}
     if hidden:
         ann["hiddenLetter"] = hidden
     return {"number": n, "direction": direction, "position": {"x": 0, "y": n},
@@ -26,7 +29,7 @@ def entry(n, direction, clue, answer, blocks, hidden=None):
 
 
 def puzzle(entries, messages=None, preamble=PREAMBLE):
-    p = {"id": "genius-1", "number": 1, "series": "genius", "name": "t", "date": "2026-01-01",
+    p = {"id": "genius-1", "number": 1, "date": "2026-01-01",
          "preamble": preamble, "dimensions": {"cols": 9, "rows": 9},
          "source": {"publisher": "Guardian", "url": "https://x.example/1", "retrievedFrom": "publisher",
                     "acquiredBy": "tools/genius_puzzles.py", "acquiredOn": "2026-01-01", "gridOrigin": "published"},
@@ -36,21 +39,27 @@ def puzzle(entries, messages=None, preamble=PREAMBLE):
     return p
 
 
-# HI: 1-across omits H (a block with no clue words supplies it), 3-across
-# omits I (its blocks give one letter fewer).
+# HI: 1-across and 3-across each omit a letter (a leaf with no clue words
+# supplies it); 2-down's wordplay gives an extra X, which a deletion takes out.
 def entries(hidden=True):
     return [
         entry(1, "across", "Bat ox", "HOT",
-              [{"gives": "H", "note": "the omitted letter"}, {"clueFragment": "Bat", "gives": "O"},
-               {"clueFragment": "ox", "gives": "T"}],
+              {"op": "charade", "parts": [{"gives": "H", "note": "the omitted letter"},
+                                          {"words": "Bat", "gives": "O"}, {"words": "ox", "gives": "T"}]},
               {"kind": "omitted", "letter": "H"} if hidden else None),
-        entry(3, "across", "Sat in", "SIT",
-              [{"clueFragment": "Sat", "gives": "ST"}],
+        entry(3, "across", "Sat on", "SIT",
+              {"op": "container", "parts": [{"words": "Sat", "gives": "ST"},
+                                            {"gives": "I", "note": "the omitted letter"}]},
               {"kind": "omitted", "letter": "I"} if hidden else None),
         entry(2, "down", "Tome hat", "TOME",
-              [{"clueFragment": "Tome", "gives": "TOMEX"}],
+              {"op": "deletion", "parts": [{"words": "Tome", "gives": "TOMEX"}, {"gives": "X"}]},
               {"kind": "extra", "letter": "X"} if hidden else None),
     ]
+
+
+def seen(e):
+    """The annotation as hidden_messages reads it: annotation.view()'s blocks."""
+    return annotation.view(e["annotation"], e)
 
 
 MSG = [{"text": "HI", "kind": "omitted", "direction": "across", "order": "clues", "placement": "belowGrid"}]
@@ -66,8 +75,9 @@ def check(name, want, got):
 
 def problems(p):
     p = puzzle_schema.order(p)
-    return (puzzle_schema.validate(p) + hm.message_problems(p)
-            + [x for e in p["entries"] for x in hm.letter_problems(e["annotation"], e)])
+    view = annotation.view_puzzle(p)
+    return (puzzle_schema.validate(p) + hm.message_problems(view)
+            + [x for e in view["entries"] for x in hm.letter_problems(e["annotation"], e)])
 
 
 check("letters spell the message", False, problems(puzzle(entries(), MSG)))
@@ -80,21 +90,23 @@ check("omitted letter the blocks do not lack", True, problems(puzzle(wrong, MSG)
 wrong = entries(); wrong[2]["annotation"]["hiddenLetter"]["letter"] = "T"
 check("extra letter the blocks do not add", True, problems(puzzle(wrong, MSG)))
 mis = entries(); mis[0]["annotation"]["hiddenLetter"] = {"kind": "misprint", "letter": "C", "printed": "B", "at": 0}
-check("misprint at its printed letter", False, hm.letter_problems(mis[0]["annotation"], mis[0]))
+check("misprint at its printed letter", False, hm.letter_problems(seen(mis[0]), mis[0]))
 mis[0]["annotation"]["hiddenLetter"]["at"] = 1
-check("misprint at the wrong offset", True, hm.letter_problems(mis[0]["annotation"], mis[0]))
+check("misprint at the wrong offset", True, hm.letter_problems(seen(mis[0]), mis[0]))
 mis[0]["annotation"]["hiddenLetter"] = {"kind": "extra", "letter": "X", "at": 1}
-check("extra takes no offset", True, hm.letter_problems(mis[0]["annotation"], mis[0]))
+check("extra takes no offset", True, hm.letter_problems(seen(mis[0]), mis[0]))
 # Letters Latent (genius-263): a letter dropped wherever it occurs is supplied
-# once per occurrence, each in its own block with no clue words.
-latent = entry(5, "across", "Gamma ian", "GRAMMARIAN",
-               [{"clueFragment": "Gamma", "gives": "GAMMA"}, {"gives": "R", "note": "supplied"},
-                {"gives": "R", "note": "supplied"}, {"clueFragment": "ian", "gives": "IAN"}],
+# once per occurrence, each in its own leaf with no clue words.
+latent = entry(5, "across", "Gamma ian scholar", "GRAMMARIAN",
+               {"op": "charade", "parts": [
+                   {"op": "container", "parts": [{"words": "Gamma", "gives": "GAMMA"},
+                                                 {"gives": "R", "note": "supplied"}]},
+                   {"gives": "R", "note": "supplied"}, {"words": "ian", "gives": "IAN"}]},
                {"kind": "omitted", "letter": "R"})
-check("latent letter supplied at each occurrence", False, hm.letter_problems(latent["annotation"], latent))
-check("latent letter reads as omitted", True, hm.entry_letter(latent["annotation"], latent) == ("omitted", "R") or [])
-mixed = copy.deepcopy(latent); mixed["annotation"]["blocks"][2]["gives"] = "S"
-check("two different supplied letters are no one omission", True, hm.entry_letter(mixed["annotation"], mixed) != ("omitted", "R") or [])
+check("latent letter supplied at each occurrence", False, hm.letter_problems(seen(latent), latent))
+check("latent letter reads as omitted", True, hm.entry_letter(seen(latent), latent) == ("omitted", "R") or [])
+mixed = seen(latent); mixed["blocks"][1]["gives"] = "S"
+check("two different supplied letters are no one omission", True, hm.entry_letter(mixed, latent) != ("omitted", "R") or [])
 check("schema refuses an unknown kind", True,
       puzzle_schema.validate(puzzle_schema.order(puzzle(entries(), [{**MSG[0], "kind": "swapped"}]))))
 
@@ -121,9 +133,11 @@ for text in ["Each clue contains a misprint; the correct letters spell a quotati
 # The converter reads the letters off the blocks and writes them back. A run
 # of fewer than four letters is too short to tell from chance, so spell OPEN.
 four = [entry(n, "across", f"Clue {n} word", ans,
-              [{"gives": miss, "note": "the omitted letter"},
-               {"clueFragment": "Clue", "gives": ans.replace(miss, "", 1)}])
-        for n, ans, miss in [(1, "OAK", "O"), (3, "SPA", "P"), (5, "EAR", "E"), (7, "NIL", "N")]]
+              {"op": op, "parts": sorted([{"gives": miss, "note": "the omitted letter"},
+                                          {"words": "Clue", "gives": ans.replace(miss, "", 1)}],
+                                         key=lambda x: op == "container" and "words" not in x)})
+        for n, ans, miss, op in [(1, "OAK", "O", "charade"), (3, "SPA", "P", "container"),
+                                 (5, "EAR", "E", "charade"), (7, "NIL", "N", "charade")]]
 status, text, new = hm.convert(puzzle(four))
 check("converter reads the across omissions", True, status == "converted" and text == "OPEN" or [])
 if new:
