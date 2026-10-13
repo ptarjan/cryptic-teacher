@@ -50,9 +50,10 @@ def block(q):
     v = A.view(q["entries"][i]["annotation"], q["entries"][i], q)
     return next(b for b in v["blocks"] if b.get("clueFragment") == "folio")
 
-# The table holds folio F and with W; it does not hold deserted D.
+# The table holds folio F and with W (and, by the corpus, deserted D); it does
+# not hold sex S, one setter's habit (tools/build_corpus_abbreviations.py).
 check("the table holds folio F", A.is_abbreviation({"words": "folio", "gives": "F"}))
-check("a pair the table lacks is no abbreviation", not A.is_abbreviation({"words": "deserted", "gives": "D"}))
+check("a pair the table lacks is no abbreviation", not A.is_abbreviation({"words": "sex", "gives": "S"}))
 
 # view(): a leaf with no note shows the gloss; a stored note wins.
 bare = with_note(None)
@@ -75,8 +76,8 @@ for note in ("F is the abbreviation for folio", "F is the standard abbreviation 
 for note in ("F is the abbreviation for folio, as printed on old books", "F is the paper-size abbreviation for folio",
              "a folio is a sheet folded once", "F for folio, the page size; then reversed"):
     check(f"adds something: {note!r}", not A.restates_abbreviation(leaf(note)))
-check("a note on a pair the table lacks stays (deserted D)",
-      not A.restates_abbreviation(leaf("D is a recorded abbreviation for deserted", "deserted", "D")))
+check("a note on a pair the table lacks stays (sex S)",
+      not A.restates_abbreviation(leaf("S is a recorded abbreviation for sex", "sex", "S")))
 
 # A run's own puzzle: until the corpus is stripped, only a note the committed
 # file does not hold is refused, so files still carrying them keep validating.

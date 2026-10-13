@@ -13,12 +13,15 @@ d = Path(tempfile.mkdtemp())
 (d / "blocks.json").write_text(json.dumps({
     "ABOUT": {"RE": 50, "C": 90, "A": 5}, "SAILOR": {"AB": 40}, "ABBESS": {"ABB": 1},
     "CAUGHT": {"C": 70}, "KING": {"K": 3, "R": 30}, "QUEEN": {"Q": 2}, "MONK": {"BR": 9}}))
-# sailor AB and monk BR: clues use them, no dictionary lists them. unused U: the
+# sailor AB and monk BR: clues use them, no dictionary lists them; our
+# annotations attest sailor AB widely (corpus.json), so it is in. unused U: the
 # dictionary lists it, no clue uses it.
 (d / "dictionary.json").write_text(json.dumps({
     "about": ["A", "C", "RE"], "abbess": ["ABB"], "caught": ["C"], "king": ["K", "R"],
     "unused": ["U"]}))
-b.LEXICON, b.DICTIONARY, b._USAGE, b._TABLE = d / "blocks.json", d / "dictionary.json", None, None
+(d / "corpus.json").write_text(json.dumps({"AB": {"sailor": {"puzzles": 40, "series": 9, "setters": 20}}}))
+b.LEXICON, b.DICTIONARY, b.CORPUS = d / "blocks.json", d / "dictionary.json", d / "corpus.json"
+b._USAGE, b._TABLE = None, None
 b.FAMILIES = [("Cards", "ace A, queen Q, king K"), ("Royals", "king R, rex R"),
               ("Others", "about A, caught C, abbess ABB")]
 b.SYSTEMATIC = frozenset({"Cards"})
@@ -31,8 +34,8 @@ def check(name, want, got):
 plain = lambda h: re.sub(r"<[^>]+>|&nbsp;|&middot;|,", " ", h).split()
 senses = b.by_word()
 
-check("table(): dictionary senses clues use, plus SYSTEMATIC members, and nothing else",
-      {"A": ["about", "ace"], "ABB": ["abbess"], "C": ["about", "caught"],
+check("table(): dictionary senses clues use, SYSTEMATIC members and corpus pairs, nothing else",
+      {"A": ["about", "ace"], "AB": ["sailor"], "ABB": ["abbess"], "C": ["about", "caught"],
        "K": ["king"], "Q": ["queen"], "R": ["king"], "RE": ["about"]}, b.table())
 
 check("most common: top n, most used first, each with its count",
