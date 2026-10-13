@@ -19,8 +19,14 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "unsolved"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-12",
+  "check": "31 entries, 62 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -43,6 +49,81 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "EVERYSOOFTEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "EVERY SO OFTEN",
+    "definitions": [
+     {
+      "text": "now and again",
+      "at": 64
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bit of",
+      "for": "letter_selection",
+      "note": "a bit of a word is a single small piece of it, here its opening letter"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is where it finishes, so only its final letter is kept"
+     },
+     {
+      "text": "is found in",
+      "for": "container",
+      "note": "something found in a thing sits inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "embroidery",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of embroidery"
+     },
+     {
+      "clueFragment": "awfully",
+      "gives": "VERY",
+      "note": "awfully as an intensifier, as in awfully nice"
+     },
+     {
+      "clueFragment": "rococo",
+      "gives": "O",
+      "select": "last",
+      "note": "the last letter of rococo"
+     },
+     {
+      "clueFragment": "cushion",
+      "gives": "SOFTEN",
+      "note": "to cushion a blow is to soften it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "VERY",
+      "S",
+      "O",
+      "OFTEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A needlework expert remarks that a cushion's decoration comes very near to the rococo style in places.",
+     "walkthrough": "'Bit of embroidery' looks like the definition, but the definition is the closing 'now and again'. The single letter goes in after the first letter of the cushioning word.",
+     "definitionFit": "Both phrases mean occasionally, at irregular intervals; the answer is the idiomatic equivalent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "embroidery"
+    }
    }
   },
   {
@@ -56,6 +137,54 @@
    "clue": {
     "text": "Work in doorway increasing chaos",
     "enumeration": "7"
+   },
+   "solution": "ENTROPY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ENTROPY",
+    "definitions": [
+     {
+      "text": "increasing chaos",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the first piece sits inside the second, as a thing in a room"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Work",
+      "gives": "OP",
+      "note": "op is short for opus, a musical work"
+     },
+     {
+      "clueFragment": "doorway",
+      "gives": "ENTRY",
+      "note": "an entry is a way in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENTR",
+      "OP",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A building job in the entrance making things messier and messier.",
+     "definitionFit": "In physics, entropy is the measure of disorder, which always rises in a closed system."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Work"
+    }
    }
   },
   {
@@ -69,6 +198,68 @@
    "clue": {
     "text": "It thrives on decay, the war's devastation, or the onset of mold",
     "enumeration": "9"
+   },
+   "solution": "EARTHWORM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "EARTHWORM",
+    "definitions": [
+     {
+      "text": "It thrives on decay",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "devastation",
+      "for": "anagram",
+      "note": "devastation leaves ruins, so the words before it are wrecked into a new order"
+     },
+     {
+      "text": "the onset of",
+      "for": "letter_selection",
+      "note": "the onset is the start, so only an opening letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the war",
+      "gives": "THEWAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mold",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of mold"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEWARORM",
+       "gives": "EARTHWORM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Muses on what profits from rot: wartime ruin, or the first spread of mould.",
+     "walkthrough": "The 's of 'war's' reads as 'is': the war is wrecked.",
+     "definitionFit": "Earthworms feed on rotting leaves and organic matter in soil, so they flourish on decomposition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "devastation"
+    }
    }
   },
   {
@@ -82,6 +273,64 @@
    "clue": {
     "text": "Mounting antelope at 12 is immature",
     "enumeration": "5"
+   },
+   "solution": "YOUNG",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "YOUNG",
+    "definitions": [
+     {
+      "text": "immature",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mounting",
+      "for": "reversal",
+      "note": "in a down entry, mounting means climbing upward, so the letters are read from the bottom"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "antelope",
+      "gives": "GNU",
+      "note": "the gnu is the wildebeest"
+     },
+     {
+      "clueFragment": "at 12",
+      "gives": "OY",
+      "note": "oy is the Yiddish cry of dismay, the same as the exclamation that is the answer at 12 Across"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YO",
+      "UNG"
+     ],
+     "reversals": [
+      {
+       "from": "GNUOY",
+       "to": "YOUNG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wildebeest climbing up at midday shows its youth.",
+     "walkthrough": "'At 12' looks like noon but points to 12 Across, whose meaning the cry OY shares.",
+     "definitionFit": "Young things are not yet grown up, so immature is a plain synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "12"
+    }
    }
   },
   {
@@ -95,6 +344,56 @@
    "clue": {
     "text": "Was probably more popular than badly polluted oxygen",
     "enumeration": "9"
+   },
+   "solution": "OUTPOLLED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OUTPOLLED",
+    "definitions": [
+     {
+      "text": "Was probably more popular than",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "done badly, the letters are put in the wrong order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "polluted",
+      "gives": "POLLUTED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "oxygen",
+      "gives": "O",
+      "note": "O is the chemical symbol for oxygen"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POLLUTEDO",
+       "gives": "OUTPOLLED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Comments that dirty oxygen probably went down better than something else.",
+     "definitionFit": "To outpoll a rival is to receive more votes, a fair sign of greater popularity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "polluted"
+    }
    }
   },
   {
@@ -108,6 +407,50 @@
    "clue": {
     "text": "Loud organ for cast",
     "enumeration": "5"
+   },
+   "solution": "FLUNG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLUNG",
+    "definitions": [
+     {
+      "text": "cast",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Loud",
+      "gives": "F",
+      "note": "f stands for forte, loud, in music"
+     },
+     {
+      "clueFragment": "organ",
+      "gives": "LUNG",
+      "note": "the lung is a breathing organ"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LUNG"
+     ]
+    },
+    "explanation": {
+     "surface": "A booming organ chosen for the actors in a show.",
+     "walkthrough": "'Organ' and 'cast' suggest music and theatre; the organ here is a body part.",
+     "definitionFit": "Cast as a past tense means thrown, so a past form of the verb fling fits it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cast"
+    }
    }
   },
   {
@@ -121,6 +464,60 @@
    "clue": {
     "text": "Snob put up a Scrabble piece first",
     "enumeration": "7"
+   },
+   "solution": "ELITIST",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ELITIST",
+    "definitions": [
+     {
+      "text": "Snob",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put up",
+      "for": "reversal",
+      "note": "in a down entry, putting something up raises it, so its letters read from the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a Scrabble piece",
+      "gives": "TILE",
+      "note": "Scrabble letters are printed on small tiles"
+     },
+     {
+      "clueFragment": "first",
+      "gives": "IST",
+      "note": "1st, with the digit 1 read as the letter I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELIT",
+      "IST"
+     ],
+     "reversals": [
+      {
+       "from": "TILE",
+       "to": "ELIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snob insists on playing the opening tile in a Scrabble game.",
+     "definitionFit": "An elitist believes a select few are superior, the attitude of someone who looks down on others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
    }
   },
   {
@@ -134,6 +531,78 @@
    "clue": {
     "text": "Nation's management degree in business revoked by our group",
     "enumeration": "8"
+   },
+   "solution": "ZIMBABWE",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal",
+     "charade"
+    ],
+    "answer": "ZIMBABWE",
+    "definitions": [
+     {
+      "text": "Nation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the first piece sits inside the second"
+     },
+     {
+      "text": "revoked",
+      "for": "reversal",
+      "note": "revoked suggests called back, so the letters go in the backward direction"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "management degree",
+      "gives": "MBA",
+      "note": "a Master of Business Administration"
+     },
+     {
+      "clueFragment": "business",
+      "gives": "BIZ",
+      "note": "biz is slang for business, as in showbiz"
+     },
+     {
+      "clueFragment": "our group",
+      "gives": "WE",
+      "note": "a group including the speaker is we"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ZI",
+      "MBA",
+      "B",
+      "WE"
+     ],
+     "reversals": [
+      {
+       "from": "BIZ",
+       "to": "ZIB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A country's MBA programme has its business licence withdrawn by a committee.",
+     "walkthrough": "The 's reads as 'is'. Only the business word is turned around; the degree sits inside it, and 'our group' follows.",
+     "definitionFit": "Zimbabwe is a country in southern Africa, a straightforward example of a nation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revoked"
+    }
    }
   },
   {
@@ -147,6 +616,60 @@
    "clue": {
     "text": "Complaint from gathering on top of Fuji",
     "enumeration": "4"
+   },
+   "solution": "BEEF",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BEEF",
+    "definitions": [
+     {
+      "text": "Complaint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "in a down entry, the top of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "from",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gathering",
+      "gives": "BEE",
+      "note": "a bee is a social gathering, as in a quilting bee"
+     },
+     {
+      "clueFragment": "Fuji",
+      "gives": "F",
+      "select": "first",
+      "note": "the first letter of Fuji"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEE",
+      "F"
+     ]
+    },
+    "explanation": {
+     "surface": "A grumble from a crowd assembled on the summit of Mount Fuji.",
+     "walkthrough": "In a down entry 'on' means placed above, so BEE sits on F.",
+     "definitionFit": "Beef is informal for a grievance or grudge, as in 'what's your beef?'"
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gathering"
+    }
    }
   },
   {
@@ -160,6 +683,50 @@
    "clue": {
     "text": "Break purer tint in pieces",
     "enumeration": "9"
+   },
+   "solution": "INTERRUPT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INTERRUPT",
+    "definitions": [
+     {
+      "text": "Break",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in pieces",
+      "for": "anagram",
+      "note": "something in pieces has been broken up, so these letters must be put together again differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "purer tint",
+      "gives": "PURERTINT",
+      "note": "taken as written, nine letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PURERTINT",
+       "gives": "INTERRUPT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter smashing a jar of especially pure colour.",
+     "definitionFit": "To break into a conversation or a sequence is to cut in on it and halt it for a while."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tint"
+    }
    }
   },
   {
@@ -173,6 +740,56 @@
    "clue": {
     "text": "Join nut, i.e., lunatic",
     "enumeration": "5"
+   },
+   "solution": "UNITE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNITE",
+    "definitions": [
+     {
+      "text": "Join",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lunatic",
+      "for": "anagram",
+      "note": "a lunatic arrangement is a crazy one, so the letters before it are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nut",
+      "gives": "NUT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "i.e.",
+      "gives": "IE",
+      "note": "taken as written, without the stops"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NUTIE",
+       "gives": "UNITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An invitation to join up with a nutter, that is, a madman.",
+     "walkthrough": "'Nut' and 'lunatic' both suggest a madman, which hides that 'lunatic' is the signal to rearrange.",
+     "definitionFit": "To join things is to bring them together as one, a plain synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lunatic"
+    }
    }
   },
   {
@@ -186,6 +803,56 @@
    "clue": {
     "text": "Wellington, say, beginning to hound assassin",
     "enumeration": "5"
+   },
+   "solution": "BOOTH",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BOOTH",
+    "definitions": [
+     {
+      "text": "assassin",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter, which alone is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wellington, say",
+      "gives": "BOOT",
+      "note": "a wellington is a rubber boot; 'say' marks it as an example"
+     },
+     {
+      "clueFragment": "hound",
+      "gives": "H",
+      "select": "first",
+      "note": "the first letter of hound"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOOT",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "The Duke of Wellington sets out to hunt down a killer.",
+     "walkthrough": "Wellington suggests the duke or the New Zealand city; here it is the rubber boot, called a welly in Britain.",
+     "definitionFit": "John Wilkes Booth shot President Lincoln in 1865, so his surname stands for a famous killer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wellington"
+    }
    }
   },
   {
@@ -205,6 +872,71 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "GOODGRIEF",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GOOD GRIEF",
+    "definitions": [
+     {
+      "text": "Charlie Brown's brother",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "something that has gone unfortunately has gone wrong, so the letters of the cross-referenced entry come out disordered"
+     },
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "to involve something is to take it in, so one piece is wrapped around the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "error",
+      "gives": "GOOF",
+      "note": "a goof is a silly mistake"
+     },
+     {
+      "clueFragment": "26",
+      "gives": "DIRGE",
+      "note": "the answer to 26 Across"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOO",
+      "DGRIE",
+      "F"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DIRGE",
+       "gives": "DGRIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Seems to describe a Peanuts sibling caught up in a mishap involving a funeral song.",
+     "walkthrough": "'Brother' is not a relative but the exasperated cry 'Oh, brother!'. The '26' points to the answer at 26 Across, whose letters are scrambled before going in.",
+     "definitionFit": "Good grief is the catchphrase of the Peanuts character, an exclamation of dismay just like 'Oh brother!'"
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "brother"
+    }
    }
   },
   {
@@ -218,6 +950,56 @@
    "clue": {
     "text": "Refusal to support oddly boozy actor: \"Ta-ta!\"",
     "enumeration": "7"
+   },
+   "solution": "BOYCOTT",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "BOYCOTT",
+    "definitions": [
+     {
+      "text": "Refusal to support",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly means taking the letters in odd positions, the first, third, fifth and so on"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boozy actor",
+      "gives": "BOYCO",
+      "select": "alternate",
+      "note": "the first, third, fifth, seventh and ninth letters"
+     },
+     {
+      "clueFragment": "Ta-ta",
+      "gives": "TT",
+      "select": "alternate",
+      "note": "the first and third letters, continuing the odd count"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOYCO",
+      "TT"
+     ]
+    },
+    "explanation": {
+     "surface": "A drunken actor waves goodbye and someone declines to back him.",
+     "walkthrough": "The odd letters run on across all three words, ignoring spaces and the hyphen.",
+     "definitionFit": "A boycott is an organized refusal to buy from or deal with someone, withdrawing support as protest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boozy"
+    }
    }
   },
   {
@@ -237,6 +1019,63 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "TENNISBUM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TENNIS BUM",
+    "definitions": [
+     {
+      "text": "One who makes the court his home",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "something confused is muddled, so its letters come out mixed"
+     },
+     {
+      "text": "circles around",
+      "for": "container",
+      "note": "circling around a thing surrounds it, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "must be in",
+      "gives": "MUSTBEIN",
+      "note": "taken as written, eight letters"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "N",
+      "note": "N is the chess notation for a knight"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MUSTBEINN",
+       "gives": "TENNISBUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at royal court is told to stay amid muddled circles of nobility around a knight.",
+     "walkthrough": "'Court' suggests royalty, and the knight fits that picture, but it is a tennis court. The N goes into the mixed letters.",
+     "definitionFit": "A tennis bum is an idler who spends all his time playing tennis, practically living on the courts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "court"
+    }
    }
   },
   {
@@ -250,6 +1089,55 @@
    "clue": {
     "text": "Coastal inhabitant tosses seabird with no tail",
     "enumeration": "7"
+   },
+   "solution": "LOBSTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "LOBSTER",
+    "definitions": [
+     {
+      "text": "Coastal inhabitant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no tail",
+      "for": "deletion",
+      "note": "a word without its tail has lost its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tosses",
+      "gives": "LOBS",
+      "note": "to lob is to toss something in a high arc"
+     },
+     {
+      "clueFragment": "seabird",
+      "gives": "TERN",
+      "note": "the tern is a slender gull-like bird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOBS",
+      "TER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone living by the sea throws a docked gull into the air.",
+     "walkthrough": "'Coastal inhabitant' suggests a person, but the definition is a sea creature.",
+     "definitionFit": "Lobsters live on rocky sea floors close to shore, so the crustacean is a coastal dweller."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "inhabitant"
+    }
    }
   },
   {
@@ -263,6 +1151,43 @@
    "clue": {
     "text": "Feature of the Great Depression: \"Can you spare a dime,\" say?",
     "enumeration": "9"
+   },
+   "solution": "BREADLINE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BREADLINE",
+    "definitions": [
+     {
+      "text": "Feature of the Great Depression",
+      "at": 0
+     },
+     {
+      "text": "\"Can you spare a dime,\" say",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Feature of the Great Depression",
+      "note": "first meaning: a queue of hungry people waiting for free food"
+     },
+     {
+      "clueFragment": "\"Can you spare a dime,\" say",
+      "note": "second meaning: a line, a spoken remark, asking for bread, slang for money"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Brother, Can You Spare a Dime?' was the Depression's anthem; read cryptically, a beggar's plea is a line about bread, which is US slang for cash.",
+     "definitionFit": "Food queues formed across 1930s America, and the beggar's request is literally a line of speech about money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "say"
+    }
    }
   },
   {
@@ -276,6 +1201,70 @@
    "clue": {
     "text": "Poem from rising opera singer about semiconductor",
     "enumeration": "8"
+   },
+   "solution": "RONDELET",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "RONDELET",
+    "definitions": [
+     {
+      "text": "Poem",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down entry, rising goes upward, so the letters read from bottom to top"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about here means surrounding, with one piece around the other"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "opera singer",
+      "gives": "TENOR",
+      "note": "a tenor is a high male voice"
+     },
+     {
+      "clueFragment": "semiconductor",
+      "gives": "LED",
+      "note": "a light-emitting diode is a semiconductor device"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RON",
+      "DEL",
+      "ET"
+     ],
+     "reversals": [
+      {
+       "from": "TELEDNOR",
+       "to": "RONDELET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Verse composed by an up-and-coming opera star about electronics.",
+     "walkthrough": "'Rising' looks like up-and-coming, but it turns the whole assembly upside down, after the singer has been wrapped around the device.",
+     "definitionFit": "A rondelet is a short French verse form of seven lines with a repeated refrain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rising"
+    }
    }
   },
   {
@@ -289,6 +1278,46 @@
    "clue": {
     "text": "Lady of the night, before",
     "enumeration": "3"
+   },
+   "solution": "EVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EVE",
+    "definitions": [
+     {
+      "text": "Lady",
+      "at": 0
+     },
+     {
+      "text": "the night, before",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lady",
+      "note": "first meaning: the first woman in Genesis, a lady's name"
+     },
+     {
+      "clueFragment": "the night, before",
+      "note": "second meaning: the evening or day preceding an event, as on Christmas"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Lady of the night' looks like a euphemism for a prostitute; split it, and the words become two separate meanings.",
+     "definitionFit": "Eve is the biblical first woman, and eve also names the evening preceding a holiday or event."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "night"
+    }
    }
   },
   {
@@ -302,6 +1331,51 @@
    "clue": {
     "text": "Photography pioneer snarled, \"Namaste\"",
     "enumeration": "7"
+   },
+   "solution": "EASTMAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EASTMAN",
+    "definitions": [
+     {
+      "text": "Photography pioneer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "snarled",
+      "for": "anagram",
+      "note": "snarled means tangled, like a knotted line, so the greeting's letters are mixed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Namaste",
+      "gives": "NAMASTE",
+      "note": "the Hindi greeting, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NAMASTE",
+       "gives": "EASTMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grumpy early photographer growls a polite Indian greeting.",
+     "walkthrough": "'Snarled' reads as growled, but it is meant in the sense of tangled.",
+     "definitionFit": "George Eastman founded Kodak and made roll film and cheap cameras available to the public."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "snarled"
+    }
    }
   },
   {
@@ -315,6 +1389,42 @@
    "clue": {
     "text": "Where you might play in raffles and lotteries",
     "enumeration": "7"
+   },
+   "solution": "SANDLOT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SANDLOT",
+    "definitions": [
+     {
+      "text": "Where you might play",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the letters lie inside the words that follow, running across them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "raffles and lotteries",
+      "gives": "SANDLOT",
+      "note": "the run of letters across the end of the first word, the second word and the start of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "Asks where a gambler might try their luck among raffles and lotteries.",
+     "definitionFit": "A sandlot is a vacant lot where American kids play pickup baseball, an informal playing field."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "play"
+    }
    }
   },
   {
@@ -328,6 +1438,65 @@
    "clue": {
     "text": "Mafioso keeps drug runner in leather",
     "enumeration": "7"
+   },
+   "solution": "DOESKIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DOESKIN",
+    "definitions": [
+     {
+      "text": "leather",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeps",
+      "for": "container",
+      "note": "whoever keeps something holds it, so the following pieces sit inside"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mafioso",
+      "gives": "DON",
+      "note": "a don is the head of a Mafia family"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     },
+     {
+      "clueFragment": "runner",
+      "gives": "SKI",
+      "note": "a ski is the runner of a sled or snowmobile"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "E",
+      "SKI",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A mob boss hides a drug courier wearing leather.",
+     "walkthrough": "'Drug runner' reads as a smuggler, but drug and runner are two separate pieces.",
+     "definitionFit": "Doeskin is soft leather made from the hide of a female deer, or a lambskin imitation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "runner"
+    }
    }
   },
   {
@@ -341,6 +1510,54 @@
    "clue": {
     "text": "Peninsula dwellers with snake or bats",
     "enumeration": "7"
+   },
+   "solution": "KOREANS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "KOREANS",
+    "definitions": [
+     {
+      "text": "Peninsula dwellers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bats",
+      "for": "anagram",
+      "note": "bats as an adjective means crazy, so the letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snake or",
+      "gives": "SNAKEOR",
+      "note": "taken as written, seven letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SNAKEOR",
+       "gives": "KOREANS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "People living on a headland share it with snakes or bats.",
+     "walkthrough": "'Bats' wants to be the flying animal beside the snake; here it means crazy.",
+     "definitionFit": "Korea occupies a peninsula in East Asia, so its people are peninsula dwellers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bats"
+    }
    }
   },
   {
@@ -360,6 +1577,64 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "FINEPRINT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "FINE PRINT",
+    "definitions": [
+     {
+      "text": "something nobody ever reads",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revised",
+      "for": "anagram",
+      "note": "a revised text has been altered, so the playwright's letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Five dollars",
+      "gives": "FIN",
+      "note": "fin is old US slang for a five-dollar bill"
+     },
+     {
+      "clueFragment": "Pinter",
+      "gives": "PINTER",
+      "note": "the playwright's surname, taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIN",
+      "EPRINT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PINTER",
+       "gives": "EPRINT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Harold Pinter rewrites a play for five dollars, and nobody reads the result.",
+     "definitionFit": "Fine print is the small-type terms and conditions in a contract, notoriously skipped by everyone who signs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Pinter"
+    }
    }
   },
   {
@@ -373,6 +1648,58 @@
    "clue": {
     "text": "After initial sign of fever, be sick and break down",
     "enumeration": "4"
+   },
+   "solution": "FAIL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FAIL",
+    "definitions": [
+     {
+      "text": "break down",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initial sign of",
+      "for": "letter_selection",
+      "note": "the initial sign of a word is its opening letter"
+     }
+    ],
+    "linkWords": [
+     "After",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fever",
+      "gives": "F",
+      "select": "first",
+      "note": "the first letter of fever"
+     },
+     {
+      "clueFragment": "be sick",
+      "gives": "AIL",
+      "note": "to ail is to be unwell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "AIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Once a fever shows, a patient falls ill and collapses.",
+     "definitionFit": "A machine or a body that breaks down stops working, which is to fail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
    }
   },
   {
@@ -386,6 +1713,47 @@
    "clue": {
     "text": "In favor of a logical argument",
     "enumeration": "5"
+   },
+   "solution": "PROOF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROOF",
+    "definitions": [
+     {
+      "text": "a logical argument",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In favor",
+      "gives": "PRO",
+      "note": "pro means for, in favor"
+     },
+     {
+      "clueFragment": "of",
+      "gives": "OF",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "OF"
+     ]
+    },
+    "explanation": {
+     "surface": "Supporting a well-reasoned case.",
+     "walkthrough": "'In favor of' reads as one phrase, but it splits into two pieces.",
+     "definitionFit": "A proof is a chain of reasoning that establishes a statement, as in mathematics."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "of"
+    }
    }
   },
   {
@@ -399,6 +1767,41 @@
    "clue": {
     "text": "Excerpt from smooth, rumbling drone",
     "enumeration": "5"
+   },
+   "solution": "THRUM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "THRUM",
+    "definitions": [
+     {
+      "text": "drone",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Excerpt from",
+      "for": "hidden_word",
+      "note": "an excerpt is a passage lifted from a longer text, here from inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smooth, rumbling",
+      "gives": "THRUM",
+      "note": "the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Describes a passage of an engine's steady, low hum.",
+     "definitionFit": "A thrum is a continuous low humming sound, like a drone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
    }
   },
   {
@@ -412,6 +1815,56 @@
    "clue": {
     "text": "On the return, beg riders to deliver sorrowful song",
     "enumeration": "5"
+   },
+   "solution": "DIRGE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "DIRGE",
+    "definitions": [
+     {
+      "text": "sorrowful song",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "On the return",
+      "for": "reversal",
+      "note": "on the way back, so the letters are taken from right to left"
+     },
+     {
+      "text": "to deliver",
+      "for": "hidden_word",
+      "note": "the words hand over a run of letters lying across them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beg riders",
+      "gives": "EGRID",
+      "note": "the letters spanning the two words, read in printed order"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "EGRID",
+       "to": "DIRGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "On the ride home, a busker pleads with passengers to perform a sad song.",
+     "definitionFit": "A dirge is a lament for the dead, a slow mournful piece of music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "riders"
+    }
    }
   },
   {
@@ -425,6 +1878,58 @@
    "clue": {
     "text": "Incomplete, unending melancholy in a cold house",
     "enumeration": "5"
+   },
+   "solution": "IGLOO",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "IGLOO",
+    "definitions": [
+     {
+      "text": "a cold house",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unending",
+      "for": "deletion",
+      "note": "with no end means the final letter is cut off"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Incomplete",
+      "gives": "I",
+      "note": "I is the grade an American school gives for unfinished coursework"
+     },
+     {
+      "clueFragment": "melancholy",
+      "gives": "GLOOM",
+      "note": "gloom is a mood of sadness"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "GLOO"
+     ]
+    },
+    "explanation": {
+     "surface": "Unfinished, never-ending sadness felt inside a chilly home.",
+     "walkthrough": "'Incomplete' looks like a second deletion signal, but it is a US school grade, abbreviated I.",
+     "definitionFit": "An igloo is an Inuit dome built from blocks of snow, a home that is cold by its very material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Incomplete"
+    }
    }
   },
   {
@@ -438,6 +1943,53 @@
    "clue": {
     "text": "Playwright J.M. going around scoundrel's roadblock",
     "enumeration": "9"
+   },
+   "solution": "BARRICADE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BARRICADE",
+    "definitions": [
+     {
+      "text": "roadblock",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going around",
+      "for": "container",
+      "note": "going around something encircles it, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Playwright J.M.",
+      "gives": "BARRIE",
+      "note": "J. M. Barrie wrote Peter Pan"
+     },
+     {
+      "clueFragment": "scoundrel's",
+      "gives": "CAD",
+      "note": "a cad is a dishonourable man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BARRI",
+      "CAD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A playwright makes a detour around a villain's roadblock.",
+     "definitionFit": "A barricade is a barrier thrown across a street to stop traffic or attackers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
    }
   },
   {
@@ -457,6 +2009,72 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "STAFFMEMBERS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "STAFF MEMBERS",
+    "definitions": [
+     {
+      "text": "company workers — or mnemonic seen at the starts of five Across entries",
+      "at": 74
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought back",
+      "for": "reversal",
+      "note": "something brought back returns the way it came, so its letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Minnesota",
+      "gives": "FATS",
+      "note": "Minnesota Fats was the pool hustler played by Jackie Gleason in The Hustler"
+     },
+     {
+      "clueFragment": "a band on the radio",
+      "gives": "FM",
+      "note": "FM is one of the two broadcast radio bands"
+     },
+     {
+      "clueFragment": "traces of old emotion",
+      "gives": "EMBERS",
+      "note": "embers are the glowing remains of a fire, like a dying passion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAF",
+      "FM",
+      "EMBERS"
+     ],
+     "reversals": [
+      {
+       "from": "FATS",
+       "to": "STAF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Minnesota recalls a radio band, stirring old feelings in the employees.",
+     "walkthrough": "Minnesota stands for its famous Fats, not the state. The five Across entries begin EVERY, GOOD, BOY, DOES, FINE: the mnemonic for the treble staff lines E G B D F.",
+     "definitionFit": "Members of a staff are employees; and in music, the five lines of a staff are the members recalled by that mnemonic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Minnesota"
+    }
    }
   }
  ]
