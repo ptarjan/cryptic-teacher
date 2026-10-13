@@ -7646,8 +7646,18 @@ for (const got of JSON.parse(require("child_process").execFileSync("python3", ["
     const at = ((e.annotation || {}).indicators || []).map((i) => e.clue.text.indexOf(i.text));
     return at.every((x, k) => k === 0 || at[k - 1] <= x);
   };
+  // The ring deals the fodder's letters in the order the annotation lists
+  // them. view() lists them in clue order, so a legacy file that filed its
+  // blocks otherwise (metro-9887 16D "A BET ST" for "Good person placing a
+  // bet", indysunday-1379 5D AND before GIN) or whose fodder is the clue's
+  // letters where its block gives a scramble of them (independent-11823 3D,
+  // ICOACHGIRL vs the block's IGOACHCIRL) deals the same letters in another
+  // order: held to rendering only, like indicators out of clue order.
+  const fodder = (e) => JSON.stringify((((e.annotation || {}).assembly || {}).anagrams || [])
+    .map((a) => (a.fodder || "").toUpperCase().replace(/[^A-Z]/g, "")));
+  const sameFodder = (k) => fodder(got.old.entries[k]) === fodder(got.new.entries[k] || {});
   const exact = got.exact.map((w) => /^\$\.entries\[(\d+)\]\.annotation$/.exec(w))
-    .filter(Boolean).map((m) => got.old.entries[+m[1]]).filter(inClueOrder)
+    .filter(Boolean).filter((m) => sameFodder(+m[1])).map((m) => got.old.entries[+m[1]]).filter(inClueOrder)
     // A clue run on by an ellipsis is shown with its neighbour, whose own
     // annotation may be a normalised one.
     .filter((e) => !/^\s*(…|\.\.\.)|(…|\.\.\.)\s*$/.test(clueText(e))).map(entryId);
