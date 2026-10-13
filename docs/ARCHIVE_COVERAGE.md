@@ -51,7 +51,7 @@ the next step):
 
 Blank clues are mostly the VLM being down, not faint print. On 2026-10-06,
 4,283 of the 4,425 Times editions had been read while llama-swap on the
-desktop was dead, and 88% of those verdicts held a blank clue, against 8% of
+GPU host was dead, and 88% of those verdicts held a blank clue, against 8% of
 the editions read with the VLM. Re-reading a 20-edition sample with the VLM
 cut 82 blanks to 18, and 14 of the 20 came out complete. The print was
 legible in every case checked. So an edition read without the VLM is due
@@ -80,12 +80,12 @@ own process with its own time limit, lock and appended ledger row: an
 edition's scan, an edition's, Trove article's or saved Listener page's
 read, and an archive.org edition's or Trove article's (or its clue zones')
 fetch. Each kind runs in a pool of its own, so fetches (network and the
-desktop's CPU) never wait on reads (the desktop VLM) nor reads on them;
+OCR host's CPU) never wait on reads (the GPU host's VLM) nor reads on them;
 within a pool the most urgent go first (pages Paul saved by hand, then
 never read and the sources annotation asked to have read again, then
 inputs moved, then `REREAD_BEFORE`), and the queue is planned again every
 minute, so what a fetch lands is read minutes later. A read waits only on
-the scans its solution needs, and scans run above reads on the desktop.
+the scans its solution needs, and scans run above reads on the OCR host.
 The pass runs in hour slices; a slice hands its running units to the next
 rather than waiting for them. Running it again is always safe: a pass with
 nothing due ends in minutes.

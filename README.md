@@ -632,8 +632,8 @@ as the generated regions of this file.
 
 ### Downloaded source material
 
-Everything a fetcher downloads lives outside the repo under one root,
-`/Volumes/Media/cryptic-setter-data` on the Mac's media disk (`python3
+Everything a fetcher downloads lives outside the repo under one root on a
+data disk (set in `tools/downloads.py` or by `CT_DOWNLOADS`; `python3
 tools/downloads.py` prints it), one folder per source. `tools/downloads.py` is
 the only place a folder is named, and `tools/test_downloads.sh` fails on a
 download path spelled anywhere else.
@@ -653,8 +653,8 @@ download path spelled anywhere else.
 | cross-validate/ | per-source cross-validation reports | `tools/cross_validate.py` |
 | probes/ | pages saved by hand while probing a new source; nothing reads them | by hand |
 
-Two things stay elsewhere: Gale's pages on the Mac's media disk
-(`/Volumes/Media/Gale crosswords`, `tools/gale_inbox.py`), and caches a tool
+Two things stay elsewhere: Gale's pages, in their own folder on the same
+data disk (`tools/gale_inbox.py`), and caches a tool
 rebuilds from these (crops, OCR and VLM readings, ledgers of job state) in
 `~/.cache`.
 
