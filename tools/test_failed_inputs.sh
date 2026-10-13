@@ -167,6 +167,52 @@ git -C "$sand" checkout -q -- puzzles/hd/undated/hd-1.json   # the run's edits d
 check "hd-1 is skipped once its edits are gone" "$(ledger skipped annotate | grep -c '^hd-1$')" "1"
 rm -rf "$sand/.git"
 
+echo "a change to the code or data that refused a row makes it due by itself"
+out=$(cd "$sand" && PYTHONPATH="$REPO/tools" python3 - "$sand" <<'EOF'
+import json, os, sys
+from pathlib import Path
+import failed_inputs as fi
+sand = Path(sys.argv[1])
+tools = sand / "fake_tools"; tools.mkdir()
+fi.TOOLS = tools
+(tools / "puzzle_integrity.py").write_text("import helper\n")
+(tools / "helper.py").write_text("X = 1\n")
+for kind_mods in fi.CHECKERS.values():
+    for m in kind_mods:
+        if not (tools / f"{m}.py").exists():
+            (tools / f"{m}.py").write_text("")
+def write(pid, date):
+    p = sand / "puzzles" / "nn" / "undated" / f"{pid}.json"
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps({"id": pid, "date": date, "dimensions": {"rows": 1, "cols": 1}, "entries": []}))
+write("nn-5", "2012-12-10"); write("nn-6", "2012-12-04")
+reason = "puzzle_integrity.RefusedWrite: refusing to write nn-5: DATE dated 2012-12-10, not before nn-6's 2012-12-04"
+rec = {"puzzle": fi.input_hash("nn-5"), "code": fi.code_version("solve", "nn-5", reason), "reason": reason}
+def state(label):
+    fi._module_version.cache_clear()
+    print(label, "due" if fi.due("solve", "nn-5", rec) else "held")
+state("unchanged:")
+(tools / "apply_solution.py").write_text("# unrelated to this refusal\n")
+state("an unnamed checker changed:")
+(tools / "helper.py").write_text("X = 2\n")
+state("an import of the named check changed:")
+rec["code"] = fi.code_version("solve", "nn-5", reason)
+write("nn-6", "2012-12-11")
+state("the neighbour it named was re-dated:")
+rec["code"] = fi.code_version("solve", "nn-5", reason)
+(tools / "puzzle_integrity.py").write_text("import helper  # fixed\n")
+state("the named check changed:")
+legacy = {"puzzle": rec["puzzle"], "reason": reason}
+print("a record with no code version:", "due" if fi.due("solve", "nn-5", legacy) else "held")
+EOF
+)
+check "an unrefused row is held" "$(grep -c '^unchanged: held' <<<"$out")" "1"
+check "an unnamed checker leaves it held" "$(grep -c '^an unnamed checker changed: held' <<<"$out")" "1"
+check "an import of the named check makes it due" "$(grep -c 'an import of the named check changed: due' <<<"$out")" "1"
+check "re-dating the named neighbour makes it due" "$(grep -c 'neighbour it named was re-dated: due' <<<"$out")" "1"
+check "the named check changing makes it due" "$(grep -c '^the named check changed: due' <<<"$out")" "1"
+check "a legacy record holds on its puzzle alone" "$(grep -c 'no code version: held' <<<"$out")" "1"
+
 echo "the working tree is untouched"
 check "git status unchanged" "$(git status --porcelain)" "$tree_before"
 

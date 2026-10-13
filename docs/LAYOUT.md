@@ -2521,5 +2521,8 @@ tools/test_discard_verdict.sh                 does a discarded annotation run wa
                                               when they can act on it? (tools/discard_alert.py;
                                               wired into _worker_finish in
                                               tools/puzzle_worker.sh.)
+tools/reapply_annotation.py                   re-apply a commit's annotation onto origin's copy
+                                              of its puzzle when push_puzzle_commit.sh's replay
+                                              conflicts
 ```
 <!-- LAYOUT-END -->

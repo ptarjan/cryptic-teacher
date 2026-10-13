@@ -210,5 +210,48 @@ git cat-file -e origin/master:clues_only/bk/bk-1.json 2>/dev/null &&
 [ "$(clue_of origin/master 1a)" = "Fish's tale" ] || { echo "FAIL: reverse: 1a did not take the re-read"; rc=1; }
 [ "$(clue_of origin/master 4a)" = "Odd shrub" ] || { echo "FAIL: reverse: 4a lost the annotator's fix"; rc=1; }
 
+# An annotation whose puzzle origin changed in a field the commit also touched
+# (10-13: genius files re-dated / given setters on master while the burn
+# annotated them) is re-applied onto origin's file, not refused: origin's
+# fields stand, the commit's annotation lands.
+ann_puzzle() {  # $1 file, $2 date, $3 setter or "", $4 annotation of 1a or ""
+  python3 - "$@" <<'EOF'
+import json, sys
+f, date, setter, ann = sys.argv[1:5]
+e1 = {"number": 1, "direction": "across", "clue": {"text": "Fish tale"}, "solution": "COD"}
+if ann:
+    e1["annotation"] = {"definition": ann}
+p = {"id": "nn-1", "date": date, "entries": [e1, {"number": 2, "direction": "down",
+     "clue": {"text": "Odd shrub"}, "solution": "BUSH"}]}
+if setter:
+    p["setter"] = setter
+if ann:
+    p["annotatedBy"] = ["model"]
+open(f, "w").write(json.dumps(p, indent=1) + "\n")
+EOF
+}
+mkdir -p puzzles/nn
+ann_puzzle puzzles/nn/nn-1.json 2011-07-01 "" ""
+g add puzzles/nn && g commit -qm "File nn-1" -- puzzles/nn && "$push" 2>/dev/null
+g -C "$tmp/other" pull -q --rebase origin master 2>/dev/null
+ann_puzzle "$tmp/other/puzzles/nn/nn-1.json" 2011-07-18 Setter ""
+g -C "$tmp/other" commit -qam "Re-date nn-1" && g -C "$tmp/other" push -q origin HEAD:master
+ann_puzzle puzzles/nn/nn-1.json 2011-07-02 "" "Fish"
+g commit -qm "Annotate nn-1" -- puzzles/nn/nn-1.json
+"$push" 2>"$tmp/reapply.err" || { echo "FAIL: an annotation was refused over origin's re-date:"; cat "$tmp/reapply.err"; rc=1; }
+git fetch -q origin master
+python3 - <<EOF || rc=1
+import json, subprocess
+p = json.loads(subprocess.check_output(["git", "show", "origin/master:puzzles/nn/nn-1.json"]))
+bad = []
+if p.get("date") != "2011-07-18": bad.append(f"origin's date lost: {p.get('date')}")
+if p.get("setter") != "Setter": bad.append("origin's setter lost")
+if (p["entries"][0].get("annotation") or {}).get("definition") != "Fish": bad.append("annotation not re-applied")
+if p.get("annotatedBy") != ["model"]: bad.append("annotatedBy not carried")
+for b in bad: print("FAIL: reapply:", b)
+raise SystemExit(1 if bad else 0)
+EOF
+grep -q "kept origin's value" "$tmp/reapply.err" || { echo "FAIL: reapply did not report the field origin kept"; rc=1; }
+
 [ "$rc" = 0 ] && echo "PASS"
 exit "$rc"

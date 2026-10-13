@@ -686,6 +686,7 @@ LAYOUT = [
     ("fetching", "tools/test_genius_instructions.sh", "is a puzzle whose clues point at instructions we do not hold kept from the annotators, and does filing a preamble later let a parked failure retry?"),
     ("fetching", "tools/discard_alert.py", "decide whether a discarded annotation run is worth waking anyone for"),
     ("fetching", "tools/test_discard_verdict.sh", "does a discarded annotation run wake someone only when they can act on it? (tools/discard_alert.py; wired into _worker_finish in tools/puzzle_worker.sh.)"),
+    ("fetching", "tools/reapply_annotation.py", "re-apply a commit's annotation onto origin's copy of its puzzle when push_puzzle_commit.sh's replay conflicts"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

@@ -139,6 +139,75 @@ def merge_puzzle(o, a, b, path=""):
     raise Conflict(path or "/")
 
 
+def reapply_puzzle(o, a, b, notes, path=""):
+    """`b`'s change (from `o`) re-applied onto `a`, for a replay merge_puzzle
+    refused: `a` (origin) wins every field both sides changed differently, so
+    nothing origin holds is reverted; `b`'s annotations, `annotatedBy` and
+    every field only `b` changed are carried over. Entries pair by light
+    (number, direction), not by position, so origin adding or reordering
+    lights does not stop it. Each field origin kept is noted in `notes`."""
+    if a == b or b == o:
+        return a
+    if a == o:
+        return b
+    key = path.rsplit("/", 1)[-1]
+    if key == "annotation":
+        return b if b is not MISSING else a
+    if isinstance(a, dict) and isinstance(b, dict):
+        base = o if isinstance(o, dict) else {}
+        out = {}
+        for k in list(a) + [k for k in b if k not in a]:
+            v = reapply_puzzle(base.get(k, MISSING), a.get(k, MISSING),
+                               b.get(k, MISSING), notes, f"{path}/{k}")
+            if v is not MISSING:
+                out[k] = v
+        return out
+    if isinstance(a, list) and isinstance(b, list):
+        if key == "annotatedBy":
+            return merge_lists(o, a, b)
+        if key == "entries":
+            olds = {entry_key(e): e for e in (o if isinstance(o, list) else [])}
+            news = {entry_key(e): e for e in b}
+            return [annotated_for_clue(
+                        reapply_puzzle(olds.get(entry_key(e), MISSING), e,
+                                       news.get(entry_key(e), MISSING), notes,
+                                       f"{path}/{entry_key(e)}"), e,
+                        news.get(entry_key(e), MISSING))
+                    for e in a]
+    if a is not MISSING:
+        notes.append(f"{path or '/'}: kept origin's value")
+        return a
+    return b
+
+
+def new_annotations(o, b):
+    """The lights whose annotation `b` wrote or changed from `o`."""
+    olds = {entry_key(e): (e or {}).get("annotation") for e in (o or {}).get("entries") or []}
+    return {entry_key(e): e["annotation"] for e in (b or {}).get("entries") or []
+            if isinstance(e, dict) and e.get("annotation")
+            and e["annotation"] != olds.get(entry_key(e))}
+
+
+def reapply(o, a, b):
+    """(merged puzzle, notes) with `b`'s annotation re-applied onto `a`; raises
+    Conflict when `b` annotated no light (not an annotation, so not ours to
+    settle) or not one it annotated survives (origin re-read every clue it
+    annotated, or dropped the lights)."""
+    import puzzle_schema
+    notes = []
+    merged = puzzle_schema.order(reapply_puzzle(o, a, b, notes))
+    wanted = new_annotations(o, b)
+    got = {entry_key(e): e.get("annotation") for e in merged.get("entries") or []
+           if isinstance(e, dict)}
+    lost = [k for k in wanted if got.get(k) != wanted[k]]
+    if not wanted:
+        raise Conflict("the replayed side wrote no annotation")
+    if len(lost) == len(wanted):
+        raise Conflict("every annotation the replayed side wrote")
+    notes += [f"{k}: annotation dropped, origin's clue words differ" for k in lost]
+    return merged, notes
+
+
 def clue_text(e):
     return ((e.get("clue") if isinstance(e, dict) else None) or {}).get("text") or ""
 
