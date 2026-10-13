@@ -200,6 +200,25 @@ worker_annotate() {   # id log sidfile task [note] [fill]
     --max-turns "$([ "$kind" = solve ] && echo 200 || echo 80)" >"$log" 2>&1
 }
 
+# The one line that says why output $1 failed, for logs and the solve ledger.
+# An applier verdict (tools/apply_solution.py: "REJECTED — N problem(s)" over
+# an indented list) gives its FIRST problem and how many more: the list puts
+# answers before definitions, so its last line read "no definition given" for
+# a solve that had left a third of the grid unanswered (genius-41: 16 of 28,
+# 10-13), and the burn's log blamed the definitions. Anything else gives its
+# last non-blank line, as before.
+worker_verdict_line() {   # file
+  awk '
+    /^REJECTED — [0-9]+ problem|^[^ ]+: REJECTED, held clues-only/ && !hdr { hdr = 1; if (match($0, /[0-9]+ problem/)) n = substr($0, RSTART, RLENGTH) + 0; next }
+    hdr && /^  [^ ]/ { c++; if (first == "") { first = $0; sub(/^ +/, "", first) } }
+    NF { last = $0 }
+    END {
+      if (first == "") { print last; exit }
+      if (!n) n = c
+      print first (n > 1 ? " (and " n - 1 " more)" : "")
+    }' "$1"
+}
+
 # Check the cold solve a finished run (transcript $3) wrote to $2, from the
 # puzzle as committed: its file, and a clues-only file the run's own apply
 # promoted, go back to HEAD; tools/apply_solution.py writes the fill in only if
@@ -265,7 +284,7 @@ worker_apply() {   # id fill log verdict sidfile [notefile]
   # means the CLI stopped, and its last line says whether that was transient.
   # shellcheck disable=SC2086 # $judged is one flag or nothing
   python3 tools/failed_inputs.py record solve "$id" $judged \
-    --reason "$(grep -v '^[[:space:]]*$' "$said" | tail -1 | cut -c1-200)" || return 2
+    --reason "$(worker_verdict_line "$said" | cut -c1-200)" || return 2
   return 1
 }
 
@@ -293,7 +312,7 @@ worker_mendable() {   # id fill verdict sidfile notefile
   fi
   touch "$mark"
   printf '%s\n' "$note" >"$notefile"
-  echo "  [$id] $(grep -v '^[[:space:]]*$' "$verdict" | tail -1 | cut -c1-120) — resuming its conversation once to mend it"
+  echo "  [$id] $(worker_verdict_line "$verdict" | cut -c1-120) — resuming its conversation once to mend it"
   return 0
 }
 

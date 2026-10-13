@@ -163,7 +163,7 @@ out=$(flow refused)
 events=$(cat "$stub/events")
 check "a refused fill is rejected" "$(got applied)" "1"
 check "and recorded in the solve ledger as judged, with the applier's reason" \
-  "$(grep -c 'failed_inputs.py record solve pw-test-[0-9]* --judged --reason   1-across: crossing disagrees' <<<"$events")" "1"
+  "$(grep -c 'failed_inputs.py record solve pw-test-[0-9]* --judged --reason 1-across: crossing disagrees' <<<"$events")" "1"
 check "its puzzle and rows discarded" "$(grep -c '^discard pw-test' <<<"$events")" "1"
 check "its hints never applied" "$(grep -c 'tools/annotate_check.py' <<<"$events")" "0"
 check "and its annotation file gone, so no later run builds on it" "$(got ann)" "gone"
@@ -203,7 +203,7 @@ check "nothing recorded against it" "$(grep -c 'failed_inputs' <<<"$events")" "0
 out=$(flow mend-twice)
 events=$(cat "$stub/events")
 check "a second refusal of the same conversation is recorded as before" "$(got applied)" "1"
-check "in the solve ledger, judged" "$(grep -c 'failed_inputs.py record solve pw-test-[0-9]* --judged --reason   1-across: no definition given' <<<"$events")" "1"
+check "in the solve ledger, judged" "$(grep -c 'failed_inputs.py record solve pw-test-[0-9]* --judged --reason 1-across: no definition given' <<<"$events")" "1"
 check "with no new note" "$(got note)" ""
 out=$(flow mend-hints)
 events=$(cat "$stub/events")
@@ -361,6 +361,23 @@ out=$(blanks $'x: 28/30 annotated — FAIL\n  ERROR: 22D: no annotation. Every c
 check "the deploy's rules refuse it: parked" "$(got rc)" "1"
 check "worker_finish ships it, and records it so the hole is not bought again" \
   "$(grep -c 'worker_only_blanks "\$id" "\$vlog"' tools/puzzle_worker.sh) $(grep -c 'record annotate "\$id" --judged --reason "\$pending"' tools/puzzle_worker.sh)" "1 1"
+
+echo "a refused fill is reported by its first problem, not its last (genius-41, 10-13)"
+verdict_line() ( . tools/puzzle_worker.sh; printf '%s\n' "$1" >"$stub/verdict"; worker_verdict_line "$stub/verdict"; )
+check "answers missing: the line says so, not 'no definition given'" \
+  "$(verdict_line $'genius-41: 28 entries, 12 answers given, 20 crossing cells\nREJECTED — 4 problem(s), nothing written:\n  1-down: no answer given\n  5-across: no answer given\n  1-down: no definition given\n  5-across: no definition given\n')" \
+  "1-down: no answer given (and 3 more)"
+check "one problem: no count" \
+  "$(verdict_line $'x: 28 entries\nREJECTED — 1 problem(s), nothing written:\n  2-down: no definition given')" \
+  "2-down: no definition given"
+check "a clues-only refusal, counted from its list" \
+  "$(verdict_line $'x: REJECTED, held clues-only, nothing written:\n  no single grid holds these answers\n  3-across: no answer given')" \
+  "no single grid holds these answers (and 1 more)"
+check "anything else (a RefusedWrite, a CLI log): its last line, as before" \
+  "$(verdict_line $'Traceback\nthe model said the check REJECTED it\n  quoted\npuzzle_integrity.RefusedWrite: refusing to write x: SETTER\n\n')" \
+  "puzzle_integrity.RefusedWrite: refusing to write x: SETTER"
+check "the burn's log, the ledger and the mend note all use it" \
+  "$(grep -c 'worker_verdict_line "\$verdict"' tools/prereset_backfill.sh) $(grep -c 'worker_verdict_line "\$said"\|worker_verdict_line "\$verdict"' tools/puzzle_worker.sh)" "1 2"
 
 [ "$fails" = 0 ] && echo "puzzle worker: all checks passed" || echo "puzzle worker: $fails FAILED"
 exit $((fails > 0))

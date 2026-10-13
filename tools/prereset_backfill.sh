@@ -395,7 +395,7 @@ solve_applied() {
          rm -f "$verdict"
          queue=("${queue[@]:0:$at}" "$id" "${queue[@]:$at}")
          return 1 ;;
-      *) echo "  [$id] solve rejected, nothing it wrote ships: $(grep -v '^[[:space:]]*$' "$verdict" | tail -1 | cut -c1-200)"
+      *) echo "  [$id] solve rejected, nothing it wrote ships: $(worker_verdict_line "$verdict" | cut -c1-200)"
          rm -f "$verdict"
          worker_forget "$RUNS/$id.sid"
          return 1 ;;
