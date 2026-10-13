@@ -168,15 +168,20 @@ def _unit(block, sel_inds, hidden, homophone=True, all_inds=()):
             if re.search(r"['’]s\b", words):
                 trims.append(L(re.sub(r"['’]s\b", "", words)))
                 trims += [L(re.sub(r"['’]s\b", "", words.replace(t, " ", 1))) for t in sel_inds if t in words]
-            for gv in trims:
-                node = {"op": op, "parts": [_leaf(block, gv, gv is not None)]}
-                if op == "nth":
-                    node["n"] = sel
-                try:
-                    if g in W.values(node):
+            # A reading that gives only g first: "Egyptian leader" with its
+            # selector inside reads E or EL, and view() would take EL, so the
+            # words less the indicator ("Egyptian": E) win (cyclops-438 9D).
+            for unique in (True, False):
+                for gv in trims:
+                    node = {"op": op, "parts": [_leaf(block, gv, gv is not None)]}
+                    if op == "nth":
+                        node["n"] = sel
+                    try:
+                        vals = W.values(node)
+                    except W.WordplayError:
+                        continue
+                    if (vals == {g}) if unique else (g in vals):
                         return node, g, {"letter_selection"}
-                except W.WordplayError:
-                    pass
     if sel is not None or snd is not None:
         leaf = {**_leaf(block, g, True), "unchecked": True}
         if sel is not None:
