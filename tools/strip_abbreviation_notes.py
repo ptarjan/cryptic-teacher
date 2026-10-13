@@ -24,9 +24,8 @@ import os
 import subprocess
 import sys
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import annotation  # noqa: E402
-import puzzle_schema  # noqa: E402
+import annotation
+import puzzle_schema
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
