@@ -16,13 +16,19 @@ def check(name, ok):
     print(("  ok: " if ok else "  FAIL: ") + name)
     fails += not ok
 
-# A sample of stored puzzles: the answer derived from solution + enumeration
-# is the one the annotators wrote, or differs only in where they left a break.
+import annotation, wordplay
+def leaves(node):
+    parts = wordplay.parts_of(node) if "op" in node else []
+    return [y for x in parts for y in leaves(x)] if "op" in node else [node]
+# A sample of stored puzzles: the answer a legacy write derives from solution
+# + enumeration is the one annotation.view() shows, or differs only in where
+# a break falls.
 same = total = 0
 bad = []
-pick = None
+pick = supplied = None
 for src in itertools.islice(F.puzzle_files(), 0, None, 400):
-    puzzle = F.read_puzzle_file(src)
+    raw = F.read_puzzle_file(src)
+    puzzle = annotation.view_puzzle(raw)
     for e in puzzle["entries"]:
         if e.get("annotation") and not e.get("group") and pick is None:
             pick = (puzzle, e)
@@ -37,7 +43,14 @@ for src in itertools.islice(F.puzzle_files(), 0, None, 400):
             same += 1
         else:
             bad.append((src.stem, e["number"], got, ann["answer"]))
-check(f"derived answer matches stored ({same}/{total})", same >= 0.95 * total)
+    if supplied is None:
+        for i, x in enumerate(raw["entries"]):
+            tree = (x.get("annotation") or {}).get("wordplay")
+            leaf = tree and next((n for n in leaves(tree) if n.get("words") and not n.get("unchecked")), None)
+            if leaf:
+                supplied = (src, i)
+                break
+check(f"derived answer matches the viewed one ({same}/{total})", same >= 0.95 * total)
 for b in bad[:5]:
     print("   ", b)
 puzzle, e = pick
@@ -60,16 +73,17 @@ check("a block's typed apostrophe is the clue's", got["blocks"][0]["clueFragment
 check("an indicator's case is the clue's", got["indicators"][0]["text"] == "covering")
 check("a link word's spacing is the clue's", got["linkWords"] == ["it with"])
 check("and the input is not mutated", typed["blocks"][0]["clueFragment"] == "Mammal's")
-# A block with no clueFragment is letters the preamble supplies.
+# A leaf with no words (a block with no clueFragment) is letters the preamble supplies.
 import contextlib, io
 import puzzle_schema, validate_annotations as V
-for src in F.puzzle_files():
-    pz = F.read_puzzle_file(src)
-    ent = next((x for x in pz["entries"] if (x.get("annotation") or {}).get("blocks")
-                and x["annotation"]["blocks"][0].get("gives")), None)
-    if pz.get("preamble") and ent:
-        break
-ent["annotation"]["blocks"][0]["clueFragment"] = ""
+src, i = supplied
+pz = {**F.read_puzzle_file(src), "preamble": "One letter in each answer is supplied."}
+tree = pz["entries"][i]["annotation"]["wordplay"]
+leaf = next(n for n in leaves(tree) if n.get("words") and not n.get("unchecked"))
+leaf["gives"] = wordplay.letters(leaf.pop("gives", None) or leaf["words"])
+del leaf["words"]
+leaf.pop("at", None)
+pz = puzzle_schema.order(pz)
 def findings(pz):
     pz = puzzle_schema.prune(copy.deepcopy(pz))
     with contextlib.redirect_stdout(io.StringIO()):

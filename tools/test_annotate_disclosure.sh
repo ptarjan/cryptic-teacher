@@ -192,7 +192,7 @@ def puzzle(series="cryptic", nulls=0, total=30, solutions=True):
     for i in range(total):
         e = entry(f"{i + 1}-across", sol="ABCD" if solutions else "")
         if i >= nulls:
-            e["annotation"] = {"type": ["charade"]}
+            e["annotation"] = {"type": ["charade"], "blocks": []}
         es.append(e)
     return {"id": f"{series}-99999", "series": series, "number": 99999,
             "entries": es}
@@ -214,7 +214,7 @@ say("times_names_its_own_blog", bool(times) and "timesforthetimes.co.uk" in time
 # A cryptic definition and a LIKELY letter get their advice; plain clues none.
 p = puzzle()
 say("plain_puzzle_no_notes", not AC.notes(p))
-p["entries"][0]["annotation"] = {"type": ["cryptic_definition"]}
+p["entries"][0]["annotation"] = {"type": ["cryptic_definition"], "blocks": []}
 p["entries"][1]["solutionConfidence"] = "LIKELY"
 ns = AC.notes(p)
 say("cd_note", any("1-across typed `cryptic definition`" in n for n in ns))
