@@ -87,7 +87,10 @@ def _order(value, schema):
 
 # ------------------------------------------------------------- the validator
 
-ANNOTATIONS = {"$schema", "$id", "$comment", "title", "description", "$defs"}
+# `refused` is this file's own: {key: why} beside additionalProperties: false,
+# so a key the schema leaves out on purpose (a derived field) says why it is
+# refused instead of only that it is unknown.
+ANNOTATIONS = {"$schema", "$id", "$comment", "title", "description", "$defs", "refused"}
 TYPES = {"object": dict, "array": list, "string": str, "boolean": bool,
          "null": type(None)}
 
@@ -157,7 +160,9 @@ def _additional(v, arg, s, at, out):
     for k in v:
         if k in known:
             continue
-        if arg is False:
+        if arg is False and k in s.get("refused", {}):
+            out.append(f"{at}: key {k!r} is refused: {s['refused'][k]}")
+        elif arg is False:
             out.append(f"{at}: key {k!r} is not in the schema")
         elif isinstance(arg, dict):
             _check(v[k], arg, f"{at}.{k}", out)
@@ -284,6 +289,77 @@ def validate(puzzle):
     """Every way `puzzle` departs from the schema, as 'path: problem' strings."""
     out = []
     _check(puzzle, SCHEMA, "$", out)
+    return out + format_problems(puzzle)
+
+
+# ------------------------------------------------------ format v2, one shape a file
+# Format v2 (docs/PUZZLE_FORMAT.md "Design principles") stores no field that can
+# be derived from others. Until the corpus is rewritten, files of both shapes
+# exist, so the shape is read off the file: an annotation with `blocks` is the
+# legacy shape, one without is v2 ($defs/annotation), and a puzzle is v2 when
+# any annotation is, or when it stores no `series`. A file is wholly one shape:
+# legacy files keep passing as they are, and a v2 file is held to v2's rules.
+
+V2_PUZZLE_DERIVED = {"name": "series.display_name() derives it from the id, `prize`, `title` and `label`",
+                     "series": "it is the id's prefix (series.parse_id)"}
+V2_ONLY_PUZZLE_KEYS = ("prize", "title", "label")
+
+
+def annotations(puzzle):
+    """(path, holder entry, annotation) for every annotation in the puzzle:
+    each entry's, each alsoLeads item's (seen as its light's own clue and
+    group, as groups.as_leader does) and each offGrid clue's."""
+    for i, e in enumerate(puzzle.get("entries") or []):
+        if not isinstance(e, dict):
+            continue
+        if isinstance(e.get("annotation"), dict):
+            yield f"$.entries[{i}].annotation", e, e["annotation"]
+        for k, item in enumerate(e.get("alsoLeads") or []):
+            if isinstance(item, dict) and isinstance(item.get("annotation"), dict):
+                held = {**{x: v for x, v in e.items() if x not in ("alsoLeads", "annotation")}, **item}
+                yield f"$.entries[{i}].alsoLeads[{k}].annotation", held, item["annotation"]
+    for k, item in enumerate(puzzle.get("offGrid") or []):
+        if isinstance(item, dict) and isinstance(item.get("annotation"), dict):
+            yield (f"$.offGrid[{k}].annotation", {"number": k + 1, "direction": "offgrid", **item},
+                   item["annotation"])
+
+
+def is_v2_annotation(ann):
+    return isinstance(ann, dict) and "blocks" not in ann
+
+
+def is_v2(puzzle):
+    """Whether the puzzle file is format v2 (see above)."""
+    return "series" not in puzzle or any(is_v2_annotation(a) for _, _, a in annotations(puzzle))
+
+
+def format_problems(puzzle):
+    """The one-shape rule, and the derived fields only Python can see: a v2
+    file's name or series, a legacy annotation in a v2 file, and a `spelling`
+    equal to the display answer the entry already gives."""
+    import annotation
+    out = []
+    if not isinstance(puzzle, dict):
+        return out
+    if not is_v2(puzzle):
+        out += [f"$: missing required key {k!r}" for k in ("name", "series") if k not in puzzle]
+        out += [f"$: key {k!r} is format v2's; a legacy file spells it in `name`"
+                for k in V2_ONLY_PUZZLE_KEYS if k in puzzle]
+        return out
+    out += [f"$: key {k!r} is refused in a format v2 file: {why}"
+            for k, why in V2_PUZZLE_DERIVED.items() if k in puzzle]
+    for at, held, ann in annotations(puzzle):
+        if not is_v2_annotation(ann):
+            out.append(f"{at}: a legacy annotation (it has `blocks`) in a format v2 file; a file is "
+                       f"wholly one shape, so convert it (tools/convert_v2.py)")
+        elif "spelling" in ann and held.get("solution"):
+            try:
+                derived = annotation.display_answer(held, puzzle)
+            except (KeyError, TypeError):
+                continue
+            if ann["spelling"] == derived:
+                out.append(f"{at}.spelling: {ann['spelling']!r} is the solution spaced by its "
+                           f"enumeration, which annotation.view() derives; leave `spelling` out")
     return out
 
 
@@ -298,6 +374,7 @@ def enum_sources():
     import puzzle_integrity
     import series
     import validate_annotations
+    import wordplay
     return {
         "series": list(series.SERIES),
         "direction": list(fetch_puzzle.DIRECTIONS),
@@ -312,6 +389,7 @@ def enum_sources():
         "alterationOp": list(puzzle_integrity.ALTERATION_OPS),
         "hiddenLetterKind": list(hidden_messages.KINDS),
         "blog": list(provenance.WRITEUP_KINDS),
+        "wordplayOp": sorted(set(wordplay.OPS.values()) | {"charade"}),
     }
 
 

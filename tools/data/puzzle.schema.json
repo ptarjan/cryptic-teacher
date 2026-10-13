@@ -7,8 +7,6 @@
  "required": [
   "id",
   "number",
-  "series",
-  "name",
   "dimensions",
   "source",
   "solutions",
@@ -39,12 +37,27 @@
    "minimum": 1
   },
   "series": {
+   "description": "Legacy files only: the series, which is the id's prefix (series.parse_id). A format v2 file stores no series (tools/puzzle_schema.py format_problems).",
    "$ref": "#/$defs/series"
   },
   "name": {
    "type": "string",
    "minLength": 1,
-   "description": "The title as the paper gives it."
+   "description": "Legacy files only: the title as the paper gives it. A format v2 file stores no name: series.display_name() derives it from the id plus `prize`, `title` and `label` (tools/puzzle_schema.py format_problems)."
+  },
+  "prize": {
+   "description": "Format v2: a Guardian prize puzzle, which display_name() names \"Prize crossword\".",
+   "const": true
+  },
+  "title": {
+   "description": "Format v2: the printed title display_name() puts after a colon (a Listener's \"Tobacco\").",
+   "type": "string",
+   "minLength": 1
+  },
+  "label": {
+   "description": "Format v2: the edition label display_name() puts in brackets after a date-keyed name.",
+   "type": "string",
+   "minLength": 1
   },
   "setter": {
    "type": "string",
@@ -696,13 +709,8 @@
    }
   },
   "annotation": {
-   "description": "Our teaching annotation of one clue, on the leader alone for a linked answer. `blocks` are the wordplay as the app shows it, `assembly` is the same answer restated for a machine to check, and `explanation` is the prose the last hint rung prints. Keys marked required-by-ratchet are carried by every annotation written since each was added; older ones are counted per puzzle in tools/annotation_backlog.json under the key's dotted path (explanation.surface, indicators.note) and drained by the nightly backfill (tools/validate_annotations.py, the ratchet).",
+   "description": "Our teaching annotation of one clue, on the leader alone for a linked answer, in one of two shapes told apart by `blocks`. LEGACY (has `blocks`): type, answer, indicators with `for`, linkWords, blocks and assembly stored, as every file was written before format v2. FORMAT V2 (no `blocks`): definitions, a checked `wordplay` tree, explanation, features, and `spelling`/`andLit`/`hiddenLetter` where needed; every field annotation.view() can derive is refused. A puzzle file is wholly one shape (tools/puzzle_schema.py format_problems). Keys marked required-by-ratchet are carried by every annotation written since each was added; older ones are counted per puzzle in tools/annotation_backlog.json under the key's dotted path (explanation.surface, indicators.note) and drained by the nightly backfill (tools/validate_annotations.py, the ratchet).",
    "type": "object",
-   "required": [
-    "type",
-    "answer",
-    "blocks"
-   ],
    "anyOf": [
     {
      "required": [
@@ -757,12 +765,37 @@
         "description": "Why the setter may define the answer this way, where the definition disagrees with the answer in number or part of speech.",
         "type": "string",
         "minLength": 1
+       },
+       "meaning": {
+        "description": "Format v2, double definitions: what this definition means, where that differs from `note` (the app shows it as the definition's block).",
+        "type": "string"
+       },
+       "indicators": {
+        "description": "Format v2: indicator words that steer how the definitions read rather than the letters (a second meaning, an &lit), so they hang on a definition, not a wordplay op.",
+        "type": "array",
+        "minItems": 1,
+        "items": {
+         "$ref": "#/$defs/wordplayIndicator"
+        }
        }
       }
      }
     },
     "definedByPreamble": {
      "description": "The preamble, not the clue, defines this answer; replaces definitions.",
+     "const": true
+    },
+    "wordplay": {
+     "description": "Format v2: the clue's wordplay as a checked tree (tools/wordplay.py parses the model's expression into it; annotation.view() derives type, answer, indicator `for`, linkWords, blocks and assembly from it). Absent for a double definition.",
+     "$ref": "#/$defs/wordplayNode"
+    },
+    "spelling": {
+     "description": "Format v2: the display answer where it is not the solution plus the enumeration's separators (CAT-O'-NINE-TAILS, an accent, a Listener's spacing). Refused when it equals the derived form.",
+     "type": "string",
+     "minLength": 1
+    },
+    "andLit": {
+     "description": "Format v2: the whole clue is also the definition.",
      "const": true
     },
     "indicators": {
@@ -922,7 +955,284 @@
       }
      }
     }
+   },
+   "if": {
+    "required": [
+     "blocks"
+    ]
+   },
+   "then": {
+    "$ref": "#/$defs/annotationLegacy"
+   },
+   "else": {
+    "$ref": "#/$defs/annotationV2"
    }
+  },
+  "annotationLegacy": {
+   "description": "The legacy annotation's keys (the shapes are in $defs/annotation's properties).",
+   "required": [
+    "type",
+    "answer",
+    "blocks"
+   ],
+   "properties": {
+    "type": {},
+    "answer": {},
+    "definitions": {},
+    "definedByPreamble": {},
+    "indicators": {},
+    "linkWords": {},
+    "blocks": {},
+    "assembly": {},
+    "explanation": {},
+    "features": {},
+    "hiddenLetter": {}
+   },
+   "additionalProperties": false,
+   "refused": {
+    "wordplay": "a format v2 key, but this annotation has `blocks`, so it is the legacy shape; a file is wholly one shape (tools/convert_v2.py converts)",
+    "spelling": "a format v2 key, but this annotation has `blocks`, so it is the legacy shape; a file is wholly one shape (tools/convert_v2.py converts)",
+    "andLit": "a format v2 key, but this annotation has `blocks`, so it is the legacy shape; a file is wholly one shape (tools/convert_v2.py converts)"
+   }
+  },
+  "annotationV2": {
+   "description": "The format v2 annotation's keys (the shapes are in $defs/annotation's properties).",
+   "properties": {
+    "definitions": {},
+    "definedByPreamble": {},
+    "wordplay": {},
+    "spelling": {},
+    "andLit": {},
+    "explanation": {},
+    "features": {},
+    "hiddenLetter": {}
+   },
+   "additionalProperties": false,
+   "refused": {
+    "type": "derived, so a format v2 annotation never stores it: annotation.view() computes it from the wordplay tree and the entry",
+    "answer": "derived, so a format v2 annotation never stores it: annotation.view() computes it from the wordplay tree and the entry",
+    "indicators": "derived, so a format v2 annotation never stores it: annotation.view() computes it from the wordplay tree and the entry",
+    "linkWords": "derived, so a format v2 annotation never stores it: annotation.view() computes it from the wordplay tree and the entry",
+    "assembly": "derived, so a format v2 annotation never stores it: annotation.view() computes it from the wordplay tree and the entry"
+   }
+  },
+  "wordplayNode": {
+   "description": "A node of a format v2 wordplay tree (tools/wordplay.py): an op {op, indicators?, parts, spelt?, n?} or a leaf {words, at?, gives?, note?}, either one `unchecked` where a legacy step could not be rebuilt.",
+   "type": "object",
+   "minProperties": 1,
+   "additionalProperties": false,
+   "properties": {
+    "op": {
+     "$ref": "#/$defs/wordplayOp"
+    },
+    "unchecked": {
+     "description": "A legacy step tools/convert_v2.py could not rebuild: its `gives` is taken as stated and its parts are not checked. The expression cannot write one, and the ratchet (wordplay.unchecked) lets no new ones in.",
+     "const": true
+    },
+    "words": {
+     "description": "A leaf's clue words, verbatim.",
+     "type": "string",
+     "minLength": 1
+    },
+    "at": {
+     "description": "Offset of `words` (or an indicator's `text`) in the clue, in code points; tools/wordplay.py locate() fills it.",
+     "type": "integer",
+     "minimum": 0
+    },
+    "gives": {
+     "description": "A leaf: the letters its words give before any op. An unchecked op: the letters it is taken to give. A leaf without gives is its own letters.",
+     "type": "string",
+     "minLength": 1
+    },
+    "spelt": {
+     "description": "Homophone or spoonerism: the letters entered.",
+     "type": "string",
+     "minLength": 1
+    },
+    "n": {
+     "description": "nth: which letter.",
+     "type": "integer",
+     "minimum": 1
+    },
+    "select": {
+     "description": "Unchecked legacy leaf only: the block's `select`.",
+     "anyOf": [
+      {
+       "$ref": "#/$defs/selectWord"
+      },
+      {
+       "type": "integer",
+       "minimum": 2,
+       "maximum": 20
+      }
+     ]
+    },
+    "soundsLike": {
+     "description": "Unchecked legacy leaf only: the block's `soundsLike`.",
+     "type": "string",
+     "minLength": 1
+    },
+    "note": {
+     "description": "Why these words give these letters, in prose.",
+     "type": "string",
+     "minLength": 1
+    },
+    "indicators": {
+     "description": "The words that signal this op, in clue order.",
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "$ref": "#/$defs/wordplayIndicator"
+     }
+    },
+    "parts": {
+     "description": "The op's operands, in the expression's order (a container's outer first).",
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "$ref": "#/$defs/wordplayNode"
+     }
+    }
+   },
+   "if": {
+    "required": [
+     "op"
+    ]
+   },
+   "then": {
+    "$ref": "#/$defs/wordplayOpKeys"
+   },
+   "else": {
+    "$ref": "#/$defs/wordplayLeafKeys"
+   }
+  },
+  "wordplayOpKeys": {
+   "if": {
+    "required": [
+     "unchecked"
+    ]
+   },
+   "then": {
+    "required": [
+     "gives"
+    ],
+    "properties": {
+     "op": {},
+     "unchecked": {},
+     "gives": {},
+     "spelt": {},
+     "n": {},
+     "indicators": {},
+     "parts": {}
+    },
+    "additionalProperties": false,
+    "refused": {
+     "words": "an op has parts, not words"
+    }
+   },
+   "else": {
+    "properties": {
+     "op": {},
+     "spelt": {},
+     "n": {},
+     "indicators": {},
+     "parts": {}
+    },
+    "additionalProperties": false,
+    "refused": {
+     "words": "an op has parts, not words",
+     "gives": "derived: tools/wordplay.py works out a checked op's letters; only an unchecked legacy step states them"
+    }
+   }
+  },
+  "wordplayLeafKeys": {
+   "if": {
+    "required": [
+     "unchecked"
+    ]
+   },
+   "then": {
+    "properties": {
+     "unchecked": {},
+     "words": {},
+     "at": {},
+     "gives": {},
+     "select": {},
+     "soundsLike": {},
+     "note": {}
+    },
+    "additionalProperties": false,
+    "refused": {
+     "indicators": "a leaf has no indicators: they sit on the op they signal"
+    }
+   },
+   "else": {
+    "properties": {
+     "words": {},
+     "at": {},
+     "gives": {},
+     "note": {}
+    },
+    "additionalProperties": false,
+    "refused": {
+     "indicators": "a leaf has no indicators: they sit on the op they signal",
+     "select": "legacy only: write the selection as an op, first([words])",
+     "soundsLike": "legacy only: write the homophone as an op, sound([words]X, SPELT)",
+     "parts": "a leaf has no parts; an op needs `op`"
+    }
+   }
+  },
+  "wordplayIndicator": {
+   "description": "Indicator words on a format v2 op or definition: what they signal is the op they sit on, so there is no `for`.",
+   "type": "object",
+   "required": [
+    "text"
+   ],
+   "additionalProperties": false,
+   "properties": {
+    "text": {
+     "description": "The clue words, verbatim.",
+     "type": "string",
+     "minLength": 1
+    },
+    "at": {
+     "description": "Offset of text in the clue, in code points.",
+     "type": "integer",
+     "minimum": 0
+    },
+    "note": {
+     "description": "Why these words signal the op in this clue.",
+     "type": "string",
+     "minLength": 1
+    }
+   },
+   "refused": {
+    "for": "derived: the op an indicator sits on is what it signals (annotation.view() writes `for`)"
+   }
+  },
+  "wordplayOp": {
+   "description": "tools/wordplay.py OPS values: the stored op names.",
+   "enum": [
+    "alternate",
+    "anagram",
+    "charade",
+    "container",
+    "cryptic",
+    "cycling",
+    "deletion",
+    "first",
+    "hidden",
+    "homophone",
+    "last",
+    "middle",
+    "nth",
+    "outer",
+    "palindrome",
+    "regular",
+    "reversal",
+    "spoonerism",
+    "substitution"
+   ]
   },
   "block": {
    "description": "One piece of the wordplay: the clue words, and the letters they give. `gives` is always the letters these words produce, after `select` or `soundsLike` if the block has one, and before anything done to them together with other blocks: shuffles and reversals are the annotation's assembly.anagrams and assembly.reversals, which say the letters before and after and need not cut the answer where the blocks do. No gives means the words give no letters (an indicator or link).",

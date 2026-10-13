@@ -7550,3 +7550,79 @@ global.realSetTimeout(() => {
   assert(box2 && box2.value === "GODS" && again["clue-1-offgrid"].classList.contains("solved"),
     "and a reload puts them back in the box: " + (box2 && box2.value));
 }
+
+// --- a format v2 puzzle renders as its legacy file did ---
+// A v2 file stores the wordplay tree and none of the fields derivable from it;
+// the shim derives them (fetch_puzzle.browser_puzzle reads annotation.view_puzzle),
+// so app.js reads the same shape from either format. Proved here end to end: a
+// recent puzzle converted in memory (tools/convert_v2.py converted_samples) is
+// booted as its legacy browser form and as its v2 one, every annotated clue's
+// ladder is climbed in each, and a clue the converter rebuilt exactly must show
+// the same panel at every rung. A clue it normalised (blocks recut, link words
+// recomputed) only has to render; tools/test_shim_format.sh checks the data.
+{
+  const got = JSON.parse(require("child_process").execFileSync("python3", ["-c",
+    "import json, convert_v2, fetch_puzzle as fp\n"
+    + "[(o, n, st)] = convert_v2.converted_samples(1)\n"
+    + "print(json.dumps({'old': fp.browser_puzzle(o), 'new': fp.browser_puzzle(n),"
+    + " 'exact': [w for w, s in st.items() if s == 'exact']}))"],
+  { cwd: path.join(ROOT, "tools"), encoding: "utf8", maxBuffer: 1 << 26 }));
+  const ID = "smoke-format-v2";
+  const ladders = (puz) => {
+    const p = Object.assign({}, puz, { id: ID });
+    const d = require("./fake_dom.js").boot({
+      query: "?p=" + ID,
+      storage: { "ct:seen": JSON.stringify({ last: "2000-01-01", days: 5 }) },
+      index: (ix) => {
+        ix.puzzles.push({ id: ID, number: p.number, series: p.series, name: p.name, setter: p.setter,
+                          date: p.date, file: ID + ".js", hasSolutions: true, annotated: true });
+        global.window.CRYPTIC_PUZZLES = Object.assign(global.window.CRYPTIC_PUZZLES || {}, { [ID]: p });
+      },
+    });
+    const reg = d.registry, out = {};
+    const arm = () => {
+      const row = reg["hint-next"].children.find((b) => ARMED.test(b.textContent || ""));
+      if (row) row.onclick();
+      else if (/data-arm="blocks-tell" class="[^"]*arm-cost/.test(reg["hint-body"].innerHTML)) reg["guess-tell"].onclick();
+    };
+    p.entries.forEach((e) => {
+      const row = e.annotation && reg["clue-" + entryId(e)];
+      if (!row || !row.listeners.click) return;
+      // A clean slate per clue, as the corpus sweeps take one: what an earlier
+      // clue cost (a normalised one may climb differently) must not show here.
+      reg["reset-puzzle"].onclick();
+      row.listeners.click[0]();
+      const seen = [];
+      for (let n = 0; n < 40; n++) {
+        const btn = reg["hint-next"].children.find(CLIMBABLE);
+        if (!btn) break;
+        btn.onclick();
+        arm();
+        if (reg["hint-body"].innerHTML.includes('class="hint-step guess"')) { reg["guess-tell"].onclick(); arm(); }
+        seen.push(reg["hint-clue"].innerHTML + reg["hint-body"].innerHTML);
+      }
+      out[entryId(e)] = seen;
+    });
+    return out;
+  };
+  const before = ladders(got.old), after = ladders(got.new);
+  // view() lists indicators in clue order; a legacy file that stored them
+  // otherwise shows them reordered, so those clues are held to rendering only.
+  const inClueOrder = (e) => {
+    const at = ((e.annotation || {}).indicators || []).map((i) => e.clue.text.indexOf(i.text));
+    return at.every((x, k) => k === 0 || at[k - 1] <= x);
+  };
+  const exact = got.exact.map((w) => /^\$\.entries\[(\d+)\]\.annotation$/.exec(w))
+    .filter(Boolean).map((m) => got.old.entries[+m[1]]).filter(inClueOrder)
+    // A clue run on by an ellipsis is shown with its neighbour, whose own
+    // annotation may be a normalised one.
+    .filter((e) => !/^\s*(…|\.\.\.)|(…|\.\.\.)\s*$/.test(clueText(e))).map(entryId);
+  assert(exact.length >= 5, `format v2: ${got.old.id} has exactly converted clues to compare: ${exact.length}`);
+  const differ = exact.filter((id) => JSON.stringify(before[id]) !== JSON.stringify(after[id]));
+  assert(!differ.length, `format v2: ${got.old.id}'s exactly converted clues climb the same ladder as `
+    + `its legacy file; these do not: ${differ.join(", ")}`);
+  const climbed = Object.keys(before).filter((id) => before[id].length);
+  const silent = climbed.filter((id) => !(after[id] || []).length);
+  assert(climbed.length && !silent.length, `format v2: every clue with a ladder in ${got.old.id}'s legacy `
+    + `file has one in its v2 file (${climbed.length}); missing: ${silent.join(", ")}`);
+}

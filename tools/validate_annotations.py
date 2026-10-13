@@ -73,6 +73,7 @@ import enumeration  # a clue's printed counts; tools/enumeration.py
 import groups  # linked answers; tools/groups.py
 import provenance  # where each puzzle came from; tools/provenance.py
 import puzzle_schema  # tools/data/puzzle.schema.json
+import annotation  # format v2's derived fields: view(), view_puzzle()
 from annotation import assembly, explanation, whole_anagram, wordplay_letters
 from fetch_puzzle import (  # one reader, one exemption
     blog_facts_for,
@@ -3188,8 +3189,20 @@ def validate_puzzle(puzzle, corpus=False):
     """(annotated, errors, warnings). A light leading more than one linked
     answer (groups.holders) has each alsoLeads answer checked as if it were
     the light's own clue, group and annotation (groups.as_leader); those
-    findings name it "<tag> alsoLeads[k]"."""
-    annotated, errors, warnings = _validate_puzzle(puzzle, corpus)
+    findings name it "<tag> alsoLeads[k]".
+
+    A format v2 file (puzzle_schema.is_v2) is checked through
+    annotation.view_puzzle(): its trees are evaluated (one that does not give
+    the answer is an error), and every check below reads the fields view()
+    derives, so a check written against blocks or assembly reads the same
+    shape from either format."""
+    schema_errors = [f"schema: {p}" for p in puzzle_schema.validate(puzzle)]
+    v2_errors, v2_warnings = [], []
+    if puzzle_schema.is_v2(puzzle):
+        puzzle, v2_errors, v2_warnings = v2_view(puzzle)
+    annotated, errors, warnings = _validate_puzzle(puzzle, corpus, schema=False)
+    errors[:0] = schema_errors + v2_errors
+    warnings[:0] = v2_warnings
     for i, e in enumerate(puzzle["entries"]):
         for k, item in enumerate(e.get("alsoLeads") or []):
             if not item.get("annotation"):
@@ -3212,6 +3225,44 @@ def validate_puzzle(puzzle, corpus=False):
         errors += [f"{cid}:{m.split(':', 1)[1]}" for m in errs if m.startswith(mine)]
         warnings += [f"{cid}:{m.split(':', 1)[1]}" for m in warns if m.startswith(mine)]
     return annotated, errors, warnings
+
+
+UNCHECKED_STEP = "unchecked wordplay step"
+
+
+def _tag_of(puzzle, where):
+    """The finding tag for an annotation path from puzzle_schema.annotations."""
+    m = re.match(r"\$\.entries\[(\d+)\]\.(?:alsoLeads\[(\d+)\]\.)?annotation$", where)
+    if m:
+        e = puzzle["entries"][int(m.group(1))]
+        tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
+        return tag + (f" alsoLeads[{m.group(2)}]" if m.group(2) else "")
+    m = re.match(r"\$\.offGrid\[(\d+)\]", where)
+    return f"{int(m.group(1)) + 1}-offgrid" if m else where
+
+
+def v2_view(puzzle):
+    """(the puzzle as annotation.view_puzzle shows it, errors, warnings) for a
+    format v2 file. A tree that does not give the answer is an error, and its
+    annotation is left out of the view. An `unchecked` node (a legacy step
+    tools/convert_v2.py could not rebuild, which the expression cannot write)
+    warns, and the ratchet (wordplay.unchecked) lets a puzzle keep only the
+    ones annotation_backlog.json allows it: new annotations may add none."""
+    problems = []
+    viewed = annotation.view_puzzle(puzzle, problems)
+    errors = [f"{_tag_of(puzzle, where)}: wordplay: {msg}" for where, msg in problems]
+    warnings = []
+    for where, _, ann in puzzle_schema.annotations(puzzle):
+        stack, n = [ann.get("wordplay")] if ann.get("wordplay") else [], 0
+        while stack:
+            node = stack.pop()
+            n += bool(node.get("unchecked"))
+            stack += node.get("parts") or []
+        if n:
+            warnings.append(f"{_tag_of(puzzle, where)}: {n} {UNCHECKED_STEP}(s), taken as filed "
+                            f"from the legacy blocks; write the step as an expression the "
+                            f"evaluator checks (tools/wordplay.py)")
+    return viewed, errors, warnings
 
 
 def _validate_puzzle(puzzle, corpus=False, schema=True):
@@ -3487,6 +3538,7 @@ BACKLOG_MARKERS = {
     "explanation.surface": ("no explanation.surface",),
     "assembly.anagrams": ("no assembly.anagrams",),
     "messages": ("names a hidden-letter device",),
+    "wordplay.unchecked": (UNCHECKED_STEP,),
 }
 
 

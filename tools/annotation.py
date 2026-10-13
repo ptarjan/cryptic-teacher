@@ -119,7 +119,9 @@ def _blocks(node, got):
     op = node.get("op")
     if op is None:
         # An unchecked legacy leaf keeps the select or soundsLike it was filed with.
-        return [_block(clueFragment=node.get("words"), gives=wordplay.leaf_letters(node),
+        # An unchecked leaf without gives gives no letters (wordplay.match).
+        gives = None if node.get("unchecked") and "gives" not in node else wordplay.leaf_letters(node)
+        return [_block(clueFragment=node.get("words"), gives=gives,
                        select=node.get("select"), soundsLike=node.get("soundsLike"),
                        note=node.get("note"))]
     parts = node["parts"]
@@ -264,4 +266,58 @@ def view(ann, entry, puzzle=None):
     for key in ("explanation", "features", "hiddenLetter"):
         if key in ann:
             out[key] = ann[key]
+    return out
+
+
+# Puzzle-level keys a format v2 file stores only for display_name().
+V2_NAME_KEYS = ("prize", "title", "label")
+
+
+def view_puzzle(puzzle, problems=None):
+    """A format v2 puzzle in the legacy shape every reader takes today:
+    `series` and `name` derived, `prize`/`title`/`label` folded into the name,
+    and each annotation replaced by view(). A legacy puzzle comes back as it
+    is. An annotation whose tree does not give its answer is left out, and
+    (where, message) appended to `problems` when given."""
+    import puzzle_schema
+    import series
+    import wordplay
+    if not puzzle_schema.is_v2(puzzle):
+        return puzzle
+
+    def viewed(where, held, ann):
+        try:
+            return view(ann, held, puzzle)
+        except (wordplay.WordplayError, KeyError, TypeError, ValueError, StopIteration) as e:
+            if problems is not None:
+                problems.append((where, f"{type(e).__name__}: {e}" if not isinstance(
+                    e, wordplay.WordplayError) else str(e)))
+            return None
+    seen = {where: viewed(where, held, ann) for where, held, ann in puzzle_schema.annotations(puzzle)}
+
+    def holder(h, where):
+        if "annotation" not in h:
+            return h
+        out = {k: v for k, v in h.items() if k != "annotation"}
+        if seen.get(where) is not None:
+            out["annotation"] = seen[where]
+        return out
+    out = {}
+    for k, v in puzzle.items():
+        if k in V2_NAME_KEYS:
+            continue
+        out[k] = v
+        if k == "number":
+            out["series"] = series.parse_id(puzzle["id"])[0]
+            out["name"] = series.display_name(puzzle)
+    entries = []
+    for i, e in enumerate(puzzle.get("entries") or []):
+        x = holder(e, f"$.entries[{i}].annotation")
+        if e.get("alsoLeads"):
+            x["alsoLeads"] = [holder(h, f"$.entries[{i}].alsoLeads[{k}].annotation")
+                              for k, h in enumerate(e["alsoLeads"])]
+        entries.append(x)
+    out["entries"] = entries
+    if puzzle.get("offGrid"):
+        out["offGrid"] = [holder(h, f"$.offGrid[{k}].annotation") for k, h in enumerate(puzzle["offGrid"])]
     return out

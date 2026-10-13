@@ -82,10 +82,35 @@ and `series.display_name()`, tested by `tools/test_wordplay.sh`, and the
 converter from today's annotations to trees (`tools/convert_v2.py`, tested by
 `tools/test_convert_v2.sh`): where the old blocks can't be rebuilt step by step
 it keeps the step as an `"unchecked": true` node, which the expression cannot
-write. Next steps: the schema and validator change
-that removes the derived fields from the file and refuses them, the site's
-build reading `view()`, and the annotation prompt switching to the expression.
-Until then the files keep today's fields, described below.
+write.
+
+The schema and validator know both shapes, and read which one a file is from
+the file itself: an annotation with `blocks` is the legacy shape, one without
+is format v2, and a puzzle is v2 when any annotation is or when it stores no
+`series`. A file is wholly one shape (`puzzle_schema.format_problems`), so
+every file written before v2 keeps passing as it is, while a v2 file is held to
+v2's rules. In a v2 file the schema refuses, each with the reason:
+
+- top-level `name` and `series` (a v2 file stores `prize`, `title` or `label`
+  where `display_name()` needs one);
+- annotation `type`, `answer`, `indicators`, `linkWords` and `assembly`, and
+  `blocks` (which would make it a legacy annotation in a v2 file);
+- an indicator's `for` (it signals the op it sits on), `gives` on a checked op
+  (the evaluator works it out), and `select` or `soundsLike` on a checked leaf;
+- a `spelling` equal to the solution spaced by its enumeration.
+
+The tree is `$defs/wordplayNode` in `tools/data/puzzle.schema.json`.
+`validate_annotations.py` checks a v2 file through `annotation.view_puzzle()`:
+a tree that does not give the answer is an error, and every other check reads
+the fields `view()` derives. An `unchecked` node warns, and the ratchet
+(`wordplay.unchecked` in `tools/annotation_backlog.json`) lets a puzzle keep
+only the ones it already has, so a new annotation can add none. The site's
+build reads `view_puzzle()` too (`fetch_puzzle.browser_puzzle`), so app.js
+sees the same fields from either shape. `tools/test_format_v2.sh`,
+`tools/test_shim_format.sh` and `tools/smoke_test.js` hold this to converted
+corpus puzzles. Still to come: the annotation prompt switching to the
+expression, and the corpus rewrite. Until then the files keep today's fields,
+described below.
 
 
 ## Annotation rules

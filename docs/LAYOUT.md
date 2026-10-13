@@ -2426,5 +2426,9 @@ tools/test_convert_v2.sh                      does convert_v2.py rebuild the sto
                                               indicators and definitions from the tree, keep
                                               what it can't check as unchecked nodes, and
                                               refuse an answer that contradicts its enumeration?
+tools/test_format_v2.sh                       do the schema and validator refuse every derived
+                                              field in a format v2 file, evaluate its trees and
+                                              ratchet its unchecked steps, while legacy files
+                                              keep passing?
 ```
 <!-- LAYOUT-END -->
