@@ -2121,6 +2121,9 @@ tools/test_anagram_ring.sh                    a clue typed anagram gets the anag
                                               when a clue typed anagram names no fodder
 tools/test_discard_alert.sh                   does a rejected annotation alert only when the
                                               puzzle is parked?
+tools/test_annotation_loss.sh                 does the annotation loss check stay quiet on a
+                                              blank solved twice with no parse, and still fail
+                                              on one never retried?
 tools/check_shapes.js                         the corpus-wide half of tools/smoke_test.js's
                                               shape() checks
 tools/ninas.py                                unannounced messages in finished grids that blogs

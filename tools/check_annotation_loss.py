@@ -13,6 +13,11 @@ teaching ladder in it.
 So the ratio gets checked by something that can shout. Give it the puzzles a run
 tried to annotate; it exits non-zero and names the clues if any came back short.
 
+A clue in solutions.reopened left blank is not a loss either: its model
+answer was sent back and solved a second time, and neither run found a parse
+(tools/reopen_answers.py, once per entry). The validator ships it answers-only
+on purpose, so it is printed and does not fail the check.
+
 Only ONE of the three ways to come up short is a failure. A clue the model could
 not solve is a quality problem and gets shouted about. A clue the paper
 published with no words in it is owed nothing by anybody — it is printed, so a
@@ -72,12 +77,18 @@ def main(argv):
         # Two very different failures land in the same gap: a clue the model
         # could not solve, and one with no words in it to solve. Only the
         # solvable one is a loss.
-        unsolved = [entry_id(e) for e in missing if has_words(e["clue"].get("text", ""))]
+        tried = set((puzzle.get("solutions") or {}).get("reopened") or {})
+        unsolved = [entry_id(e) for e in missing if has_words(e["clue"].get("text", ""))
+                    and entry_id(e) not in tried]
+        retried = [entry_id(e) for e in missing if entry_id(e) in tried]
+        if retried:
+            print(f"{puzzle['id']}: {', '.join(retried)} solved twice with no parse "
+                  f"either time — ships answers-only, as the validator allows")
         wordless = [entry_id(e) for e in missing if not has_words(e["clue"].get("text", ""))]
         if unsolved:
             short.append((puzzle["id"], total - len(missing), total,
                           unsolved, wordless))
-        else:
+        elif wordless:
             wordless_only.append((puzzle["id"], wordless))
     for pid, wordless in wordless_only:
         print(f"{pid}: {', '.join(wordless)} published with no clue text — "
