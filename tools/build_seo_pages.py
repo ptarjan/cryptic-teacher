@@ -1508,42 +1508,98 @@ def funnel_chart(stages):
                f"Each stage inside the one above, out of the {known:,} puzzles known to exist")
 
 
-def cumulative_chart(days):
+KEY_EM = .66      # a bold label's width a character, in ems: generous, so a serif fallback fits too
+KEY_PX = 11       # .chart text's font-size in style.css
+KEY_GAP = 13      # the least distance between two end labels' baselines
+FLOOR = .02       # a line under this share of the y axis still reads as flat
+MIN_SPAN = 14     # the trimmed axis never shows fewer days than this
+
+
+def key_width(text):
+    """How wide an end label may draw, in viewBox units (an over-estimate)."""
+    return len(text) * KEY_PX * KEY_EM
+
+
+def chart_start(lines, ymax, first, last):
+    """Where the running-totals axis starts: a little before the first day any
+    line rises visibly off the floor, so a long flat lead-in does not take
+    the width (Paul 10-12: "it goes far back without much resolution"). Never
+    later than MIN_SPAN days before the end, never before the first day held."""
+    moving = [d for pts in lines.values() for d, n in pts if n > FLOOR * ymax]
+    if not moving:
+        return first
+    m = datetime.fromisoformat(min(moving))
+    pad = timedelta(days=max(2, round((last - m).days * .08)))
+    return max(first, min(m - pad, last - timedelta(days=MIN_SPAN)))
+
+
+def day_ticks(start, last, width):
+    """Days to label on the x axis: counted back from the last day by a step
+    of 1, 2, 3 days, a week, a fortnight ... chosen so about five fit."""
+    span = max((last - start).days, 1)
+    most = max(2, min(6, int(width // 70)))
+    step = next((s for s in (1, 2, 3, 7, 14, 28, 56, 91, 182, 364, 728) if span / s < most), 1456)
+    ticks, d = [], last
+    while d >= start:
+        ticks.append(d)
+        d -= timedelta(days=step)
+    return ticks[::-1]
+
+
+def cumulative_chart(days, full=False):
     """Downloaded, filed and hinted's running totals (progress.funnel_series),
     one line a stage over the days it was counted; a stage counted on one day
-    only has no line yet."""
+    only has no line yet. The axis starts where the lines start to move
+    (chart_start) unless `full`; returns (svg, trimmed). The end labels' margin
+    is measured from their own text, so a longer number never runs off the side."""
     lines = {st: pts for st in (S_DOWNLOADED, S_FILED, S_HINTED)
              if len(pts := progress.funnel_series(days, st)) > 1}
+    if not lines:
+        return "", False
     first = datetime.fromisoformat(next(iter(days)))
-    span = max((datetime.fromisoformat(next(reversed(days))) - first).days, 1)
+    last = datetime.fromisoformat(next(reversed(days)))
     top = max(n for pts in lines.values() for _, n in pts)
     step = nice_step(top)
     ymax = step * -(-top // step)
-    W, H, L, R, T, B = 640, 260, 52, 96, 10, 24
+    start = first if full else chart_start(lines, ymax, first, last)
+    if start > first:
+        # A line enters at the axis with its last count before it.
+        cut = start.date().isoformat()
+        lines = {st: ([(cut, before[-1][1])] if (before := [p for p in pts if p[0] < cut]) else [])
+                 + [p for p in pts if p[0] >= cut] for st, pts in lines.items()}
+        lines = {st: pts for st, pts in lines.items() if len(pts) > 1}
+    span = max((last - start).days, 1)
+    keys = {st: f"{FUNNEL_LABEL[st]} {pts[-1][1]:,}" for st, pts in lines.items()}
+    W, H, L, T, B = 640, 260, 52, 10, 24
+    R = 6 + max(map(key_width, keys.values())) + 4
     def px(d):
-        return L + (datetime.fromisoformat(d) - first).days / span * (W - L - R)
+        return L + (datetime.fromisoformat(d) - start).days / span * (W - L - R)
     def py(n):
         return T + (1 - n / ymax) * (H - T - B)
     body = []
     for v in range(0, ymax + 1, step):
-        body.append(f'<line class="grid" x1="{L}" y1="{py(v):.1f}" x2="{W - R}" y2="{py(v):.1f}"/>'
+        body.append(f'<line class="grid" x1="{L}" y1="{py(v):.1f}" x2="{W - R:.1f}" y2="{py(v):.1f}"/>'
                     f'<text x="{L - 6}" y="{py(v) + 4:.1f}" text-anchor="end">{v:,}</text>')
-    ticks = list(days)[::max(1, len(days) // 6)]
-    body += [f'<text x="{px(d):.1f}" y="{H - 6}" text-anchor="middle">{short_day(d)}</text>' for d in ticks]
+    body += [f'<text class="tick" x="{px(d.date().isoformat()):.1f}" y="{H - 6}" text-anchor="middle">'
+             f'{short_day(d.date().isoformat())}</text>' for d in day_ticks(start, last, W - L - R)]
     ends = []
     for st, pts in lines.items():
-        name = FUNNEL_LABEL[st]
         xy = " ".join(f"{px(d):.1f},{py(n):.1f}" for d, n in pts)
         body.append(f'<polyline class="line ph-{FUNNEL_CLASS[st]}" points="{xy}"/>')
-        ends.append([py(pts[-1][1]), name, pts[-1][1], FUNNEL_CLASS[st]])
-    # End labels pushed apart so two close lines do not print over each other.
+        ends.append([py(pts[-1][1]), keys[st], FUNNEL_CLASS[st]])
+    # End labels pushed apart so two close lines do not print over each other,
+    # then back up from the floor if the push ran them past it.
     ends.sort()
     for a, b in zip(ends, ends[1:]):
-        b[0] = max(b[0], a[0] + 13)
-    body += [f'<text class="ph-{cls} key" x="{W - R + 6}" y="{y + 4:.1f}">{name} {n:,}</text>'
-             for y, name, n, cls in ends]
-    return svg(W, H, "".join(body), "Running totals by day, the same counts as the bars: "
-               "downloaded from the first night the read queue was counted")
+        b[0] = max(b[0], a[0] + KEY_GAP)
+    ends[-1][0] = min(ends[-1][0], H - B)
+    for a, b in zip(ends[-2::-1], ends[::-1]):
+        a[0] = min(a[0], b[0] - KEY_GAP)
+    body += [f'<text class="ph-{cls} key" x="{W - R + 6:.1f}" y="{y + 4:.1f}">{text}</text>'
+             for y, text, cls in ends]
+    since = f" since {short_day(start.date().isoformat())}" if start > first else ""
+    return svg(W, H, "".join(body), f"Running totals by day{since}, the same counts as the bars: "
+               "downloaded from the first night the read queue was counted"), start > first
 
 
 def rate_chart(days, st):
@@ -1588,10 +1644,12 @@ def rate_chart(days, st):
                f" · dashed: {per7:,.0f} a day over the last week")
 
 
-def series_chart(row):
+def series_chart(row, pages=()):
     """One bar a series, its known puzzles split by progress.nested() into
     hinted, solved, filed, downloaded but not read and the rest
-    still to find."""
+    still to find. A series in `pages` (those with a series page) is one link,
+    the whole row, to that page (Paul 10-12: "clicking By series should take
+    you to that series")."""
     chain = {s: progress.nested(c) for s, c in row.items()}
     order = sorted((s for s in chain if chain[s][0]), key=lambda s: -chain[s][0])
     rowh, left, width = 24, 220, 330
@@ -1599,6 +1657,10 @@ def series_chart(row):
     for i, s in enumerate(order):
         known, downloaded, filed, solved, hinted = chain[s]
         y, x = i * rowh, float(left)
+        if s in pages:
+            body.append(f'<a class="row" href="{site_url(series_path(s))}"><title>All '
+                        f'{esc(series_name(s))} puzzles</title><rect class="hit" x="0" y="{y}" '
+                        f'width="{left + width + 190}" height="{rowh}"/>')
         body.append(f'<text x="{left - 8}" y="{y + 16}" text-anchor="end">{esc(series_name(s))}</text>'
                     f'<rect class="track" x="{left}" y="{y + 4}" width="{width}" height="16"/>')
         done = 0
@@ -1610,7 +1672,7 @@ def series_chart(row):
             x += w
             done = n
         body.append(f'<text x="{left + width + 6}" y="{y + 16}">{filed:,} of {known:,} filed'
-                    f' · {100 * hinted / known:.0f}% hinted</text>')
+                    f' · {100 * hinted / known:.0f}% hinted</text>' + ("</a>" if s in pages else ""))
     return svg(left + width + 190, len(order) * rowh + 4, "".join(body),
                "Each series: hinted, then solved, then filed, then downloaded but not read, "
                "out of the puzzles known to exist (the grey is still to find)")
@@ -1691,6 +1753,7 @@ def progress_page(idx, today=None, now=None):
     table = ('<table class="progress-table"><tr><th>Stage</th><th>Puzzles</th><th>Of known</th>'
              '<th>7-day pace</th><th class="wide">30-day pace</th><th>All known in</th></tr>'
              + "".join(rows) + "</table>")
+    recent, trimmed = cumulative_chart(days)
     title = "Progress: every puzzle, downloaded, solved and hinted"
     desc = (f"How far Cryptic Teacher has got: {stages[S_DOWNLOADED]:,} of the {known:,} cryptic "
             f"crosswords known to exist downloaded, {stages[S_SOLVED]:,} solved and "
@@ -1722,10 +1785,12 @@ def progress_page(idx, today=None, now=None):
             "Filed, solved and hinted are recounted every time the site updates (London time "
             "above); known and downloaded are counted once a night.</p>",
             *(("<h2>The read queue</h2>", queue_table(days[today], recorded)) if queued is not None else ()),
-            "<h2>Running totals</h2>", cumulative_chart(days),
+            "<h2>Running totals</h2>", recent,
+            *((f"<details><summary>All time, from {short_day(next(iter(days)))}</summary>",
+               cumulative_chart(days, full=True)[0], "</details>") if trimmed else ()),
             "<h2>A day at a time</h2>",
             *(rate_chart(days, st) for st in (S_FILED, S_HINTED)),
-            "<h2>By series</h2>", series_chart(days[today]),
+            "<h2>By series</h2>", series_chart(days[today], set(listings(idx))),
             f'<p class="s-cta"><a class="cta" href="{BASE}/">Pick a puzzle &rarr;</a></p>',
             "</main>"]
     return head(title, desc, canonical, ld(page_ld) + ld(breadcrumb_ld(crumbs))) \

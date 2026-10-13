@@ -101,6 +101,12 @@ assert B.at_pace(100, 10) == "10 days" and B.at_pace(3650, 1) == "10 years"
 P.HISTORY = path
 idx = {"puzzles": [{"series": "times", "hasSolutions": True, "annotated": True}] * 4
                   + [{"series": "times", "hasSolutions": False, "annotated": False}]}
+def ided(idx):
+    """Index rows as the build has them: an id, a number and a date each."""
+    idx["puzzles"] = [{**p, "id": f"{p['series']}-{i}", "number": i, "date": "2026-10-01"}
+                      for i, p in enumerate(idx["puzzles"])]
+    return idx
+ided(idx)
 html = B.progress_page(idx, today=date(2026, 10, 8))
 assert html.count("<svg") == 5, html.count("<svg")
 assert "+5 in, &minus;10 read" in html, html
@@ -145,6 +151,7 @@ idx2 = {"puzzles": [{"series": "times", "hasSolutions": True, "annotated": True}
                    + [{"series": "times", "hasSolutions": True, "annotated": False}] * 2
                    + [{"series": "times", "hasSolutions": False, "annotated": True}] * 2
                    + [{"series": "azed", "hasSolutions": True, "annotated": True}]}
+ided(idx2)
 live = P.with_today(P.load(path), P.index_counts(idx2["puzzles"]), "2026-10-09")["2026-10-09"]
 assert live == {"times": [10, 3, 10, 8, 6, 30, 4], "azed": [None, None, 1, 1, 1, None, None]}, live
 chain = P.nested_totals(live)
@@ -161,6 +168,68 @@ import inspect, fetch_puzzle
 assert "puzzle_is_solved(p)" in inspect.getsource(fetch_puzzle.index_row)
 src = inspect.getsource(R.puzzle_row)
 assert "puzzle_is_solved(p)" in src and "puzzle_is_annotated(p)" in src, src
+
+# By series links each series to its own page (Paul 10-12: "clicking By series
+# should take you to that series"): every row whose series has a page is one
+# link, the whole row, to a page the build writes; a series with no page has
+# no link.
+byseries = html.split("<h2>By series</h2>", 1)[1].split("</svg>")[0]
+pages = {"/" + str(p.relative_to(B.ROOT).parent) + "/" for p, _ in B.series_pages(idx2)}
+names = re.findall(r'text-anchor="end">([^<]+)</text><rect class="track"', byseries)
+links = re.findall(r'<a class="row" href="([^"]+)">.*?text-anchor="end">([^<]+)</text>.*?</a>', byseries)
+assert names and len(links) == sum(B.series_name(s) in names for s in B.listings(idx2)), (names, links)
+for href, name in links:
+    s = next(s for s in B.listings(idx2) if B.series_name(s) == name)
+    assert href == B.site_url(B.series_path(s)) and B.series_path(s) in pages, (href, name, pages)
+    assert '<rect class="hit" x="0"' in byseries, "the whole row is the link"
+assert not re.search(r'<a class="row"', B.series_chart(live, ())), "no page, no link"
+
+# Running totals (Paul 10-12: "the number goes off the side and it goes far
+# back without much resolution"). A long flat lead-in, then fast growth to
+# six-figure totals, with downloaded and filed ending close together.
+from datetime import timedelta
+long, d0 = {}, date(2026, 7, 26)
+for i in range(79):
+    grow = max(0, i - 52) / 26                     # flat until day 52
+    filed = int(300 + 150_541 * grow ** 1.5)
+    hinted = min(filed, int(i * 4 + 16_300 * grow))
+    queued = 4_714 if i >= 70 else None
+    long[(d0 + timedelta(days=i)).isoformat()] = {
+        "times": [400_000, None, filed, hinted, hinted, None if queued is None else filed + queued, queued]}
+last = (d0 + timedelta(days=78)).isoformat()
+assert P.nested_totals(long[last])[1:3] == [155_555, 150_841], P.nested_totals(long[last])
+def geometry(chart):
+    W, H = map(float, re.search(r'viewBox="0 0 ([\d.]+) ([\d.]+)"', chart).groups())
+    keys = [(float(x), float(y), t) for x, y, t in
+            re.findall(r'<text class="ph-[a-z]+ key" x="([\d.]+)" y="([\d.]+)">([^<]+)</text>', chart)]
+    xs = [float(p.split(",")[0]) for pl in re.findall(r'points="([^"]+)"', chart) for p in pl.split()]
+    ticks = re.findall(r'<text class="tick"[^>]*>([^<]+)</text>', chart)
+    return W, H, keys, xs, ticks
+for chart, trimmed in (B.cumulative_chart(long), (B.cumulative_chart(long, full=True)[0], False)):
+    W, H, keys, xs, ticks = geometry(chart)
+    assert len(keys) == 3 and any(t == "downloaded 155,555" for *_, t in keys), keys
+    # Labels never clip: each one's generous width ends inside the viewBox, at any screen width.
+    assert B.KEY_EM >= .6, "a bold 11px label is at least .6em a character"
+    for x, y, t in keys:
+        assert x + B.key_width(t) <= W and 0 < y <= H, (x, y, t, W)
+    ys = sorted(y for _, y, _ in keys)
+    assert all(b - a >= B.KEY_GAP - .05 for a, b in zip(ys, ys[1:])), ("labels overlap", ys)
+    assert max(xs) < min(x for x, _, _ in keys), "labels sit right of every line"
+    assert 2 <= len(ticks) <= 6 and ticks[-1] == B.short_day(last), ticks
+    assert ("since" in chart) == trimmed
+# The axis starts where the lines move, not in the 52 flat days before.
+chart, trimmed = B.cumulative_chart(long)
+assert trimmed, "a flat lead-in is cut"
+since = datetime.strptime(re.search(r"Running totals by day since (\d+ \w+)", chart).group(1) + " 2026", "%d %b %Y").date()
+rises = min(date.fromisoformat(d) for d, r in long.items() if r["times"][2] > .05 * 155_555)
+assert d0 + timedelta(days=45) <= since < rises, (since, rises)
+assert min(geometry(chart)[3]) >= 52 - .05, "nothing drawn left of the axis"
+# History that moves from the first day is shown whole, and the page offers
+# all time only when it cut something.
+steady = {(d0 + timedelta(days=i)).isoformat(): {"times": [9_000, None, 100 * i + 500, 50 * i + 300, 50 * i + 300, None, None]}
+          for i in range(60)}
+assert B.cumulative_chart(steady)[1] is False
+assert "All time" not in B.progress_page(idx2, now=datetime(2026, 10, 9, 14, 5))
 print("ok")
 PY
 )
