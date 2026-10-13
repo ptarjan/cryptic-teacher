@@ -7593,6 +7593,13 @@ for (const got of JSON.parse(require("child_process").execFileSync("python3", ["
     // showed the boot's unseeded deal. That was 10 FAILs, one exact clue per
     // puzzle and always the first clue with a ring (cyclops-413 8A,
     // everyman-3946 1A, ...), on the 7-per-series sample (10-13).
+    // The boot and every clue start from the same seed, so a ring kept from
+    // the boot is the very deal a fresh climb makes. It is kept whenever no
+    // clue climbed before it deals a ring, and in v2 an anagram under an
+    // unchecked step has none (view() lists no assembly.anagrams): in
+    // mephisto-3169 1D ALCAIC dealt a ring between the boot's 4A deal and
+    // 4A's climb in legacy, and nothing in v2, so 4A showed the boot's deal.
+    const SEED = 0x5eed;
     const seeded = (seed) => () => {
       seed = (seed + 0x6D2B79F5) | 0;
       let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
@@ -7600,7 +7607,7 @@ for (const got of JSON.parse(require("child_process").execFileSync("python3", ["
       return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
     };
     const random = Math.random;
-    Math.random = seeded(0xb007);
+    Math.random = seeded(SEED);
     const p = Object.assign({}, puz, { id: ID });
     const d = require("./fake_dom.js").boot({
       query: "?p=" + ID,
@@ -7622,7 +7629,7 @@ for (const got of JSON.parse(require("child_process").execFileSync("python3", ["
       if (!row || !row.listeners.click) return;
       // A clean slate per clue, as the corpus sweeps take one: what an earlier
       // clue cost (a normalised one may climb differently) must not show here.
-      Math.random = seeded(0x5eed);
+      Math.random = seeded(SEED);
       reg["reset-puzzle"].onclick();
       row.listeners.click[0]();
       const seen = [];
@@ -7636,6 +7643,7 @@ for (const got of JSON.parse(require("child_process").execFileSync("python3", ["
       }
       out[entryId(e)] = seen;
     });
+    d.stop();
     Math.random = random;
     return out;
   };
