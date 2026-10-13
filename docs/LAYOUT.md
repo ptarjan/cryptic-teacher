@@ -2488,6 +2488,15 @@ tools/test_see_pointer.sh                     is a "See N" continuation the poin
 tools/test_migrate_v2.sh                      does the format v2 migration (tools/convert_v2.py
                                               --migrate, plan step 8) leave files every gate
                                               passes, and is it safe to kill and start again?
+tools/strip_abbreviation_notes.py             drops the leaf notes that only restate the
+                                              abbreviation table (annotation.view() shows that
+                                              gloss from build_abbreviations.table()),
+                                              corpus-wide in one migration commit, and turns on
+                                              validate_annotations' refusal of them
+tools/test_abbreviation_notes.sh              is an abbreviation gloss derived from the table,
+                                              never stored: view shows it, the validator
+                                              refuses a note that only restates it, from_model
+                                              drops one, and a note that adds anything stays?
 tools/test_validate_speed.sh                  the deploy's "Check every annotation" step runs
                                               validate_annotations over the whole corpus
                                               (~51,000 files), so a per-file cost that creeps

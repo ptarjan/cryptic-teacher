@@ -250,6 +250,110 @@ def _block(**kw):
     return {k: kw[k] for k in BLOCK_KEYS if kw.get(k) not in (None, "")}
 
 
+# ---------- abbreviation glosses: derived from the table, never stored ----------
+# A leaf whose clue words -> letters pair is in tools/build_abbreviations.table()
+# (the dictionary-backed table the site's glossary prints) needs no note: view()
+# shows ABBREVIATION_GLOSS. A stored note that says only that is derivable, so
+# the validator refuses it and from_model drops it (restates_abbreviation).
+ABBREVIATION_GLOSS = "{gives} is a standard abbreviation for {words}"
+_ABBR_PAIRS = None
+
+
+def _abbr_key(s):
+    return re.sub(r"[^A-Z0-9]", "", (s or "").upper())
+
+
+def abbreviation_pairs():
+    """{(clue word as capitals, letters)}: every sense the table holds."""
+    global _ABBR_PAIRS
+    if _ABBR_PAIRS is None:
+        import build_abbreviations
+        _ABBR_PAIRS = frozenset((_abbr_key(w), k) for k, ws in build_abbreviations.table().items()
+                                for w in ws)
+    return _ABBR_PAIRS
+
+
+def is_abbreviation(leaf):
+    """Whether a leaf's words give its letters by a sense the table holds."""
+    if not isinstance(leaf, dict) or "op" in leaf or not leaf.get("words") or not leaf.get("gives"):
+        return False
+    return (_abbr_key(leaf["words"]), leaf["gives"]) in abbreviation_pairs()
+
+
+def abbreviation_gloss(leaf):
+    """The note view() shows on a leaf the table explains, or None. A clue's
+    capitalised first word reads in lower case ("With" -> with)."""
+    if not is_abbreviation(leaf):
+        return None
+    words = leaf["words"]
+    if leaf.get("at") == 0 and words[:1].isupper() and words[1:2].islower():
+        words = words[0].lower() + words[1:]
+    return ABBREVIATION_GLOSS.format(gives=leaf["gives"], words=words)
+
+
+# Qualifiers that add nothing to "an abbreviation": the table already is the
+# dictionary's record. A domain ("the cricket abbreviation", "as on taps", "the
+# Roman numeral") is information the table does not hold, and stays.
+_BARE_ADJ = (r"(?:standard|usual|common|commonest|recorded|conventional|familiar|accepted|"
+             r"recogni[sz]ed|regular|established|normal|ordinary|everyday|customary|"
+             r"well-known|frequent|simple|basic|dictionary|crossword|common crossword|"
+             r"standard crossword|usual crossword)\s+")
+_ABBR_WORD = r"(?:abbreviation|abbrev\.?|short form|shortening)"
+_ART = r"(?:(?:the|a|an)\s+)?"
+_RESTATE = (
+    # [G is] [the] [standard] abbreviation [for|of [the] W]
+    rf"(?:{{G}}\s+(?:is|=)\s+)?{_ART}(?:{_BARE_ADJ})?{_ABBR_WORD}(?:\s+(?:for|of)\s+{_ART}{{W}})?",
+    # G abbreviates W, G is short for W, G stands for W, G = W, G for W
+    rf"{{G}}\s+(?:abbreviates|is\s+short\s+for|stands\s+for|=|for|is\s+an?\s+abbreviation\s+of)\s+{_ART}{{W}}",
+    # short for W, abbreviates W, stands for W
+    rf"(?:short\s+for|abbreviates|stands\s+for)\s+{_ART}{{W}}",
+    # W is abbreviated [to|as] G, W = G
+    rf"{_ART}{{W}}\s+(?:is\s+)?(?:abbreviated|shortened)(?:\s+(?:to|as)\s+{{G}})?",
+    rf"{_ART}{{W}}\s*(?:=|->|→)\s*{{G}}",
+    rf"{{G}}\s*(?:->|→)\s*{_ART}{{W}}",
+)
+
+
+def _restate_re(gives, words):
+    g = r"\W?".join(re.escape(c) for c in gives) + r"\.?"
+    w = re.escape(words.strip())
+    return re.compile(r"(?i)^(?:" + "|".join(
+        p.replace("{G}", f"[\"'‘“]?{g}[\"'’”]?").replace("{W}", f"[\"'‘“]?{w}[\"'’”]?")
+        for p in _RESTATE) + r")$")
+
+
+_RESTATE_CACHE = {}
+
+
+def restates_abbreviation(leaf):
+    """Whether a leaf's stored note says nothing but that its letters are an
+    abbreviation of its words, a pair the table holds ("W is the standard
+    abbreviation for with", "standard abbreviation"). Such a note is
+    derivable: view() shows abbreviation_gloss() instead. A note that adds
+    anything (a domain, a source, a second step) is not."""
+    note = leaf.get("note") if isinstance(leaf, dict) else None
+    if not note or not is_abbreviation(leaf):
+        return False
+    key = (leaf["gives"], leaf["words"])
+    if key not in _RESTATE_CACHE:
+        _RESTATE_CACHE[key] = _restate_re(*key)
+    text = re.sub(r"\s+", " ", note).strip().rstrip(".!;:").strip()
+    return bool(_RESTATE_CACHE[key].match(text))
+
+
+def strip_abbreviation_notes(tree):
+    """Drop every restates_abbreviation note from a wordplay tree, in place.
+    Returns how many were dropped."""
+    n, stack = 0, [tree] if isinstance(tree, dict) else []
+    while stack:
+        node = stack.pop()
+        if restates_abbreviation(node):
+            del node["note"]
+            n += 1
+        stack += [p for p in node.get("parts") or [] if isinstance(p, dict)]
+    return n
+
+
 def _blocks(node, got):
     """The app's blocks: one per run of clue words (or supplied letters), in
     tree order, `gives` the letters before any op joins them to others; a
@@ -261,9 +365,10 @@ def _blocks(node, got):
         # An unchecked legacy leaf keeps the select or soundsLike it was filed with.
         # An unchecked leaf without gives gives no letters (wordplay.match).
         gives = None if node.get("unchecked") and "gives" not in node else wordplay.leaf_letters(node)
+        # A leaf the abbreviation table explains stores no note; its gloss is derived.
         return [_block(clueFragment=node.get("words"), gives=gives,
                        select=node.get("select"), soundsLike=node.get("soundsLike"),
-                       note=node.get("note"))]
+                       note=node.get("note") or abbreviation_gloss(node))]
     parts = _parts(node)
     if node.get("unchecked"):
         # A legacy step taken as filed shows its parts' blocks as they were.
@@ -606,6 +711,9 @@ def from_model(m, entry, puzzle=None):
                 else out.get("spelling") or display)
         taken = [(d["at"], d["at"] + len(d["text"])) for d in defs]
         out["wordplay"] = wordplay.translate({"wp": wp, "notes": notes}, clue, want, taken, D.respell)
+        # A note that only says the table's abbreviation is derivable: dropped,
+        # not refused, since view() shows the same gloss from the table.
+        strip_abbreviation_notes(out["wordplay"])
     elif notes:
         raise wordplay.WordplayError(f"notes {sorted(notes)} name no definition, and there is no `wp`")
     elif len(defs) < 2 and not m.get("definedByPreamble"):
@@ -644,7 +752,8 @@ def to_model(ann):
         for span, key in wordplay._spans(tree, True):
             name = span[key]
             seen[name] = seen.get(name, 0) + 1
-            if span.get("note"):
+            # A note that only restates the abbreviation table is not one to copy.
+            if span.get("note") and not restates_abbreviation(span):
                 notes[name if seen[name] == 1 else f"{name}#{seen[name]}"] = span["note"]
     if notes:
         out["notes"] = notes

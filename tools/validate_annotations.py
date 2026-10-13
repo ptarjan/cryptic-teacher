@@ -3305,6 +3305,54 @@ def _tag_of(puzzle, where):
     return f"{int(m.group(1)) + 1}-offgrid" if m else where
 
 
+#: Whether the corpus holds no note that restates the abbreviation table:
+#: then every v2 file is held to check_no_abbreviation_notes. Until then only a
+#: run's own new notes are (check_no_new_abbreviation_notes), so the files still
+#: carrying them keep validating. tools/strip_abbreviation_notes.py --commit
+#: sets it True in its migration commit.
+ABBREVIATION_NOTES_STRIPPED = False
+
+
+def _restating(tree):
+    """[leaf] of every note in a v2 tree that only restates the table."""
+    out, stack = [], [tree] if isinstance(tree, dict) else []
+    while stack:
+        node = stack.pop()
+        if annotation.restates_abbreviation(node):
+            out.append(node)
+        stack += [p for p in node.get("parts") or [] if isinstance(p, dict)]
+    return out
+
+
+def _abbreviation_error(tag, node):
+    return (f"{tag}: leaf {node['words']!r} > {node['gives']!r} stores the note "
+            f"{node['note']!r}, which only restates the abbreviation table; leave "
+            f"it out (the site shows {annotation.abbreviation_gloss(node)!r} from the table)")
+
+
+def check_no_new_abbreviation_notes(puzzle, path, errors):
+    """check_no_abbreviation_notes for a run's own puzzle, on the notes the
+    committed file does not already hold (until ABBREVIATION_NOTES_STRIPPED)."""
+    if ABBREVIATION_NOTES_STRIPPED or not puzzle_schema.is_v2(puzzle):
+        return
+    committed = committed_entries(path) or {}
+    for e in puzzle["entries"]:
+        ann = e.get("annotation") or {}
+        was = (committed.get(entry_id(e)) or {}).get("annotation") or {}
+        held = {(n["words"], n["gives"], n["note"]) for n in _restating(was.get("wordplay"))}
+        for node in _restating(ann.get("wordplay")):
+            if (node["words"], node["gives"], node["note"]) not in held:
+                errors.append(_abbreviation_error(entry_id(e), node))
+
+
+def check_no_abbreviation_notes(tag, tree, errors):
+    """A v2 leaf stores no note that only restates an abbreviation the table
+    holds (annotation.restates_abbreviation): view() derives that gloss from
+    tools/build_abbreviations.table(), so the stored note is a derivable field.
+    A note that adds anything beyond the pair stays."""
+    errors += [_abbreviation_error(tag, node) for node in _restating(tree)]
+
+
 def v2_view(puzzle):
     """(the puzzle as annotation.view_puzzle shows it, errors, warnings) for a
     format v2 file. A tree that does not give the answer is an error, and its
@@ -3322,6 +3370,8 @@ def v2_view(puzzle):
             node = stack.pop()
             n += bool(node.get("unchecked"))
             stack += node.get("parts") or []
+        if ABBREVIATION_NOTES_STRIPPED:
+            check_no_abbreviation_notes(_tag_of(puzzle, where), ann.get("wordplay"), errors)
         if n:
             warnings.append(f"{_tag_of(puzzle, where)}: {n} {UNCHECKED_STEP}(s), taken as filed "
                             f"from the legacy blocks; write the step as an expression the "
@@ -3754,6 +3804,7 @@ def check_against_committed(puzzle, path, errors):
     check_clue_unchanged(puzzle, path, errors)
     check_clue_rows_held(puzzle, errors)
     check_selectors_are_indicators(puzzle, path, errors)
+    check_no_new_abbreviation_notes(puzzle, path, errors)
 
 
 def run_errors(path, puzzle):
