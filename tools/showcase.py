@@ -70,7 +70,7 @@ def file_facts(puz):
     cont = puzzle_tags.continuations(ents)
     tags = puzzle_tags.tags(puz)
     day = series_meta.puzzle_day(puz)
-    series = puz.get("series") or "cryptic"
+    series = series_meta.of(puz) or "cryptic"
     return {
         "id": puz["id"], "series": series, "number": puz["number"],
         "day": day.toordinal() if day else None,

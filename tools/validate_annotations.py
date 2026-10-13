@@ -1804,6 +1804,14 @@ def setter_error_problems(puzzle, eid, row, ann=None):
     by_id = {entry_id(e): e for e in puzzle["entries"]}
     e = by_id[eid]
     ann = e.get("annotation") if ann is None else ann
+    if isinstance(ann, dict) and "blocks" not in ann and ("wordplay" in ann or "definitions" in ann):
+        # A format v2 annotation stores a tree: its blocks are view()'s.
+        import annotation as annotation_view
+        import wordplay
+        try:
+            ann = annotation_view.view(ann, e, puzzle)
+        except (wordplay.WordplayError, KeyError, TypeError, ValueError):
+            ann = {}
     answer = "".join(letters(s or "") for s in light_solutions(e, by_id)) or letters(e["solution"])
     clue = e["clue"].get("text") or ""
     printed = {letters(w) for w in re.split(r"[\s\-\u2013\u2014/]+", clue)}
