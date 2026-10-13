@@ -4,6 +4,7 @@
     python3 tools/fetch_nation.py urls         # list every puzzle page from the sitemaps
     python3 tools/fetch_nation.py download     # fetch the pages not yet held
     python3 tools/fetch_nation.py file [N...]  # file every held page (or these numbers)
+    python3 tools/fetch_nation.py redate [N...] # move held records onto their page's issue date
 
 thenation.com prints each puzzle as an HTML clue list, numbered and with
 enumerations: Kosman and Picciotto's since 2011, and the Frank W. Lewis
@@ -19,6 +20,7 @@ The puzzle number is the one the page's title prints, and its date is the
 issue it first appeared in.
 """
 import datetime
+import functools
 import html
 import json
 import re
@@ -132,15 +134,18 @@ def meta(page):
     original = re.search(r"originally appeared in the (\w+ \d{1,2}, \d{4}),? issue", flat)
     issue = (original or re.search(r"This article appears in the\s+(\w+ \d{1,2}, \d{4})\s+issue", flat))
     author = re.search(r'aria-label="author name ([^"]+)"', page)
+    posted = re.search(r'<meta property="article:published_time" content="(\d{4}-\d\d-\d\d)', page)
+    posted = posted.group(1) if posted else None
     date = None
     if issue:
         date = datetime.datetime.strptime(issue.group(1), "%B %d, %Y").date().isoformat()
     else:
-        # A page naming no issue is dated the day it went online.
-        posted = re.search(r'<meta property="article:published_time" content="(\d{4}-\d\d-\d\d)', page)
-        date = posted.group(1) if posted else None
+        # A page naming no issue: the day it went online, until read_page
+        # moves it onto the issue clock (issue_date()).
+        date = posted
     return {"title": title, "number": int(number.group(1)) if number else None,
-            "date": date, "original": bool(original), "setter": html.unescape(author.group(1)) if author else None}
+            "date": date, "original": bool(original), "issued": bool(issue), "posted": posted,
+            "setter": html.unescape(author.group(1)) if author else None}
 
 
 def clue_lists(lines):
@@ -244,6 +249,45 @@ def reprint_date(number, known):
     return (day + datetime.timedelta(weeks=number - near[0])).isoformat()
 
 
+# A page printing its issue went online about three weeks before that issue's
+# cover date (3243: posted 2012-06-05, issue June 25). Its neighbour printing
+# none was dated the day it went online, so it sorted before the number below
+# it: nation-3244 posted 2012-06-13 under 3243's June 25 issue. Seen
+# 2026-10-13: fifteen backfill solves refused on DATE. issue_date() puts such
+# a page on the issue clock instead, by the lag of the nearest number printing
+# both, within ISSUE_REACH numbers (the lag holds at 18-25 days for years, and
+# runs of a dozen pages print no issue: 3395-3407).
+ISSUE_REACH = 30
+
+
+@functools.lru_cache(maxsize=None)
+def issue_lags():
+    """{number: (posted, issue)} for every held page from REPRINTS_BELOW on
+    printing both the day it went online and its issue."""
+    out = {}
+    for path in PAGES.glob("*.html"):
+        m = meta(path.read_text())
+        if m["number"] and m["number"] >= REPRINTS_BELOW and m["issued"] and m["posted"]:
+            out[m["number"]] = (datetime.date.fromisoformat(m["posted"]),
+                                datetime.date.fromisoformat(m["date"]))
+    return out
+
+
+def issue_date(number, posted, lags):
+    """The issue a page printing none went in, from the day it went online:
+    the nearest number printing both lends its lag, and the day moves to the
+    nearest of that issue's weekday (the Nation's cover date). None when no
+    number within ISSUE_REACH prints both."""
+    near = sorted((n for n in lags if n != number), key=lambda n: (abs(n - number), n > number))
+    if not near or abs(near[0] - number) > ISSUE_REACH or not posted:
+        return None
+    was, issue = lags[near[0]]
+    day = datetime.date.fromisoformat(posted) + (issue - was)
+    shift = (issue.weekday() - day.weekday()) % 7
+    day += datetime.timedelta(days=shift if shift <= 3 else shift - 7)
+    return day.isoformat()
+
+
 def linked_groups(lists, across, down):
     """reconstruct_grid's `groups` for the linked answers: ([(direction,
     index)], total) per leader. The leader's printed number field names its
@@ -289,6 +333,8 @@ def read_page(page, known=None):
             return None, "a reprint naming no original issue, no dated neighbour"
     if m["number"] is None:
         return None, f"title {m['title']!r} prints no puzzle number"
+    if m["number"] >= REPRINTS_BELOW and not m["issued"]:
+        m["date"] = issue_date(m["number"], m["posted"], issue_lags()) or m["date"]
     if m["date"] is None:
         return None, "no issue date"
     lists, head = clue_lists(lines_of(page))
@@ -495,11 +541,52 @@ def file_all(numbers=None, workers=None):
         print(f"  {len(ids):4d}  {key}  e.g. {sorted(map(str, ids))[:6]}")
 
 
+def page_dates():
+    """{number: issue date} for every held page, as read_page dates it."""
+    out = {}
+    for path in sorted(PAGES.glob("*.html")):
+        if re.search(r"-\d+-\d\.html$", path.name):
+            continue
+        read, _ = read_page(path.read_text(), page_dates.known)
+        if read is not None:
+            out.setdefault(read[0]["number"], read[0]["date"])
+    return out
+
+
+def redate(only=None):
+    """Move every held Nation puzzle and clues-only record onto the date its
+    page gives now (issue_date()), highest number first so each move lands
+    under a neighbour already moved. Idempotent: a record already on its
+    page's date is not written. Prints one id per line written."""
+    import clues_only
+    import puzzle_paths
+    from fetch_puzzle import read_puzzle_file
+    page_dates.known = original_dates()
+    dates = page_dates()
+    for n in sorted(only or dates, reverse=True):
+        day, pid = dates.get(n), puzzle_id(SERIES, n)
+        if day is None:
+            continue
+        held = puzzle_paths.find(pid)
+        if held:
+            puzzle = read_puzzle_file(held)
+            if puzzle.get("date") != day:
+                write_puzzle_file(puzzle_path(SERIES, n), {**puzzle, "date": day})
+                print(pid, flush=True)
+            continue
+        record = clues_only.read(pid)
+        if record and record.get("date") != day:
+            clues_only.write({**record, "date": day})
+            print(pid, flush=True)
+
+
 def main(argv):
     if argv[:1] == ["urls"]:
         list_urls()
     elif argv[:1] == ["download"]:
         download()
+    elif argv[:1] == ["redate"]:
+        redate({int(a) for a in argv[1:]} or None)
     elif argv[:1] == ["file"]:
         file_all({int(a) for a in argv[1:]} or None)
     else:

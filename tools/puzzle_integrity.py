@@ -1491,6 +1491,13 @@ def refuse_bad_write(puzzle, old=None):
     """Raise RefusedWrite (a ValueError) naming every finding `puzzle` would bring to disk."""
     flags = []
     check_puzzle(puzzle, datetime.now(timezone.utc).date(), flags)
+    # No setter never holds a puzzle (Paul's standing rule: never hold a puzzle
+    # for its form): the audit still reports it, but a write refuses only one
+    # that drops a byline the held file has, which is a reader that broke.
+    # Seen 2026-10-13: Genius 43-109, filed unsolved with none (series.py
+    # unbylinedUnsolved), refused on SETTER the moment the backfill solved them.
+    if puzzle.get("setter") is None and not (old or {}).get("setter"):
+        flags = [f for f in flags if not (f[0] == "SETTER" and f[2].startswith("no setter"))]
     flags += [("SCHEMA", puzzle.get("id"), p) for p in puzzle_schema.validate(puzzle)]
     if old is not None:
         check_rewrite(old, puzzle, flags)
