@@ -183,8 +183,8 @@ jobs:
               f.unlink()
           print(f"removed {len(gone)} shim(s) no puzzle has")
           EOF
-      # The cards are ~110MB of PNGs that change a few files a night, so they are
-      # neither committed nor redrawn from scratch: the cache carries them and
+      # The cards are ~570MB of PNGs (run 38460299301) that change a few files
+      # a night, so they are neither committed nor redrawn from scratch: the cache carries them and
       # their manifest between runs, and make_og.sh draws only the ones whose
       # inputs have moved. A cold cache costs a full redraw and is correct, just
       # slow. The key is per-commit so every run saves what it drew; restore-keys
@@ -272,8 +272,7 @@ jobs:
       # What actions/upload-pages-artifact does, minus its tar -v (a log line
       # per file, ~140k of them) and stored rather than deflated. The upload
       # is bound by compressing, not by the network: level 6 took 65s, level
-      # 1 40s (run 38370347047) and still came out at 1.05GB, since half the
-      # site is PNG cards deflate cannot shrink. Same name and layout (one
+      # 1 40s and still came out at 1.05GB (run 38370347047). Same name and layout (one
       # artifact.tar in an artifact called github-pages, members ./-relative,
       # directories included), which is all deploy-pages reads.
       - name: Archive the site

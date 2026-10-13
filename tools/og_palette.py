@@ -8,6 +8,10 @@ anti-aliased type, about 4,300 distinct colours, and a median-cut 256-colour
 palette without dithering holds it at ~46 dB PSNR, indistinguishable at 2x
 zoom, in ~28 KB. The size stays 1200x630, the size every unfurler asks for.
 
+Palette PNG, not JPEG or WebP: on the same cards JPEG is ~48-55 KB at
+quality 80 and WebP ~35-40 KB at 85, because flat colour and sharp type are
+exactly what palette PNG stores cheaply and DCT stores badly.
+
 A file that is already a palette PNG is left alone, so re-running over a
 directory of cards costs one header read per card. Missing paths are skipped:
 the caller passes a glob that may match nothing.
