@@ -19,8 +19,14 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "unsolved"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-12",
+  "check": "30 entries, 60 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,6 +39,77 @@
    "clue": {
     "text": "Drugs quietly damage expert near New York city limits (both East and West)",
     "enumeration": "15"
+   },
+   "solution": "PHARMACEUTICALS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PHARMACEUTICALS",
+    "definitions": [
+     {
+      "text": "Drugs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "limits (both East and West)",
+      "for": "letter_selection",
+      "note": "the limits on the east and west of a word are its right and left ends, so only those two outside letters are kept"
+     }
+    ],
+    "linkWords": [
+     "near"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p (piano) is the musical marking for quietly"
+     },
+     {
+      "clueFragment": "damage",
+      "gives": "HARM",
+      "note": "to harm is to damage"
+     },
+     {
+      "clueFragment": "expert",
+      "gives": "ACE",
+      "note": "an ace is an expert"
+     },
+     {
+      "clueFragment": "New York city",
+      "gives": "UTICA",
+      "note": "Utica is a city in upstate New York"
+     },
+     {
+      "clueFragment": "limits",
+      "gives": "LS",
+      "select": "outer",
+      "note": "the first and last letters of the word limits"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "HARM",
+      "ACE",
+      "UTICA",
+      "LS"
+     ]
+    },
+    "explanation": {
+     "surface": "Drug dealing quietly harms a specialist living near the edges of a New York city.",
+     "walkthrough": "'City limits' reads as one phrase, but 'limits' is split off: its own two ends supply the closing letters.",
+     "definitionFit": "Pharmaceuticals are medicinal drugs, the products of the pharmacy industry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "limits"
+    }
    }
   },
   {
@@ -46,6 +123,49 @@
    "clue": {
     "text": "Infestation said to cover circular area for 4",
     "enumeration": "10"
+   },
+   "solution": "PLAYGROUND",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PLAYGROUND",
+    "definitions": [
+     {
+      "text": "area for 4",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said to cover",
+      "for": "homophone",
+      "note": "said means spoken, and it covers both the following words, so the pair is judged by ear"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Infestation",
+      "gives": "PLAYG",
+      "soundsLike": "PLAGUE",
+      "note": "a plague of insects is an infestation"
+     },
+     {
+      "clueFragment": "circular",
+      "gives": "ROUND",
+      "note": "round means circular"
+     }
+    ],
+    "explanation": {
+     "surface": "A pest outbreak spreads over a circular patch set aside for the youngsters.",
+     "walkthrough": "Spoken quickly, 'plague round' runs together to sound like the answer. The 4 refers to 4-down, CHILDREN.",
+     "definitionFit": "A playground is an outdoor space where children play."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cover"
+    }
    }
   },
   {
@@ -59,6 +179,56 @@
    "clue": {
     "text": "On the way back, help pass around fruit",
     "enumeration": "5"
+   },
+   "solution": "APPLE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "APPLE",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "hidden_word",
+      "note": "the words sit around the target, which lies inside them across the gap"
+     },
+     {
+      "text": "On the way back",
+      "for": "reversal",
+      "note": "going on the way back means travelling in the opposite direction, so the letters are read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "help pass",
+      "gives": "ELPPA",
+      "note": "letters running from inside the first word into the start of the second"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ELPPA",
+       "to": "APPLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Coming home, someone asks for help passing the fruit bowl around.",
+     "definitionFit": "The apple is a common orchard fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pass"
+    }
    }
   },
   {
@@ -72,6 +242,39 @@
    "clue": {
     "text": "Civil servant with a redundant-sounding job",
     "enumeration": "7"
+   },
+   "solution": "MAILMAN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MAILMAN",
+    "definitions": [
+     {
+      "text": "Civil servant",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Civil servant",
+      "note": "surface reading: a government employee, such as a postal worker"
+     },
+     {
+      "clueFragment": "with a redundant-sounding job",
+      "note": "setter's reading: the job title, said out loud, seems to call a man male twice over"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The postal worker's title sounds like 'male man', a phrase that repeats itself.",
+     "definitionFit": "A US postal carrier is a government employee, so a letter carrier counts as a civil servant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "redundant-sounding"
+    }
    }
   },
   {
@@ -85,6 +288,69 @@
    "clue": {
     "text": "Kids in South American country largely misdirected geek",
     "enumeration": "8"
+   },
+   "solution": "CHILDREN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "CHILDREN",
+    "definitions": [
+     {
+      "text": "Kids",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "largely",
+      "for": "deletion",
+      "note": "largely means mostly but not wholly, so the last letter is dropped"
+     },
+     {
+      "text": "misdirected",
+      "for": "anagram",
+      "note": "something misdirected is sent the wrong way, so these letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South American country",
+      "gives": "CHILE",
+      "note": "Chile is a country in South America"
+     },
+     {
+      "clueFragment": "geek",
+      "gives": "NERD",
+      "note": "a nerd is a geek"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHIL",
+      "DREN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NERD",
+       "gives": "DREN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Children in a South American country are mostly led astray by a nerdy type.",
+     "definitionFit": "Kids is the everyday informal word for children."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "misdirected"
+    }
    }
   },
   {
@@ -98,6 +364,59 @@
    "clue": {
     "text": "Got high from a bit of uncensored writing",
     "enumeration": "6"
+   },
+   "solution": "UPROSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "UPROSE",
+    "definitions": [
+     {
+      "text": "Got high",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a bit of",
+      "for": "letter_selection",
+      "note": "a bit of a word is just a small part, here its opening letter"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "uncensored",
+      "gives": "U",
+      "select": "first",
+      "note": "the first letter of uncensored"
+     },
+     {
+      "clueFragment": "writing",
+      "gives": "PROSE",
+      "note": "prose is ordinary writing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "PROSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone became intoxicated from reading a passage of explicit material.",
+     "walkthrough": "'Got high' suggests drugs; here it simply means rose.",
+     "definitionFit": "Uprose is an old literary past tense of uprise, meaning rose upward or ascended."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "high"
+    }
    }
   },
   {
@@ -111,6 +430,69 @@
    "clue": {
     "text": "Ape is the first companion hiding that thing",
     "enumeration": "7"
+   },
+   "solution": "IMITATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "IMITATE",
+    "definitions": [
+     {
+      "text": "Ape",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the first",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter, so only that one is kept"
+     },
+     {
+      "text": "hiding",
+      "for": "container",
+      "note": "a thing that hides another keeps it out of sight inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "I",
+      "select": "first",
+      "note": "the first letter of is"
+     },
+     {
+      "clueFragment": "companion",
+      "gives": "MATE",
+      "note": "a mate is a companion"
+     },
+     {
+      "clueFragment": "that thing",
+      "gives": "IT",
+      "note": "it is the pronoun for a thing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "M",
+      "IT",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A gorilla is the first friend to cover up an object.",
+     "walkthrough": "'Ape' is the verb, not the animal.",
+     "definitionFit": "To ape someone is to copy their manner, which is the meaning of imitate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ape"
+    }
    }
   },
   {
@@ -124,6 +506,58 @@
    "clue": {
     "text": "Compulsion to use a mathematical operation, getting an average grade",
     "enumeration": "9"
+   },
+   "solution": "ADDICTION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ADDICTION",
+    "definitions": [
+     {
+      "text": "Compulsion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting",
+      "for": "container",
+      "note": "the operation is getting a grade the way a body gets an implant, taking it inside"
+     }
+    ],
+    "linkWords": [
+     "to use"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a mathematical operation",
+      "gives": "ADDITION",
+      "note": "addition is one of the four arithmetic operations"
+     },
+     {
+      "clueFragment": "an average grade",
+      "gives": "C",
+      "note": "C is a middling grade on an A to F scale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADDI",
+      "C",
+      "TION"
+     ]
+    },
+    "explanation": {
+     "surface": "A student is driven to do sums but still only earns a middling mark.",
+     "walkthrough": "The grade is slipped into the operation rather than tacked onto the end.",
+     "definitionFit": "An addiction is a habit one feels compelled to repeat, so it is a compulsion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grade"
+    }
    }
   },
   {
@@ -137,6 +571,46 @@
    "clue": {
     "text": "Time to pray for an erotic message",
     "enumeration": "4"
+   },
+   "solution": "SEXT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SEXT",
+    "definitions": [
+     {
+      "text": "Time to pray",
+      "at": 0
+     },
+     {
+      "text": "erotic message",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "for an"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time to pray",
+      "note": "first meaning: the canonical hour of prayer at midday"
+     },
+     {
+      "clueFragment": "erotic message",
+      "note": "second meaning: a sexually explicit text sent by phone"
+     }
+    ],
+    "explanation": {
+     "surface": "It's prayer time, and someone uses it to send a racy text.",
+     "definitionFit": "The word is both the sixth of the monastic daily offices and modern slang for a racy phone text."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pray"
+    }
    }
   },
   {
@@ -150,6 +624,53 @@
    "clue": {
     "text": "Dislodged a firm pile to get equipment for a band",
     "enumeration": "9"
+   },
+   "solution": "AMPLIFIER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AMPLIFIER",
+    "definitions": [
+     {
+      "text": "equipment for a band",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dislodged",
+      "for": "anagram",
+      "note": "something dislodged is knocked out of place, so these letters are moved into a new order"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a firm pile",
+      "gives": "AFIRMPILE",
+      "note": "the fodder, taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AFIRMPILE",
+       "gives": "AMPLIFIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shifts a company's heap of stuff to find gear for their band.",
+     "definitionFit": "An amplifier is a piece of kit that boosts a band's instruments to concert volume."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pile"
+    }
    }
   },
   {
@@ -163,6 +684,53 @@
    "clue": {
     "text": "George Bush is out of cleaning product for table",
     "enumeration": "5"
+   },
+   "solution": "INDEX",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "INDEX",
+    "definitions": [
+     {
+      "text": "table",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is out of",
+      "for": "deletion",
+      "note": "when someone is out of a thing they are no longer in it, so that letter leaves the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "George Bush",
+      "gives": "W",
+      "note": "George W. Bush is widely known by his middle initial, W ('Dubya')"
+     },
+     {
+      "clueFragment": "cleaning product",
+      "gives": "WINDEX",
+      "note": "Windex is a well-known American glass cleaner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INDEX"
+     ]
+    },
+    "explanation": {
+     "surface": "The former president has run out of a spray for cleaning the table.",
+     "walkthrough": "Remove the W from WINDEX to leave INDEX.",
+     "definitionFit": "An index is a table of references, as at the back of a book, so the two words are synonyms there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "table"
+    }
    }
   },
   {
@@ -176,6 +744,42 @@
    "clue": {
     "text": "Single amethyst provides sparkle",
     "enumeration": "5"
+   },
+   "solution": "GLEAM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GLEAM",
+    "definitions": [
+     {
+      "text": "sparkle",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "provides",
+      "for": "hidden_word",
+      "note": "the run of words provides the letters itself, as they sit inside the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Single amethyst",
+      "gives": "GLEAM",
+      "note": "found running across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "One purple gemstone is enough to give a piece some shine.",
+     "definitionFit": "A gleam is a brief flash of light, the same thing as a sparkle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "provides"
+    }
    }
   },
   {
@@ -189,6 +793,58 @@
    "clue": {
     "text": "Laurel interrupts game of chance, resulting in separation",
     "enumeration": "8"
+   },
+   "solution": "DISTANCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DISTANCE",
+    "definitions": [
+     {
+      "text": "separation",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupts",
+      "for": "container",
+      "note": "something that interrupts breaks into the middle of another thing, so one piece is placed inside the other"
+     }
+    ],
+    "linkWords": [
+     "resulting in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game of chance",
+      "gives": "DICE",
+      "note": "dice is a game of chance"
+     },
+     {
+      "clueFragment": "Laurel",
+      "gives": "STAN",
+      "note": "Stan Laurel, of the comedy double act Laurel and Hardy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "STAN",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A laurel wreath gets in the way of a gambling game and drives people apart.",
+     "walkthrough": "Laurel is not the plant but the comedian Stan Laurel.",
+     "definitionFit": "Distance is the amount of separation between two things or people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Laurel"
+    }
    }
   },
   {
@@ -202,6 +858,64 @@
    "clue": {
     "text": "Oh! Nice broadcast before musical becomes chaotic",
     "enumeration": "10"
+   },
+   "solution": "INCOHERENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "INCOHERENT",
+    "definitions": [
+     {
+      "text": "chaotic",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "to broadcast is to scatter widely, as seed is sown, so these letters are scattered"
+     }
+    ],
+    "linkWords": [
+     "before",
+     "becomes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oh! Nice",
+      "gives": "OHNICE",
+      "note": "the fodder, taken letter for letter"
+     },
+     {
+      "clueFragment": "musical",
+      "gives": "RENT",
+      "note": "Rent is Jonathan Larson's Broadway rock musical"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INCOHE",
+      "RENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OHNICE",
+       "gives": "INCOHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pleasant radio slot ahead of a show turns into a mess.",
+     "definitionFit": "Something incoherent lacks order or sense, so it is muddled and chaotic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
    }
   },
   {
@@ -215,6 +929,46 @@
    "clue": {
     "text": "Lawbreaker to kill Terminator",
     "enumeration": "8"
+   },
+   "solution": "OFFENDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OFFENDER",
+    "definitions": [
+     {
+      "text": "Lawbreaker",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to kill",
+      "gives": "OFF",
+      "note": "to off someone is slang for to kill them"
+     },
+     {
+      "clueFragment": "Terminator",
+      "gives": "ENDER",
+      "note": "an ender is something that terminates"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFF",
+      "ENDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A criminal sets out to kill the cyborg from the Terminator films.",
+     "definitionFit": "An offender is a person who commits an offence, someone who breaks the law."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Terminator"
+    }
    }
   },
   {
@@ -228,6 +982,68 @@
    "clue": {
     "text": "Plump fish losing roe, to begin with, and gaining offspring",
     "enumeration": "9"
+   },
+   "solution": "FATHERING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "FATHERING",
+    "definitions": [
+     {
+      "text": "gaining offspring",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing something means it goes missing, so a letter drops out"
+     },
+     {
+      "text": "to begin with",
+      "for": "deletion",
+      "note": "to begin with points to the opening letter of the word before it, which is the one lost"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plump",
+      "gives": "FAT",
+      "note": "plump means fat"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "HERRING",
+      "note": "the herring is a common food fish"
+     },
+     {
+      "clueFragment": "roe",
+      "gives": "R",
+      "note": "the opening letter of roe, the one taken away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAT",
+      "HERING"
+     ]
+    },
+    "explanation": {
+     "surface": "A chubby fish that has shed its eggs is producing young.",
+     "walkthrough": "HERRING has two Rs; dropping one leaves FAT + HERING.",
+     "definitionFit": "Fathering is siring children, which is how a man comes to have offspring."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "roe"
+    }
    }
   },
   {
@@ -241,6 +1057,53 @@
    "clue": {
     "text": "Sketch is badly singed",
     "enumeration": "6"
+   },
+   "solution": "DESIGN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DESIGN",
+    "definitions": [
+     {
+      "text": "Sketch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "something done badly is botched, so these letters come out in the wrong order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "singed",
+      "gives": "SINGED",
+      "note": "the fodder, taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SINGED",
+       "gives": "DESIGN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drawing has been scorched in a fire.",
+     "definitionFit": "A design is a drawing or plan, much the same as a sketch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sketch"
+    }
    }
   },
   {
@@ -260,6 +1123,67 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "ALOEVERA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ALOE VERA",
+    "definitions": [
+     {
+      "text": "it's soothing",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "takes",
+      "for": "container",
+      "note": "taking something in means holding it inside, so a letter goes into the middle"
+     },
+     {
+      "text": "while in",
+      "for": "container",
+      "note": "being in something means sitting within it, so this group goes inside the outer pair"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a rehab program",
+      "gives": "AA",
+      "note": "AA, Alcoholics Anonymous, runs a recovery programme"
+     },
+     {
+      "clueFragment": "Paramour",
+      "gives": "LOVER",
+      "note": "a paramour is a lover"
+     },
+     {
+      "clueFragment": "ecstasy",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LO",
+      "E",
+      "VER",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A lover in recovery slips back onto ecstasy, finding it calming.",
+     "definitionFit": "Aloe vera gel is used as a balm for burns and dry skin, a classic soothing remedy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ecstasy"
+    }
    }
   },
   {
@@ -273,6 +1197,51 @@
    "clue": {
     "text": "Particle with zero charge? There's an idea",
     "enumeration": "6"
+   },
+   "solution": "NOTION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOTION",
+    "definitions": [
+     {
+      "text": "idea",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "There's an"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with zero charge?",
+      "gives": "NOT",
+      "note": "a particle carrying no charge is not one of the charged kind"
+     },
+     {
+      "clueFragment": "Particle",
+      "gives": "ION",
+      "note": "an ion is an electrically charged particle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOT",
+      "ION"
+     ]
+    },
+    "explanation": {
+     "surface": "A physicist proposes a neutral particle and is pleased with the thought.",
+     "walkthrough": "The question mark flags the joke: a particle with zero charge is, by definition, NOT an ION.",
+     "definitionFit": "A notion is a thought or concept, the same as an idea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "charge"
+    }
    }
   },
   {
@@ -292,6 +1261,54 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "OPENAIR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OPEN AIR",
+    "definitions": [
+     {
+      "text": "outdoors",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bizarre",
+      "for": "anagram",
+      "note": "bizarre means strange or freakish, so these letters end up in an odd order"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "opera in",
+      "gives": "OPERAIN",
+      "note": "the fodder, taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OPERAIN",
+       "gives": "OPENAIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strange opera is being staged outside.",
+     "walkthrough": "'In the outdoors' looks like a phrase, but 'in' belongs to the fodder.",
+     "definitionFit": "Open-air describes things happening outside, the same idea as outdoors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
    }
   },
   {
@@ -305,6 +1322,50 @@
    "clue": {
     "text": "Bird is on fire on disc",
     "enumeration": "8"
+   },
+   "solution": "FLAMINGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLAMINGO",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on fire",
+      "gives": "FLAMING",
+      "note": "something on fire is flaming"
+     },
+     {
+      "clueFragment": "disc",
+      "gives": "O",
+      "note": "the letter O is disc-shaped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLAMING",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird has caught fire on a record or a plate.",
+     "walkthrough": "The first 'on' is part of 'on fire'; the second just places the piece in front of the disc.",
+     "definitionFit": "The flamingo is a tall pink wading bird."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "disc"
+    }
    }
   },
   {
@@ -318,6 +1379,54 @@
    "clue": {
     "text": "Bee beneath mother's tree",
     "enumeration": "7"
+   },
+   "solution": "MADRONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MADRONE",
+    "definitions": [
+     {
+      "text": "tree",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beneath",
+      "for": "charade",
+      "note": "in a down entry, whatever sits beneath comes lower, so the bee is placed after the mother"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mother's",
+      "gives": "MA",
+      "note": "ma is mother; the 's is read as 'has' and links"
+     },
+     {
+      "clueFragment": "Bee",
+      "gives": "DRONE",
+      "note": "a drone is a male bee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "DRONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A bee is buzzing below Mum's tree.",
+     "walkthrough": "In a down clue 'beneath' puts the bee below the mother, so it comes second.",
+     "definitionFit": "The madrone is a red-barked evergreen of western North America, also called the madrona."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bee"
+    }
    }
   },
   {
@@ -331,6 +1440,50 @@
    "clue": {
     "text": "A catchphrase is almost a way to catch someone",
     "enumeration": "6"
+   },
+   "solution": "MANTRA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MANTRA",
+    "definitions": [
+     {
+      "text": "A catchphrase",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means nearly but not quite, so the last letter is cut"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a way to catch someone",
+      "gives": "MANTRAP",
+      "note": "a mantrap is a trap set to catch people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MANTRA"
+     ]
+    },
+    "explanation": {
+     "surface": "A snappy slogan is nearly enough to trap someone.",
+     "definitionFit": "A mantra is a phrase or slogan repeated over and over, like a catchphrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "catch"
+    }
    }
   },
   {
@@ -344,6 +1497,53 @@
    "clue": {
     "text": "Emissary from the French at the door",
     "enumeration": "8"
+   },
+   "solution": "DELEGATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DELEGATE",
+    "definitions": [
+     {
+      "text": "Emissary",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "from",
+      "gives": "DE",
+      "note": "de is French for from"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is a French word for the"
+     },
+     {
+      "clueFragment": "at the door",
+      "gives": "GATE",
+      "note": "the gate is the money taken at the door of an event"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "LE",
+      "GATE"
+     ]
+    },
+    "explanation": {
+     "surface": "An envoy from France has turned up on the doorstep.",
+     "walkthrough": "'French' covers both 'from' and 'the', giving two French words in a row.",
+     "definitionFit": "A delegate is a person sent to represent others, which is what an emissary is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "door"
+    }
    }
   },
   {
@@ -357,6 +1557,61 @@
    "clue": {
     "text": "Prodded peacenik to accept end of war",
     "enumeration": "5"
+   },
+   "solution": "DROVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DROVE",
+    "definitions": [
+     {
+      "text": "Prodded",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that one is kept"
+     },
+     {
+      "text": "to accept",
+      "for": "container",
+      "note": "accepting something means taking it in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peacenik",
+      "gives": "DOVE",
+      "note": "a dove is a person who favours peace"
+     },
+     {
+      "clueFragment": "war",
+      "gives": "R",
+      "select": "last",
+      "note": "the last letter of war"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "R",
+      "OVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone nudged a pacifist into agreeing that the fighting must stop.",
+     "definitionFit": "To drive cattle is to urge them forward, so drove is another word for prodded along."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "accept"
+    }
    }
   },
   {
@@ -370,6 +1625,55 @@
    "clue": {
     "text": "At first, orchids are green",
     "enumeration": "5"
+   },
+   "solution": "OLIVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OLIVE",
+    "definitions": [
+     {
+      "text": "green",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "At first",
+      "for": "letter_selection",
+      "note": "at first means at the very start, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "orchids",
+      "gives": "O",
+      "select": "first",
+      "note": "the first letter of orchids"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "LIVE",
+      "note": "to be is to exist or live, so 'are' can stand for 'live'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "LIVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Orchids start out with green colouring.",
+     "definitionFit": "Olive is a dull yellowish shade of green, the colour of unripe olives."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "are"
+    }
    }
   },
   {
@@ -383,6 +1687,45 @@
    "clue": {
     "text": "That woman's a goddess",
     "enumeration": "4"
+   },
+   "solution": "HERA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HERA",
+    "definitions": [
+     {
+      "text": "goddess",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "That woman's",
+      "gives": "HER",
+      "note": "her is the possessive pronoun for that woman"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HER",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone points out a woman and calls her divine.",
+     "definitionFit": "Hera is the queen of the Greek gods, wife of Zeus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
    }
   },
   {
@@ -396,6 +1739,48 @@
    "clue": {
     "text": "Musical résumé online?",
     "enumeration": "5"
+   },
+   "solution": "EVITA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EVITA",
+    "definitions": [
+     {
+      "text": "Musical",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "online",
+      "gives": "E",
+      "note": "e- is the prefix for electronic or online things, as in email"
+     },
+     {
+      "clueFragment": "résumé",
+      "gives": "VITA",
+      "note": "a vita (curriculum vitae) is an academic résumé"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "VITA"
+     ]
+    },
+    "explanation": {
+     "surface": "A performer's CV for a stage show is posted on the internet.",
+     "walkthrough": "The answer reads as an online version of a vita: e-vita.",
+     "definitionFit": "Evita is the Andrew Lloyd Webber and Tim Rice stage musical about Eva Perón."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Musical"
+    }
    }
   },
   {
@@ -415,6 +1800,39 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "THEPOLICE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "THE POLICE",
+    "definitions": [
+     {
+      "text": "Sting set in motion by them!",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sting set in motion by them!",
+      "note": "surface reading: an undercover sting operation, launched by law enforcement officers"
+     },
+     {
+      "clueFragment": "Sting",
+      "note": "setter's reading: the singer Sting, whose career was launched by the band he fronted"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Both readings point to one name: the force that runs sting operations and the rock band that made the singer famous.",
+     "definitionFit": "The rock trio formed in London in 1977 made Sting a star, and police forces carry out sting operations."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sting"
+    }
    }
   },
   {
@@ -434,6 +1852,71 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "ANGERMANAGEMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ANGER MANAGEMENT",
+    "definitions": [
+     {
+      "text": "what it takes to stay in control",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capturing",
+      "for": "container",
+      "note": "a captor holds its prisoner inside, so the following pieces sit within the first"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldier, possibly",
+      "gives": "ANT",
+      "note": "a soldier is one caste of ant, hence 'possibly'"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "GERMAN",
+      "note": "a German is a European"
+     },
+     {
+      "clueFragment": "era",
+      "gives": "AGE",
+      "note": "an age is an era"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "MEN",
+      "note": "men is a common word for soldiers, as in officers and men"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "GERMAN",
+      "AGE",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier rounds up troops from an earlier European period, as needed to stay in charge.",
+     "walkthrough": "'Soldier' looks like the definition, but with 'possibly' it is an insect.",
+     "definitionFit": "Anger management is therapy for keeping one's temper in check, so it is the skill needed to keep control of oneself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Soldier"
+    }
    }
   }
  ]
