@@ -85,7 +85,7 @@ print("kern-rejoin", G.flat("T earful T going T his T urpin X and"))
 # it ("Tgoing", "Xsupport") is the join above. genius-210's preamble is
 # enciphered ("Pof pg uiftf"); NAMES are names the lexicon lacks.
 import re, ft_pdf_puzzles as fpp
-glued, NAMES = [], {"Edam", "Jones"}
+glued, NAMES = [], {"Edam", "Jones", "Vera"}
 for f in sorted(glob.glob("puzzles/genius/*/*.json")):
     p = json.load(open(f))
     if p["id"] == "genius-210":

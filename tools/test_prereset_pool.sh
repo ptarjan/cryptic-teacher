@@ -237,6 +237,7 @@ POOL_LAUNCH_GAP_US=100000 POOL_CHECK_SECS=0 POOL_SYNC_SECS=1 POOL_POLL_SECS=0.2
 RUN_LOG="$tree/runlog" PRERESET_SELF="$0" SHELL_FILES=("$0") RUNS="$tree/runs" DRY_RUN=0
 queue=($IDS) at=0 requeued=" " resumed=" " naps=0 NAPPED=0 WAVE_FAILED_IDS=() wide=""
 resets_in=1 RESET_AT=0 STOP_AT=0 MAX_NAPS=1 POOL_PHASE=annotate fields=() field_i=0
+SYNC_OK_US=${EPOCHREALTIME/[.,]/}  # set at the script's top level; reexec_self carries it
 if [ -n "${CT_PRERESET_STATE:-}" ]; then
   st=$CT_PRERESET_STATE; unset CT_PRERESET_STATE
   reexec_load "$st"
@@ -263,6 +264,7 @@ past_deadline() { false; }
 needs_solve() { false; }
 worker_put_back() { :; }
 worker_kind() { echo; }
+worker_implausible() { false; }
 alert() { echo "ALERT $*" >>"$EVENTS"; }
 git() { echo abc1234; }
 python3() {
