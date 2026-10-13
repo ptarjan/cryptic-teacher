@@ -74,21 +74,62 @@ def entry_id(entry):
     return f"{entry['number']}-{entry['direction']}"
 
 
-def display_answer(entry, puzzle=None):
-    """The answer spaced and hyphenated as the enumeration divides it; a
-    linked answer joins its group's lights in order, a mark at a light's
-    length falling between it and the next."""
+def _light_marks(light):
+    """{letters before it: mark text} for one leg of a linked answer: its
+    printed enumeration where that adds up to the leg, else none. Its
+    separators are no help: a lead's are cut from the whole group's
+    enumeration, and a "See 18" leg's are strays (cryptic-21913 24D LONG,
+    (4), has one after LO)."""
+    sol = str(light.get("solution") or "")
+    got = _enum_marks((light.get("clue") or {}).get("enumeration"))
+    return got[0] if got and got[1] == len(sol) else {}
+
+
+def _lights(entry, puzzle=None):
+    """The lights a (possibly linked) answer runs through, in order."""
     by_id = {entry_id(e): e for e in (puzzle or {}).get("entries") or []}
     by_id[entry_id(entry)] = entry
-    out = []
-    for eid in entry.get("group") or [entry_id(entry)]:
-        light = by_id[eid]
+    return [by_id[eid] for eid in entry.get("group") or [entry_id(entry)]]
+
+
+def group_marks(lights):
+    """{letters before it: mark text} over a linked answer's joined letters
+    from its lead's printed enumeration (DANCE TO THE MUSIC OF TIME
+    (5,2,3,5,2,4) on a 15-letter light), or None when that enumeration does
+    not add up to the whole answer (Private Eye prints each leg's own
+    length: (4) on WORK of WORK OF ART). A light may end mid-word: ROOK +
+    SPAWN is ROOKS PAWN (5,4), and FIREWATER (9) spans two lights. A group
+    stored in another order than the answer reads (cryptic-21673's
+    INTEREST + VESTED under (6,8)) is a data fault no spacing mends."""
+    sols = [str(lt.get("solution") or "") for lt in lights]
+    got = _enum_marks((lights[0].get("clue") or {}).get("enumeration"))
+    return got[0] if got and got[1] == sum(map(len, sols)) else None
+
+
+def display_answer(entry, puzzle=None):
+    """The answer spaced and hyphenated as the enumeration divides it. A
+    linked answer joins its group's lights in order, spaced by group_marks
+    where the lead's enumeration speaks for the whole; otherwise each light
+    is spaced by its own enumeration (or separators), and a word break falls
+    between lights."""
+    lights = _lights(entry, puzzle)
+    if len(lights) == 1:
         marks = {}
-        for s in (light.get("clue") or {}).get("separators") or []:
+        for s in (entry.get("clue") or {}).get("separators") or []:
             marks[s["at"]] = marks.get(s["at"], "") + MARK_TEXT.get(s["mark"], " ")
-        for k, ch in enumerate(str(light.get("solution") or ""), 1):
-            out.append(ch + marks.get(k, ""))
-    return "".join(out).strip(" -")
+        sol = str(entry.get("solution") or "")
+        return "".join(ch + marks.get(k, "") for k, ch in enumerate(sol, 1)).strip(" -")
+    marks = group_marks(lights)
+    if marks is not None:
+        whole = "".join(str(lt.get("solution") or "") for lt in lights)
+        return "".join(ch + marks.get(k, "") for k, ch in enumerate(whole, 1)).strip(" -")
+    out = []
+    for n, light in enumerate(lights):
+        marks, sol = _light_marks(light), str(light.get("solution") or "")
+        out += [ch + marks.get(k, "") for k, ch in enumerate(sol, 1)]
+        if n < len(lights) - 1 and not marks.get(len(sol)):
+            out.append(" ")
+    return re.sub(r" {2,}", " ", "".join(out)).strip(" -")
 
 
 # An enumeration this code reads as word lengths and the marks between them:
@@ -115,7 +156,10 @@ def _enum_marks(enum):
 # Series whose printed enumerations count letters only (Azed marks a word
 # break in 23 of 19,690, the Listener in none): their answers' spacing is a
 # fact the enumeration can't give, kept as `spelling` (tools/convert_v2.py).
-LETTER_COUNT_ONLY = {"azed", "listener"}
+# Mephisto prints "(10, two words)" where Chambers has two words (filed as
+# 6,4 with separators) and a bare count for one word or a hyphenated one:
+# USED-UP (6), LOG-HOUSE (8), L-PLATES (7); hyphens in 2 of 15,459.
+LETTER_COUNT_ONLY = {"azed", "listener", "mephisto"}
 
 
 def answer_marks(entry, puzzle=None):
