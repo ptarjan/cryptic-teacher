@@ -255,8 +255,10 @@ def view(ann, entry, puzzle=None):
         out["linkWords"] = links
     # A double definition's blocks say what each definition means (`meaning`,
     # or its `note` when it has no separate meaning).
-    out["blocks"] = (_blocks(tree, got) if tree else
-                     [_block(clueFragment=d["text"], note=d.get("meaning", d.get("note"))) for d in defs])
+    dd_blocks = [_block(clueFragment=d["text"], note=d.get("meaning", d.get("note"))) for d in defs]
+    # A tree that gives no block (a palindrome of the whole answer) leaves a
+    # double definition its definitions' blocks.
+    out["blocks"] = (_blocks(tree, got) or (dd_blocks if len(defs) > 1 else [])) if tree else dd_blocks
     if tree and (asm := _assembly(tree, got)):
         out["assembly"] = asm
     for key in ("explanation", "features", "hiddenLetter"):

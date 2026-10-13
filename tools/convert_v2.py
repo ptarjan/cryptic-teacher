@@ -20,6 +20,28 @@ both ways). Two definitions are a double definition, wordplay or not.
 Double-definition and &lit indicators steer the definitions, not the
 letters, so they hang on the nearest definition, not on an op.
 
+Policy for stored annotations that contradict themselves (the plan's section
+"Bad data", /data/home/.cryptic-teacher/design/puzzle_format_v2.md): nothing
+good is thrown away, and one bad clue costs only itself.
+
+  * Salvage, nothing flagged: an answer whose letters match but whose spacing
+    contradicts the printed enumeration (the enumeration and separators win,
+    the stored spacing is dropped unless it is the enumeration's own and the
+    entry has no separators); a preamble step stored as a clue type on a
+    double definition (reversal, substitution), which has no letters to check
+    and is dropped from the type; a double definition's pun-step indicators,
+    which hang on its definitions; an annotation whose entry has no key
+    keeps its answer as `spelling`.
+  * Redo, that clue only (`migrate_puzzle` drops the entry's `annotation`):
+    a double definition with one definition, or with a block that is none of
+    its definitions, and every other failure `check` reports. A clue with no
+    annotation is what the burn already picks up: the index calls the puzzle
+    un-annotated (prereset_plan.backlog) and annotate_check.to_write hands the
+    run those clues only, every other annotation as fixed context. No new
+    queue: re-adding the annotation is the only thing that clears it.
+  * The source key can be wrong, so where the answer's letters differ from the
+    entry's solution the clue is redone, not the annotation trusted.
+
 `puzzle_names(puzzle)` gives the facts a puzzle's `name` holds beyond
 series.display_name() (`prize`, `title`, `label`).
 
@@ -38,6 +60,7 @@ import sys
 import unicodedata
 
 import annotation
+import enumeration
 import wordplay as W
 
 L = W.letters
@@ -54,7 +77,8 @@ SEARCH = ("charade", "reversal", "container", "anagram", "deletion")
 # Diffs accepted by design (the brief's decisions, and derived fields recomputed).
 ACCEPTED = {"container outer first", "type order", "indicator for filled", "linkWords recomputed",
             "assembly recomputed", "gives before the op", "soundsLike as letters",
-            "double definition meaning kept apart", "block order", "double definition gives the answer"}
+            "double definition meaning kept apart", "block order", "double definition gives the answer",
+            "double definition step indicators on the definitions", "answer respaced to the enumeration"}
 
 
 class Unconvertible(Exception):
@@ -63,6 +87,13 @@ class Unconvertible(Exception):
     def __init__(self, kind, detail=""):
         super().__init__(f"{kind}: {detail}")
         self.kind = kind
+
+
+def _is_definition(block, def_texts):
+    """Whether a block's words are a definition's (by their letters), give or
+    take punctuation or a word or two the one has and the other leaves out."""
+    f = L(block.get("clueFragment"))
+    return bool(f) and any(f in t or t in f for t in def_texts)
 
 
 def _bag(s):
@@ -81,13 +112,40 @@ def _leaf(block, gives=None, force=False):
     return n
 
 
-def _unit(block, sel_inds, hidden, homophone=True):
+def _selected(block, sel, sel_inds):
+    """The letters a selection block gives when it files none (the letter
+    removed or kept, named only by the selection): what the selection makes
+    of its words, the words less an indicator inside them first; '' unless
+    that is one reading."""
+    words = block["clueFragment"]
+    op = "nth" if isinstance(sel, int) else sel
+    if op not in W.SELECT:
+        return ""
+    trims = [L(words.replace(t, " ", 1)) for t in sel_inds if t in words] + [None]
+    for gv in trims:
+        node = {"op": op, "parts": [_leaf(block, gv, gv is not None)]}
+        if op == "nth":
+            node["n"] = sel
+        try:
+            vals = W.values(node)
+        except W.WordplayError:
+            continue
+        if len(vals) == 1 and "" not in vals:
+            return next(iter(vals))
+    return ""
+
+
+def _unit(block, sel_inds, hidden, homophone=True, all_inds=()):
     """(node, letters, types) for one block: a leaf, or a selection, homophone
     or hidden word of one leaf."""
     words, g = block.get("clueFragment"), L(block.get("gives"))
     sel, snd = block.get("select"), block.get("soundsLike")
+    if not g and sel is not None and snd is None and words:
+        g = _selected(block, sel, list(sel_inds) + [t for t in all_inds if t not in sel_inds])
     if not g:
-        return {**_leaf(block), "gives": "", "unchecked": True}, "", set()
+        # (A selection or sound the block gives no letters for stays on the leaf.)
+        keep = {k: block[k] for k in ("select", "soundsLike") if block.get(k) is not None}
+        return {**_leaf(block), **keep, "gives": "", "unchecked": True}, "", set()
     if snd is not None and sel is None and homophone:
         return ({"op": "homophone", "spelt": g, "parts": [_leaf(block, L(snd), True)]}, g, {"homophone"})
     if sel is not None and snd is None and words:
@@ -305,9 +363,22 @@ def convert(ann, entry, puzzle=None):
             # No enumeration to space it by (a Listener's): the spacing is a fact.
             out["spelling"] = stored
         elif L(stored) == L(display):
-            raise Unconvertible("answer contradicts enumeration", f"{stored} vs {display}")
+            # The letters agree; only the spacing or the hyphens differ from what
+            # the entry derives. The printed enumeration and separators win: the
+            # stored spacing is kept as `spelling` only where it is the
+            # enumeration's own and the entry has no separators to say it.
+            words = [len(L(w)) for w in re.split(r"[ \-'’]", stored) if L(w)]
+            if words == _printed_counts(entry, puzzle) \
+                    and not _separated(entry, puzzle):
+                out["spelling"] = stored
+            else:
+                notes.add("answer respaced to the enumeration")
         else:
             out["spelling"] = stored
+    if display is None and stored:
+        # The source has no key for this light: the annotation's answer is the
+        # only one there is, so it is kept as the spelling.
+        out["spelling"] = stored
     if defs is not None:
         out["definitions"] = defs
     blocks = [b for b in ann.get("blocks") or [] if isinstance(b, dict)]
@@ -318,10 +389,12 @@ def convert(ann, entry, puzzle=None):
         _attach_to_definitions(out.get("definitions"), def_inds, (entry.get("clue") or {}).get("text") or "")
     tset = set(types)
     want = annotation.wordplay_letters(ann, entry)
-    def_texts = {d.get("text") for d in defs or []}
-    if "double_definition" in tset and any(b.get("gives") for b in blocks) and all(
-            b.get("clueFragment") in def_texts and L(b.get("gives")) == want
-            and b.get("soundsLike") is None and b.get("select") is None for b in blocks if b.get("gives")):
+    def_texts = {L(d.get("text")) for d in defs or []}
+    if "double_definition" in tset and len(defs or []) > 1 and any(b.get("gives") for b in blocks) and all(
+            L(b.get("gives")) == want and b.get("soundsLike") is None and b.get("select") is None
+            for b in blocks if b.get("gives")):
+        if not all(_is_definition(b, def_texts) for b in blocks):
+            raise Unconvertible("double definition block that is no definition")
         # Each definition filed as a block giving the whole answer: they are
         # the definitions, and give nothing a definition doesn't.
         notes.add("double definition gives the answer")
@@ -334,18 +407,19 @@ def convert(ann, entry, puzzle=None):
         if not defs or len(defs) < 2:
             raise Unconvertible("double definition with one definition")
         tree = None
-        by_text = collections.defaultdict(list)
-        for b in blocks:
-            by_text[b.get("clueFragment")].append(b)
+        spare = list(blocks)
         for d in defs:
-            b = by_text.get(d["text"]) and by_text[d["text"]].pop(0)
+            fits = [b for b in spare if _is_definition(b, {L(d["text"])})]
+            b = fits and next((x for x in fits if L(x.get("clueFragment")) == L(d["text"])), fits[0])
+            if b:
+                spare.remove(b)
             if b and b.get("note") and b["note"] != d.get("note"):
                 if d.get("note"):
                     notes.add("double definition meaning kept apart")
                 d["meaning"] = b["note"]
             elif b and not b.get("note") and d.get("note"):
                 d["meaning"] = ""
-        if any(by_text.values()):
+        if spare:
             raise Unconvertible("double definition block that is no definition")
     elif "cryptic_definition" in tset and not any(b.get("gives") for b in blocks):
         tree = {"op": "cryptic", "parts": [_leaf(b) for b in blocks]} if blocks else None
@@ -356,7 +430,7 @@ def convert(ann, entry, puzzle=None):
                            (entry.get("clue") or {}).get("text") or "")
     if tree is not None:
         want = annotation.wordplay_letters(ann, entry)
-        _attach(tree, inds, tset, want)
+        _attach(tree, inds, tset, want, types)
         # A stored type no op of the tree does (a step done inside one block,
         # with no indicator) is kept as an unchecked op of that type round it.
         have = {annotation.OP_TYPE[n["op"]] for n in _walk(tree) if "op" in n}
@@ -366,7 +440,12 @@ def convert(ann, entry, puzzle=None):
                 have.add(t)
         out["wordplay"] = tree
     elif inds:
-        raise Unconvertible("indicators with no wordplay")
+        if "double_definition" not in tset or not out.get("definitions"):
+            raise Unconvertible("indicators with no wordplay")
+        # A double definition's pun step (a dropped letter, a reversal) has no
+        # letters to check: its indicators hang on the definitions.
+        _attach_to_definitions(out["definitions"], inds, (entry.get("clue") or {}).get("text") or "")
+        notes.add("double definition step indicators on the definitions")
     for key in ("explanation", "features", "definedByPreamble", "hiddenLetter"):
         if key in ann:
             out[key] = ann[key]
@@ -383,6 +462,21 @@ def convert(ann, entry, puzzle=None):
 LETTER_COUNT_ONLY = {"azed", "listener"}
 
 
+def _printed_counts(entry, puzzle):
+    """The word lengths the enumerations print for the answer: each light's,
+    in order, for a linked answer."""
+    by_id = {annotation.entry_id(e): e for e in (puzzle or {}).get("entries") or []}
+    lights = [by_id.get(i, entry) for i in entry.get("group") or []] or [entry]
+    return [n for x in lights for n in enumeration.counts((x.get("clue") or {}).get("enumeration"))]
+
+
+def _separated(entry, puzzle):
+    """Whether any light of the answer has separators (the marks between its words)."""
+    by_id = {annotation.entry_id(e): e for e in (puzzle or {}).get("entries") or []}
+    lights = [by_id.get(i, {}) for i in entry.get("group") or []] or [entry]
+    return any((x.get("clue") or {}).get("separators") for x in lights)
+
+
 def _enumerated(entry, puzzle):
     """Whether any light of the answer prints an enumeration or separators
     that could space it."""
@@ -397,7 +491,8 @@ def _tree(blocks, inds, tset, want, ann, notes):
     sel_inds = [i["text"] for i in inds if i.get("for") == "letter_selection" and i.get("text")]
     units, vals, fixed = [], [], set()
     for b in blocks:
-        node, v, ts = _unit(b, sel_inds, "hidden_word" in tset, "homophone" in tset)
+        node, v, ts = _unit(b, sel_inds, "hidden_word" in tset, "homophone" in tset,
+                              [i["text"] for i in inds if i.get("text")])
         if "+pre-op" in ts:
             notes.add("gives before the op")
             ts = ts - {"+pre-op"}
@@ -494,7 +589,7 @@ def _attach_to_definitions(defs, inds, clue):
         d.setdefault("indicators", []).append(new)
 
 
-def _attach(tree, inds, tset, want):
+def _attach(tree, inds, tset, want, order=()):
     """Hang each indicator on an op of the type its `for` names; one with no
     such op wraps the tree in an unchecked op of that type."""
     for ind in inds:
@@ -518,6 +613,11 @@ def _attach(tree, inds, tset, want):
                 if op == "nth":
                     leaf["n"] = inner["select"]
                 nodes = [leaf]
+        if not nodes and not t:
+            # A blank `for` on a tree with no op to take it (one leaf filed with
+            # a selection and a sound): the next stored type no op has yet.
+            have = {annotation.OP_TYPE[n["op"]] for n in _walk(tree) if "op" in n}
+            t = next((x for x in order if x in TYPE_OP and x != "charade" and x not in have), None)
         if not nodes:
             if t not in TYPE_OP:
                 raise Unconvertible("indicator for a type with no op", t)
@@ -540,6 +640,22 @@ def _plain(x):
     return json.dumps(x, sort_keys=True, ensure_ascii=False)
 
 
+def _dd_blocks_match(old, new):
+    """Whether each stored block of a double definition is one of the view's
+    (a definition, by its letters: the stored fragment may differ from the
+    definition only in punctuation, and a definition may have no block)."""
+    rest = list(new)
+    for b in old:
+        for k, v in enumerate(rest):
+            if _is_definition(b, {L(v.get("clueFragment"))}) and (
+                    not b.get("note") or b.get("note") == v.get("note")):
+                del rest[k]
+                break
+        else:
+            return False
+    return True
+
+
 def compare(old, new, view):
     """Kinds of difference between the stored annotation and view() of the
     converted one: (accepted, failed)."""
@@ -555,11 +671,18 @@ def compare(old, new, view):
                 acc.add("type recomputed (charade dropped)")
             elif t == "double_definition" and len(old.get("definitions") or []) < 2:
                 bad.add("double definition with one definition")
+            elif "double_definition" in ot and not new.get("wordplay") and len(old.get("definitions") or []) > 1:
+                # A pun step of a double definition (a preamble reversal, a
+                # dropped letter) has no letters to check, so no op and no
+                # type: its indicators ride on the definitions.
+                acc.add("double definition step type dropped")
             else:
                 bad.add(f"type lost: {t}")
         for t in sorted(set(vt) - set(ot)):
             # Two definitions are a double definition, whatever the list said.
-            if t in checked or (t == "double_definition" and len(old.get("definitions") or []) > 1):
+            if t in checked or (t == "double_definition" and len(old.get("definitions") or []) > 1) or (
+                    t == "charade" and not any(n.get("op") == "charade" and not n.get("unchecked")
+                                               for n in _walk(new.get("wordplay") or {}))):
                 acc.add(f"type recomputed (+{t})")
             else:
                 bad.add(f"type added: {t}")
@@ -579,7 +702,7 @@ def compare(old, new, view):
                     if any(o.get("text") == i["text"] and o.get("for") for o in old.get("indicators") or []))
         if any(not i.get("for") for i in old.get("indicators") or []):
             acc.add("indicator for filled")
-        if of != vf:
+        if of != vf and not ("double_definition" in ot and not new.get("wordplay")):
             bad.add("indicator for changed")
     if (old.get("linkWords") or []) != (view.get("linkWords") or []):
         acc.add("linkWords recomputed")
@@ -596,6 +719,8 @@ def compare(old, new, view):
         elif [{k: v for k, v in b.items() if k != "gives"} for b in nob] == \
                 [{k: v for k, v in b.items() if k != "gives"} for b in nvb]:
             acc.add("gives before the op")
+        elif ("double_definition" in ot or "and_lit" in ot) and _dd_blocks_match(nob, nvb):
+            acc.add("double definition blocks recomputed")
         else:
             bad.add("blocks differ")
     oa, va = old.get("assembly") or {}, view.get("assembly") or {}
@@ -639,6 +764,30 @@ def check(ann, entry, puzzle=None):
     if unchecked:
         acc.add("unchecked step kept")
     return ("normalised" if acc else "exact"), acc, new
+
+
+# ---------- the rewrite: the policy applied ----------
+
+def migrate_puzzle(puzzle):
+    """(puzzle with every annotation in v2 form, {entry id: kinds} redone).
+
+    An entry that converts takes its v2 annotation. One that does not (a
+    `check` failure: the module docstring's policy) loses its `annotation`
+    and nothing else: the burn's own queue re-annotates exactly the clues
+    without one, and every other clue keeps its work. The input is not
+    changed."""
+    out = copy.deepcopy(puzzle)
+    redo = {}
+    for e in out.get("entries") or []:
+        if not isinstance(e, dict) or not e.get("annotation"):
+            continue
+        status, kinds, new = check(e["annotation"], e, puzzle)
+        if status == "failed":
+            redo[f"{puzzle.get('id')}/{e.get('number')}-{e.get('direction')}"] = sorted(kinds)
+            del e["annotation"]
+        else:
+            e["annotation"] = new
+    return out, redo
 
 
 # ---------- puzzle names ----------
@@ -690,7 +839,8 @@ def dry_run(root, report, limit=None):
                  + ("." if done else " (PARTIAL: still running)."), "",
                  f"exact       {counts['exact']:7d}  {pct(counts['exact'])}",
                  f"normalised  {counts['normalised']:7d}  {pct(counts['normalised'])}",
-                 f"failed      {counts['failed']:7d}  {pct(counts['failed'])}",
+                 f"failed      {counts['failed']:7d}  {pct(counts['failed'])}"
+                 "  (redo: migrate_puzzle drops that clue's annotation, the burn re-annotates it)",
                  f"full tree   {full:7d}  {pct(full)}  (converted with no unchecked step)", "",
                  "Accepted normalisations (an annotation can have several):"]
         for k, n in kinds["normalised"].most_common():

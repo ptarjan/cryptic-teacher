@@ -113,9 +113,14 @@ run("hidden letters filed after the reversal are stored before it",
         [("Some", "hidden_word"), ("going round", "reversal")]),
     entry("EBONY", "Wood Some say no before going round"), "normalised", ["gives before the op"])
 # Answers: spaced against the enumeration is refused; with no enumeration it is a fact.
-run("answer spaced against its enumeration is refused",
-    ann(["charade"], "WAR PAINT", "Make-up", 0, [blk("conflict", "WAR"), blk("colour", "PAINT")]),
-    entry("WARPAINT", "Make-up conflict colour", "8"), "failed", ["answer contradicts enumeration"])
+new = run("answer spaced against its enumeration is respaced to it, not refused",
+          ann(["charade"], "WAR PAINT", "Make-up", 0, [blk("conflict", "WAR"), blk("colour", "PAINT")]),
+          entry("WARPAINT", "Make-up conflict colour", "8"), "normalised", ["answer respaced to the enumeration"])
+check("the contradicting spacing is not kept", "spelling" not in new, new)
+new = run("a spacing that is the enumeration's own is kept when the entry has no separators",
+          ann(["charade"], "OPEN-AIR", "Outdoor", 0, [blk("free", "OPEN"), blk("tune", "AIR")]),
+          entry("OPENAIR", "Outdoor free tune", "4-3"), "exact")
+check("that spacing is the spelling", new.get("spelling") == "OPEN-AIR", new)
 new = run("no enumeration: the stored spacing is kept as spelling",
           ann(["charade"], "RIG OUT", "Dress", 0, [blk("fix", "RIG"), blk("away", "OUT")]),
           entry("RIGOUT", "Dress fix away"), "exact")
@@ -206,6 +211,64 @@ for pid, name, want in [
 ]:
     got = C.puzzle_names({"id": pid, "name": name})
     check(f"puzzle_names {pid}", got == want, got)
+
+# The residue of the 10-13 dry run.
+two = [{"text": "Maybe squash", "at": 0}, {"text": "plant variant?", "at": 13}]
+run("a double definition's block differs from its definition only by punctuation",
+    ann(["double_definition"], "SPORT", "", 0, [blk("Maybe squash", "SPORT"), blk("plant variant", "SPORT")],
+        definitions=two),
+    entry("SPORT", "Maybe squash plant variant?"), "normalised", ["double definition gives the answer"])
+run("a double definition filing one definition as its only block",
+    ann(["double_definition"], "GEL", "", 0, [blk("Posh female")],
+        definitions=[{"text": "Posh female", "at": 0}, {"text": "set", "at": 12}]),
+    entry("GEL", "Posh female set"), "normalised", ["double definition blocks recomputed"])
+run("a double definition block that is no definition is redone",
+    ann(["double_definition"], "KNOCK", "", 0,
+        [blk("Criticise", "KNOCK"), blk("minor injury", "KNOCK"), blk("time at the crease", "KNOCK")],
+        definitions=[{"text": "Criticise", "at": 0}, {"text": "minor injury", "at": 10}]),
+    entry("KNOCK", "Criticise minor injury in time at the crease"), "failed",
+    ["double definition block that is no definition"])
+run("a double definition with one definition is redone",
+    ann(["double_definition"], "CASE", "Legal action", 0, [blk("Legal action")]),
+    entry("CASE", "Legal action"), "failed", ["double definition with one definition"])
+run("a preamble step stored as a double definition's type is dropped from it",
+    ann(["double_definition", "reversal"], "TUO", "", 0, [blk("Cry heard by 28"), blk("not in court")],
+        definitions=[{"text": "Cry heard by 28", "at": 0}, {"text": "not in court", "at": 21}]),
+    entry("TUO", "Cry heard by 28 when not in court?"), "normalised", ["double definition step type dropped"])
+run("a double definition's pun-step indicator hangs on its definitions",
+    ann(["double_definition", "deletion"], "USHER", "", 0, [blk("Direct"), blk("officious librarian")],
+        [("in Bow", "deletion")],
+        definitions=[{"text": "Direct", "at": 0}, {"text": "officious librarian", "at": 11}]),
+    entry("USHER", "Direct and officious librarian in Bow?"), "normalised",
+    ["double definition step indicators on the definitions"],
+    tree_check=lambda n: "wordplay" not in n and n["definitions"][1].get("indicators"))
+new = run("an entry with no key keeps the annotation's answer as its spelling",
+          ann(["charade"], "WAR PAINT", "Make-up", 0, [blk("conflict", "WAR"), blk("colour", "PAINT")]),
+          {**entry("", "Make-up conflict colour", "3,5"), "solution": None}, "exact")
+check("no-key spelling", new.get("spelling") == "WAR PAINT", new)
+run("a selection block that gives no letters gives what the selection makes of its words",
+    ann(["deletion", "letter_selection"], "APPAL", "shock", 42,
+        [blk("Attraction", "APPEAL"), blk("source of electric", select="first")],
+        [("avoiding", None), ("source of", None)]),
+    entry("APPAL", "Attraction in avoiding source of electric shock"), "normalised")
+run("a blank-for indicator on a leaf with a selection and a sound takes the next stored type",
+    ann(["letter_selection", "homophone"], "ENVY", "Jealousy", 0,
+        [blk("leading characters in Nouvelle Vague", "ENVY", select="first", soundsLike="EN VEE")],
+        [("leading characters in", None), ("picked up", None)]),
+    entry("ENVY", "Jealousy picked up from leading characters in Nouvelle Vague?"), "normalised")
+
+# migrate_puzzle: the bad clue is dropped for the burn, the rest converted.
+good = ann(["charade"], "WAR PAINT", "Make-up", 0, [blk("conflict", "WAR"), blk("colour", "PAINT")])
+bad = ann(["double_definition"], "CASE", "Legal action", 0, [blk("Legal action")])
+pz = {"id": "cryptic-1", "entries": [
+    {**entry("WARPAINT", "Make-up conflict colour", "3,5"), "annotation": good},
+    {**entry("CASE", "Legal action", "4"), "number": 2, "annotation": bad},
+    {**entry("ABC", "No hint yet", "3"), "number": 3}]}
+out, redo = C.migrate_puzzle(pz)
+check("migrate_puzzle redoes only the bad clue", list(redo) == ["cryptic-1/2-across"]
+      and "annotation" not in out["entries"][1] and "annotation" not in out["entries"][2], (redo, out))
+check("migrate_puzzle converts the rest and leaves the input alone",
+      "wordplay" in out["entries"][0]["annotation"] and pz["entries"][1]["annotation"] is bad)
 
 raise SystemExit(fails > 0)
 PY
