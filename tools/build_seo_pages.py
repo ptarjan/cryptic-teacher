@@ -67,11 +67,13 @@ Usage:
 """
 
 import functools
+import hashlib
 import html
 import itertools
 import json
 import re
 import sys
+import time
 from datetime import date, datetime, timedelta
 from pathlib import Path
 from urllib.parse import urlparse
@@ -88,9 +90,12 @@ import quotes  # curl(): clue text is stored straight, shown curled
 import series as series_meta  # what each series IS; see tools/series.py
 import showcase  # which puzzles /showcase/ picks, and why
 from fetch_puzzle import (  # one glob, one reader for every tool
-    blog_annotation, has_blog_hints, puzzle_files, read_puzzle_file, with_blog_facts)
+    blog_annotation, blog_fact_hashes, has_blog_hints, puzzle_files, read_puzzle_file,
+    with_blog_facts)
 import puzzle_paths  # one puzzles/ for every tool
+import page_cache  # last build's puzzle pages, reused when nothing moved
 import parallel  # the corpus across the cores
+import row_cache  # solved_stub's rows, read once per file version
 from stamp_assets import asset_url  # content-hashed asset URLs
 # Which clue a puzzle's card shows, and how to describe it. Imported rather than
 # reimplemented: the alt text has to describe the picture that was actually
@@ -120,7 +125,11 @@ def esc(s):
     return html.escape(str(s or ""), quote=True)
 
 
-@functools.cache       # the assets do not change while the pages are built
+#: The assets a puzzle page's render asked asset() for, while one renders:
+#: tools/page_cache.py checks their stamps again before it reuses the page.
+_ASKED = None
+
+
 def asset(rel):
     """An absolute, content-stamped URL for one of our own static files.
 
@@ -129,6 +138,13 @@ def asset(rel):
     the old picture. The hash in the URL is what makes a corrected image reach
     someone who saw the wrong one.
     """
+    if _ASKED is not None:
+        _ASKED.add(rel)
+    return _asset(rel)
+
+
+@functools.cache       # the assets do not change while the pages are built
+def _asset(rel):
     return esc(asset_url(rel, BASE + "/"))
 
 
@@ -171,13 +187,22 @@ def solved_stub(path):
     return path, {k: p[k] for k in STUB_KEYS if k in p}
 
 
+def solved_stub_row(path):
+    """solved_stub()'s stub alone, the row tools/row_cache.py keeps for a file:
+    not its path, which is another path in another tree."""
+    t = solved_stub(path)
+    return t and t[1]
+
+
 def puzzles():
     """[(path, stub)] for every listed puzzle with a solution, newest first.
 
     Stubs, not puzzles: the corpus does not fit in memory at once. Each puzzle
     is read in full again when its own page is rendered, one at a time.
     """
-    out = [t for t in parallel.pmap(solved_stub, puzzle_files()) if t]
+    files = list(puzzle_files())
+    rows = row_cache.cached_map("build_seo_pages", solved_stub_row, files, roots={"solved_stub"})
+    out = [(path, stub) for path, stub in zip(files, rows) if stub]
     # Chronological, matching fetch_puzzle.reindex(). Sorting on the number
     # would not be: quiptics (~1,400) sit alongside cryptics (~30,000), and
     # every quiptic would file at the end of time.
@@ -2448,8 +2473,8 @@ def legacy_redirects(solved):
 
 # ------------------------------------------------------------------------ run
 
-#: (solved, neighbours, meta, check) for puzzle_page_job(), set by outputs()
-#: before its workers fork.
+#: (solved, neighbours, meta, check, fingerprint, stored) for
+#: puzzle_page_job(), set by outputs() before its workers fork.
 _PAGES = None
 
 
@@ -2468,26 +2493,64 @@ def series_neighbours(stubs):
     return [tuple(n) for n in out]
 
 
-def puzzle_page_job(i):
-    """Render, check and write puzzle page i of the solved list, in a worker.
+def page_key(i):
+    """Puzzle page i's per-page inputs, under the build's fingerprint: what
+    tools/page_cache.py reuses a stored page by. Its puzzle file, its blog
+    facts, its index row, its pager neighbours and whether its card is drawn;
+    everything else it reads is code or data, in the fingerprint."""
+    solved, neighbours, meta, _, fp, _ = _PAGES
+    path, stub = solved[i]
+    pid = stub["id"]
+    h = hashlib.sha256()
+    for part in (fp, puzzle_paths.relative(path, ROOT) or str(path),
+                 hashlib.sha256(Path(path).read_bytes()).hexdigest(),
+                 blog_fact_hashes().get(pid),
+                 json.dumps(meta.get(pid), sort_keys=True, default=str),
+                 json.dumps(neighbours[i], sort_keys=True, default=str),
+                 (ROOT / f"og/{pid}.png").exists()):
+        h.update(f"{part}\0".encode("utf-8", "surrogateescape"))
+    return h.hexdigest()
 
-    Returns (path, stale, blocks, found, facts): whether the file on disk
-    differed, this page's own clue_blocks() and clue_indicators() candidates,
-    which outputs() merges in page order into exactly what one serial pass
-    builds, and what /showcase/ needs to know about the puzzle.
+
+def puzzle_page_job(i):
+    """Render, check and write puzzle page i of the solved list, in a worker,
+    or reuse last build's (tools/page_cache.py).
+
+    Returns (path, stale, blocks, found, facts, stored): whether the file on
+    disk differed, this page's own clue_blocks() and clue_indicators()
+    candidates, which outputs() merges in page order into exactly what one
+    serial pass builds, what /showcase/ needs to know about the puzzle, and
+    (key, entry, reused) for the store, or None with the store off.
     The text stays in the worker, so no page crosses a pipe.
     """
-    solved, neighbours, meta, check = _PAGES
+    global _ASKED
+    solved, neighbours, meta, check, fp, stored = _PAGES
+    path = puzzle_paths.PUZZLE_DIR / solved[i][1]["id"] / "index.html"
+    key = page_key(i) if fp else None
+    hit = stored.get(key) if key else None
+    if hit:
+        asked, digest, blocks, found, facts = hit
+        if (all(_asset(rel) == url for rel, url in asked)
+                and page_cache.file_hash(path) == digest):
+            return path, False, blocks, found, facts, (key, hit, True)
     puz = with_blog_facts(read_puzzle_file(solved[i][0]))
     # The list is newest-first, so "next" is the older neighbour.
     prev_p, next_p = neighbours[i]
-    page = puzzle_page(puz, meta.get(puz["id"]), prev_p, next_p)
+    _ASKED = set()
+    try:
+        page = puzzle_page(puz, meta.get(puz["id"]), prev_p, next_p)
+        asked = tuple((rel, _asset(rel)) for rel in sorted(_ASKED))
+    finally:
+        _ASKED = None
     blocks, found = {}, {}
     clue_blocks(blocks, puz, page)
     clue_indicators(found, puz, page)
-    path = puzzle_paths.PUZZLE_DIR / puz["id"] / "index.html"
-    return (path, write_output(path, relative_links(page, PUZZLE_ROOT), check), blocks, found,
-            showcase.facts(puz, meta.get(puz["id"])))
+    assert path == puzzle_paths.PUZZLE_DIR / puz["id"] / "index.html"
+    text = relative_links(page, PUZZLE_ROOT)
+    facts = showcase.facts(puz, meta.get(puz["id"]))
+    entry = (asked, page_cache.text_hash(text), blocks, found, facts)
+    return (path, write_output(path, text, check), blocks, found, facts,
+            (key, entry, False) if key else None)
 
 
 def write_output(p, text, check):
@@ -2519,8 +2582,10 @@ def outputs(check=False):
     # same rule as the pages that are generated.
     assert_names_all_papers("site.webmanifest",
                             (ROOT / "site.webmanifest").read_text(encoding="utf-8"), idx)
+    started = time.monotonic()
     solved = puzzles()
     stubs = [stub for _, stub in solved]
+    took("the puzzle list", started)
 
     claimed = set()
 
@@ -2533,9 +2598,16 @@ def outputs(check=False):
         claimed.add(p)
 
     blocks, found, facts = {}, {}, []
-    _PAGES = solved, series_neighbours(stubs), meta, check
-    for path, stale, page_blocks, page_found, page_facts in parallel.pmap(
+    fp = page_cache.fingerprint()
+    stored = page_cache.load() if fp else {}
+    blog_fact_hashes()  # once, before the workers fork
+    _PAGES = solved, series_neighbours(stubs), meta, check, fp, stored
+    keep, reused = {}, 0
+    for path, stale, page_blocks, page_found, page_facts, kept in parallel.pmap(
             puzzle_page_job, range(len(solved))):
+        if kept:
+            reused += kept[2]
+            keep[kept[0]] = kept[1]
         facts.append(page_facts)
         for key, cands in page_blocks.items():
             blocks.setdefault(key, []).extend(cands)
@@ -2545,6 +2617,11 @@ def outputs(check=False):
         claim(path)
         yield path, stale
     _PAGES = None
+    if fp:
+        print(f"page cache: reused {reused} of {len(solved)} puzzle page(s)", file=sys.stderr)
+        if not check:
+            page_cache.save(keep)
+    took("the puzzle pages", started)
 
     def rest():
         yield from legacy_redirects(stubs)
@@ -2570,6 +2647,13 @@ def outputs(check=False):
     for p, text in rest():
         claim(p)
         yield p, write_output(p, text, check)
+    took("the other pages", started)
+
+
+def took(what, since):
+    """One phase's seconds on stderr, for the deploy log: which part of the
+    step to look at when its budget is hit."""
+    print(f"build_seo_pages: {what} by {time.monotonic() - since:.1f}s", file=sys.stderr)
 
 
 # The site root as seen from /puzzles/<id>/, the directory every puzzle page and

@@ -686,6 +686,21 @@ times as long. So:
 - **A cache under `.git/` or `~/.cache` is empty in CI** unless the
   workflow restores it. `tools/row_cache.py` keeps its store in the git
   dir; pages.yml restores it with actions/cache.
+- **The puzzle pages are reused, not re-rendered.** pages.yml restores
+  last build's `puzzles/<id>/index.html` files and `tools/page_cache.py`'s
+  store. A page is rendered again only when its own inputs moved (its
+  puzzle file, blog facts, index row, pager neighbours, whether its card is
+  drawn), a stamped asset it links moved, the file on disk is not the one
+  the store says was written, or any tracked code or data file did (the
+  fingerprint). So a code change is a full render, as before, and a puzzle
+  push renders a few pages. A cold cache is correct, just slow.
+- **The site upload is not compression-bound.** The artifact is about a
+  gigabyte, mostly PNG cards; pages.yml tars `_site` itself and uploads
+  at deflate level 1 rather than upload-pages-artifact's 6. deploy-pages
+  reads only the `github-pages` artifact's `artifact.tar`.
+- **Few jobs in a chain.** Each job after the first waits for a runner, so
+  the IndexNow ping runs in the `budgets` job, not a job of its own between
+  the deploy and the budget check.
 - **The annotation check is incremental on a push.** It checks only the
   puzzle files changed since the last successfully deployed commit. The
   full check runs for a manual run, the nightly schedule, or a change to
