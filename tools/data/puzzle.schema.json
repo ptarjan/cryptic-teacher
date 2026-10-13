@@ -1541,10 +1541,13 @@
      "$ref": "#/properties/number"
     },
     "series": {
-     "$ref": "#/properties/series"
+     "description": "The series, which is the id's prefix (series.parse_id). A puzzle file stores none; this record keeps it for its filer's folder and book lookups.",
+     "$ref": "#/$defs/series"
     },
     "name": {
-     "$ref": "#/properties/name"
+     "description": "The title as the paper gives it. A puzzle file stores none: series.display_name() derives it from the id.",
+     "type": "string",
+     "minLength": 1
     },
     "setter": {
      "$ref": "#/properties/setter"
