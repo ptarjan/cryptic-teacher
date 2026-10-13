@@ -318,6 +318,11 @@ def normalize_legacy(ann, entry, entries):
         derived = derived_answer(entry, entries)
         if derived:
             ann["answer"] = derived
+    if isinstance(ann.get("answer"), str):
+        # Word breaks and hyphens are the setter's enumeration's, never the
+        # model's: WAR PAINT against a printed (8) is written WARPAINT.
+        import annotation
+        ann["answer"] = annotation.spaced(ann["answer"], entry, {"entries": entries})
     ann = in_clue_spelling(ann, entry["clue"].get("text") or "")
     ann = split_selectors(ann)
     blocks = [b for b in ann.get("blocks") or [] if isinstance(b, dict)]
