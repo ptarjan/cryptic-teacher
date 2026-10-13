@@ -221,6 +221,7 @@ from fetch_puzzle import (
     is_continuation,
     is_grid_answer,
     prints_own_count,
+    read_puzzle_file,  # the tests read raw fixtures through this module
     read_puzzle_view,
 )
 from groups import entry_id
