@@ -6420,14 +6420,19 @@
   function statsTypesHTML(st) {
     const by = {};
     st.clues.forEach((c) => c.types.forEach((t) => (by[t] = by[t] || []).push(c)));
-    const rows = Object.keys(by).map((t) => ({ t, list: by[t], share: by[t].filter((c) => c.clean).length / by[t].length }));
+    const rows = Object.keys(by).map((t) => {
+      const clean = by[t].filter((c) => c.clean).length;
+      return { t, list: by[t], clean, share: clean / by[t].length };
+    });
     if (!rows.length) return "";
     const ranked = rows.filter((r) => r.list.length >= TYPE_MIN)
       .sort((a, b) => b.share - a.share || perClue(a.list) - perClue(b.list));
     const few = rows.filter((r) => r.list.length < TYPE_MIN).sort((a, b) => b.list.length - a.list.length);
     const weakest = ranked.length > 1 ? ranked[ranked.length - 1] : null;
     const row = (r) => {
-      const pct = Math.round(100 * r.share), rankable = r.list.length >= TYPE_MIN;
+      // 100 * clean / n, not 100 * share: 23/40 is 0.575, and 100 * 0.575 is
+      // 57.49999… in floating point, so it would round down to 57%.
+      const pct = Math.round(100 * r.clean / r.list.length), rankable = r.list.length >= TYPE_MIN;
       return `<div class="type-row${rankable ? "" : " few"}${r === weakest ? " weakest" : ""}">`
         + `<span class="type-label">${esc(TYPES[r.t].label)}</span>`
         + `<span class="type-track"><span class="type-fill" style="width:${rankable ? pct : 0}%"></span></span>`
