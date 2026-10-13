@@ -36,19 +36,20 @@ text, so the scanned archive costs no Claude quota at all.
 
 Every Claude role is a `claude -p` subprocess started by a shell or Python
 script, with a role-specific system prompt, a short tool list and a pinned
-model and reasoning effort. Neither the model nor the effort is left to the
-CLI's default. The CLI's default effort differs per model, so it would change
-silently whenever the alias moved.
+model and reasoning effort. Every role runs Opus at medium effort, except
+authoring, which runs at high. Neither is left to the CLI's default: the
+default effort differs per model, so it would change silently whenever the
+alias moved.
 
-| Role | Script / prompt | Model, effort | What it does |
-|---|---|---|---|
-| Solve + annotate | `tools/puzzle_worker.sh`, `tools/annotate_prompt.md`, `tools/solve_prompt.md` | `opus` alias, medium | One conversation per puzzle, in one pass. With no key, it fills the whole grid first (the crossings confirm each answer, checked by `apply_solution --check-only`), then turns the wordplay it already parsed while solving into every clue's hint ladder as JSON. |
-| Graded-miss diagnosis | `tools/solve_misses.py`, `tools/solve_miss_prompt.md` | `opus`, medium | When the official key shows that a cold solve got a light wrong, this works out why, and whether a check could have caught it. |
-| Bad-hint report fixes | `tools/report_fix_prompt.md`, from `tools/daily_update.sh` | `opus`, medium | Works through the hints that readers report from the site. The fix goes into the data, and into the renderer or validator where it can. |
-| Clue-quality judge | `tools/grade_clues_judge.sh`, `tools/grade_clues_judge.md` | `claude-opus-5-5`, medium | Three fresh judges per arm score clues blind on five axes, to compare clues we write with published ones. |
-| Favourite grading | `tools/favourite_grading.sh`, `tools/favourite_grading_prompt.md` | `opus`, medium | Scores published clues on the same axes, to check those axes against solvers' favourite votes. |
-| Authoring trials | `tools/author_trial.py`, `tools/author_trial_author.md`, `tools/author_trial_select.md` | `claude-opus-5-5`, high | Writes original clues: several candidates per answer from a fresh author with no tools, then a selector picks one. |
-| Surface judge | `tools/surface_judge.md`, called by the authoring trials | `claude-opus-5-5`, medium | Refuses an authored clue whose surface is not a real sentence. A refusal needs two calls to agree, because a single call false-refuses about one time in five. |
+| Role | Script / prompt | What it does |
+|---|---|---|
+| Solve + annotate | `tools/puzzle_worker.sh`, `tools/annotate_prompt.md`, `tools/solve_prompt.md` | One conversation per puzzle, in one pass. With no key, it fills the whole grid first (the crossings confirm each answer, checked by `apply_solution --check-only`), then turns the wordplay it already parsed while solving into every clue's hint ladder as JSON. |
+| Graded-miss diagnosis | `tools/solve_misses.py`, `tools/solve_miss_prompt.md` | When the official key shows that a cold solve got a light wrong, this works out why, and whether a check could have caught it. |
+| Bad-hint report fixes | `tools/report_fix_prompt.md`, from `tools/daily_update.sh` | Works through the hints that readers report from the site. The fix goes into the data, and into the renderer or validator where it can. |
+| Clue-quality judge | `tools/grade_clues_judge.sh`, `tools/grade_clues_judge.md` | Three fresh judges per arm score clues blind on five axes, to compare clues we write with published ones. |
+| Favourite grading | `tools/favourite_grading.sh`, `tools/favourite_grading_prompt.md` | Scores published clues on the same axes, to check those axes against solvers' favourite votes. |
+| Authoring trials | `tools/author_trial.py`, `tools/author_trial_author.md`, `tools/author_trial_select.md` | Writes original clues: several candidates per answer from a fresh author with no tools, then a selector picks one. Runs at high effort. |
+| Surface judge | `tools/surface_judge.md`, called by the authoring trials | Refuses an authored clue whose surface is not a real sentence. A refusal needs two calls to agree, because a single call false-refuses about one time in five. |
 
 The alias `opus` is set once, as `ANNOTATE_MODEL` (with `ANNOTATE_EFFORT`), in
 both scheduled jobs. Each run records the exact model it resolved to in the
