@@ -15,6 +15,14 @@
 # an edit someone else pushed to the same file in the meantime is merged, or
 # refused as a conflict, instead of silently reverted.
 #
+# The pre-push check (tools/pre_push.py) judges the commit about to be pushed
+# with that commit's own tools/, checked out in a worktree kept for it in the
+# git dir (push-gate), never with this checkout's: a pusher behind master (the
+# burn, until a push lands and it resets onto origin) would otherwise be held
+# to gates master has since loosened, so never catch up, and be let past
+# gates master has tightened. git push then skips the hook, which would run
+# this checkout's copy.
+#
 # A rejected push (origin moved) or a lost race on the shared
 # refs/remotes/origin/master (a sibling worktree fetching) is retried against a
 # fresh fetch. Only the first push runs the pre-push check: a retry pushes the
@@ -42,7 +50,19 @@ commit=$(git rev-parse --verify -q "${1:-HEAD}^{commit}") || {
 parent=$(git rev-parse --verify -q "$commit^") || {
   echo "push_puzzle_commit: $commit has no parent to diff against" >&2; exit 2; }
 
-verify=()
+gate="$(git rev-parse --path-format=absolute --git-common-dir)/push-gate"
+judge() {  # $1 base, $2 the commit to push
+  if [ ! -e "$gate/.git" ]; then
+    echo "push_puzzle_commit: checking out $gate for the pre-push check (first push only)" >&2
+    git worktree prune
+    git worktree add -q --detach "$gate" "$2" || return 1
+  fi
+  git -C "$gate" checkout -q -f --detach "$2" && git -C "$gate" clean -fdq || return 1
+  [ -f "$gate/tools/pre_push.py" ] || return 0
+  python3 "$gate/tools/pre_push.py" "$1" "$2" </dev/null
+}
+
+judged=
 for attempt in 1 2 3 4 5 6 7 8 9 10; do
   if ! out=$(git fetch -q origin master 2>&1); then
     printf '%s\n' "$out" >&2
@@ -79,11 +99,14 @@ for attempt in 1 2 3 4 5 6 7 8 9 10; do
     GIT_AUTHOR_EMAIL=$(git log -1 --format=%ae "$commit") \
     GIT_AUTHOR_DATE=$(git log -1 --format=%aD "$commit") \
     git commit-tree "${sign[@]}" "$tree" -p "$base") || exit 1
-  out=$(git push -q "${verify[@]}" origin "$sha:refs/heads/master" 2>&1) && exit 0
+  if [ -z "$judged" ]; then
+    judge "$base" "$sha" || exit 1
+    judged=1
+  fi
+  out=$(git push -q --no-verify origin "$sha:refs/heads/master" 2>&1) && exit 0
   printf '%s\n' "$out" >&2
   printf '%s' "$out" | grep -E "rejected|fetch first|non-fast-forward|cannot lock ref" >/dev/null || exit 1
   echo "push_puzzle_commit: origin/master moved under us (attempt $attempt), rebuilding" >&2
-  verify=(--no-verify)
   sleep "$((RANDOM % 3 + 1))"
 done
 exit 1

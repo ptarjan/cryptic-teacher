@@ -680,6 +680,7 @@ LAYOUT = [
     ("fetching", "tools/test_ci_checkout.sh", "the deploy's checkout (.github/workflows/pages.yml, build/Check out) run twice against a local origin: once cold, then on what Restore the git store brings back, where it must fetch only what the new commit added rather than the whole tree again (that refetch was ~58s a run). Then that every cache the build restores is saved again with the same paths and key, and that tools/trim_codeql_caches.py keeps the newest CodeQL entry per language and touches nothing else"),
     ("fetching", "tools/trim_codeql_caches.py", "delete all but the newest CodeQL overlay database per language from the repo's Actions cache, so CodeQL default setup stops evicting the deploy's caches"),
     ("fetching", "tools/test_fetch_nation_dates.sh", "does fetch_nation date a page printing no issue on the issue clock, so it sorts between its neighbours instead of before the number below it?"),
+    ("fetching", "tools/test_push_gate_target_tree.sh", "does tools/push_puzzle_commit.sh judge a commit with the checking code of the tree it publishes (origin/master plus the commit), not the pusher's own checkout? The burn (tools/prereset_backfill.sh) pushes from a checkout that is behind master until its push succeeds and it resets, so a gate judged from that checkout deadlocks it once master loosens the gate, and lets it past a gate master has tightened"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
