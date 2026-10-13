@@ -85,6 +85,16 @@ mis[0]["annotation"]["hiddenLetter"]["at"] = 1
 check("misprint at the wrong offset", True, hm.letter_problems(mis[0]["annotation"], mis[0]))
 mis[0]["annotation"]["hiddenLetter"] = {"kind": "extra", "letter": "X", "at": 1}
 check("extra takes no offset", True, hm.letter_problems(mis[0]["annotation"], mis[0]))
+# Letters Latent (genius-263): a letter dropped wherever it occurs is supplied
+# once per occurrence, each in its own block with no clue words.
+latent = entry(5, "across", "Gamma ian", "GRAMMARIAN",
+               [{"clueFragment": "Gamma", "gives": "GAMMA"}, {"gives": "R", "note": "supplied"},
+                {"gives": "R", "note": "supplied"}, {"clueFragment": "ian", "gives": "IAN"}],
+               {"kind": "omitted", "letter": "R"})
+check("latent letter supplied at each occurrence", False, hm.letter_problems(latent["annotation"], latent))
+check("latent letter reads as omitted", True, hm.entry_letter(latent["annotation"], latent) == ("omitted", "R") or [])
+mixed = copy.deepcopy(latent); mixed["annotation"]["blocks"][2]["gives"] = "S"
+check("two different supplied letters are no one omission", True, hm.entry_letter(mixed["annotation"], mixed) != ("omitted", "R") or [])
 check("schema refuses an unknown kind", True,
       puzzle_schema.validate(puzzle_schema.order(puzzle(entries(), [{**MSG[0], "kind": "swapped"}]))))
 

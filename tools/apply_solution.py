@@ -377,6 +377,20 @@ def promote_clues_only(record, fill):
         lights = sorted((e for e in puzzle["entries"] if e["direction"] == direction),
                         key=lambda e: e["number"])
         by_id.update({entry_id(e): v for e, v in zip(lights, fill[direction])})
+        # An entry the preamble alters (Letters Latent) gives its answer as
+        # "from": the entry carries it as alteration.from, as an altered
+        # Genius filed from its post does (genius_puzzles.assemble_altered).
+        for e, v in zip(lights, fill[direction]):
+            frm = normalise(v["from"]) if isinstance(v, dict) and v.get("from") else None
+            entered = normalise(v.get("answer") if isinstance(v, dict) else v)
+            if frm and frm != entered:
+                # Imported here: puzzle_integrity imports this module.
+                import genius_puzzles
+                import puzzle_integrity
+                steps = genius_puzzles.steps_for(frm, entered, set(puzzle_integrity.ALTERATION_OPS))
+                if not steps:
+                    return None, None, [f"{entry_id(e)}: no alteration turns {frm} into {entered}"]
+                e["alteration"] = {"from": frm, "steps": steps}
     return puzzle, by_id, []
 
 
