@@ -2524,5 +2524,11 @@ tools/test_discard_verdict.sh                 does a discarded annotation run wa
 tools/reapply_annotation.py                   re-apply a commit's annotation onto origin's copy
                                               of its puzzle when push_puzzle_commit.sh's replay
                                               conflicts
+tools/desktop_hosts.py                        the desktop's LAN and tailnet addresses, read
+                                              once from desktop_hosts.json by python and shell
+                                              callers
+tools/desktop_hosts.json                      the desktop's addresses, LAN first, tailnet as
+                                              fallback: the one place to edit when its DHCP
+                                              lease changes
 ```
 <!-- LAYOUT-END -->

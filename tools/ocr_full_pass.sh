@@ -97,7 +97,7 @@ GRACE=1800
 # thread a worker. Whatever is read here (the desktop off or gaming) holds
 # one of ocr_remote's LOCAL_SLOTS (a third of the cores) host-wide, so the 25 workers
 # never put 20 reads on this 4-core host.
-export OCR_REMOTE="${OCR_REMOTE-micro@192.168.1.198,micro@100.68.145.15}"
+export OCR_REMOTE="${OCR_REMOTE-$(python3 "$(dirname "$0")/desktop_hosts.py" remote)}"
 export OCR_THREADS="${OCR_THREADS:-1}"
 WORKERS="${OCR_FULL_PASS_WORKERS:-25}"
 # The last change to the scan filers that should alter past readings: a

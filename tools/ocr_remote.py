@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """The archive.org filer's editions, and the clue OCR, read on Paul's desktop over ssh.
 
-    OCR_REMOTE=micro@192.168.1.198,micro@100.68.145.15 python3 tools/file_archive_org_puzzles.py ...
+    OCR_REMOTE=$(python3 tools/desktop_hosts.py remote) python3 tools/file_archive_org_puzzles.py ...
     python3 tools/ocr_remote.py check        # read one crop both ways
 
 The Mac mini has 4 cores; the desktop has 28. With OCR_REMOTE set, each

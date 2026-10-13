@@ -86,7 +86,7 @@ unset CT_PRERESET_STATE
 export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 # The runs' grid searches (tools/reconstruct_grid.py) go to the desktop, not this
 # host's cores (tools/ocr_remote.py; OCR_REMOTE= keeps them here).
-export OCR_REMOTE="${OCR_REMOTE-micro@192.168.1.198,micro@100.68.145.15}"
+export OCR_REMOTE="${OCR_REMOTE-$(python3 "$(dirname "$0")/desktop_hosts.py" remote)}"
 
 # claude-auth.sh is deliberately not sourced: the CLI finds its own stored
 # login under CLAUDE_CONFIG_DIR, and that file's env token would override the

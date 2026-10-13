@@ -165,8 +165,8 @@ check("lost on every try in a process that does not defer: read here, the deskto
 check("an answer from the desktop marks it seen", True,
       (lost_run(0, True, 3600)[0], time.time() - ocr_remote.SEEN.stat().st_mtime < 60)[1])
 os.environ.pop(ocr_remote.DEFER, None)
-check("LAN hosts are tried before tailnet ones", ["micro@192.168.1.198", "box", "micro@100.68.145.15"],
-      ocr_remote.by_path(["micro@100.68.145.15", "micro@192.168.1.198", "box"]))
+check("LAN hosts are tried before tailnet ones", ["micro@192.168.1.180", "box", "micro@100.68.145.15"],
+      ocr_remote.by_path(["micro@100.68.145.15", "micro@192.168.1.180", "box"]))
 
 size = ledger.stat().st_size
 scan_queue.append(ledger, [{"edition": ctx["rel"], "inputs": "x"}])

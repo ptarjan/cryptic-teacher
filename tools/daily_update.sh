@@ -338,7 +338,7 @@ unit_ft() {
   step_rc=${PIPESTATUS[0]}
   [ $step_rc -eq 0 ] ||
     alert "the fifteensquared FT fetch failed (rc=$step_rc), so the FT puzzles are filed from the posts already cached:"$'\n'"\`\`\`"$'\n'"$(tail -8 "$ft_out" | cut -c1-200)"$'\n'"\`\`\`"
-  OCR_REMOTE="${OCR_REMOTE-micro@192.168.1.198,micro@100.68.145.15}" PYTHONUNBUFFERED=1 \
+  OCR_REMOTE="${OCR_REMOTE-$(python3 "$(dirname "$0")/desktop_hosts.py" remote)}" PYTHONUNBUFFERED=1 \
     python3 tools/ft_puzzles.py --budget-seconds "$FT_GRID_SECONDS" 2>&1 | tee "$ft_out"
   step_rc=${PIPESTATUS[0]}
   if [ $step_rc -ne 0 ]; then
@@ -377,7 +377,7 @@ unit_azed() {
     rc=1
     alert "tools/azed_puzzles.py failed (rc=$step_rc), so no new Azed is filed until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$azed_out" | cut -c1-200)"$'\n'"\`\`\`"
   fi
-  if OCR_REMOTE="${OCR_REMOTE-micro@192.168.1.198,micro@100.68.145.15}" \
+  if OCR_REMOTE="${OCR_REMOTE-$(python3 "$(dirname "$0")/desktop_hosts.py" remote)}" \
       python3 tools/andlit_azed.py nightly --budget-seconds "$AZED_FETCH_SECONDS" \
       --scan-seconds "$AZED_SCAN_SECONDS" >"$azed_out" 2>&1; then
     grep -v '^  No ' "$azed_out"
