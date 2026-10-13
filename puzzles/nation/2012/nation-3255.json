@@ -19,8 +19,14 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "unsolved"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-13",
+  "check": "30 entries, 60 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -43,6 +49,39 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "THREEBLINDMICE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "THREE BLIND MICE",
+    "definitions": [
+     {
+      "text": "Nursery rhyme",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mckey, Mnne and Mortmer",
+      "note": "surface reading: three cartoon mouse names, misspelt"
+     },
+     {
+      "clueFragment": "Nursery rhyme about Mckey, Mnne and Mortmer?",
+      "note": "setter's reading: the three mouse names have lost their letter I, so the mice have no 'eyes' and are sightless, which names a nursery rhyme"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Mickey, Minnie and Mortimer are Disney mice; each is printed without its I, and letters I sound like eyes, so these are mice without eyes.",
+     "definitionFit": "The answer is the title of a well-known English nursery rhyme about three sightless rodents chased by a farmer's wife."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mckey"
+    }
    }
   },
   {
@@ -56,6 +95,63 @@
    "clue": {
     "text": "Stood tall and lived amid bustle, for the most part",
     "enumeration": "7"
+   },
+   "solution": "TOWERED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TOWERED",
+    "definitions": [
+     {
+      "text": "Stood tall",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "amid",
+      "for": "container",
+      "note": "amid means in the middle of, so one word goes inside the other"
+     },
+     {
+      "text": "for the most part",
+      "for": "deletion",
+      "note": "only most of the word is used, so its final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bustle",
+      "gives": "TODO",
+      "note": "a to-do is a fuss or commotion"
+     },
+     {
+      "clueFragment": "lived",
+      "gives": "WERE",
+      "note": "were, the past of 'be', as in 'existed'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "WERE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stood tall and lived amid the hustle and bustle, mostly.",
+     "definitionFit": "To loom high above surroundings is to rise like a tall structure over them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lived"
+    }
    }
   },
   {
@@ -79,6 +175,48 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "RANDB",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "R AND B",
+    "definitions": [
+     {
+      "text": "Musical genre",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "demoting chief to the bottom",
+      "for": "cycling",
+      "note": "the chief, or leading, letter is demoted to the lowest place, which in a down entry is the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "label",
+      "gives": "BRAND",
+      "note": "a brand is a trade label"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RANDB"
+     ]
+    },
+    "explanation": {
+     "surface": "A record label in a musical genre demotes its boss to the lowest rank.",
+     "walkthrough": "'Label' suggests a record company, fitting the music surface, but it means a brand name.",
+     "definitionFit": "Rhythm and blues is a popular music style rooted in African-American blues and jazz."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "label"
+    }
    }
   },
   {
@@ -92,6 +230,63 @@
    "clue": {
     "text": "Heroic acts of former pilots after a crash",
     "enumeration": "8"
+   },
+   "solution": "EXPLOITS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "EXPLOITS",
+    "definitions": [
+     {
+      "text": "Heroic acts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after a crash",
+      "for": "anagram",
+      "note": "after a crash things are left smashed and jumbled, so the letters come out in a new order"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former",
+      "gives": "EX",
+      "note": "ex means former, as in ex-wife"
+     },
+     {
+      "clueFragment": "pilots",
+      "gives": "PILOTS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "PLOITS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PILOTS",
+       "gives": "PLOITS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tales of the heroism of retired airmen after a plane crash.",
+     "definitionFit": "Daring deeds or bold feats are the sort of adventures recounted of a hero."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crash"
+    }
    }
   },
   {
@@ -105,6 +300,55 @@
    "clue": {
     "text": "Subject, for example, in a story",
     "enumeration": "5"
+   },
+   "solution": "LIEGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LIEGE",
+    "definitions": [
+     {
+      "text": "Subject",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it, so the abbreviation goes within the tale"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a story",
+      "gives": "LIE",
+      "note": "a lie is a story, a fib"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. abbreviates 'for example'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "EG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A subject such as an example features in a story.",
+     "walkthrough": "The word usually means a feudal lord, but it also names the vassal owing allegiance to one.",
+     "definitionFit": "A liegeman or vassal owes feudal service and loyalty to a lord, so is that lord's subject."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Subject"
+    }
    }
   },
   {
@@ -118,6 +362,53 @@
    "clue": {
     "text": "Sadly, lost again and longing for the past",
     "enumeration": "9"
+   },
+   "solution": "NOSTALGIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOSTALGIA",
+    "definitions": [
+     {
+      "text": "longing for the past",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sadly",
+      "for": "anagram",
+      "note": "sadly suggests being in a bad way or out of sorts, so the letters are disordered"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lost again",
+      "gives": "LOSTAGAIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LOSTAGAIN",
+       "gives": "NOSTALGIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mournfully lost once more and wistfully pining for bygone days.",
+     "definitionFit": "A sentimental yearning for earlier times is a wistful wish to return to former days."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sadly"
+    }
    }
   },
   {
@@ -131,6 +422,57 @@
    "clue": {
     "text": "Store stocking Israeli author and Austrian composer",
     "enumeration": "6"
+   },
+   "solution": "MOZART",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MOZART",
+    "definitions": [
+     {
+      "text": "Austrian composer",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stocking",
+      "for": "container",
+      "note": "a shop stocking an item holds it inside, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Store",
+      "gives": "MART",
+      "note": "a mart is a market or shop"
+     },
+     {
+      "clueFragment": "Israeli author",
+      "gives": "OZ",
+      "note": "Amos Oz was a celebrated Israeli novelist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "OZ",
+      "ART"
+     ]
+    },
+    "explanation": {
+     "surface": "A bookshop stocks an Israeli novelist alongside an Austrian composer.",
+     "definitionFit": "Wolfgang Amadeus, born in Salzburg, is the most famous classical composer from Austria."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stocking"
+    }
    }
   },
   {
@@ -150,6 +492,49 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "CARDSHARK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CARD SHARK",
+    "definitions": [
+     {
+      "text": "cheat",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Comedians",
+      "gives": "CARDS",
+      "note": "cards are jokers, funny people"
+     },
+     {
+      "clueFragment": "listen",
+      "gives": "HARK",
+      "note": "hark is an old word for listen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARDS",
+      "HARK"
+     ]
+    },
+    "explanation": {
+     "surface": "Comics pay attention and then swindle someone.",
+     "definitionFit": "A swindler who wins at card games by trickery is a professional gambling fraudster."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Comedians"
+    }
    }
   },
   {
@@ -163,6 +548,46 @@
    "clue": {
     "text": "Wolf's blunder",
     "enumeration": "6"
+   },
+   "solution": "HOWLER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HOWLER",
+    "definitions": [
+     {
+      "text": "Wolf",
+      "at": 0
+     },
+     {
+      "text": "blunder",
+      "at": 7
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wolf",
+      "note": "first meaning: an animal that howls"
+     },
+     {
+      "clueFragment": "blunder",
+      "note": "second meaning: a glaring, laughable mistake"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The 's reads as a possessive but means 'is', linking the two meanings.",
+     "definitionFit": "A wolf is a creature that bays at the moon, and the same word is slang for an embarrassing error."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Wolf"
+    }
    }
   },
   {
@@ -182,6 +607,47 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "WINEPRESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WINE PRESS",
+    "definitions": [
+     {
+      "text": "Device for crushing grapes",
+      "at": 0
+     },
+     {
+      "text": "where you might read about one",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Device for crushing grapes",
+      "note": "first meaning: the machine that squeezes juice from grapes"
+     },
+     {
+      "clueFragment": "where you might read about one",
+      "note": "second meaning: the press, i.e. newspapers and magazines, devoted to wine"
+     }
+    ],
+    "explanation": {
+     "surface": "A puzzle about a grape-crushing machine and where you might learn about it.",
+     "walkthrough": "Read the second half as two words: the wine press is the body of journalism covering wine, where such a machine might be written up.",
+     "definitionFit": "A wine press is literally the apparatus for squeezing grapes, and 'the press' is also the collective term for journalism."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "read"
+    }
    }
   },
   {
@@ -195,6 +661,42 @@
    "clue": {
     "text": "Masked fighter appearing in Biarritz or Rome",
     "enumeration": "5"
+   },
+   "solution": "ZORRO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ZORRO",
+    "definitions": [
+     {
+      "text": "Masked fighter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "appearing in",
+      "for": "hidden_word",
+      "note": "something appearing in a phrase is visible inside it, so the letters sit within the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Biarritz or Rome",
+      "gives": "ZORRO",
+      "note": "the run of letters spanning the end of the first word, the middle word and the start of the city"
+     }
+    ],
+    "explanation": {
+     "surface": "A masked fighter turns up in two European cities, Biarritz and Rome.",
+     "definitionFit": "The fictional swordsman of Spanish California wears a black mask and fights for the oppressed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rome"
+    }
    }
   },
   {
@@ -214,6 +716,58 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "ROBLOWE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ROB LOWE",
+    "definitions": [
+     {
+      "text": "Actor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen all around",
+      "for": "container",
+      "note": "something seen all around another thing encloses it on every side, so one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eggs",
+      "gives": "ROE",
+      "note": "roe is fish eggs; the word fish is borrowed from the end of the previous word"
+     },
+     {
+      "clueFragment": "blowfish",
+      "gives": "BLOW",
+      "note": "split as blow + fish: blow is taken as written, and fish qualifies the eggs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "BLOW",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An actor's dish of pufferfish roe, seen everywhere.",
+     "walkthrough": "'Blowfish' must be split into 'blow' and 'fish eggs'; the 's after Actor means 'is'. Rob Lowe is an American film and TV actor.",
+     "definitionFit": "Rob Lowe is an American performer known for The West Wing and St Elmo's Fire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blowfish"
+    }
    }
   },
   {
@@ -227,6 +781,58 @@
    "clue": {
     "text": "Internet pioneer concealing love for antiperspirant, maybe",
     "enumeration": "7"
+   },
+   "solution": "AEROSOL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AEROSOL",
+    "definitions": [
+     {
+      "text": "antiperspirant, maybe",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "concealing",
+      "for": "container",
+      "note": "a thing concealing something holds it hidden inside, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Internet pioneer",
+      "gives": "AOL",
+      "note": "America Online, an early internet service provider"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "EROS",
+      "note": "Eros is the Greek god of love"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "EROS",
+      "OL"
+     ]
+    },
+    "explanation": {
+     "surface": "An early web company hiding its affection for underarm deodorant.",
+     "walkthrough": "AOL (America Online) was a pioneering US internet provider; 'love' here is the god, not zero.",
+     "definitionFit": "Antiperspirant is often sold in a pressurised spray can, one example of this kind of dispenser."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
    }
   },
   {
@@ -240,6 +846,57 @@
    "clue": {
     "text": "Swim with hot, skimpy bathing suits — they're found in Kauai and Maui",
     "enumeration": "10"
+   },
+   "solution": "DIPHTHONGS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIPHTHONGS",
+    "definitions": [
+     {
+      "text": "they're found in Kauai and Maui",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swim",
+      "gives": "DIP",
+      "note": "a dip is a short swim"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the abbreviation for hot, as on a tap"
+     },
+     {
+      "clueFragment": "skimpy bathing suits",
+      "gives": "THONGS",
+      "note": "thongs are very brief bathing costumes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIP",
+      "H",
+      "THONGS"
+     ]
+    },
+    "explanation": {
+     "surface": "Swimming in skimpy swimwear on the beaches of Hawaii's islands.",
+     "walkthrough": "The definition looks like a beach scene but is about spelling: the Hawaiian names Kauai and Maui contain gliding vowel pairs such as AU, AI and UI.",
+     "definitionFit": "Two vowel sounds merged into one syllable, as in the 'au' and 'ai' heard in those island names."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "found"
+    }
    }
   },
   {
@@ -259,6 +916,60 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "PINKSLIME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PINK SLIME",
+    "definitions": [
+     {
+      "text": "meat filler recently in the news",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down entry one piece placed over another simply comes before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Skewer",
+      "gives": "PIN",
+      "note": "to pin is to skewer"
+     },
+     {
+      "clueFragment": "Kansas",
+      "gives": "KS",
+      "note": "KS is the postal abbreviation for Kansas"
+     },
+     {
+      "clueFragment": "green",
+      "gives": "LIME",
+      "note": "lime is a shade of green"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIN",
+      "KS",
+      "LIME"
+     ]
+    },
+    "explanation": {
+     "surface": "Pierce Kansas above a green meat stuffing that has been in the headlines.",
+     "walkthrough": "In 2012 US news coverage attacked a processed beef additive given this nickname.",
+     "definitionFit": "The nickname for lean finely textured beef, a cheap additive bulking out ground meat, caused a 2012 scandal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "green"
+    }
    }
   },
   {
@@ -278,6 +989,68 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "OILTANKER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "OIL TANKER",
+    "definitions": [
+     {
+      "text": "crude container",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "casing for",
+      "for": "letter_selection",
+      "note": "the casing of a sausage is its outer skin, so only the outermost letters are used"
+     },
+     {
+      "text": "eats",
+      "for": "container",
+      "note": "something that eats another takes it inside, so these letters go within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pig",
+      "gives": "OINKER",
+      "note": "an oinker is a jokey name for a pig"
+     },
+     {
+      "clueFragment": "liverwurst",
+      "gives": "LT",
+      "select": "outer",
+      "note": "the first and last letters of the sausage name"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OI",
+      "LTA",
+      "NKER"
+     ]
+    },
+    "explanation": {
+     "surface": "A greedy pig gulps a sausage skin, a rough sort of vessel.",
+     "walkthrough": "'Crude' means crude oil, not rough; liverwurst is a liver sausage.",
+     "definitionFit": "A ship built to carry unrefined petroleum in bulk holds crude oil."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "crude"
+    }
    }
   },
   {
@@ -291,6 +1064,41 @@
    "clue": {
     "text": "Adequate exhibition",
     "enumeration": "4"
+   },
+   "solution": "FAIR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FAIR",
+    "definitions": [
+     {
+      "text": "Adequate",
+      "at": 0
+     },
+     {
+      "text": "exhibition",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Adequate",
+      "note": "first meaning: passable, middling"
+     },
+     {
+      "clueFragment": "exhibition",
+      "note": "second meaning: a show of goods or produce, as in a trade or county show"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word is both an adjective for reasonable but unremarkable quality and a noun for a public show of products or livestock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exhibition"
+    }
    }
   },
   {
@@ -310,6 +1118,63 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "LAVALAMP",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LAVA LAMP",
+    "definitions": [
+     {
+      "text": "a 1960s luminary",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is captivated by",
+      "for": "container",
+      "note": "something captivated by another is held captive inside it, so the city goes within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the French",
+      "gives": "LA",
+      "note": "la is the French feminine for 'the'"
+     },
+     {
+      "clueFragment": "temptress",
+      "gives": "VAMP",
+      "note": "a vamp is a seductive woman"
+     },
+     {
+      "clueFragment": "Los Angeles",
+      "gives": "LA",
+      "note": "LA is the usual short form of Los Angeles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "VA",
+      "LA",
+      "MP"
+     ]
+    },
+    "explanation": {
+     "surface": "Los Angeles falls for a French femme fatale, a star of the sixties.",
+     "walkthrough": "'Luminary' suggests a celebrity of the decade, but here it is literally a source of light.",
+     "definitionFit": "The decorative lamp with blobs of wax rising in liquid became an icon of 1960s design, a light-giver."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "luminary"
+    }
    }
   },
   {
@@ -323,6 +1188,50 @@
    "clue": {
     "text": "Geometric figure, once reconfigured",
     "enumeration": "4"
+   },
+   "solution": "CONE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CONE",
+    "definitions": [
+     {
+      "text": "Geometric figure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reconfigured",
+      "for": "anagram",
+      "note": "reconfigured means set up in a new arrangement, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "once",
+      "gives": "ONCE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONCE",
+       "gives": "CONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shape that has been rearranged from what it once was.",
+     "definitionFit": "A solid tapering from a circular base to a point is one of the standard shapes of solid geometry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "once"
+    }
    }
   },
   {
@@ -336,6 +1245,47 @@
    "clue": {
     "text": "Warning: stop resisting \"@\"!",
     "enumeration": "6"
+   },
+   "solution": "CAVEAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAVEAT",
+    "definitions": [
+     {
+      "text": "Warning",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stop resisting",
+      "gives": "CAVE",
+      "note": "to cave is to give in"
+     },
+     {
+      "clueFragment": "\"@\"",
+      "gives": "AT",
+      "note": "the @ symbol is read as 'at'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAVE",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "A warning sign telling someone to give up fighting the email symbol.",
+     "definitionFit": "A caution or proviso is a cautionary note attached to an agreement or statement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "resisting"
+    }
    }
   },
   {
@@ -355,6 +1305,50 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "FLEAMARKET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FLEA MARKET",
+    "definitions": [
+     {
+      "text": "where knickknacks can be bought",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "goes insane",
+      "for": "anagram",
+      "note": "someone who goes insane loses their order of mind, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Metal freak",
+      "gives": "METALFREAK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "METALFREAK",
+       "gives": "FLEAMARKET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A heavy-metal fan loses it in a shop full of trinkets.",
+     "definitionFit": "An open-air market of cheap second-hand goods is a typical place to buy bric-a-brac and trinkets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Metal"
+    }
    }
   },
   {
@@ -368,6 +1362,58 @@
    "clue": {
     "text": "Shoot nurse and nearly get angry",
     "enumeration": "7"
+   },
+   "solution": "TENDRIL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TENDRIL",
+    "definitions": [
+     {
+      "text": "Shoot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nearly",
+      "for": "deletion",
+      "note": "nearly means not quite all, so the last letter of the word is cut off"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nurse",
+      "gives": "TEND",
+      "note": "to tend is to nurse"
+     },
+     {
+      "clueFragment": "get angry",
+      "gives": "RILE",
+      "note": "rile, to anger"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEND",
+      "RIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Gun down a nurse and nearly lose your temper.",
+     "walkthrough": "'Shoot' reads as firing a gun, but it is a plant's new growth.",
+     "definitionFit": "A slender climbing growth from a plant's stem is a kind of young plant offshoot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shoot"
+    }
    }
   },
   {
@@ -381,6 +1427,46 @@
    "clue": {
     "text": "License for each New England university",
     "enumeration": "6"
+   },
+   "solution": "PERMIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PERMIT",
+    "definitions": [
+     {
+      "text": "License",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for each",
+      "gives": "PER",
+      "note": "per means for each, as in miles per hour"
+     },
+     {
+      "clueFragment": "New England university",
+      "gives": "MIT",
+      "note": "the Massachusetts Institute of Technology"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PER",
+      "MIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A licence issued for every university in New England.",
+     "definitionFit": "An official document of authorisation grants permission, as a licence does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "each"
+    }
    }
   },
   {
@@ -394,6 +1480,67 @@
    "clue": {
     "text": "Outside, one butcher carves organs",
     "enumeration": "7"
+   },
+   "solution": "VISCERA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "VISCERA",
+    "definitions": [
+     {
+      "text": "organs",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "butcher",
+      "for": "anagram",
+      "note": "to butcher something is to hack it about, so the letters are chopped and rearranged"
+     },
+     {
+      "text": "Outside",
+      "for": "container",
+      "note": "placed at the very start, this says the jumbled word goes on the outside of the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carves",
+      "gives": "CARVES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "I",
+      "SCERA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CARVES",
+       "gives": "VSCERA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Outdoors, a butcher carves up a carcass's internal organs.",
+     "walkthrough": "'Butcher' looks like a noun doing the carving, but it is a verb telling you to mangle 'carves'.",
+     "definitionFit": "The term covers the internal organs of the body, especially those in the abdomen, such as the intestines."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "butcher"
+    }
    }
   },
   {
@@ -413,6 +1560,60 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "DEALTIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEALT IN",
+    "definitions": [
+     {
+      "text": "Gave a hand to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "process",
+      "for": "anagram",
+      "note": "to process material is to work it into another form, so the letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lead",
+      "gives": "LEAD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tin",
+      "gives": "TIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEADTIN",
+       "gives": "DEALTIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Helped someone to smelt and refine two metals.",
+     "walkthrough": "'Gave a hand' suggests helping, but here it is a hand of cards.",
+     "definitionFit": "In card games, to include a player by giving them cards is to give them a hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hand"
+    }
    }
   },
   {
@@ -426,6 +1627,42 @@
    "clue": {
     "text": "Redo Richard's letters in Greek",
     "enumeration": "5"
+   },
+   "solution": "DORIC",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DORIC",
+    "definitions": [
+     {
+      "text": "Greek",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "letters in",
+      "for": "hidden_word",
+      "note": "the answer is made of letters lying in the words before it, read straight through"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Redo Richard's",
+      "gives": "DORIC",
+      "note": "the run of letters spanning the end of the first word and the start of the name"
+     }
+    ],
+    "explanation": {
+     "surface": "Rewrite Richard's correspondence in the Greek language.",
+     "definitionFit": "Doric is an ancient Greek dialect and the plainest Greek order of architecture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "letters"
+    }
    }
   },
   {
@@ -445,6 +1682,46 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "TOWIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TO WIT",
+    "definitions": [
+     {
+      "text": "Namely",
+      "at": 0
+     },
+     {
+      "text": "what to do with a broken-down car",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Namely",
+      "note": "first meaning: that is to say"
+     },
+     {
+      "clueFragment": "what to do with a broken-down car",
+      "note": "second meaning, read as three words: haul the vehicle away behind a truck"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half splits the answer into 'tow it', the instruction for a car that will not run.",
+     "definitionFit": "The legal-sounding phrase introduces a specification, just as 'that is to say' does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Namely"
+    }
    }
   },
   {
@@ -458,6 +1735,58 @@
    "clue": {
     "text": "10:10 in the morning is an agreed-upon beginning",
     "enumeration": "5"
+   },
+   "solution": "AXIOM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AXIOM",
+    "definitions": [
+     {
+      "text": "agreed-upon beginning",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it, so these numbers go within the time of day"
+     }
+    ],
+    "linkWords": [
+     "is an"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the morning",
+      "gives": "AM",
+      "note": "a.m. marks the morning hours"
+     },
+     {
+      "clueFragment": "10:10",
+      "gives": "XIO",
+      "note": "ten as the Roman numeral X, then ten written as the look-alike letters I and O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "XIO",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A meeting time of ten past ten in the morning is the agreed start.",
+     "walkthrough": "The two tens are written two different ways: once in Roman numerals, once as the digits 1 and 0 read as letters.",
+     "definitionFit": "A statement accepted as true without proof serves as the starting point for reasoning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "morning"
+    }
    }
   },
   {
@@ -477,6 +1806,56 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "KOREANWAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KOREAN WAR",
+    "definitions": [
+     {
+      "text": "armed conflict",
+      "at": 44
+     }
+    ],
+    "linkWords": [
+     "put together for an"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Potassium",
+      "gives": "K",
+      "note": "K is the chemical symbol for potassium"
+     },
+     {
+      "clueFragment": "mineral",
+      "gives": "ORE",
+      "note": "an ore is a mineral that is mined"
+     },
+     {
+      "clueFragment": "Sadat",
+      "gives": "ANWAR",
+      "note": "Anwar Sadat was president of Egypt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "ORE",
+      "ANWAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Sadat assembles a potassium mineral to supply weapons for a war.",
+     "walkthrough": "Sadat stands for his first name, Anwar.",
+     "definitionFit": "The 1950-53 war between North and South Korea and their allies was a major armed conflict."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sadat"
+    }
    }
   },
   {
@@ -496,6 +1875,76 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "VENTURECAPITAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "VENTURE CAPITAL",
+    "definitions": [
+     {
+      "text": "risky investment",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out here means out of order or put wrong, so the letters are scrambled"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "these pieces are put in the following word, sitting inside it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "essential",
+      "gives": "VITAL",
+      "note": "vital means essential"
+     },
+     {
+      "clueFragment": "Tune",
+      "gives": "TUNE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "summary",
+      "gives": "RECAP",
+      "note": "a recap is a brief summary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "ENTU",
+      "RECAP",
+      "ITAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TUNE",
+       "gives": "ENTU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ignore the executive summary of a crucial, high-risk investment.",
+     "walkthrough": "'Tune out' reads as a phrasal verb meaning ignore, but 'out' acts alone on 'Tune'.",
+     "definitionFit": "Money put into new businesses with a high chance of failure in hope of big returns is speculative funding."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
    }
   }
  ]
