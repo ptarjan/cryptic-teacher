@@ -56,7 +56,13 @@ same("the hub page's code", fp(edit("def hub_page(idx):", "def hub_page(idx, unu
 same("a fetcher nothing reaches", fp({"fetch_telegraph": "def nothing():\n    return 1\n"}))
 moved("the puzzle page's code", fp(edit("def puzzle_page(puz, meta, prev_p, next_p):", "def puzzle_page(puz, meta, prev_p, next_p, unused=None):")))
 Z = "0" * 40
-moved("a table the page reads", fp(blob_of={"tools/data/lexicons/indicators.json": Z}))
+moved("a table the page reads", fp(blob_of={"tools/data/clue_types.json": Z}))
+# The two lexicons every "daily blog-facts" commit rewrites: a page's own
+# checks cover them (page_cache PER_ENTRY, OPAQUE), so they re-render nothing.
+same("the indicator lexicon, re-matched per stored page",
+     fp(blob_of={"tools/data/lexicons/indicators.json": Z}))
+same("the blocks lexicon, read only to stamp an asset each page re-checks",
+     fp(blob_of={"tools/data/lexicons/blocks.json": Z, "tools/data/lexicons/abbreviations.json": Z}))
 moved("the stylesheet", fp(blob_of={"style.css": Z}))
 same("the budgets table, a test, a doc", fp(blob_of={"tools/data/deploy_budgets.json": Z,
                                                       "tools/test_validate_scope.sh": Z, "APP.md": Z}))
@@ -65,9 +71,9 @@ same("the homepage, restamped by every reindex", fp(blob_of={"index.html": Z}))
 code = pc.reached()
 paths = ["tools/data/lexicons/indicators.json", "style.css", "index.html", "docs/indicators.json",
          "puzzles/times/2002/times-21965.json", "tools/data/blog_facts/times.json", "tools/fetch_puzzle.py",
-         "tools/data/deploy_budgets.json"]
+         "tools/data/deploy_budgets.json", "tools/data/clue_types.json", "tools/data/lexicons/blocks.json"]
 got = pc.inputs(code, paths)
-assert got == ["style.css", "tools/data/lexicons/indicators.json"], f"test_page_cache: inputs {got}"
+assert got == ["style.css", "tools/data/clue_types.json"], f"test_page_cache: inputs {got}"
 
 # A page's key holds the part of its index row the page prints (page_row),
 # so a reindex that moves only the difficulty index, its basis, the tags or
@@ -116,6 +122,26 @@ for label, r in (("the percentile", changed(percentile=33)), ("the band", change
         sys.exit(f"test_page_cache: {label} moved: reuses a stale page")
     if B.puzzle_page(puz, r, None, None) == page0:
         sys.exit(f"test_page_cache: {label} is keyed but the page does not print it")
+# A stored page keeps its indicator candidates unmatched: matched against a
+# moved lexicon they give what a fresh render's clue_indicators() would.
+ipuz = {"id": "cryptic-30000", "number": 30000, "series": "cryptic", "date": "2026-05-01",
+        "entries": [{"number": 1, "direction": "across", "annotation": {
+            "indicators": [{"text": "wildly", "for": "anagram"}, {"text": "about", "for": "container"}]}}]}
+ipage = 'id="1-across"'
+cands = B.indicator_candidates(ipuz, ipage)
+real = B.indicator_lexicon
+for lex in ({"anagram": {"WILDLY": 3}}, {"anagram": {"WILD": 1}, "container": {"ABOUT": 9}}, {}):
+    B.indicator_lexicon = lambda lex=lex: lex
+    try:
+        want = {}
+        B.clue_indicators(want, ipuz, ipage)
+    finally:
+        B.indicator_lexicon = real
+    if B.indicator_found(cands, lexicon=lex) != want:
+        sys.exit(f"test_page_cache: re-matched candidates under {lex} are not a fresh render's")
+if not B.indicator_found(cands, lexicon={"anagram": {"WILDLY": 3}}):
+    sys.exit("test_page_cache: the candidates matched nothing")
+
 fresh = changed(index=0.5, tags=["big-grid"])
 if showcase.with_meta(showcase.file_facts(puz), fresh) != showcase.facts(puz, fresh):
     sys.exit("test_page_cache: a reused page's showcase facts are not the fresh row's")
