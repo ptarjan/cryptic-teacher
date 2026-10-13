@@ -2006,10 +2006,6 @@ tools/test_scan_queue.sh                      does tools/scan_queue.py read the 
                                               included?
 tools/test_ann_normalize.sh                   what apply_annotations.normalize computes, so the
                                               run need not write it
-tools/derive_assembly.py                      the search that rebuilds an assembly from block
-                                              letters, and the cut annotation.view() uses
-tools/test_derive_assembly.sh                 is `assembly` worked out from the blocks, and
-                                              only with the clue's own operations?
 tools/row_cache.py                            a per-file pass over the corpus that parses only
                                               the files it has not seen: rows stored by code
                                               key, path and git blob under the git common dir

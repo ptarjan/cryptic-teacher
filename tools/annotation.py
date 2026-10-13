@@ -398,10 +398,23 @@ def _blocks(node, got):
     return [b for p in parts for b in _blocks(p, got)]
 
 
+def _cut(pieces, at):
+    """`pieces` split at letter offset `at`, a piece cut in two if need be."""
+    before, after, seen = [], [], 0
+    for p in pieces:
+        if seen + len(p) <= at:
+            before.append(p)
+        elif seen >= at:
+            after.append(p)
+        else:
+            before.append(p[:at - seen])
+            after.append(p[at - seen:])
+        seen += len(p)
+    return before, after
+
+
 def _pieces(node, got):
     """The answer in the chunks the tree builds, in answer order."""
-    from derive_assembly import _cut
-
     import wordplay
     op = node.get("op")
     if node.get("unchecked"):
@@ -705,7 +718,7 @@ def from_model(m, entry, puzzle=None):
         # Word breaks and hyphens are the enumeration's, never the model's: a
         # model's WAR PAINT against a printed (8) is WARPAINT, and is no spelling.
         said = spaced(m["answer"], entry, puzzle)
-        if display is None or said != spaced(display, entry, puzzle):
+        if display is None or said.casefold() != spaced(display, entry, puzzle).casefold():
             out["spelling"] = said
     if wp:
         alt = entry.get("alteration")
