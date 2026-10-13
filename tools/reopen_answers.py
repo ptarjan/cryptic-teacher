@@ -29,7 +29,11 @@ committed solve to blank, and a re-solve's answers are newer than the
 committed ones. Every hint the run wrote for a clue not being reopened is kept,
 with its credit, when the file then passes the run's own validation
 (validate_annotations.run_errors, the reopened lights pending): only the
-clues sent back are bought again. Otherwise none is kept. A clues-only puzzle
+clues sent back are bought again. A clue an error names loses its hint and the
+rest are checked again, so one bad clue does not cost the others; only a
+failure no clue is named for keeps none. The kept file's keys are put in the
+schema's order first: annotatedBy added after entries used to fail the check
+on key order alone and drop every hint (nation-3405, nation-3419, 10-12). A clues-only puzzle
 that run promoted has no grid file once discarded: its grid is built again
 from the copy's answers (clues_only.promote), and writing it retires the
 clues-only file.
@@ -45,6 +49,7 @@ import groups
 import provenance
 import puzzle_integrity
 import puzzle_paths
+import puzzle_schema
 import validate_annotations
 from fetch_puzzle import read_puzzle_file, resolve_puzzle, write_puzzle_file
 from groups import entry_id
@@ -89,11 +94,13 @@ def hint_holders(puzzle):
             + groups.off_grid(puzzle))
 
 
-def with_runs_hints(puzzle, ran, ids):
-    """`puzzle` carrying each hint `ran` wrote but those on the lights of `ids`,
-    and the credit and messages that came with them."""
+def with_runs_hints(puzzle, ran, ids, drop=()):
+    """`puzzle` carrying each hint `ran` wrote but those on the lights of `ids`
+    and the clues in `drop`, and the credit and messages that came with them,
+    its keys in the schema's order."""
     by_id = {entry_id(e): e for e in puzzle["entries"]}
     sent_back = {light for eid in ids for light in by_id[eid].get("group") or [eid]}
+    sent_back |= set(drop)
     theirs = dict(hint_holders(ran))
     out = copy.deepcopy(puzzle)
     for cid, item in hint_holders(out):
@@ -103,15 +110,44 @@ def with_runs_hints(puzzle, ran, ids):
     for key in ("annotatedBy", "messages"):
         if key in ran and provenance.has_hints(out):
             out[key] = copy.deepcopy(ran[key])
+    return puzzle_schema.order(out)
+
+
+def named_clues(errors, puzzle):
+    """The entry ids the validator's `errors` lead with ("15A: ...",
+    "3D,5A: ..."), each light of a linked answer included; None when any
+    error names no clue, so no subset of the hints can be trusted."""
+    by_tag = {f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}": e
+              for e in puzzle["entries"]}
+    out = set()
+    for err in errors:
+        m = re.match(r"([0-9]+[AD](?:,[0-9]+[AD])*)(?:/[0-9]+)?: ", err)
+        if not m:
+            return None
+        for tag in m.group(1).split(","):
+            e = by_tag.get(tag)
+            if e is None:
+                return None
+            out.update(e.get("group") or [entry_id(e)])
     return out
 
 
 def hinted_if_valid(path, puzzle, ran, ids):
     """with_runs_hints, when it holds a hint and passes the run's own validation
-    as the file at `path`; else None, and no hint is kept."""
-    hinted = with_runs_hints(puzzle, ran, ids)
-    if provenance.has_hints(hinted) and not validate_annotations.run_errors(path, hinted):
-        return hinted
+    as the file at `path`. A failure that names its clues drops their hints and
+    is checked again, once; else None, and no hint is kept."""
+    drop = set()
+    for _ in range(2):
+        hinted = with_runs_hints(puzzle, ran, ids, drop)
+        if not provenance.has_hints(hinted):
+            return None
+        errors = validate_annotations.run_errors(path, hinted)
+        if not errors:
+            return hinted
+        named = named_clues(errors, hinted)
+        if not named:
+            return None
+        drop |= named
     return None
 
 

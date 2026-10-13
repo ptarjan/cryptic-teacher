@@ -62,7 +62,7 @@ import puzzle_integrity
 import groups  # linked answers
 from derive_assembly import complete
 from groups import entry_id
-from validate_annotations import SELECT_NOUNS, selector_in_block
+from validate_annotations import SELECT_NOUNS, committed_entries, selector_in_block
 from fetch_puzzle import read_puzzle_file, resolve_puzzle, source_clue, write_puzzle_file
 
 TOOLS = Path(__file__).resolve().parent
@@ -525,10 +525,23 @@ def apply(path, annotations, by=None):
             item.get("annotation") for _, _, _, item in groups.also_clues(puzzle["entries"])] + [
             item.get("annotation") for _, item in groups.off_grid(puzzle)]
     before = written()
+    # A null cannot blank a hint that is committed for the same answer and
+    # clue: that hint validated and shipped, and a re-annotation that could not
+    # parse the clue again knows less than the run that did (nation-3405 22D,
+    # 10-12: run 2 nulled what run 1 had hinted, and the puzzle was discarded
+    # for it). Its own uncommitted hints a run may still null.
+    committed = committed_entries(path) or {}
+    held = []
     for entry in puzzle["entries"]:
         if entry_id(entry) in continuations or entry_id(entry) not in annotations:
             continue
         ann = annotations[entry_id(entry)]
+        was = committed.get(entry_id(entry)) or {}
+        if (ann is None and entry.get("annotation") and was.get("annotation") == entry["annotation"]
+                and was.get("solution") == entry.get("solution")
+                and (was.get("clue") or {}).get("text") == entry["clue"].get("text")):
+            held.append(entry_id(entry))
+            continue
         if ann is None:
             entry.pop("annotation", None)
         else:
@@ -556,7 +569,10 @@ def apply(path, annotations, by=None):
     for eid, new in fixes.items():
         print(f"apply_annotations: {eid} corrected to {new} — it agrees with every "
               f"crossing and printed answer (solutions.corrected)")
-    solved = sum(1 for k in required if annotations[k] is not None)
+    if held:
+        print(f"apply_annotations: {', '.join(held)} kept the committed hint your null "
+              f"would have blanked — it validated before; give a hint to replace it")
+    solved = sum(1 for k in required if annotations[k] is not None or k in held)
     return solved, len(required)
 
 
