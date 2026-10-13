@@ -19,8 +19,14 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "unsolved"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-12",
+  "check": "30 entries, 58 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,6 +39,51 @@
    "clue": {
     "text": "Mad non-scientist lacking method",
     "enumeration": "12"
+   },
+   "solution": "INCONSISTENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INCONSISTENT",
+    "definitions": [
+     {
+      "text": "lacking method",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mad",
+      "for": "anagram",
+      "note": "something mad is crazed and disordered, so the letters next to it are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "non-scientist",
+      "gives": "NONSCIENTIST",
+      "note": "taken letter for letter, ignoring the hyphen"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NONSCIENTIST",
+       "gives": "INCONSISTENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crank with no scientific training whose reasoning follows no method at all.",
+     "walkthrough": "The twelve letters of NON-SCIENTIST rearrange exactly into INCONSISTENT.",
+     "definitionFit": "Something done without any steady system or rule is inconsistent, erratic from one time to the next."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mad"
+    }
    }
   },
   {
@@ -46,6 +97,64 @@
    "clue": {
     "text": "Compose rising melody for sea power",
     "enumeration": "7"
+   },
+   "solution": "NEPTUNE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NEPTUNE",
+    "definitions": [
+     {
+      "text": "sea power",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down entry rising means reading upwards, so the word is turned around"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Compose",
+      "gives": "PEN",
+      "note": "to pen is to write or compose"
+     },
+     {
+      "clueFragment": "melody",
+      "gives": "TUNE",
+      "note": "a tune is a melody"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEP",
+      "TUNE"
+     ],
+     "reversals": [
+      {
+       "from": "PEN",
+       "to": "NEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Writing an ascending tune to celebrate naval strength.",
+     "walkthrough": "'Sea power' suggests a navy, but it is the Roman god of the sea.",
+     "definitionFit": "Neptune is the Roman god ruling the oceans, a deity whose power is over the sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "power"
+    }
    }
   },
   {
@@ -59,6 +168,57 @@
    "clue": {
     "text": "Clothed in taffeta, I posed opposite 8",
     "enumeration": "6"
+   },
+   "solution": "OPIATE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "OPIATE",
+    "definitions": [
+     {
+      "text": "8",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Clothed in",
+      "for": "hidden_word",
+      "note": "something clothed in fabric is wrapped inside it, so the answer lies within these words"
+     },
+     {
+      "text": "opposite",
+      "for": "reversal",
+      "note": "opposite means facing the other way, so the concealed letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taffeta, I posed",
+      "gives": "ETAIPO",
+      "note": "the run of letters spanning the end of taffeta through I and into posed"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ETAIPO",
+       "to": "OPIATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dressed in taffeta, a model strikes a pose facing someone.",
+     "walkthrough": "8 refers to 8-down, NARCOTIC, which serves as the definition.",
+     "definitionFit": "An opiate is a drug derived from opium that dulls the senses, a narcotic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Clothed"
+    }
    }
   },
   {
@@ -72,6 +232,62 @@
    "clue": {
     "text": "European southwest is slow, at first",
     "enumeration": "5"
+   },
+   "solution": "SWISS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SWISS",
+    "definitions": [
+     {
+      "text": "European",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first means only the opening letter of the preceding word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "southwest",
+      "gives": "SW",
+      "note": "the compass abbreviation"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "slow",
+      "gives": "S",
+      "select": "first",
+      "note": "its opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SW",
+      "IS",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that a southwestern European is sluggish to begin with.",
+     "walkthrough": "SW + IS + S.",
+     "definitionFit": "A Swiss person is a native of Switzerland, a country in central Europe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "southwest"
+    }
    }
   },
   {
@@ -91,6 +307,72 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "SUGARBEET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "SUGAR BEET",
+    "definitions": [
+     {
+      "text": "sweet vegetable",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a piece of",
+      "for": "letter_selection",
+      "note": "a piece means just one letter, the first, of the following word"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the clothing and the letter inside the fat word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dress",
+      "gives": "GARB",
+      "note": "garb is clothing, dress"
+     },
+     {
+      "clueFragment": "eggplant",
+      "gives": "E",
+      "select": "first",
+      "note": "its opening letter"
+     },
+     {
+      "clueFragment": "animal fat",
+      "gives": "SUET",
+      "note": "suet is hard animal fat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "GARB",
+      "E",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe: coat a slice of aubergine in animal fat and serve with a sweet root.",
+     "walkthrough": "'Dress' looks like a cooking verb, as in dressing a salad, but here it means clothing.",
+     "definitionFit": "Sugar beet is a root crop grown for its high sugar content, so it is a sweet vegetable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dress"
+    }
    }
   },
   {
@@ -104,6 +386,80 @@
    "clue": {
     "text": "Commercial in gym supports poor case for stunt",
     "enumeration": "8"
+   },
+   "solution": "ESCAPADE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "ESCAPADE",
+    "definitions": [
+     {
+      "text": "stunt",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "poor",
+      "for": "anagram",
+      "note": "something poor is in bad shape, so the letters of the next word are disordered"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the commercial sits in the gym, inside its letters"
+     },
+     {
+      "text": "supports",
+      "for": "charade",
+      "note": "in a down clue the supporting piece stands underneath, so it comes after the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "case",
+      "gives": "CASE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Commercial",
+      "gives": "AD",
+      "note": "an ad is a commercial"
+     },
+     {
+      "clueFragment": "gym",
+      "gives": "PE",
+      "note": "PE is physical education, school gym class"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESCA",
+      "PADE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CASE",
+       "gives": "ESCA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An advertisement filmed in a gym backs a weak argument in favour of a stunt.",
+     "walkthrough": "In a down entry the supporting piece goes underneath, so the gym-and-commercial unit comes last.",
+     "definitionFit": "An escapade is a daring or reckless adventure, a stunt or prank."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "supports"
+    }
    }
   },
   {
@@ -123,6 +479,55 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "TOOMUCH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TOO MUCH",
+    "definitions": [
+     {
+      "text": "Excessive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the sensitivity word encircles the mantra"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mantra",
+      "gives": "OM",
+      "note": "om is the sacred syllable chanted as a mantra"
+     },
+     {
+      "clueFragment": "sensitivity",
+      "gives": "TOUCH",
+      "note": "touch as a delicate sensitivity, as in a light touch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "OM",
+      "UCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Being overly sensitive about one's chanted phrase.",
+     "walkthrough": "Om is the sacred syllable of Hindu and Buddhist meditation, the classic mantra.",
+     "definitionFit": "Too much means more than is reasonable, an excessive amount."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sensitivity"
+    }
    }
   },
   {
@@ -136,6 +541,66 @@
    "clue": {
     "text": "Sleep-inducing acorn cooked to overcome spasm",
     "enumeration": "8"
+   },
+   "solution": "NARCOTIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "NARCOTIC",
+    "definitions": [
+     {
+      "text": "Sleep-inducing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooking transforms ingredients, so the nut's letters are mixed up"
+     },
+     {
+      "text": "to overcome",
+      "for": "charade",
+      "note": "in a down clue overcoming means sitting on top, so the cooked letters come first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "acorn",
+      "gives": "ACORN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "spasm",
+      "gives": "TIC",
+      "note": "a tic is a twitching spasm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NARCO",
+      "TIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACORN",
+       "gives": "NARCO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soothing remedy made from cooked acorns that calms muscle spasms.",
+     "walkthrough": "In a down entry, overcoming puts one piece on top, so the cooked letters come before the spasm.",
+     "definitionFit": "Narcotic as an adjective describes drugs that dull the senses and induce sleep, its original meaning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooked"
+    }
    }
   },
   {
@@ -149,6 +614,49 @@
    "clue": {
     "text": "Finishes off homework in little bookie joint",
     "enumeration": "4"
+   },
+   "solution": "KNEE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "KNEE",
+    "definitions": [
+     {
+      "text": "joint",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Finishes off",
+      "for": "letter_selection",
+      "note": "the finishes of the following words are their last letters, which are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "homework in little bookie",
+      "gives": "KNEE",
+      "select": "last",
+      "note": "the final letter of each of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KNEE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone completes their homework in a small betting shop.",
+     "walkthrough": "'Joint' looks like part of 'bookie joint', a betting den, but it is the definition on its own.",
+     "definitionFit": "The knee is the hinge joint between thigh and lower leg."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "joint"
+    }
    }
   },
   {
@@ -162,6 +670,67 @@
    "clue": {
     "text": "Getting up to follow news service at start of press briefing",
     "enumeration": "9"
+   },
+   "solution": "APPRISING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "APPRISING",
+    "definitions": [
+     {
+      "text": "briefing",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to follow",
+      "for": "charade",
+      "note": "the getting-up word is told to come after the earlier pieces rather than lead"
+     },
+     {
+      "text": "at start of",
+      "for": "letter_selection",
+      "note": "only the opening letter of the following word is wanted here"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "news service",
+      "gives": "AP",
+      "note": "the Associated Press, a US news agency"
+     },
+     {
+      "clueFragment": "press",
+      "gives": "P",
+      "select": "first",
+      "note": "its opening letter"
+     },
+     {
+      "clueFragment": "Getting up",
+      "gives": "RISING",
+      "note": "getting up from bed or a seat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AP",
+      "P",
+      "RISING"
+     ]
+    },
+    "explanation": {
+     "surface": "A wire-service report on people rising to their feet, at the start of a press briefing.",
+     "walkthrough": "AP, then P, then RISING: APPRISING.",
+     "definitionFit": "To apprise someone is to inform them, so apprising is briefing them, as a participle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Getting"
+    }
    }
   },
   {
@@ -175,6 +744,57 @@
    "clue": {
     "text": "A pair of climatologists acknowledge someone with big shoes to fill",
     "enumeration": "5"
+   },
+   "solution": "CLOWN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CLOWN",
+    "definitions": [
+     {
+      "text": "someone with big shoes to fill",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "A pair of",
+      "for": "letter_selection",
+      "note": "a pair means two, so just the first two letters of the next word are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "climatologists",
+      "gives": "CL",
+      "select": "first",
+      "note": "its first two letters"
+     },
+     {
+      "clueFragment": "acknowledge",
+      "gives": "OWN",
+      "note": "to own up to something is to acknowledge it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CL",
+      "OWN"
+     ]
+    },
+    "explanation": {
+     "surface": "Two climate scientists pay tribute to a predecessor whose legacy will be hard to live up to.",
+     "walkthrough": "'Someone with big shoes to fill' reads as an idiom for an impressive predecessor, but here it is literal: a clown wears huge floppy shoes.",
+     "definitionFit": "Circus clowns famously wear outsized shoes, so the phrase is taken literally as a playful description."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shoes"
+    }
    }
   },
   {
@@ -188,6 +808,46 @@
    "clue": {
     "text": "Nobleman to read characters in front of this clue and above this puzzle, one after the other",
     "enumeration": "5"
+   },
+   "solution": "COUNT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COUNT",
+    "definitions": [
+     {
+      "text": "Nobleman",
+      "at": 0
+     },
+     {
+      "text": "read characters in front of this clue and above this puzzle, one after the other",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nobleman",
+      "note": "first meaning: a European noble ranking like an earl"
+     },
+     {
+      "clueFragment": "read characters in front of this clue and above this puzzle, one after the other",
+      "note": "second meaning: the clue number 12 and the puzzle number 3456 read in sequence go 1, 2, 3, 4, 5, 6"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The characters in front of the clue are its number, 12, and above the puzzle stands its number, 3456; reading them in order recites the numbers one to six.",
+     "definitionFit": "A continental aristocrat is titled a count, and to say numbers in sequence is also to count."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "read"
+    }
    }
   },
   {
@@ -201,6 +861,72 @@
    "clue": {
     "text": "Gang member, at wit's end, captivated by certain books of the Bible",
     "enumeration": "9"
+   },
+   "solution": "SCRIPTURE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "SCRIPTURE",
+    "definitions": [
+     {
+      "text": "books of the Bible",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, the only one kept"
+     },
+     {
+      "text": "captivated by",
+      "for": "container",
+      "note": "something captivated is held captive, so these letters sit inside another word"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gang member",
+      "gives": "CRIP",
+      "note": "the Crips are a Los Angeles street gang"
+     },
+     {
+      "clueFragment": "wit",
+      "gives": "T",
+      "select": "last",
+      "note": "its final letter"
+     },
+     {
+      "clueFragment": "certain",
+      "gives": "SURE",
+      "note": "sure means certain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CRIP",
+      "T",
+      "URE"
+     ]
+    },
+    "explanation": {
+     "surface": "A gangster at the end of his tether is gripped by particular books of the Bible.",
+     "walkthrough": "The Crips are a well-known Los Angeles street gang, so a member is a Crip.",
+     "definitionFit": "Scripture is the sacred writing of the Bible, the collection of its books."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "captivated"
+    }
    }
   },
   {
@@ -214,6 +940,46 @@
    "clue": {
     "text": "Class for one learning macramé?",
     "enumeration": "4"
+   },
+   "solution": "TIER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TIER",
+    "definitions": [
+     {
+      "text": "Class",
+      "at": 0
+     },
+     {
+      "text": "one learning macramé",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Class",
+      "note": "first meaning: a rank or level"
+     },
+     {
+      "clueFragment": "one learning macramé",
+      "note": "second meaning, whimsical: macramé is knotted cord, so its student is one who ties"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the made-up second sense, someone who ties knots, rhyming with 'fire' not 'fear'.",
+     "definitionFit": "A tier is a level or grade, a class in a ranked arrangement such as seating or pricing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Class"
+    }
    }
   },
   {
@@ -227,6 +993,62 @@
    "clue": {
     "text": "Bond fanatics, having run with it",
     "enumeration": "10"
+   },
+   "solution": "FRIENDSHIP",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "FRIENDSHIP",
+    "definitions": [
+     {
+      "text": "Bond",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having",
+      "for": "container",
+      "note": "to have something is to hold it, so the fanatics word holds another letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket and baseball abbreviation for run"
+     },
+     {
+      "clueFragment": "fanatics",
+      "gives": "FIENDS",
+      "note": "fiends are devotees, as in fitness fiends"
+     },
+     {
+      "clueFragment": "with it",
+      "gives": "HIP",
+      "note": "hip means fashionable, with it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "R",
+      "IENDS",
+      "HIP"
+     ]
+    },
+    "explanation": {
+     "surface": "Fans of James Bond who have been hurrying along with the times.",
+     "walkthrough": "'Bond' tempts as 007, but it means a tie between people.",
+     "definitionFit": "A friendship is a bond of affection between people, a tie of mutual loyalty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bond"
+    }
    }
   },
   {
@@ -240,6 +1062,50 @@
    "clue": {
     "text": "Comes back to harvest fruit",
     "enumeration": "9"
+   },
+   "solution": "REAPPEARS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REAPPEARS",
+    "definitions": [
+     {
+      "text": "Comes back",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "harvest",
+      "gives": "REAP",
+      "note": "to reap is to harvest"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "PEARS",
+      "note": "pears are fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REAP",
+      "PEARS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone returns home to gather the orchard crop.",
+     "walkthrough": "REAP + PEARS.",
+     "definitionFit": "To reappear is to show up again, so something that reappears returns."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "harvest"
+    }
    }
   },
   {
@@ -253,6 +1119,50 @@
    "clue": {
     "text": "Slithering serpents' sass",
     "enumeration": "8"
+   },
+   "solution": "PERTNESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PERTNESS",
+    "definitions": [
+     {
+      "text": "sass",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Slithering",
+      "for": "anagram",
+      "note": "slithering is twisting and writhing, so these letters wriggle into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "serpents",
+      "gives": "SERPENTS",
+      "note": "taken as written; the possessive is ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SERPENTS",
+       "gives": "PERTNESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The cheek of snakes slipping along.",
+     "definitionFit": "Pertness is cheeky boldness, the same impudence that sass names in American usage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Slithering"
+    }
    }
   },
   {
@@ -272,6 +1182,57 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "NOTLEAST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOT LEAST",
+    "definitions": [
+     {
+      "text": "Frequently last",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sad",
+      "for": "anagram",
+      "note": "something in a sad state is in a sorry mess, so the preceding letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "talent",
+      "gives": "TALENT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "so",
+      "gives": "SO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TALENTSO",
+       "gives": "NOTLEAST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lament that a fading talent is so often the last one picked.",
+     "walkthrough": "The definition plays on the stock phrase 'last but not least': the word last is frequently followed by not least.",
+     "definitionFit": "In the idiom 'last but not least', the phrase routinely accompanies the word last, so it is what last frequently comes with."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sad"
+    }
    }
   },
   {
@@ -291,6 +1252,63 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "CARGOPANTS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CARGO PANTS",
+    "definitions": [
+     {
+      "text": "They have deep pockets",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "to involve is to wrap up within, so the diatribes word encloses the party"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "California",
+      "gives": "CA",
+      "note": "the US postal abbreviation for California"
+     },
+     {
+      "clueFragment": "Republicans",
+      "gives": "GOP",
+      "note": "the Grand Old Party, the US Republican Party"
+     },
+     {
+      "clueFragment": "diatribes",
+      "gives": "RANTS",
+      "note": "a diatribe is an angry rant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "R",
+      "GOP",
+      "ANTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Political tirades in California involving Republicans, who are said to be rich donors.",
+     "walkthrough": "'Deep pockets' suggests wealthy backers, but the pockets are literal.",
+     "definitionFit": "Cargo pants are loose trousers with large patch pockets on the thighs, so they literally have deep pockets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pockets"
+    }
    }
   },
   {
@@ -304,6 +1322,82 @@
    "clue": {
     "text": "On reflection, we invested originally in guns and pans sometimes",
     "enumeration": "7"
+   },
+   "solution": "REVIEWS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "container"
+    ],
+    "answer": "REVIEWS",
+    "definitions": [
+     {
+      "text": "pans sometimes",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to the very start of the preceding word, its first letter"
+     },
+     {
+      "text": "On reflection",
+      "for": "reversal",
+      "note": "a reflection shows things back to front, so the letters are read in the opposite direction"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the reflected letters inside the word for guns"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "we",
+      "gives": "WE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "invested",
+      "gives": "I",
+      "select": "first",
+      "note": "its opening letter"
+     },
+     {
+      "clueFragment": "guns",
+      "gives": "REVS",
+      "note": "to gun an engine is to rev it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REV",
+      "IEW",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "WEI",
+       "to": "IEW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Looking back, we put money into firearms and cookware now and then.",
+     "walkthrough": "'Guns' and 'pans' look like weapons and cookware but are verbs: to gun an engine, to pan a show.",
+     "definitionFit": "A pan is a harsh critical write-up, so pans are one kind of reviews, hence 'sometimes'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "pans"
+    }
    }
   },
   {
@@ -317,6 +1411,42 @@
    "clue": {
     "text": "Agitate in prison",
     "enumeration": "4"
+   },
+   "solution": "STIR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STIR",
+    "definitions": [
+     {
+      "text": "Agitate",
+      "at": 0
+     },
+     {
+      "text": "in prison",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agitate",
+      "note": "first meaning: to ... up or ... a liquid"
+     },
+     {
+      "clueFragment": "in prison",
+      "note": "second meaning: slang 'in ...' means behind bars"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Stir is old slang for prison, so 'in prison' is 'in stir'; the definition carries its own 'in'.",
+     "definitionFit": "To stir is to agitate or disturb, and stir is also slang for a jail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Agitate"
+    }
    }
   },
   {
@@ -330,6 +1460,61 @@
    "clue": {
     "text": "Early explorer of America raised company's killer crop",
     "enumeration": "7"
+   },
+   "solution": "TOBACCO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TOBACCO",
+    "definitions": [
+     {
+      "text": "killer crop",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down entry raising means reading upwards, so the explorer's name runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Early explorer of America",
+      "gives": "CABOT",
+      "note": "John Cabot reached North America in 1497"
+     },
+     {
+      "clueFragment": "company's",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company; the 's joins"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOBAC",
+      "CO"
+     ],
+     "reversals": [
+      {
+       "from": "CABOT",
+       "to": "TOBAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An early explorer of America grew a firm's deadly crop.",
+     "walkthrough": "'Raised' suggests growing a crop, but it turns the explorer upside down.",
+     "definitionFit": "Tobacco is a cultivated plant whose smoked leaf causes many deaths, a lethal harvest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "raised"
+    }
    }
   },
   {
@@ -343,6 +1528,60 @@
    "clue": {
     "text": "Late summer breeze after a reversal of direction",
     "enumeration": "6"
+   },
+   "solution": "AUGUST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AUGUST",
+    "definitions": [
+     {
+      "text": "Late summer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means coming later in sequence, so the breeze word follows the other pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "reversal of direction",
+      "gives": "U",
+      "note": "a U-turn reverses one's direction"
+     },
+     {
+      "clueFragment": "breeze",
+      "gives": "GUST",
+      "note": "a gust is a sudden breeze"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "U",
+      "GUST"
+     ]
+    },
+    "explanation": {
+     "surface": "A late-summer wind picks up after the wind direction changes.",
+     "walkthrough": "A + U + GUST. U stands for a U-turn, the about-face of direction.",
+     "definitionFit": "August is the final full month of summer in the northern hemisphere, so late summer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reversal"
+    }
    }
   },
   {
@@ -356,6 +1595,79 @@
    "clue": {
     "text": "Warsaw native heads west, amid seven tangled wrappers",
     "enumeration": "9"
+   },
+   "solution": "ENVELOPES",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "container"
+    ],
+    "answer": "ENVELOPES",
+    "definitions": [
+     {
+      "text": "wrappers",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heads west",
+      "for": "reversal",
+      "note": "across clues read left to right, so heading west means reading the word right to left"
+     },
+     {
+      "text": "tangled",
+      "for": "anagram",
+      "note": "a tangled number word has its letters jumbled"
+     },
+     {
+      "text": "amid",
+      "for": "container",
+      "note": "amid means in the middle of, so one piece is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Warsaw native",
+      "gives": "POLE",
+      "note": "Warsaw is in Poland, so a native is a Pole"
+     },
+     {
+      "clueFragment": "seven",
+      "gives": "SEVEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENV",
+      "ELOP",
+      "ES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEVEN",
+       "gives": "ENVES"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "POLE",
+       "to": "ELOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man from Warsaw travels west wrapped in seven knotted layers.",
+     "walkthrough": "'Heads west' sounds like a journey, but in an across entry it means reading right to left.",
+     "definitionFit": "Envelopes are paper covers that enclose letters, so they are wrappers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heads"
+    }
    }
   },
   {
@@ -369,6 +1681,51 @@
    "clue": {
     "text": "Engages oddly with roe",
     "enumeration": "4"
+   },
+   "solution": "EGGS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "EGGS",
+    "definitions": [
+     {
+      "text": "roe",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly means taking the letters in the odd positions, first, third and so on"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Engages",
+      "gives": "EGGS",
+      "select": "alternate",
+      "note": "its first, third, fifth and seventh letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EGGS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone strangely gets involved with fish roe.",
+     "definitionFit": "Roe is the mass of eggs inside a female fish, so the two are the same thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Engages"
+    }
    }
   },
   {
@@ -382,6 +1739,50 @@
    "clue": {
     "text": "Leaders of Saudi Arabia's neighbor are around _____!",
     "enumeration": "5"
+   },
+   "solution": "SANAA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "SANAA",
+    "definitions": [
+     {
+      "text": "Leaders of Saudi Arabia's neighbor are around _____!",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leaders of",
+      "for": "letter_selection",
+      "note": "the leaders of a group of words are their opening letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saudi Arabia's neighbor are around",
+      "gives": "SANAA",
+      "select": "first",
+      "note": "the first letter of each of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SANAA"
+     ]
+    },
+    "explanation": {
+     "surface": "A fill-in-the-blank: where would you find the government of the country next to Saudi Arabia?",
+     "walkthrough": "The whole clue is both wordplay and definition: the leaders of Yemen, which borders Saudi Arabia, sit in its capital.",
+     "definitionFit": "Sanaa is the capital of Yemen, the neighbour where that country's leaders are based."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Leaders"
+    }
    }
   },
   {
@@ -395,6 +1796,56 @@
    "clue": {
     "text": "Metropolitan headdress is timeless",
     "enumeration": "5"
+   },
+   "solution": "URBAN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "URBAN",
+    "definitions": [
+     {
+      "text": "Metropolitan",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "timeless",
+      "for": "deletion",
+      "note": "read as time-less, it asks for the headdress word without its time letter"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "headdress",
+      "gives": "TURBAN",
+      "note": "a turban is a wound cloth headdress"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "URBAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A city-style headdress is described as timeless, a classic look.",
+     "walkthrough": "The word 'timeless' splits as 'time' plus 'less': TURBAN without T leaves URBAN.",
+     "definitionFit": "Urban means relating to a city, which is what metropolitan describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "timeless"
+    }
    }
   },
   {
@@ -408,6 +1859,55 @@
    "clue": {
     "text": "Flip conclusion of terrific woman",
     "enumeration": "5"
+   },
+   "solution": "GRETA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GRETA",
+    "definitions": [
+     {
+      "text": "woman",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Flip conclusion of",
+      "for": "anagram",
+      "note": "flipping the ending swaps the final two letters of the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "terrific",
+      "gives": "GREAT",
+      "note": "great means terrific"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRE",
+      "TA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AT",
+       "gives": "TA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A flippant remark about the end of a terrific woman.",
+     "walkthrough": "Swapping the last two letters of GREAT gives GRETA, as in Greta Garbo.",
+     "definitionFit": "Greta is a female first name, so it stands for a woman in crossword style."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flip"
+    }
    }
   },
   {
@@ -421,6 +1921,57 @@
    "clue": {
     "text": "Proclaims, \"Coulter's a lightweight on the inside\"",
     "enumeration": "9"
+   },
+   "solution": "ANNOUNCES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ANNOUNCES",
+    "definitions": [
+     {
+      "text": "Proclaims",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the inside",
+      "for": "container",
+      "note": "something on the inside sits within, so the weight unit goes into the name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a lightweight",
+      "gives": "OUNCE",
+      "note": "an ounce is a small unit of weight"
+     },
+     {
+      "clueFragment": "Coulter's",
+      "gives": "ANNS",
+      "note": "Ann Coulter is a US conservative pundit; her name plus the S"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANN",
+      "OUNCE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone declares that the pundit Ann Coulter is, deep down, a lightweight.",
+     "walkthrough": "'Lightweight' looks like an insult but is a unit of weight.",
+     "definitionFit": "To announce something is to declare it publicly, which is what proclaiming means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lightweight"
+    }
    }
   },
   {
@@ -434,6 +1985,53 @@
    "clue": {
     "text": "A challenge for juniors is clique's fulfillment",
     "enumeration": "12"
+   },
+   "solution": "SATISFACTION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SATISFACTION",
+    "definitions": [
+     {
+      "text": "fulfillment",
+      "at": 36
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A challenge for juniors",
+      "gives": "SAT",
+      "note": "US high-school juniors sit the SAT college entrance exam"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "clique's",
+      "gives": "FACTION",
+      "note": "a faction is a clique within a group; the 's is a joining possessive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAT",
+      "IS",
+      "FACTION"
+     ]
+    },
+    "explanation": {
+     "surface": "Teen-style wisdom: getting into the in-crowd is the real achievement for juniors.",
+     "walkthrough": "The SAT is the American college entrance exam, typically taken in the junior year of high school.",
+     "definitionFit": "Satisfaction is the contentment of a wish met, which is what fulfillment means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "juniors"
+    }
    }
   }
  ]
