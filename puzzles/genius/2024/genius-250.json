@@ -26,6 +26,9 @@
   "date": "2024-05-05",
   "check": "grid and clues read from the Guardian's printable PDF, its numbering matching the clue list; each light's entry one fifteensquared prints for it, the only choice of them whose crossings all agree; an entry not its answer carries the answer as its alteration's `from`"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -47,6 +50,45 @@
       "op": "insertion"
      }
     ]
+   },
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HANDLE",
+    "definitions": [
+     {
+      "text": "or of body",
+      "at": 18,
+      "note": "read as 'sound of body', with the opening word doing double duty"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sound of",
+      "for": "homophone",
+      "note": "the sound of a word is how it is spoken, so a word pronounced the same is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shower",
+      "gives": "HALE",
+      "soundsLike": "HAIL",
+      "note": "a shower of hail pellets; the weather word is said, then respelt"
+     }
+    ],
+    "explanation": {
+     "surface": "A cry of delight at the noise of a shower, or of one's own body.",
+     "walkthrough": "'Sound' works twice: it signals the sound-alike and also means healthy, so 'sound of body' defines it. The pair ND is then inserted, as the preamble requires, giving HANDLE in the grid.",
+     "definitionFit": "Hale means healthy and robust, which is what being sound of body means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shower"
+    }
    }
   },
   {
@@ -61,7 +103,55 @@
     "text": "They sat about, avoiding detection",
     "enumeration": "8"
    },
-   "solution": "STEALTHY"
+   "solution": "STEALTHY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STEALTHY",
+    "definitions": [
+     {
+      "text": "avoiding detection",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "things moved about are scattered round, so the letters before it are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They sat",
+      "gives": "THEYSAT",
+      "note": "the seven letters to be rearranged"
+     },
+     {
+      "gives": "L",
+      "note": "the letter the wordplay leaves out, supplied as the preamble says"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEYSATL",
+       "gives": "STEALTHY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A group sat around quietly, trying not to be noticed.",
+     "walkthrough": "The rearranged letters are one short; the missing L (50) is one of the sixteen Roman numerals the preamble asks you to collect.",
+     "definitionFit": "Stealthy behaviour is cautious and furtive, intended to escape notice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sat"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +165,64 @@
     "text": "Travelling up and down East Sussex, Kent — and …?",
     "enumeration": "5"
    },
-   "solution": "ESSEX"
+   "solution": "ESSEX",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ESSEX",
+    "definitions": [
+     {
+      "text": "…",
+      "at": 47,
+      "note": "the next item in the list: another county of England's South East"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Travelling up and down",
+      "for": "reversal",
+      "note": "in a down answer, going up reads the letters backwards before going down reads them forwards"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "East Sussex",
+      "gives": "ES",
+      "note": "East Sussex lies in England's South East, SE, here read going up"
+     },
+     {
+      "clueFragment": "Kent",
+      "gives": "SE",
+      "note": "Kent is also in the South East, SE, here read coming down"
+     },
+     {
+      "gives": "X",
+      "note": "the letter the wordplay leaves out, supplied as the preamble says"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ES",
+      "SE",
+      "X"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller criss-crosses the south-eastern counties and wonders which one comes next.",
+     "walkthrough": "The region is written once going up the grid and once coming down; the missing X (10) completes the county. Essex, East Sussex and Kent are counties around London.",
+     "definitionFit": "The list of south-eastern English counties continues naturally with Essex, a county north-east of London."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Travelling"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +242,69 @@
      }
     ]
    },
-   "solution": "OFFSPIN"
+   "solution": "OFFSPIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "OFF-SPIN",
+    "definitions": [
+     {
+      "text": "Style of delivery",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of each of the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not working",
+      "gives": "OFF",
+      "note": "a machine that is off is not working"
+     },
+     {
+      "clueFragment": "so PowerPoint's",
+      "gives": "SP",
+      "select": "first",
+      "note": "the opening letters of these two words"
+     },
+     {
+      "gives": "I",
+      "note": "the letter the wordplay leaves out, supplied as the preamble says"
+     },
+     {
+      "clueFragment": "needed",
+      "gives": "N",
+      "select": "first",
+      "note": "the opening letter of needed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFF",
+      "SP",
+      "I",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A presenter whose delivery is failing at first decides to lean on slides.",
+     "walkthrough": "'Delivery' suggests a speech, but it is cricket bowling. The missing I (1) sits between the P and the N.",
+     "definitionFit": "Off-spin is a cricket bowling technique in which the ball turns from the off side, one type of delivery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "delivery"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,6 +326,62 @@
       "op": "insertion"
      }
     ]
+   },
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "CAUSATION",
+    "definitions": [
+     {
+      "text": "warning",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heading away from",
+      "for": "deletion",
+      "note": "the heading of a word is its opening letter, and that goes away"
+     },
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "something criminal is crooked, so the remaining letters are bent into a new order"
+     }
+    ],
+    "linkWords": [
+     "gives"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quantico",
+      "gives": "QUANTICO",
+      "note": "Quantico in Virginia is home to the FBI Academy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAUTION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UANTICO",
+       "gives": "CAUTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An FBI trainee leaving Quantico turns criminal and issues a warning.",
+     "walkthrough": "The pair SA is then inserted, as the preamble requires, giving CAUSATION in the grid.",
+     "definitionFit": "A caution is a formal warning, such as one a police officer gives."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "criminal"
+    }
    }
   },
   {
@@ -139,6 +404,56 @@
       "op": "insertion"
      }
     ]
+   },
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "FOULED",
+    "definitions": [
+     {
+      "text": "Split",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retired",
+      "for": "deletion",
+      "note": "something retired has withdrawn and left, so it is taken out"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smoothed over",
+      "gives": "FILED",
+      "note": "a rough surface filed over has been smoothed"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LED"
+     ]
+    },
+    "explanation": {
+     "surface": "A rift was papered over once someone stepped down.",
+     "walkthrough": "'Split' looks like a rift, but it is the slang verb for leaving in a hurry. The pair OU is then inserted, giving FOULED in the grid.",
+     "definitionFit": "To split is informal for to leave quickly, and fled means ran away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Split"
+    }
    }
   },
   {
@@ -153,7 +468,75 @@
     "text": "Used up space in jar with a topping of melted cheese?",
     "enumeration": "8"
    },
-   "solution": "GRATINEE"
+   "solution": "GRATINEE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "GRATINEE",
+    "definitions": [
+     {
+      "text": "with a topping of melted cheese?",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down answer, going up reads a word from bottom to top, so backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "Used"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jar",
+      "gives": "GRATE",
+      "note": "to grate is to jar, as a noise grates on the ears"
+     },
+     {
+      "clueFragment": "space",
+      "gives": "EN",
+      "note": "an en is a printer's space, half an em wide"
+     },
+     {
+      "gives": "I",
+      "note": "the letter the wordplay leaves out, supplied as the preamble says"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRAT",
+      "I",
+      "NE",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "EN",
+       "to": "NE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something filled up the room in a jar topped with melted cheese.",
+     "walkthrough": "The missing I (1) goes in just before the turned printing space.",
+     "definitionFit": "Gratinée is the culinary term for a dish browned under a crust, typically of cheese or breadcrumbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jar"
+    }
+   }
   },
   {
    "number": 8,
@@ -175,6 +558,55 @@
       "op": "insertion"
      }
     ]
+   },
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "EARTHS",
+    "definitions": [
+     {
+      "text": "Lugs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "letter_selection",
+      "note": "what lies around a word is its outside, so each word keeps only its ends"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extra",
+      "gives": "EA",
+      "select": "outer",
+      "note": "the outside letters of extra"
+     },
+     {
+      "clueFragment": "resources",
+      "gives": "RS",
+      "select": "outer",
+      "note": "the outside letters of resources"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EA",
+      "RS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone carries spare supplies about.",
+     "walkthrough": "'Lugs' looks like a verb but is British slang for ears. The pair TH is then inserted, giving EARTHS in the grid.",
+     "definitionFit": "Lugs is informal British slang for ears, from lughole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lugs"
+    }
    }
   },
   {
@@ -189,7 +621,71 @@
     "text": "Gives hints to answer, cracking 44÷50",
     "enumeration": "8"
    },
-   "solution": "FLAVOURS"
+   "solution": "FLAVOURS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FLAVOURS",
+    "definitions": [
+     {
+      "text": "Gives hints to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "÷",
+      "for": "container",
+      "note": "a division sign means one thing is split by another, so the second goes inside the first"
+     },
+     {
+      "text": "cracking",
+      "for": "container",
+      "note": "something cracking another breaks into it and sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "44",
+      "gives": "FOURS",
+      "note": "44 is read as two fours"
+     },
+     {
+      "clueFragment": "50",
+      "gives": "L",
+      "note": "L is the Roman numeral for 50"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the abbreviation for answer"
+     },
+     {
+      "gives": "V",
+      "note": "the letter the wordplay leaves out, supplied as the preamble says"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "L",
+      "A",
+      "V",
+      "OURS"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle setter drops hints while a sum like 44 divided by 50 is being worked out.",
+     "walkthrough": "The 50 splits the fours after the F, the answer slots in after it, and the missing V (5) follows.",
+     "definitionFit": "To flavour something is to give it a taste or tinge, a hint of some quality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "44"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +699,59 @@
     "text": "Seaside trips showing a lack of planning",
     "enumeration": "8"
    },
-   "solution": "IDEALESS"
+   "solution": "IDEALESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IDEALESS",
+    "definitions": [
+     {
+      "text": "a lack of planning",
+      "at": 22,
+      "note": "a noun phrase for an adjective: read 'showing a lack of planning'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trips",
+      "for": "anagram",
+      "note": "a word that trips stumbles and falls in a muddle, so its letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seaside",
+      "gives": "SEASIDE",
+      "note": "the seven letters to be rearranged"
+     },
+     {
+      "gives": "L",
+      "note": "the letter the wordplay leaves out, supplied as the preamble says"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEASIDEL",
+       "gives": "IDEALESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Days out to the coast that were plainly not thought through.",
+     "walkthrough": "The missing L (50) completes the rearranged letters.",
+     "definitionFit": "Idealess means without ideas, which is what having no plan amounts to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trips"
+    }
+   }
   },
   {
    "number": 11,
@@ -225,6 +773,44 @@
       "op": "insertion"
      }
     ]
+   },
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SALUTE",
+    "definitions": [
+     {
+      "text": "that could sound music to my ears",
+      "at": 11
+     }
+    ],
+    "indicators": [
+     {
+      "text": "call",
+      "for": "homophone",
+      "note": "a call is something spoken out, so the word is wanted by its pronunciation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Booty",
+      "gives": "LUTE",
+      "soundsLike": "LOOT",
+      "note": "loot is plunder or booty; the word is spoken, then respelt"
+     }
+    ],
+    "explanation": {
+     "surface": "A late-night proposition that might be welcome news to the listener.",
+     "walkthrough": "'Booty call' reads as a slang phrase, but booty is plunder and call signals the sound-alike. The pair SA is then inserted, giving SALUTE in the grid.",
+     "definitionFit": "A lute is a stringed instrument, something that can be played to make music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Booty"
+    }
    }
   },
   {
@@ -247,6 +833,47 @@
       "op": "insertion"
      }
     ]
+   },
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TEETH",
+    "definitions": [
+     {
+      "text": "peg",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sanded",
+      "for": "deletion",
+      "note": "sanding wears away the edges, so the word loses its outside letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "steel",
+      "gives": "STEEL",
+      "note": "taken as written before its ends are worn off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEE"
+     ]
+    },
+    "explanation": {
+     "surface": "A metal pin has been smoothed with sandpaper.",
+     "walkthrough": "The pair TH is then added, giving TEETH in the grid.",
+     "definitionFit": "A tee is the small peg a golfer sets the ball on for a drive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "steel"
+    }
    }
   },
   {
@@ -261,7 +888,70 @@
     "text": "The boy's first to try and eat essential supplement",
     "enumeration": "9"
    },
-   "solution": "HISTIDINE"
+   "solution": "HISTIDINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "HISTIDINE",
+    "definitions": [
+     {
+      "text": "essential supplement",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first to",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter, so only that is kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The boy's",
+      "gives": "HIS",
+      "note": "the possessive of he"
+     },
+     {
+      "clueFragment": "try",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of try"
+     },
+     {
+      "gives": "I",
+      "note": "the letter the wordplay leaves out, supplied as the preamble says"
+     },
+     {
+      "clueFragment": "eat",
+      "gives": "DINE",
+      "note": "to dine is to eat a meal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIS",
+      "T",
+      "I",
+      "DINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy is the first to try a vital dietary supplement and eat.",
+     "walkthrough": "The missing I (1) sits between the T and the eating word.",
+     "definitionFit": "Histidine is an essential amino acid, one the body needs from diet or supplements."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eat"
+    }
+   }
   },
   {
    "number": 14,
@@ -275,7 +965,69 @@
     "text": "Bushranger, ignoring us, grimly gives warning",
     "enumeration": "9"
    },
-   "solution": "HARBINGER"
+   "solution": "HARBINGER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "HARBINGER",
+    "definitions": [
+     {
+      "text": "warning",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "to ignore something is to leave it out"
+     },
+     {
+      "text": "grimly",
+      "for": "anagram",
+      "note": "grimly suggests a mangled, distorted form, so the letters are reshaped"
+     }
+    ],
+    "linkWords": [
+     "gives"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bushranger",
+      "gives": "BUSHRANGER",
+      "note": "an Australian outlaw of the bush"
+     },
+     {
+      "clueFragment": "us",
+      "gives": "US",
+      "note": "taken as written, to be removed"
+     },
+     {
+      "gives": "I",
+      "note": "the letter the wordplay leaves out, supplied as the preamble says"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BHRANGERI",
+       "gives": "HARBINGER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An outback outlaw passes us by and grimly issues a threat.",
+     "walkthrough": "The missing I (1) is added to the letters left after removing the pronoun.",
+     "definitionFit": "A harbinger is a sign or forerunner that heralds something to come, so it serves as a warning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bushranger"
+    }
+   }
   },
   {
    "number": 15,
@@ -295,7 +1047,75 @@
      }
     ]
    },
-   "solution": "LADYDAY"
+   "solution": "LADYDAY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LADY DAY",
+    "definitions": [
+     {
+      "text": "25 March",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something in another sits between its letters"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "gives": "L",
+      "note": "the letter the wordplay leaves out, supplied as the preamble says"
+     },
+     {
+      "clueFragment": "Notice",
+      "gives": "AD",
+      "note": "an ad is a notice in a paper"
+     },
+     {
+      "clueFragment": "Democrat",
+      "gives": "D",
+      "note": "D is the abbreviation for Democrat"
+     },
+     {
+      "clueFragment": "advanced",
+      "gives": "A",
+      "note": "A is the abbreviation for advanced"
+     },
+     {
+      "clueFragment": "years",
+      "gives": "YY",
+      "note": "Y is the abbreviation for year, doubled for the plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "AD",
+      "Y",
+      "DA",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An announcement says an elderly Democrat is turning a year older in late March.",
+     "walkthrough": "'advanced in years' reads as old, but advanced is A and years is YY. The missing L (50) comes first.",
+     "definitionFit": "Lady Day, the Feast of the Annunciation, falls on 25 March and was a traditional English quarter day."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "advanced"
+    }
+   }
   },
   {
    "number": 16,
@@ -309,7 +1129,57 @@
     "text": "Start off pitiable, becoming strong",
     "enumeration": "8"
    },
-   "solution": "ATHLETIC"
+   "solution": "ATHLETIC",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ATHLETIC",
+    "definitions": [
+     {
+      "text": "strong",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Start off",
+      "for": "deletion",
+      "note": "the start of a word is its opening letter, and off means it is removed"
+     }
+    ],
+    "linkWords": [
+     "becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pitiable",
+      "gives": "PATHETIC",
+      "note": "pathetic means arousing pity"
+     },
+     {
+      "gives": "L",
+      "note": "the letter the wordplay leaves out, supplied as the preamble says"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATH",
+      "L",
+      "ETIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone starts out feeble but grows powerful.",
+     "walkthrough": "The missing L (50) goes after the first three remaining letters.",
+     "definitionFit": "An athletic person is fit and muscular, which is to say physically strong."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Start"
+    }
+   }
   },
   {
    "number": 17,
@@ -331,6 +1201,60 @@
       "op": "insertion"
      }
     ]
+   },
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "COURIER",
+    "definitions": [
+     {
+      "text": "One announces",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adopted",
+      "for": "container",
+      "note": "something adopted is taken in, so it goes inside the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "credit",
+      "gives": "CR",
+      "note": "CR is the accounting abbreviation for credit"
+     },
+     {
+      "clueFragment": "rule",
+      "gives": "R",
+      "note": "R is the abbreviation for rule"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. abbreviates id est, Latin for that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CR",
+      "IE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A spokesperson declares that a credit rule has been adopted.",
+     "walkthrough": "The pair OU is then inserted, giving COURIER in the grid.",
+     "definitionFit": "A crier, such as a town crier, is someone who makes public announcements."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "credit"
+    }
    }
   },
   {
@@ -345,7 +1269,72 @@
     "text": "Went back on tree being hacked down",
     "enumeration": "8"
    },
-   "solution": "REVERTED"
+   "solution": "REVERTED",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "REVERTED",
+    "definitions": [
+     {
+      "text": "Went back",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being hacked",
+      "for": "anagram",
+      "note": "something hacked about is chopped and broken up, so its letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning"
+     },
+     {
+      "gives": "V",
+      "note": "the letter the wordplay leaves out, supplied as the preamble says"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "TREE",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "down",
+      "gives": "D",
+      "note": "D is the abbreviation for down"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "V",
+      "ERTE",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TREE",
+       "gives": "ERTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone broke a promise about a tree being felled.",
+     "walkthrough": "'Went back on' reads as reneging, but on belongs to the wordplay. The missing V (5) follows the first two letters.",
+     "definitionFit": "To revert is to return to an earlier state, so reverted means went back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 19,
@@ -359,7 +1348,58 @@
     "text": "Turned out to be unwelcome",
     "enumeration": "7"
    },
-   "solution": "INTRUDE"
+   "solution": "INTRUDE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INTRUDE",
+    "definitions": [
+     {
+      "text": "be unwelcome",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "turned out suggests letters thrown into disorder, so the word is rearranged"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turned",
+      "gives": "TURNED",
+      "note": "the six letters to be rearranged"
+     },
+     {
+      "gives": "I",
+      "note": "the letter the wordplay leaves out, supplied as the preamble says"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TURNEDI",
+       "gives": "INTRUDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It transpired that a guest was not wanted after all.",
+     "walkthrough": "'Turned out' reads as transpired, but out signals the shuffle of turned. The missing I (1) completes the letters.",
+     "definitionFit": "To intrude is to come in where one is not wanted, so being unwelcome is the result."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 20,
@@ -381,6 +1421,55 @@
       "op": "insertion"
      }
     ]
+   },
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THROBBING",
+    "definitions": [
+     {
+      "text": "Sacking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absorbed in",
+      "for": "container",
+      "note": "something absorbed in another is taken inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     },
+     {
+      "clueFragment": "putting cassock on",
+      "gives": "ROBING",
+      "note": "a cassock is a robe, and putting a robe on is robing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROB",
+      "B",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A bishop is dismissed while busy putting on his vestments.",
+     "walkthrough": "'Sacking' suggests a firing, but it means plundering. The pair TH is then added in front, giving THROBBING in the grid.",
+     "definitionFit": "To sack a town is to plunder it, so sacking is robbing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Sacking"
+    }
    }
   },
   {
@@ -403,6 +1492,42 @@
       "op": "insertion"
      }
     ]
+   },
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OUTWIT",
+    "definitions": [
+     {
+      "text": "Taunt",
+      "at": 0
+     },
+     {
+      "text": "fool",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Taunt",
+      "note": "first meaning: to tease or mock"
+     },
+     {
+      "clueFragment": "fool",
+      "note": "second meaning: a silly person"
+     }
+    ],
+    "explanation": {
+     "surface": "Mock an idiot.",
+     "walkthrough": "The pair OU is then added in front, giving OUTWIT in the grid.",
+     "definitionFit": "Twit works as a verb meaning to tease and as a noun for a foolish person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Taunt"
+    }
    }
   },
   {
@@ -417,7 +1542,64 @@
     "text": "Stop twice a second time",
     "enumeration": "5"
    },
-   "solution": "AVAST"
+   "solution": "AVAST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AVAST",
+    "definitions": [
+     {
+      "text": "Stop",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the first of the two copies of a"
+     },
+     {
+      "gives": "V",
+      "note": "the letter the wordplay leaves out, supplied as the preamble says"
+     },
+     {
+      "clueFragment": "twice",
+      "gives": "A",
+      "note": "twice calls for the letter a a second time"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "V",
+      "A",
+      "S",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to halt, repeated for a second time.",
+     "walkthrough": "The missing V (5) sits between the two As.",
+     "definitionFit": "Avast is a nautical command meaning stop or hold."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "twice"
+    }
+   }
   },
   {
    "number": 23,
@@ -439,6 +1621,63 @@
       "op": "insertion"
      }
     ]
+   },
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "SANEST",
+    "definitions": [
+     {
+      "text": "Set",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "design of",
+      "for": "anagram",
+      "note": "a new design reshapes something, so the letters are laid out in another order"
+     }
+    ],
+    "linkWords": [
+     "within"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "set",
+      "gives": "SET",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "EST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SET",
+       "gives": "EST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A set placed inside a newly designed set.",
+     "walkthrough": "The pair SA is then inserted, giving SANEST in the grid.",
+     "definitionFit": "A nest of tables is a set of them that fit one inside another."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "within"
+    }
    }
   },
   {
@@ -453,7 +1692,63 @@
     "text": "Sloth with a number of birds",
     "enumeration": "5"
    },
-   "solution": "AVIAN"
+   "solution": "AVIAN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "AVIAN",
+    "definitions": [
+     {
+      "text": "of birds",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sloth",
+      "gives": "AI",
+      "note": "the ai is the three-toed sloth"
+     },
+     {
+      "gives": "V",
+      "note": "the letter the wordplay leaves out, supplied as the preamble says"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "N",
+      "note": "N is the abbreviation for number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "V",
+      "I",
+      "A",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A slow-moving animal keeps company with a flock of birds.",
+     "walkthrough": "The missing V (5) goes inside the sloth.",
+     "definitionFit": "Avian is the adjective relating to birds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 25,
@@ -467,7 +1762,47 @@
     "text": "Attack church official",
     "enumeration": "6"
    },
-   "solution": "SEXTON"
+   "solution": "SEXTON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEXTON",
+    "definitions": [
+     {
+      "text": "church official",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attack",
+      "gives": "SETON",
+      "note": "to set on someone is to attack them"
+     },
+     {
+      "gives": "X",
+      "note": "the letter the wordplay leaves out, supplied as the preamble says"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "X",
+      "TON"
+     ]
+    },
+    "explanation": {
+     "surface": "An order to assault a churchwarden.",
+     "walkthrough": "The missing X (10) splits the two-word phrase after its second letter.",
+     "definitionFit": "A sexton is a church caretaker who looks after the building and churchyard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Attack"
+    }
+   }
   },
   {
    "number": 26,
@@ -489,6 +1824,47 @@
       "op": "insertion"
      }
     ]
+   },
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "REVEREND",
+    "definitions": [
+     {
+      "text": "praise",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receives",
+      "for": "deletion",
+      "note": "the phrase only receives the wanted word, holding it inside, so its outer letters are discarded"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "For ever and ever",
+      "gives": "FOREVEREVER",
+      "note": "read as 'for ever' joined to 'ever', with and as the join"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REVERE"
+     ]
+    },
+    "explanation": {
+     "surface": "An eternal hymn of praise.",
+     "walkthrough": "'and' joins 'for ever' to 'ever', so the word sits across foR EVER + Ever with the opening FO and closing VER dropped. The pair ND is then added, giving REVEREND in the grid.",
+     "definitionFit": "To revere is to honour and venerate, which is close to praising."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ever"
+    }
    }
   },
   {
@@ -511,6 +1887,54 @@
       "op": "insertion"
      }
     ]
+   },
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DIVIDEND",
+    "definitions": [
+     {
+      "text": "Branch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "container",
+      "note": "one thing over another covers it, so it wraps around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pretend to trip",
+      "gives": "DIVE",
+      "note": "in football a dive is a faked fall"
+     },
+     {
+      "clueFragment": "I'd",
+      "gives": "ID",
+      "note": "the contraction without its apostrophe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIV",
+      "ID",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A walker branches off, planning to fake a stumble.",
+     "walkthrough": "The pair ND is then added, giving DIVIDEND in the grid.",
+     "definitionFit": "Divide and branch both mean to split into separate paths, as a road or river does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trip"
+    }
    }
   },
   {
@@ -525,7 +1949,55 @@
     "text": "Reluctant, make crosses from time to time",
     "enumeration": "6"
    },
-   "solution": "AVERSE"
+   "solution": "AVERSE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "AVERSE",
+    "definitions": [
+     {
+      "text": "Reluctant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from time to time",
+      "for": "letter_selection",
+      "note": "something done from time to time happens at intervals, so only every other letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "make crosses",
+      "gives": "AERSE",
+      "select": "alternate",
+      "note": "the second, fourth, sixth, eighth and tenth letters"
+     },
+     {
+      "gives": "V",
+      "note": "the letter the wordplay leaves out, supplied as the preamble says"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "V",
+      "ERSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who only occasionally makes their mark, unwillingly.",
+     "walkthrough": "The missing V (5) follows the first kept letter; all sixteen omissions, the Roman numerals, add up to 250.",
+     "definitionFit": "Averse means opposed or unwilling, which is close to reluctant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crosses"
+    }
+   }
   }
  ]
 }
