@@ -253,11 +253,15 @@ def clue_words(clue):
 
 def quoted(ann):
     """Every piece of clue text `ann` quotes: its definitions, indicators,
-    link words and block fragments."""
+    link words and block fragments, or in a format v2 annotation its
+    definitions and every indicator and leaf of its wordplay tree."""
+    import wordplay
+    tree = ann.get("wordplay")
     texts = ([d.get("text") for d in ann.get("definitions") or [] if isinstance(d, dict)]
              + [i.get("text") for i in ann.get("indicators") or [] if isinstance(i, dict)]
              + list(ann.get("linkWords") or [])
-             + [b.get("clueFragment") for b in ann.get("blocks") or [] if isinstance(b, dict)])
+             + [b.get("clueFragment") for b in ann.get("blocks") or [] if isinstance(b, dict)]
+             + ([d.get(k) for d, k in wordplay._spans(tree)] if isinstance(tree, dict) else []))
     return [t for t in texts if isinstance(t, str) and t]
 
 
@@ -729,7 +733,7 @@ def blog_fact_hashes(directory=BLOG_FACTS):
 def blog_facts_for(puzzle):
     """This puzzle's row of tools/data/blog_facts/, or None: the blog, its
     name, the post's url, and per entry id what the write-up marks."""
-    return _blog_facts(puzzle.get("series", "cryptic")).get(puzzle["id"])
+    return _blog_facts(series_meta.of(puzzle)).get(puzzle["id"])
 
 
 def with_blog_facts(puzzle):
@@ -1018,6 +1022,14 @@ def write_puzzle_file(path, puzzle, generator=None):
     # A linked answer's lights in the order that reads as words, before the
     # sources are compared against the joined answer.
     puzzle = order_groups(puzzle)
+    # A puzzle built fresh from a page names its `series` and `name`; once it
+    # holds a format v2 annotation (merged from the held file) it is a v2 file,
+    # which stores neither, only the prize/title/label facts display_name needs.
+    if ("series" in puzzle or "name" in puzzle) and any(
+            puzzle_schema.is_v2_annotation(a) for _, _, a in puzzle_schema.annotations(puzzle)):
+        import convert_v2
+        names, _ = convert_v2.puzzle_names(puzzle)
+        puzzle = {**{k: v for k, v in puzzle.items() if k not in ("series", "name")}, **names}
     # A paper's publishing notes in the preamble go, and its erratum fixes
     # its clue, whoever wrote the file: tools/boilerplate.py, tools/errata.py.
     boilerplate.apply(puzzle)

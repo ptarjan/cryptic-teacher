@@ -262,23 +262,29 @@ def normalize(ann, entry, entries, v2=None, puzzle=None):
     """`ann` as it is stored in a file of the given shape (`v2`; None reads
     it off the entries), with what code can compute filled in.
 
-    Two shapes come in. The model's shape (annotation.is_model: `def`, `wp`,
+    Three shapes come in. The model's shape (annotation.is_model: `def`, `wp`,
     `notes`) is translated by annotation.from_model, which evaluates the
     wordplay against the answer and raises wordplay.WordplayError when it does
     not give it. An old-prompt annotation (type, blocks, ...) from a run that
-    started before the prompt changed is normalised the old way. A file is
+    started before the prompt changed is normalised the old way. A stored v2
+    annotation (a tree, no `type` or `blocks`) is taken as it is. A file is
     wholly one shape (puzzle_schema.format_problems), so each is then written
     in the file's: a v2 annotation goes into a legacy file as annotation.view()
     (the legacy fields it implies), and an old-prompt one into a v2 file
     through convert_v2.check (Unlandable when it does not convert)."""
     import annotation
+    import puzzle_schema
     if not isinstance(ann, dict):
         return ann
     if v2 is None:
         v2 = file_is_v2(entries, puzzle)
     held = puzzle if puzzle is not None else {"entries": entries}
-    if annotation.is_model(ann):
-        stored = annotation.from_model(ann, entry, held)
+    # A stored v2 annotation (a tree, no `type` or `blocks`: a commit's own
+    # annotation re-applied, a human edit) is already the v2 shape.
+    model = annotation.is_model(ann)
+    stored_v2 = not model and "type" not in ann and puzzle_schema.is_v2_annotation(ann)
+    if model or stored_v2:
+        stored = dict(ann) if stored_v2 else annotation.from_model(ann, entry, held)
         if v2:
             return stored
         here = {**entry, "alteration": stored["alteration"]} if "alteration" in stored else entry

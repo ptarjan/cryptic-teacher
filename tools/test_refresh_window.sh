@@ -96,6 +96,33 @@ PY
 echo "a format v2 file with no stored series is still refreshed"
 same "series read from the id" "$(grep '^ASKED ' <<<"$out2")" "ASKED [(99999, 'cryptic')]"
 
+out3=$(PYTHONPATH=tools python3 - <<'PY' 2>&1
+import copy, json, tempfile
+from pathlib import Path
+import fetch_puzzle as fetcher, series
+
+# A re-fetch builds the puzzle fresh, naming its series and name, and merges
+# the held v2 annotations onto it: the write stores it as a v2 file.
+src = fetcher.resolve_puzzle("cryptic-30136")
+old = fetcher.read_puzzle_file(src)
+fresh = copy.deepcopy(old)
+for e in fresh["entries"]:
+    e.pop("annotation", None)
+fresh.update(series="cryptic", name=series.display_name(old))
+fetcher.merge_annotations(fresh, old)
+with tempfile.TemporaryDirectory() as d:
+    path = Path(d) / src.name
+    fetcher.write_puzzle_file(path, fresh)
+    back = json.loads(path.read_text())
+held = sum(1 for e in old["entries"] if e.get("annotation"))
+kept = sum(1 for e in back["entries"] if e.get("annotation"))
+print("REFETCH", "series" in back, "name" in back, kept == held > 0)
+PY
+)
+
+echo "a re-fetch merged onto a v2 file is written as v2, its annotations kept"
+same "refetch written" "$(grep '^REFETCH ' <<<"$out3" || echo "$out3" | tail -3)" "REFETCH False False True"
+
 echo "the working tree is untouched"
 same "git status unchanged" "$(git status --porcelain)" "$tree_before"
 
