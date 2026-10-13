@@ -82,6 +82,28 @@ def _key(code, path, blob):
     return hashlib.sha1(f"{code}\0{name}\0{blob}".encode()).hexdigest()
 
 
+def data_files(name, roots):
+    """The tools/data files (not folders) that code `roots` (in module
+    `name`) reach, as Paths: each is hashed into every row's key by
+    cached_map, so a new data-file read is keyed without being declared.
+    A folder a row reads one file of must come through deps()."""
+    import importlib
+    data = (Path(__file__).resolve().parent / "data").resolve()
+    found = set()
+    for mod, attr in code_reach.reach(name, set(roots)):
+        obj = getattr(importlib.import_module(mod), attr, None)
+        if isinstance(obj, Path) and obj.is_relative_to(data) and not obj.is_dir():
+            found.add(obj)
+    return sorted(found)
+
+
+def _data_salt(name, roots):
+    h = hashlib.sha1()
+    for p in data_files(name, roots):
+        h.update(p.name.encode() + b"\0" + (p.read_bytes() if p.exists() else b"absent") + b"\0")
+    return h.hexdigest()[:16]
+
+
 def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None):
     """[fn(p) for p in paths], each row reused when its file, its code and
     deps(p, row) are those it was made from. `name` is fn's module:
@@ -89,7 +111,7 @@ def cached_map(name, fn, paths, roots=(), salt="", deps=None, prepare=None):
     paths = list(paths)
     try:
         conn = _open()
-        code = f"{name}.{fn.__name__}:{code_reach.key(name, {fn.__name__, *roots})}:{salt}"
+        code = f"{name}.{fn.__name__}:{code_reach.key(name, {fn.__name__, *roots})}:{salt}:{_data_salt(name, {fn.__name__, *roots})}"
         keys = {p: _key(code, p, b) for p, b in _blobs(paths).items()}
         stored = {}
         uniq = list(set(keys.values()))

@@ -103,16 +103,23 @@ for f in sorted(difficulty.BLOG_FACTS.glob("*.json")):
     check(f"ids of another series in {f.name}", sorted(strays)[:3], [])
 
 # Every tools/data path the cached functions reach must be in their keys:
-# blog facts and ninas through deps(), the lexicon and wordnet through salt.
-KEYED = {("fetch_puzzle", "BLOG_FACTS"), ("puzzle_tags", "NINAS"),
-         ("difficulty", "BLOG_FACTS"), ("difficulty", "LEXICON"), ("difficulty", "WORDNET")}
+# blog facts and ninas (folders) through deps(); every file (books, lexicon,
+# wordnet...) is hashed into the key by row_cache.data_files() itself.
+KEYED = {("fetch_puzzle", "BLOG_FACTS"), ("puzzle_tags", "NINAS"), ("difficulty", "BLOG_FACTS")}
 for module, roots in [("fetch_puzzle", {"index_row", "index_row_deps"}),
                       ("difficulty", {"history_row", "history_row_deps"}),
                       ("difficulty", {"clue_row", "clue_row_deps", "_load_clue_inputs"})]:
     for mod, name in code_reach.reach(module, roots):
         obj = getattr(__import__(mod), name, None)
-        if isinstance(obj, Path) and obj.is_relative_to(Path("tools/data").resolve()) and (mod, name) not in KEYED:
+        if isinstance(obj, Path) and obj.is_relative_to(Path("tools/data").resolve()) and (mod, name) not in KEYED \
+                and obj not in row_cache.data_files(module, roots):
             fails.append(f"{module} {sorted(roots)} reads {mod}.{name} ({obj}), which no row key covers")
+
+LEX = difficulty.LEXICON.name
+check("books.json is keyed for fetch_puzzle rows",
+      any(p.name == "books.json" for p in row_cache.data_files("fetch_puzzle", {"index_row", "index_row_deps"})), True)
+check("lexicon is keyed for clue rows",
+      any(p.name == LEX for p in row_cache.data_files("difficulty", {"clue_row", "_load_clue_inputs"})), True)
 
 for f in fails:
     print("FAIL", f)
