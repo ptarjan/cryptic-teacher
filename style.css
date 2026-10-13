@@ -1799,3 +1799,31 @@ footer { margin-top: 34px; border-top: 1px solid var(--line); font-size: .8rem; 
 #hint-next button.arm-cost:hover, .guess-actions button.arm-cost:hover {
   border-color: var(--wrong); color: var(--wrong); background: transparent;
 }
+
+/* The home-screen app (appnav.js): a bottom tab bar and a back link, only
+   when the site runs standalone with no browser around it. The room for the
+   bar is the body's bottom padding, set from html.standalone before the first
+   paint, so nothing moves when the bar arrives and nothing hides under it.
+   It stays put while a keyboard is up (kbd-up hides only the bar), because
+   padding that came and went would reflow the grid under the solver's finger. */
+.tabbar { display: none; }
+html.standalone body { padding-bottom: calc(48px + 56px + env(safe-area-inset-bottom, 0px)); }
+html.standalone .tabbar {
+  display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 55;
+  background: var(--bg); border-top: 1px solid var(--line);
+  padding: 0 env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+}
+html.standalone.kbd-up .tabbar { display: none; }
+.tabbar a {
+  flex: 1; display: flex; flex-direction: column; align-items: center; gap: 2px;
+  min-height: 56px; justify-content: center; box-sizing: border-box; padding-top: 4px;
+  font: 11px/1.2 -apple-system, system-ui, sans-serif; color: var(--muted);
+  text-decoration: none; -webkit-tap-highlight-color: transparent;
+}
+.tabbar a[aria-current="page"] { color: var(--accent); }
+.tabbar svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.tabbar svg circle { fill: currentColor; stroke: none; }
+.app-back {
+  flex-basis: 100%; order: -1; margin-bottom: -6px;
+  font: 1rem/1.4 -apple-system, system-ui, sans-serif; color: var(--accent); text-decoration: none;
+}

@@ -353,6 +353,7 @@ def head(title, description, canonical, extra="", image=None, image_alt=None):
 <meta name="twitter:card" content="summary_large_image">
 {extra}<link rel="stylesheet" href="{asset("style.css")}">
 <script src="{asset("analytics.js")}"></script>
+<script src="{asset("appnav.js")}"></script>
 </head>
 <body class="static-page">
 """
@@ -2436,7 +2437,8 @@ def legacy_redirects(solved):
         yield puzzle_paths.PUZZLE_DIR / num / "index.html", relative_links(
             bare_head(title, f"{BASE}/puzzles/",
                       f'<meta name="viewport" content="width=device-width, initial-scale=1">\n'
-                      f'<link rel="stylesheet" href="{asset("style.css")}">\n')
+                      f'<link rel="stylesheet" href="{asset("style.css")}">\n'
+                      f'<script src="{asset("appnav.js")}"></script>\n')
             + '<body class="static-page">\n'
             + masthead([("Cryptic Teacher", "/"), ("Puzzles", "/puzzles/"),
                         (f"No {pretty}", "")])

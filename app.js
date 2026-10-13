@@ -2462,11 +2462,14 @@
   // short). innerHeight is the fallback for browsers without visualViewport.
   function visibleBand() {
     const vv = window.visualViewport;
-    if (vv && vv.height) {
-      const top = vv.offsetTop || 0;
-      return { top, bottom: top + vv.height };
-    }
-    return { top: 0, bottom: window.innerHeight || 0 };
+    const band = (vv && vv.height) ? { top: vv.offsetTop || 0, bottom: (vv.offsetTop || 0) + vv.height }
+      : { top: 0, bottom: window.innerHeight || 0 };
+    // The home-screen app's tab bar (appnav.js) covers the foot of the screen;
+    // a panel parked under it is as hidden as one under the keyboard.
+    const bar = document.querySelector && document.querySelector(".tabbar");
+    const rect = bar && bar.getClientRects && bar.getClientRects().length && bar.getBoundingClientRect();
+    if (rect && rect.height) band.bottom = Math.min(band.bottom, rect.top);
+    return band;
   }
   // One tap, one move. Scrolling the moment the tap is handled and then
   // re-placing on every visualViewport resize is a fight a phone cannot win.
@@ -3472,11 +3475,16 @@
     return also.filter((w) => !(w.replace(/\s*\(.*\)$/, "").toLowerCase()
       .match(/[a-z']+/g) || []).every((x) => said.has(x)));
   }
+  // A device's section of the lesson. Resolved against the front door like
+  // every URL the app builds (addressUrl): a bare "learn/#x" in the hint panel
+  // resolves against the address bar, which says /puzzles/<id>/ once a puzzle
+  // is chosen, and 404s at /puzzles/<id>/learn/.
+  function learnHref(section) { return esc(addressUrl("learn/") + "#" + section); }
   function ruleHTML(text, also, learn, clue, ann) {
     const more = ruleAlso(also, clue, ann);
     return `<span class="device-rule">${esc(maskAnswer(
       text + (more.length ? `; also: ${more.join(", ")}` : "") + ".", ann.answer))}
-      <a class="learn-link" href="learn/#${learn}">More in the lesson</a></span>`;
+      <a class="learn-link" href="${learnHref(learn)}">More in the lesson</a></span>`;
   }
   // A rung's general rule sits behind a small chip at the end of its last line,
   // so the rung is no taller until the solver asks for it. `rulesOpen` holds
@@ -7720,7 +7728,7 @@
     const used = recapCounts();
     if (!used.length) return "";
     return `<div class="recap"><p class="recap-head">What you used today</p><ul>${used.map(([t, n]) =>
-      `<li><a class="learn-link" href="learn/#${DEVICE_RULES[t].learn}">${esc(TYPES[t].label)}</a>` +
+      `<li><a class="learn-link" href="${learnHref(DEVICE_RULES[t].learn)}">${esc(TYPES[t].label)}</a>` +
       ` <span class="muted">× ${n}</span></li>`).join("")}</ul></div>`;
   }
 
@@ -7971,6 +7979,9 @@
     // because it is a document you read end to end.
     $("btn-picker").onclick = () => { if (togglePicker()) beacon("picker"); };
     $("btn-picker-close").onclick = () => togglePicker(false);
+    // #picker opens it, as #stats does the stats: the home-screen app's
+    // Puzzles tab (appnav.js) links here from pages that are not the app.
+    if (location.hash === "#picker") togglePicker(true);
 
     // ---- sync ----
     // The button is only offered if there is somewhere to sync to. A control
