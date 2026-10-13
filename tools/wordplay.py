@@ -472,12 +472,14 @@ def match(node, want, got=None):
     or None when it can't."""
     got = {} if got is None else got
     op = node.get("op")
-    if op is None:
-        ok = leaf_letters(node) == want
-    elif node.get("unchecked"):
+    if node.get("unchecked"):
+        # Its letters are its `gives`, none when absent (a file stores no ""),
+        # as values() and lengths() read it.
         ok = letters(node.get("gives")) == want
-        for p in node["parts"]:
+        for p in node.get("parts") or []:
             _fill(p, got)
+    elif op is None:
+        ok = leaf_letters(node) == want
     elif op == "cryptic":
         ok = True
     elif op == "charade":

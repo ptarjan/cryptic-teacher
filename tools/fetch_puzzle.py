@@ -867,8 +867,13 @@ def pack_entry(e):
 
 
 def browser_puzzle(puzzle):
-    """The puzzle as window.CRYPTIC_PUZZLES holds it once its shim has run."""
-    out = {k: v for k, v in with_blog_facts(puzzle).items() if k not in SHIM_DROP}
+    """The puzzle as window.CRYPTIC_PUZZLES holds it once its shim has run.
+    A format v2 file goes through annotation.view_puzzle() first, so the app
+    reads the same fields (name, series, type, answer, blocks, ...) from
+    either format; tools/test_shim_format.sh holds a converted puzzle to its
+    legacy shape."""
+    import annotation
+    out = {k: v for k, v in with_blog_facts(annotation.view_puzzle(puzzle)).items() if k not in SHIM_DROP}
     def holder(h):
         return ({**h, "annotation": browser_annotation(h["annotation"])}
                 if isinstance(h.get("annotation"), dict) else h)

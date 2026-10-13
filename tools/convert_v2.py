@@ -817,6 +817,57 @@ def puzzle_names(puzzle):
     return base, f"name normalised ({sid})"
 
 
+def convert_puzzle(puzzle):
+    """(the puzzle as a format v2 file, {annotation path: 'exact' | 'normalised'}):
+    no `name` or `series`, the facts display_name needs instead, and every
+    annotation converted. Raises Unconvertible naming the first annotation
+    that fails, since a file is wholly one shape."""
+    import puzzle_schema
+    names, _ = puzzle_names(puzzle)
+    out = {k: v for k, v in puzzle.items() if k not in ("name", "series")}
+    out.update(names)
+    out = copy.deepcopy(out)
+    status = {}
+    for where, held, ann in list(puzzle_schema.annotations(puzzle)):
+        st, kinds, new = check(ann, held, puzzle)
+        if st == "failed":
+            raise Unconvertible(f"{where}: {', '.join(sorted(kinds))}")
+        status[where] = st
+        # Put the converted annotation where the path says.
+        node = out
+        for part in re.findall(r"\.(\w+)|\[(\d+)\]", where.split("$", 1)[1])[:-1]:
+            node = node[part[0]] if part[0] else node[int(part[1])]
+        node["annotation"] = new
+    return puzzle_schema.order(puzzle_schema.prune(out)), status
+
+
+def converted_samples(n=2, series="cryptic", look=20):
+    """[(legacy puzzle, its v2 conversion, status)] for the newest `n` annotated
+    puzzles of `series`, among the newest `look`, that convert whole: the
+    fixtures tools/test_format_v2.sh, test_shim_format.sh and smoke_test.js
+    hold the two shapes to each other on, in memory."""
+    from pathlib import Path
+
+    import fetch_puzzle
+    root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "puzzles", series)
+    files = sorted((os.path.join(dp, f) for dp, _, fs in os.walk(root) for f in fs
+                    if f.endswith(".json")), key=lambda f: int(re.sub(r"\D", "", os.path.basename(f)) or 0),
+                   reverse=True)[:look]
+    out = []
+    for f in files:
+        old = fetch_puzzle.read_puzzle_file(Path(f))
+        if not any(e.get("annotation") for e in old["entries"]):
+            continue
+        try:
+            new, status = convert_puzzle(old)
+        except Unconvertible:
+            continue
+        out.append((old, new, status))
+        if len(out) == n:
+            break
+    return out
+
+
 # ---------- dry run ----------
 
 # Failures listed with the answer against the solution, for re-annotation.
