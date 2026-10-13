@@ -322,6 +322,7 @@ with q.source_lock(tl, "NewsUK1980UKEnglish/1980-03-01_3"):
     if pid == 0:
         os._exit(0 if f.read_unit(f.TIMES, "NewsUK1980UKEnglish/1980-03-01_3", cache) == "busy" else 1)
     check("an edition another unit holds is busy", 0, os.waitstatus_to_exitcode(os.waitpid(pid, 0)[1]))
+q.UNIT_HOLD_WAIT = 0.5  # a batch run's hold outlasts it
 with q.lock(tl):
     pid = os.fork()
     if pid == 0:
@@ -806,6 +807,24 @@ with q.lock(tled):
     if pid == 0:
         os._exit(0 if ftp.read_unit("102", tc, reread=q.when("now")) == "held" else 1)
     check("a ledger a batch run holds: the unit is held", 0, os.waitstatus_to_exitcode(os.waitpid(pid, 0)[1]))
+# A slice's upkeep (compact) holds the ledger for seconds as its first units
+# start: they wait it out rather than end "held" and leave the desktop idle
+# until the next plan (10-13).
+q.UNIT_HOLD_WAIT = 30
+import fcntl
+t0 = time.monotonic()
+hold = open(tled.with_suffix(".lock"), "w")
+fcntl.flock(hold, fcntl.LOCK_EX)
+pid = os.fork()
+if pid == 0:
+    hold.close()  # the parent's hold stands (a forked copy of q.lock's would be the unit's own)
+    with contextlib.redirect_stderr(io.StringIO()):
+        os._exit(0 if ftp.read_unit("101", tc) == "current" else 1)
+time.sleep(1.5)
+fcntl.flock(hold, fcntl.LOCK_UN)
+hold.close()
+check("a hold that ends within UNIT_HOLD_WAIT (a slice's fold) is waited out, not held",
+      (0, True), (os.waitstatus_to_exitcode(os.waitpid(pid, 0)[1]), 1.5 <= time.monotonic() - t0 < 30))
 
 # ---- Listener pages: one read unit each, rows appended to its ledger
 import gale_listener as gl

@@ -4452,7 +4452,7 @@ def scan_unit(paper, rel, cache=CACHE, ledger=None):
     unless another unit holds it or its scan stands: "scanned", "busy",
     "current" or "held" (a run holds the ledger throughout)."""
     ledger = ledger_of(cache, paper, ledger)
-    if scan_queue.held(ledger):
+    if scan_queue.held(ledger, scan_queue.UNIT_HOLD_WAIT):
         return "held"
     d = Path(cache) / rel
     with scan_queue.source_lock(ledger, rel) as mine:
@@ -4480,7 +4480,7 @@ def read_unit(paper, rel, cache=CACHE, ledger=None, puzzles=None, source=SOURCE,
     it or it is no longer due (`force`: read it anyway): "read", "busy" or
     "held" (a run holds the ledger throughout)."""
     ledger = ledger_of(cache, paper, ledger)
-    if scan_queue.held(ledger):
+    if scan_queue.held(ledger, scan_queue.UNIT_HOLD_WAIT):
         return "held"
     with scan_queue.source_lock(ledger, rel) as mine:
         if not mine:

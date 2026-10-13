@@ -8,6 +8,9 @@
 #     durable_run "<what>" <command...>    # run it; commit every DURABLE_EVERY s
 #     durable_checkpoint "<what>"          # commit and push what is filed now
 #     DURABLE_RESYNC=1                     # and move the tree to origin/master after each
+#     DURABLE_END=later durable_run ...    # no checkpoint as it ends: the caller's
+#     durable_background <function...>     # publish runs beside the next command;
+#                                          # every checkpoint, move and stop waits for it
 #
 # Three mechanisms, one per way a job ends early:
 #
@@ -42,9 +45,12 @@ _durable_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 _durable_child=""
 _durable_what=""
 _durable_pushed=""
+_durable_bg=""
+_durable_bg_state=""
 
 durable_checkpoint() {  # durable_checkpoint <what>: commit what is filed, push every unpushed commit
   local what="$1" c p paths=()
+  durable_wait
   # git add refuses a pathspec that matches nothing: a folder made only once
   # something is filed into it is left out until it exists.
   for p in "${DURABLE_PATHS[@]}"; do
@@ -92,6 +98,44 @@ durable_set_aside() {  # durable_set_aside <commit>: a commit that conflicts wit
       alert "durable: \"$subj\" conflicts with origin/master and is not all re-readable, so origin's version stands and the commit is kept as refs/durable/conflicts/$c; merge it from a worktree. $out"
   fi
   printf '%s\n' "$out"
+}
+
+# A publish (commit, push, move) run beside the next command, so a job
+# that works in slices (tools/ocr_full_pass.sh) starts its next one at once
+# instead of leaving its workers idle for the minutes a pre-push takes. It
+# shares the tree with the command, as durable_run's own checkpoints do; one
+# at a time: every checkpoint, move and stop waits for it first, and takes
+# on what it pushed. It ignores TERM, so a stop lets it finish, then commits.
+durable_background() {  # durable_background <command...>: run it in the background (a shell function: durable_checkpoint, ...)
+  durable_wait
+  _durable_bg_state="$(mktemp)"
+  (
+    trap '' TERM INT HUP
+    "$@"
+    rc=$?
+    printf 'pushed=%s\n' "$_durable_pushed" >"$_durable_bg_state"
+    exit "$rc"
+  ) &
+  _durable_bg=$!
+}
+
+durable_wait() {  # wait for durable_background's publish; its status (0 when none runs)
+  local rc=0 line
+  [ -n "$_durable_bg" ] || return 0
+  # A trap (a stop) can end the wait early: wait again until it has ended.
+  while :; do
+    wait "$_durable_bg"
+    rc=$?
+    kill -0 "$_durable_bg" 2>/dev/null || break
+  done
+  line="$(cat "$_durable_bg_state" 2>/dev/null)"
+  # The last commit it settled, "" once it moved the tree: the next
+  # checkpoint pushes from there, not again from before the move.
+  [ "${line#pushed=}" != "$line" ] && _durable_pushed="${line#pushed=}"
+  rm -f "$_durable_bg_state"
+  _durable_bg=""
+  _durable_bg_state=""
+  return "$rc"
 }
 
 _durable_stop() {
@@ -143,12 +187,14 @@ durable_run() {  # durable_run <what> <command...>: its exit status; DURABLE_TEE
   rc=$?
   [ -n "$tailer" ] && wait "$tailer"
   _durable_child=""
-  durable_checkpoint "$what" || echo "durable: checkpoint failed for $what"
+  # DURABLE_END=later: the caller publishes (durable_background).
+  [ "${DURABLE_END:-}" = later ] || durable_checkpoint "$what" || echo "durable: checkpoint failed for $what"
   return "$rc"
 }
 
 durable_resync() {  # move the tree to origin/master; nothing is lost if it cannot (status 1)
   local lock move pending
+  durable_wait
   git fetch -q origin master 2>/dev/null
   # A process starting off this tree (tools/edition_queue.py) loads its code
   # under a shared lock on code.lock; the move takes it alone, so none loads
