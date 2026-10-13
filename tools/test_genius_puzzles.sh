@@ -195,8 +195,8 @@ print("hold-clues", hc[0] == G.HELD_CLUES, "grid unread" in G.GRID_MISFIT)
 import clues_only as CO
 print("numbered-builder", CO.builder({"source": {"acquiredBy": "tools/genius_puzzles.py"}}) is CO._genius_numbered_build)
 f = glob.glob("puzzles/genius/*/genius-44.json")
-if f:
-    print("filed-44", json.load(open(f[0]))["solutions"]["origin"])
+if f:  # the burn may since have solved it ("model"); only the post's answers are wrong
+    print("filed-44", json.load(open(f[0]))["solutions"]["origin"] != "writeup")
 
 # Every clue printed unnumbered (280): the list and its instruction read apart,
 # held clues-only, then placed on the printed grid once answered.
@@ -298,7 +298,7 @@ check "a jigsaw clue's answer and entry come off the post row printing it (250)"
 check "a numbered list no grid takes is held clues-only, by direction" "True True" "$(get hold-clues)"
 check "a held numbered Genius has a builder (queued for the solve)" "True" "$(get numbered-builder)"
 check "only a grid matching its clues falls back to unsolved when the post's answers fail" "[] False" "$(get fallback-classes)"
-[ -z "$(get filed-44)" ] || check "genius-44, whose post prints answers the reader misses, files unsolved" "unsolved" "$(get filed-44)"
+[ -z "$(get filed-44)" ] || check "genius-44, whose post prints answers the reader misses, never takes the post's answers" "True" "$(get filed-44)"
 [ -z "$(get filed-165)" ] || check "genius-165 files its eight See-preamble lights unclued" "32 8" "$(get filed-165)"
 check "an unnumbered list reads clue by clue, the instruction between two clues cut out (280)" "[('A board devoid of soft fruit (4)', '4'), ('Hard back (5)', '5'), ('Workforce keeping mum (3-4)', '3-4'), ('Run dry (4)', '4')]" "$(get unplaced-clues)"
 check "the instruction among the unnumbered clues is the preamble (280)" "Clues are listed in alphabetical order of their answers, to be entered jigsaw-fashion where they will fit." "$(get unplaced-preamble)"
