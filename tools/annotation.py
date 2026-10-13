@@ -257,6 +257,10 @@ def _block(**kw):
 # the validator refuses it and from_model drops it (restates_abbreviation).
 ABBREVIATION_GLOSS = "{gives} is a standard abbreviation for {words}"
 _ABBR_PAIRS = None
+#: The (clue word, letters) pairs is_abbreviation() looked up, while a caller
+#: records them (a set): tools/page_cache.py re-checks a stored page's against
+#: abbreviation_pairs() instead of keying every page on the table's lexicons.
+ABBR_ASKED = None
 
 
 def _abbr_key(s):
@@ -277,7 +281,10 @@ def is_abbreviation(leaf):
     """Whether a leaf's words give its letters by a sense the table holds."""
     if not isinstance(leaf, dict) or "op" in leaf or not leaf.get("words") or not leaf.get("gives"):
         return False
-    return (_abbr_key(leaf["words"]), leaf["gives"]) in abbreviation_pairs()
+    pair = (_abbr_key(leaf["words"]), leaf["gives"])
+    if ABBR_ASKED is not None:
+        ABBR_ASKED.add(pair)
+    return pair in abbreviation_pairs()
 
 
 def abbreviation_gloss(leaf):
