@@ -280,6 +280,19 @@ check("migrate_puzzle reaches alsoLeads and offGrid annotations", list(redo) == 
       and "annotation" not in out["entries"][0]["alsoLeads"][0]
       and "wordplay" in out["offGrid"][0]["annotation"], (redo, out))
 check("tree_counts counts checked and unchecked trees", C.tree_counts(out) == (1, 0), C.tree_counts(out))
+# An alsoLeads answer is spaced by its own clue, not its leader's (genius-209
+# 22A): the leader's separators belong to its other group, and read from the
+# puzzle they made the alsoLeads group look separated, so its stored spacing
+# was dropped and view() gave WARPAINT.
+see = lambda n, s: {"number": n, "direction": "down", "solution": s, "clue": {"text": "See 1 across"}}
+lead = {"id": "genius-9", "name": "Genius 9", "series": "genius", "entries": [
+    {**entry("WAR", "Fight zone", "3,4", [(3, ",")]), "group": ["1-across", "2-down"],
+     "alsoLeads": [{"clue": {"text": "Make-up conflict colour", "enumeration": "3,5"}, "group": ["1-across", "3-down"],
+                    "annotation": ann(["charade"], "WAR PAINT", "Make-up", 0, [blk("conflict", "WAR"), blk("colour", "PAINT")])}]},
+    see(2, "ZONE"), see(3, "PAINT")]}
+out, redo = C.migrate_puzzle(lead)
+got = annotation.view_puzzle(out)["entries"][0]["alsoLeads"][0].get("annotation", {}).get("answer")
+check("an alsoLeads answer keeps its own clue's spacing", not redo and got == "WAR PAINT", (redo, got))
 
 raise SystemExit(fails > 0)
 PY

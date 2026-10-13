@@ -247,8 +247,16 @@ def find_at(clue, text, nth=1, taken=()):
 
 def locate(node, clue, taken=()):
     """Fill `at` on every span of `node` from `clue`; `#n` suffixes pick the
-    nth copy and come off the stored text."""
+    nth copy and come off the stored text.
+
+    Spans that already have an `at` are claimed first, then the rest longest
+    first (tree order among equals): a short span placed first takes the first
+    free copy of its words even when that copy sits inside a longer span
+    ("in" inside "lost in": genius-209 22A, "Short key, article lost in
+    pilgrimage, in great journey"), leaving the clue's other "in" uncovered,
+    so it was derived as a link word."""
     used = list(taken)
+    todo = []
     for span, key in _spans(node):
         text, nth = span[key], 1
         m = re.fullmatch(r"(.+?)#(\d+)", text)
@@ -256,9 +264,12 @@ def locate(node, clue, taken=()):
             text, nth = m.group(1), int(m.group(2))
             span[key] = text
         if "at" in span:
-            at = span["at"]
+            used.append((span["at"], span["at"] + len(text)))
         else:
-            at = find_at(clue, text, nth, used)
+            todo.append((span, text, nth))
+    todo.sort(key=lambda t: -len(t[1]))
+    for span, text, nth in todo:
+        at = find_at(clue, text, nth, used)
         if at is None:
             raise WordplayError(f"{text!r} is not in the clue {clue!r}: copy the clue words "
                                 f"exactly{'' if nth == 1 else f' (there is no copy #{nth})'}")

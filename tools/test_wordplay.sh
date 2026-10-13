@@ -276,6 +276,21 @@ for e, ann, want in CASES:
     diffs += ["assembly"] if (ga.get("pieces"), ga.get("reversals"), anas(ga)) != (wa.get("pieces"), wa.get("reversals"), anas(wa)) else []
     check(name, not diffs, "; ".join(f"{k}: got {got.get(k)!r}, want {want.get(k)!r}" for k in diffs))
 
+# Longer spans are placed first: genius-209 22A's container "in" sits after
+# the deletion "lost in" in the clue but before it in the tree, and placed in
+# tree order it took the "in" of "lost in", leaving the second "in" a link word.
+clue = "Short key, article lost in pilgrimage, in great journey"
+t = op("charade", op("container", op("deletion", op("charade", leaf("key", "IVORY"), leaf("great", "HUGE")),
+                                     {"gives": "Y"}, ind=["Short"]),
+                     op("deletion", leaf("pilgrimage", "HAJ"), leaf("article", "A"), ind=["lost in"]), ind=["in"]),
+       leaf("journey", "GO"))
+w.locate(t, clue)
+ins = t["parts"][0]
+check("locate: a short span does not take a copy inside a longer one",
+      ins["indicators"][0]["at"] == clue.index(", in ") + 2
+      and ins["parts"][1]["indicators"][0]["at"] == clue.index("lost in"),
+      (ins["indicators"], ins["parts"][1]["indicators"]))
+
 # Two definitions beside wordplay are a double definition too: the type keeps
 # both, and the definitions' own words are not link words.
 e = entry(33, "across", "CLEAN", "Entirely without a catch. Circle angling will admit that")
