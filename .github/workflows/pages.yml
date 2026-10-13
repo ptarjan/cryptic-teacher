@@ -63,7 +63,7 @@ jobs:
       # offer no have. tools/test_ci_checkout.sh runs this script twice
       # against a local origin.
       - name: Restore the git store
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: |
             .git/objects
@@ -90,7 +90,7 @@ jobs:
           git update-ref refs/ct/base HEAD
           echo "git store: $(du -sm .git/objects | cut -f1)MB"
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       # No Set up Node: nothing this job runs calls node (the smoke test is
@@ -107,7 +107,7 @@ jobs:
       # restore-keys takes the newest. A stale or missing store is still
       # correct, just slow: a row is reused only when its key matches.
       - name: Restore the row cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: |
             .git/ct-rows.sqlite*
@@ -121,7 +121,7 @@ jobs:
       # path of the row cache: a cache's paths are part of its version, so
       # adding one would have emptied the row store for a run.
       - name: Restore the clue index
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: ~/.cache/cryptic-teacher/clue-keys-*.sqlite*
           key: clue-index-${{ github.sha }}
@@ -163,7 +163,7 @@ jobs:
       # stale shim is never used: its row's key or deps no longer match, and
       # the row and shim are written again.
       - name: Restore the puzzle shims
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: puzzles/*.js
           key: puzzle-shims-${{ github.sha }}
@@ -190,7 +190,7 @@ jobs:
       # slow. The key is per-commit so every run saves what it drew; restore-keys
       # is what actually hits, taking the newest cache from any earlier commit.
       - name: Restore the social cards
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: og
           key: og-cards-${{ github.sha }}
@@ -219,7 +219,7 @@ jobs:
       # re-render: saving ~67k pages takes about a minute, and a stale cache
       # costs only the few pages each later push moved.
       - name: Restore the puzzle pages
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: |
             puzzles/*/index.html
@@ -242,7 +242,7 @@ jobs:
       # sitemap (see tools/indexnow.py). Restored before the site checks
       # start, since one of them reads it.
       - name: Restore the IndexNow manifest
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: .indexnow
           key: indexnow-${{ github.sha }}
@@ -281,7 +281,7 @@ jobs:
           tar --dereference --no-recursion -cf "$RUNNER_TEMP/artifact.tar" -T "$RUNNER_TEMP/site.list"
           echo "artifact.tar: $(( $(stat -c %s "$RUNNER_TEMP/artifact.tar") / 1000000 ))MB"
       - name: Upload the site
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: github-pages
           path: ${{ runner.temp }}/artifact.tar
@@ -324,7 +324,7 @@ jobs:
           done
       - name: Deploy to Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
       # Only once the deploy succeeded, so Bing fetches what is live; a failed
       # ping leaves the site deployed and the run red, with IndexNow's reply
       # in the log.
@@ -342,7 +342,7 @@ jobs:
       # restore has its save.
       - name: Save the git store
         if: ${{ !cancelled() && steps.deployment.outcome == 'success' }}
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         with:
           path: |
             .git/objects
@@ -351,7 +351,7 @@ jobs:
           key: git-store-${{ github.sha }}
       - name: Save the row cache
         if: ${{ !cancelled() && steps.deployment.outcome == 'success' }}
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         with:
           path: |
             .git/ct-rows.sqlite*
@@ -359,25 +359,25 @@ jobs:
           key: row-cache-${{ github.sha }}
       - name: Save the clue index
         if: ${{ !cancelled() && steps.deployment.outcome == 'success' }}
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         with:
           path: ~/.cache/cryptic-teacher/clue-keys-*.sqlite*
           key: clue-index-${{ github.sha }}
       - name: Save the puzzle shims
         if: ${{ !cancelled() && steps.deployment.outcome == 'success' }}
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         with:
           path: puzzles/*.js
           key: puzzle-shims-${{ github.sha }}
       - name: Save the social cards
         if: ${{ !cancelled() && steps.deployment.outcome == 'success' }}
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         with:
           path: og
           key: og-cards-${{ github.sha }}
       - name: Save the IndexNow manifest
         if: ${{ !cancelled() && steps.deployment.outcome == 'success' }}
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         with:
           path: .indexnow
           key: indexnow-${{ github.sha }}
@@ -385,7 +385,7 @@ jobs:
       # many pages (a code change, a cold cache): see Restore the puzzle pages.
       - name: Save the puzzle pages
         if: ${{ !cancelled() && steps.deployment.outcome == 'success' && fromJSON(steps.pages.outputs.rendered || '0') > 2000 }}
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         with:
           path: |
             puzzles/*/index.html
@@ -445,14 +445,14 @@ jobs:
       actions: write  # reads the last successful run (its diff base); deletes stale CodeQL caches
     steps:
       - name: Check out
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           filter: blob:none
           sparse-checkout: |
             tools
             .github/workflows
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - name: Choose what to check
