@@ -147,16 +147,24 @@ if True:
 for name, mutate, needle in (
         ("a legacy file without series", lambda p: p.pop("series"), "key 'name' is refused"),
         ("a legacy file without name", lambda p: p.pop("name"), "missing required key 'name'"),
-        ("a v2 file with a stored series", None, "key 'series' is refused"),
         ("a legacy file whose series contradicts its id", lambda p: p.update(series="times"), "but the id says")):
-    p = copy.deepcopy(old if mutate else new)
-    if mutate:
-        mutate(p)
-    else:
-        p["series"] = "cryptic"
+    p = copy.deepcopy(old)
+    mutate(p)
     with tempfile.TemporaryDirectory() as d:
         got = write(p, d)
     check(f"{name} is refused on write", got is not None and needle in got, got)
+# A v2 puzzle handed to the writer with a series and name (a fetcher builds
+# both fresh from the page) is written as v2: the writer drops them, and the
+# schema still refuses them in the file itself.
+p = copy.deepcopy(new)
+p.update(series="cryptic", name="Cryptic crossword No " + str(p.get("number", "")))
+check("a stored series in a v2 file is refused by the schema",
+      refused(p, "key 'series' is refused")[0], S.validate(p)[:3])
+with tempfile.TemporaryDirectory() as d:
+    got = write(p, d)
+    on_disk = json.loads((Path(d) / f"{p['id']}.json").read_text()) if got is None else {}
+check("a v2 puzzle written with series and name is filed without them",
+      got is None and "series" not in on_disk and "name" not in on_disk, (got, sorted(on_disk)[:12]))
 
 # ---- the validator reads view(): same findings, and the tree is checked ----
 for o, n, st in pairs:
