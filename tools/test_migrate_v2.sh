@@ -132,7 +132,9 @@ with open(tmp / "want", "w", encoding="utf-8") as want:
             if bare(x, redone) != bare(y, redone):
                 bad["browser"].append(f"{pid} entries[{i}]: differs outside its annotation")
             ann = old["entries"][i].get("annotation")
-            if not ann:
+            # Since step 8 the corpus is v2: a seed annotation already v2 has no
+            # legacy form for check() to judge (it "fails" every one).
+            if not ann or S.is_v2_annotation(ann):
                 continue
             st = convert_v2.check(ann, old["entries"][i], old)[0]
             if st == "failed":
