@@ -3351,8 +3351,13 @@
   // The split names the first two definitions. A file holds a third sense as a
   // third definition (WATERLOO's "Single"), and its block stays a building
   // block, so only the split's two count here.
+  //
+  // Unless the ladder has no blocks rung to carry it: a puzzle that is not a
+  // cryptic (straightLadder) is the definition and the walkthrough, so there the
+  // split names every sense (cryptic-12581's "Bird — country — flop") and none
+  // is left a building block that no rung shows.
   function senseBlock(ann, b) {
-    const defs = (ann.definitions || []).slice(0, 2);
+    const defs = (ann.definitions || []).slice(0, splitNames(ann));
     if (defs.length < 2 || !(ann.type || []).includes("double_definition")) return false;
     if (b.soundsLike || blockLetters(ann, b)) return false;
     // Digits count: a definition can be a cross-reference ("31"), which has no
@@ -3362,6 +3367,18 @@
     return !!frag && defs.map((d) => key(d.text))
       .some((d) => d && (d.includes(frag) || frag.includes(d)));
   }
+  // A puzzle that is not a cryptic (meta.style, tools/puzzle_style.py) has no
+  // wordplay to spot, name or build: its ladder is the definition and the
+  // walkthrough. The tag is a puzzle-wide majority (85%), so a clue in it that
+  // does carry indicators (times-26's "It sounds sluggish", "(anag.)") is real
+  // wordplay and keeps its full ladder. `meta` is the open puzzle's index row;
+  // a harness that lifts these functions out of app.js has none.
+  function straightLadder(ann) {
+    return typeof meta !== "undefined" && !!meta && meta.style === "straight"
+      && !(ann.indicators || []).length;
+  }
+  // How many definitions the definition rung's split names.
+  const splitNames = (ann) => (straightLadder(ann) ? Infinity : 2);
   const buildingBlocks = (ann) => (ann.blocks || []).filter((b) => !senseBlock(ann, b));
   const senseBlocks = (ann) => (ann.blocks || []).filter((b) => b.note && senseBlock(ann, b));
 
@@ -4261,15 +4278,19 @@
       // A blog fact with a type and no clean underline: no definition rung.
     } else if (isDD && defs.length >= 2) {
       // Three senses or more: the split names the first two, and the rest are
-      // building blocks the split did not mention (senseBlock).
+      // building blocks the split did not mention (senseBlock), except on a
+      // ladder with no blocks rung, where it names them all (splitNames).
       const senses = senseBlocks(ann).map((b) =>
         `<li>“${escClue(b.clueFragment)}” <span class="muted">— ${esc(b.note)}</span></li>`).join("");
+      const named = defs.slice(0, splitNames(ann)).map((d, i) =>
+        `<mark class="${i ? "def2" : "def"}">${escClue(d.text)}</mark>`);
+      const count = ["two", "three", "four", "five"][named.length - 2] || String(named.length);
       steps.push({
         key: "definition",
         label: LABELS.definition,
-        html: `<p>It splits between <mark class="def">${escClue(defs[0].text)}</mark> and
-          <mark class="def2">${escClue(defs[1].text)}</mark> — two unrelated meanings of the same
-          answer. The clue reads like one sentence so that you don't notice it is two definitions side by side.</p>` +
+        html: `<p>It splits between ${named.slice(0, -1).join(", ")} and ${named[named.length - 1]}
+          — ${count} unrelated meanings of the same answer. The clue reads like one sentence so
+          that you don't notice it is ${count} definitions side by side.</p>` +
           (senses ? `<ul>${senses}</ul>` : "")
       });
     } else if (isLit && !ann.fromBlog) {
@@ -4475,13 +4496,10 @@
     // cryptic definitions, idioms) have none and show "The trick" alone.
     const joke = prose.surface
       ? `<p><b class="wt-part">What it seems to say</b>${esc(prose.surface)}</p>` : "";
-    // A puzzle that is not a cryptic (meta.style, tools/puzzle_style.py) has no
-    // wordplay to spot, name or build: its ladder is the definition and the walkthrough.
-    // The tag is a puzzle-wide majority (85%), so a clue in it that does carry
-    // indicators (times-26's "It sounds sluggish", "(anag.)") is real wordplay
-    // and keeps its full ladder: dropping the rung that sells its indicator
-    // would leave a paid-for hint off the screen.
-    if (meta && meta.style === "straight" && !(ann.indicators || []).length) steps.splice(0, steps.length, ...steps.filter((s) => s.key === "definition"));
+    // A puzzle that is not a cryptic: the definition and the walkthrough
+    // (straightLadder). Dropping the rung that sells a clue's indicator would
+    // leave a paid-for hint off the screen, so a clue with one keeps its ladder.
+    if (straightLadder(ann)) steps.splice(0, steps.length, ...steps.filter((s) => s.key === "definition"));
     // A blog-derived ladder stops at what the blogger marked; the rest of the
     // explanation is theirs, and the panel links to it (blogCreditHTML).
     if (!ann.fromBlog) steps.push({

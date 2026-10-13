@@ -6249,7 +6249,12 @@ global.realSetTimeout(() => {
     return true;
   };
   const labels = () => registry["hint-next"].children.map((b) => b.textContent || "").join(" | ");
-  let pure = null, third = null;
+  let pure = null, third = null, straightThird = null;
+  // A puzzle that is not a cryptic has no blocks rung (app.js straightLadder),
+  // so there the split names every sense instead. APP_BLOCKS runs without the
+  // open puzzle's index row, so its senseBlock is the cryptic ladder's.
+  const straight = (id) => ((global.CRYPTIC_INDEX.puzzles || []).find((p) => p.id === id) || {}).style
+    === "straight";
   for (const id of Object.keys(puzzles).sort()) {
     for (const e of puzzles[id].entries || []) {
       const a = e.annotation;
@@ -6258,9 +6263,13 @@ global.realSetTimeout(() => {
       if (!pure && bl.length === 2 && bl.every((b) => isDef(a, b) && plain(b))) pure = { id, e, bl };
       // A file holds a third sense as a third definition, whose block carries
       // its `meaning` as the note and no letters.
-      if (!third && bl.some((b) => !APP_BLOCKS.senseBlock(a, b) && plain(b) && isDef(a, b))) third = { id, e };
+      const extra = bl.filter((b) => !APP_BLOCKS.senseBlock(a, b) && plain(b) && isDef(a, b));
+      if (!extra.length) continue;
+      const flat = straight(id) && !(a.indicators || []).length;
+      if (!flat && !third) third = { id, e };
+      if (flat && !straightThird) straightThird = { id, e, extra };
     }
-    if (pure && third) break;
+    if (pure && third && straightThird) break;
   }
   shape("a double definition whose blocks are its two definitions", pure);
   if (pure && open(pure.id, pure.e)) {
@@ -6281,6 +6290,20 @@ global.realSetTimeout(() => {
     assert(/building blocks/i.test(labels()),
       `${third.id} ${entryId(third.e)}: "${clueText(third.e)}" keeps the building blocks for the sense `
         + `the definition rung never named: ${labels()}`);
+  }
+  shape("a straight puzzle's double definition with a third sense", straightThird);
+  if (straightThird && open(straightThird.id, straightThird.e)) {
+    const s = straightThird, where = `${s.id} ${entryId(s.e)}: "${clueText(s.e)}"`;
+    assert(!/building blocks/i.test(labels()), `${where} is in a straight puzzle, which has no blocks rung: ${labels()}`);
+    const def = registry["hint-next"].children.find((b) => /definition/i.test(b.textContent || ""));
+    if (assert(def, `${where}: the definition rung is offered: ${labels()}`)) {
+      def.onclick();
+      if (isAsking(registry["hint-body"])) registry["guess-tell"].onclick();
+      const said = bare(registry["hint-body"].innerHTML.replace(/<[^>]*>/g, " "));
+      s.extra.forEach((b) => assert(said.includes(bare(b.note)),
+        `${where}: with no blocks rung, the note on "${b.clueFragment}" is on the definition rung: `
+          + registry["hint-body"].innerHTML));
+    }
   }
 }
 
