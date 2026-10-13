@@ -235,6 +235,12 @@ got, _ = ft.refile(new, old)
 same("a clue that opens on \"See\" and is not a pointer keeps its annotation",
      ["annotation" in e for e in got["entries"] if e["number"] == 1 and e["direction"] == "across"],
      [True])
+other = copy.deepcopy(new)
+for e in other["entries"]:
+    e["solution"] = "Z" * len(e["solution"])
+same("a bucket puzzle with other answers is another puzzle, the same one is not",
+     [bool(ft.different_puzzle(other, old)), ft.different_puzzle(copy.deepcopy(old), old)],
+     [True, None])
 same("the bucket's era is its own", [ft.served("telegraph", 27737), ft.served("telegraph", 27738),
                                      ft.served("toughie", 2486), ft.served("times", 30000)],
      [False, True, True, False])
