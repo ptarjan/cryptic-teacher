@@ -150,22 +150,29 @@ check("find_words falls back to the first copy", 3, enumeration.find_words("Non-
 # A clue already stored right with its annotation left behind is mended by a re-run.
 ANN_CASES = [
     # (what, annotation with the stale quote, where to read it, clue, want)
-    ("link word '-'", {"linkWords": ["-"]}, lambda a: a["linkWords"][0],
+    ("link word '-'", {"linkWords": ["-"], "blocks": []}, lambda a: a["linkWords"][0],
      "Good artist all-round — one with drawing ability", "—"),
-    ("link word '--'", {"linkWords": ["--"]}, lambda a: a["linkWords"][0],
+    ("link word '--'", {"linkWords": ["--"], "blocks": []}, lambda a: a["linkWords"][0],
      "Good artist all-round — one with drawing ability", "—"),
-    ("link word en dash", {"linkWords": ["–"]}, lambda a: a["linkWords"][0],
+    ("link word en dash", {"linkWords": ["–"], "blocks": []}, lambda a: a["linkWords"][0],
      "Large ox — it's a devil", "—"),
-    ("link word '...'", {"linkWords": ["..."]}, lambda a: a["linkWords"][0],
+    ("link word '...'", {"linkWords": ["..."], "blocks": []}, lambda a: a["linkWords"][0],
      "Bar open to gin… or punch", "…"),
-    ("indicator across a dash", {"indicators": [{"text": "settled - stamp"}]}, lambda a: a["indicators"][0]["text"],
+    ("indicator across a dash", {"indicators": [{"text": "settled - stamp"}], "blocks": []}, lambda a: a["indicators"][0]["text"],
      "Job settled — stamp not", "settled — stamp"),
     ("definition across an ellipsis", {"definitions": [{"text": "not ... required"}]},
      lambda a: a["definitions"][0]["text"], "Job not … required", "not … required"),
     ("block fragment with stops", {"blocks": [{"clueFragment": "gin..."}]}, lambda a: a["blocks"][0]["clueFragment"],
      "Bar open to gin…", "gin…"),
-    ("anagram fodder across a dash", {"assembly": {"anagrams": [{"fodder": "ox - it"}]}},
+    ("anagram fodder across a dash", {"assembly": {"anagrams": [{"fodder": "ox - it"}]}, "blocks": []},
      lambda a: a["assembly"]["anagrams"][0]["fodder"], "Large ox — it's a devil", "ox — it"),
+    # Format v2 (no `blocks`): the quotes are the wordplay tree's indicators
+    # and leaf words; linkWords, indicators and assembly are derived, not stored.
+    ("v2 wordplay indicator across a dash",
+     {"wordplay": {"op": "anagram", "indicators": [{"text": "settled - stamp"}], "parts": [{"words": "Job"}]}},
+     lambda a: a["wordplay"]["indicators"][0]["text"], "Job settled — stamp not", "settled — stamp"),
+    ("v2 leaf words across a dash", {"wordplay": {"op": "anagram", "parts": [{"words": "ox - it"}]}},
+     lambda a: a["wordplay"]["parts"][0]["words"], "Large ox — it's a devil", "ox — it"),
     ("misdirected word", {"features": {"misdirectedWord": "devil..."}}, lambda a: a["features"]["misdirectedWord"],
      "Large ox — it's a devil…", "devil…"),
 ]
@@ -193,7 +200,7 @@ KEEP = [
 ]
 for what, phrase, text in KEEP:
     check(f"quote keeps {what}", phrase, dashes.quote(phrase, text))
-pz = fresh("Pot - boiler", {"linkWords": ["-"]})
+pz = fresh("Pot - boiler", {"linkWords": ["-"], "blocks": []})
 check("a clue not yet normalised: its '-' link word follows it to the house dash", ["—"],
       dashes.normalise(pz)["entries"][0]["annotation"]["linkWords"])
 
