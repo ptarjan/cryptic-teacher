@@ -22,9 +22,11 @@ every change it makes is anchored by text both readings share:
      the other reading has right after the clue's last words, less the next
      clue's number. A count the list left ambiguous must be one of its
      readings; digits the list kept in a broken bracket must be the same
-     digits in the same order. RapidOCR reads a hyphen as a period, so
-     counts in parts ("4.5" for 4-5) give the rebuild the light's length
-     but are not printed with the clue.
+     digits in the same order. The counts keep their parts: the readers
+     print a comma as a period ("(3.6.5)" for SIR EDWARD ELGAR's 3,6,5),
+     read here as the comma; a hyphen read as a hyphen stays one. A period
+     may be a hyphen read small, but the word break is the print's either
+     way, and a bare total ("14") files the answer as one word.
   3. A clue number read several ways takes the number the other reading has
      right before the clue's first words, when it is one of those ways.
 """
@@ -201,9 +203,10 @@ def fix_enum(direction, parsed, stream, s_letters, s_idx, notes):
             continue
         if len(c["tokens"]) == 1 and ftp.count(enum) > 15:
             continue
-        # RapidOCR reads a small hyphen as a period, so a count in parts
-        # settles the light's length but is not printed with the clue.
-        out[i] = dict(c, text=bare.rstrip(), enums={enum}, count_only=not enum.isdigit())
+        # The count is filed in its parts. Dropping them (once a guard
+        # against a hyphen read as a period) filed the bare letter total,
+        # "14" for "(3.6.5)", and lost every word break.
+        out[i] = dict(c, text=bare.rstrip(), enums={enum})
         notes.append(f"{c_number(c)} {direction}: enumeration ({enum}), the list read "
                      f"{sorted(c['enums']) or repr(text[-12:])}")
 

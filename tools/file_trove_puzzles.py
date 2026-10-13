@@ -712,7 +712,7 @@ def match(parsed, grid):
             if clue["enums"] and len(fits) != 1:
                 return None, (f"{lid}: the enumeration reads as {sorted(clue['enums'])}, "
                               f"the grid holds {total} letters")
-            enum = fits[0] if fits and not clue.get("count_only") else None
+            enum = fits[0] if fits else None
             out[lid] = (clue["text"], enum, group if len(group) > 1 else None)
     if len(slipped) > MOST_DIGIT_SLIPS:
         return None, f"the counts of {', '.join(slipped)} fit the grid only read as other digits"

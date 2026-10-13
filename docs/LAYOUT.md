@@ -2544,5 +2544,9 @@ tools/desktop_hosts.py                        the desktop's LAN and tailnet addr
 tools/desktop_hosts.json                      the desktop's addresses, LAN first, tailnet as
                                               fallback: the one place to edit when its DHCP
                                               lease changes
+tools/test_clue_repair.sh                     does tools/clue_repair.py give a clue whose
+                                              bracket its own reading lost the count another
+                                              reading prints, in its parts, so the scan filers
+                                              file "3,6,5" and not the bare letter total "14"?
 ```
 <!-- LAYOUT-END -->

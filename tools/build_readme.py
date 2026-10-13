@@ -691,6 +691,7 @@ LAYOUT = [
     ("fetching", "tools/reapply_annotation.py", "re-apply a commit's annotation onto origin's copy of its puzzle when push_puzzle_commit.sh's replay conflicts"),
     ("fetching", "tools/desktop_hosts.py", "the desktop's LAN and tailnet addresses, read once from desktop_hosts.json by python and shell callers"),
     ("fetching", "tools/desktop_hosts.json", "the desktop's addresses, LAN first, tailnet as fallback: the one place to edit when its DHCP lease changes"),
+    ("fetching", "tools/test_clue_repair.sh", "does tools/clue_repair.py give a clue whose bracket its own reading lost the count another reading prints, in its parts, so the scan filers file \"3,6,5\" and not the bare letter total \"14\"?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
