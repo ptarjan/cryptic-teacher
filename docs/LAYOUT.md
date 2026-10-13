@@ -435,11 +435,11 @@ tools/letter_facts.py                         adds a clue type the blog left out
                                               own); and the indicator a homophone's or
                                               spoonerism's heard blocks want; blog_facts.py
                                               runs it after each write, the lexicons built here
-                                              and the clues read on the desktop (20 processes
-                                              over ssh, the code shipped as tools/ocr_remote.py
-                                              ships it) unless it is busy or off, else in a
-                                              local pool; --coverage says what the written
-                                              facts cover and why the rest fall short
+                                              and the clues read on the OCR host (over ssh, the
+                                              code shipped as tools/ocr_remote.py ships it)
+                                              unless it is busy or off, else in a local pool;
+                                              --coverage says what the written facts cover and
+                                              why the rest fall short
 tools/indicator_keys.py                       the one spelling of an indicator phrase
                                               indicators.json is keyed by, and the one type
                                               each indicator is credited to, its own `for`; the
@@ -944,7 +944,7 @@ tools/progress.py                             per series and per day, how many p
                                               the corpus
 tools/edition_backlog.py                      the read queue's size without planning it: per
                                               series, the editions, Listener pages and Trove
-                                              articles on the media disk and how many no ledger
+                                              articles on the data disk and how many no ledger
                                               row has read, in puzzles; progress_record.py
                                               records it nightly
 tools/progress_record.py                      writes that history: `record` nightly, and a
@@ -1516,6 +1516,10 @@ tools/test_book_queue.sh                      does tools/book_queue.py still off
                                               book to tools/acquire_books.sh?
 tools/test_build_readme.sh                    does tools/build_readme.py still read the header
                                               of every file it is asked about?
+tools/test_public_docs.sh                     do the public docs name hosts by role (the OCR
+                                              host, the GPU host, the data disk) rather than by
+                                              a local path, home directory, LAN address or
+                                              whose machine it is?
 tools/test_downloads.sh                       does every fetcher keep its downloads under
                                               tools/downloads.py's root: fails on a home path,
                                               ~/.cache folder or container path spelled
@@ -1673,15 +1677,16 @@ tools/file_archive_org_puzzles.py             files the daily Times, FT, Guardia
                                               times-<No>, ftcryptic-<No>, cryptic-<No> and
                                               telegraph-<No> (--paper): clues voted on by
                                               archive.org's OCR, RapidOCR's two recognisers,
-                                              Tesseract, the desktop VLM and the Canberra Times
-                                              reprint's readings (the Times pages saved by hand
-                                              from Gale, staged by gale_inbox.py, and the
-                                              Telegraph, FT, Independent and Sunday Times pages
-                                              gale_fetch.py lays out, read the same way), the
-                                              grid read off the scan or rebuilt, answers off
-                                              the next edition's solution grid; every reading
-                                              kept for cross_validate.py's archiveorg adapter;
-                                              names the Times puzzle each canberra file reprints
+                                              Tesseract, the GPU host's VLM and the Canberra
+                                              Times reprint's readings (the Times pages saved
+                                              by hand from Gale, staged by gale_inbox.py, and
+                                              the Telegraph, FT, Independent and Sunday Times
+                                              pages gale_fetch.py lays out, read the same way),
+                                              the grid read off the scan or rebuilt, answers
+                                              off the next edition's solution grid; every
+                                              reading kept for cross_validate.py's archiveorg
+                                              adapter; names the Times puzzle each canberra
+                                              file reprints
 tools/test_file_archive_org_puzzles.sh        does tools/file_archive_org_puzzles.py find the
                                               Times cryptic's title and not its neighbours',
                                               read the clue columns in order, keep only the
@@ -1743,7 +1748,7 @@ tools/test_no_doubled_paper.sh                does any series' page say the same
                                               number as searched ("Guardian Cryptic 30111
                                               answers"), no thousands comma
 tools/test_vlm_reader.sh                      does tools/vlm_reader.py stay out of the way when
-                                              the desktop's VLM does not answer, cache what it
+                                              the GPU host's VLM does not answer, cache what it
                                               asks, crop each clue column alone, and does
                                               file_archive_org_puzzles.py fill a blank clue
                                               with its reading and re-read an edition once it
@@ -1811,15 +1816,15 @@ tools/edition_commit.py                       an archive.org or Gale edition rea
                                               the edition queue made
                                               (file_archive_org_puzzles.brief, from its loaded
                                               ledger, scans and corpus): the unit only sends it
-                                              to the desktop, waits, writes what the desktop
+                                              to the OCR host, waits, writes what the OCR host
                                               decided and appends the edition's row, loading
                                               none of the reader's code; the shared filing
                                               pieces (filer_path, the row, the inputs'
                                               stray-clue part)
-tools/test_edition_commit.sh                  does a prepared read write what the desktop
+tools/test_edition_commit.sh                  does a prepared read write what the OCR host
                                               decided and append its row, loading no tree
                                               module past its MODULES, hand an undecided title,
-                                              a lost desktop or an edition read since to the
+                                              a lost OCR host or an edition read since to the
                                               whole unit, and keep ocr_remote's code hash only
                                               for the commit it was made from?
 tools/test_edition_queue.sh                   does the edition queue append rows (the last
@@ -1923,15 +1928,15 @@ tools/test_placeholder_clues.sh               a puzzle whose clues are pointers 
                                               printed elsewhere has no clues
 tools/sweep_series.py                         probe every number of a Guardian series between
                                               two bounds, file what is served
-tools/ocr_gpu.py                              one shared RapidOCR server on the desktop's GPU
-                                              that the desktop sessions hand reads to, each
-                                              reading on its own CPU when the server is busy or
-                                              away; yields to games and keeps 4 GB of VRAM free
+tools/ocr_gpu.py                              one shared RapidOCR server on the GPU host that
+                                              its OCR sessions hand reads to, each reading on
+                                              its own CPU when the server is busy or away;
+                                              yields while the host is busy and keeps 4 GB of
+                                              VRAM free
 tools/ocr_remote.py                           the clue OCR, whole scan editions, image-PDF page
                                               searches, Gale page matches, Listener page reads
-                                              and Trove grid searches run on Paul's desktop
-                                              over ssh; what runs here instead shares
-                                              LOCAL_SLOTS
+                                              and Trove grid searches run on the OCR host over
+                                              ssh; what runs here instead shares LOCAL_SLOTS
 tools/test_sync_skip_published.sh             the burn's sync with runs in flight: publishes or
                                               drops each local commit, brings origin's code in,
                                               keeps a run's uncommitted edit, and refuses whole
@@ -1942,7 +1947,7 @@ tools/test_scan_crop.sh                       does the annotator get the printed
                                               puzzle filed off a scan?
 tools/test_ocr_remote.sh                      does tools/ocr_remote.py compare every reader
                                               model a read can load, send back an edition whose
-                                              read on the desktop opened a file it was not
+                                              read on the OCR host opened a file it was not
                                               sent, give the same grids from a search run
                                               there, and cap reads here at LOCAL_SLOTS?
 tools/gale_inbox.py                           every 1930-2019 Times edition with no puzzle
@@ -1960,11 +1965,11 @@ tools/gale_inbox.py                           every 1930-2019 Times edition with
                                               galeindependent, galesundaytimes and galetls),
                                               publishes the Times progress page, and for pages
                                               saved by hand sweeps each Gale download out of
-                                              the desktop's and Mac's Downloads into its
-                                              paper's inbox on the Media share, mirrors the
-                                              Times one over the ssh hatch, matches and stages
-                                              it, and starts the full pass when a page is laid
-                                              out while none runs (kick)
+                                              the hosts' download folders into its paper's
+                                              inbox on the data disk, mirrors the Times one
+                                              over the ssh hatch, matches and stages it, and
+                                              starts the full pass when a page is laid out
+                                              while none runs (kick)
 tools/gale_inbox.sh                           the scheduled entry point for gale_inbox.py sync,
                                               every minute, from a worktree
 tools/gale_listener.py                        the Listener crosswords of 1930-91, read from the
@@ -1981,9 +1986,9 @@ tools/gale_listener.py                        the Listener crosswords of 1930-91
                                               reading, then file_gale_listener.py run, each
                                               page a unit of the full pass's edition queue
                                               (read_unit, its ledger rows appended), read on
-                                              the desktop but for its whole-page Tesseract read
-                                              (ocr_remote's listener_read) and filed here; the
-                                              checklist asks for a saved puzzle's solution
+                                              the OCR host but for its whole-page Tesseract
+                                              read (ocr_remote's listener_read) and filed here;
+                                              the checklist asks for a saved puzzle's solution
                                               report and links each next puzzle to Gale's
                                               Download (gale_docs.py)
 tools/gale_docs.py                            Gale's document and PDF Download link for a date
@@ -2001,11 +2006,11 @@ tools/gale_fetch.py                           downloads every wanted Times editi
                                               worth of Times rows are left, at a hand's pace
                                               (8-22 s apart, at most 15 in 3 minutes) and lays
                                               each out at once as its date's edition (no inbox,
-                                              match or set-aside), the PDF kept on the Mac;
-                                              counts downloads per window across sessions and
-                                              papers (the browser's included; no cap until the
-                                              first refusal), retries a logged-out session at
-                                              once, records each Gale refusal with its count
+                                              match or set-aside), the PDF kept on the data
+                                              disk; counts downloads per window across sessions
+                                              and papers (the browser's included; no cap until
+                                              the first refusal), retries a logged-out session
+                                              at once, records each Gale refusal with its count
                                               and pace and probes every 30 min to time the
                                               reset (~/.cache/gale_inbox/limits.json), learning
                                               the cap and window from them; stops and wakes the
@@ -2051,10 +2056,10 @@ tools/test_gale_listener.sh                   is a saved Listener page matched b
                                               or a footnote no run-on, a grid's numbers beside
                                               a list and a footnote's dagger read as a letter;
                                               does a page say the page its clues or diagram are
-                                              on; is each file read once, a read on the desktop
-                                              the read here (its OCR and grids kept here), and
-                                              does the checklist mark what is saved or filed
-                                              and ask for a missing solution?
+                                              on; is each file read once, a read on the OCR
+                                              host the read here (its OCR and grids kept here),
+                                              and does the checklist mark what is saved or
+                                              filed and ask for a missing solution?
 tools/listener_grid.py                        reads a 1930s Listener grid off a scanned Gale
                                               page: every grid on the page found as a lattice
                                               of long rules (prose, column rules and boxes are
@@ -2130,24 +2135,23 @@ tools/ninas.py                                unannounced messages in finished g
                                               point out, each checked against our grid
 tools/ci_cache.js                             the per-puzzle result cache that lets every push
                                               check the whole corpus
-tools/desktop_busy.py                         whether Paul is playing a game on his desktop, so
-                                              the work we send there yields
-tools/desktop_probe.ps1                       the desktop's game processes, 3D load (the VLM's
-                                              own left out), OCR sessions and free memory, as
-                                              JSON, for tools/desktop_busy.py
-tools/test_desktop_busy.sh                    does desktop OCR and VLM work yield while Paul
-                                              games, and resume after?
-tools/vlm_health.py                           wake the room when the desktop VLM has been down
-                                              for DOWN_FOR with no game
+tools/desktop_busy.py                         whether the OCR host is busy with its own
+                                              foreground work, so the work we send there yields
+tools/desktop_probe.ps1                       the OCR host's foreground processes, 3D load (the
+                                              VLM's own left out), OCR sessions and free
+                                              memory, as JSON, for tools/desktop_busy.py
+tools/test_desktop_busy.sh                    does OCR and VLM work on the OCR host yield while
+                                              the host is busy, and resume after?
+tools/vlm_health.py                           wake the room when the GPU host's VLM has been
+                                              down for DOWN_FOR while the host was not busy
 tools/vlm_health.sh                           the scheduled entry point for tools/vlm_health.py
                                               (the cryptic-vlm-health plugin), run from a
                                               worktree at origin/master
                                               (tools/nightly_worktree.sh).
-tools/vlm_health_probe.ps1                    what tools/vlm_health.py reports when the desktop
-                                              VLM is down, as one JSON line. "game" uses
-                                              D:\llm\game-guard.ps1's own rule (a process run
-                                              from D:\ outside D:\llm), because that guard is
-                                              what takes llama-swap down for one
+tools/vlm_health_probe.ps1                    what tools/vlm_health.py reports when the GPU
+                                              host's VLM is down, as one JSON line. Its busy
+                                              flag uses the host's own guard script's rule,
+                                              because that guard is what takes llama-swap down
 tools/file_gale_listener.py                   files the 1930s Listeners saved from Gale into
                                               puzzles/listener/ (run by gale_listener.py sync):
                                               gale_listener's clue reading joined with the
@@ -2241,8 +2245,8 @@ tools/test_trove_articles_index.sh            does tools/trove_solution_ocr.py's
 tools/await_preamble.py                       hold back a puzzle that cannot be explained
                                               without the preamble we lack
 tools/test_reconstruct_grid_cli.sh            tools/reconstruct_grid.py's command line: several
-                                              --lights run as separate searches (on the desktop
-                                              under OCR_REMOTE; here, with it unset,
+                                              --lights run as separate searches (on the OCR
+                                              host under OCR_REMOTE; here, with it unset,
                                               in-process), and --words reaches the search
 tools/track_prereset.sh                       register the pre-reset burn as a status lane for
                                               the cryptic room. The label names the job only:
