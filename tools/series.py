@@ -60,6 +60,11 @@ import re
 #   this day also answers to <series>-YYYYMMDD (legacy_ids()).
 # firstIssue — the number the series' first puzzle printed under, when that is
 #   not 1. first_number() reads it.
+# lastIssue — the series has ended: this is its last number, and the coverage
+#   ledger counts it as existing up to here and no further (tools/coverage.py
+#   number_runs). A series without it is still running, so the ledger counts
+#   it up to the number today's paper is due to carry.
+# renumberedFrom — with renumberedBelow: the first number of the newer run.
 SERIES = {
     "cryptic": {
         "kind": "Cryptic",
@@ -141,6 +146,7 @@ SERIES = {
         "publisher": "The Nation",
         "bylined": True,
         "badge": "nation",
+        "lastIssue": 3529,  # 13 April 2020
     },
     "globeandmail": {
         # The Globe and Mail prints it, but the byline arrives stamped
@@ -239,9 +245,11 @@ SERIES = {
         "kind": "Club Monthly Special",
         "publisher": "Times",
         "badge": "times club",
-        # It ran from 20,000 to 20,278 (November 2023); from 274 (May 2024) it
-        # is numbered afresh. Each numbering's dates rise on their own.
+        # It ran from 20,000 to 20,279 (the post of January 2024); from 270
+        # (February 2024, the next month) it is numbered afresh, one run with
+        # no month missing. Each numbering's dates rise on their own.
         "renumberedBelow": 20000,
+        "renumberedFrom": 270,
         "firstIssue": 20000,
         "blog": "timesforthetimes.co.uk",
         "perLightEnumeration": True,
