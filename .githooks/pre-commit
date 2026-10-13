@@ -1,34 +1,55 @@
 #!/bin/sh
+# Every check here runs only when the commit stages what it reads, so a commit
+# that touches none of it costs a git diff and no Python (Paul 10-13: "Why does
+# precommit take 6 seconds to do nothing?" — the OCR pass commits per puzzle,
+# and each paid for the layout check, two rename checks and two Python starts
+# for the puzzle checks). tools/test_precommit_speed.sh holds that line.
+
 # Every worktree shares .git/config, so a user.* set there re-authors every
 # job's commits; the identity comes from the global config alone.
 if git config --file "$(git rev-parse --git-common-dir)/config" --get-regexp '^user\.' >/dev/null; then
   echo "pre-commit: .git/config sets user.* for every worktree; remove it: git config --remove-section user" >&2
   exit 1
 fi
+# The index read once; a rename shows as its D and its A.
+changes=$(git diff --cached --no-renames --name-status)
+[ -n "$changes" ] || exit 0
+staged() {  # staged <awk condition on $1 (status) and $2 (path)>: those paths
+  printf '%s\n' "$changes" | awk -F'\t' "$1 { print \$2 }"
+}
+
 # A tracked file with no layout row fails CI; refuse the commit instead.
 # Fix: python3 tools/build_readme.py --add-missing, then stage docs/LAYOUT.md
-# and tools/build_readme.py.
-python3 tools/build_readme.py --check-layout || exit 1
+# and tools/build_readme.py. What it reads is the tracked path list (puzzles/
+# and clues_only/ exempt, LAYOUT_EXEMPT), the LAYOUT table and docs/LAYOUT.md,
+# so it runs only when the commit adds or deletes a path outside those or
+# edits either file; filing a puzzle does neither.
+if [ -n "$(staged '($1 ~ /^[AD]/ && $2 !~ /^(puzzles|clues_only)\//) || $2 == "docs/LAYOUT.md" || $2 == "tools/build_readme.py"')" ]; then
+  python3 tools/build_readme.py --check-layout >/dev/null || exit 1
+fi
 # An annotation quoting words its clue no longer holds fails the deploy's
-# validate run and holds every deploy after it; refuse it here instead.
-staged=$(git diff --cached --name-only --diff-filter=AM -- 'puzzles/*.json')
-[ -z "$staged" ] || printf '%s\n' "$staged" | xargs python3 tools/puzzle_integrity.py --quotes || exit 1
-# So does a definition `at` a clue rewrite left behind (18bf10d65a, 8cb5a7e0b2:
-# puzzle_integrity never looks at offsets). Rewrite clue text through
-# enumeration.rewrite_entry, which moves them; run the deploy's own check here.
-[ -z "$staged" ] || printf '%s\n' "$staged" | xargs python3 tools/validate_annotations.py --deploy >/dev/null || {
-  printf '%s\n' "$staged" | xargs python3 tools/validate_annotations.py --deploy | grep -E 'ERROR|FAIL' >&2; exit 1; }
-# A renamed puzzle's old id 404s unless tools/data/renamed_ids.json has its row;
-# refuse the commit instead. Fix: python3 tools/renamed_ids.py --stage. A
-# worktree whose tools/ predates the map has nothing to check.
-[ ! -f tools/renamed_ids.py ] || python3 tools/renamed_ids.py --check-staged || exit 1
-# A deleted or renamed puzzle's rows in the per-puzzle tables (source_clue_wrong
-# and the rest) name nothing and fail CI; refuse the commit instead. Fix:
-# python3 tools/puzzle_rows.py retire <old id> [<new id>], then stage the tables.
-[ ! -f tools/puzzle_rows.py ] || python3 tools/puzzle_rows.py --check-staged || exit 1
+# validate run and holds every deploy after it; so does a definition `at` a
+# clue rewrite left behind (18bf10d65a, 8cb5a7e0b2: puzzle_integrity never
+# looks at offsets; rewrite clue text through enumeration.rewrite_entry, which
+# moves them). Both checks, on the staged puzzle files, in one Python start.
+puzzles=$(staged '$1 ~ /^[AM]/ && $2 ~ /^puzzles\/.*\.json$/')
+[ -z "$puzzles" ] || printf '%s\n' "$puzzles" | xargs python3 tools/precommit_puzzles.py || exit 1
+# Both rename checks read only a staged deletion under puzzles/.
+if [ -n "$(staged '$1 ~ /^D/ && $2 ~ /^puzzles\//')" ]; then
+  # A renamed puzzle's old id 404s unless tools/data/renamed_ids.json has its
+  # row; refuse the commit instead. Fix: python3 tools/renamed_ids.py --stage.
+  # A worktree whose tools/ predates the map has nothing to check.
+  [ ! -f tools/renamed_ids.py ] || python3 tools/renamed_ids.py --check-staged || exit 1
+  # A deleted or renamed puzzle's rows in the per-puzzle tables
+  # (source_clue_wrong and the rest) name nothing and fail CI; refuse the
+  # commit instead. Fix: python3 tools/puzzle_rows.py retire <old id> [<new
+  # id>], then stage the tables.
+  [ ! -f tools/puzzle_rows.py ] || python3 tools/puzzle_rows.py --check-staged || exit 1
+fi
 # A page-build module missing from SMOKE_DEPS in tools/ci_cache.js fails CI's
 # tools/test_ci_cache_deps.js; refuse the commit instead. Fix: add the path it
 # names to SMOKE_DEPS.
-if git diff --cached --name-only -- 'tools/*' 'sync/*' 'vendor/*' '*.js' | grep . >/dev/null; then
+if [ -n "$(staged '$2 ~ /^(tools|sync|vendor)\// || $2 ~ /\.js$/')" ]; then
   node tools/test_ci_cache_deps.js >/dev/null || exit 1
 fi
+exit 0

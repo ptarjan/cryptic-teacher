@@ -1064,6 +1064,14 @@ tools/test_puzzle_rows.sh                     do a puzzle's table rows go where 
                                               refuses a drop or rename leaving rows, durable.sh
                                               commits a drop with its rows gone, and every real
                                               row names a file
+tools/precommit_puzzles.py                    the pre-commit hook's checks on the staged puzzle
+                                              files (puzzle_integrity's QUOTE,
+                                              validate_annotations --deploy) in one Python start
+tools/test_precommit_speed.sh                 does .githooks/pre-commit run each check only
+                                              when the commit stages what it reads? a commit
+                                              staging none of it starts no Python and stays
+                                              within its time budget; a filed puzzle runs only
+                                              precommit_puzzles.py
 tools/test_renamed_ids.sh                     does a renamed puzzle's old id keep resolving? A
                                               rename inside a commit that moves every file is
                                               still paired, a staged rename the map lacks is
