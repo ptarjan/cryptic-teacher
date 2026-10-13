@@ -123,8 +123,33 @@ jobs:
           --clues tools/data/authored_A001_clues.json --number 1
           --name "Cryptic Teacher No 1" --date 2026-07-29
           --annotated-by claude-opus-5-5
+      # Last run's puzzles/<id>.js shims. A stored index row is reused only
+      # when the shim on disk is the one it wrote (fetch_puzzle.index_row_deps
+      # hashes it), and a fresh checkout has none, so without these every one
+      # of the ~50k rows missed and was made again: the reindex's ~50s. A
+      # stale shim is never used: its row's key or deps no longer match, and
+      # the row and shim are written again.
+      - name: Restore the puzzle shims
+        uses: actions/cache@v4
+        with:
+          path: puzzles/*.js
+          key: puzzle-shims-${{ github.sha }}
+          restore-keys: puzzle-shims-
+      # Then a restored shim the index no longer names (its puzzle deleted or
+      # renamed since) is removed, so the site ships what a clean build would.
       - name: Build the puzzle shims and reindex
-        run: python3 tools/fetch_puzzle.py --reindex
+        run: |
+          python3 tools/fetch_puzzle.py --reindex
+          python3 - <<'EOF'
+          import json, pathlib
+          d = pathlib.Path("puzzles")
+          index = json.loads((d / "index.json").read_text(encoding="utf-8"))
+          keep = {"index.js"} | {p["file"] for p in index["puzzles"] + index.get("unlisted", [])}
+          gone = [f for f in d.glob("*.js") if f.name not in keep]
+          for f in gone:
+              f.unlink()
+          print(f"removed {len(gone)} shim(s) no puzzle has")
+          EOF
       # The cards are ~110MB of PNGs that change a few files a night, so they are
       # neither committed nor redrawn from scratch: the cache carries them and
       # their manifest between runs, and make_og.sh draws only the ones whose
