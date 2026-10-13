@@ -2316,5 +2316,7 @@ tools/unit_more.py                            a unit's backlog_left(): it stoppe
 tools/test_blog_clues_only.sh                 is a blog post whose answers fit no grid held as
                                               its clues alone, and does the solve's fill file
                                               it on the grid those answers cross in?
+tools/test_session_model.sh                   does apply_annotations find who wrote the hints
+                                              when the model never ran it?
 ```
 <!-- LAYOUT-END -->
