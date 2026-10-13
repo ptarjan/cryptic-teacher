@@ -2869,12 +2869,25 @@ def check_groups(puzzle, errors):
             errors.append(f"{entry_id(e)}: group {group} does not start with this "
                           f"entry. Only the leader carries the group, first in it")
             continue
+        clued = groups.self_clued(holder)
+        for gid in sorted(clued - set(group[1:])):
+            errors.append(f"{entry_id(e)}: selfClued names {gid}, which is not a later "
+                          f"light of its group {group}")
         for gid in dict.fromkeys(group[1:]):
             if gid == entry_id(e):
                 continue                  # an answer that repeats its first light
             other = by_id.get(gid)
             if other is None:
                 errors.append(f"{entry_id(e)}: group names {gid}, which is not in this puzzle")
+                continue
+            if gid in clued:
+                # An answer of its own that this one also runs through
+                # (cryptic-21893's THERE in BATTLE HYMN OF THE REPUBLIC): it
+                # keeps its clue, so a bare pointer there is a continuation.
+                if groups.is_pointer(other["clue"].get("text", ""), counted=True):
+                    errors.append(f"{gid}: in {entry_id(e)}'s selfClued, but its clue is a "
+                                  f"pointer; a light whose clue is \"See N\" is a plain "
+                                  f"continuation")
                 continue
             held_by.setdefault(gid, []).append(entry_id(e))
             if other.get("annotation"):

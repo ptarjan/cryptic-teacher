@@ -660,6 +660,7 @@ LAYOUT = [
     ("fetching", "tools/fetch_nation.py", "the Nation's weekly cryptic, from the magazine's own article pages"),
     ("fetching", "tools/test_genius_puzzles.sh", "does tools/genius_puzzles.py read an old Guardian article page's text without markup, keep the Genius's printed pair of counts, and does the write gate refuse a tag's remnant in any string?"),
     ("fetching", "tools/test_linked_group_sums.sh", "does the grid search use a linked answer's printed total?"),
+    ("fetching", "tools/test_self_clued.sh", "can a light with a clue of its own also finish another linked answer (cryptic-21893's THERE and PUBLIC in BATTLE HYMN OF THE REPUBLIC)? the holder's selfClued through the schema, groups.py, the shape checks and the length check"),
     ("fetching", "tools/test_shared_leader.sh", "can one light start two linked answers (Genius 209's IVOR)? the entry's alsoLeads through the schema, groups.py, the shape checks, the annotate run and the Genius parser"),
     ("fetching", "tools/jigsaw_fit.py", "fit a jigsaw's answers into the one blocked grid they interlock in"),
     ("fetching", "tools/test_jigsaw_fit.sh", "does a jigsaw held as its clues alone become a filed puzzle once answered?"),

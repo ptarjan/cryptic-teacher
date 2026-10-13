@@ -13,6 +13,12 @@ first is the entry's own clue, group and annotation; each further one is an
 item of the entry's `alsoLeads`, {clue, group, annotation}. The holder of a
 linked answer is the dict carrying its clue, group and annotation: the leader
 entry itself, or one of those items.
+
+A light of a group may also be an answer of its own: cryptic-21893's 21-down
+THERE and 1-across PUBLIC each carry a clue, and also finish 11-across's
+BATTLE HYMN OF THE REPUBLIC. The holder names such lights in `selfClued`;
+they keep their own clue, annotation and group, and are not that answer's
+continuations (holder_of, leader_of and group_of pass them by).
 """
 
 import re
@@ -132,14 +138,21 @@ def leaders(entries):
     return {entry_id(e): e["group"] for e in entries if e.get("group")}
 
 
+def self_clued(holder):
+    """The lights of holder's group that are answers of their own too
+    (`selfClued`): not its continuations."""
+    return set(holder.get("selfClued") or ())
+
+
 def group_of(entries):
     """{light id: the group it is in} for every linked light. A light in more
     than one group maps to the first it leads, else the first leader's in
-    entry order."""
+    entry order. A self-clued light is in no group but its own."""
     out = dict(leaders(entries))
     for _, h in linked(entries):
         for eid in h["group"]:
-            out.setdefault(eid, h["group"])
+            if eid not in self_clued(h):
+                out.setdefault(eid, h["group"])
     return out
 
 
@@ -149,7 +162,7 @@ def holder_of(entries):
     out = {}
     for lead, h in linked(entries):
         for eid in h["group"][1:]:
-            if eid != entry_id(lead):
+            if eid != entry_id(lead) and eid not in self_clued(h):
                 out.setdefault(eid, h)
     return out
 
@@ -159,7 +172,7 @@ def leader_of(entries):
     out = {}
     for lead, h in linked(entries):
         for eid in h["group"][1:]:
-            if eid != entry_id(lead):
+            if eid != entry_id(lead) and eid not in self_clued(h):
                 out.setdefault(eid, entry_id(lead))
     return out
 

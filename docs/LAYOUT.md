@@ -2414,6 +2414,11 @@ tools/test_genius_puzzles.sh                  does tools/genius_puzzles.py read 
                                               write gate refuse a tag's remnant in any string?
 tools/test_linked_group_sums.sh               does the grid search use a linked answer's
                                               printed total?
+tools/test_self_clued.sh                      can a light with a clue of its own also finish
+                                              another linked answer (cryptic-21893's THERE and
+                                              PUBLIC in BATTLE HYMN OF THE REPUBLIC)? the
+                                              holder's selfClued through the schema, groups.py,
+                                              the shape checks and the length check
 tools/test_shared_leader.sh                   can one light start two linked answers (Genius
                                               209's IVOR)? the entry's alsoLeads through the
                                               schema, groups.py, the shape checks, the annotate
