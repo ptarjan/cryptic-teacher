@@ -37,6 +37,13 @@ Grammar
     cd([words])           cryptic definition: the words, no letters
 A double definition has no wordplay: two definitions and no expression.
 
+Legacy trees (tools/convert_v2.py, from annotations written before the tree)
+may hold an `"unchecked": true` node: an op node or leaf whose `gives` is
+taken as stated, its parts shown but not checked, where the old blocks could
+not be rebuilt step by step (a deletion of scattered letters, a selection
+from a synonym). The expression has no way to write one, so a new
+annotation cannot add any.
+
 Stored tree: a leaf is {"words", "at", "gives"?, "note"?} ({"gives"} alone
 for letters with no words); an op is {"op", "indicators"?: [{"text", "at",
 "note"?}], "parts": [...]}, with "spelt" on homophone/spoonerism and "n" on
@@ -242,8 +249,8 @@ def locate(node, clue, taken=()):
     used = list(taken)
     for span, key in _spans(node):
         text, nth = span[key], 1
-        m = re.fullmatch(r"(.*?)#(\d+)", text)
-        if m:
+        m = re.fullmatch(r"(.+?)#(\d+)", text)
+        if m and text not in clue:
             text, nth = m.group(1), int(m.group(2))
             span[key] = text
         if "at" in span:
@@ -261,7 +268,11 @@ def locate(node, clue, taken=()):
 # ---------- render ----------
 
 def render(node):
-    """The expression for a tree: parse(render(t)) == t, `at` aside."""
+    """The expression for a tree: parse(render(t)) == t, `at` aside. An
+    unchecked legacy node renders as `?op(...)=GIVES`, which does not parse."""
+    if node.get("unchecked") and "op" in node:
+        inner = render({k: v for k, v in node.items() if k not in ("unchecked", "gives")})
+        return f"?{inner}={node.get('gives', '')}"
     if "op" not in node:
         if "words" not in node:
             return node.get("gives", "")
@@ -336,6 +347,8 @@ def _onset(s):
 
 def values(node):
     """Every string `node` can give, without the answer to steer it."""
+    if node.get("unchecked"):
+        return {letters(node.get("gives"))}
     if "op" not in node:
         return {leaf_letters(node)}
     op, parts = node["op"], node["parts"]
@@ -397,6 +410,8 @@ def values(node):
 def lengths(node):
     """Every length `node` can give."""
     op = node.get("op")
+    if node.get("unchecked"):
+        return {len(letters(node.get("gives")))}
     if op == "anagram" or op == "reversal":
         return lengths(node["parts"][0])
     if op == "cryptic":
@@ -444,6 +459,10 @@ def match(node, want, got=None):
     op = node.get("op")
     if op is None:
         ok = leaf_letters(node) == want
+    elif node.get("unchecked"):
+        ok = letters(node.get("gives")) == want
+        for p in node["parts"]:
+            _fill(p, got)
     elif op == "cryptic":
         ok = True
     elif op == "charade":
@@ -602,6 +621,8 @@ def evaluate(tree, answer):
 
 def _check_ops(node, got):
     """Steps that leave their letters as they were say nothing."""
+    if node.get("unchecked"):
+        return
     op = node.get("op")
     for p in node.get("parts") or []:
         _check_ops(p, got)

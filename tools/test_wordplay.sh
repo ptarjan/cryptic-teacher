@@ -297,6 +297,7 @@ import series
 for pid, extra, want in [
     ("times-29000", {}, "Times cryptic crossword No 29,000"),
     ("nation-3289", {}, "The Nation cryptic crossword No 3289"),
+    ("toughie-3224", {}, "Telegraph Toughie No 3,224"),
     ("cryptic-30134", {"prize": True}, "Prize crossword No 30,134"),
     ("listener-3999", {"title": "Tobacco"}, "Listener crossword No 3,999: Tobacco"),
     ("canberra-920427", {"label": "English cryptic"},

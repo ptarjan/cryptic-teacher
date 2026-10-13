@@ -78,8 +78,11 @@ and annotation files name entries by it. A puzzle file that stores an entry
   step, and a derived field cannot disagree with its source.
 
 Live so far: the parser and evaluator (`tools/wordplay.py`), `annotation.view()`
-and `series.display_name()`, tested by `tools/test_wordplay.sh`. Next steps: a
-converter from today's annotations to trees, the schema and validator change
+and `series.display_name()`, tested by `tools/test_wordplay.sh`, and the
+converter from today's annotations to trees (`tools/convert_v2.py`, tested by
+`tools/test_convert_v2.sh`): where the old blocks can't be rebuilt step by step
+it keeps the step as an `"unchecked": true` node, which the expression cannot
+write. Next steps: the schema and validator change
 that removes the derived fields from the file and refuses them, the site's
 build reading `view()`, and the annotation prompt switching to the expression.
 Until then the files keep today's fields, described below.

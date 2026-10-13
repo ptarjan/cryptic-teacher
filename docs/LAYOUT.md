@@ -2403,5 +2403,13 @@ tools/test_wordplay.sh                        does wordplay.py parse and check e
                                               derive today's fields from the tree?
 tools/wordplay.py                             a clue's wordplay as one line the model writes,
                                               and the tree a puzzle stores
+tools/convert_v2.py                           today's annotations as format v2 wordplay trees,
+                                              losing nothing (a step the blocks can't rebuild
+                                              stays an unchecked node), and a read-only dry run
+                                              over the corpus
+tools/test_convert_v2.sh                      does convert_v2.py rebuild the stored blocks,
+                                              indicators and definitions from the tree, keep
+                                              what it can't check as unchecked nodes, and
+                                              refuse an answer that contradicts its enumeration?
 ```
 <!-- LAYOUT-END -->
