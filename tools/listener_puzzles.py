@@ -50,6 +50,7 @@ import puzzle_paths
 import provenance
 from fetch_puzzle import (grade_model_fill, print_grade, puzzle_path,
                           read_puzzle_file, write_puzzle_file)
+from groups import is_pointer
 
 
 SERIES = "listener"
@@ -437,7 +438,6 @@ CLUE_HEAD = re.compile(r"^(\d{1,2})\s+(\S.*)$")
 LINKED_HEAD = re.compile(
     r"^(\d{1,2}[AD]?(?:\s*\([a-z]+\.?\))?(?:\s*[,&]\s*\d{1,2}[AD]?(?:\s*\([a-z]+\.?\))?)*)\s+(\S.*)$")
 HEAD_LIGHT = re.compile(r"(\d{1,2})([AD])?")
-SEE = re.compile(r"^See\s+\d", re.IGNORECASE)
 
 
 def page_middle(data):
@@ -528,7 +528,7 @@ def parse_clue_list(left, right, wanted):
         if heads and heads[0] in wanted and heads[0] not in clues and all(h in wanted for h in heads):
             current = heads[0]
             text = m.group(2).strip()
-            if len(heads) > 1 and SEE.match(text):
+            if len(heads) > 1 and is_pointer(text, counted=True):
                 for h in heads[1:]:
                     see.setdefault(h, text)
             elif len(heads) > 1:

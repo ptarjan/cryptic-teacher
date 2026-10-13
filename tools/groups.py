@@ -15,6 +15,44 @@ linked answer is the dict carrying its clue, group and annotation: the leader
 entry itself, or one of those items.
 """
 
+import re
+
+# What a continuation leg's clue is made of once its enumeration is off: the
+# word "see", the numbers it points at, the directions they name ("across",
+# "dn", or glued on: "See 12a") and the words that join them. Nothing else.
+# A clue that OPENS "See N" and goes on is wordplay referring to N, not a
+# pointer: The Nation's 3257 printed 1-across "See 2 if confused about final two
+# parts of clues (7)" (WITNESS, TWINS+ES), and cryptic 27,884 "See 5 across out
+# to find another date". The space after "see" is optional because the paper's
+# markup does not always print one: cryptic-23101's 9-across reads "See10".
+# This is the one statement of the shape: fetch_puzzle.is_continuation, the
+# linked-enumeration normaliser, every parser and cross_validate read it here.
+POINTER = re.compile(
+    r"(?i)^see(?![a-z])[\s\d,&.]*"
+    r"(?:(?:across|down|and|or|above|dn|ac|a|d)\b[\s\d,&.]*)*$")
+# The leg's own cell count some papers print beside a pointer ("See 2 (6)").
+_POINTER_COUNT = re.compile(r"\s*\(\s*\d[\d\s,.;'’\-–]*\)\s*$")
+_WRAPPED = re.compile(r"(?i)^\(\s*(see\b[^()]*)\)")
+_NUMBER = re.compile(r"\d+")
+
+
+def is_pointer(text, counted=False):
+    """Is this clue text nothing but "See N" (a pointer at another light)?
+
+    `counted` also accepts the leg's own count after it ("See 2 (6)",
+    "(See 16 Across) (3)") for readers that see the raw printed line."""
+    text = (text or "").strip(" .…\t\n")
+    if counted:
+        text = _POINTER_COUNT.sub("", _WRAPPED.sub(r"\1", text)).strip(" .…\t\n")
+    return bool(POINTER.match(text)) and bool(_NUMBER.search(text))
+
+
+def pointer_target(text, counted=False):
+    """The first number a pointer names, or None for a real clue (is_pointer)."""
+    if not is_pointer(text, counted):
+        return None
+    return int(_NUMBER.search(text).group())
+
 
 def entry_id(e):
     """An entry's id, "<number>-<direction>" ("21-across"): what `group` lists

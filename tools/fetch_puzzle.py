@@ -350,8 +350,8 @@ def clued(entries):
 # print one: cryptic-23101's 9-across reads "See10" and cryptic-24418's 19- and
 # 20-across both read "See17". A \b there would match nothing between "e" and
 # "1", and those legs would read as wordplay.
-CONTINUATION = re.compile(
-    r"(?i)^see(?![a-z])[\s\d,&.]*(?:(?:across|down|and|or|above|dn|ac)\b[\s\d,&.]*)*$")
+# Stated once, in tools/groups.py, so every reader agrees on it.
+CONTINUATION = groups.POINTER
 
 
 def is_continuation(clue):

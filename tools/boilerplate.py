@@ -38,6 +38,25 @@ SENTENCE = re.compile("|".join([
     r"^(?:And|Or)\W*$",
 ]), re.IGNORECASE)
 
+#: A web page's chrome, stripped on every write (strip(), apply()) but not yet
+#: refused by the corpus audit (find()): nation-3270, 3289, 3337, 3454 and 3472
+#: still carry it because their annotations lean on "letters the preamble
+#: supplies" and fail validation without it. Once those are re-annotated, fold
+#: this into SENTENCE.
+CHROME = re.compile("|".join([
+    # A web page's chrome read in above the clues: the share bar with its
+    # byline and dates, the issue line, newsletter, subscription and donation
+    # blurbs, and the standing "how to solve" promo (The Nation's site; 151
+    # nation puzzles carried it until fetch_nation.preamble_of was fixed).
+    r"\bShare Copy Link\b", r"\bThis article appears in the\b",
+    r"\bSubscribe (?:to The Nation|now for as little)\b", r"\b(?:weekly|monthly) newsletter\b",
+    r"\bPrivacy Policy\b", r"\bagree to receive occasional promotional offers\b",
+    r"^Thank you for signing up\b", r"\bcheck out our latest issue\b", r"^The best of the week\.?$",
+    r"\bis reader supported\b", r"\bWine Club\b", r"\bsupport The Nation by\b",
+    r"^Puzzled\?$", r"^No more cross words!?$", r"\bSolving The Nation[’']s Cryptic Puzzles\b",
+    r"^Or watch this video\.?$", r"^(?:ACROSS|DOWN)$",
+]), re.IGNORECASE)
+
 #: A clause that is the paper's inside a sentence that is not.
 CLAUSE = re.compile(
     r",\s*(?:the second part of )?which (?:can|may) be found here(?:,(?= and))?"
@@ -59,10 +78,12 @@ def find(preamble):
 
 def strip(preamble):
     """The preamble without its boilerplate, or None when nothing is left."""
-    if not preamble or not find(preamble):
+    if not preamble or not (find(preamble) or any(
+            CHROME.search(s.strip()) for s in _sentences(preamble))):
         return preamble
     text = CLAUSE.sub("", preamble)
-    kept = [s.strip() for s in _sentences(text) if not SENTENCE.search(s.strip())]
+    kept = [s.strip() for s in _sentences(text)
+            if not SENTENCE.search(s.strip()) and not CHROME.search(s.strip())]
     rest = " ".join(" ".join(kept).split())
     return rest if re.search(r"\w\w", rest) else None
 

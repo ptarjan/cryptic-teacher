@@ -1144,7 +1144,6 @@ def fetch(adapter, todo):
 
 QUOTES = str.maketrans({"‘": "'", "’": "'", "“": '"', "”": '"', "`": "'", "–": "-", "—": "-",
                         "−": "-", "…": "...", " ": " "})
-CONTINUATION = re.compile(r"^\s*see\b", re.IGNORECASE)
 
 
 def norm_text(text):
@@ -1242,7 +1241,7 @@ def diff(ours, theirs, exact=False):
             out.append(row)
         oc, tc = o.get("clue") or {}, t.get("clue") or {}
         # A pointer, or a source that printed no words, is no witness to ours.
-        if CONTINUATION.match(tc.get("text") or "") or not norm_text(tc.get("text")):
+        if groups.is_pointer(tc.get("text"), counted=True) or not norm_text(tc.get("text")):
             continue
         if norm_enum(oc.get("enumeration")) != norm_enum(tc.get("enumeration")):
             out.append({"class": "ENUMERATION", "light": light,
@@ -1598,7 +1597,7 @@ def ballot(entry, cls):
         return sol if sol and len(sol) == entry["length"] and LETTERS.fullmatch(sol) else None
     clue = entry.get("clue") or {}
     text = clue.get("text")
-    if CONTINUATION.match(text or "") or not norm_text(text):
+    if groups.is_pointer(text, counted=True) or not norm_text(text):
         return None
     if cls == "ENUMERATION":
         return None if clue.get(ECHO) else norm_enum(clue.get("enumeration"))

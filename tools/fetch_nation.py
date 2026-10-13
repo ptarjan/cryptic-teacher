@@ -27,6 +27,7 @@ import time
 import urllib.request
 from pathlib import Path
 
+import boilerplate  # the paper's publishing notes in the preamble; tools/boilerplate.py
 import downloads
 import enumeration  # a clue's printed counts; tools/enumeration.py
 import light_spec
@@ -34,7 +35,7 @@ import reconstruct_grid as rg
 from clues_only import entries_from_grid
 from fetch_puzzle import has_words, puzzle_path, write_puzzle_file
 from file_penguin_puzzle import separators
-from groups import entry_id
+from groups import entry_id, is_pointer
 from normalise_linked_enumerations import normalise_record, resolve_groups
 from series import puzzle_id
 
@@ -169,10 +170,11 @@ def clue_lists(lines):
                 pending = {"number": m.group(1), "text": m.group(2), "open": True}
             else:
                 break
-            # A clue is closed by its enumeration or its "See N".
+            # A clue is closed by its enumeration or its "See N" — the pointer
+            # and nothing else (groups.POINTER). "See 2 if confused about" is
+            # the first line of a clue of its own (3257's 1-across) and runs on.
             t = pending["text"]
-            if ENUM.match(t) or SEE.match(t) or (t and t.lower().startswith("see ")
-                                                 and re.search(r"\d", t)):
+            if ENUM.match(t) or SEE.match(t) or is_pointer(t, counted=True):
                 pending["open"] = False
         if pending and pending["text"]:
             entries.append(pending)
@@ -205,8 +207,14 @@ def preamble_of(head):
             continue
         if on and not re.search(r"freestar|placementName|slotId|targeting|^Click$|^HERE$", ln):
             keep.append(ln)
+    # The page's chrome sits in the same stretch on many pages: the share bar
+    # with its byline and dates ("Joshua Kosman and Henri Picciotto Share Copy
+    # Link Facebook ... This article appears in the November 5, 2012 issue."),
+    # newsletter and subscription blurbs, the "Puzzled? ..." promo. None of it
+    # is a note to solvers; tools/boilerplate.py names it, and the corpus audit
+    # (puzzle_integrity.check_preamble) refuses a preamble still holding it.
     text = " ".join(keep).strip()
-    return text or None
+    return boilerplate.strip(text) or None
 
 
 # Pages below this number are Lewis reprints of 2009-11; from it on (Lewis's

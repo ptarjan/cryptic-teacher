@@ -23,6 +23,7 @@ import re
 import sys
 import unicodedata
 import downloads
+from groups import pointer_target
 
 CACHE = downloads.TIMESFORTHETIMES
 POSTS = CACHE / "posts"
@@ -172,7 +173,10 @@ def glued_suffix(ln):
 #: "See 15", "See 3 (9)", "See 12 across", "See 12a", "(See 16 Across) (3)" — a
 #: light whose clue lives on another light. tools/normalise_linked_enumerations.py
 #: reads the same shape; this is how the whole corpus spells a continuation.
-CONTINUATION = re.compile(r"^\s*\(?\s*See\s+(\d+)(?:[ad]\b|\b)", re.IGNORECASE)
+#: Nothing but the pointer (groups.POINTER): "See 2 if confused ... (7)" opens
+#: the same way and is a clue of its own.
+def is_continuation_line(text):
+    return pointer_target(text, counted=True) is not None
 #: "See 12a": a pointer with its direction glued on. "See 12 Down": one named.
 GLUED_POINTER = re.compile(r"^\s*See\s+(\d+)([ad])\s*$", re.IGNORECASE)
 NAMED_WAY = re.compile(r"^\s*See\s+\d+\s*(?:across|down|ac|dn|a|d)\b", re.IGNORECASE)
@@ -928,8 +932,7 @@ def link_pieces(lights, printed, enum):
 
 def continuation_target(clue):
     """The number a "See N" clue points at, or None if this clue is a real one."""
-    m = CONTINUATION.match(clue or "")
-    return int(m.group(1)) if m else None
+    return pointer_target(clue, counted=True)
 
 
 #: How many lines after a clue its enumeration may pick the answer out of.
@@ -1105,7 +1108,7 @@ def read_entries(rendered):
         # they print under it has the word breaks, so the count is theirs.
         # A count typed malformed -- "(10", "{10)", "(7),", "(3.4)" -- is replaced by
         # the well-formed one when its total is the answer's.
-        if enum is None and clue and not CONTINUATION.match(clue):
+        if enum is None and clue and not is_continuation_line(clue):
             enum = printed_enumeration(printed)
             loose = LOOSE_ENUM.search(clue)
             if loose:
@@ -1180,7 +1183,7 @@ def read_entries(rendered):
         if lights and len(lights) == 1 and continuation_target(clue) is not None:
             pointers[lights[0]] = continuation_target(clue)
         if (lights and len(lights) == 1 and lights[0][0] != ORPHAN and clue and enum
-                and not CONTINUATION.match(clue) and lights[0] not in answered):
+                and not is_continuation_line(clue) and lights[0] not in answered):
             entries.append({"number": lights[0][0], "direction": lights[0][1],
                             "answer": "", "clue": tidy(clue), "enumeration": enum})
             if lights[0] in headed:
@@ -1316,7 +1319,7 @@ def read_entries(rendered):
             continue
         # A clue cell broken by <br /> -- "…get together for" then
         # "programme (4,5)" -- is one clue, up to the fragment with its count.
-        if lights is not None and clue and enum is None and clued and not CONTINUATION.match(clue):
+        if lights is not None and clue and enum is None and clued and not is_continuation_line(clue):
             clue = f"{clue} {ln}"
             e = ENUM.search(clue)
             enum = e.group(1).strip() if e else None
@@ -1324,7 +1327,7 @@ def read_entries(rendered):
         # The cell after a bare number is its clue even without an
         # enumeration, once it is not the answer.
         if lights is not None and clue is None and (
-                ENUM.search(ln) or CONTINUATION.match(ln)
+                ENUM.search(ln) or is_continuation_line(ln)
                 or (owned and re.search(r"[a-z]", ln))):
             clue = ln                 # the clue arrived in its own cell
             e = ENUM.search(ln)

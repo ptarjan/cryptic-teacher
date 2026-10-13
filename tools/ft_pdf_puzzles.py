@@ -49,6 +49,7 @@ import reconstruct_grid as rg
 import downloads
 import times_grids as tg
 from fetch_puzzle import correct_source_answers, puzzle_path, write_puzzle_file
+from groups import pointer_target
 
 TOOLS = Path(__file__).resolve().parent
 
@@ -538,7 +539,8 @@ ENUM_TEXT = (rf"\(\s*{COUNTS}(?:\s*;\s*{COUNTS})?\s*(?:\(\s*{COUNTS}\s*\)\s*)?\)
 #: The closing enumeration's grid count: the outer of a nested pair, the
 #: second of two.
 ENUM = re.compile(rf"\(\s*(?:{COUNTS}\s*(?:\)\s*;?\s*\(|;)\s*)?({COUNTS})\s*(?:\(\s*{COUNTS}\s*\)\s*)?\)\s*$")
-SEE = re.compile(r"^See\s+(\d+)", re.I)
+# A "See N" stub is nothing but the pointer (groups.POINTER): "See 2 if
+# confused ... (7)" opens the same way and is a clue of its own.
 
 
 def heads(spec, direction):
@@ -604,7 +606,7 @@ def parse_clues(text):
     clues, direction, last, current, note = [], None, 0, None, None
 
     def finished(c):
-        return c is None or ENUM.search(c["clue"]) or SEE.match(c["clue"])
+        return c is None or ENUM.search(c["clue"]) or pointer_target(c["clue"], counted=True)
     for ln in lines:
         if not ln:
             continue
@@ -644,8 +646,8 @@ def unsaid_to_stub(clues):
     makes it 10 across. With no one stub to say, the section's stands."""
     stubs = collections.defaultdict(list)
     for c in clues:
-        if (s := SEE.match(c["clue"])):
-            stubs[(c["lights"][0][0], int(s.group(1)))].append(c["lights"][0][1])
+        if (s := pointer_target(c["clue"], counted=True)):
+            stubs[(c["lights"][0][0], s)].append(c["lights"][0][1])
     for c in clues:
         said = c.pop("said")
         lead = c["lights"][0][0]
@@ -677,7 +679,7 @@ def grid_matches(grid, clues, forgiven=()):
         return f"grid numbering differs from the clue list (unlisted {missing}, not in grid {extra})"
     for c in clues:
         if c["enumeration"] is None:
-            if not SEE.match(c["clue"]):
+            if pointer_target(c["clue"], counted=True) is None:
                 return f"{c['lights'][0][0]} {c['lights'][0][1]} has no enumeration"
             continue
         want = sum(int(n) for n in re.findall(r"\d+", c["enumeration"]))
