@@ -149,6 +149,7 @@ def fake(req, timeout=None):
     return io.BytesIO(json.dumps({"choices": [{"message": {"content": "1 Clue (5)"}}]}).encode())
 urllib.request.urlopen = fake
 vlm_reader.URL = "http://100.68.145.15:8090"
+vlm_reader._RESOLVED[0] = True
 vlm_reader.CACHE = T / "vlm"
 vlm_reader.desktop_busy.busy = lambda hosts: why[0]
 vlm_reader._UP.clear()

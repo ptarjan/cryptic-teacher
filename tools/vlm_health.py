@@ -32,6 +32,7 @@ ROOM = "cryptic-crosswords"
 
 def serving():
     """Whether the VLM answers /v1/models and lists vlm_reader.MODEL."""
+    vlm_reader.resolve()
     try:
         with urllib.request.urlopen(vlm_reader.URL + "/v1/models", timeout=15) as r:
             ids = [m.get("id") for m in json.load(r).get("data", [])]

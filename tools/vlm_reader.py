@@ -26,10 +26,18 @@ import urllib.request
 from pathlib import Path
 
 import desktop_busy
+import desktop_hosts
 from ocr_clues import unhyphen
 
 TOOLS = Path(__file__).resolve().parent
-URL = os.environ.get("VLM_READER_URL", "http://192.168.1.198:8090")
+#: The desktop's VLM addresses, LAN first (tools/desktop_hosts.json); URL is
+#: the one in use: VLM_READER_URL if set (it alone, no fallback), else the
+#: first of URLS that answers (resolve()), the LAN one until then.
+URLS = list(desktop_hosts.VLM_URLS)
+URL = os.environ.get("VLM_READER_URL", URLS[0])
+#: Seconds a URL has to answer before the next is tried.
+CONNECT_TIMEOUT = 2
+_RESOLVED = [False]
 MODEL = os.environ.get("VLM_READER_MODEL", "qwen3.8-vl-27b")
 PROMPT = TOOLS / "vlm_column_prompt.md"
 PICK_PROMPT = TOOLS / "vlm_pick_prompt.md"
@@ -68,9 +76,40 @@ def chat_model():
     return _CHAT[1]
 
 
+def _answers(url):
+    """Whether `url` answers /v1/models within CONNECT_TIMEOUT."""
+    try:
+        req = urllib.request.Request(f"{url}/v1/models", headers={"User-Agent": "cryptic-teacher"})
+        json.load(urllib.request.urlopen(req, timeout=CONNECT_TIMEOUT))
+        return True
+    except (OSError, ValueError):
+        return False
+
+
+def resolve():
+    """The URL in use, found once a process: URL itself when it is not one of
+    URLS (an override), else the first of URLS (URL's first) that answers,
+    which URL is then set to and kept. A LAN address gone stale (DHCP) costs
+    one short timeout, never the VLM. When none answers URL stays and the
+    next call asks again."""
+    global URL
+    if _RESOLVED[0] or not URL:
+        return URL
+    if URL in URLS:
+        for url in [URL] + [u for u in URLS if u != URL]:
+            if _answers(url):
+                URL = url
+                _RESOLVED[0] = True
+                break
+    else:
+        _RESOLVED[0] = True
+    return URL
+
+
 def busy():
     """Why the desktop the server is on is busy, or None: Paul gaming
     (desktop_busy), or another model loaded that we would evict."""
+    resolve()
     host = urllib.parse.urlparse(URL).hostname
     why = desktop_busy.busy([f"{desktop_busy.USER}@{host}"]) if host else None
     if why or not URL:
@@ -84,6 +123,7 @@ def reachable():
     the desktop it is on is not busy."""
     if not URL:
         return False
+    resolve()
     if time.monotonic() - _YIELDED[0] < desktop_busy.PROBE_EVERY or busy():
         return False
     if MODEL not in _UP:

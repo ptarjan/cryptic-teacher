@@ -67,6 +67,7 @@ import tempfile
 import threading
 import time
 from pathlib import Path
+import desktop_hosts
 import enumeration
 from blog_facts import (
     ABBR,
@@ -1860,7 +1861,7 @@ class timed:
 _WORKER = {}
 #: The desktops write() reads the clues on, the first that answers, unless
 #: OCR_REMOTE (as tools/ocr_remote.py reads it) names others or is empty.
-DESKTOPS = "micro@192.168.1.198,micro@100.68.145.15"
+DESKTOPS = desktop_hosts.REMOTE
 #: Processes reading the clues on the desktop (it has 28 threads), and the
 #: seconds without a result after which a connection to it is given up on.
 DESKTOP_JOBS = 20

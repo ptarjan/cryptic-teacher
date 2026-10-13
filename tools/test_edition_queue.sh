@@ -1006,7 +1006,7 @@ os.environ.pop("OCR_REMOTE")
 # A unit the desktop keeps losing (its read ends the server there) is started
 # again with the desktop until it has ended lost LOST_TRIES times, then with none: read here.
 eq.LOST_TRIES = 1
-os.environ["OCR_REMOTE"] = "micro@192.168.1.198"
+os.environ["OCR_REMOTE"] = "micro@192.168.1.180"
 real_prepare, eq.prepare = eq.prepare, lambda *a: None  # no desktop probe
 fake(outcome={"d0": "lost"}, default=0.05, env=True)
 log.unlink(missing_ok=True)
@@ -1015,7 +1015,7 @@ with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
     eq.dispatch(["times"], cache, workers=1, scan_workers=1, seconds=4, replan=0.5)
 desk = [line.split(" ", 2)[2] for line in log.read_text().splitlines() if line.startswith("desktop ")]
 check("a lost unit is started again with the desktop, then after LOST_TRIES with none",
-      (["'micro@192.168.1.198'", "''"], True, False),
+      (["'micro@192.168.1.180'", "''"], True, False),
       (desk[:2], "deferred (the desktop was lost)" in err.getvalue(), "failed" in err.getvalue()))
 # A read whose own scan went stale after its plan (a kept plan across a scan
 # code change) is not started whole: a scan unit runs first, then the read

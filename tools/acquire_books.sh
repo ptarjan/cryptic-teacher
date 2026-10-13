@@ -108,7 +108,7 @@ publish() {  # publish <subject>
 
 # The grid searches run on Paul's desktop when it answers (tools/ocr_remote.py,
 # which yields it the moment he games); OCR_REMOTE= keeps them here.
-export OCR_REMOTE="${OCR_REMOTE-micro@192.168.1.198,micro@100.68.145.15}"
+export OCR_REMOTE="${OCR_REMOTE-$(python3 "$(dirname "$0")/desktop_hosts.py" remote)}"
 
 # BORROW: one book's text onto disk, the loan returned as soon as its pages are
 # read (minutes). Only the text needs a loan; a read unit takes it from disk.

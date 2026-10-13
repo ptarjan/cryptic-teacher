@@ -30,8 +30,9 @@ from pathlib import Path
 TOOLS = Path(__file__).resolve().parent
 PROBE = TOOLS / "desktop_probe.ps1"
 #: The desktop's addresses, and its user: a host elsewhere is never probed.
-DESKTOPS = ("100.68.145.15", "192.168.1.198")
-USER = "micro"
+import desktop_hosts
+DESKTOPS = desktop_hosts.ADDRESSES
+USER = desktop_hosts.USER
 #: World of Warcraft's builds (retail, Classic, and their test clients).
 GAMES = ("Wow", "WowClassic", "WowT", "WowB", "WowClassicT", "WowClassicB")
 #: Folders whose programs are games, and those inside them that are not
