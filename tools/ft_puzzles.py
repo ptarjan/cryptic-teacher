@@ -59,7 +59,7 @@ GENERATOR = "tools/ft_puzzles.py"
 PLAUSIBLE = (22, 34)
 
 #: Title shapes: "Financial Times 18,489 by XELA", "FT 16,342 / Mudd",
-#: "Financial Times 18480 Mudd". The FT Weekend's Sunday and Jumbo puzzles are
+#: "Financial Times 18480 Mudd", "Financial Times by Gozo 13,975". The FT Weekend's Sunday and Jumbo puzzles are
 #: their own numbering and sit in their own categories.
 NUMBER = re.compile(r"\b(\d{1,2},\d{3}|\d{4,5})\b")
 OTHER_PUZZLE = re.compile(r"\b(?:sunday|jumbo|weekend|polymath|genius)\b", re.IGNORECASE)
@@ -68,6 +68,8 @@ OTHER_PUZZLE = re.compile(r"\b(?:sunday|jumbo|weekend|polymath|genius)\b", re.IG
 SETTER = re.compile(r"\d[\s\-–—:/]*(?:by|from|/|[\-–—:])?\s*"
                     r"([A-Za-z](?:[\w'’. ]|(?<=[A-Za-z])-(?=[A-Za-z]))*?)\s*"
                     r"(?:(?<![A-Za-z])-|-(?![A-Za-z])|[–—:(]|\s{2}|$)")
+#: A title naming the setter before the number: "Financial Times by Gozo 13,975".
+SETTER_BEFORE = re.compile(r"\bby\s+([A-Za-z](?:[\w'’.]|(?<=[A-Za-z])-(?=[A-Za-z])| (?=[A-Za-z]))*?)\s*$")
 
 
 def post_number(title):
@@ -83,6 +85,9 @@ def post_setter(title):
         return None
     s = SETTER.match(title, m.end() - 1)
     name = s and s.group(1).strip(" .")
+    if not name:
+        s = SETTER_BEFORE.search(title[:m.start()])
+        name = s and s.group(1).strip(" .")
     if not name or name.lower() in ("by", "prize"):
         return None
     return name.title() if name.isupper() else name
