@@ -54,7 +54,7 @@ OP_TYPE = {"charade": "charade", "anagram": "anagram", "reversal": "reversal",
            "container": "container", "deletion": "deletion", "hidden": "hidden_word",
            "homophone": "homophone", "spoonerism": "spoonerism",
            "substitution": "substitution", "cycling": "cycling",
-           "cryptic": "cryptic_definition", "first": "letter_selection",
+           "cryptic": "cryptic_definition", "palindrome": "palindrome", "first": "letter_selection",
            "last": "letter_selection", "middle": "letter_selection",
            "outer": "letter_selection", "alternate": "letter_selection",
            "regular": "letter_selection", "nth": "letter_selection"}
@@ -148,11 +148,13 @@ def _blocks(node, got):
 def _pieces(node, got):
     """The answer in the chunks the tree builds, in answer order."""
     from derive_assembly import _cut
+
+    import wordplay
     op = node.get("op")
     if node.get("unchecked"):
         return [got[id(node)]]
-    if op == "charade":
-        return [x for p in node["parts"] for x in _pieces(p, got)]
+    if op == "charade" or (op == "palindrome" and wordplay.lettered(node["parts"])):
+        return [x for p in node["parts"] for x in _pieces(p, got) if x]
     if op == "reversal":
         return [p[::-1] for p in reversed(_pieces(node["parts"][0], got))]
     if op == "container":
@@ -200,12 +202,21 @@ def link_words(clue, spans):
     return out
 
 
+def definition_indicator_type(ann):
+    """What an indicator on a definition signals: a second meaning when the
+    clue has two definitions or more, else the whole clue read as one (&lit).
+    These steer how the definitions read, not the letters, so they hang on a
+    definition rather than on a wordplay op."""
+    return "double_definition" if len(ann.get("definitions") or []) > 1 else "and_lit"
+
+
 def view(ann, entry, puzzle=None):
     """A format v2 annotation (definitions, wordplay tree, explanation, ...)
     with the fields it implies, in the shape the app reads today: type,
-    answer, indicators with `for`, linkWords, blocks and assembly. Raises
-    wordplay.WordplayError when the tree does not give the answer, or names
-    words the clue does not have."""
+    answer, indicators with `for`, linkWords, blocks and assembly. Two
+    definitions make a double definition, with or without wordplay beside
+    them. Raises wordplay.WordplayError when the tree does not give the
+    answer, or names words the clue does not have."""
     import copy
 
     import wordplay
@@ -214,20 +225,26 @@ def view(ann, entry, puzzle=None):
     tree = copy.deepcopy(ann.get("wordplay"))
     answer = ann.get("spelling") or display_answer(entry, puzzle)
     got, types = {}, (["double_definition"] if len(defs) > 1 else [])
+    def_spans = [(d["at"], d["at"] + len(d["text"])) for d in defs if "at" in d]
+    def_inds = [copy.deepcopy(i) for d in defs for i in d.get("indicators") or []]
+    if def_inds:
+        wordplay.locate({"indicators": def_inds}, clue, def_spans)
     if tree:
-        wordplay.locate(tree, clue, [(d["at"], d["at"] + len(d["text"])) for d in defs if "at" in d])
+        wordplay.locate(tree, clue, def_spans + [(i["at"], i["at"] + len(i["text"])) for i in def_inds])
         alt = entry.get("alteration")
         got = wordplay.evaluate(tree, alt["from"] if isinstance(alt, dict) and alt.get("from") else answer)
-        types = _types(tree)
+        types += [t for t in _types(tree) if t not in types]
     if ann.get("andLit"):
         types.append("and_lit")
     out = {"type": types, "answer": answer}
-    for key in ("definitions", "definedByPreamble"):
-        if key in ann:
-            out[key] = ann[key]
+    if "definitions" in ann:
+        out["definitions"] = [{k: v for k, v in d.items() if k != "indicators"} for d in ann["definitions"]]
+    if "definedByPreamble" in ann:
+        out["definedByPreamble"] = ann["definedByPreamble"]
     nodes = [n for n, _ in _walk(tree)] if tree else []
-    inds = sorted(((i, OP_TYPE[n["op"]]) for n in nodes for i in n.get("indicators") or []),
-                  key=lambda it: it[0]["at"])
+    dtype = definition_indicator_type(ann)
+    inds = sorted([(i, OP_TYPE[n["op"]]) for n in nodes for i in n.get("indicators") or []] +
+                  [(i, dtype) for i in def_inds], key=lambda it: it[0]["at"])
     if inds:
         out["indicators"] = [{"text": i["text"], "for": t, **({"note": i["note"]} if "note" in i else {})}
                              for i, t in inds]

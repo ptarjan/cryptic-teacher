@@ -29,6 +29,8 @@ Grammar
                           spoon(a, b, SPELT) when the swap is by sound
     sub(x, OLD, NEW)      OLD in x replaced by NEW
     cyc(x)                x with letters moved from one end to the other
+    pal(x)                x, which reads the same backwards; pal() with no x
+                          when the answer itself is all the wordplay
     first(x) last(x) middle(x) outer(x) alt(x) regular(x) nth(n)(x)
                           letters picked from x's words: first letter (or
                           each word's first), middle letter(s) or all but the
@@ -59,7 +61,7 @@ import unicodedata
 # Expression name -> stored op.
 OPS = {"ana": "anagram", "rev": "reversal", "ins": "container", "del": "deletion",
        "hid": "hidden", "sound": "homophone", "spoon": "spoonerism",
-       "sub": "substitution", "cyc": "cycling", "cd": "cryptic",
+       "sub": "substitution", "cyc": "cycling", "cd": "cryptic", "pal": "palindrome",
        "first": "first", "last": "last", "middle": "middle", "outer": "outer",
        "alt": "alternate", "regular": "regular", "nth": "nth"}
 NAMES = {v: k for k, v in OPS.items()}
@@ -67,7 +69,7 @@ SELECT = ("first", "last", "middle", "outer", "alternate", "regular", "nth")
 # How many parts each op takes: (fewest, most).
 ARITY = {"anagram": (1, 1), "reversal": (1, 1), "container": (2, 2), "deletion": (2, 2),
          "hidden": (1, 1), "homophone": (2, 2), "spoonerism": (2, 3),
-         "substitution": (3, 3), "cycling": (1, 1), "cryptic": (1, 9),
+         "substitution": (3, 3), "cycling": (1, 1), "cryptic": (1, 9), "palindrome": (0, 1),
          **{s: (1, 1) for s in SELECT}}
 # A search that grows past this many candidate strings stops: no clue needs it.
 CAP = 20000
@@ -179,8 +181,8 @@ class _Parser:
             self.take(")")
         inds = self.indicators()
         self.take("(")
-        args = [self.expr()]
-        while self.peek() == ",":
+        args = [] if op == "palindrome" and self.peek() == ")" else [self.expr()]
+        while args and self.peek() == ",":
             self.i += 1
             args.append(self.expr())
         self.take(")")
@@ -305,6 +307,12 @@ def leaf_letters(node):
     return letters(node["gives"] if "gives" in node else node.get("words"))
 
 
+def lettered(parts):
+    """The parts that give letters: a legacy leaf filed with no letters (an
+    unchecked `gives: ""`, a note riding along) gives none."""
+    return [p for p in parts if not (p.get("unchecked") and not letters(p.get("gives")))]
+
+
 def _words(node):
     """The letters of each word under a selection, when it is a plain leaf."""
     if "op" not in node and "gives" not in node:
@@ -401,6 +409,13 @@ def values(node):
         return out
     if op == "cycling":
         return {v[k:] + v[:k] for v in values(parts[0]) for k in range(1, len(v))}
+    if op == "palindrome":
+        real = lettered(parts)
+        if not real:
+            # pal() alone: the answer is the wordplay, known only against it.
+            raise _NeedTarget(node)
+        out = values(real[0] if len(real) == 1 else {"op": "charade", "parts": real})
+        return {v for v in out if v == v[::-1]}
     if op in SELECT:
         words = _words(parts[0])
         return set().union(*(_select(op, node.get("n"), v, words) for v in values(parts[0])))
@@ -493,6 +508,12 @@ def match(node, want, got=None):
                     break
             if ok:
                 break
+    elif op == "palindrome":
+        real = lettered(node["parts"])
+        ok = want == want[::-1] and (not real or _match_run(real, want, got))
+        for p in node["parts"]:
+            if not any(p is r for r in real):
+                _fill(p, got)
     elif op in ("homophone", "spoonerism") and "spelt" in node:
         ok = node["spelt"] == want
         for p in node["parts"]:
@@ -580,6 +601,11 @@ def diagnose(node, want):
             return (f"{render(child)} already reads {want}, but a leaf gives its letters "
                     f"before the reversal: write {render({**child, 'gives': want[::-1]})} inside rev()")
         return diagnose(child, want[::-1]) + " (inside the reversal, read backwards)"
+    if op == "palindrome":
+        if want != want[::-1]:
+            return f"{render(node)}: {want} does not read the same backwards"
+        real = lettered(node["parts"])
+        return diagnose(real[0] if len(real) == 1 else {"op": "charade", "parts": real}, want)
     if op == "anagram":
         try:
             bag = min(_bag(node["parts"][0]), key=len)

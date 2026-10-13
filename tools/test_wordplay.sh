@@ -58,6 +58,9 @@ OK = [
     ("PARODIED", "ana<clumsily>(del<after the start>([Harpo], H)) + [did not get laughs]DIED"),
     ("FLUTTERBY", "spoon<Spooner's>([butter]BUTTER, [fly]FLY)"),
     ("CROW", "spoon<Spooner's>([bed]BED, [knob]KNOB, CROW)"),
+    ("NIP IN", "pal<works either way>([Ulster]NI + [fix]PIN)"),
+    ("ABBA", "pal<Reversible>()"),
+    ("SIEVE", "[special]S + [one]I + pal<reflective>([woman]EVE)"),
     ("BOAT", "sub<for>([coat], C, B)"),
     ("COTS", "sub<swaps>([cats], A, O)"),
     ("EARTH", "cyc<moving head to tail>([heart])"),
@@ -100,6 +103,8 @@ BAD = [
     ("a container that can't fit", "STOMACH", "ins<in>([turkey]TOM, [pouch]SAC) + first<head>([hen's])", "needs"),
     ("an anagram whose order nothing fixes", "ALE", "del<losing>(ana<mad>([leap]), P)", "write the letters"),
     ("homophone spelt wrong", "PIECE", "sound<Sung>([harmony]PEACE, PEACE)", "needs PIECE"),
+    ("a palindrome that isn't one", "NIPINS", "pal<either way>([Ulster]NI + [fix]PINS)", "does not read the same"),
+    ("an answer alone that isn't a palindrome", "ABBY", "pal<Reversible>()", "ABBY does not read the same"),
 ]
 for name, answer, expr, *words in BAD:
     r = refused(expr, answer, *words)
@@ -270,6 +275,36 @@ for e, ann, want in CASES:
     ga, wa = got.get("assembly", {}), want.get("assembly", {})
     diffs += ["assembly"] if (ga.get("pieces"), ga.get("reversals"), anas(ga)) != (wa.get("pieces"), wa.get("reversals"), anas(wa)) else []
     check(name, not diffs, "; ".join(f"{k}: got {got.get(k)!r}, want {want.get(k)!r}" for k in diffs))
+
+# Two definitions beside wordplay are a double definition too: the type keeps
+# both, and the definitions' own words are not link words.
+e = entry(33, "across", "CLEAN", "Entirely without a catch. Circle angling will admit that")
+got = annotation.view({"definitions": [{"text": "Entirely", "at": 0}, {"text": "without a catch", "at": 9}],
+                       "wordplay": op("charade", leaf("Circle", "C"), leaf("angling", "LEAN"))}, e)
+check("view: two definitions and wordplay are a double definition",
+      got["type"] == ["double_definition", "charade"] and got["linkWords"] == ["will admit that"], got)
+# An indicator on a definition is for the double definition, or the &lit
+# when there is one definition; it is not a link word.
+e = entry(3, "down", "STEEL", "Steel, silver, silicon or scandium, say?")
+got = annotation.view({"definitions": [{"text": "Steel", "at": 0},
+                                       {"text": "silver, silicon or scandium", "at": 7,
+                                        "indicators": [{"text": "say", "note": "by example"}]}]}, e)
+check("view: a definition's indicator is for the double definition",
+      got.get("indicators") == [{"text": "say", "for": "double_definition", "note": "by example"}]
+      and "linkWords" not in got and all("indicators" not in d for d in got["definitions"]), got)
+e = entry(8, "across", "PLACE", "Place holding final of competition?")
+got = annotation.view({"definitions": [{"text": "Place holding final of competition?", "at": 0,
+                                        "indicators": [{"text": "holding"}]}],
+                       "wordplay": op("charade", leaf("Place", "PLA"), leaf("competition", "CE")),
+                       "andLit": True}, e)
+check("view: a lone definition's indicator is for the &lit",
+      {"text": "holding", "for": "and_lit"} in got.get("indicators", []), got.get("indicators"))
+got = annotation.view({"definitions": [{"text": "camel-hair coat", "at": 11}],
+                       "wordplay": op("palindrome", ind=["Reversible"])},
+                      entry(21, "down", "ABBA", "Reversible camel-hair coat"))
+check("view: a palindrome op is the palindrome type and gives no block",
+      got["type"] == ["palindrome"] and got["blocks"] == []
+      and got["indicators"] == [{"text": "Reversible", "for": "palindrome"}], got)
 
 check("view leaves its input unchanged", "at" not in CASES[0][1]["wordplay"]["parts"][1])
 
