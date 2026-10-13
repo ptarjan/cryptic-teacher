@@ -6,12 +6,15 @@ fails deterministically it is still the newest candidate the next night, so it
 gets bought again at full price. So each failure is recorded along with a hash of
 the puzzle it failed on: its clues, answers and grid. The item is skipped while
 that hash still matches, and becomes eligible again by itself when the puzzle
-changes: a corrected answer, a re-fetched clue. The code is not part of the
-hash, with one exception: a row of tools/data/setter_error.json (a clue the
-setter printed wrong) is an input of its puzzle. Whoever changes a prompt, a
-validator or an applier and wants old failures
-retried clears them once with `clear`, by id or by the words of their reason.
-There is no timer.
+changes: a corrected answer, a re-fetched clue (a row of
+tools/data/setter_error.json, a clue the setter printed wrong, is an input of
+its puzzle). Each record also keeps the version of what refused it
+(code_version: the modules its reason names, else the kind's checkers, and
+any other puzzle the reason leans on, such as the neighbour a DATE refusal
+compares against), so a fix to that code or data makes the row due by itself,
+in whichever tree reads the ledger once it holds the fix. `clear` is left for
+an item that succeeded, or a retry wanted for any other reason. There is no
+timer.
 
 A transient failure is never recorded, because it says nothing about the item.
 That covers a usage lockout, an expired login, a network error, or an overloaded
@@ -33,6 +36,8 @@ every night, and a run that exits before its commit (it does, when every
 annotation fails validation) would lose a tracked record with the rest.
 """
 import argparse
+import ast
+import functools
 import hashlib
 import json
 import os
@@ -161,6 +166,80 @@ def input_hash(pid, held=None):
     return hashlib.sha256(json.dumps(puzzle_inputs(pid, held), sort_keys=True).encode()).hexdigest()[:16]
 
 
+# The code that refuses each kind of item when the reason names none.
+TOOLS = ROOT / "tools"
+CHECKERS = {
+    "solve": ("apply_solution", "clues_only", "jigsaw_fit", "enumeration", "puzzle_integrity"),
+    "annotate": ("validate_annotations", "annotate_check", "apply_annotations", "enumeration"),
+}
+# "puzzle_integrity.RefusedWrite: ...", "validate_annotations.py: ..."
+NAMED_MODULE = re.compile(r"\b([a-z_][a-z0-9_]*)\.(?:py\b|[A-Z]\w*(?:Error|Write)\b)")
+# Another puzzle a refusal leans on: "not before nation-3264's 2012-12-04".
+NAMED_PUZZLE = re.compile(r"\b[a-z]+-\d+\b")
+
+
+@functools.lru_cache(maxsize=None)
+def _module_version(name):
+    """A hash of tools/<name>.py and the tools modules it imports directly."""
+    path = TOOLS / f"{name}.py"
+    try:
+        text = path.read_bytes()
+    except OSError:
+        return "-"
+    deps = set()
+    try:
+        for node in ast.walk(ast.parse(text)):
+            if isinstance(node, ast.Import):
+                deps |= {a.name.split(".")[0] for a in node.names}
+            elif isinstance(node, ast.ImportFrom) and node.module and not node.level:
+                deps.add(node.module.split(".")[0])
+    except SyntaxError:
+        pass
+    h = hashlib.sha256(text)
+    for dep in sorted(deps - {name}):
+        dep_path = TOOLS / f"{dep}.py"
+        if dep_path.exists():
+            h.update(dep.encode() + b"\0" + dep_path.read_bytes())
+    return h.hexdigest()
+
+
+def code_version(kind, pid, reason):
+    """The version of what refused <pid>: the modules its reason names (else
+    the kind's CHECKERS) with their direct imports, and the date and inputs of
+    every other puzzle the reason names (a DATE refusal holds until the
+    neighbour is re-dated). A record keeps this beside its puzzle hash, so a
+    fix to the check, or to the data it judged by, makes the row due by itself,
+    in whichever tree reads the ledger once it holds the fix: nobody clears
+    rows by hand or waits for a deploy (Paul 10-13)."""
+    reason = reason or ""
+    mods = sorted({m for m in NAMED_MODULE.findall(reason) if (TOOLS / f"{m}.py").exists()}
+                  or CHECKERS[kind])
+    h = hashlib.sha256()
+    for m in mods:
+        h.update(f"{m}:{_module_version(m)}\n".encode())
+    for other in sorted(set(NAMED_PUZZLE.findall(reason)) - {pid}):
+        held = committed(other)
+        if held:
+            date = held[1].get("date")
+        else:   # not in a git tree: the file on disk is the only copy
+            path = puzzle_paths.find(other)
+            try:
+                date = json.loads(path.read_text(encoding="utf-8")).get("date") if path else None
+            except (OSError, ValueError):
+                date = None
+        h.update(f"{other}:{date}:{input_hash(other, held)}\n".encode())
+    return h.hexdigest()[:16]
+
+
+def due(kind, pid, rec):
+    """Whether a recorded failure no longer holds: its puzzle changed, or the
+    code or data that refused it did. A record from before code versions
+    (no "code") holds on its puzzle alone."""
+    if rec["puzzle"] != input_hash(pid):
+        return True
+    return "code" in rec and rec["code"] != code_version(kind, pid, rec.get("reason"))
+
+
 def load():
     try:
         data = json.loads(LEDGER.read_text())
@@ -193,7 +272,7 @@ def save(data):
 
 def skipped(data, kind):
     """Ids whose recorded failure is on the puzzle as it is now."""
-    return sorted(i for i, rec in data[kind].items() if rec["puzzle"] == input_hash(i))
+    return sorted(i for i, rec in data[kind].items() if not due(kind, i, rec))
 
 
 def cmd_record(args):
@@ -202,10 +281,12 @@ def cmd_record(args):
               "network's, not the item's — it retries next run")
         sys.exit(3)   # a caller that alerts on a real failure tests for this
     data = load()
+    reason = (args.reason or "")[:300]
     data[args.kind][args.id] = {
         "puzzle": input_hash(args.id, committed(args.id)),
+        "code": code_version(args.kind, args.id, reason),
         "date": datetime.now(timezone.utc).date().isoformat(),
-        "reason": (args.reason or "")[:300],
+        "reason": reason,
     }
     save(data)
     print(f"{args.id} failed on this puzzle and is skipped until it changes")

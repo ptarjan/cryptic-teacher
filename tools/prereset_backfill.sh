@@ -441,6 +441,12 @@ POOL_LAUNCH_GAP_US=$(awk -v s="${POOL_LAUNCH_GAP:-5}" 'BEGIN{printf "%d", s * 10
 POOL_CHECK_SECS="${POOL_CHECK_SECS:-300}"
 # This often the tree is synced with origin (sync_wave), runs still in flight.
 POOL_SYNC_SECS="${POOL_SYNC_SECS:-3600}"
+# The longest the tree may go without reaching origin/master (sync_wave). Past
+# it, what will not publish is parked under refs/prereset-parked/ and the tree
+# moves anyway, so a stale copy of a gate cannot hold the burn on old code for
+# hours (10-13: 05:05-08:35, 16 annotations held by a check master had fixed).
+SYNC_STALL_SECS="${SYNC_STALL_SECS:-7200}"
+SYNC_OK_US=${EPOCHREALTIME/[.,]/}  # when the tree last reached origin/master
 declare -A POOL_RUNS=()  # pid -> puzzle id, every run in flight
 declare -A POOL_SOLVING=()  # pid -> 1 for each of those that solves its puzzle first
 declare -A POOL_ADOPTED=()  # pid -> 1 for each of those the shell before a re-exec started
@@ -723,7 +729,7 @@ SHELL_SUM=$(shell_sum)
 # The state the main sequence and run_pool carry across the exec.
 REEXEC_VARS=(queue at requeued resumed naps NAPPED WAVE_FAILED_IDS WAVE_WHAT POOL_TMPL
   POOL_REORDER POOL_PLANNED POOL_RUNS POOL_SOLVING POOL_RUN_US POOL_MARK_US POOL_STARTED_US
-  POOL_SYNCED_US POOL_LAUNCHED_US POOL_DONE POOL_REPLANNED_US POOL_BEFORE POOL_BEFORE_S wide
+  POOL_SYNCED_US SYNC_OK_US POOL_LAUNCHED_US POOL_DONE POOL_REPLANNED_US POOL_BEFORE POOL_BEFORE_S wide
   resets_in RESET_AT STOP_AT MAX_NAPS POOL_PHASE fields field_i burn_stopped)
 reexec_self() {
   local state="$RUN_LOG.state" err
@@ -759,19 +765,44 @@ reexec_load() {
 # runs in flight cannot make it fail. A commit that will not replay is skipped
 # when origin/master already holds its puzzle files byte for byte (published by
 # another path: a hand rebuild, a sibling's merge); any other stops the attempt.
+# A commit origin changed other fields of the same puzzle under is re-applied
+# onto origin's file by push_puzzle_commit.sh (tools/reapply_annotation.py).
+# Commits parked by a stalled sync (sync_wave) are tried first, every time,
+# with this tree's current code; a ref is deleted once origin holds them all.
 sync_attempt() {
-  local c paths
+  local ref
   git fetch -q origin master || return
-  for c in $(git cherry origin/master HEAD | sed -n 's/^+ //p'); do
+  for ref in $(git for-each-ref --format='%(refname)' refs/prereset-parked/); do
+    if publish_commits "$ref" all; then
+      git update-ref -d "$ref"
+      echo "sync: published the commits parked at ${ref#refs/}" >&2
+    fi
+  done
+  publish_commits HEAD
+}
+# publish_commits <rev> [all]: push every commit of <rev> origin/master lacks,
+# oldest first. Stops at the first that will not publish, or with `all` tries
+# the rest and fails at the end.
+publish_commits() {
+  local c paths failed=0
+  for c in $(git cherry origin/master "$1" | sed -n 's/^+ //p'); do
     tools/push_puzzle_commit.sh "$c" && continue
     paths=$(git diff-tree --no-commit-id --name-only -r "$c" -- 'puzzles/*.json')
     if [ -n "$paths" ] && git diff --quiet origin/master "$c" -- $paths; then
       echo "sync: dropping $(git log -1 --format='%h %s' "$c") — origin/master already has its puzzle" >&2
       continue
     fi
-    echo "sync: $(git log -1 --format='%h %s' "$c") does not apply to origin/master" >&2
-    return 1
+    # A later commit of the same puzzle on <rev> that origin already holds
+    # (a reopen, then the annotation after it, published as one) supersedes it.
+    if [ -n "$paths" ] && git diff --quiet origin/master "$1" -- $paths; then
+      echo "sync: dropping $(git log -1 --format='%h %s' "$c") — origin/master already has its puzzle as $1 leaves it" >&2
+      continue
+    fi
+    echo "sync: $(git log -1 --format='%h %s' "$c") would not publish to origin/master (see above)" >&2
+    [ "${2:-}" = all ] || return 1
+    failed=1
   done
+  return "$failed"
 }
 
 # Move this tree to origin/master once sync_attempt has published everything
@@ -829,15 +860,26 @@ sync_wave() {
   # puzzle this worktree's HEAD predates is untracked, and the moment origin
   # commits that same path, sync_tree refuses to write over it.
   git clean -qfd -e 'puzzles/**/*.json' -e 'clues_only/' -e 'tools/'
+  local out ref stale_s=$(( (${EPOCHREALTIME/[.,]/} - SYNC_OK_US) / 1000000 ))
   if ! push_race_retry sync_attempt; then
-    alert "pre-reset backfill could not push what its worktree holds onto origin/master, so it stays where it is and runs old code — see .prereset.log."
-    return 0
+    if [ "$stale_s" -lt "$SYNC_STALL_SECS" ]; then
+      alert "pre-reset backfill could not push what its worktree holds onto origin/master, so it stays where it is and runs old code — see .prereset.log."
+      return 0
+    fi
+    # Bounded: past SYNC_STALL_SECS the unpublished commits are parked (kept,
+    # and retried by every sync_attempt with the code the tree moves onto) and
+    # the tree goes to origin/master, since staying is what keeps it stuck.
+    ref="refs/prereset-parked/$(date +%Y%m%d-%H%M%S)"
+    git update-ref "$ref" HEAD
+    alert "pre-reset backfill has not reached origin/master for $(( stale_s / 60 )) min: parked its $(git cherry origin/master HEAD | grep -c '^+') unpublished commits at ${ref#refs/} (retried at every sync) and moved onto origin/master — see .prereset.log."
   fi
-  local out
   if out=$(sync_tree 2>&1); then
+    SYNC_OK_US=${EPOCHREALTIME/[.,]/}
     echo "sync: tree at $(git rev-parse --short HEAD), ${#POOL_RUNS[@]} runs in flight"
     return 0
   fi
+  [ "$stale_s" -ge "$SYNC_STALL_SECS" ] &&
+    alert "pre-reset backfill has not reached origin/master for $(( stale_s / 60 )) min (reset refused: $out) — see .prereset.log."
   # With runs in flight a refusal names a puzzle one of them is writing, and the
   # next sync, after it is committed, gets through. With none, nothing will
   # clear it by itself.

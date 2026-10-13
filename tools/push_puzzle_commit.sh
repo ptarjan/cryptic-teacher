@@ -80,6 +80,11 @@ for attempt in 1 2 3 4 5 6 7 8 9 10; do
        if settled=$(python3 "$(dirname "$0")/resolve_promotion_conflict.py" \
             "$parent" "$base" "$commit" "$(printf '%s\n' "$tree" | head -1)" "${paths[@]}"); then
          tree=$settled
+       # Origin changed other fields of the same puzzle (a re-date, a setter,
+       # a re-read clue): the commit's annotation goes onto origin's file.
+       elif settled=$(python3 "$(dirname "$0")/reapply_annotation.py" \
+            "$parent" "$base" "$commit" "$(printf '%s\n' "$tree" | head -1)" "${paths[@]}"); then
+         tree=$settled
        else
          echo "push_puzzle_commit: $(git log -1 --format=%s "$commit") conflicts with origin/master:" >&2
          printf '%s\n' "$tree" | tail -n +2 >&2
