@@ -3216,7 +3216,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
           const rules = rulesIn(rungOf(registry["hint-body"].innerHTML));
           assert(rules.length,
             `${s.id} ${entryId(s.e)}: tapping the chip opens the rule for its device: ` + rung);
-          assert(rules.every((r) => /href="learn\/#[a-z-]+"/.test(r)),
+          assert(rules.every((r) => /href="[^"]*learn\/#[a-z-]+"/.test(r) && !/href="[^"]*puzzles\/[^"]*learn\//.test(r)),
             `${s.id} ${entryId(s.e)}: each rule links to its lesson section: ` + rules);
           tap();
           assert(!rulesIn(rungOf(registry["hint-body"].innerHTML)).length,
@@ -7398,7 +7398,7 @@ global.realSetTimeout(() => {
   assert(/What you used today/.test(html), "a finish with hints lists what was used: " + html);
   const want = {};
   [b1, b2].forEach((e) => new Set(e.annotation.type).forEach((t) => { want[t] = (want[t] || 0) + 1; }));
-  const got = Object.fromEntries([...html.matchAll(/href="learn\/#([a-z-]+)">([^<]+)<\/a> <span class="muted">× (\d+)<\/span>/g)]
+  const got = Object.fromEntries([...html.matchAll(/href="[^"]*learn\/#([a-z-]+)">([^<]+)<\/a> <span class="muted">× (\d+)<\/span>/g)]
     .map((m) => [m[2], +m[3]]));
   const label = (t) => global.CRYPTIC_INDEX.clueTypes.types.find((x) => x.name === t).label;
   for (const [t, n] of Object.entries(want)) {
