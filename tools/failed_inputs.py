@@ -143,6 +143,11 @@ def puzzle_inputs(pid, held=None):
             row["solution"] = key[entry_id(e)]
         entries.append(row)
     inputs = {"dimensions": puzzle.get("dimensions"), "entries": entries}
+    # A run read the preamble too: one filed since the failure (genius-15's
+    # border instructions) is what lets its blocks validate. Absent, the hash
+    # is what it always was.
+    if puzzle.get("preamble"):
+        inputs["preamble"] = puzzle["preamble"]
     # A setter's slip filed since the failure is what lets its clue validate,
     # so the row is an input; absent, the hash is what it always was.
     slips = {k: v for k, v in json.loads(SETTER_ERROR.read_text(encoding="utf-8")).items()

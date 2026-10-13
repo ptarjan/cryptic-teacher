@@ -1179,8 +1179,10 @@ def _alpha(s):
     return re.sub(r"[^A-Z]", "", unicodedata.normalize("NFD", str(s or "")).upper())
 
 
-#: A clue that sends the solver to the preamble: "See preamble", "(see the preamble)".
-SEE_PREAMBLE = re.compile(r"(?i)\bsee (?:the )?preamble\b")
+#: A clue that sends the solver to the preamble: "See preamble", "(see the
+#: preamble)", "[See special instructions]" (genius-7, 40, 84, 92 and
+#: times-15043 print "instructions", which this once missed).
+SEE_PREAMBLE = re.compile(r"(?i)\bsee (?:the )?(?:special )?(?:preamble|instructions)\b")
 
 
 #: A fifteensquared Azed post names a special after its number

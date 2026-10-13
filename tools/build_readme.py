@@ -681,6 +681,7 @@ LAYOUT = [
     ("fetching", "tools/trim_codeql_caches.py", "delete all but the newest CodeQL overlay database per language from the repo's Actions cache, so CodeQL default setup stops evicting the deploy's caches"),
     ("fetching", "tools/test_fetch_nation_dates.sh", "does fetch_nation date a page printing no issue on the issue clock, so it sorts between its neighbours instead of before the number below it?"),
     ("fetching", "tools/test_push_gate_target_tree.sh", "does tools/push_puzzle_commit.sh judge a commit with the checking code of the tree it publishes (origin/master plus the commit), not the pusher's own checkout? The burn (tools/prereset_backfill.sh) pushes from a checkout that is behind master until its push succeeds and it resets, so a gate judged from that checkout deadlocks it once master loosens the gate, and lets it past a gate master has tightened"),
+    ("fetching", "tools/test_genius_instructions.sh", "is a puzzle whose clues point at instructions we do not hold kept from the annotators, and does filing a preamble later let a parked failure retry?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
