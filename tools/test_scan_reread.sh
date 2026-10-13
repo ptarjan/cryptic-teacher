@@ -51,8 +51,18 @@ rows[f"{pid}/{eid}"] = ["shown", "printed", "OCR misread: test"]
 check("a printedClue row HEAD lacks is a misread", ["printedClue"], AC.misread(path)[1])
 (data / "source_clue_wrong.json").write_text(json.dumps({k: v for k, v in rows.items() if k != f"{pid}/{eid}"}))
 broken = copy.deepcopy(puzzle)
-step = next(a for e in broken["entries"] for a in ((e.get("annotation") or {}).get("assembly") or {}).get("anagrams", ()))
-step["fodder"] = "QQQ" + step["fodder"]
+# Format v2 stores a tree, not assembly.anagrams: misprint an anagram's own
+# fodder leaf (a leaf with no gives is its own letters), losing its last
+# letter, as a scan drops one, so its words still read in the clue.
+def anagrams(n):
+    if isinstance(n, dict):
+        if n.get("op") == "anagram":
+            yield n
+        for c in n.get("parts", ()):
+            yield from anagrams(c)
+step = next(leaf for e in broken["entries"] for a in anagrams((e.get("annotation") or {}).get("wordplay"))
+            for leaf in a.get("parts", ()) if "words" in leaf and "gives" not in leaf)
+step["words"] = step["words"][:-1]
 path.write_text(json.dumps(broken))
 check("fodder that cannot give its letters is a misread", ["check_anagram_letters"], AC.misread(path)[1])
 lost = copy.deepcopy(puzzle)

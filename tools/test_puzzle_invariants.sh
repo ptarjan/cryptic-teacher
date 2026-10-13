@@ -26,6 +26,7 @@ from pathlib import Path
 import corroborate
 import fetch_puzzle as fetcher
 import puzzle_integrity as pi
+import series as series_meta
 from groups import entry_id
 
 tmp = Path(tempfile.mkdtemp())
@@ -201,7 +202,7 @@ dates("book-years", [("book", 1001, None, "book-1001"),
 held, flags = [], []
 for path in fetcher.puzzle_files():
     z = fetcher.read_puzzle_file(path)
-    held.append((z.get("series", "cryptic"), z["number"], pi.date_of(z), z["id"]))
+    held.append((series_meta.of(z), z["number"], pi.date_of(z), z["id"]))
     pi.check_setter(z, flags)
 pi.check_dates(held, flags)
 print("CORPUS " + ("; ".join(f"{f} {pid} {w}" for f, pid, w in flags[:5]) or "clean"))
