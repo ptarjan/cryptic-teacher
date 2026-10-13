@@ -274,7 +274,10 @@ SECTION_AT = {"across": re.compile(r"\b(?:ACROSS|A[Cc]ross)\b(?=\s*\d)"),
 #: may print its light's count after it ("See 7 (8)"), or a count alone
 #: ("1 (6) 2 (6)": a light the puzzle leaves without a clue; one with words
 #: after it, "5 (2) What gets...", is a clue opening on a cross-reference).
-STUB = (r"(?:See\s+\d{1,2}(?:\s*(?:across|down))?(?![\w(])"
+#: A "See N" stub is the pointer and nothing else (groups.POINTER): what follows
+#: it is its count, the next clue's number, a heading or the end. "See 2 if
+#: confused about ... (7)" opens the same way and is a clue (nation-3257).
+STUB = (r"(?:See\s+\d{1,2}(?:\s*(?:across|down))?(?![\w(])(?=\s*(?:\(|\d|\[|$|(?:across|down)\b))"
         r"|\[unclued\]|\(See (?:special )?instructions\)|See (?:the )?preamble\b|See (?:the )?(?:special )?instructions\b(?!\s*\())")
 CLUE_AT = re.compile(
     r"\s*(?P<head>\d{1,2}(?:\s*(?:across|down))?(?:\s*[,/&]\s*\d{1,2}(?:\s*(?:across|down))?)*)"

@@ -55,12 +55,8 @@ import json
 import re
 import sys
 from pathlib import Path
-from groups import entry_id
+from groups import entry_id, pointer_target
 
-# "See 15", "See 11 down", "See 23 13 across, or 11" — a light whose clue lives
-# on another light. The corpus spells continuations this way in every series;
-# fetch_puzzle.is_continuation reads the same shape, and this keeps the number.
-CONTINUATION = re.compile(r"^\s*See\s+(\d+)\b", re.IGNORECASE)
 
 # "7,6" / "4-5" / "9,5,4": each count and the punctuation that follows it. The
 # separator after the last count is the end of the answer and is never written.
@@ -81,8 +77,10 @@ def continuation_direction(clue):
 
 def continuation_target(clue):
     """The number a "See N" clue points at, or None if this clue is a real one."""
-    m = CONTINUATION.match(clue or "")
-    return int(m.group(1)) if m else None
+    # "See 15", "See 11 down", "See 23 13 across, or 11" and nothing else
+    # (groups.POINTER). "See 2 if confused ... (7)" opens the same way and is a
+    # clue of its own (nation-3257's 1-across), so it leads nothing here.
+    return pointer_target(clue, counted=True)
 
 
 def enumeration_parts(enumeration):

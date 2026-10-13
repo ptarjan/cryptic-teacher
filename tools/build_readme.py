@@ -669,6 +669,7 @@ LAYOUT = [
     ("fetching", "tools/convert_v2.py", "today's annotations as format v2 wordplay trees, losing nothing (a step the blocks can't rebuild stays an unchecked node), and a read-only dry run over the corpus"),
     ("fetching", "tools/test_convert_v2.sh", "does convert_v2.py rebuild the stored blocks, indicators and definitions from the tree, keep what it can't check as unchecked nodes, and refuse an answer that contradicts its enumeration?"),
     ("fetching", "tools/test_format_v2.sh", "do the schema and validator refuse every derived field in a format v2 file, evaluate its trees and ratchet its unchecked steps, while legacy files keep passing?"),
+    ("fetching", "tools/test_see_pointer.sh", "is a \"See N\" continuation the pointer and nothing else, in every reader?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
