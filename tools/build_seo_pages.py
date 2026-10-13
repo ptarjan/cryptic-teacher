@@ -96,6 +96,7 @@ from fetch_puzzle import (  # one glob, one reader for every tool
     with_blog_facts)
 import puzzle_paths  # one puzzles/ for every tool
 import page_cache  # last build's puzzle pages, reused when nothing moved
+import annotation  # ABBR_ASKED: the abbreviation lookups a page re-checks
 import parallel  # the corpus across the cores
 import row_cache  # solved_stub's rows, read once per file version
 from stamp_assets import asset_url  # content-hashed asset URLs
@@ -2588,26 +2589,33 @@ def puzzle_page_job(i):
     # (difficulty index, tags) move without the page, so they are added fresh.
     row = meta.get(solved[i][1]["id"])
     if hit:
-        asked, digest, blocks, cands, lex, found, file_facts = hit
+        asked, digest, blocks, cands, lex, found, file_facts, abbrs = hit
         if not all(_asset(rel) == url for rel, url in asked):
             why = f"asset:{series}"
+        elif not all((pair in annotation.abbreviation_pairs()) == known for pair, known in abbrs):
+            why = f"abbr:{series}"
         elif page_cache.file_hash(path) == digest:
             if lex != indicator_lexicon_hash():  # the lexicon moved, not the page
                 found = indicator_found(cands)
-                hit = (asked, digest, blocks, cands, indicator_lexicon_hash(), found, file_facts)
+                hit = (asked, digest, blocks, cands, indicator_lexicon_hash(), found, file_facts,
+                       abbrs)
             return (path, False, blocks, found, showcase.with_meta(file_facts, row),
                     (key, hit, True, None))
         else:
             why = f"file:{series}"
-    puz = with_blog_facts(read_puzzle_view(solved[i][0]))
     # The list is newest-first, so "next" is the older neighbour.
     prev_p, next_p = neighbours[i]
     _ASKED = set()
+    annotation.ABBR_ASKED = set()  # view() glosses leaves as the file is read
     try:
+        puz = with_blog_facts(read_puzzle_view(solved[i][0]))
         page = puzzle_page(puz, row, prev_p, next_p)
         asked = tuple((rel, _asset(rel)) for rel in sorted(_ASKED))
+        abbrs = tuple((pair, pair in annotation.abbreviation_pairs())
+                      for pair in sorted(annotation.ABBR_ASKED))
     finally:
         _ASKED = None
+        annotation.ABBR_ASKED = None
     blocks = {}
     clue_blocks(blocks, puz, page)
     cands = indicator_candidates(puz, page)
@@ -2616,7 +2624,7 @@ def puzzle_page_job(i):
     text = relative_links(page, PUZZLE_ROOT)
     file_facts = showcase.file_facts(puz)
     entry = (asked, page_cache.text_hash(text), blocks, cands, indicator_lexicon_hash(), found,
-             file_facts)
+             file_facts, abbrs)
     return (path, write_output(path, text, check), blocks, found,
             showcase.with_meta(file_facts, row),
             (key, entry, False, why) if key else None)

@@ -35,7 +35,10 @@ time for the few hundred whose text moved:
   - blocks.json and whatever else only stamp_assets.asset_url() reads to
     hash an asset (OPAQUE): every URL it gave is recomputed and compared
     before a page is reused, so a moved asset re-renders exactly the pages
-    that link it;
+    that link it; likewise abbreviations.json and blocks.json, which only
+    annotation.abbreviation_pairs() reads (the table view() glosses a leaf
+    from): each (clue word, letters) pair a render looked up is stored with
+    its answer and looked up again before reuse;
   - indicators.json (PER_ENTRY): a page's HTML does not read it; only the
     /indicators/ candidates matched against it do, and a stored page keeps
     its candidates unmatched with the lexicon's hash, so a moved lexicon
@@ -58,7 +61,7 @@ ROOT = puzzle_paths.ROOT
 #: The store; gitignored, carried between deploys by the workflow's cache.
 STORE = ROOT / ".page-cache.pickle"
 #: Bump to drop every stored page (a change to how keys are made).
-VERSION = "3"
+VERSION = "4"
 
 PUZZLE_FILE = re.compile(r"puzzles/[^/]+/[0-9]{4}/[^/]+\.json")
 # Per-page inputs (keyed in page_key) or not inputs to a puzzle page at all.
@@ -72,7 +75,7 @@ NOT_GLOBAL_FILES = {"index.html"} | PER_ENTRY
 ROOTS = ("puzzle_page_job", "page_key", "puzzles", "series_neighbours")
 #: Definitions whose output a stored page is checked against before reuse,
 #: so neither their code nor the data they read is in the build-wide key.
-OPAQUE = ("stamp_assets.asset_url",)
+OPAQUE = ("stamp_assets.asset_url", "annotation.abbreviation_pairs")
 #: A file name (the last part of a path) in a string constant, as ast.dump
 #: writes one in code_reach's hashed form.
 NAMED = re.compile(r"Constant\(value='(?:[^'\\]*/)?([\w.\-]+\.(?:json|tsv|txt|md|csv|yaml|yml|html|js|"
