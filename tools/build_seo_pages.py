@@ -593,7 +593,23 @@ def landing_script(pid):
     return f'<script src="{asset("landing.js")}" data-p="{esc(pid)}" defer></script>\n'
 
 
+def page_row(meta):
+    """The part of a puzzle's index row that its page prints, or None without
+    a row. puzzle_page() sees nothing else of the row, and page_key() hashes
+    exactly this, so a stored page is reused until something it shows moves.
+    The rest of the row (the difficulty index and basis, tags, the file stamp)
+    moves as puzzles arrive without changing a byte of the page."""
+    if not meta:
+        return None
+    diff = meta.get("difficulty") or {}
+    band = diff.get("band")
+    return {"listing": listing_key(meta), "annotated": bool(meta.get("annotated")),
+            "band": band, "percentile": diff.get("percentile") if band else None}
+
+
 def puzzle_page(puz, meta, prev_p, next_p):
+    row = page_row(meta)
+    del meta  # every read of the index row goes through page_row()
     setter = puz.get("setter") or ""
     what = kind(puz)                  # "Cryptic", "Quiptic", "Everyman"
     paper = publisher(puz)            # "Guardian", "Observer"
@@ -604,8 +620,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
     # "No 920,106" is a date with thousands separators.
     day = number_day(puz)
     dw = f"{day:%A %-d %B %Y}" if day else ""
-    diff = (meta or {}).get("difficulty") or {}
-    annotated = (meta or {}).get("annotated")
+    annotated = row and row["annotated"]
     # The page lives at its ID, not its number: two papers can reach the same
     # number and would then want the same directory. The bare-number URL still
     # works — legacy_redirects() keeps one at every number we have ever used.
@@ -647,11 +662,11 @@ def puzzle_page(puz, meta, prev_p, next_p):
             f"Every answer to {full}. Answers only for now: the clue-by-clue "
             "explanations are not written yet.")
 
-    if meta:
-        ls, ly = listing_key(meta)     # the listing page this puzzle is on
+    if row:
+        ls, ly = row["listing"]        # the listing page this puzzle is on
     crumbs = [("Cryptic Teacher", "/"), ("Puzzles", "/puzzles/"),
               *([(series_name(ls), series_path(ls)), (ly, listing_path(ls, ly))]
-                if meta else []),
+                if row else []),
               (dw or f"No {pretty}", "")]
 
     across = [e for e in puz["entries"] if e["direction"] == "across"]
@@ -662,8 +677,8 @@ def puzzle_page(puz, meta, prev_p, next_p):
     facts = [f"Set by: <strong>{esc(setter)}</strong>"] if setter else []
     if when:
         facts.append(f"Published: <strong>{esc(when)}</strong>")
-    if diff.get("band"):
-        pct = diff.get("percentile")
+    if row and row["band"]:
+        pct = row["percentile"]
         extra = f" ({harder_than(pct)})" if pct is not None else ""
         # A band is a word this site made up the meaning of, and a puzzle page is
         # where most people meet it first — arrived at from a search, having
@@ -671,7 +686,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
         # link to that explanation rather than leaving "Brutal" to read as a
         # fact about the crossword.
         facts.append(f'<a href="{BASE}/difficulty/">Difficulty</a>: '
-                     f'{diff_badge(diff["band"])}{esc(extra)}')
+                     f'{diff_badge(row["band"])}{esc(extra)}')
     facts.append(f'Grid: <strong>{puz["dimensions"]["cols"]}&times;'
                  f'{puz["dimensions"]["rows"]}</strong> squares')
 
@@ -684,7 +699,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
     if next_p:
         nav.append(f'<a rel="next" href="{BASE}/puzzles/{next_p["id"]}/">'
                    f'Older: {esc(named(next_p))} &rarr;</a>')
-    if meta and nav:
+    if row and nav:
         nav.append(f'<a href="{site_url(series_path(ls))}">All {esc(series_name(ls))} puzzles</a>')
 
     article_ld = {
@@ -2498,8 +2513,9 @@ def series_neighbours(stubs):
 def page_key(i):
     """Puzzle page i's per-page inputs, under the build's fingerprint: what
     tools/page_cache.py reuses a stored page by. Its puzzle file, its blog
-    facts, its index row, its pager neighbours and whether its card is drawn;
-    everything else it reads is code or data, in the fingerprint."""
+    facts, the part of its index row it prints (page_row), its pager
+    neighbours and whether its card is drawn; everything else it reads is
+    code or data, in the fingerprint."""
     solved, neighbours, meta, _, fp, _ = _PAGES
     path, stub = solved[i]
     pid = stub["id"]
@@ -2507,7 +2523,7 @@ def page_key(i):
     for part in (fp, puzzle_paths.relative(path, ROOT) or str(path),
                  hashlib.sha256(Path(path).read_bytes()).hexdigest(),
                  blog_fact_hashes().get(pid),
-                 json.dumps(meta.get(pid), sort_keys=True, default=str),
+                 json.dumps(page_row(meta.get(pid)), sort_keys=True, default=str),
                  json.dumps(neighbours[i], sort_keys=True, default=str),
                  (ROOT / f"og/{pid}.png").exists()):
         h.update(f"{part}\0".encode("utf-8", "surrogateescape"))
@@ -2534,12 +2550,16 @@ def puzzle_page_job(i):
     # asset it asked for did, or its file is not the one that was written.
     series = solved[i][1].get("series")
     why = f"key:{series}"
+    # The store holds the showcase facts the file states; the index row's
+    # (difficulty index, tags) move without the page, so they are added fresh.
+    row = meta.get(solved[i][1]["id"])
     if hit:
-        asked, digest, blocks, found, facts = hit
+        asked, digest, blocks, found, file_facts = hit
         if not all(_asset(rel) == url for rel, url in asked):
             why = f"asset:{series}"
         elif page_cache.file_hash(path) == digest:
-            return path, False, blocks, found, facts, (key, hit, True, None)
+            return (path, False, blocks, found, showcase.with_meta(file_facts, row),
+                    (key, hit, True, None))
         else:
             why = f"file:{series}"
     puz = with_blog_facts(read_puzzle_view(solved[i][0]))
@@ -2547,7 +2567,7 @@ def puzzle_page_job(i):
     prev_p, next_p = neighbours[i]
     _ASKED = set()
     try:
-        page = puzzle_page(puz, meta.get(puz["id"]), prev_p, next_p)
+        page = puzzle_page(puz, row, prev_p, next_p)
         asked = tuple((rel, _asset(rel)) for rel in sorted(_ASKED))
     finally:
         _ASKED = None
@@ -2556,9 +2576,10 @@ def puzzle_page_job(i):
     clue_indicators(found, puz, page)
     assert path == puzzle_paths.PUZZLE_DIR / puz["id"] / "index.html"
     text = relative_links(page, PUZZLE_ROOT)
-    facts = showcase.facts(puz, meta.get(puz["id"]))
-    entry = (asked, page_cache.text_hash(text), blocks, found, facts)
-    return (path, write_output(path, text, check), blocks, found, facts,
+    file_facts = showcase.file_facts(puz)
+    entry = (asked, page_cache.text_hash(text), blocks, found, file_facts)
+    return (path, write_output(path, text, check), blocks, found,
+            showcase.with_meta(file_facts, row),
             (key, entry, False, why) if key else None)
 
 

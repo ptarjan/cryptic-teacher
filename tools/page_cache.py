@@ -20,7 +20,8 @@ its checks say so. A page is reused when all of these are what they were:
     missed; the reached code builds only per-page ones (a puzzle's own file,
     its blog facts, its card), which page_key covers;
   - the page's own inputs, which build_seo_pages.page_key() lists: its
-    puzzle file's bytes, its blog-facts lines, its index row, its pager
+    puzzle file's bytes, its blog-facts lines, the part of its index row
+    the page prints (build_seo_pages.page_row()), its pager
     neighbours and whether its card is on disk;
   - every stamped asset URL the render asked for (asset(): the card's ?v=,
     the stylesheet's), recomputed and compared before reuse;

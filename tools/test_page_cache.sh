@@ -68,5 +68,56 @@ paths = ["tools/data/lexicons/indicators.json", "style.css", "index.html", "docs
          "tools/data/deploy_budgets.json"]
 got = pc.inputs(code, paths)
 assert got == ["style.css", "tools/data/lexicons/indicators.json"], f"test_page_cache: inputs {got}"
+
+# A page's key holds the part of its index row the page prints (page_row),
+# so a reindex that moves only the difficulty index, its basis, the tags or
+# the file stamp reuses every page; a moved percentile, band, annotation or
+# listing year re-renders it. puzzle_page() reads the row only through
+# page_row(), and the reused page's showcase facts take the row's fresh.
+import copy
+import build_seo_pages as B
+import showcase
+from pathlib import Path
+
+row = {"id": "cryptic-30000", "number": 30000, "series": "cryptic", "date": "2026-05-01",
+       "file": "cryptic-30000.js", "v": "aaaa", "annotated": True, "tags": [],
+       "difficulty": {"band": "Moderate", "index": -0.148, "percentile": 32, "basis": ["rarity"]}}
+puz = {"id": "cryptic-30000", "number": 30000, "series": "cryptic", "date": "2026-05-01",
+       "setter": "Pan", "dimensions": {"cols": 15, "rows": 15}, "entries": []}
+pf = Path("tools/test_page_cache.sh")
+
+def key(r):
+    B._PAGES = [(pf, {"id": row["id"], "series": "cryptic"})], [(None, None)], {row["id"]: r}, True, "fp", {}
+    try:
+        return B.page_key(0)
+    finally:
+        B._PAGES = None
+
+def changed(**edits):
+    r = copy.deepcopy(row)
+    for k, v in edits.items():
+        if k in ("index", "basis", "band", "percentile"):
+            r["difficulty"][k] = v
+        else:
+            r[k] = v
+    return r
+
+k0, page0 = key(row), B.puzzle_page(puz, row, None, None)
+for label, r in (("the difficulty index", changed(index=0.5)), ("the basis", changed(basis=["device"])),
+                 ("the tags", changed(tags=["big-grid"])), ("the file stamp", changed(v="bbbb"))):
+    if key(r) != k0:
+        sys.exit(f"test_page_cache: {label} moved: re-renders a page that does not print it")
+    if B.puzzle_page(puz, r, None, None) != page0:
+        sys.exit(f"test_page_cache: {label} moved the page but not its key: reuses a stale page")
+for label, r in (("the percentile", changed(percentile=33)), ("the band", changed(band="Hard")),
+                 ("the annotation", changed(annotated=False)), ("the date", changed(date="2025-05-01")),
+                 ("the row", None)):
+    if key(r) == k0:
+        sys.exit(f"test_page_cache: {label} moved: reuses a stale page")
+    if B.puzzle_page(puz, r, None, None) == page0:
+        sys.exit(f"test_page_cache: {label} is keyed but the page does not print it")
+fresh = changed(index=0.5, tags=["big-grid"])
+if showcase.with_meta(showcase.file_facts(puz), fresh) != showcase.facts(puz, fresh):
+    sys.exit("test_page_cache: a reused page's showcase facts are not the fresh row's")
 print("test_page_cache: all passed")
 EOF
