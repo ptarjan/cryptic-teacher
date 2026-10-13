@@ -327,9 +327,10 @@ def convert(puzzle):
     wanted = [k for k in kinds if k in ("extra", "omitted")]
     if not wanted:
         return "failed", f"{'/'.join(kinds)}: no letters in blocks to read", None
+    import annotation
     continuations = groups.leader_of(puzzle["entries"])
     found = {}
-    for e in puzzle["entries"]:
+    for e in annotation.view_puzzle(puzzle)["entries"]:
         ann = e.get("annotation")
         if ann and entry_id(e) not in continuations:
             hit = entry_letter(ann, e)

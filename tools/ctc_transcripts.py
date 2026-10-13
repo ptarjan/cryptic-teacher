@@ -77,6 +77,7 @@ import sys
 from pathlib import Path
 from types import SimpleNamespace
 
+import annotation
 import downloads
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -229,7 +230,7 @@ def _read_corpus():
     puzzles, index = {}, collections.defaultdict(set)
     for f in glob.glob(str(ROOT / "puzzles" / "*" / "[12][0-9][0-9][0-9]" / "*.json")):
         try:
-            p = json.loads(Path(f).read_text())
+            p = annotation.view_puzzle(json.loads(Path(f).read_text()))
         except (OSError, ValueError):
             continue
         ents = [e for e in p.get("entries", []) if e.get("solution")]
@@ -1006,7 +1007,7 @@ def entries_of(pid):
     """{entry id: entry} of a corpus puzzle, each with its spoken `_phrase`."""
     if pid not in _ENTRIES:
         import puzzle_paths
-        p = json.loads(Path(puzzle_paths.find(pid)).read_text())
+        p = annotation.view_puzzle(json.loads(Path(puzzle_paths.find(pid)).read_text()))
         for e in p["entries"]:
             e["_phrase"] = " ".join(words_of(e.get("solution", "").upper(), e["clue"].get("enumeration")))
         _ENTRIES[pid] = {f"{e['number']}-{e['direction']}": e for e in p["entries"]}

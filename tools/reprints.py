@@ -15,6 +15,7 @@ into its original; it only shrinks.
 import json
 from pathlib import Path
 
+import puzzle_schema
 import series as series_meta
 
 TOOLS = Path(__file__).resolve().parent
@@ -60,10 +61,10 @@ def as_original(reprint, date):
     source = {k: v for k, v in (reprint.get("source") or {}).items()
               if k in ("url", "acquiredOn", "retrievedFrom", "gridOrigin")}
     out = {k: v for k, v in reprint.items() if k != "date"}
-    out = {**out, "id": oid, "number": number, "series": series,
-           "name": f"{pub} {kind} crossword No {number:,}", "source": source,
-           **({"date": date} if date else {})}
-    return with_print(out, reprint["series"], reprint["number"], reprint["date"])
+    out = {**out, "id": oid, "number": number, "source": source, **({"date": date} if date else {})}
+    if not puzzle_schema.is_v2(reprint):
+        out.update(series=series, name=f"{pub} {kind} crossword No {number:,}")
+    return with_print(out, series_meta.of(reprint), reprint["number"], reprint["date"])
 
 
 def light(entry):
@@ -121,7 +122,7 @@ def merged(original, reprint):
         out["solutions"] = reprint["solutions"]
     if carried:
         out["annotatedBy"] = sorted({*original.get("annotatedBy", ()), *reprint.get("annotatedBy", ())})
-    return with_print(out, reprint["series"], reprint["number"], reprint["date"])
+    return with_print(out, series_meta.of(reprint), reprint["number"], reprint["date"])
 
 
 def lost(reprint, held):

@@ -85,8 +85,13 @@ def fits(annotation, old, new):
 
 def carry(puzzle_text, old_text, new_text, pid):
     """(puzzle text with the re-read's clues carried in, notes)."""
+    import annotation
     puzzle = json.loads(puzzle_text)
     old, new = json.loads(old_text), json.loads(new_text)
+    # Fragments are read from the derived view; edits go to the raw entries.
+    viewed = annotation.view_puzzle(puzzle)
+    ann_of = {id(e): v.get("annotation") or e.get("annotation")
+              for e, v in zip(puzzle.get("entries", []), viewed.get("entries", []))}
     notes = []
     for direction in DIRECTIONS:
         entries = sorted((e for e in puzzle.get("entries", [])
@@ -108,7 +113,7 @@ def carry(puzzle_text, old_text, new_text, pid):
                 continue
             if p != o:
                 notes.append(f"{label}: kept the filed {p!r}; re-read {n!r}")
-            elif not fits(entry.get("annotation"), o, n):
+            elif not fits(ann_of.get(id(entry)), o, n):
                 notes.append(f"{label}: kept {p!r}, its annotation does not fit "
                              f"the re-read {n!r}")
             else:

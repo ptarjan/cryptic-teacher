@@ -23,6 +23,9 @@ import re
 import sys
 from pathlib import Path
 
+import puzzle_schema
+import wordplay
+
 
 # A Unicode ligature (a PDF's or OCR's "\ufb01") is its letters: "fi", "ffl".
 LIGATURES = {"\ufb00": "ff", "\ufb01": "fi", "\ufb02": "fl", "\ufb03": "ffi", "\ufb04": "ffl",
@@ -77,7 +80,21 @@ def _clue_strings(entry):
     anagram's fodder), which must keep matching it character for character."""
     out = [(entry.get("clue") or {}, "text")]
     ann = entry.get("annotation")
-    if isinstance(ann, dict):
+    if puzzle_schema.is_v2_annotation(ann):
+        # Format v2: the definitions, their indicators, and the wordplay
+        # tree's indicators and leaf words quote the clue.
+        defs = [d for d in ann.get("definitions") or [] if isinstance(d, dict)]
+        out += [(d, "text") for d in defs]
+        out += [(i, "text") for d in defs for i in d.get("indicators") or [] if isinstance(i, dict)]
+        todo = [ann["wordplay"]] if isinstance(ann.get("wordplay"), dict) else []
+        while todo:
+            node = todo.pop()
+            out += [(i, "text") for i in node.get("indicators") or [] if isinstance(i, dict)]
+            if "op" not in node:
+                out.append((node, "words"))
+            todo += [p for p in wordplay.parts_of(node) if isinstance(p, dict)]
+        out.append((ann.get("features") or {}, "misdirectedWord"))
+    elif isinstance(ann, dict):
         for name, key in (("definitions", "text"), ("indicators", "text"), ("blocks", "clueFragment")):
             out += [(d, key) for d in ann.get(name) or [] if isinstance(d, dict)]
         words = ann.get("linkWords")

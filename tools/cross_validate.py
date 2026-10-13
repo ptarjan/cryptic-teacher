@@ -1797,14 +1797,23 @@ def group_answer(puzzle, e):
 def drop_stale_annotations(old, puzzle):
     """Drop, in place, each annotation of `puzzle` whose light's answer
     differs from `old`'s and no longer matches the annotation's, so the light
-    is annotated again rather than explained as the answer it replaced."""
+    is annotated again rather than explained as the answer it replaced. A
+    format v2 annotation stores no answer: its answer is the one view() derives
+    in `old`, where it was written."""
+    import annotation
     was = {where(e): group_answer(old, e) for e in old["entries"]}
+    held = {where(e): e.get("annotation") for e in old["entries"]}
+    derived = {where(e): (e.get("annotation") or {}).get("answer")
+               for e in annotation.view_puzzle(old)["entries"]}
     for e in puzzle["entries"]:
         ann = e.get("annotation")
         answer = group_answer(puzzle, e)
-        if not isinstance(ann, dict) or not ann.get("answer") or was.get(where(e)) == answer:
+        if not isinstance(ann, dict) or was.get(where(e)) == answer:
             continue
-        if re.sub(r"[^A-Z]", "", ann["answer"].upper()) != answer.upper():
+        said = ann.get("answer") or (derived.get(where(e)) if held.get(where(e)) == ann else None)
+        if not said:
+            continue
+        if re.sub(r"[^A-Z]", "", said.upper()) != answer.upper():
             del e["annotation"]
     if puzzle.get("annotatedBy") and not any(e.get("annotation") for e in puzzle["entries"]):
         del puzzle["annotatedBy"]
