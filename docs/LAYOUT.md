@@ -2507,5 +2507,11 @@ tools/test_genius_instructions.sh             is a puzzle whose clues point at i
                                               do not hold kept from the annotators, and does
                                               filing a preamble later let a parked failure
                                               retry?
+tools/discard_alert.py                        decide whether a discarded annotation run is
+                                              worth waking anyone for
+tools/test_discard_verdict.sh                 does a discarded annotation run wake someone only
+                                              when they can act on it? (tools/discard_alert.py;
+                                              wired into _worker_finish in
+                                              tools/puzzle_worker.sh.)
 ```
 <!-- LAYOUT-END -->
