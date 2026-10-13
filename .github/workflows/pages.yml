@@ -129,10 +129,12 @@ jobs:
       # is rendered again only when its puzzle file, index row, neighbours,
       # card or stamped assets moved, or any tracked code or data did. A push
       # that files one puzzle re-renders a handful of the ~50k, not all of
-      # them. Same per-commit key and restore-keys as the cards; a cold or
-      # stale cache renders everything, which is correct, just slow.
+      # them. A cold cache renders everything, which is correct, just slow.
+      # Restored here, saved (Save the puzzle pages) only after a big
+      # re-render: saving ~67k pages takes about a minute, and a stale cache
+      # costs only the few pages each later push moved.
       - name: Restore the puzzle pages
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           path: |
             puzzles/*/index.html
@@ -140,6 +142,7 @@ jobs:
           key: seo-pages-${{ github.sha }}
           restore-keys: seo-pages-
       - name: Generate the crawlable pages
+        id: pages
         run: python3 tools/build_seo_pages.py
       # Every page that is not a puzzle gets a card of its own title and
       # description, so these are drawn from the pages and come after them.
@@ -187,6 +190,16 @@ jobs:
           name: indexnow-urls
           path: indexnow-urls.txt
           retention-days: 1
+      # After everything the deploy needs, and only when this run rendered
+      # many pages (a code change, a cold cache): see Restore the puzzle pages.
+      - name: Save the puzzle pages
+        if: fromJSON(steps.pages.outputs.rendered || '0') > 2000
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            puzzles/*/index.html
+            .page-cache.pickle
+          key: seo-pages-${{ github.sha }}
 
   # Its own job so it runs beside the build instead of in front of the
   # staging: it reads only the puzzle sources and tools/, none of what the
