@@ -169,7 +169,7 @@ def head_of(ln, direction, last, bare=False):
         lights = [(int(m.group(1)), way)]
     if not lights or lights[0][0] <= last or lights[0][0] > 40:
         return None
-    if rest and not (tftt.ENUM.search(rest) or tftt.CONTINUATION.match(rest)
+    if rest and not (tftt.ENUM.search(rest) or tftt.is_continuation_line(rest)
                      or tftt.answer_line(rest) or (bare and clue_like(rest, False))):
         return None
     return lights, rest
@@ -227,7 +227,7 @@ def read_counted(lines):
     clue = enum = None
     for ln in lines:
         e = tftt.ENUM.search(ln)
-        if e or tftt.CONTINUATION.match(ln):
+        if e or tftt.is_continuation_line(ln):
             clue, enum = ln, e and e.group(1).strip()
             break
     answer = None
@@ -246,7 +246,7 @@ def read_counted(lines):
 def complete(lines, bare=False):
     """Has this light its clue and its answer? A "See N" has no answer."""
     clue, _, answer = read_light(lines, bare)
-    return bool(clue) and (answer is not None or bool(tftt.CONTINUATION.match(clue)))
+    return bool(clue) and (answer is not None or bool(tftt.is_continuation_line(clue)))
 
 
 def clued(entries):
