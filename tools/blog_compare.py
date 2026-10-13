@@ -37,7 +37,7 @@ import sys
 from pathlib import Path
 
 import definitions
-from fetch_puzzle import blog_facts_for, puzzle_files, puzzle_paths, read_puzzle_file, with_blog_facts
+from fetch_puzzle import blog_facts_for, puzzle_files, puzzle_paths, read_puzzle_view, with_blog_facts
 from json_merge import dump_lines
 from groups import entry_id
 import validate_annotations as V
@@ -88,7 +88,7 @@ def survey():
     due = {}
     cover = collections.Counter()
     for path in puzzle_files():
-        p = read_puzzle_file(path)
+        p = read_puzzle_view(path)
         series = p.get("series", "cryptic")
         entries = [e for e in p["entries"] if not (e.get("clue") or {}).get("missing")]
         unhinted = [e for e in entries if not e.get("annotation")]
@@ -155,7 +155,7 @@ def keep_ours(pid, eid, fields, why):
     path = puzzle_paths.find(pid)
     if not path:
         return f"no puzzle {pid}"
-    if eid not in {entry_id(e) for e in read_puzzle_file(path)["entries"]}:
+    if eid not in {entry_id(e) for e in read_puzzle_view(path)["entries"]}:
         return f"{eid}: not an entry of {pid}"
     rows = json.loads(TABLE.read_text(encoding="utf-8"))
     rows[f"{pid}/{eid}"] = [fields, why.strip()]

@@ -273,11 +273,10 @@ same "and it names the channel that tool really uses" \
   "$(awk '$1=="CHANNEL_MISMATCH" {print $3}' <<<"$out4")" "True"
 same "a publisher contradicting the id's series is refused" \
   "$(field WRONG_PUBLISHER "$out4")" "True"
-same "a puzzle with no series is one finding" "$(field NO_SERIES "$out4")" "1"
+same "a puzzle with no series is no finding here (format v2 stores none; the schema owns a legacy file's)" "$(field NO_SERIES "$out4")" "0"
 same "a blog-retrieved write-up passes" "$(field BLOG_PRISTINE "$out4")" "0"
 same "a model fill over a blog's write-up is refused" "$(field BLOG_MODEL "$out4")" "True"
 same "and no write can put it on disk" "$(field BLOG_MODEL_WRITE "$out4")" "refused"
-same "and it says the series is missing" "$(awk '$1=="NO_SERIES" {print $3}' <<<"$out4")" "True"
 same "a series contradicting the id is one finding" "$(field WRONG_SERIES "$out4")" "1"
 same "the real book puzzle passes" "$(field BOOK_PRISTINE "$out4")" "0"
 same "its model fill cannot be relabelled published" "$(field BOOK_LIE "$out4")" "True"

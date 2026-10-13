@@ -773,7 +773,7 @@ def solve_table():
     clues. The tables solvecheck() prints: within-video percentiles, pooled."""
     import difficulty as D
     import puzzle_paths
-    from fetch_puzzle import puzzle_is_annotated, read_puzzle_file
+    from fetch_puzzle import puzzle_is_annotated, read_puzzle_view
     data = json.loads(SOLVES.read_text())
     tftt = json.loads((ROOT / "tools/data/blog_comment_difficulty.json").read_text())
     rank, blog_defs = D.ranks(), D.blog_definitions()
@@ -785,7 +785,7 @@ def solve_table():
     human = collections.defaultdict(list)
     held = []
     for rows in by_video.values():
-        puz = read_puzzle_file(puzzle_paths.find(rows[0]["puzzle"]))
+        puz = read_puzzle_view(puzzle_paths.find(rows[0]["puzzle"]))
         feats = clue_features(puz, rank, blog_defs)
         rows = [r for r in rows if r["entry"] in feats]
         if len(rows) < MIN_TIMED:

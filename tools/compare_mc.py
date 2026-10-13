@@ -230,10 +230,10 @@ def load_hints_jsonl():
 
 
 def load_our_annotations():
-    from fetch_puzzle import puzzle_files, read_puzzle_file
+    from fetch_puzzle import puzzle_files, read_puzzle_view
     out = []
     for p in puzzle_files():
-        data = read_puzzle_file(p)
+        data = read_puzzle_view(p)
         for e in data.get("entries", []):
             ann = e.get("annotation")
             if ann:

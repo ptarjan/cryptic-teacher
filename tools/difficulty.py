@@ -214,7 +214,7 @@ from datetime import datetime
 from pathlib import Path
 from types import SimpleNamespace
 from fetch_puzzle import (  # one glob, one reader for every tool
-    blog_fact_hashes, puzzle_files, puzzle_is_annotated, read_puzzle_file)
+    blog_fact_hashes, puzzle_files, puzzle_is_annotated, read_puzzle_view)
 import definitions
 import parallel
 import puzzle_style
@@ -688,7 +688,7 @@ def blog_file_definitions(f):
 def history_row(path):
     """(day, id, single-word answers, (answer, definition head) pairs) for
     one puzzle file, or None for an undated puzzle; history() counts these."""
-    puz = read_puzzle_file(path)
+    puz = read_puzzle_view(path)
     day = series_meta.puzzle_day(puz)
     if not day:
         return None
@@ -943,7 +943,7 @@ def clue_row(path):
     """(id, whether the grid is barred, clue_parts()) for one puzzle file:
     what all_scores() needs of it besides the corpus-wide history. None for
     the parts of a puzzle that is not a cryptic, which raw() leaves unrated."""
-    puz = read_puzzle_file(path)
+    puz = read_puzzle_view(path)
     return puz["id"], bool(puz.get("bars")), None if puzzle_style.is_straight(puz) else clue_parts(puz, _RANK)
 
 
@@ -1083,7 +1083,7 @@ def rebaseline():
     before = all_scores()
     cols = {}
     for path in puzzle_files():
-        puz = read_puzzle_file(path)
+        puz = read_puzzle_view(path)
         for k, v in raw(puz, ctx).items():
             if v is not None:
                 cols.setdefault(reference(k, puz), []).append(v)
@@ -1156,7 +1156,7 @@ def scored_meta():
     scores = all_scores()
     meta = {}
     for path in puzzle_files():
-        puz = read_puzzle_file(path)
+        puz = read_puzzle_view(path)
         if puz["id"] in scores:
             meta[puz["id"]] = puz
     return scores, meta

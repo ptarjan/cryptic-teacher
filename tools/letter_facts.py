@@ -89,6 +89,13 @@ from indicator_keys import indicator_words as _key
 from puzzle_paths import find as find_puzzle
 from puzzle_paths import puzzle_files
 
+
+def read_view(path):
+    """A puzzle file as annotation.view_puzzle() shows it: a format v2 file with
+    the derived fields (type, blocks, indicators, ...) every reader here takes."""
+    import annotation
+    return annotation.view_puzzle(json.loads(path.read_text(encoding="utf-8")))
+
 ROOT = Path(__file__).resolve().parent.parent
 
 #: A hidden answer shorter than this turns up by chance in too many clues.
@@ -1528,7 +1535,7 @@ def annotation_rows():
     annotations (puzzles/) explain, in the shape of a blog's facts: a second
     source for the indicator lexicon."""
     for path in puzzle_files():
-        p = json.loads(path.read_text(encoding="utf-8"))
+        p = read_view(path)
         for e in p.get("entries", []):
             a = e.get("annotation") or {}
             if not (a.get("type") and e["clue"].get("text") and e.get("solution")):
@@ -2444,7 +2451,7 @@ def measure_blocks(corpus, n=0, show=30, seed=1):
     type has no blocks, the coverage it adds, and how it agrees with ours."""
     annotated = {}
     for path in puzzle_files():
-        p = json.loads(path.read_text(encoding="utf-8"))
+        p = read_view(path)
         ann = {entry_id(e): e["annotation"] for e in p.get("entries", []) if (e.get("annotation") or {}).get("blocks")}
         if ann:
             annotated[p["id"]] = ann
@@ -2526,7 +2533,7 @@ def measure_fuzzy_blocks(corpus, votes, n=2, show=30, seed=1):
     coverage it adds on the slice."""
     annotated = {}
     for path in puzzle_files():
-        p = json.loads(path.read_text(encoding="utf-8"))
+        p = read_view(path)
         ann = {entry_id(e): e["annotation"] for e in p.get("entries", []) if (e.get("annotation") or {}).get("blocks")}
         if ann:
             annotated[p["id"]] = ann
@@ -2648,7 +2655,7 @@ def measure_blockless(corpus, votes, n=4, show=30, seed=1):
     blog's hidden, and an anagram's free-word indicator (_measure_free_words)."""
     ann = {}
     for path in puzzle_files():
-        p = json.loads(path.read_text(encoding="utf-8"))
+        p = read_view(path)
         for e in p.get("entries", []):
             if (e.get("annotation") or {}).get("blocks"):
                 ann[p["id"], entry_id(e)] = e["annotation"]

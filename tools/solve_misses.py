@@ -27,7 +27,7 @@ import os
 import shutil
 import time
 from pathlib import Path
-from fetch_puzzle import read_puzzle_file, resolve_puzzle
+from fetch_puzzle import read_puzzle_view, resolve_puzzle
 from groups import entry_id
 from json_merge import dump_lines
 from solve_packet import crossing_map, label
@@ -55,7 +55,7 @@ def pending():
 
 
 def packet(pid, eid):
-    puzzle = read_puzzle_file(resolve_puzzle(pid))
+    puzzle = read_puzzle_view(resolve_puzzle(pid))
     ours = load(MISSES).get(pid, {})
     by_id = {entry_id(e): e for e in puzzle["entries"]}
     if eid not in by_id:

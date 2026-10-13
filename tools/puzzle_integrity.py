@@ -221,7 +221,7 @@ from fetch_puzzle import (
     is_continuation,
     is_grid_answer,
     prints_own_count,
-    read_puzzle_file,
+    read_puzzle_view,
 )
 from groups import entry_id
 from reconstruct_grid import grid_of, lights_from_grid, lights_of
@@ -1700,7 +1700,7 @@ def _one_file(path):
     """Everything audit() needs from one file, for parallel.pmap: its own
     flags, and what the cross-file checks weigh it by."""
     flags = []
-    puzzle = read_puzzle_file(path)
+    puzzle = read_puzzle_view(path)
     check_filed(path, puzzle, flags)
     pid = puzzle["id"]
     held = (puzzle.get("series", "cryptic"), puzzle["number"], date_of(puzzle), pid)
@@ -1842,7 +1842,7 @@ def _cached(conn, files):
 
 def _summary(path):
     """_one_file's cross-file row alone, for a file the run does not judge."""
-    puzzle = read_puzzle_file(path)
+    puzzle = read_puzzle_view(path)
     pid = puzzle["id"]
     return (pid, content_hash(puzzle), clue_keys(puzzle),
             (puzzle.get("series", "cryptic"), puzzle["number"], date_of(puzzle), pid))

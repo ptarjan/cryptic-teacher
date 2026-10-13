@@ -5017,7 +5017,7 @@ def corrected_clues(puzzle, old, skip=()):
     rows = set(SOURCE_CLUE_WRONG) | set(load_source_table("setter_error"))
     # reprint_readings, not book_readings: a read on the desktop is handed
     # the edition's reprints in its request (ocr_remote).
-    books = book_clues(reprint_readings(old["number"], old["series"])) if old.get("number") and old.get("series") else {}
+    books = book_clues(reprint_readings(old["number"], series_meta.of(old))) if old.get("number") and series_meta.of(old) else {}
     now = {entry_id(e): e["clue"] for e in puzzle["entries"] if (e.get("clue") or {}).get("text")}
     fixed, lights = {}, {e["number"] for e in old["entries"]}
     for e in old["entries"]:

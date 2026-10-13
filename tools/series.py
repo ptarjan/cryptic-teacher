@@ -963,6 +963,13 @@ NAME_LEADS = {
 }
 
 
+def of(puzzle):
+    """The puzzle's series: stored on a legacy file, the id's prefix on a format
+    v2 file (which stores no `series`). For a tool that holds the raw file
+    because it writes it back; a read-only tool takes view_puzzle()."""
+    return puzzle.get("series") or (parse_id(puzzle["id"])[0] if puzzle.get("id") else None)
+
+
 def display_name(puzzle):
     """The puzzle's name, from its id and the facts it stores: a book's from
     the registry; "Prize crossword" for a Guardian prize; a printed `title`

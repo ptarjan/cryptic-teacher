@@ -32,6 +32,7 @@ import sys
 from pathlib import Path
 
 import clueability
+from annotation import view_puzzle  # format v2: derived fields
 from puzzle_paths import puzzle_files
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -54,7 +55,7 @@ def derive():
         raise SystemExit("no clueability cache and no lexicon to build one: run tools/fetch_lexicon.sh")
     scored = collections.defaultdict(list)  # length -> [(clue, familiarity)]
     for path in puzzle_files():
-        p = json.loads(Path(path).read_text())
+        p = view_puzzle(json.loads(Path(path).read_text()))
         if p.get("series") == "authored":
             continue
         for e in p.get("entries") or []:

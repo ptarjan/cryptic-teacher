@@ -82,11 +82,11 @@ if __name__ == "__main__":
     from collections import Counter
 
     import parallel
-    from fetch_puzzle import read_puzzle_file
+    from fetch_puzzle import read_puzzle_view
     from puzzle_paths import puzzle_files
 
     def row(path):
-        p = read_puzzle_file(path)
+        p = read_puzzle_view(path)
         return p["id"], p.get("series"), p.get("date") or "", style(p)
 
     hits = [r for r in parallel.pmap(row, puzzle_files()) if r[3]]

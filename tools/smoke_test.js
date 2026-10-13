@@ -797,7 +797,7 @@ const TYPE_FAMILY = Object.fromEntries(CLUE_TYPES.types.map((t) => [t.name, t.fa
   const seen = {};
   pp.puzzleFiles()
     .forEach((f) => {
-      const puz = JSON.parse(fs.readFileSync(f, "utf8"));
+      const puz = pp.readView(f);  // the shim form: a v2 file stores no `type`
       (puz.entries || []).forEach((e) => {
         const types = (e.annotation || {}).type;
         if (!Array.isArray(types)) return;

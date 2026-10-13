@@ -47,7 +47,7 @@ import random
 import re
 
 
-from fetch_puzzle import read_puzzle_file  # one reader
+from fetch_puzzle import read_puzzle_view  # one reader
 import puzzle_paths  # one puzzles/
 import enumeration  # the printed line a judge reads
 from groups import entry_id
@@ -76,7 +76,7 @@ def build_pairs(votes, rng):
         if path is None:
             skipped.append((pid, "no puzzle file"))
             continue
-        entries = annotated_entries(read_puzzle_file(path))
+        entries = annotated_entries(read_puzzle_view(path))
         yes = [e for e in entries if entry_id(e) in voted[pid]]
         no = [e for e in entries if entry_id(e) not in voted[pid]]
         if not yes or not no:
@@ -109,7 +109,7 @@ def build_extra_pairs(votes, rng, used, want):
         path = puzzle_paths.find(pid)
         if path is None:
             continue
-        entries = annotated_entries(read_puzzle_file(path))
+        entries = annotated_entries(read_puzzle_view(path))
         yes = [e for e in entries if entry_id(e) in voted[pid] and (pid, entry_id(e)) not in used]
         no = [e for e in entries if entry_id(e) not in voted[pid] and (pid, entry_id(e)) not in used]
         if yes and no:

@@ -396,13 +396,14 @@ def main(argv):
     cmd, rest = argv[0], argv[1:]
     write = "--write" in rest
     ids = [a for a in rest if not a.startswith("--")]
+    import series as _series
     tally = collections.defaultdict(collections.Counter)
     for path, puzzle in _puzzles(ids):
         if cmd == "flagged":
             kinds = device_kinds(puzzle.get("preamble"))
             if kinds:
                 ann = any(e.get("annotation") for e in puzzle["entries"])
-                tally[puzzle["series"]]["annotated" if ann else "unannotated"] += 1
+                tally[_series.of(puzzle)]["annotated" if ann else "unannotated"] += 1
                 print(f"{puzzle['id']}\t{'/'.join(kinds)}\t{'A' if ann else '-'}\t"
                       f"{puzzle['preamble'][:160]}")
         elif cmd == "convert":
@@ -410,7 +411,7 @@ def main(argv):
             if status == "skip" and detail != "unannotated":
                 continue
             status = "unannotated" if status == "skip" else status
-            tally[puzzle["series"]][status] += 1
+            tally[_series.of(puzzle)][status] += 1
             print(f"{puzzle['id']}\t{status}\t{detail}")
             if write and new is not None:
                 from fetch_puzzle import write_puzzle_file

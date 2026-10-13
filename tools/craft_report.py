@@ -159,7 +159,7 @@ from pathlib import Path
 
 import clue_types
 from difficulty import _rank_list, moments
-from fetch_puzzle import puzzle_files, read_puzzle_file  # one glob, one reader for every tool
+from fetch_puzzle import puzzle_files, read_puzzle_view  # one glob, one reader for every tool
 from groups import entry_id
 
 # Below this a device's count is dominated by which puzzles happen to be
@@ -320,7 +320,7 @@ def all_observations():
     """
     raw = {}
     for path in puzzle_files():
-        puz = read_puzzle_file(path)
+        puz = read_puzzle_view(path)
         o = observe(puz)
         if o:
             o["series"] = puz.get("series")
@@ -410,7 +410,7 @@ def device_vs_favourites(voted):
     tot, obs, exp, var = Counter(), Counter(), defaultdict(float), defaultdict(float)
     puzzles = clues = names = 0
     for path in puzzle_files():
-        puz = read_puzzle_file(path)
+        puz = read_puzzle_view(path)
         ents = annotated(puz)
         pid = puz.get("id")
         if pid not in voted or not ents:
@@ -475,7 +475,7 @@ def vs_favourites(votes_path, trials=3000):
     obs, _ = all_observations()
     rows = []
     for path in puzzle_files():
-        puz = read_puzzle_file(path)
+        puz = read_puzzle_view(path)
         pid = puz.get("id")
         ents = annotated(puz)
         if pid not in voted or pid not in obs or not ents:

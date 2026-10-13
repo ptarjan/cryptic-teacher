@@ -52,7 +52,7 @@ from pathlib import Path
 from fetch_puzzle import (read_puzzle_file, reindex,
                           resolve_puzzle, write_puzzle_file)
 from grid_fill import MIN_CHECKED_RATIO  # the authoring rulebook's floor
-from series import official_key
+from series import official_key, of as series_of
 import clues_only
 import corroborate
 import puzzle_paths
@@ -518,7 +518,7 @@ def main():
     # this function, and a reprint that reached the site without it would have
     # tools/build_seo_pages.py promise the official answers will replace these
     # for a book that prints its solutions as pictures.
-    never = official_key(puzzle.get("series"))
+    never = official_key(series_of(puzzle))
     if never:
         detail["officialKey"] = never
     # No generator: this fills answers into a file a fetcher laid out, and

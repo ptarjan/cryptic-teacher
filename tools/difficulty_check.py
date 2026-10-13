@@ -31,7 +31,7 @@ import json
 from pathlib import Path
 import difficulty as D
 import series as series_meta
-from fetch_puzzle import puzzle_files, puzzle_is_annotated, read_puzzle_file
+from fetch_puzzle import puzzle_files, puzzle_is_annotated, read_puzzle_view
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -51,7 +51,7 @@ def rows():
     sn, ctx = D.load_snitch(), D.context()
     out = []
     for path in puzzle_files():
-        puz = read_puzzle_file(path)
+        puz = read_puzzle_view(path)
         pid = puz["id"]
         s = D.score(puz, ctx)
         rated = pid in sn and pid.rpartition("-")[0] in D.SNITCH_SERIES

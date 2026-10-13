@@ -137,7 +137,7 @@ def dissolve(puzzle):
     It reads the per-light shape, every member carrying its group, so repair()
     spreads the stored leader-only groups before calling it.
     """
-    return fetcher.dissolve_false_groups(puzzle["entries"], puzzle.get("series"))
+    return fetcher.dissolve_false_groups(puzzle["entries"], series_meta.of(puzzle))
 
 
 def rebuild(puzzle):
@@ -146,7 +146,7 @@ def rebuild(puzzle):
     The fetcher's own rule, called where convert() calls it: after dissolve, which
     is what settles whether a link is real before anything is rebuilt from one.
     """
-    return fetcher.reconstruct_groups(puzzle["entries"], puzzle.get("series"))
+    return fetcher.reconstruct_groups(puzzle["entries"], series_meta.of(puzzle))
 
 
 def misfiled_dates(dated):

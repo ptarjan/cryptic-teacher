@@ -28,7 +28,7 @@ import sys
 
 import clue_types
 from fetch_puzzle import (  # one glob, one reader, one id resolver
-    puzzle_files, read_puzzle_file, resolve_puzzle)
+    puzzle_files, read_puzzle_view, resolve_puzzle)
 from groups import entry_id
 
 # An inflection the same word can carry without becoming a different word. Longer
@@ -295,7 +295,7 @@ def _still_a_note(new, note, answer):
 def leaks(only=()):
     paths = [resolve_puzzle(n) for n in only] if only else puzzle_files()
     for path in paths:
-        puzzle = read_puzzle_file(path)
+        puzzle = read_puzzle_view(path)
         by_id = {entry_id(e): e for e in puzzle.get("entries", [])}
         for entry in puzzle.get("entries", []):
             ann = entry.get("annotation") or {}

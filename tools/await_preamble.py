@@ -22,6 +22,7 @@ nothing, and the run is parked like any other.
 import copy
 import sys
 
+import annotation
 import puzzle_paths
 import puzzle_schema
 import validate_annotations
@@ -44,7 +45,7 @@ def left_to_preamble(puzzle):
 def which(path, puzzle):
     """The entries that make the run's file wait for its preamble, or [] when
     the file fails for anything else too, or has a preamble already."""
-    tags = left_to_preamble(puzzle)
+    tags = left_to_preamble(annotation.view_puzzle(puzzle))
     if puzzle.get("preamble") or not tags:
         return []
     given = puzzle_schema.order(dict(copy.deepcopy(puzzle), preamble=STAND_IN))

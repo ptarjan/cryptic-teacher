@@ -73,7 +73,7 @@ def rated_rows():
         path = puzzle_paths.find(pid)
         if path is None:
             continue
-        puz = D.read_puzzle_file(path)
+        puz = D.read_puzzle_view(path)
         s = D.score(puz, ctx)
         if s:
             out.setdefault(series, []).append({

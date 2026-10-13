@@ -74,7 +74,7 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 
 import enumeration  # a clue's printed counts; tools/enumeration.py
-from fetch_puzzle import (http_bytes, flatten_clue, grade_model_fill,
+from fetch_puzzle import (read_puzzle_view, http_bytes, flatten_clue, grade_model_fill,
                           merge_annotations, print_grade, puzzle_files, puzzle_path,
                           read_puzzle_file, reindex, still_worth_refreshing,
                           write_puzzle_file)
@@ -400,7 +400,7 @@ def refresh_unsolved():
     field itself stays hashed."""
     pending = []
     for path in puzzle_files():
-        p = read_puzzle_file(path)
+        p = read_puzzle_view(path)
         if p.get("series") != "everyman":
             continue
         # A puzzle we solved ourselves has a letter in every square, so the

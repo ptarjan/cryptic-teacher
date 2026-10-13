@@ -52,11 +52,12 @@ def recount():
     for every family its types use (the share tools/smoke_test.js checks).
     A puzzle that is not a cryptic (tools/puzzle_style.py) is left out: its
     definitions are not a cryptic's."""
+    import annotation
     import puzzle_style
     from puzzle_paths import puzzle_files
     seen = {f["name"]: 0 for f in FAMILIES}
     for path in puzzle_files():
-        puzzle = json.loads(path.read_text(encoding="utf-8"))
+        puzzle = annotation.view_puzzle(json.loads(path.read_text(encoding="utf-8")))  # v2 stores no `type`
         if puzzle_style.is_straight(puzzle):
             continue
         for e in puzzle.get("entries") or ():

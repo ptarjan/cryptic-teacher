@@ -25,7 +25,7 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 from blog_facts import DATA
-from fetch_puzzle import read_puzzle_file
+from fetch_puzzle import read_puzzle_view
 import puzzle_paths
 from groups import entry_id
 
@@ -139,7 +139,7 @@ def build():
             path = puzzle_paths.find(pid)
             if not comments or path is None:
                 continue
-            clues, times, dnf = score(read_puzzle_file(path), comments)
+            clues, times, dnf = score(read_puzzle_view(path), comments)
             table[pid] = {"comments": len(comments), "dnf": dnf,
                           "median_minutes": statistics.median(times) if times else None,
                           "stated_times": len(times),
@@ -185,7 +185,7 @@ def per_puzzle(table):
         if pid.rpartition("-")[0] != "times" or v["comments"] < 10:
             continue
         named = list(v["clues"].values())
-        s = D.score(read_puzzle_file(puzzle_paths.find(pid)), ctx)
+        s = D.score(read_puzzle_view(puzzle_paths.find(pid)), ctx)
         nitch = sn.get(pid, {}).get("nitch")
         resid = nitch - by_day[date.fromisoformat(sn[pid]["date"]).weekday()] if nitch is not None else None
         rows.append({"dnf": v["dnf"] / v["comments"],
@@ -211,7 +211,7 @@ def per_clue(table):
     cols = defaultdict(list)
     puzzles = 0
     for pid, v in table.items():
-        puz = read_puzzle_file(puzzle_paths.find(pid))
+        puz = read_puzzle_view(puzzle_paths.find(pid))
         if not D.puzzle_is_annotated(puz):
             continue
         rows = []

@@ -54,7 +54,7 @@ import clue_types
 import quotes  # curl(): clue text is stored straight, shown curled
 import enumeration
 from fetch_puzzle import (  # one glob, one reader, one puzzles/ for every tool
-    blog_annotation, blog_facts_for, puzzle_files, read_puzzle_file,
+    blog_annotation, blog_facts_for, puzzle_files, read_puzzle_view,
     with_blog_facts)
 import puzzle_paths
 from groups import entry_id
@@ -95,7 +95,7 @@ def puzzle_file(pid):
 def load(pid):
     """The puzzle, with a blog's marked-up facts standing in for any clue we
     have not annotated, so a puzzle the blogs explain gets a card of its own."""
-    puz = with_blog_facts(read_puzzle_file(puzzle_file(pid)))
+    puz = with_blog_facts(read_puzzle_view(puzzle_file(pid)))
     for e in puz["entries"]:
         if not e.get("annotation") and e.get("blog"):
             e["annotation"] = blog_annotation(e)
@@ -718,7 +718,7 @@ def eligible():
     with a drawable clue, then the newest blog-only ones with one."""
     blog = blog_card_ids()
     ours = [f.stem for f in puzzle_files()
-            if any(e.get("annotation") for e in read_puzzle_file(f)["entries"])]
+            if any(e.get("annotation") for e in read_puzzle_view(f)["entries"])]
     return [pid for pid in sorted(ours) + [b for b in blog if b not in set(ours)]
             if pick(pid)[0]]
 

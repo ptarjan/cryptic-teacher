@@ -88,7 +88,7 @@ import provenance
 import enumeration  # a clue's printed counts; tools/enumeration.py
 import puzzle_paths
 import series as series_meta
-from fetch_puzzle import (enumeration_separators, grade_model_fill, has_words,
+from fetch_puzzle import (read_puzzle_view, enumeration_separators, grade_model_fill, has_words,
                           http_bytes, merge_annotations, print_grade, puzzle_files,
                           puzzle_path, read_puzzle_file, still_worth_refreshing,
                           write_puzzle_file)
@@ -1024,7 +1024,7 @@ def refresh_unsolved():
     refresh_unsolved."""
     pending = []
     for path in puzzle_files():
-        p = read_puzzle_file(path)
+        p = read_puzzle_view(path)
         if p.get("series") != SERIES:
             continue
         if provenance.solution_detail(p).get("blog") == "fifteensquared":
