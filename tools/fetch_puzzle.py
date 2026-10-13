@@ -3310,7 +3310,7 @@ def refresh_unsolved():
         if not still_worth_refreshing(p):
             continue
         if not all(e.get("solution") for e in p["entries"]) or provenance.solution_detail(p):
-            pending.append((p["number"], p["series"]))
+            pending.append((p["number"], series_meta.of(p)))
     filled = 0
     for num, series in pending:
         try:
