@@ -73,6 +73,29 @@ same "acquired years ago" "$(grep '^UNDATED_OLD ' <<<"$out")" "UNDATED_OLD False
 echo "a puzzle with no date and no source is never refreshed"
 same "no anchor at all" "$(grep '^NO_ANCHOR ' <<<"$out")" "NO_ANCHOR False"
 
+out2=$(PYTHONPATH=tools python3 - <<'PY' 2>&1
+import datetime
+import fetch_puzzle as fetcher
+
+# A format v2 file stores no `series`: refresh_unsolved holds the raw file,
+# so it must read the series off the id, not crash with KeyError.
+today = datetime.date.today().isoformat()
+raw = {"id": "cryptic-99999", "number": 99999, "date": today,
+       "entries": [{"solution": None}]}
+asked = []
+fetcher.puzzle_files = lambda: ["x"]
+fetcher.read_puzzle_file = lambda path: raw
+fetcher.fetch_number = lambda num, series: (asked.append((num, series)) or (raw, None))
+fetcher.reindex = lambda: None
+fetcher.time.sleep = lambda s: None
+fetcher.refresh_unsolved()
+print("ASKED", asked)
+PY
+)
+
+echo "a format v2 file with no stored series is still refreshed"
+same "series read from the id" "$(grep '^ASKED ' <<<"$out2")" "ASKED [(99999, 'cryptic')]"
+
 echo "the working tree is untouched"
 same "git status unchanged" "$(git status --porcelain)" "$tree_before"
 
