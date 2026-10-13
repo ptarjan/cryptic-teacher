@@ -826,5 +826,26 @@ same "a write dropping the held byline is refused" "$(field DROPS_SETTER "$out13
 same "a placeholder byline is still refused" "$(field PLACEHOLDER "$out13")" "refused"
 same "the audit still reports the missing byline" "$(field AUDIT_STILL_REPORTS "$out13")" "True"
 
+# "(6;4,6)" is two counts: a themed Genius prints the clue's answer, then what
+# the grid holds. genius-38 was refused as 16 letters over 10 (2026-10-13).
+out14=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
+import puzzle_integrity as pi
+def entry(enum, sol):
+    return {"number": 1, "direction": "across", "position": {"x": 0, "y": 0},
+            "length": len(sol), "solution": sol, "clue": {"text": "Theme", "enumeration": enum}}
+def flags(enum, sol):
+    e = entry(enum, sol); out = []
+    pi.check_length({"id": "genius-38", "series": "genius", "entries": [e]}, [e], out)
+    return [f for f in out if f[0] == "LENGTH"]
+print("SECOND_SIDE", "refused" if flags("6;4,6", "TENLETTERS") else "allowed")
+print("FIRST_SIDE", "refused" if flags("6;4,6", "SIXSIX") else "allowed")
+print("NEITHER", "refused" if flags("6;4,6", "SEVENLT") else "allowed")
+PY
+)
+died "$out14" "the two-count enumeration fixture"
+same "a themed (6;4,6) over ten cells is its entry count" "$(field SECOND_SIDE "$out14")" "allowed"
+same "a themed (6;4,6) over six cells is its clue count" "$(field FIRST_SIDE "$out14")" "allowed"
+same "a (6;4,6) over seven cells is still refused" "$(field NEITHER "$out14")" "refused"
+
 [ "$fails" = 0 ] && echo "puzzle_integrity: all checks passed" || echo "puzzle_integrity: $fails FAILED"
 exit $((fails > 0))

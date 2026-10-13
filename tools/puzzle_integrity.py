@@ -809,6 +809,15 @@ def check_length(puzzle, checkable, flags):
         if sum(counts) == held or (len(group) > 1 and per_light
                                    and sum(counts) == len(solution)):
             continue
+        # Two counts in one bracket, "(6;4,6)": a themed Genius prints the clue's
+        # answer and then what the grid holds (genius-38, refused 2026-10-13
+        # as 16 over 10). Either side measured alone is the count.
+        enum = e["clue"].get("enumeration") or ""
+        if ";" in enum and any(
+                (side := sum(enumeration.counts(part))) == held
+                or (len(group) > 1 and per_light and side == len(solution))
+                for part in enum.split(";")):
+            continue
         # An altered entry's count may be the clue's own word's, not the grid's.
         if len(group) == 1 and e.get("alteration") and sum(counts) == len(
                 _alpha(e["alteration"].get("from"))):
