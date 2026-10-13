@@ -61,6 +61,10 @@ landing.js                                    on a puzzle answers page, marks th
                                               visitor came for (Google's text fragment, or
                                               #12-across) and offers the rest of the crossword
                                               with hints under it
+appnav.js                                     the home-screen app's bottom tab bar (Puzzle,
+                                              Puzzles, Stats, Learn) and back link, shown only
+                                              when the site runs standalone with no browser
+                                              around it
 quotes.js                                     curls the straight quotes clue text is stored
                                               with, for display (tools/quotes.py stores them
                                               straight)
@@ -962,6 +966,13 @@ tools/test_clue_landing.js                    does a search visitor land on the 
                                               it, leave reloads, other referrers and readers
                                               who scrolled first alone, and report only names
                                               on sync/events.js's list
+tools/test_app_nav.js                         can a home-screen app user get back to their
+                                              puzzle? Standalone, every page must carry the tab
+                                              bar with its own section lit and a Puzzle tab
+                                              that reopens the last puzzle, a page reached from
+                                              the app or another page must offer a back link
+                                              that is history.back(), and a browser tab must
+                                              get none of it
 tools/test_difficulty_page.sh                 can /difficulty/ describe a rating other than the
                                               one the badges show? It must refuse to build when
                                               its prose and difficulty.WEIGHTS name different
