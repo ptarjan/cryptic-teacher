@@ -261,10 +261,14 @@ jobs:
       # them before the deploy, so a broken link still ships nothing.
       - name: Start the site checks
         run: |
+          # Each detached from the step's output, or the runner holds the step
+          # open on the inherited pipe (5s in run 38389462732).
           (python3 tools/stage_site.py --check "$RUNNER_TEMP/site.list" \
-             > "$RUNNER_TEMP/links.log" 2>&1; echo $? > "$RUNNER_TEMP/links.rc") &
+             > "$RUNNER_TEMP/links.log" 2>&1; echo $? > "$RUNNER_TEMP/links.rc") \
+             < /dev/null > /dev/null 2>&1 &
           (python3 tools/indexnow.py changed . .indexnow/manifest.json indexnow-urls.txt "$RUNNER_TEMP/site.list" \
-             > "$RUNNER_TEMP/indexnow.log" 2>&1; echo $? > "$RUNNER_TEMP/indexnow.rc") &
+             > "$RUNNER_TEMP/indexnow.log" 2>&1; echo $? > "$RUNNER_TEMP/indexnow.rc") \
+             < /dev/null > /dev/null 2>&1 &
       # What actions/upload-pages-artifact does, minus its tar -v (a log line
       # per file, ~140k of them) and stored rather than deflated. The upload
       # is bound by compressing, not by the network: level 6 took 65s, level
