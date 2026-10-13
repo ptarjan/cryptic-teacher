@@ -831,8 +831,8 @@ tools/parallel.py                             pmap(): a map over the corpus on e
                                               passes
 tools/test_shim_format.sh                     holds the packed puzzle shims to unpacking into
                                               exactly the puzzle the browser should hold
-tools/og_palette.py                           rewrites each card as a 256-colour palette PNG, a
-                                              third of the size
+tools/og_palette.py                           rewrites each card as a 64-colour palette PNG,
+                                              under a third of the size
 tools/stage_site.py                           links the published files into _site/ for Pages
                                               and fails on any link to a file left out
 tools/make_icons.py                           renders every favicon and PWA icon from one

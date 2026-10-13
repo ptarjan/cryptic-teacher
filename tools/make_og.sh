@@ -22,7 +22,7 @@
 # in CI and a fresh checkout stamps every file with the same time.
 # Delete the png, or the manifest entry, to force one.
 #
-# Chrome writes 24-bit PNGs; tools/og_palette.py rewrites each as a 256-colour
+# Chrome writes 24-bit PNGs; tools/og_palette.py rewrites each as a 64-colour
 # palette PNG, a third of the size and no visible change. That runs after the
 # manifest is written and the manifest never hashes the png, so it does not
 # make a card stale.
@@ -149,4 +149,4 @@ esac
 # Every card on disk, not only the ones drawn this run, so a card the cache
 # carried in from an earlier run is converted too.
 shopt -s nullglob
-python3 "$REPO/tools/og_palette.py" "$REPO/og.png" "$REPO"/og/*.png
+python3 "$REPO/tools/og_palette.py" "$REPO/og.png" "$REPO"/og/.site/*.png "$REPO"/og/*.png
