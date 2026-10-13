@@ -42,7 +42,7 @@ silently whenever the alias moved.
 
 | Role | Script / prompt | Model, effort | What it does |
 |---|---|---|---|
-| Solve + annotate | `tools/puzzle_worker.sh`, `tools/annotate_prompt.md`, `tools/solve_prompt.md` | `opus` alias, medium | One conversation per puzzle. It solves the grid first if there is no key, then writes every clue's hint ladder as JSON. |
+| Solve + annotate | `tools/puzzle_worker.sh`, `tools/annotate_prompt.md`, `tools/solve_prompt.md` | `opus` alias, medium | One conversation per puzzle, in one pass. With no key, it fills the whole grid first (the crossings confirm each answer, checked by `apply_solution --check-only`), then turns the wordplay it already parsed while solving into every clue's hint ladder as JSON. |
 | Graded-miss diagnosis | `tools/solve_misses.py`, `tools/solve_miss_prompt.md` | `opus`, medium | When the official key shows that a cold solve got a light wrong, this works out why, and whether a check could have caught it. |
 | Bad-hint report fixes | `tools/report_fix_prompt.md`, from `tools/daily_update.sh` | `opus`, medium | Works through the hints that readers report from the site. The fix goes into the data, and into the renderer or validator where it can. |
 | Clue-quality judge | `tools/grade_clues_judge.sh`, `tools/grade_clues_judge.md` | `claude-opus-5-5`, medium | Three fresh judges per arm score clues blind on five axes, to compare clues we write with published ones. |
