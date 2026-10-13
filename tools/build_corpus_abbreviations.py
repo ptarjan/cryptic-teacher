@@ -43,14 +43,12 @@ removes them, and a stripped leaf is still counted (is_abbreviation()).
 import argparse
 import collections
 import json
-import os
 import re
 import sys
 from pathlib import Path
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import puzzle_paths  # noqa: E402
-import puzzle_schema  # noqa: E402
+import puzzle_paths
+import puzzle_schema
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "tools" / "data" / "lexicons" / "abbreviations_corpus.json"
