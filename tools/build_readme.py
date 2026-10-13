@@ -109,7 +109,7 @@ LAYOUT = [
     ("fetching", "tools/puzzle_schema.py", "checks every puzzle file against tools/data/puzzle.schema.json, and prunes null and empty values on every write: an absent key means empty"),
     ("fetching", "tools/enumeration.py", "a clue's printed enumeration: split() cuts a printed line into the clue's `text` and `enumeration` for every writer, printed() joins them back"),
     ("fetching", "tools/definitions.py", "where each of an annotation's definitions sits in its clue: fills `at` from the text on every write, by the whole-word, no-overlap, clue-end rules, and refuses to guess past them"),
-    ("fetching", "tools/annotation.py", "an annotation's two groups, read one way by every tool: `explanation` (the prose rung) and `assembly` (the machine-checkable rebuild), and which of `assembly.anagrams` gives the whole answer"),
+    ("fetching", "tools/annotation.py", "an annotation's two groups, read one way by every tool: `explanation` (the prose rung) and `assembly` (the machine-checkable rebuild), which of `assembly.anagrams` gives the whole answer, and `view()`: the fields a format v2 wordplay tree implies"),
     ("fetching", "tools/groups.py", "linked answers: the leader carries `group`, its lights in order, and the other lights nothing; maps each light to its group or leader, and spreads/collapses the per-light claims the Guardian ships"),
     ("fetching", "tools/test_definitions.sh", "holds each of those rules, the refusal, and the validator's check that `at` points at its text"),
     ("fetching", "tools/puzzle_integrity.py", "checks the puzzles themselves: two puzzles that are the same puzzle, an answer that does not fit its clue’s printed length, two entries that cross and disagree"),
@@ -660,6 +660,8 @@ LAYOUT = [
     ("fetching", "tools/test_blog_clues_only.sh", "is a blog post whose answers fit no grid held as its clues alone, and does the solve's fill file it on the grid those answers cross in?"),
     ("fetching", "tools/test_session_model.sh", "does apply_annotations find who wrote the hints when the model never ran it?"),
     ("fetching", "tools/salvaged.sh", "lists or restores what tools/puzzle_worker.sh salvaged from a discarded run"),
+    ("fetching", "tools/test_wordplay.sh", "does wordplay.py parse and check every op of the wordplay expression, and does annotation.view() derive today's fields from the tree?"),
+    ("fetching", "tools/wordplay.py", "a clue's wordplay as one line the model writes, and the tree a puzzle stores"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
