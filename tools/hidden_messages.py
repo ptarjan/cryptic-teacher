@@ -277,7 +277,7 @@ def entry_letter(ann, entry):
     """The extra or omitted letter the blocks give, as (kind, letter), or None.
     Extra: the blocks give the answer's letters and one more. Omitted: they give
     one fewer, or supply it in the clue's one single-letter block with no clue
-    words (letters the preamble supplies)."""
+    words (letters the preamble supplies), once for each place it occurs."""
     blocks = ann.get("blocks") or []
     if any(b.get("soundsLike") for b in blocks):
         return None
@@ -287,7 +287,9 @@ def entry_letter(ann, entry):
         return None
     supplied = [letters(b.get("gives")) for b in blocks
                 if not b.get("clueFragment") and len(letters(b.get("gives"))) == 1]
-    if len(supplied) == 1:
+    # A letter dropped wherever it occurs (genius-263's Letters Latent) is
+    # supplied once per occurrence, each block the same letter.
+    if supplied and len(set(supplied)) == 1:
         return "omitted", supplied[0]
     more, fewer = got - base, base - got
     if sum(more.values()) == 1 and not fewer:

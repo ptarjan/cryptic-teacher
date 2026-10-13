@@ -1557,7 +1557,9 @@ HELD_CLUES = "held clues-only (grid does not take the clue list)"
 def promote_numbered(record, answers):
     """(puzzle, problems): a Genius held by hold_clues filed unsolved on the
     one grid its answers cross in (clues_only.derive_grid), numbered by that
-    grid. An altered puzzle's plain answers cross in no grid, so it stays held."""
+    grid. An altered puzzle's plain answers cross in no grid, so it stays held;
+    one answered with its entries (Letters Latent) files with each clue's
+    count as printed, the full answer's (build's loose_counts)."""
     import clues_only
     grid, why = clues_only.derive_grid(record, answers)
     if grid is None:
@@ -1575,7 +1577,8 @@ def promote_numbered(record, answers):
                         "enumeration": e["enumeration"]} for e in entries]}
     row = {"grid": grid, "number": record["number"], "how": "the grid its answers cross in"}
     puzzle, why = file_blog_puzzles.build(rec, row, SERIES, datetime.date.fromisoformat(record["date"]),
-                                          record.get("setter"))
+                                          record.get("setter"),
+                                          loose_counts=bool(record.get("preamble")))
     if why:
         return None, [why]
     if record.get("preamble"):
