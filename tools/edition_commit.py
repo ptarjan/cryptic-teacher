@@ -38,7 +38,7 @@ EXITS = {"read": 0, "scanned": 0, "current": 0, "fetched": 0, "busy": 3, "held":
 #: loads nothing past these).
 MODULES = ("annotation", "desktop_busy", "dir_cache", "fetch_puzzle", "find_answer_leaks", "groups", "hidden_messages",
            "ocr_clues", "ocr_remote", "puzzle_integrity", "puzzle_paths", "reprints", "scan_queue",
-           "trove_solution_ocr", "validate_annotations", "vlm_reader")
+           "trove_solution_ocr", "validate_annotations", "vlm_reader", "wordplay")
 
 
 def filer_path(where, series, puzzles, root=None):
