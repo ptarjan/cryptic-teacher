@@ -294,14 +294,14 @@ def render(node):
     op = node["op"]
     if op == "charade":
         out = []
-        for k, part in enumerate(node["parts"]):
+        for k, part in enumerate(parts_of(node)):
             s = render(part)
             if part.get("op") == "charade":
                 s = f"({s})"
             out.append(s)
         joiner = f" +{inds} " if inds else " + "
         return joiner.join(out) if not inds else out[0] + joiner + " + ".join(out[1:])
-    args = [render(p) for p in node["parts"]]
+    args = [render(p) for p in parts_of(node)]
     if "spelt" in node:
         args.append(node["spelt"])
     head = NAMES[op] + (f"({node['n']})" if op == "nth" else "")
@@ -316,6 +316,13 @@ class _NeedTarget(Exception):
 
 def leaf_letters(node):
     return letters(node["gives"] if "gives" in node else node.get("words"))
+
+
+def parts_of(node):
+    """An op's parts. A file stores no empty list (puzzle_schema.prune: an
+    absent key means empty), so `pal()` over the answer alone is stored with
+    no `parts` key and every reader goes through here."""
+    return node.get("parts") or []
 
 
 def lettered(parts):
@@ -370,7 +377,7 @@ def values(node):
         return {letters(node.get("gives"))}
     if "op" not in node:
         return {leaf_letters(node)}
-    op, parts = node["op"], node["parts"]
+    op, parts = node["op"], parts_of(node)
     if op == "anagram":
         raise _NeedTarget(node)
     if op == "cryptic":
@@ -439,19 +446,19 @@ def lengths(node):
     if node.get("unchecked"):
         return {len(letters(node.get("gives")))}
     if op == "anagram" or op == "reversal":
-        return lengths(node["parts"][0])
+        return lengths(parts_of(node)[0])
     if op == "cryptic":
         return None
     if op == "charade":
         out = {0}
-        for p in node["parts"]:
+        for p in parts_of(node):
             ls = lengths(p)
             if ls is None:
                 return None
             out = {a + b for a in out for b in ls}
         return out
     if op == "container":
-        a, b = lengths(node["parts"][0]), lengths(node["parts"][1])
+        a, b = lengths(parts_of(node)[0]), lengths(parts_of(node)[1])
         return None if a is None or b is None else {x + y for x in a for y in b}
     try:
         return {len(v) for v in values(node)}
@@ -466,14 +473,14 @@ def _bag(node):
     except _NeedTarget:
         op = node["op"]
         if op in ("anagram", "reversal"):
-            return _bag(node["parts"][0])
+            return _bag(parts_of(node)[0])
         if op == "charade":
             out = {""}
-            for p in node["parts"]:
+            for p in parts_of(node):
                 out = {"".join(sorted(a + b)) for a in out for b in _bag(p)}
             return out
         if op == "container":
-            return {"".join(sorted(a + b)) for a in _bag(node["parts"][0]) for b in _bag(node["parts"][1])}
+            return {"".join(sorted(a + b)) for a in _bag(parts_of(node)[0]) for b in _bag(parts_of(node)[1])}
         raise WordplayError(f"{render(node)}: an anagram inside {NAMES[op]}() can't be "
                             f"checked; write the letters it gives as a leaf")
 
@@ -494,11 +501,11 @@ def match(node, want, got=None):
     elif op == "cryptic":
         ok = True
     elif op == "charade":
-        ok = _match_run(node["parts"], want, got)
+        ok = _match_run(parts_of(node), want, got)
     elif op == "reversal":
-        ok = match(node["parts"][0], want[::-1], got) is not None
+        ok = match(parts_of(node)[0], want[::-1], got) is not None
     elif op == "anagram":
-        child = node["parts"][0]
+        child = parts_of(node)[0]
         ok = False
         if "".join(sorted(want)) in _bag(child):
             try:
@@ -516,29 +523,29 @@ def match(node, want, got=None):
         ok = _match_container(node, want, got)
     elif op == "deletion":
         ok = False
-        for f in sorted(values(node["parts"][0])):
-            for r in sorted(values(node["parts"][1])):
+        for f in sorted(values(parts_of(node)[0])):
+            for r in sorted(values(parts_of(node)[1])):
                 if any(f.startswith(r, k) and f[:k] + f[k + len(r):] == want for k in range(len(f))):
-                    match(node["parts"][0], f, got)
-                    match(node["parts"][1], r, got)
+                    match(parts_of(node)[0], f, got)
+                    match(parts_of(node)[1], r, got)
                     ok = True
                     break
             if ok:
                 break
     elif op == "palindrome":
-        real = lettered(node["parts"])
+        real = lettered(parts_of(node))
         ok = want == want[::-1] and (not real or _match_run(real, want, got))
-        for p in node["parts"]:
+        for p in parts_of(node):
             if not any(p is r for r in real):
                 _fill(p, got)
     elif op in ("homophone", "spoonerism") and "spelt" in node:
         ok = node["spelt"] == want
-        for p in node["parts"]:
+        for p in parts_of(node):
             _fill(p, got)
     else:
         ok = want in values(node)
         if ok:
-            for p in node["parts"]:
+            for p in parts_of(node):
                 if op == "hidden":
                     got[id(p)] = want
                 else:
@@ -576,7 +583,7 @@ def _match_run(parts, want, got):
 
 
 def _match_container(node, want, got):
-    outer, inner = node["parts"]
+    outer, inner = parts_of(node)
     for n in sorted(lengths(inner) or range(1, len(want))):
         for k in range(1, len(want) - n):
             trial = dict(got)
@@ -604,16 +611,16 @@ def diagnose(node, want):
     """The deepest node that fails to give its share of `want`, in words."""
     op = node.get("op")
     ls = lengths(node)
-    if op == "charade" and all(lengths(p) and len(lengths(p)) == 1 for p in node["parts"]):
-        sizes = [next(iter(lengths(p))) for p in node["parts"]]
+    if op == "charade" and all(lengths(p) and len(lengths(p)) == 1 for p in parts_of(node)):
+        sizes = [next(iter(lengths(p))) for p in parts_of(node)]
         if sum(sizes) == len(want):
             at = 0
-            for p, n in zip(node["parts"], sizes):
+            for p, n in zip(parts_of(node), sizes):
                 if match(p, want[at:at + n]) is None:
                     return diagnose(p, want[at:at + n])
                 at += n
     if op == "reversal" and ls and len(want) in ls:
-        child = node["parts"][0]
+        child = parts_of(node)[0]
         if "op" not in child and leaf_letters(child) == want:
             return (f"{render(child)} already reads {want}, but a leaf gives its letters "
                     f"before the reversal: write {render({**child, 'gives': want[::-1]})} inside rev()")
@@ -621,11 +628,11 @@ def diagnose(node, want):
     if op == "palindrome":
         if want != want[::-1]:
             return f"{render(node)}: {want} does not read the same backwards"
-        real = lettered(node["parts"])
+        real = lettered(parts_of(node))
         return diagnose(real[0] if len(real) == 1 else {"op": "charade", "parts": real}, want)
     if op == "anagram":
         try:
-            bag = min(_bag(node["parts"][0]), key=len)
+            bag = min(_bag(parts_of(node)[0]), key=len)
         except WordplayError as e:
             return str(e)
         extra = "".join(sorted((_count(bag) - _count(want)).elements()))
@@ -670,7 +677,7 @@ def _check_ops(node, got):
     for p in node.get("parts") or []:
         _check_ops(p, got)
     if op == "anagram":
-        child = node["parts"][0]
+        child = parts_of(node)[0]
         if id(child) in got and got[id(child)] == got.get(id(node)):
             raise WordplayError(f"{render(node)}: the fodder already reads "
                                 f"{got[id(node)]}, so there is no anagram")

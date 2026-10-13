@@ -192,10 +192,19 @@ CASES = [
       "linkWords": ["That's a"], "blocks": [{"clueFragment": "delusion", "gives": "DELUSION"}],
       "assembly": {"anagrams": [{"fodder": "DELUSION", "gives": "UNSOILED"}]}}),
     (entry(5, "down", "JOINTS", "Connections with cigarettes"),
-     {"definitions": [{"text": "Connections", "at": 0, "note": "first meaning"},
-                      {"text": "cigarettes", "at": 17, "note": "second meaning"}]},
+     {"definitions": [{"text": "Connections", "at": 0, "meaning": "first meaning"},
+                      {"text": "cigarettes", "at": 17, "meaning": "second meaning"}]},
      {"type": ["double_definition"], "answer": "JOINTS", "linkWords": ["with"],
       "blocks": [{"clueFragment": "Connections", "note": "first meaning"},
+                 {"clueFragment": "cigarettes", "note": "second meaning"}]}),
+    # A definition's `note` is the definitions rung's and never becomes its
+    # block's note: the blocks rung comes first (times-29410 26A's note named
+    # FLY BY NIGHT).
+    (entry(6, "down", "JOINTS", "Connections with cigarettes"),
+     {"definitions": [{"text": "Connections", "at": 0, "note": "read as JOINTS"},
+                      {"text": "cigarettes", "at": 17, "meaning": "second meaning"}]},
+     {"type": ["double_definition"], "answer": "JOINTS", "linkWords": ["with"],
+      "blocks": [{"clueFragment": "Connections"},
                  {"clueFragment": "cigarettes", "note": "second meaning"}]}),
     (entry(7, "down", "SALVO", "Volley's symbol, originally: broken oval"),
      {"definitions": [{"text": "Volley", "at": 0}],

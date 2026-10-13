@@ -1172,7 +1172,11 @@ def check_answer_matches_separators(tag, ann, entry, errors):
             letters += 1
     if not breaks:
         return
-    filed = sorted({s["at"] for s in seps if s["mark"] not in ("'", "\u2019")})
+    # A separator at the light's own end (or past it) is the paper running the
+    # answer on into another light (cryptic-21625 6D DANCE TO THE MUSIC, printed
+    # "5,2,3,5,2,4" for A DANCE TO THE MUSIC OF TIME): no gap inside this
+    # answer can stand for it.
+    filed = sorted({s["at"] for s in seps if s["mark"] not in ("'", "\u2019") and 0 < s["at"] < letters})
     if breaks != filed:
         errors.append(
             f"{tag}: answer {answer!r} breaks after {breaks}, but the paper "
@@ -2506,7 +2510,26 @@ def blocks_miss_letters(ann, entry):
     if any(x in atype for x in UNBALANCED_TYPES) or atype in UNBALANCED_EXACT_TYPES:
         return False
     got = "".join(letters(b.get("gives")) for b in ann.get("blocks") or [] if isinstance(b, dict))
-    return bool(got) and sorted(got) != sorted(block_letters(ann, wordplay_letters(ann, entry)))
+    want = block_letters(ann, wordplay_letters(ann, entry))
+    return bool(got) and sorted(got) != sorted(want) and sorted(got) != sorted(slipped_letters(ann, want))
+
+
+def slipped_letters(ann, want):
+    """`want` as the blocks hand it over when an anagram of the annotation is a
+    setter's slip (fodder that does not hold the letters it gives): its fodder
+    as printed in place of what it gives. check_anagram_letters lets such an
+    anagram stand only when tools/data/setter_error.json names it, so this
+    forgives nothing else. (A legacy file may instead have respelt a block to
+    hide the slip; its blocks then add up to `want` itself.)"""
+    from collections import Counter
+    have = Counter(want)
+    for a in assembly(ann).get("anagrams") or []:
+        if not isinstance(a, dict):
+            continue
+        f, g = Counter(letters(a.get("fodder") or "")), Counter(letters(a.get("gives") or ""))
+        if f != g and not (g - have):
+            have = have - g + f
+    return "".join(sorted(have.elements()))
 
 
 def missing_link_word_fix(ann, extra, missing):

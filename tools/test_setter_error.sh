@@ -37,6 +37,28 @@ check("the slip must be told in the walkthrough", 1,
 check("a row more than one letter out is a wrong parse", 1,
       len(errors("p-1", "2-down", "ABCDEF", "GHIJKL")))
 
+# The blocks hand over the fodder as printed: with a slip they add up to the
+# answer with the slip's letters swapped back (a v2 file's blocks are the
+# printed words); a legacy file that respelt a block to hide it still passes.
+E = {"number": 13, "direction": "down", "solution": "KISSOFLIFE", "clue": {"text": "x"}}
+def slip_ann(*gives):
+    return {"type": ["anagram"], "answer": "KISS OF LIFE",
+            "blocks": [{"clueFragment": "w", "gives": g} for g in gives],
+            "assembly": {"anagrams": [{"fodder": "SKISELFOIL", "gives": "KISSOFLIFE"}]}}
+check("blocks of the printed fodder add up with the slip", False, v.blocks_miss_letters(slip_ann("SKIS", "ELFOIL"), E))
+check("blocks respelt to hide the slip still add up", False, v.blocks_miss_letters(slip_ann("SKIS", "ELFOIF"), E))
+check("blocks that are neither do not", True, v.blocks_miss_letters(slip_ann("SKIS", "ELFOIX"), E))
+
+# A separator at the light's own end runs the answer on into another light
+# (cryptic-21625 6D, A DANCE TO THE MUSIC OF TIME): no gap in this answer can be it.
+def seps(answer, ats):
+    out = []
+    v.check_answer_matches_separators("6D", {"answer": answer}, {"clue": {"separators": [
+        {"at": a, "mark": ","} for a in ats]}}, out)
+    return len(out)
+check("a separator at the light's end is not a gap in it", 0, seps("DANCE TO THE MUSIC", [5, 7, 10, 15]))
+check("a missing gap inside the light still fails", 1, seps("DANCE TO THEMUSIC", [5, 7, 10, 15]))
+
 # The row's two shapes, and a row fitting neither (setter_error_problems, which
 # annotate_check refuses to file by and the validator fails on).
 PUZ = {"id": "p-1", "entries": [

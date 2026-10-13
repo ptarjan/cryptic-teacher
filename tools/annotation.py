@@ -8,6 +8,11 @@ import re
 import unicodedata
 
 
+def _parts(node):
+    """An op's parts; a stored file has no empty list (see wordplay.parts_of)."""
+    return node.get("parts") or []
+
+
 def explanation(ann):
     """The annotation's prose: walkthrough, surface, definitionFit."""
     x = ann.get("explanation")
@@ -107,6 +112,12 @@ def _enum_marks(enum):
     return marks, n
 
 
+# Series whose printed enumerations count letters only (Azed marks a word
+# break in 23 of 19,690, the Listener in none): their answers' spacing is a
+# fact the enumeration can't give, kept as `spelling` (tools/convert_v2.py).
+LETTER_COUNT_ONLY = {"azed", "listener"}
+
+
 def answer_marks(entry, puzzle=None):
     """Where the setter breaks the answer: {letters before it: " ", "-" or "'"}
     and the answer's letter count, read from the light's separators where it
@@ -118,6 +129,10 @@ def answer_marks(entry, puzzle=None):
     if len(entry.get("group") or []) > 1:
         return None
     clue = entry.get("clue") or {}
+    if not clue.get("separators") and str((puzzle or {}).get("id", "")).rsplit("-", 1)[0] in LETTER_COUNT_ONLY:
+        # Its enumeration counts letters, not words: (8) says nothing about
+        # LOVE-FEAT's hyphen (azed-1907), so the stored spelling stands.
+        return None
     if clue.get("separators"):
         if not entry.get("solution"):
             return None
@@ -162,6 +177,7 @@ def _walk(node, parent=None):
 
 def _types(tree):
     """Every op's clue type, in the order applied."""
+    import wordplay
     out = []
     for node, parent in _walk(tree):
         op = node.get("op")
@@ -170,11 +186,17 @@ def _types(tree):
         if not op or (op == "charade" and parent and parent.get("op") == "anagram"
                       and not node.get("indicators")):
             continue
+        # Nor is a join of one lettered part and notes riding along (legacy
+        # blocks that give nothing): everyman-3002 12A, R AND Y named by
+        # "outskirts of Rugby", filed its "characters" as such a block and is
+        # one letter selection, as its legacy type said.
+        if op == "charade" and not node.get("indicators") and len(wordplay.lettered(_parts(node))) < 2:
+            continue
         if OP_TYPE[op] not in out:
             out.append(OP_TYPE[op])
     # A wordplay that is one leaf (a single block, as legacy filed it) is a
     # charade of one part.
-    return out or (["charade"] if not tree.get("op") else [])
+    return out or (["charade"] if tree.get("op") in (None, "charade") else [])
 
 
 def _block(**kw):
@@ -195,7 +217,7 @@ def _blocks(node, got):
         return [_block(clueFragment=node.get("words"), gives=gives,
                        select=node.get("select"), soundsLike=node.get("soundsLike"),
                        note=node.get("note"))]
-    parts = node["parts"]
+    parts = _parts(node)
     if node.get("unchecked"):
         # A legacy step taken as filed shows its parts' blocks as they were.
         return [b for p in parts for b in _blocks(p, got)]
@@ -226,12 +248,12 @@ def _pieces(node, got):
     op = node.get("op")
     if node.get("unchecked"):
         return [got[id(node)]]
-    if op == "charade" or (op == "palindrome" and wordplay.lettered(node["parts"])):
-        return [x for p in node["parts"] for x in _pieces(p, got) if x]
+    if op == "charade" or (op == "palindrome" and wordplay.lettered(_parts(node))):
+        return [x for p in _parts(node) for x in _pieces(p, got) if x]
     if op == "reversal":
-        return [p[::-1] for p in reversed(_pieces(node["parts"][0], got))]
+        return [p[::-1] for p in reversed(_pieces(_parts(node)[0], got))]
     if op == "container":
-        outer, inner = node["parts"]
+        outer, inner = _parts(node)
         o, i, r = got[id(outer)], got[id(inner)], got[id(node)]
         k = next(k for k in range(1, len(o)) if o[:k] + i + o[k:] == r)
         head, tail = _cut(_pieces(outer, got), k)
@@ -251,7 +273,7 @@ def _fodder(node, got):
     read off its parts in clue order (as legacy files kept them), so the app
     deals the same tiles and the fodder it shows reads like the clue. A part
     with no clue words (supplied letters) keeps the tree order."""
-    child = node["parts"][0]
+    child = _parts(node)[0]
     if id(child) not in got:
         return "".join(sorted(got[id(node)]))
     parts = child.get("parts") or []
@@ -271,10 +293,14 @@ def _assembly(tree, got):
     pieces = [p for p in _pieces(tree, got) if p]
     if len(pieces) > 1:
         out["pieces"] = pieces
+    # An unchecked anagram (a setter's slip, or a legacy step taken as filed)
+    # is listed too when its fodder's letters are known, so the ring deals
+    # them and validate_annotations holds a slip to tools/data/setter_error.json.
     anas = [{"fodder": _fodder(n, got) or "".join(sorted(got[id(n)])), "gives": got[id(n)]}
-            for n, _ in _walk(tree) if n.get("op") == "anagram" and id(n) in got and not n.get("unchecked")]
-    revs = [{"from": got[id(n["parts"][0])], "to": got[id(n)]}
-            for n, _ in _walk(tree) if n.get("op") == "reversal" and id(n["parts"][0]) in got
+            for n, _ in _walk(tree) if n.get("op") == "anagram" and id(n) in got
+            and (not n.get("unchecked") or (len(_parts(n)) == 1 and id(_parts(n)[0]) in got))]
+    revs = [{"from": got[id(_parts(n)[0])], "to": got[id(n)]}
+            for n, _ in _walk(tree) if n.get("op") == "reversal" and id(_parts(n)[0]) in got
             and not n.get("unchecked")]
     if anas:
         out["anagrams"] = anas
@@ -337,7 +363,9 @@ def view(ann, entry, puzzle=None):
         types.append("and_lit")
     out = {"type": types, "answer": answer}
     if "definitions" in ann:
-        out["definitions"] = [{k: v for k, v in d.items() if k != "indicators"} for d in ann["definitions"]]
+        # `meaning` is shown as the definition's block note, as legacy kept it.
+        out["definitions"] = [{k: v for k, v in d.items() if k not in ("indicators", "meaning")}
+                              for d in ann["definitions"]]
     if "definedByPreamble" in ann:
         out["definedByPreamble"] = ann["definedByPreamble"]
     nodes = [n for n, _ in _walk(tree)] if tree else []
@@ -352,9 +380,11 @@ def view(ann, entry, puzzle=None):
     links = link_words(clue, spans)
     if links:
         out["linkWords"] = links
-    # A double definition's blocks say what each definition means (`meaning`,
-    # or its `note` when it has no separate meaning).
-    dd_blocks = [_block(clueFragment=d["text"], note=d.get("meaning", d.get("note"))) for d in defs]
+    # A double definition's blocks say what each definition means: `meaning`.
+    # A definition's `note` is the definitions rung's, never a block's: that
+    # rung comes later, so a note may say what a block may not (times-29410
+    # 26A named FLY BY NIGHT in one).
+    dd_blocks = [_block(clueFragment=d["text"], note=d.get("meaning")) for d in defs]
     # A tree that gives no block (a palindrome of the whole answer) leaves a
     # double definition its definitions' blocks.
     out["blocks"] = (_blocks(tree, got) or (dd_blocks if len(defs) > 1 else [])) if tree else dd_blocks
