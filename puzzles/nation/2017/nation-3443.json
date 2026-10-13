@@ -19,8 +19,14 @@
   "gridOrigin": "published"
  },
  "solutions": {
-  "origin": "unsolved"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-12",
+  "check": "30 entries, 62 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -47,6 +53,39 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "AFAREWELLTOARMS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "A FAREWELL TO ARMS",
+    "definitions": [
+     {
+      "text": "Novel written by Venus de Milo?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Novel",
+      "note": "surface reading: a book the famous statue might have written"
+     },
+     {
+      "clueFragment": "Venus de Milo?",
+      "note": "setter's reading: the statue has lost both arms, so her book would bid them goodbye"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The Venus de Milo is the armless Greek statue in the Louvre; Hemingway's war novel's title describes her loss literally.",
+     "definitionFit": "Hemingway's 1929 novel is the book, and its title suits an author who has parted with both limbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "written"
+    }
    }
   },
   {
@@ -60,6 +99,54 @@
    "clue": {
     "text": "Conflict interrupts commercial grant",
     "enumeration": "5"
+   },
+   "solution": "AWARD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AWARD",
+    "definitions": [
+     {
+      "text": "grant",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupts",
+      "for": "container",
+      "note": "to interrupt is to break into the middle, so the conflict word sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "commercial",
+      "gives": "AD",
+      "note": "an ad is a commercial"
+     },
+     {
+      "clueFragment": "Conflict",
+      "gives": "WAR",
+      "note": "war is armed conflict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WAR",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Fighting breaks into an advertisement for a funding scheme.",
+     "definitionFit": "As a verb, to grant is to bestow or confer something, which is to award it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "commercial"
+    }
    }
   },
   {
@@ -73,6 +160,63 @@
    "clue": {
     "text": "Handcrafted sitar, retuned by orderly to excess",
     "enumeration": "9"
+   },
+   "solution": "ARTISANAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ARTISANAL",
+    "definitions": [
+     {
+      "text": "Handcrafted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retuned",
+      "for": "anagram",
+      "note": "retuning resets strings into a new order, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sitar",
+      "gives": "ARTIS",
+      "note": "the letters of sitar, rearranged"
+     },
+     {
+      "clueFragment": "orderly to excess",
+      "gives": "ANAL",
+      "note": "slang for fussily, compulsively neat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARTIS",
+      "ANAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SITAR",
+       "gives": "ARTIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A handmade Indian instrument gets retuned by an obsessively tidy musician.",
+     "definitionFit": "Artisanal goods are made by skilled craftspeople, meaning made by hand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "orderly"
+    }
    }
   },
   {
@@ -86,6 +230,65 @@
    "clue": {
     "text": "Premier of England has garment for getaway",
     "enumeration": "6"
+   },
+   "solution": "ESCAPE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ESCAPE",
+    "definitions": [
+     {
+      "text": "getaway",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Premier",
+      "for": "letter_selection",
+      "note": "premier means first, so only the opening letter is taken"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "England",
+      "gives": "E",
+      "select": "first",
+      "note": "opening letter of England"
+     },
+     {
+      "clueFragment": "has",
+      "gives": "S",
+      "note": "has shortened to 's"
+     },
+     {
+      "clueFragment": "garment",
+      "gives": "CAPE",
+      "note": "a cape is a sleeveless cloak"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "S",
+      "CAPE"
+     ]
+    },
+    "explanation": {
+     "surface": "The Prime Minister keeps a cloak ready for a quick exit.",
+     "walkthrough": "Premier looks like the Prime Minister, but it only picks the first letter.",
+     "definitionFit": "A getaway is a flight from danger or capture, which is an escape."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Premier"
+    }
    }
   },
   {
@@ -99,6 +302,49 @@
    "clue": {
     "text": "Follow tennis rule where every second counts",
     "enumeration": "5"
+   },
+   "solution": "ENSUE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ENSUE",
+    "definitions": [
+     {
+      "text": "Follow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "where every second counts",
+      "for": "letter_selection",
+      "note": "only every second letter is counted, so alternate letters are kept starting from the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tennis rule",
+      "gives": "ENSUE",
+      "select": "alternate",
+      "note": "even-numbered letters of the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENSUE"
+     ]
+    },
+    "explanation": {
+     "surface": "Obey the regulation in a tennis match where each second matters.",
+     "definitionFit": "To ensue is to happen afterwards, which means to follow on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "second"
+    }
    }
   },
   {
@@ -112,6 +358,64 @@
    "clue": {
     "text": "Using the same characters, ignited an epoch and an unfinished epoch",
     "enumeration": "9"
+   },
+   "solution": "LITERATIM",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "LITERATIM",
+    "definitions": [
+     {
+      "text": "Using the same characters",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfinished",
+      "for": "deletion",
+      "note": "something unfinished lacks its end, so the last letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "an",
+     "and an"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ignited",
+      "gives": "LIT",
+      "note": "lit means set alight"
+     },
+     {
+      "clueFragment": "epoch",
+      "gives": "ERA",
+      "note": "an era is an epoch"
+     },
+     {
+      "clueFragment": "epoch",
+      "gives": "TIM",
+      "note": "an epoch is a time; the last letter goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIT",
+      "ERA",
+      "TIM"
+     ]
+    },
+    "explanation": {
+     "surface": "An age was set on fire, along with another age left half done.",
+     "definitionFit": "Literatim is Latin for letter by letter, so a copy made literatim keeps every character."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "characters"
+    }
    }
   },
   {
@@ -125,6 +429,52 @@
    "clue": {
     "text": "Embellish or label New Testament",
     "enumeration": "8"
+   },
+   "solution": "ORNAMENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORNAMENT",
+    "definitions": [
+     {
+      "text": "Embellish",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "label",
+      "gives": "NAME",
+      "note": "to label something is to name it"
+     },
+     {
+      "clueFragment": "New Testament",
+      "gives": "NT",
+      "note": "NT is the standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "NAME",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A choice between decorating a Bible or tagging it.",
+     "definitionFit": "To embellish is to decorate, and to ornament something is to decorate it too."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "label"
+    }
    }
   },
   {
@@ -138,6 +488,66 @@
    "clue": {
     "text": "A substance used by fiddlers is made of frog's innards and Kissinger's gut",
     "enumeration": "5"
+   },
+   "solution": "ROSIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ROSIN",
+    "definitions": [
+     {
+      "text": "A substance used by fiddlers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "innards",
+      "for": "letter_selection",
+      "note": "innards are what lies inside, so the outside letters are dropped"
+     },
+     {
+      "text": "gut",
+      "for": "letter_selection",
+      "note": "the gut is the middle of a body, so the central letters are taken"
+     }
+    ],
+    "linkWords": [
+     "is made of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "frog's",
+      "gives": "RO",
+      "select": "middle",
+      "note": "inner letters of frog"
+     },
+     {
+      "clueFragment": "Kissinger's",
+      "gives": "SIN",
+      "select": "middle",
+      "note": "the three central letters of Kissinger"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "SIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Fiddlers' bow resin is supposedly made from a frog's insides and a statesman's stomach.",
+     "walkthrough": "Henry Kissinger was US Secretary of State; the frog is also the part of a violin bow the player holds.",
+     "definitionFit": "Rosin is the resin violinists rub on their bows for grip on the strings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "gut"
+    }
    }
   },
   {
@@ -151,6 +561,50 @@
    "clue": {
     "text": "Kidnappers sent crash out of control",
     "enumeration": "9"
+   },
+   "solution": "SNATCHERS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SNATCHERS",
+    "definitions": [
+     {
+      "text": "Kidnappers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of control",
+      "for": "anagram",
+      "note": "things out of control fly about anyhow, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sent crash",
+      "gives": "SNATCHERS",
+      "note": "the letters of these two words, rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SENTCRASH",
+       "gives": "SNATCHERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Abductors drove a car into something after losing control.",
+     "definitionFit": "Kidnappers snatch people, so they are body snatchers in the plain sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crash"
+    }
    }
   },
   {
@@ -164,6 +618,44 @@
    "clue": {
     "text": "Charges a duty for the speaker",
     "enumeration": "7"
+   },
+   "solution": "ATTACKS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ATTACKS",
+    "definitions": [
+     {
+      "text": "Charges",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for the speaker",
+      "for": "homophone",
+      "note": "what the speaker hears matters, not the spelling, so the words are taken by their sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a duty",
+      "gives": "ATTACKS",
+      "soundsLike": "A TAX",
+      "note": "a duty is a tax, and the phrase 'a tax' spoken runs together"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone levies a fee on a person who is giving a speech.",
+     "definitionFit": "To charge is to rush at an enemy, the same as to attack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Charges"
+    }
    }
   },
   {
@@ -177,6 +669,78 @@
    "clue": {
     "text": "Nation is the first to be captivated by fish",
     "enumeration": "7"
+   },
+   "solution": "TUNISIA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "TUNISIA",
+    "definitions": [
+     {
+      "text": "Nation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter, so only the start of Nation is kept"
+     },
+     {
+      "text": "to be captivated by",
+      "for": "container",
+      "note": "being held captive means being shut inside, so these letters go within the fish"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "TU",
+      "note": "first part of the fish, a tuna"
+     },
+     {
+      "clueFragment": "Nation",
+      "gives": "N",
+      "select": "first",
+      "note": "opening letter of Nation"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "I",
+      "note": "the first in number is one, the Roman numeral I"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "A",
+      "note": "last letter of tuna, closing around the captives"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TU",
+      "NISI",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A country gets caught by a fish before any other.",
+     "walkthrough": "N, IS and I (one, the first) go inside TUNA. Nation does double duty: it is the definition and supplies its own first letter.",
+     "definitionFit": "Tunisia is a North African country, an example of a nation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "captivated"
+    }
    }
   },
   {
@@ -190,6 +754,55 @@
    "clue": {
     "text": "Criticize the musical sense of a piece of software, and vanish",
     "enumeration": "9"
+   },
+   "solution": "DISAPPEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISAPPEAR",
+    "definitions": [
+     {
+      "text": "vanish",
+      "at": 56
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Criticize",
+      "gives": "DIS",
+      "note": "to dis is slang for to criticize"
+     },
+     {
+      "clueFragment": "a piece of software",
+      "gives": "APP",
+      "note": "an app is an application program"
+     },
+     {
+      "clueFragment": "the musical sense",
+      "gives": "EAR",
+      "note": "an ear for music is musical sense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "APP",
+      "EAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Pan an app for its poor sound and then delete it.",
+     "definitionFit": "To vanish is to go out of sight, a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sense"
+    }
    }
   },
   {
@@ -203,6 +816,61 @@
    "clue": {
     "text": "Hyper dude I chased originally",
     "enumeration": "5"
+   },
+   "solution": "MANIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MANIC",
+    "definitions": [
+     {
+      "text": "Hyper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to the very start, so only the opening letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dude",
+      "gives": "MAN",
+      "note": "a dude is a man"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "chased",
+      "gives": "C",
+      "select": "first",
+      "note": "opening letter of chased"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "I",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "An overexcited guy was pursued by me at first.",
+     "definitionFit": "Someone hyper is wildly overexcited, and manic describes that frenzied energy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chased"
+    }
    }
   },
   {
@@ -216,6 +884,45 @@
    "clue": {
     "text": "Finished 501?",
     "enumeration": "4"
+   },
+   "solution": "DONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DONE",
+    "definitions": [
+     {
+      "text": "Finished",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "501",
+      "gives": "D",
+      "note": "the 500 part: D is the Roman numeral for 500"
+     },
+     {
+      "clueFragment": "501",
+      "gives": "ONE",
+      "note": "the 1 part, written as a word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ONE"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Split 501 into 500 and 1: D in Roman numerals, then the word ONE.",
+     "definitionFit": "Something finished is complete, the plain meaning of the adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
    }
   },
   {
@@ -229,6 +936,67 @@
    "clue": {
     "text": "Baba ghanoush, perhaps, and a bit of hummus on underpants — \"like, ew!\"",
     "enumeration": "9"
+   },
+   "solution": "DIPHTHONG",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DIPHTHONG",
+    "definitions": [
+     {
+      "text": "like, ew!",
+      "at": 61
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a bit of",
+      "for": "letter_selection",
+      "note": "a bit of a word is a small part of it, here just its opening letter"
+     }
+    ],
+    "linkWords": [
+     "perhaps, and",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Baba ghanoush",
+      "gives": "DIP",
+      "note": "baba ghanoush is an aubergine dip, an example of one"
+     },
+     {
+      "clueFragment": "hummus",
+      "gives": "H",
+      "select": "first",
+      "note": "opening letter of hummus"
+     },
+     {
+      "clueFragment": "underpants",
+      "gives": "THONG",
+      "note": "a thong is skimpy underwear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIP",
+      "H",
+      "THONG"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recoils from Middle Eastern dip smeared on their underwear.",
+     "walkthrough": "The definition is two examples: the vowels in 'like' and 'ew' each glide from one sound to another.",
+     "definitionFit": "A diphthong is a vowel sound that slides between two positions, as in the words like and ew."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "ew"
+    }
    }
   },
   {
@@ -252,6 +1020,55 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "WAITANDSEE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WAIT AND SEE",
+    "definitions": [
+     {
+      "text": "Be patient",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when discussing",
+      "for": "homophone",
+      "note": "discussing is talking, so the words are taken as they would be spoken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heaviness",
+      "gives": "WAIT",
+      "soundsLike": "WEIGHT",
+      "note": "heaviness is weight"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "expanse of water",
+      "gives": "SEE",
+      "soundsLike": "SEA",
+      "note": "a sea is a broad expanse of water"
+     }
+    ],
+    "explanation": {
+     "surface": "Advice to stay calm while talking about how heavy and wide a body of water is.",
+     "definitionFit": "To wait and see is to hold off until events unfold, which is being patient."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "heaviness"
+    }
    }
   },
   {
@@ -271,6 +1088,77 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "APRILFOOL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "container"
+    ],
+    "answer": "APRIL FOOL",
+    "definitions": [
+     {
+      "text": "Butt of a practical joke",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter is dropped"
+     },
+     {
+      "text": "eaten by",
+      "for": "container",
+      "note": "what is eaten ends up inside the eater, so these letters go within the stream"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "p, piano, is the musical mark for quiet"
+     },
+     {
+      "clueFragment": "stream",
+      "gives": "RILL",
+      "note": "a rill is a small stream"
+     },
+     {
+      "clueFragment": "food",
+      "gives": "FOO",
+      "note": "food without its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "P",
+      "RIL",
+      "FOO",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "The victim of a prank involving food, eaten by a quiet brook.",
+     "walkthrough": "Quiet is the musical direction piano, abbreviated p; a rill is a small brook.",
+     "definitionFit": "An April fool is someone tricked by a hoax on the first of April."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eaten"
+    }
    }
   },
   {
@@ -284,6 +1172,54 @@
    "clue": {
     "text": "Revolting sight: pâté and pasta",
     "enumeration": "9"
+   },
+   "solution": "SPAGHETTI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPAGHETTI",
+    "definitions": [
+     {
+      "text": "pasta",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Revolting",
+      "for": "anagram",
+      "note": "revolting can mean rising up and overturning order, so these letters are upended"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sight: pâté",
+      "gives": "SPAGHETTI",
+      "note": "the letters of these two words, rearranged, ignoring the accent"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SIGHTPATE",
+       "gives": "SPAGHETTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A disgusting plate of meat paste served alongside noodles.",
+     "walkthrough": "Revolting reads as disgusting; it is the signal to shuffle.",
+     "definitionFit": "Spaghetti is long thin pasta, so an example of the general term."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Revolting"
+    }
    }
   },
   {
@@ -303,6 +1239,52 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "UNDERPAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNDER PAR",
+    "definitions": [
+     {
+      "text": "like an eagle",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "maneuvering",
+      "for": "anagram",
+      "note": "maneuvering moves pieces into new positions, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prude ran",
+      "gives": "UNDERPAR",
+      "note": "the letters of these two words, rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PRUDERAN",
+       "gives": "UNDERPAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prim person runs off, swooping like a bird of prey.",
+     "walkthrough": "The eagle is a golf score, not the bird.",
+     "definitionFit": "In golf an eagle is two strokes fewer than par on a hole, so it is under par."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "eagle"
+    }
    }
   },
   {
@@ -316,6 +1298,56 @@
    "clue": {
     "text": "Friend on independent capital: \"It's like this puzzle's number\"",
     "enumeration": "10"
+   },
+   "solution": "PALINDROME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PALINDROME",
+    "definitions": [
+     {
+      "text": "It's like this puzzle's number",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Friend",
+      "gives": "PAL",
+      "note": "a pal is a friend"
+     },
+     {
+      "clueFragment": "independent",
+      "gives": "IND",
+      "note": "IND is the abbreviation for independent"
+     },
+     {
+      "clueFragment": "capital",
+      "gives": "ROME",
+      "note": "the Italian capital city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAL",
+      "IND",
+      "ROME"
+     ]
+    },
+    "explanation": {
+     "surface": "A pal sitting on an independent capital remarks on the puzzle's number.",
+     "walkthrough": "The puzzle is No 3443, which reads the same backwards.",
+     "definitionFit": "The definition gives an example: 3443 reads identically in both directions, the defining trait of a palindrome."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "capital"
+    }
    }
   },
   {
@@ -329,6 +1361,42 @@
    "clue": {
     "text": "Damages a planet",
     "enumeration": "4"
+   },
+   "solution": "MARS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MARS",
+    "definitions": [
+     {
+      "text": "Damages",
+      "at": 0
+     },
+     {
+      "text": "a planet",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Damages",
+      "note": "first meaning: spoils or harms"
+     },
+     {
+      "clueFragment": "a planet",
+      "note": "second meaning: the red fourth planet from the sun"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a sentence about a world being harmed; the two halves are separate meanings.",
+     "definitionFit": "As a verb it means spoils or blemishes; as a noun it names the fourth planet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Damages"
+    }
    }
   },
   {
@@ -342,6 +1410,55 @@
    "clue": {
     "text": "Cool \"naked brick\" material",
     "enumeration": "6"
+   },
+   "solution": "FABRIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "FABRIC",
+    "definitions": [
+     {
+      "text": "material",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "naked",
+      "for": "letter_selection",
+      "note": "naked means stripped of its covering, so the outer letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cool",
+      "gives": "FAB",
+      "note": "fab, short for fabulous, means great or cool"
+     },
+     {
+      "clueFragment": "brick",
+      "gives": "RIC",
+      "select": "middle",
+      "note": "brick without its outer letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAB",
+      "RIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A stylish building material that is bare, unclad brick.",
+     "definitionFit": "Fabric is cloth, which is material in the sense of textile."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "naked"
+    }
    }
   },
   {
@@ -355,6 +1472,66 @@
    "clue": {
     "text": "One of señorita's requirements is equality about land's boundaries",
     "enumeration": "5"
+   },
+   "solution": "TILDE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "TILDE",
+    "definitions": [
+     {
+      "text": "One of señorita's requirements",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the equality word wraps the other letters"
+     },
+     {
+      "text": "boundaries",
+      "for": "letter_selection",
+      "note": "the boundaries of a word are its edges, so only its first and last letters count"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "equality",
+      "gives": "TIE",
+      "note": "a tie is an equal score"
+     },
+     {
+      "clueFragment": "land's",
+      "gives": "LD",
+      "select": "outer",
+      "note": "outside letters of land"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "LD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A young Spanish woman demands equal rights over a territory's borders.",
+     "walkthrough": "Spelling señorita properly needs the wavy mark over its n, so the mark is one of the word's requirements.",
+     "definitionFit": "The wavy accent over the n in señorita is a tilde, one thing the word needs to be spelt right."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "requirements"
+    }
    }
   },
   {
@@ -368,6 +1545,68 @@
    "clue": {
     "text": "Red Lobster's leader raised a baseball team",
     "enumeration": "5"
+   },
+   "solution": "LENIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "LENIN",
+    "definitions": [
+     {
+      "text": "Red",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader goes in front, so only the first letter is taken"
+     },
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "raised in a down clue means lifted upwards, so the word reads from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lobster's",
+      "gives": "L",
+      "select": "first",
+      "note": "opening letter of Lobster"
+     },
+     {
+      "clueFragment": "a baseball team",
+      "gives": "NINE",
+      "note": "a baseball side has nine players and is called a nine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ENIN"
+     ],
+     "reversals": [
+      {
+       "from": "NINE",
+       "to": "ENIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The boss of the seafood chain Red Lobster lifted up a ball club.",
+     "walkthrough": "Red Lobster is a US seafood restaurant chain; Red here is a communist.",
+     "definitionFit": "Lenin led the Bolsheviks, and Red is a common term for a communist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Red"
+    }
    }
   },
   {
@@ -381,6 +1620,86 @@
    "clue": {
     "text": "Beast, large and green, coming back to swallow funny hat",
     "enumeration": "9"
+   },
+   "solution": "LEVIATHAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "anagram",
+     "container"
+    ],
+    "answer": "LEVIATHAN",
+    "definitions": [
+     {
+      "text": "Beast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming back",
+      "for": "reversal",
+      "note": "coming back means returning, so the letters are read from right to left"
+     },
+     {
+      "text": "funny",
+      "for": "anagram",
+      "note": "something funny is odd or out of order, so these letters are jumbled"
+     },
+     {
+      "text": "to swallow",
+      "for": "container",
+      "note": "swallowing takes something inside, so the jumbled letters go within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     },
+     {
+      "clueFragment": "green",
+      "gives": "NAIVE",
+      "note": "green means inexperienced or naive"
+     },
+     {
+      "clueFragment": "hat",
+      "gives": "ATH",
+      "note": "the letters of hat, jumbled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEVI",
+      "ATH",
+      "AN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HAT",
+       "gives": "ATH"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "NAIVEL",
+       "to": "LEVIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A big green monster backs up and gulps down a silly hat.",
+     "walkthrough": "The reversal covers both green and large together, before the jumbled hat goes inside; green means naive, inexperienced.",
+     "definitionFit": "A leviathan is a huge biblical sea monster, so a beast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "green"
+    }
    }
   },
   {
@@ -394,6 +1713,53 @@
    "clue": {
     "text": "Watch Republican abandoning classical poet",
     "enumeration": "5"
+   },
+   "solution": "VIGIL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "VIGIL",
+    "definitions": [
+     {
+      "text": "Watch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandoning",
+      "for": "deletion",
+      "note": "abandoning means leaving behind, so that letter drops out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     },
+     {
+      "clueFragment": "classical poet",
+      "gives": "VIRGIL",
+      "note": "the Roman poet who wrote the Aeneid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "GIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Keep an eye on the party member leaving the Roman poet's side.",
+     "definitionFit": "A vigil is a period of staying awake to keep watch, so a watch as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Watch"
+    }
    }
   },
   {
@@ -407,6 +1773,62 @@
    "clue": {
     "text": "Veto the rise of no crooked politician",
     "enumeration": "5"
+   },
+   "solution": "NIXON",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NIXON",
+    "definitions": [
+     {
+      "text": "crooked politician",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the rise of",
+      "for": "reversal",
+      "note": "a rise in a down clue lifts the word upwards, so it reads from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Veto",
+      "gives": "NIX",
+      "note": "to nix is to veto"
+     },
+     {
+      "clueFragment": "no",
+      "gives": "NO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIX",
+      "ON"
+     ],
+     "reversals": [
+      {
+       "from": "NO",
+       "to": "ON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Blocking any advancement for a dishonest politician.",
+     "walkthrough": "Richard Nixon resigned over Watergate after insisting he was not a crook.",
+     "definitionFit": "Richard Nixon, the US president forced out by the Watergate scandal, is the archetypal crooked politician."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Veto"
+    }
    }
   },
   {
@@ -430,6 +1852,64 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "OWNUPTO",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "OWN UP TO",
+    "definitions": [
+     {
+      "text": "Acknowledge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chaotic",
+      "for": "anagram",
+      "note": "chaotic means disordered, so the merged letters are thrown out of order"
+     }
+    ],
+    "linkWords": [
+     "merger of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "town",
+      "gives": "TOWN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     },
+     {
+      "clueFragment": "post office",
+      "gives": "PO",
+      "note": "PO is the abbreviation for post office"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOWNUPO",
+       "gives": "OWNUPTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Admitting a messy amalgamation of a town, a college and its mail service.",
+     "definitionFit": "To own up to something is to confess or admit it, an idiom for acknowledging."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "merger"
+    }
    }
   },
   {
@@ -449,6 +1929,46 @@
       "mark": "-"
      }
     ]
+   },
+   "solution": "GORETEX",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GORE-TEX",
+    "definitions": [
+     {
+      "text": "20",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Al",
+      "gives": "GORE",
+      "note": "Al Gore, the former US vice president"
+     },
+     {
+      "clueFragment": "Ritter's",
+      "gives": "TEX",
+      "note": "Tex Ritter, the singing cowboy of Western films"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GORE",
+      "TEX"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Each first name calls up a famous surname and vice versa: Al Gore and Tex Ritter, joined into the brand name. The definition 20 points to the answer to 20-down.",
+     "definitionFit": "Gore-Tex is a waterproof breathable fabric, which answers 20-down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd"
+    }
    }
   },
   {
@@ -468,6 +1988,39 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "GENERALELECTION",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GENERAL ELECTION",
+    "definitions": [
+     {
+      "text": "It involves much counting and relocating components, up to four times each",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "much counting and relocating components",
+      "note": "surface reading: a tally followed by rearranging parts, like an anagram puzzle"
+     },
+     {
+      "clueFragment": "up to four times each",
+      "note": "setter's reading: rearrange the answer's letters and none appears more than four times; and a national vote involves a big count and moves members of the legislature"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "On one reading, votes are counted and seats change hands; on another, the answer's letters, rearranged, use its commonest letter four times.",
+     "definitionFit": "A general election is a nationwide vote, with ballots counted and legislators replaced or moved."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "components"
+    }
    }
   }
  ]
