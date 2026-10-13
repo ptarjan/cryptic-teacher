@@ -38,7 +38,7 @@ def rewrite(change):
     out = pending.read_text(encoding="utf-8")
     return ann, out
 
-def fixups(ann):  # what normalize, recut and fill_missing do to a run's file
+def fixups(ann):  # what normalize and fill_missing do to a run's file
     ann["1-across"]["blocks"][0].pop("at")
     ann["1-across"]["assembly"] = {"pieces": ["LABOUR", "SAVING"]}
     del ann["3-down"]["linkWords"]

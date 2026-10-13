@@ -651,9 +651,9 @@ tools/fetch_lexicon.sh                        downloads the Lufz/Exet lexicon th
 annotating
 tools/annotate_prompt.md                      the prompt the daily Claude Code job follows to
                                               annotate
-tools/build_annotate_prompt.py                regenerates that prompt’s type vocabulary from
-                                              tools/data/clue_types.json, and its two worked
-                                              examples from the corpus
+tools/build_annotate_prompt.py                regenerates that prompt’s wordplay grammar from
+                                              tools/wordplay.py, and its worked examples from
+                                              the corpus in the shape the run writes
 STYLE.md                                      the standing style rules, read whole by every
                                               annotating run
 APP.md                                        how the app presents an annotation and how it
@@ -719,8 +719,9 @@ tools/test_hidden_messages.sh                 holds `hiddenLetter` to its clue's
 tools/test_defined_by_preamble.sh             holds `definedByPreamble` to standing in for
                                               `definition` only where the puzzle prints a
                                               preamble, and never beside a definition
-tools/apply_annotations.py                    writes a run’s annotation JSON into the puzzle
-                                              file, and validates the result
+tools/apply_annotations.py                    translates a run’s annotation JSON (def, wp,
+                                              notes) and writes it into the puzzle file in that
+                                              file’s shape, and validates the result
 tools/annotation_backlog.json                 how many clues of each OLD puzzle predate a
                                               required field; a puzzle not listed is allowed
                                               none, so new rules bind new puzzles
@@ -2430,6 +2431,11 @@ tools/test_convert_v2.sh                      does convert_v2.py rebuild the sto
                                               indicators and definitions from the tree, keep
                                               what it can't check as unchecked nodes, and
                                               refuse an answer that contradicts its enumeration?
+tools/test_annotate_model_shape.sh            does a run's output in the model's shape (def,
+                                              wp, notes) translate to the stored annotation,
+                                              name the part of a parse that breaks, and land in
+                                              a legacy or v2 file as that file's shape,
+                                              old-prompt output included?
 tools/test_format_v2.sh                       do the schema and validator refuse every derived
                                               field in a format v2 file, evaluate its trees and
                                               ratchet its unchecked steps, while legacy files

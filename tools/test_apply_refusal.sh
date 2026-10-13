@@ -16,21 +16,22 @@ def check(name, ok):
     print(("  ok: " if ok else "  FAIL: ") + name)
     fails += not ok
 
-# A real annotated puzzle whose first annotated entry loses its blocks.
+# A real annotated puzzle whose first annotated entry loses its type (without
+# blocks it would read as format v2, a mixed file: test_format_v2.sh covers that).
 for path in fetch_puzzle.puzzle_files():
     puzzle = fetch_puzzle.read_puzzle_file(path)
     idx = next((i for i, e in enumerate(puzzle["entries"])
                 if "blocks" in (e.get("annotation") or {})), None)
     if idx is not None:
         break
-del puzzle["entries"][idx]["annotation"]["blocks"]
+del puzzle["entries"][idx]["annotation"]["type"]
 eid = groups.entry_id(puzzle["entries"][idx])
 try:
     puzzle_integrity.refuse_bad_write(puzzle)
     check("write refused", False)
 except puzzle_integrity.RefusedWrite as err:
     msg = A.refusal(Path(path), puzzle, err)
-    check("entry id named", f"{eid}: missing required key 'blocks'" in msg)
+    check("entry id named", f"{eid}: missing required key 'type'" in msg)
     check("says what to write", "annotate_prompt.md" in msg)
     check("no entries[N] path left", "entries[" not in msg)
     check("no Traceback", "Traceback" not in msg)

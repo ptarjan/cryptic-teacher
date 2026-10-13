@@ -189,7 +189,7 @@ LAYOUT = [
     ("fetching", "tools/fetch_lexicon.sh", "downloads the Lufz/Exet lexicon the grid filler needs"),
 
     ("annotating", "tools/annotate_prompt.md", "the prompt the daily Claude Code job follows to annotate"),
-    ("annotating", "tools/build_annotate_prompt.py", "regenerates that prompt’s type vocabulary from tools/data/clue_types.json, and its two worked examples from the corpus"),
+    ("annotating", "tools/build_annotate_prompt.py", "regenerates that prompt’s wordplay grammar from tools/wordplay.py, and its worked examples from the corpus in the shape the run writes"),
     ("annotating", "STYLE.md", "the standing style rules, read whole by every annotating run"),
     ("annotating", "APP.md", "how the app presents an annotation and how it ships — separate from style"),
     ("annotating", "BACKFILLS.md", "the sweeps over already-published clues, worth doing only with inference to spare; every item is already handled going forward, so none of it blocks a puzzle"),
@@ -208,7 +208,7 @@ LAYOUT = [
     ("annotating", "tools/hidden_messages.py", "hidden-letter devices: checks each annotation's `hiddenLetter` against its clue and each `messages` phrase against its clues' letters, flags preambles that name a device, and converts existing annotations whose blocks already carry the letters"),
     ("annotating", "tools/test_hidden_messages.sh", "holds `hiddenLetter` to its clue's blocks or text, `messages` to its clues' letters in order, the preamble detection's hits and misses, and the converter"),
     ("annotating", "tools/test_defined_by_preamble.sh", "holds `definedByPreamble` to standing in for `definition` only where the puzzle prints a preamble, and never beside a definition"),
-    ("annotating", "tools/apply_annotations.py", "writes a run’s annotation JSON into the puzzle file, and validates the result"),
+    ("annotating", "tools/apply_annotations.py", "translates a run’s annotation JSON (def, wp, notes) and writes it into the puzzle file in that file’s shape, and validates the result"),
     ("annotating", "tools/annotation_backlog.json", "how many clues of each OLD puzzle predate a required field; a puzzle not listed is allowed none, so new rules bind new puzzles"),
     ("annotating", "tools/check_annotation_loss.py", "shouts when an annotation run leaves clues it could not solve, so a weak night can't pass for a good one"),
     ("annotating", "tools/find_answer_leaks.py", "finds a block note that says the answer out loud, a rung before the walkthrough sells it"),
@@ -668,6 +668,7 @@ LAYOUT = [
     ("fetching", "tools/wordplay.py", "a clue's wordplay as one line the model writes, and the tree a puzzle stores"),
     ("fetching", "tools/convert_v2.py", "today's annotations as format v2 wordplay trees, losing nothing (a step the blocks can't rebuild stays an unchecked node), and a read-only dry run over the corpus"),
     ("fetching", "tools/test_convert_v2.sh", "does convert_v2.py rebuild the stored blocks, indicators and definitions from the tree, keep what it can't check as unchecked nodes, and refuse an answer that contradicts its enumeration?"),
+    ("fetching", "tools/test_annotate_model_shape.sh", "does a run's output in the model's shape (def, wp, notes) translate to the stored annotation, name the part of a parse that breaks, and land in a legacy or v2 file as that file's shape, old-prompt output included?"),
     ("fetching", "tools/test_format_v2.sh", "do the schema and validator refuse every derived field in a format v2 file, evaluate its trees and ratchet its unchecked steps, while legacy files keep passing?"),
     ("fetching", "tools/test_see_pointer.sh", "is a \"See N\" continuation the pointer and nothing else, in every reader?"),
 ]

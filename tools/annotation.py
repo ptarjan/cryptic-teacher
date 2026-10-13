@@ -321,3 +321,141 @@ def view_puzzle(puzzle, problems=None):
     if puzzle.get("offGrid"):
         out["offGrid"] = [holder(h, f"$.offGrid[{k}].annotation") for k, h in enumerate(puzzle["offGrid"])]
     return out
+
+
+# ---------- the model's shape: what an annotate run writes ----------
+# A run writes one line of wordplay per clue, not the stored tree: `def` (the
+# definition's clue words, or a list of two for a double definition), `wp`
+# (tools/wordplay.py's expression; left out for a double definition) and
+# `notes` keyed by the words of any span: a definition, an indicator, a leaf
+# (`#2` for a repeat, a bare piece's letters for a piece with no words).
+# from_model() turns it into the stored v2 annotation, checking the letters;
+# view() turns that into the legacy shape where a file is still legacy.
+
+# Keys the model shape passes through as they are (the v2 annotation's own).
+MODEL_PASS = ("definedByPreamble", "andLit", "explanation", "features", "hiddenLetter", "alteration")
+MODEL_KEYS = ("def", "wp", "notes", "answer") + MODEL_PASS
+# Legacy keys a model-shape clue may not carry: derived from `wp`.
+LEGACY_KEYS = ("type", "blocks", "definitions", "indicators", "linkWords", "assembly")
+
+
+def is_model(ann):
+    """Whether `ann` is in the model's shape: it has `def` or `wp` (which no
+    other shape has), or has neither the legacy keys nor a stored tree. An
+    old-prompt run's output (type, blocks, ...) goes the old way; a model
+    clue with a stray legacy key stays the model's, so from_model names it."""
+    if not isinstance(ann, dict):
+        return False
+    if "def" in ann or "wp" in ann:
+        return True
+    return (not any(k in ann for k in LEGACY_KEYS + ("wordplay",))
+            and any(k in ann for k in ("definedByPreamble", "notes")))
+
+
+def from_model(m, entry, puzzle=None):
+    """The stored v2 annotation for one clue in the model's shape, its
+    wordplay evaluated against the answer (the entry's `alteration.from`
+    where the preamble alters it). Raises wordplay.WordplayError, worded for
+    the run to act on: a word not in the clue, a note naming no span, an
+    unknown key, a parse whose letters are not the answer (naming the node)."""
+    import definitions as D
+    import wordplay
+    unknown = sorted(set(m) - set(MODEL_KEYS))
+    if unknown:
+        hint = ""
+        if set(unknown) & set(LEGACY_KEYS):
+            hint = (": write `def`, `wp` and `notes` (annotate_prompt.md's Schema); the clue "
+                    "type, link words, indicators' `for`, blocks and assembly are worked out from `wp`")
+        raise wordplay.WordplayError(f"unknown key{'s' if len(unknown) > 1 else ''} "
+                                     f"{', '.join(unknown)}{hint}")
+    clue = ((entry or {}).get("clue") or {}).get("text") or ""
+    entry = dict(entry or {})
+    if isinstance(m.get("alteration"), dict):
+        entry["alteration"] = m["alteration"]
+    raw_defs = m.get("def")
+    raw_defs = [] if raw_defs is None else raw_defs if isinstance(raw_defs, list) else [raw_defs]
+    defs = [dict(d) if isinstance(d, dict) else {"text": d} for d in raw_defs]
+    if any(not isinstance(d.get("text"), str) or not d["text"] for d in defs):
+        raise wordplay.WordplayError("`def` is the definition's clue words, a string (or a list "
+                                     "of two for a double definition)")
+    if defs:
+        try:
+            defs = D.place(defs, clue)
+        except ValueError as e:
+            raise wordplay.WordplayError(f"{e}; write that def as {{\"text\": ..., \"at\": <offset>}}") from None
+    if not isinstance(m.get("notes", {}), dict):
+        raise wordplay.WordplayError("`notes` is an object keyed by span words")
+    notes = dict(m.get("notes") or {})
+    wp = m.get("wp")
+    names = set()
+    if wp:
+        names = {re.sub(r"#\d+$", "", s[k]) for s, k in wordplay._spans(wordplay.parse(wp), True)}
+    for d in defs:
+        if d["text"] in notes and d["text"] not in names:
+            d["meaning" if len(defs) > 1 else "note"] = notes.pop(d["text"])
+    out = {}
+    if defs:
+        out["definitions"] = defs
+    for k in ("definedByPreamble", "andLit"):
+        if k in m:
+            out[k] = m[k]
+    display = display_answer(entry, puzzle) if entry.get("solution") else None
+    if m.get("answer"):
+        if display is not None and _letters(m["answer"]) != _letters(display):
+            raise wordplay.WordplayError(f"answer {m['answer']!r} is not the grid's {display!r}; "
+                                         f"leave `answer` out unless it corrects a (MODEL) answer "
+                                         f"or spells one with an apostrophe or accent")
+        if m["answer"] != display:
+            out["spelling"] = m["answer"]
+    if wp:
+        alt = entry.get("alteration")
+        want = (alt["from"] if isinstance(alt, dict) and alt.get("from")
+                else out.get("spelling") or display)
+        taken = [(d["at"], d["at"] + len(d["text"])) for d in defs]
+        out["wordplay"] = wordplay.translate({"wp": wp, "notes": notes}, clue, want, taken, D.respell)
+    elif notes:
+        raise wordplay.WordplayError(f"notes {sorted(notes)} name no definition, and there is no `wp`")
+    elif len(defs) < 2 and not m.get("definedByPreamble"):
+        raise wordplay.WordplayError("no `wp`: only a double definition (two `def`s) has no wordplay")
+    for k in ("explanation", "features", "hiddenLetter", "alteration"):
+        if k in m:
+            out[k] = m[k]
+    return out
+
+
+def to_model(ann):
+    """A stored v2 annotation in the model's shape (the prompt's worked
+    examples, a run's existingAnnotations). Indicators on a definition and a
+    double definition's `note` beside its `meaning` have no model form and
+    are left out; an unchecked legacy step renders as `?op(...)=LETTERS`."""
+    import wordplay
+    defs = ann.get("definitions") or []
+    out = {}
+    if defs:
+        out["def"] = defs[0]["text"] if len(defs) == 1 else [d["text"] for d in defs]
+    tree = ann.get("wordplay")
+    if tree:
+        out["wp"] = wordplay.render(tree)
+    if ann.get("spelling"):
+        out["answer"] = ann["spelling"]
+    for k in ("definedByPreamble", "andLit"):
+        if k in ann:
+            out[k] = ann[k]
+    notes = {}
+    for d in defs:
+        n = d.get("meaning", d.get("note")) if len(defs) > 1 else d.get("note")
+        if n:
+            notes[d["text"]] = n
+    if tree:
+        seen = {}
+        for span, key in wordplay._spans(tree, True):
+            name = span[key]
+            seen[name] = seen.get(name, 0) + 1
+            if span.get("note"):
+                notes[name if seen[name] == 1 else f"{name}#{seen[name]}"] = span["note"]
+    if notes:
+        out["notes"] = notes
+    for k in ("explanation", "features", "hiddenLetter"):
+        if k in ann:
+            out[k] = ann[k]
+    return out
